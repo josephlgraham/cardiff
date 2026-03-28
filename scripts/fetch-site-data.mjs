@@ -8,10 +8,29 @@ const ROOT = path.resolve(__dirname, '..');
 
 const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
 const NEWS_FILE = path.join(ROOT, 'cardiff-news-live.json');
+const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
 
 const WEATHER_STATION_ID = process.env.WEATHER_STATION_ID || 'KALGRAYS4';
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_API_KEY || '';
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
+const LOCAL_TIME_ZONE = 'America/Chicago';
+const MAX_RAIN_SAMPLES = 2500;
+const DATE_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  timeZone: LOCAL_TIME_ZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+});
+const MONTH_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  timeZone: LOCAL_TIME_ZONE,
+  year: 'numeric',
+  month: '2-digit'
+});
+const HOUR_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  timeZone: LOCAL_TIME_ZONE,
+  hour: 'numeric',
+  hour12: false
+});
 
 const NEWS_QUERIES = [
   { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama local news' },
@@ -121,6 +140,119 @@ async function writeJson(filePath, payload) {
   await fs.writeFile(filePath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
 }
 
+async function readJson(filePath, fallback) {
+  try {
+    const text = await fs.readFile(filePath, 'utf8');
+    return JSON.parse(text);
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function zonedParts(value, formatter) {
+  const parts = formatter.formatToParts(new Date(value));
+  const out = {};
+  parts.forEach((part) => {
+    if (part.type !== 'literal') out[part.type] = part.value;
+  });
+  return out;
+}
+
+function localDateKey(value) {
+  const parts = zonedParts(value, DATE_PARTS_FORMATTER);
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+function localMonthKey(value) {
+  const parts = zonedParts(value, MONTH_PARTS_FORMATTER);
+  return `${parts.year}-${parts.month}`;
+}
+
+function localHour(value) {
+  return Number(HOUR_FORMATTER.format(new Date(value)));
+}
+
+function localMonthLabel(value) {
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: LOCAL_TIME_ZONE,
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date(value));
+}
+
+function localShortDate(value) {
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: LOCAL_TIME_ZONE,
+    month: 'short',
+    day: 'numeric'
+  }).format(new Date(value));
+}
+
+async function updateRainLog(current, obsDate) {
+  const log = await readJson(RAIN_LOG_FILE, { updatedAt: '', samples: [] });
+  const sample = {
+    obsTime: obsDate.toISOString(),
+    localDate: localDateKey(obsDate),
+    localMonth: localMonthKey(obsDate),
+    hour: localHour(obsDate),
+    dailyTotal: Number(current.precipTotal || 0),
+    temp: Number(current.temp || 0),
+    windGust: Number(current.windGust || 0),
+    precipRate: Number(current.precipRate || 0),
+    humidity: Number(current.humidity || 0)
+  };
+
+  const samples = Array.isArray(log.samples) ? log.samples.slice() : [];
+  if (!samples.length || samples[samples.length - 1].obsTime !== sample.obsTime) {
+    samples.push(sample);
+  }
+
+  samples.sort((a, b) => new Date(a.obsTime) - new Date(b.obsTime));
+  const trimmedSamples = samples.slice(-MAX_RAIN_SAMPLES);
+  const currentDateKey = sample.localDate;
+  const currentMonthKey = sample.localMonth;
+  const currentHour = sample.hour;
+
+  const dailyMax = new Map();
+  trimmedSamples.forEach((entry) => {
+    const total = Number(entry.dailyTotal || 0);
+    dailyMax.set(entry.localDate, Math.max(Number(dailyMax.get(entry.localDate) || 0), total));
+  });
+
+  const monthDays = [...dailyMax.entries()]
+    .filter(([dateKey]) => dateKey.startsWith(currentMonthKey))
+    .sort((a, b) => a[0].localeCompare(b[0]));
+  const monthToDate = monthDays.reduce((sum, [, total]) => sum + Number(total || 0), 0);
+  const monthCoverageStart = monthDays.length ? monthDays[0][0] : currentDateKey;
+  const monthComplete = monthCoverageStart.endsWith('-01');
+  const todaySamples = trimmedSamples.filter((entry) => entry.localDate === currentDateKey);
+  const rainToday = todaySamples.reduce((max, entry) => Math.max(max, Number(entry.dailyTotal || 0)), Number(current.precipTotal || 0));
+  const overnightLow = todaySamples.length ? todaySamples.reduce((min, entry) => Math.min(min, Number(entry.temp || current.temp || 0)), Number(current.temp || 0)) : Number(current.temp || 0);
+  const overnightWindGust = todaySamples.reduce((max, entry) => Math.max(max, Number(entry.windGust || 0)), Number(current.windGust || 0));
+
+  const updatedLog = {
+    updatedAt: new Date().toISOString(),
+    samples: trimmedSamples
+  };
+  await writeJson(RAIN_LOG_FILE, updatedLog);
+
+  return {
+    today: rainToday,
+    monthToDate,
+    monthLabel: localMonthLabel(obsDate),
+    monthComplete,
+    monthCoverageStart,
+    morningReport: {
+      amount: rainToday,
+      lowTemp: overnightLow,
+      windGust: overnightWindGust,
+      label: currentHour < 11 ? 'Since midnight' : 'So far today',
+      isMorning: currentHour < 11,
+      coverageStart: currentDateKey
+    }
+  };
+}
+
 async function fetchForecast() {
   const pointsData = await fetchJson(FORECAST_POINTS_URL, { headers: { Accept: 'application/geo+json' } });
   const forecastUrl = pointsData.properties?.forecast;
@@ -141,11 +273,13 @@ async function updateWeatherFile() {
   if (!obs) throw new Error('Weather feed returned no observations');
 
   const imp = obs.imperial || {};
+  const obsDate = new Date(obs.obsTimeLocal || obs.obsTimeUtc || Date.now());
   const current = {
     temp: Math.round(Number(imp.temp)),
     feels: Math.round(Number(imp.heatIndex || imp.windChill || imp.temp)),
     humidity: Math.round(Number(obs.humidity || 0)),
     windSpeed: Number(imp.windSpeed || 0),
+    windGust: Number(imp.windGust || 0),
     windDir: directionFromDegrees(Number(obs.winddir)),
     windDirDegrees: Number(obs.winddir || 0),
     precipRate: Number(imp.precipRate || 0),
@@ -157,6 +291,7 @@ async function updateWeatherFile() {
     solarRadiation: Number(obs.solarRadiation || 0)
   };
   current.summary = summarizeWeather(current);
+  const rain = await updateRainLog(current, obsDate);
 
   const forecast = await fetchForecast();
   const payload = {
@@ -165,6 +300,7 @@ async function updateWeatherFile() {
     sourceUpdatedAt: current.obsTime || '',
     observations: [obs],
     current,
+    rain,
     forecast
   };
 

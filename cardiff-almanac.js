@@ -211,6 +211,14 @@
     setHTML(id, emojiText(icon, text));
   }
 
+  function formatInches(value) {
+    return Number.isFinite(value) ? value.toFixed(value >= 1 ? 1 : 2) + '"' : "—";
+  }
+
+  function formatTemp(value) {
+    return Number.isFinite(value) ? Math.round(value) + "°F" : "—";
+  }
+
   function formatClock(date) {
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
@@ -595,7 +603,81 @@
     );
   }
 
-  function buildWeather(wx) {
+  function buildRainSummary(rain) {
+    const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
+    const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
+    const monthLabel = rain && rain.monthLabel ? rain.monthLabel : "This month";
+    const monthCoverage = rain && rain.monthCoverageStart ? new Date(rain.monthCoverageStart + "T12:00:00") : null;
+
+    setText("rainToday", formatInches(todayAmount));
+    setText("rainTodayNote", "Measured by the station since midnight.");
+    setText("rainMonth", formatInches(monthAmount));
+    if (rain && rain.monthComplete) {
+      setText("rainMonthNote", monthLabel + " total so far.");
+    } else if (monthCoverage && !Number.isNaN(monthCoverage.getTime())) {
+      setText("rainMonthNote", "Tracking from " + monthCoverage.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ".");
+    } else {
+      setText("rainMonthNote", "Tracking from the site log.");
+    }
+  }
+
+  function buildMorningReport(report) {
+    if (!report) {
+      setHTML("morningBody",
+        '<div class="report-stack"><div class="report-row"><div class="report-label">Weather desk</div><div class="report-value">Waiting on the station log.</div></div></div>'
+      );
+      return;
+    }
+
+    const rainAmount = Number(report.amount || 0);
+    const lowTemp = Number(report.lowTemp);
+    const windGust = Number(report.windGust || 0);
+    const topLine = rainAmount >= 0.01
+      ? "Cardiff picked up " + formatInches(rainAmount) + " " + report.label.toLowerCase() + "."
+      : "No measurable rain " + report.label.toLowerCase() + ".";
+    const note = rainAmount >= 0.2
+      ? "Enough water fell to change footing, soften ground, and freshen the creek edges."
+      : rainAmount >= 0.01
+        ? "It was enough to settle dust and leave a readable little trace on the ground."
+        : "This was more of a dry-night read than a rain-night one.";
+
+    setHTML("morningBody",
+      '<div class="report-stack">' +
+        '<div class="report-row"><div class="report-label">Here\'s what you missed</div><div class="report-value">' + topLine + '</div><div class="report-note">' + note + "</div></div>" +
+        '<div class="report-row"><div class="report-label">Low temperature</div><div class="report-value">' + formatTemp(lowTemp) + '</div><div class="report-note">The coolest point the station logged ' + report.label.toLowerCase() + ".</div></div>" +
+        '<div class="report-row"><div class="report-label">Strongest gust</div><div class="report-value">' + (windGust > 0 ? Math.round(windGust) + " mph" : "Light air") + '</div><div class="report-note">Useful for knowing whether the night stayed quiet or worked the trees a little.</div></div>' +
+      "</div>"
+    );
+  }
+
+  function lightningNote(alerts) {
+    const thunderAlert = (alerts || []).find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
+    if (thunderAlert) {
+      return '<div class="alert-banner"><strong>⚡ Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk around Cardiff.</div>';
+    }
+    return '<div class="alert-calm"><strong>⚡ Lightning desk:</strong> No lightning-related public alert is active right now. Direct strike tracking can come later if we add a dedicated source.</div>';
+  }
+
+  function buildAlerts(alerts) {
+    if (alerts && alerts.length) {
+      setHTML("alertsBody",
+        lightningNote(alerts) +
+        '<div class="alert-stack" style="margin-top:0.7rem;">' +
+        alerts.slice(0, 3).map((alert) => (
+          '<div class="alert-row"><div class="alert-label">Active alert</div><div class="alert-value">' + (alert.emoji || "⚠️") + " " + (alert.headline || alert.event || "Weather alert") + '</div><div class="alert-note">' + ((alert.endsShort ? "Through " + alert.endsShort + ". " : "") + (alert.description || "Jefferson County alert from the weather desk.")) + "</div></div>"
+        )).join("") +
+        "</div>"
+      );
+      return;
+    }
+
+    setHTML("alertsBody",
+      '<div class="alert-calm"><strong>Weather desk is quiet right now.</strong> No active Jefferson County alerts are posted at the moment.</div>' +
+      '<div style="margin-top:0.7rem;">' + lightningNote([]) + "</div>"
+    );
+  }
+
+  function buildWeather(wx, rain) {
     const moon = getMoonPhase(new Date());
     const sun = getSunTimes(new Date());
     const ground = groundCondition(wx.precipTotal, wx.humidity);
@@ -623,6 +705,8 @@
     setText("heroRainSub", ground.note);
     setHTML("pillWeather", emojiText(conditionIcon(wx.condition), wx.temp + "°F · " + wx.condition));
 
+    buildRainSummary(rain);
+    buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
     buildFishing(wx, moon);
     buildSideSnapshot(wx, sun, moon, ground);
   }
@@ -662,7 +746,7 @@
       setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
       setText("mhCond", wx.condition);
       setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
-      buildWeather(wx);
+      buildWeather(wx, data.rain || null);
       return wx;
     } catch (error) {
       setHTML("mhTemp", "&mdash;");
@@ -675,6 +759,11 @@
       setText("heroCondSub", "Live conditions will return when the station responds.");
       setHTML("heroRain", emojiText("👣", "Use local ground check"));
       setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
+      setText("rainToday", "—");
+      setText("rainMonth", "—");
+      setText("rainTodayNote", "Rain totals will return with the station feed.");
+      setText("rainMonthNote", "Monthly tracking will return with the station feed.");
+      buildMorningReport(null);
       setHTML("sideSnap",
         '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
       );
@@ -706,9 +795,11 @@
         const color = getStripColor(data.alerts);
         strip.style.background = (data.hasAlerts && color) ? color : "";
       }
+      buildAlerts(Array.isArray(data.alerts) ? data.alerts : []);
     } catch (error) {
       const stripText = document.querySelector(".announce-strip-text");
       if (stripText) stripText.textContent = DEFAULT_TICKER;
+      buildAlerts([]);
     }
   }
 

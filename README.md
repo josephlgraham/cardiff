@@ -7,6 +7,7 @@ Cardiff Alabama
 The site now expects these generated local data files:
 
 - `cardiff-weather.json`
+- `cardiff-rain-log.json`
 - `cardiff-news-live.json`
 - `ticker.json`
 
@@ -27,5 +28,6 @@ That keeps the weather key out of the frontend and lets GitHub Actions write the
 3. Run the workflow once manually
 4. Confirm these files update in the repo:
    - `cardiff-weather.json`
+   - `cardiff-rain-log.json`
    - `cardiff-news-live.json`
    - `ticker.json`
