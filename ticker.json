@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-03-26T22:22:48.808Z",
+  "updatedAt": "2026-03-28T16:21:15.229Z",
   "hasAlerts": true,
   "alertCount": 1,
-  "ticker": "🔥 Fire Weather Watch · Through Saturday 7 PM",
+  "ticker": "🔥 Red Flag Warning · Through tomorrow 12 AM",
   "alerts": [
     {
-      "event": "Fire Weather Watch",
+      "event": "Red Flag Warning",
       "severity": "Severe",
-      "urgency": "Future",
+      "urgency": "Expected",
       "emoji": "🔥",
       "ends": "2026-03-28T19:00:00-05:00",
-      "endsShort": "Saturday 7 PM",
-      "headline": "Fire Weather Watch",
-      "description": "...ENHANCED FIRE DANGER EXPECTED ON SATURDAY...",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.565be2ea522b706458d8a6ab969f58cc69c67482.001.1"
+      "endsShort": "tomorrow 12 AM",
+      "headline": "Red Flag Warning",
+      "description": "...RED FLAG WARNING REMAINS IN EFFECT FOR ALL OF CENTRAL ALABAMA",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7e29b9679607820682098b72530b4e2f55a3d03d.001.1"
     }
   ]
 }
