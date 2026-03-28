@@ -64,7 +64,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .icon-btn{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.52rem .82rem;border-radius:999px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all var(--ease)}
 .icon-btn:hover{border-color:var(--amber);color:var(--amber)}
 .photo-stage{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#ddd;aspect-ratio:1/1;min-height:360px}
-.photo-stage img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.02)}
+.photo-stage img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,16,10,.08),rgba(25,16,10,.24));pointer-events:none}
 .marker{position:absolute;z-index:2;display:flex;align-items:center;gap:.45rem;transform:translate(-50%,-50%)}
 .marker-dot{width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid rgba(255,255,255,.9);box-shadow:0 0 0 4px rgba(200,16,46,.16)}
@@ -244,11 +244,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <script>
 
 const FALLBACK_GALLERY=[{src:'photos/cardiff-1951.jpg',title:'Aerial view, 1951',copy:'A long look at Cardiff from above, with the town and its neighboring communities still easy to read in the landscape.',credit:'Historical photograph',alt:'Historical aerial photograph of Cardiff and the surrounding area from 1951',markers:[{label:'Cardiff',left:'42%',top:'39%'},{label:'Brookside',left:'63%',top:'48%'}]},{src:'photos/historical-marker.jpg',title:'Historic marker',copy:'A grounded reminder that Cardiff has always been part of a bigger regional story, even while keeping its own identity.',credit:'Site collection',alt:'Historical marker connected to Cardiff local history',markers:[]},{src:'photos/town-hall.jpg',title:'Town hall',copy:'A present-day view that keeps the homepage tied to the real built fabric of Cardiff, not just the archive.',credit:'Site collection',alt:'Town hall building in Cardiff',markers:[]}];
-let gallery=[],photoIndex=0;
+let gallery=[],photoIndex=0,galleryVersion='2026-03-28T02:00:00-05:00';
 function renderMarkers(markers){const shell=document.getElementById('photoMarkers');if(!shell)return;shell.innerHTML=(markers||[]).map(marker=>`<div class="marker" style="left:${marker.left};top:${marker.top};"><span class="marker-dot"></span><span class="marker-label">${marker.label}</span></div>`).join('')}
-function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;return {...item,src}}
+function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;const hasQuery=src.includes('?');return {...item,src:hasQuery?src:`${src}?v=${encodeURIComponent(galleryVersion)}`}}
 function renderPhoto(){if(!gallery.length)return;const item=gallery[photoIndex];document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent=`Photo ${photoIndex+1} of ${gallery.length}`;renderMarkers(item.markers||[])}
-async function loadGallery(){try{const response=await fetch('cardiff-home-gallery.json',{cache:'no-store'});if(!response.ok)throw new Error('gallery file missing');const data=await response.json();if(Array.isArray(data.items)&&data.items.length){gallery=data.items.map(normalizeGalleryItem);renderPhoto();return;}}catch(e){}gallery=FALLBACK_GALLERY;renderPhoto();}
+async function loadGallery(){try{const response=await fetch('cardiff-home-gallery.json',{cache:'no-store'});if(!response.ok)throw new Error('gallery file missing');const data=await response.json();if(data.updatedAt)galleryVersion=data.updatedAt;if(Array.isArray(data.items)&&data.items.length){gallery=data.items.map(normalizeGalleryItem);renderPhoto();return;}}catch(e){}gallery=FALLBACK_GALLERY.map(normalizeGalleryItem);renderPhoto();}
 document.getElementById('prevPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex-1+gallery.length)%gallery.length;renderPhoto()});
 document.getElementById('nextPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex+1)%gallery.length;renderPhoto()});
 loadGallery();
