@@ -3,8 +3,7 @@
 
   const LAT = 33.640;
   const LON = -86.870;
-  const WX_URL = "https://api.weather.com/v2/pws/observations/current?stationId=KALGRAYS4&format=json&units=e&apiKey=e643322b432c400b83322b432ce00bb5";
-  const FORECAST_POINTS_URL = "https://api.weather.gov/points/33.640,-86.870";
+  const WX_URL = "cardiff-weather.json";
   const TICKER_URL = "ticker.json";
   const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
   const TICKER_REFRESH_MS = 5 * 60 * 1000;
@@ -715,20 +714,10 @@
 
   async function loadForecast() {
     try {
-      const pointsResponse = await fetch(FORECAST_POINTS_URL, {
-        headers: { "Accept": "application/geo+json" }
-      });
-      if (!pointsResponse.ok) throw new Error("points");
-      const pointsData = await pointsResponse.json();
-      const forecastUrl = pointsData.properties && pointsData.properties.forecast;
-      if (!forecastUrl) throw new Error("forecast");
-
-      const forecastResponse = await fetch(forecastUrl, {
-        headers: { "Accept": "application/geo+json" }
-      });
-      if (!forecastResponse.ok) throw new Error("forecast");
-      const forecastData = await forecastResponse.json();
-      const periods = (forecastData.properties && forecastData.properties.periods) ? forecastData.properties.periods.slice(0, 6) : [];
+      const response = await fetch(WX_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("forecast");
+      const data = await response.json();
+      const periods = Array.isArray(data.forecast) ? data.forecast.slice(0, 6) : [];
       if (!periods.length) throw new Error("forecast");
 
       setHTML("weekBody", periods.map((period) => (

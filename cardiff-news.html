@@ -356,7 +356,27 @@ function updateDeskMeta(desk,items,mode){const status=document.getElementById('n
 async function loadNews(mode='all'){currentMode=mode;activateButtons(mode);document.getElementById('newsStatus').textContent='Checking current area reporting';document.getElementById('newsSubStatus').textContent='Pulling nearby outlets and official feeds';document.getElementById('newsGrid').innerHTML='<div class="news-card loading">Loading live stories…</div>';try{const [desk,items]=await Promise.all([getDeskData(),getModeItems(mode)]);renderLead(items[0],mode);renderGrid(items);renderSources(items,mode);updateDeskMeta(desk,items,mode)}catch(e){renderLead(null,mode);renderGrid([]);renderSources([],mode);document.getElementById('newsStatus').textContent='Live feed ran into a snag';document.getElementById('newsSubStatus').textContent='The desk is still watching monitored outlets'}}
 document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>btn.addEventListener('click',()=>loadNews(btn.dataset.mode)));
 document.getElementById('refreshNews').addEventListener('click',()=>{modeCache.delete(currentMode);loadNews(currentMode)});
-loadNews('all');
+
+const AUTO_NEWS_URL='cardiff-news-live.json';
+let autoDataPromise=null;
+async function getAutoData(){if(!autoDataPromise)autoDataPromise=loadAutoData();return autoDataPromise}
+async function loadAutoData(){try{const res=await fetch(AUTO_NEWS_URL,{cache:'no-store'});if(!res.ok)throw new Error('auto feed missing');const data=await res.json();const normalizeLocal=item=>{const base={title:cleanTitle(item.title||''),source:normalizeSource(item.source||'Cardiff Desk'),link:item.link||'#',description:plainText(item.description||''),date:parseDate(item.date||item.updatedAt||''),manualPriority:Number(item.priority||0),isPinned:Boolean(item.pinned||item.isPinned),modes:Array.isArray(item.modes)?item.modes.filter(Boolean):item.mode?[item.mode]:['all']};base.modes=[...new Set([...base.modes,...classifyModes(base)])];base.tags=Array.isArray(item.tags)&&item.tags.length?item.tags.slice(0,3):buildTags(base);return base};return{updatedAt:parseDate(data.updatedAt||''),stories:Array.isArray(data.stories)?data.stories.map(normalizeLocal):[]}}catch(e){return{updatedAt:null,stories:[]}}}
+async function fetchModeItemsLocal(mode){const [desk,auto]=await Promise.all([getDeskData(),getAutoData()]);const local=[...desk.pinned,...desk.stories,...auto.stories].filter(item=>storyFitsMode(item,mode));const merged=dedupeItems(local).map(item=>({...item,tags:item.tags&&item.tags.length?item.tags:buildTags(item),modes:item.modes&&item.modes.length?item.modes:classifyModes(item)}));const ranked=merged.sort((a,b)=>scoreItem(b,mode)-scoreItem(a,mode)||((b.date||0)-(a.date||0)));return diversify(ranked,mode,NEWS_CONFIG.maxItems)}
+async function getModeItemsLocal(mode){if(modeCache.has(mode))return modeCache.get(mode);const promise=fetchModeItemsLocal(mode).catch(err=>{modeCache.delete(mode);throw err});modeCache.set(mode,promise);return promise}
+async function loadNewsLocal(mode='all'){currentMode=mode;activateButtons(mode);document.getElementById('newsStatus').textContent='Checking current area reporting';document.getElementById('newsSubStatus').textContent='Reading local GitHub data files';document.getElementById('newsGrid').innerHTML='<div class="news-card loading">Loading live storiesâ€¦</div>';try{const [desk,items]=await Promise.all([getDeskData(),getModeItemsLocal(mode)]);renderLead(items[0],mode);renderGrid(items);renderSources(items,mode);updateDeskMeta(desk,items,mode)}catch(e){renderLead(null,mode);renderGrid([]);renderSources([],mode);document.getElementById('newsStatus').textContent='Local feed ran into a snag';document.getElementById('newsSubStatus').textContent='The desk is still watching local JSON files'}}
+const refreshNewsBtn=document.getElementById('refreshNews');
+if(refreshNewsBtn&&refreshNewsBtn.parentNode){
+  const wiredRefreshNewsBtn=refreshNewsBtn.cloneNode(true);
+  refreshNewsBtn.parentNode.replaceChild(wiredRefreshNewsBtn,refreshNewsBtn);
+  wiredRefreshNewsBtn.addEventListener('click',()=>{modeCache.clear();autoDataPromise=null;deskDataPromise=null;loadNewsLocal(currentMode)});
+}
+document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>{
+  const cleanBtn=btn.cloneNode(true);
+  btn.parentNode.replaceChild(cleanBtn,btn);
+  cleanBtn.addEventListener('click',()=>{modeCache.clear();loadNewsLocal(cleanBtn.dataset.mode)});
+});
+modeCache.clear();
+loadNewsLocal('all');
 </script>
 </body>
 </html>

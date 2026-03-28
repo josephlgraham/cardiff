@@ -52,7 +52,7 @@
   ];
 
   // ─── WEATHER ───────────────────────────────────────────────────
-  var WX_URL = 'https://api.weather.com/v2/pws/observations/current?stationId=KALGRAYS4&format=json&units=e&apiKey=e643322b432c400b83322b432ce00bb5';
+  var WEATHER_URL = 'cardiff-weather.json';
   var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx90oZdqT77vIQvI_YzCcFX1qLOgqdroVqa_-Jo05SiztJasMgrNMTJ4FdrOWsdzEPHTw/exec';
 
   // ─── TICKER ────────────────────────────────────────────────────
@@ -177,25 +177,16 @@
   }
 
   function loadWeather() {
-    fetch(WX_URL)
+    fetch(WEATHER_URL, { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        var o = d.observations[0];
-        var imp = o.imperial;
-        var temp = Math.round(imp.temp);
-        var WDIRS = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
-        var wind = Math.round(imp.windSpeed) + ' mph ' + WDIRS[Math.round(o.winddir / 22.5) % 16];
-
-        var t = imp.temp, pr = imp.precipRate || 0, sr = o.solarRadiation || 0, w = imp.windSpeed, hr = new Date().getHours();
-        var cond;
-        if (pr > 0.05) cond = 'Rain';
-        else if (sr > 700) cond = 'Sunny';
-        else if (sr > 350) cond = 'Partly cloudy';
-        else if (sr < 30 && hr > 7 && hr < 19) cond = 'Overcast';
-        else if (t > 90) cond = 'Hot';
-        else if (t > 76) cond = o.humidity > 72 ? 'Warm & humid' : 'Warm';
-        else if (t > 58) cond = w > 12 ? 'Breezy' : 'Mild';
-        else cond = 'Cold';
+        var current = d && d.current ? d.current : null;
+        if (!current) throw new Error('missing current weather');
+        var temp = Math.round(Number(current.temp));
+        var windSpeed = Math.round(Number(current.windSpeed || 0));
+        var windDir = current.windDir || 'Calm';
+        var wind = windSpeed + ' mph ' + windDir;
+        var cond = current.condition || 'Offline';
 
         // Seasonal & condition emoji
         var now = new Date(), md = now.getMonth() + 1, dd = now.getDate();
@@ -220,7 +211,7 @@
         else if (cond === 'Warm & humid') wxE = '💦';
         else wxE = '🌤️';
 
-        var wE = Math.round(imp.windSpeed) < 5 ? '🍃' : Math.round(imp.windSpeed) < 15 ? '💨' : '🌬️';
+        var wE = windSpeed < 5 ? '🍃' : windSpeed < 15 ? '💨' : '🌬️';
 
         setEl('mhTemp', wxE + ' ' + temp + '°F');
         setEl('mhCond', cond);

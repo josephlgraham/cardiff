@@ -108,8 +108,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .site-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 .site-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:auto;color:var(--ink);font-weight:700;text-decoration:none}
 .site-link:hover{color:var(--red)}
+.hero-copy{display:grid;align-content:start;gap:1rem}
 .hero-side{display:grid;gap:1rem}
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hero-side>.hero-quick-grid{display:none}
 .hero-quick-card{min-height:100%}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 @media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
@@ -126,13 +128,27 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="wrap">
   <section class="hero reveal">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="kicker">Welcome</div>
         <h1 class="title">A small town with a long memory.</h1>
         <p class="sub">This site is a front porch for the record. It gathers history, land, local knowledge, and the civic questions shaping Cardiff now. Begin with the weather, the news, or the pages that help explain the place.</p>
         <div class="btn-row">
           <a class="btn primary" href="cardiff-news.html">Read the news</a>
           <a class="btn primary" href="cardiff-almanac.html">Check the weather</a>
+        </div>
+        <div class="hero-quick-grid">
+          <article class="card site-card hero-quick-card reveal">
+            <div class="site-kicker">Daily rhythm</div>
+            <h3 class="card-title">Check the weather and local rhythms.</h3>
+            <p class="card-body">Open the almanac for live weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
+            <a class="site-link" href="cardiff-almanac.html">Open the almanac &rarr;</a>
+          </article>
+          <article class="card site-card hero-quick-card reveal">
+            <div class="site-kicker">Around us</div>
+            <h3 class="card-title">Keep one eye on the wider area.</h3>
+            <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
+            <a class="site-link" href="cardiff-news.html">Open the news page &rarr;</a>
+          </article>
         </div>
       </div>
       <div class="hero-side">
@@ -145,7 +161,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
             </div>
           </div>
           <div class="photo-stage">
-            <img id="heroPhoto" src="photos/cardiff-1951.jpg" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
+            <img id="heroPhoto" src="photos/cardiff-1951.jpg?v=2026-03-28c" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
             <div id="photoMarkers"></div>
           </div>
           <div class="photo-caption">
@@ -243,8 +259,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 <script>
 
-const FALLBACK_GALLERY=[{src:'photos/cardiff-1951.jpg',title:'Aerial view, 1951',copy:'A long look at Cardiff from above, with the town and its neighboring communities still easy to read in the landscape.',credit:'Historical photograph',alt:'Historical aerial photograph of Cardiff and the surrounding area from 1951',markers:[{label:'Cardiff',left:'42%',top:'39%'},{label:'Brookside',left:'63%',top:'48%'}]},{src:'photos/historical-marker.jpg',title:'Historic marker',copy:'A grounded reminder that Cardiff has always been part of a bigger regional story, even while keeping its own identity.',credit:'Site collection',alt:'Historical marker connected to Cardiff local history',markers:[]},{src:'photos/town-hall.jpg',title:'Town hall',copy:'A present-day view that keeps the homepage tied to the real built fabric of Cardiff, not just the archive.',credit:'Site collection',alt:'Town hall building in Cardiff',markers:[]}];
-let gallery=[],photoIndex=0,galleryVersion='2026-03-28T02:00:00-05:00';
+const FALLBACK_GALLERY=[{src:'photos/cardiff-1951.jpg?v=2026-03-28c',title:'Aerial view, 1951',copy:'A long look at Cardiff from above, with the town and its neighboring communities still easy to read in the landscape.',credit:'Historical photograph',alt:'Historical aerial photograph of Cardiff and the surrounding area from 1951',markers:[{label:'Cardiff',left:'42%',top:'39%'},{label:'Brookside',left:'63%',top:'48%'}]},{src:'photos/historical-marker.jpg',title:'Historic marker',copy:'A grounded reminder that Cardiff has always been part of a bigger regional story, even while keeping its own identity.',credit:'Site collection',alt:'Historical marker connected to Cardiff local history',markers:[]},{src:'photos/town-hall.jpg',title:'Town hall',copy:'A present-day view that keeps the homepage tied to the real built fabric of Cardiff, not just the archive.',credit:'Site collection',alt:'Town hall building in Cardiff',markers:[]}];
+let gallery=[],photoIndex=0,galleryVersion='2026-03-28T13:10:00-05:00';
 function renderMarkers(markers){const shell=document.getElementById('photoMarkers');if(!shell)return;shell.innerHTML=(markers||[]).map(marker=>`<div class="marker" style="left:${marker.left};top:${marker.top};"><span class="marker-dot"></span><span class="marker-label">${marker.label}</span></div>`).join('')}
 function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;const hasQuery=src.includes('?');return {...item,src:hasQuery?src:`${src}?v=${encodeURIComponent(galleryVersion)}`}}
 function renderPhoto(){if(!gallery.length)return;const item=gallery[photoIndex];document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent=`Photo ${photoIndex+1} of ${gallery.length}`;renderMarkers(item.markers||[])}
@@ -258,6 +274,7 @@ const FEED_GROUPS={
   nearby:'https://news.google.com/rss/search?q='+encodeURIComponent('(Cardiff OR Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR western Jefferson County) Alabama')+'&hl=en-US&gl=US&ceid=US:en',
   regional:'https://news.google.com/rss/search?q='+encodeURIComponent('(Jefferson County OR Birmingham) Alabama local government OR public safety OR development OR schools')+'&hl=en-US&gl=US&ceid=US:en'
 };
+const HOME_NEWS_URLS={desk:'cardiff-news-feed.json',live:'cardiff-news-live.json'};
 const NEARBY_KEYWORDS=['cardiff','brookside','graysville','adamsville','gardendale','fultondale','minor','bayview','western jefferson','warrior road','five mile creek'];
 const REGIONAL_KEYWORDS=['birmingham','jefferson county','public safety','weather','roads','school','city council','county commission','development','zoning'];
 function cleanTitle(title){return title.replace(/\s+-\s+[^-]+$/,'').trim()}
@@ -269,7 +286,34 @@ function isFresh(date,days=6){return date&&(Date.now()-date.getTime())<=days*864
 function scoreItem(item){const hay=(item.title+' '+item.description+' '+item.source).toLowerCase();let score=0;NEARBY_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=4});REGIONAL_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=2});if(APPROVED_SOURCES.some(s=>item.source.includes(s)))score+=6;return score}
 async function fetchFeed(url){const rss2json='https://api.rss2json.com/v1/api.json?count=24&rss_url='+encodeURIComponent(url);try{const res=await fetch(rss2json);const data=await res.json();if(data.status==='ok'&&Array.isArray(data.items)){return data.items.map(item=>({title:cleanTitle(item.title||'Untitled'),source:extractSource(item),link:item.link||'#',description:plainText(item.description||item.content||''),date:parseDate(item.pubDate||item.published||''),raw:item}))}}catch(e){}try{const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetch(proxy);const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');return [...xml.querySelectorAll('item')].map(node=>({title:cleanTitle(node.querySelector('title')?.textContent||'Untitled'),source:node.querySelector('source')?.textContent?.trim()||extractSource({title:node.querySelector('title')?.textContent||''}),link:node.querySelector('link')?.textContent||'#',description:plainText(node.querySelector('description')?.textContent||''),date:parseDate(node.querySelector('pubDate')?.textContent||''),raw:node}))}catch(e){return []}}
 async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories…</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,8));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live feed note</div><div class="news-title">No fresh local stories passed the filter right now.</div><div class="news-snippet">That usually means the nearby outlets are quiet or a feed request was blocked. Open the full news page to try again.</div></div>';status.textContent='Live feed empty or filtered out';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'…':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story ↗</span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
-document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);loadHomeNews();
+document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);
+
+async function loadHomeNewsLocal(){
+  const target=document.getElementById('homeNewsGrid');
+  const status=document.getElementById('homeNewsStatus');
+  target.innerHTML='<div class="news-card loading">Loading live storiesâ€¦</div>';
+  status.textContent='Checking current local and regional stories';
+  const loadJson=async url=>{const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error(url);return res.json()};
+  const [deskResult,liveResult]=await Promise.allSettled([loadJson(HOME_NEWS_URLS.desk),loadJson(HOME_NEWS_URLS.live)]);
+  const desk=deskResult.status==='fulfilled'?deskResult.value:{pinned:[],stories:[]};
+  const live=liveResult.status==='fulfilled'?liveResult.value:{stories:[]};
+  const normalize=item=>({title:cleanTitle(item.title||'Untitled'),source:(item.source||'Regional source').trim(),link:item.link||'#',description:plainText(item.description||''),date:parseDate(item.date||item.updatedAt||''),priority:Number(item.priority||0),pinned:Boolean(item.pinned||item.isPinned)});
+  const items=[...(Array.isArray(desk.pinned)?desk.pinned:[]),...(Array.isArray(desk.stories)?desk.stories:[]),...(Array.isArray(live.stories)?live.stories:[])].map(normalize).filter(item=>item.title&&item.link&&isFresh(item.date,8));
+  const ranked=items.sort((a,b)=>(b.priority||0)-(a.priority||0)||scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));
+  const seen=new Set();const picked=[];
+  for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6&&!item.pinned)continue;picked.push(item);if(picked.length===3)break}
+  if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Desk note</div><div class="news-title">No fresh local stories are in the generated feed yet.</div><div class="news-snippet">That usually means the automation has not run yet or the outlets are quiet. Open the full news page to check the larger desk.</div></div>';status.textContent='Waiting on the generated local feed';return}
+  target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'â€¦':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story â†—</span></div></a></article>`).join('');
+  status.textContent='Updated from the local GitHub news feed';
+}
+
+const refreshHomeNewsBtn=document.getElementById('refreshHomeNews');
+if(refreshHomeNewsBtn&&refreshHomeNewsBtn.parentNode){
+  const wiredRefreshHomeNewsBtn=refreshHomeNewsBtn.cloneNode(true);
+  refreshHomeNewsBtn.parentNode.replaceChild(wiredRefreshHomeNewsBtn,refreshHomeNewsBtn);
+  wiredRefreshHomeNewsBtn.addEventListener('click',loadHomeNewsLocal);
+}
+loadHomeNewsLocal();
 </script>
 <script src="cardiff-common.js"></script>
 </body>

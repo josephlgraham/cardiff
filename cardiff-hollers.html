@@ -158,7 +158,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="listing-actions">
           <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need a tree cut down')">Reply to this listing →</button>
         </div>
-        <div class="listing-foot">Replies can be routed through josephlgraham@gmail.com for now.</div>
+        <div class="listing-foot">Replies can come through the board desk for review.</div>
       </article>
       <article class="listing-card">
         <div class="listing-meta"><span class="listing-tag">Help needed</span><span>Cardiff</span></div>
@@ -252,7 +252,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="cta-band reveal">
     <div class="cta-title">Five Mile Creek needs your help.</div>
     <p class="cta-body">Volunteer for creek cleanup days. Report illegal dumping. Help document the watershed. Every set of eyes matters.</p>
-    <a href="mailto:josephlgraham@gmail.com?subject=Cardiff%20watershed%20help" class="cta-btn">Email Joe →</a>
+    <a href="cardiff-involved.html" class="cta-btn">Get involved →</a>
   </div>
 </div>
 </div>
@@ -302,10 +302,7 @@ async function submitHoller(){
     });
     document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your board note has been added to the site inbox for review.</div>';
   }catch(err){
-    const subject=encodeURIComponent('Cardiff board: '+mode+' · '+topic);
-    const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nType: '+mode+'\nTopic: '+topic+'\n\n'+message);
-    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Please use the contact path on Get Involved and try again.</div>';
   }
 }
 
