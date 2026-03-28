@@ -10,7 +10,7 @@ Inside that repo, keep the website simple:
 
 ```text
 /
-  cardiff-home.html
+  index.html
   cardiff-news.html
   cardiff-almanac.html
   cardiff-guide.html

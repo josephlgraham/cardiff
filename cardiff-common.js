@@ -39,7 +39,7 @@
   // label: what shows in the nav bar
 
   var TABS = [
-    { id: 'home',     href: 'cardiff-home.html',     label: 'Home' },
+    { id: 'home',     href: 'index.html',            label: 'Home' },
     { id: 'news',     href: 'cardiff-news.html',     label: 'News' },
     { id: 'almanac',  href: 'cardiff-almanac.html',  label: 'Almanac' },
     { id: 'calendar', href: 'cardiff-calendar.html', label: 'Calendar' },
@@ -75,6 +75,7 @@
 
   function detectActiveTab() {
     var page = window.location.pathname.split('/').pop().toLowerCase();
+    if (!page || page === 'index.html') return 'home';
     for (var i = 0; i < TABS.length; i++) {
       if (page === TABS[i].href.toLowerCase()) return TABS[i].id;
     }
@@ -97,7 +98,7 @@
     return '<header class="cardiff-masthead">\n' +
       '  <div class="mh-identity">\n' +
       '    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>\n' +
-      '    <div class="mh-brand"><a href="cardiff-home.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
+      '    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
       '    <div class="mh-right-info"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span><br><span id="mhWind">&mdash;</span></div>\n' +
       '  </div>\n' +
       '  <nav class="mh-tabs">\n' +
