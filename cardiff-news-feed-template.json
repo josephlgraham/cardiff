@@ -1,0 +1,29 @@
+{
+  "updatedAt": "2026-03-24T12:00:00-05:00",
+  "bulletin": "Optional local bulletin. Use this for a pinned desk note, emergency reminder, or a quick town heads-up.",
+  "pinned": [
+    {
+      "title": "Example pinned town notice",
+      "source": "Cardiff Desk",
+      "link": "https://example.com/replace-me",
+      "description": "Replace this with a real local item or delete it. Pinned items rise to the top.",
+      "date": "2026-03-24T12:00:00-05:00",
+      "mode": "civic",
+      "priority": 10,
+      "tags": ["Civic", "Nearby"],
+      "isPinned": true
+    }
+  ],
+  "stories": [
+    {
+      "title": "Example hand-picked story",
+      "source": "Cardiff Desk",
+      "link": "https://example.com/replace-me-too",
+      "description": "You can hand-load a story here if you want it to appear even when the live pull misses it.",
+      "date": "2026-03-24T10:30:00-05:00",
+      "modes": ["nearby", "all"],
+      "priority": 6,
+      "tags": ["Nearby", "Roads"]
+    }
+  ]
+}

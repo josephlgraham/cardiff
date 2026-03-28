@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hills &amp; Hollers · Cardiff, Alabama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:200ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.45);--hdr-dimmer:rgba(245,234,216,0.32);--hdr-nav:rgba(245,234,216,0.48);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+
+/* MASTHEAD */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.55rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:52px;}
+.mh-left-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(1.2rem,2.8vw,1.8rem);font-weight:800;letter-spacing:-0.01em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--red);}
+.mh-brand-sub{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.18rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.7rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+/* ANNOUNCEMENT STRIP — set display:none to hide */
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem;}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;animation:marquee 30s linear infinite;padding-left:100%;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+@media(max-width:700px){.mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}}
+@media(max-width:480px){.mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}}
+
+/* PAGE */
+.wrap{max-width:860px;margin:0 auto;padding:0 2rem 5rem;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hero */
+.hh-hero{padding:3rem 0 2rem;}
+.hh-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.hh-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
+.hh-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
+.hh-sub{font-size:1rem;line-height:1.78;color:var(--ink2);max-width:600px;margin-bottom:1.5rem;}
+
+/* Section rule */
+.s-rule{display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1.25rem;}
+.s-rule h2{font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.s-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+
+/* Category cards — independent 2-col with red accent */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem;}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;position:relative;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);transition:transform var(--ease),box-shadow var(--ease);display:grid;grid-template-columns:auto 1fr;column-gap:0.85rem;row-gap:0.18rem;align-items:start;}
+.cat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09);}
+.cat-icon{grid-column:1;grid-row:2 / span 2;font-size:1.3rem;line-height:1;display:block;margin-top:0.16rem;pointer-events:none;}
+.cat-name{grid-column:1 / -1;font-family:var(--sans);font-size:0.9rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;padding-right:0;}
+.cat-desc{grid-column:2;font-size:0.82rem;line-height:1.68;color:var(--ink2);padding-right:0;}
+.cat-example{grid-column:2;font-family:var(--mono);font-size:0.65rem;color:var(--ink3);margin-top:0.1rem;line-height:1.5;}
+.board-shell{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.3rem 1.2rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
+.board-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;}
+.board-status{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);}
+.board-copy{font-size:0.88rem;line-height:1.72;color:var(--ink2);max-width:62ch;}
+.board-head .section-kicker{font-weight:700;}
+.filter-strip{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.filter-pill{display:inline-flex;align-items:center;padding:0.38rem 0.72rem;border-radius:999px;background:var(--paper);border:1px solid var(--border2);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
+.listing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.listing-card{background:rgba(255,255,255,0.42);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1rem 0.95rem;display:grid;gap:0.7rem;}
+.listing-meta{display:flex;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+.listing-tag{color:var(--red);}
+.listing-title{font-size:1.02rem;font-weight:800;color:var(--ink);}
+.listing-copy{font-size:0.84rem;line-height:1.68;color:var(--ink2);}
+.listing-list{display:grid;gap:0.42rem;}
+.listing-list li{list-style:none;position:relative;padding-left:0.95rem;font-size:0.79rem;line-height:1.55;color:var(--ink2);}
+.listing-list li::before{content:"";position:absolute;left:0;top:0.53rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
+.listing-foot{padding-top:0.7rem;border-top:1px solid var(--rule);font-size:0.76rem;line-height:1.58;color:var(--ink3);}
+.listing-actions{display:flex;gap:.55rem;flex-wrap:wrap}
+.listing-actions .btn{font-size:.72rem;padding:.58rem .85rem}
+.finish-note{margin:1.1rem 0 0;padding:.9rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:.84rem;line-height:1.68;color:var(--red-mid);}
+.post-shell{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.2rem 1.15rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.post-copy{font-size:.86rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem;max-width:62ch}
+.post-form{display:grid;gap:.8rem}
+.post-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.post-form input,.post-form select,.post-form textarea{width:100%;padding:.78rem .9rem;border-radius:var(--r);border:1px solid var(--border2);background:#fff;color:var(--ink);font:inherit;outline:none;transition:border-color var(--ease),box-shadow var(--ease)}
+.post-form textarea{min-height:150px;resize:vertical}
+.post-form input:focus,.post-form select:focus,.post-form textarea:focus{border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.post-status{margin-top:.1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink3)}
+
+/* Print edition note */
+.print-note{background:var(--paper2);border:1px solid var(--border2);border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:1.1rem 1.25rem;margin-bottom:2rem;}
+.print-note p{font-size:0.88rem;line-height:1.75;color:var(--ink2);}
+.print-note strong{color:var(--ink);}
+
+/* Coming soon */
+.cs-banner{background:var(--ink);border-radius:14px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.cs-banner::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.cs-title{font-family:var(--sans);font-size:1.8rem;font-weight:800;color:var(--paper);margin-bottom:0.5rem;position:relative;}
+.cs-body{font-size:0.88rem;line-height:1.7;color:rgba(245,234,216,0.6);max-width:440px;margin:0 auto 1.25rem;position:relative;}
+.cs-btn{display:inline-block;padding:0.7rem 1.5rem;background:var(--red);border:none;border-radius:8px;font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
+.cs-btn:hover{background:var(--red-mid);}
+
+/* CTA band */
+.cta-band{background:var(--ink);border-radius:var(--r-lg);padding:2rem 2rem;text-align:center;position:relative;overflow:hidden;margin-top:2.5rem;}
+.cta-band::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.cta-title{font-family:var(--sans);font-size:1.4rem;font-weight:800;color:var(--paper);margin-bottom:0.4rem;position:relative;}
+.cta-body{font-size:0.86rem;line-height:1.7;color:rgba(245,234,216,0.55);max-width:420px;margin:0 auto 1rem;position:relative;}
+.cta-btn{display:inline-block;padding:0.6rem 1.3rem;background:var(--red);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.84rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
+.cta-btn:hover{background:var(--red-mid);}
+
+@media(max-width:640px){.wrap{padding:0 1rem 4rem;}.cat-grid,.listing-grid,.post-row{grid-template-columns:1fr;}}
+
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+
+<div id="cardiff-masthead"></div>
+
+<div class="wrap">
+  <div class="hh-hero reveal">
+    <div class="hh-kicker">Community Board</div>
+    <h1 class="hh-title">Hills &amp; Hollers</h1>
+    <p class="hh-sub">The classified section for Cardiff and the Five Mile Creek watershed. Free to post, free to read. No account required. Think of it as the community bulletin board that used to hang at the feed store — for everyone in the watershed.</p>
+  </div>
+
+  <div class="s-rule reveal"><h2>Board now</h2><hr></div>
+
+  <section class="board-shell reveal">
+    <div class="board-head">
+      <div>
+        <div class="section-kicker">Cardiff board</div>
+        <div class="board-copy">Local listings, work requests, and neighbor-to-neighbor notices for Cardiff and the Five Mile Creek watershed.</div>
+      </div>
+      <div class="board-status">Cardiff area · community listings</div>
+    </div>
+    <div class="filter-strip" aria-label="listing categories">
+      <span class="filter-pill">Help needed</span>
+      <span class="filter-pill">Property work</span>
+      <span class="filter-pill">Cardiff</span>
+    </div>
+    <div class="listing-grid">
+      <article class="listing-card">
+        <div class="listing-meta"><span class="listing-tag">Help needed</span><span>Cardiff</span></div>
+        <div class="listing-title">Need a tree cut down</div>
+        <div class="listing-copy">Looking for someone dependable to take down a tree safely near the house. This is the sort of practical local job the board is meant to carry.</div>
+        <ul class="listing-list">
+          <li>Best for someone who does tree work, cutting, cleanup, and a quick estimate.</li>
+          <li>Timing is flexible, but it would be good to handle it this spring.</li>
+          <li>Local recommendations and insured help would be ideal.</li>
+        </ul>
+        <div class="listing-actions">
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need a tree cut down')">Reply to this listing →</button>
+        </div>
+        <div class="listing-foot">Replies can be routed through josephlgraham@gmail.com for now.</div>
+      </article>
+      <article class="listing-card">
+        <div class="listing-meta"><span class="listing-tag">Help needed</span><span>Cardiff</span></div>
+        <div class="listing-title">Need grading and dirt work</div>
+        <div class="listing-copy">Looking for grading and dirt work around the property, with enough detail here for someone local to know whether they should reach out and give an estimate.</div>
+        <ul class="listing-list">
+          <li>Useful for driveway shaping, smoothing low spots, and basic site cleanup.</li>
+          <li>Would like someone with equipment or a clear sense of what the job needs.</li>
+          <li>Good fit for local crews, recommendations, or someone available for estimate work.</li>
+        </ul>
+        <div class="listing-actions">
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need grading and dirt work')">Reply to this listing →</button>
+        </div>
+        <div class="listing-foot">Local equipment work and estimate leads are welcome.</div>
+      </article>
+    </div>
+    <div class="finish-note">Posting and reply tools are live in the intake form below. Everything still routes through a human review step before it appears on the board.</div>
+  </section>
+
+  <div class="s-rule reveal"><h2>What you will find here</h2><hr></div>
+
+  <div class="cat-grid">
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🤝</span>
+      <div class="cat-name">Seeking &amp; Offering Help</div>
+      <div class="cat-desc">Need a hand moving something heavy? Got tools to lend? Know someone who does good work? This is the place. Cardiff takes care of Cardiff.</div>
+      <div class="cat-example">Examples: firewood split, fence repair, chainsaw work, rides to town</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🌿</span>
+      <div class="cat-name">Free &amp; For Sale</div>
+      <div class="cat-desc">Extra vegetables from the garden. Seeds to share. Something in the barn you are not using. Barter welcome. No big business listings — this is neighbors trading with neighbors.</div>
+      <div class="cat-example">Examples: tomato starts, canned goods, equipment, animals</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">📅</span>
+      <div class="cat-name">Community Events</div>
+      <div class="cat-desc">Workdays, cleanups, meetings, gatherings. If it involves Cardiff people and Cardiff ground, it belongs here. Watershed cleanup days are especially welcome.</div>
+      <div class="cat-example">Examples: creek cleanup, council meetings, cookouts, workdays</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🔍</span>
+      <div class="cat-name">Looking For</div>
+      <div class="cat-desc">Searching for a specific person, a piece of Cardiff history, an old photograph, or someone who remembers? Post it here. This community has a long memory.</div>
+      <div class="cat-example">Examples: family history, old photos, property records, stories</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🌊</span>
+      <div class="cat-name">Watershed Watch</div>
+      <div class="cat-desc">Spotted illegal dumping? Unusual activity on the creek? Wildlife worth documenting? Water conditions worth noting? Cardiff is upstream. What happens here matters downstream.</div>
+      <div class="cat-example">Examples: dumping reports, unusual sightings, water quality observations</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">📖</span>
+      <div class="cat-name">Stories &amp; History</div>
+      <div class="cat-desc">Things you remember about Cardiff. Things your grandparents told you. History that is not written down anywhere. We want to write it down while we still can.</div>
+      <div class="cat-example">Examples: flood memories, family stories, old Cardiff, the way things were</div>
+    </div>
+  </div>
+
+  <div class="print-note reveal">
+    <p><strong>The spirit of the thing:</strong> The old Farmer's Almanac ran classified ads between the frost date tables and the moon calendars. Reader's Digest ran "Life in These United States" — short true stories from real people. Hills &amp; Hollers is that tradition for Cardiff and the Five Mile Creek watershed. No algorithms. No advertising. Just neighbors talking to neighbors.</p>
+  </div>
+
+  <div class="s-rule reveal"><h2>Post or reply</h2><hr></div>
+
+  <section class="post-shell reveal" id="holler-post">
+    <div class="section-kicker">Site inbox</div>
+    <p class="post-copy">Use this form to send a new listing, answer an existing one, or pass along a watershed note. Nothing posts automatically. It comes into the site inbox first so the board can stay neighborly and readable.</p>
+    <div class="post-form" id="hollerForm">
+      <div class="post-row">
+        <input type="text" id="hollerName" placeholder="Your name">
+        <input type="email" id="hollerEmail" placeholder="Email address">
+      </div>
+      <div class="post-row">
+        <select id="hollerMode">
+          <option value="">What are you sending?</option>
+          <option>New listing</option>
+          <option>Reply to a listing</option>
+          <option>Watershed note</option>
+          <option>Community notice</option>
+        </select>
+        <input type="text" id="hollerTopic" placeholder="Listing title or reply target">
+      </div>
+      <textarea id="hollerMessage" placeholder="Describe the listing, the reply, or the note you want to send. Include any useful local details."></textarea>
+      <button class="btn primary" id="hollerSubmitBtn" type="button" onclick="submitHoller()">Send to the board desk →</button>
+      <div class="post-status" id="hollerStatus" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <div class="cta-band reveal">
+    <div class="cta-title">Five Mile Creek needs your help.</div>
+    <p class="cta-body">Volunteer for creek cleanup days. Report illegal dumping. Help document the watershed. Every set of eyes matters.</p>
+    <a href="mailto:josephlgraham@gmail.com?subject=Cardiff%20watershed%20help" class="cta-btn">Email Joe →</a>
+  </div>
+</div>
+</div>
+
+<script src="cardiff-common.js"></script>
+<script>
+// SHARED JS
+
+
+// Slide-in
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
+
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function prefillHollerReply(topic){
+  const mode=document.getElementById('hollerMode');
+  const field=document.getElementById('hollerTopic');
+  if(mode) mode.value='Reply to a listing';
+  if(field) field.value=topic;
+  const target=document.getElementById('holler-post');
+  if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  if(field) field.focus();
+}
+
+async function submitHoller(){
+  const name=document.getElementById('hollerName').value.trim();
+  const email=document.getElementById('hollerEmail').value.trim();
+  const mode=document.getElementById('hollerMode').value.trim()||'Board note';
+  const topic=document.getElementById('hollerTopic').value.trim();
+  const message=document.getElementById('hollerMessage').value.trim();
+  const btn=document.getElementById('hollerSubmitBtn');
+  const status=document.getElementById('hollerStatus');
+  status.textContent='';
+  if(!email||!email.includes('@')){document.getElementById('hollerEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('hollerEmail').style.borderColor='',2000);return;}
+  if(!topic||!message){if(!topic)document.getElementById('hollerTopic').style.borderColor='var(--red)';if(!message)document.getElementById('hollerMessage').style.borderColor='var(--red)';status.textContent='Please add a title and a short message.';setTimeout(()=>{document.getElementById('hollerTopic').style.borderColor='';document.getElementById('hollerMessage').style.borderColor='';},2000);return;}
+  try{
+    btn.disabled=true;
+    btn.textContent='Sending...';
+    status.textContent='Sending this to the site inbox...';
+    await window.CardiffSite.submitForm({
+      form:'Hills and Hollers',
+      name:name||'',
+      email:email,
+      topic:mode+' · '+topic,
+      message:message,
+      page:'cardiff-hollers.html'
+    });
+    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your board note has been added to the site inbox for review.</div>';
+  }catch(err){
+    const subject=encodeURIComponent('Cardiff board: '+mode+' · '+topic);
+    const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nType: '+mode+'\nTopic: '+topic+'\n\n'+message);
+    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
+    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+  }
+}
+
+</script>
+</body>
+</html>

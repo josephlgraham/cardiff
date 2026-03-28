@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Calendar · Cardiff, Alabama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:16px;--ease:220ms ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.page{position:relative;z-index:1}
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem 5rem}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.hero{padding:2.5rem 0 1.5rem}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem;align-items:start}
+.kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
+.kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block}
+.title{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;letter-spacing:-.03em;line-height:.98;color:var(--ink);margin-bottom:.9rem}
+.sub{font-size:1rem;line-height:1.8;color:var(--ink2);max-width:68ch}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:var(--r);font-size:.82rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all var(--ease);border:1px solid transparent}
+.btn.primary{background:var(--red);color:#fff}
+.btn.primary:hover{background:var(--red-mid)}
+.btn.ghost{background:var(--paper2);color:var(--ink2);border-color:var(--border2)}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
+.pill-strip{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding:.2rem 0 1.35rem}
+.pill-strip::-webkit-scrollbar{display:none}
+.pill-link{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:999px;text-decoration:none;white-space:nowrap;transition:all var(--ease)}
+.pill-link:hover{border-color:var(--red);background:var(--paper2)}
+.pill-emoji{font-size:1rem;line-height:1}
+.pill-text{font-size:.78rem;font-weight:700;color:var(--ink)}
+.pill-sub{font-family:var(--mono);font-size:.56rem;color:var(--ink3)}
+.card,.feature-card,.lane-card,.footer-band{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative}
+.quick-card{padding:1.2rem 1.15rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.section-rule{display:flex;align-items:center;gap:.75rem;margin:2rem 0 1.15rem}
+.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
+.section-kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;padding-bottom:.7rem;margin-bottom:.75rem;border-bottom:1px solid var(--rule)}
+.section-kicker::before{content:"";width:12px;height:2px;background:var(--red);display:inline-block}
+.quick-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
+.quick-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
+.quick-list{display:grid;gap:.55rem;margin-top:.9rem}
+.quick-list li{list-style:none;position:relative;padding-left:1rem;font-size:.8rem;line-height:1.58;color:var(--ink2)}
+.quick-list li::before{content:"";position:absolute;left:0;top:.52rem;width:6px;height:6px;border-radius:50%;background:var(--red)}
+.feature-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
+.feature-card{padding:1.3rem 1.25rem 1.15rem}
+.feature-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+.date-chip{display:inline-flex;align-items:center;padding:.28rem .58rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper2);font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.holiday-title{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:.55rem}
+.holiday-copy{font-size:.92rem;line-height:1.76;color:var(--ink2)}
+.event-meta{display:grid;gap:.55rem;margin-top:1rem}
+.meta-row{display:flex;align-items:flex-start;gap:.65rem;padding:.62rem 0;border-top:1px solid var(--rule)}
+.meta-row:first-child{border-top:none;padding-top:0}
+.meta-icon{font-size:1rem;line-height:1;flex-shrink:0;margin-top:.08rem}
+.meta-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.12rem}
+.meta-copy{font-size:.82rem;line-height:1.58;color:var(--ink2)}
+.stack{display:grid;gap:1rem}
+.mini-card{padding:1.05rem}
+.mini-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
+.mini-copy{font-size:.84rem;line-height:1.68;color:var(--ink2)}
+.mini-date{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
+.lane-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.lane-card{padding:1.08rem}
+.lane-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
+.lane-copy{font-size:.84rem;line-height:1.7;color:var(--ink2)}
+.lane-note{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--ink3)}
+.month-shell{padding:1.25rem 1.2rem 1.15rem}
+.month-list{display:grid;gap:.75rem}
+.month-item{display:grid;grid-template-columns:auto 1fr;gap:.8rem;padding:.55rem 0;border-top:1px solid var(--rule)}
+.month-item:first-child{border-top:none;padding-top:0}
+.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red);min-width:82px}
+.month-title{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:.12rem}
+.month-copy{font-size:.8rem;line-height:1.6;color:var(--ink2)}
+.footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
+.footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
+.footer-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
+.submit-card{padding:1.2rem 1.15rem 1.15rem}
+.submit-card .section-kicker{margin-bottom:.6rem}
+.submit-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.4rem}
+.submit-copy{font-size:.84rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem}
+.submit-form{display:grid;gap:.8rem}
+.submit-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.submit-form input,.submit-form select,.submit-form textarea{width:100%;padding:.78rem .9rem;border-radius:var(--r);border:1px solid var(--border2);background:#fff;color:var(--ink);font:inherit;outline:none;transition:border-color var(--ease),box-shadow var(--ease)}
+.submit-form textarea{min-height:150px;resize:vertical}
+.submit-form input:focus,.submit-form select:focus,.submit-form textarea:focus{border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.submit-status{margin-top:.1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink3)}
+@media(max-width:980px){.hero-grid,.feature-grid,.lane-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.feature-grid,.lane-grid,.submit-row{grid-template-columns:1fr}.title{font-size:clamp(2.2rem,10vw,3.5rem)}}
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+<div id="cardiff-masthead"></div>
+
+<main class="wrap">
+  <section class="hero reveal">
+    <div class="pill-strip" aria-label="jump links">
+      <a class="pill-link" href="#next-up"><span class="pill-emoji">📅</span><div><div class="pill-text">Next dates</div><div class="pill-sub">Seasonal markers</div></div></a>
+      <a class="pill-link" href="#calendar-lanes"><span class="pill-emoji">🗂️</span><div><div class="pill-text">Calendar lanes</div><div class="pill-sub">Public record</div></div></a>
+      <a class="pill-link" href="#seasonal-view"><span class="pill-emoji">🌷</span><div><div class="pill-text">Seasonal view</div><div class="pill-sub">Spring markers</div></div></a>
+      <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Holiday notes</div><div class="pill-sub">Older roots</div></div></a>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Community Calendar</div>
+        <h1 class="title">A place for Cardiff dates that matter.</h1>
+        <p class="sub">Cardiff's calendar is the public record for holidays, meetings, workdays, deadlines, and community dates. It gives the town one clear place to look for what is coming next while also teaching the older seasonal roots behind the dates people still keep.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#next-up">See next dates</a>
+          <a class="btn ghost" href="#send-date">Send a date in</a>
+        </div>
+      </div>
+      <aside class="quick-card reveal">
+        <div class="section-kicker">Holiday notes</div>
+        <div class="quick-title">Spring dates with older roots behind them</div>
+        <div class="quick-copy">These first entries are written as layered spring observances. Many people see the later church calendar as sitting on top of much older seasonal rites, fertility symbols, and equinox-era festivals that long predate it.</div>
+        <ul class="quick-list">
+          <li>Easter keeps a moon-linked spring date, which is one reason it feels tied to older seasonal calendars.</li>
+          <li>Eggs, hares, and spring rebirth imagery are often linked to pre-Christian fertility traditions.</li>
+          <li>Later Christian observances were layered onto existing seasonal power points many cultures already marked.</li>
+          <li>These entries give the calendar a real start while keeping the teaching focus broader than church language.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="section-rule reveal" id="next-up"><h2>Next Up</h2><hr></div>
+  <section class="feature-grid">
+    <article class="feature-card reveal">
+      <div class="section-kicker">Featured date</div>
+      <div class="feature-row">
+        <div class="date-chip">Spring observance</div>
+        <div class="date-chip">Sunday, April 5, 2026</div>
+      </div>
+      <h2 class="holiday-title">Easter Sunday</h2>
+      <p class="holiday-copy">Easter lands in the oldest part of the spring calendar: the return of light, fertility, and visible renewal in the natural world. Its shifting date follows a moon-based pattern after the spring equinox, which is one reason many people see it as a later religious layer placed over older seasonal rites.</p>
+      <div class="event-meta">
+        <div class="meta-row">
+          <div class="meta-icon">⛪</div>
+          <div><div class="meta-label">Category</div><div class="meta-copy">Movable spring holiday · seasonal marker · layered observance</div></div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-icon">📍</div>
+          <div><div class="meta-label">Historical note</div><div class="meta-copy">The name, symbols, and timing around Easter are often connected to older spring festivals and rebirth imagery, even though later Christian tradition gave the day its dominant modern framing.</div></div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-icon">📝</div>
+          <div><div class="meta-label">Why it is here</div><div class="meta-copy">Holidays belong on the public calendar because they shape schedules, family plans, school breaks, meals, and the larger seasonal rhythm whether people read them as church dates, inherited customs, or nature markers.</div></div>
+        </div>
+      </div>
+    </article>
+    <div class="stack">
+      <article class="card mini-card reveal">
+        <div class="mini-date">Sunday, March 29, 2026</div>
+        <div class="mini-title">Palm Sunday</div>
+        <div class="mini-copy">Palm Sunday marks the opening of the church version of Holy Week, one more example of later observances being placed across an already important spring threshold.</div>
+      </article>
+      <article class="card mini-card reveal">
+        <div class="mini-date">Friday, April 3, 2026</div>
+        <div class="mini-title">Good Friday</div>
+        <div class="mini-copy">Good Friday is the solemn lead-in to Easter weekend, held close to the same older spring turning points that many cultures had already marked in different ways.</div>
+      </article>
+    </div>
+  </section>
+
+  <div class="section-rule reveal" id="calendar-lanes"><h2>Calendar Lanes</h2><hr></div>
+  <section class="lane-grid">
+    <article class="lane-card reveal">
+      <div class="section-kicker">Meetings</div>
+      <div class="lane-title">Town business</div>
+      <div class="lane-copy">Council meetings, public hearings, notice deadlines, and anything else residents should be able to plan around.</div>
+      <div class="lane-note">Official meeting dates can be posted here as they are set.</div>
+    </article>
+    <article class="lane-card reveal">
+      <div class="section-kicker">Workdays</div>
+      <div class="lane-title">Hands-on help</div>
+      <div class="lane-copy">Cleanup days, creek work, cemetery documentation, brush clearing, and any practical date where extra hands matter.</div>
+      <div class="lane-note">Volunteer dates and cleanup calls can live in this lane.</div>
+    </article>
+    <article class="lane-card reveal">
+      <div class="section-kicker">Community</div>
+      <div class="lane-title">Gatherings and shared dates</div>
+      <div class="lane-copy">Cookouts, school-related dates, holiday markers, and community events that shape the season even when they are informal.</div>
+      <div class="lane-note">Holiday observances and community dates belong here.</div>
+    </article>
+    <article class="lane-card reveal">
+      <div class="section-kicker">Deadlines</div>
+      <div class="lane-title">Things easy to miss</div>
+      <div class="lane-copy">Application cutoffs, due dates, reminders, and practical civic or household deadlines that belong in the public flow of information.</div>
+      <div class="lane-note">Public reminders and due dates can be carried here.</div>
+    </article>
+  </section>
+
+  <div class="section-rule reveal" id="seasonal-view"><h2>Seasonal View</h2><hr></div>
+  <section class="card month-shell reveal">
+    <div class="section-kicker">Spring 2026</div>
+    <div class="month-list">
+      <div class="month-item">
+        <div class="month-date">Mar 29</div>
+        <div><div class="month-title">Palm Sunday</div><div class="month-copy">The opening church observance of Holy Week, layered onto the same spring season long associated with renewal, procession, and ceremonial return.</div></div>
+      </div>
+      <div class="month-item">
+        <div class="month-date">Apr 3</div>
+        <div><div class="month-title">Good Friday</div><div class="month-copy">A solemn observance in the later Christian calendar, placed just before Easter in the same spring window many older traditions already treated as charged and transitional.</div></div>
+      </div>
+      <div class="month-item">
+        <div class="month-date">Apr 5</div>
+        <div><div class="month-title">Easter Sunday</div><div class="month-copy">A spring holiday whose date still follows the moon after the equinox, carrying symbols of rebirth, fertility, and return that many people connect to older pagan seasonal traditions.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-band reveal" id="calendar-notes">
+    <div class="section-kicker">Holiday background</div>
+    <h2 class="footer-title">These first entries sit inside a much older spring calendar.</h2>
+    <p class="footer-copy">This page treats Easter season as a layered inheritance rather than a church-only story. The timing, symbols, and seasonal mood around these dates overlap with older spring festivals, fertility rites, and equinox-era observances that many people believe were later co-opted or rebranded. Additional town dates, workdays, and public notices can be added here as they are set and shared.</p>
+  </section>
+
+  <section class="card submit-card reveal" id="send-date">
+    <div class="section-kicker">Send a date in</div>
+    <div class="submit-title">Add something to the calendar</div>
+    <p class="submit-copy">Use this to send holidays, meetings, workdays, deadline reminders, or community dates. Submissions go into the site inbox for review before anything is posted.</p>
+    <div class="submit-form" id="calendarForm">
+      <div class="submit-row">
+        <input type="text" id="calName" placeholder="Your name">
+        <input type="email" id="calEmail" placeholder="Email address">
+      </div>
+      <div class="submit-row">
+        <input type="text" id="calDate" placeholder="Date or date range">
+        <select id="calType">
+          <option value="">Type of date</option>
+          <option>Holiday</option>
+          <option>Meeting</option>
+          <option>Workday</option>
+          <option>Community event</option>
+          <option>Deadline</option>
+        </select>
+      </div>
+      <textarea id="calDetails" placeholder="What should be on the calendar? Include the name of the date, what it is, and any useful details."></textarea>
+      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">Send date →</button>
+      <div class="submit-status" id="calendarStatus" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script>
+async function submitCalendarDate(){
+  const name=document.getElementById('calName').value.trim();
+  const email=document.getElementById('calEmail').value.trim();
+  const date=document.getElementById('calDate').value.trim();
+  const type=document.getElementById('calType').value.trim()||'Calendar date';
+  const details=document.getElementById('calDetails').value.trim();
+  const btn=document.getElementById('calendarSubmitBtn');
+  const status=document.getElementById('calendarStatus');
+  status.textContent='';
+  if(!email||!email.includes('@')){document.getElementById('calEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('calEmail').style.borderColor='',2000);return;}
+  if(!date||!details){if(!date)document.getElementById('calDate').style.borderColor='var(--red)';if(!details)document.getElementById('calDetails').style.borderColor='var(--red)';status.textContent='Please add the date and a short description.';setTimeout(()=>{document.getElementById('calDate').style.borderColor='';document.getElementById('calDetails').style.borderColor='';},2000);return;}
+  try{
+    btn.disabled=true;
+    btn.textContent='Sending...';
+    status.textContent='Sending this to the site inbox...';
+    await window.CardiffSite.submitForm({
+      form:'Calendar Submission',
+      name:name||'',
+      email:email,
+      topic:type+' · '+date,
+      message:details,
+      page:'cardiff-calendar.html'
+    });
+    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your date has been added to the site inbox for review.</div>';
+  }catch(err){
+    const subject=encodeURIComponent('Cardiff calendar date: '+type+' · '+date);
+    const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
+    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
+    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+  }
+}
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>

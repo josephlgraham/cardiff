@@ -1,0 +1,2829 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sepia">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiff Field Guide · Five Mile Creek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --red:#C8102E;--red-mid:#9a0c22;
+  --green:#2a7a3a;--green-hi:#3aaa4a;
+  --amber:#b47800;--blue:#2060a0;
+  --paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;
+  --ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;
+  --border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);
+  --rule:rgba(80,44,8,0.15);
+  --shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);
+  --shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+  --mono:"DM Mono",monospace;
+  --r:8px;--r-lg:14px;--ease:200ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);
+  --hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.45);
+  --hdr-dimmer:rgba(245,234,216,0.32);--hdr-nav:rgba(245,234,216,0.48);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.025;mix-blend-mode:multiply;}
+
+/* ── SHARED MASTHEAD ──────────────────────────────────── */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.55rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:52px;}
+.mh-left-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(1.2rem,2.8vw,1.8rem);font-weight:800;letter-spacing:-0.01em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--red);}
+.mh-brand-sub{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.18rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.7rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+.wx-ticker{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.wx-ticker-lbl{background:var(--red-mid);padding:0 0.8rem;height:100%;display:flex;align-items:center;gap:0.35rem;font-family:var(--mono);font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,0.14);flex-shrink:0;}
+.wx-live{width:5px;height:5px;border-radius:50%;background:#2a8a3a;animation:blink 2.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+.wx-ticker-items{display:flex;align-items:center;gap:2.2rem;padding:0 1.1rem;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;white-space:nowrap;}
+.wx-ticker-items .l{opacity:0.72;margin-right:0.22rem;}
+
+/* ── PROGRESS BAR ─────────────────────────────────────── */
+.prog-track{height:2px;background:rgba(255,215,140,0.1);}
+.prog-fill{height:100%;background:var(--green);transition:width .4s ease;}
+
+/* ── SCROLL AREA ──────────────────────────────────────── */
+#scroll-area{position:relative;z-index:2;min-height:calc(100vh - 145px);padding:0.75rem 1rem 3rem;display:flex;flex-direction:column;align-items:center;}
+
+/* ── GAME CARD ────────────────────────────────────────── */
+.game-card{width:100%;max-width:660px;background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);overflow:hidden;}
+.cs{display:none;}.cs.on{display:flex;flex-direction:column;}
+
+/* ── WELCOME SCREEN ───────────────────────────────────── */
+#s-welcome{padding:1.5rem 1.75rem 2rem;align-items:center;text-align:center;gap:0.9rem;}
+.welcome-intro{font-size:0.88rem;line-height:1.78;color:var(--ink2);max-width:420px;text-align:left;}
+.welcome-intro p{margin-bottom:0.75rem;}
+.welcome-kicker{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;}
+.quick-start{width:100%;max-width:420px;display:grid;grid-template-columns:repeat(2,1fr);gap:0.55rem;}
+.quick-chip{padding:0.65rem 0.75rem;border-radius:12px;background:var(--paper);border:1px solid var(--border);text-align:left;}
+.quick-chip-k{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.18rem;}
+.quick-chip-v{font-size:0.8rem;line-height:1.45;color:var(--ink2);font-weight:600;}
+.welcome-search{width:100%;max-width:420px;display:grid;gap:0.55rem;margin:0.2rem 0 0.25rem;}
+.welcome-search input{width:100%;border:1px solid var(--border);border-radius:14px;padding:0.95rem 1rem;font:600 0.95rem/1.2 var(--sans);background:#fff;color:var(--ink);box-shadow:0 10px 25px rgba(0,0,0,.05);}
+.welcome-search input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(68,116,84,.12);}
+.welcome-search-go{appearance:none;border:none;border-radius:14px;background:var(--green);color:#fff;padding:0.88rem 1rem;font:800 0.9rem/1 var(--sans);cursor:pointer;}
+.welcome-search-note{font-size:0.76rem;line-height:1.45;color:var(--ink3);text-align:center;}
+.lookalike-box,.local-note-box{margin:0 1rem 0.85rem;padding:0.8rem 0.9rem;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));}
+.lookalike-label,.local-note-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.28rem;}
+.lookalike-label{color:var(--red);}
+.local-note-label{color:var(--green);}
+.recipe-link-box{margin:0 1rem 0.95rem;padding:0.85rem 0.95rem;border:1px solid rgba(180,120,0,0.22);border-radius:16px;background:rgba(180,120,0,0.07);}
+.recipe-link-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:0.3rem;}
+.recipe-link{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.84rem;font-weight:700;color:var(--ink);text-decoration:none;}
+.recipe-link:hover{color:var(--red);}
+.lookalike-text,.local-note-text{font-size:0.84rem;line-height:1.58;color:var(--ink2);}
+.season-filters{display:flex;gap:0.35rem;flex-wrap:wrap;margin:-0.2rem 0 0.75rem;}
+.mobile-quickbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:0.55rem;justify-content:center;padding:0.7rem 0.9rem calc(0.7rem + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(248,246,240,0),rgba(248,246,240,.98) 22%,rgba(248,246,240,1));pointer-events:none;}
+.mobile-quickbar .mqb-btn{pointer-events:auto;appearance:none;border:1px solid var(--border);background:#fff;border-radius:999px;padding:0.72rem 0.95rem;font:800 0.78rem/1 var(--sans);color:var(--ink);box-shadow:0 10px 24px rgba(0,0,0,.08);}
+body.has-mobile-quickbar #scroll-area{padding-bottom:5.4rem;}
+
+/* ── BIOME PICKER ─────────────────────────────────────── */
+#s-biomes{padding:1.5rem 1.25rem;gap:1rem;}
+.biome-grid{display:flex;flex-direction:column;gap:0.5rem;}
+.biome-card{display:flex;align-items:center;gap:0.85rem;padding:0.85rem 1rem;background:var(--paper);border:1.5px solid var(--border);border-radius:var(--r-lg);cursor:pointer;transition:all var(--ease);text-align:left;}
+.biome-card:hover{border-color:var(--green);background:var(--card);transform:translateX(4px);box-shadow:var(--shadow);}
+.biome-icon{font-size:2.2rem;line-height:1;flex-shrink:0;}
+.biome-info{flex:1;}
+.biome-name{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);}
+.biome-desc{font-size:0.78rem;line-height:1.5;color:var(--ink3);margin-top:0.15rem;}
+.biome-count{font-family:var(--mono);font-size:0.58rem;color:var(--ink3);letter-spacing:0.08em;margin-top:0.2rem;}
+.biome-arrow{font-size:1.2rem;color:var(--ink3);flex-shrink:0;}
+
+/* Gear tip box */
+.gear-tip{margin:0.5rem 0;padding:0.75rem 1rem;background:rgba(32,96,160,0.06);border:1px solid rgba(32,96,160,0.16);border-radius:var(--r);border-left:3px solid var(--blue);}
+.gear-tip-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:0.25rem;font-weight:500;}
+.gear-tip p{font-size:0.8rem;line-height:1.6;color:var(--ink2);}
+
+/* Fire safety box */
+.fire-tip{margin:0.5rem 0;padding:0.75rem 1rem;background:rgba(200,16,46,0.05);border:1px solid rgba(200,16,46,0.15);border-radius:var(--r);border-left:3px solid var(--red);}
+.fire-tip-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:0.25rem;font-weight:500;}
+.fire-tip p{font-size:0.8rem;line-height:1.6;color:var(--ink2);}
+
+/* ── START SCREEN (per biome) ─────────────────────────── */
+#s-start{padding:2rem 1.75rem;align-items:center;text-align:center;gap:0.9rem;}
+.start-btn{padding:0.85rem 2.25rem;background:var(--green);border:none;border-radius:10px;font-family:var(--sans);font-size:0.95rem;font-weight:700;color:#fff;cursor:pointer;letter-spacing:0.01em;transition:background var(--ease),transform var(--ease);box-shadow:0 2px 8px rgba(42,122,58,0.3);}
+.start-btn:hover{background:var(--green-hi);transform:translateY(-2px);}
+.browse-btn{padding:0.65rem 1.5rem;background:transparent;border:1.5px solid var(--border2);border-radius:10px;font-family:var(--sans);font-size:0.82rem;font-weight:600;color:var(--ink2);cursor:pointer;letter-spacing:0.01em;transition:all var(--ease);}
+.browse-btn:hover{background:var(--paper);border-color:var(--green);}
+.back-btn{padding:0.55rem 1.2rem;background:transparent;border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);cursor:pointer;transition:all var(--ease);}
+.back-btn:hover{border-color:var(--green);color:var(--green);}
+
+/* Weather card on start */
+.wx-card{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:0.75rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;}
+.wx-stat{display:flex;flex-direction:column;align-items:center;gap:0.1rem;}
+.wx-stat-val{font-family:var(--mono);font-size:0.9rem;font-weight:500;color:var(--ink);}
+.wx-stat-lbl{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+.wx-loading{width:100%;text-align:center;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--ink3);padding:0.5rem;}
+.wx-live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2.2s ease-in-out infinite;display:inline-block;margin-right:0.3rem;}
+
+
+/* ── ITEM SCREEN ──────────────────────────────────────── */
+#s-item,#s-reveal{padding-bottom:0.35rem;}
+.item-ctx{padding:0.8rem 1.35rem 0;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
+.item-ctx-lbl{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);}
+.item-n{font-family:var(--mono);font-size:0.58rem;color:rgba(80,44,8,0.35);}
+.item-stage{padding:1.35rem 1.5rem 0.9rem;display:flex;flex-direction:column;align-items:center;gap:0.65rem;}
+.item-emoji{display:flex;align-items:center;justify-content:center;width:min(100%,340px);aspect-ratio:4/3;line-height:1;animation:floatIn .4s cubic-bezier(.34,1.56,.64,1);cursor:pointer;transition:transform .22s ease;transform-origin:center bottom;}
+.item-emoji:hover{transform:translateY(-2px) scale(1.03);}
+.guide-figure{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:24px;overflow:hidden;isolation:isolate;background:linear-gradient(180deg, rgba(250,246,238,0.99), rgba(247,241,231,0.99));}
+.guide-figure img{display:block;width:100%;height:100%;object-fit:contain;object-position:center center;mix-blend-mode:normal;filter:saturate(.99) contrast(1.01);}
+.guide-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:3rem;line-height:1;}
+.guide-fallback[hidden]{display:none !important;}
+.guide-figure.is-fallback{background:transparent;border:1px dashed var(--border2);}
+.item-emoji.ee-beat{animation:eePulse .34s cubic-bezier(.34,1.56,.64,1) both;}
+.reveal-icon{display:flex;align-items:center;justify-content:center;width:104px;aspect-ratio:4/3;line-height:1;flex-shrink:0;}
+.reveal-icon .guide-fallback{font-size:2rem;}
+.browse-thumb{display:flex;align-items:center;justify-content:center;width:104px;aspect-ratio:4/3;flex-shrink:0;}
+.browse-thumb .guide-fallback{font-size:1.5rem;}
+@keyframes floatIn{0%{opacity:0;transform:scale(.4) translateY(16px);}100%{opacity:1;transform:scale(1) translateY(0);}}
+@keyframes eePulse{0%{transform:scale(.92);opacity:.72;}55%{transform:scale(1.06);opacity:1;}100%{transform:scale(1);opacity:1;}}
+.item-name{font-family:var(--sans);font-size:1.95rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);text-align:center;}
+.item-sci{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);letter-spacing:0.06em;font-style:italic;text-align:center;}
+.rarity-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.18rem 0.6rem;border-radius:100px;font-family:var(--mono);font-size:0.58rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-top:0.15rem;}
+.r-common{background:rgba(42,122,58,0.1);color:var(--green);border:1px solid rgba(42,122,58,0.2);}
+.r-uncommon{background:rgba(42,90,160,0.1);color:#2a5aa0;border:1px solid rgba(42,90,160,0.2);}
+.r-rare{background:rgba(180,120,0,0.1);color:var(--amber);border:1px solid rgba(180,120,0,0.2);}
+.r-veryrare{background:rgba(200,16,46,0.08);color:var(--red);border:1px solid rgba(200,16,46,0.18);}
+.r-protected{background:rgba(200,16,46,0.08);color:var(--red);border:1.5px solid var(--red);}
+.r-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+.season-row{display:flex;gap:0.3rem;flex-wrap:wrap;justify-content:center;margin-top:0.2rem;}
+.sb{padding:.14rem .45rem;border-radius:100px;font-family:var(--mono);font-size:0.55rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid currentColor;opacity:0.75;}
+.sb-spring{color:#3a8a2a;}.sb-summer{color:#b47800;}.sb-fall{color:#a04010;}.sb-winter{color:#2a60a0;}.sb-year{color:var(--ink3);}
+.biome-badge{display:inline-flex;align-items:center;gap:0.3rem;padding:0.15rem 0.5rem;border-radius:100px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.06em;border:1px solid var(--border);color:var(--ink3);margin-top:0.1rem;flex-wrap:wrap;justify-content:center;}
+.item-q{padding:0 1.45rem 0.85rem;font-size:0.94rem;font-weight:600;color:var(--ink);text-align:center;line-height:1.56;}
+.choices{padding:0 1.15rem 0.75rem;display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;}
+.cb{padding:0.78rem 0.8rem;border-radius:10px;border:1px solid var(--border);background:var(--paper);color:var(--ink2);font-family:var(--sans);font-size:0.83rem;font-weight:500;cursor:pointer;text-align:center;line-height:1.42;transition:all var(--ease);}
+.cb:hover:not(:disabled){border-color:var(--green);background:#f0ede4;color:var(--ink);transform:translateY(-1px);}
+.cb.correct{background:rgba(42,122,58,0.12);border-color:rgba(42,122,58,0.5);color:#1a5a28;}
+.cb.wrong{background:rgba(200,16,46,0.08);border-color:rgba(200,16,46,0.4);color:var(--red-mid);}
+.cb:disabled{cursor:default;}
+.tap-action{margin:0 1rem 0.9rem;padding:0.95rem 1rem;border-radius:12px;border:1px dashed var(--border2);background:var(--paper);text-align:center;cursor:pointer;transition:all var(--ease);}
+.tap-action:hover{border-color:var(--green);background:#f0ede4;}
+.tap-action-text{font-size:0.86rem;color:var(--ink2);line-height:1.6;}
+.tap-hint{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-top:0.35rem;animation:blink 2s ease-in-out infinite;}
+
+/* ── REVEAL SCREEN ────────────────────────────────────── */
+.reveal-top{padding:1.05rem 1.35rem 0.55rem;display:flex;align-items:center;gap:0.9rem;}
+.reveal-name{font-family:var(--sans);font-size:1.36rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);line-height:1.1;}
+.reveal-sci{font-family:var(--mono);font-size:0.62rem;color:var(--ink3);font-style:italic;margin-top:0.16rem;}
+.reveal-verdict{padding:0 1.35rem 0.7rem;}
+.vd{display:inline-flex;align-items:center;gap:0.3rem;border-radius:6px;padding:0.32rem 0.65rem;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;}
+.vd-ok{background:rgba(42,122,58,0.1);border:1px solid rgba(42,122,58,0.3);color:#1a5a28;}
+.vd-no{background:rgba(200,16,46,0.07);border:1px solid rgba(200,16,46,0.3);color:var(--red-mid);}
+.vd-inf{background:rgba(42,90,160,0.08);border:1px solid rgba(42,90,160,0.25);color:#1a4a90;}
+.reveal-body{padding:0 1.35rem 0.95rem;font-size:0.88rem;line-height:1.82;color:var(--ink2);}
+.quick-facts{margin:0 1rem 0.85rem;display:grid;grid-template-columns:repeat(2,1fr);gap:0.55rem;}
+.qf{padding:0.75rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:12px;}
+.qf-k{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.22rem;}
+.qf-v{font-size:0.8rem;line-height:1.5;color:var(--ink);font-weight:650;}
+.reveal-section-label{padding:0 1.35rem 0.45rem;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);}
+.facts{margin:0 1rem 0.95rem;display:flex;flex-direction:column;gap:0.55rem;}
+.fact{display:flex;gap:0.8rem;padding:0.85rem 0.95rem;background:var(--paper);border:1px solid var(--border);border-radius:10px;}
+.fact-l{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);flex-shrink:0;width:96px;padding-top:0.12rem;line-height:1.5;font-weight:500;}
+.fact-v{font-size:0.84rem;color:var(--ink2);line-height:1.7;}
+.otw-strip{margin:0 1rem 1rem;padding:0.9rem 1rem;background:rgba(180,120,0,0.07);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;}
+.otw-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:0.35rem;font-weight:500;}
+.otw-text{font-size:0.83rem;line-height:1.72;color:var(--ink2);}
+.continue-btn{margin:0 1rem 0.8rem;padding:0.92rem;background:var(--green);border:none;border-radius:10px;font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.4rem;transition:background var(--ease),transform var(--ease);box-shadow:0 2px 8px rgba(42,122,58,0.25);}
+.continue-btn:hover{background:var(--green-hi);transform:translateY(-1px);}
+.matrix-exits{display:flex;flex-wrap:wrap;gap:0.5rem;padding:0 1rem 1rem;}
+.matrix-link{padding:0.55rem 0.8rem;background:transparent;border:1px solid var(--border);border-radius:999px;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);cursor:pointer;transition:all var(--ease);}
+.matrix-link:hover{border-color:var(--green);color:var(--green);background:rgba(42,122,58,0.05);}
+
+/* ── BROWSE MODE ──────────────────────────────────────── */
+#s-browse{padding:1rem;}
+.browse-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
+.browse-title{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--ink);}
+.browse-back{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);cursor:pointer;background:none;border:none;}
+.browse-grid{display:flex;flex-direction:column;gap:0.55rem;max-height:72vh;overflow-y:auto;padding-right:0.1rem;}
+.browse-item{display:flex;align-items:center;gap:0.85rem;padding:0.72rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all var(--ease);}
+.browse-item:hover{border-color:var(--green);background:var(--card);transform:translateY(-1px);}
+.browse-name{font-size:0.9rem;font-weight:650;color:var(--ink);}
+.browse-sci{font-family:var(--mono);font-size:0.61rem;color:var(--ink3);font-style:italic;margin-top:0.12rem;}
+.browse-right{margin-left:auto;display:flex;align-items:center;gap:0.5rem;}
+/* Biome filter tabs in browse */
+.browse-filters{display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.75rem;}
+.bf-tab{padding:0.3rem 0.7rem;border-radius:100px;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.06em;border:1px solid var(--border);background:transparent;color:var(--ink3);cursor:pointer;transition:all var(--ease);}
+.bf-tab:hover{border-color:var(--green);}
+.bf-tab.active{background:var(--green);color:#fff;border-color:var(--green);}
+.browse-note{font-size:0.76rem;line-height:1.6;color:var(--ink3);margin:-0.1rem 0 0.6rem;padding:0 0.25rem;}
+.browse-search{margin:0 0.25rem 0.65rem;}
+.browse-search input{width:100%;padding:0.78rem 0.95rem;border-radius:12px;border:1px solid var(--border);background:var(--card);font:inherit;color:var(--ink);}
+.browse-search input:focus{outline:none;border-color:rgba(42,122,58,0.4);box-shadow:0 0 0 3px rgba(42,122,58,0.08);}
+.info-cta{display:flex;flex-wrap:wrap;gap:0.5rem;padding:0 1rem 1rem;}
+.info-cta .matrix-link{flex:0 0 auto;}
+
+@media(max-width:700px){
+  .mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}
+  .mh-left-info,.mh-right-info{display:none;}
+  .mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}
+}
+@media(max-width:560px){
+  .item-emoji{width:min(100%,300px);}
+  .reveal-top{align-items:flex-start;}
+  .reveal-icon{width:88px;}
+  .fact{flex-direction:column;gap:0.35rem;}
+  .fact-l{width:auto;padding-top:0;}
+  .browse-thumb{width:84px;}
+  .quick-start,.quick-facts{grid-template-columns:1fr;}
+  .matrix-link{flex:1 1 calc(50% - 0.25rem);text-align:center;}
+}
+
+@media (hover:none){
+  .biome-card:hover,.start-btn:hover,.browse-btn:hover,.back-btn:hover,.cb:hover:not(:disabled),.tap-action:hover,.continue-btn:hover,.matrix-link:hover,.browse-item:hover,.bf-tab:hover{transform:none;box-shadow:none;}
+  .biome-card:hover,.browse-item:hover{background:var(--paper);border-color:var(--border);}
+  .start-btn:hover,.continue-btn:hover{background:var(--green);}
+  .browse-btn:hover,.back-btn:hover,.matrix-link:hover,.bf-tab:hover{background:transparent;border-color:var(--border);color:var(--ink3);}
+  .tap-action:hover{background:var(--paper);border-color:var(--border2);}
+}
+
+@media(max-width:480px){
+  .mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}
+  .item-name{font-size:1.62rem;}
+  .choices{grid-template-columns:1fr;}
+  .wx-card{grid-template-columns:repeat(2,1fr);}
+  #scroll-area{padding:0.5rem 0.5rem 3rem;}
+  .item-q{padding:0 1rem 0.8rem;}
+  .item-stage{padding:1.15rem 1rem 0.9rem;}
+  .reveal-body{padding:0 1rem 0.9rem;}
+  .reveal-verdict{padding:0 1rem 0.7rem;}
+}
+@media (prefers-reduced-motion: reduce){
+  .item-emoji,.browse-item,.matrix-link,.cb,.continue-btn{transition:none;}
+  .item-emoji,.item-emoji.ee-beat{animation:none;}
+  .tap-hint,.wx-live,.wx-live-dot{animation:none;}
+}
+
+
+/* ── END SCREEN ───────────────────────────────────────── */
+#s-end{padding:2rem 1.5rem;align-items:center;text-align:center;gap:0.75rem;}
+.score-ring{width:86px;height:86px;border-radius:50%;background:rgba(42,122,58,0.1);border:3px solid var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.score-num{font-family:var(--sans);font-size:2rem;font-weight:800;letter-spacing:-0.02em;color:var(--green);line-height:1;}
+.score-lbl{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+.end-title{font-family:var(--sans);font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;color:var(--ink);}
+.end-body{font-size:0.84rem;line-height:1.7;color:var(--ink2);max-width:320px;}
+.end-discs{display:flex;gap:0.3rem;flex-wrap:wrap;justify-content:center;}
+.ed{font-size:1.5rem;animation:pop .3s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes pop{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+.replay-btn{padding:0.72rem 2rem;background:var(--red);border:none;border-radius:8px;font-family:var(--sans);font-size:0.86rem;font-weight:700;color:#fff;cursor:pointer;transition:background var(--ease);}
+.replay-btn:hover{background:var(--red-mid);}
+
+@media(max-width:700px){
+  .mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}
+  .mh-left-info,.mh-right-info{display:none;}
+  .mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}
+}
+@media(max-width:480px){
+  .mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}
+  .item-emoji{font-size:4rem;}
+  .item-name{font-size:1.5rem;}
+  .choices{grid-template-columns:1fr;}
+  .wx-card{grid-template-columns:repeat(2,1fr);}
+  #scroll-area{padding:0.5rem 0.5rem 3rem;}
+}
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>
+    <div class="mh-brand"><a href="cardiff-home.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>
+    <div class="mh-right-info">
+      <span class="wx-hi" id="mhTemp">—°F</span> &nbsp;·&nbsp; <span id="mhCond">—</span><br>
+      <span id="mhWind">—</span>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="cardiff-home.html" id="tab-home">Home</a>
+    <a href="cardiff-news.html" id="tab-news">News</a>
+    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="cardiff-guide.html" id="tab-guide" class="active">Field Guide</a>
+    <a href="cardiff-hollers.html" id="tab-hollers">Hills &amp; Hollers</a>
+    <a href="cardiff-kitchen.html" id="tab-kitchen">Recipes</a>
+    <a href="cardiff-cemetery.html" id="tab-cemetery">Cemetery</a>
+    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
+    <a href="cardiff-involved.html" id="tab-involved">Get Involved</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text">Field Guide · Start with your biome · Use the weather card below for live conditions · Learn the creek, woods, seasons, and safety notes one step at a time</span></div>
+  </div>
+</header>
+
+<!-- Progress pill -->
+<div id="progPill" style="display:none;position:sticky;top:0;z-index:99;background:var(--paper);border-bottom:1px solid var(--border);padding:0.3rem 1.5rem;align-items:center;justify-content:center;gap:0.5rem;">
+  <span style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--ink3);text-transform:uppercase;"><span id="pc">0</span> / <span id="pt">0</span></span>
+  <div class="prog-track" style="flex:1;max-width:200px;"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+</div>
+
+<div id="scroll-area">
+  <div class="game-card" id="gameCard">
+
+    <!-- ── WELCOME ─────────────────────────────────── -->
+    <div class="cs on" id="s-welcome">
+      <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:0.5rem;justify-content:center;">
+        <span style="width:16px;height:1.5px;background:var(--red);display:inline-block;"></span>
+        Cardiff, Alabama
+        <span style="width:16px;height:1.5px;background:var(--red);display:inline-block;"></span>
+      </div>
+      <div style="font-family:var(--sans);font-size:2.2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);text-align:center;">Five Mile<br>Creek<br>Field Guide</div>
+
+      <div id="wxCard" class="wx-loading">
+        <span class="wx-live-dot"></span> Loading Cardiff conditions…
+      </div>
+
+      <div id="seasonStrip" style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;"></div>
+
+      <div class="welcome-search">
+        <input id="welcomeSearch" type="search" placeholder="Search species, nicknames, habitats, or what you noticed" onkeydown="handleWelcomeSearchKey(event)">
+        <button class="welcome-search-go" type="button" onclick="runWelcomeSearch()">Search the field guide</button>
+        <div class="welcome-search-note">Start with a name if you know it. Otherwise try a clue like snake, mushroom, owl, near water, or night.</div>
+      </div>
+
+
+      <div class="quick-start">
+        <div class="quick-chip"><div class="quick-chip-k">Best first move</div><div class="quick-chip-v">Choose a biome if you know the habitat. Browse all species if you do not.</div></div>
+        <div class="quick-chip"><div class="quick-chip-k">Use this guide for</div><div class="quick-chip-v">Fast identification, seasonal context, and local safety notes.</div></div>
+      </div>
+
+      <div class="welcome-intro">
+        <div class="welcome-kicker">Start with what the day is doing</div>
+        <p>Five Mile Creek changes with the weather, the season, and the ground under your feet. The card above tells you what kind of day it is. Then the guide helps you match what you are seeing to the right habitat and species.</p>
+        <p>This project tries to hold three things together: local memory, Indigenous presence, and field-tested science. Use it as a practical companion. The fastest path is the right one: find the habitat, open the species, and read the field note.</p>
+      </div>
+
+      <button class="start-btn" onclick="showBiomes()">Choose Your Biome →</button>
+      <button class="browse-btn" onclick="showBrowse()">Browse All Species ↓</button>
+    </div>
+
+    <!-- ── BIOME PICKER ────────────────────────────── -->
+    <div class="cs" id="s-biomes">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0 0.25rem;">
+        <div style="font-family:var(--sans);font-size:1.2rem;font-weight:800;color:var(--ink);">Choose Your Biome</div>
+        <button class="back-btn" onclick="showState('welcome')">← Back</button>
+      </div>
+      <p style="font-size:0.82rem;line-height:1.6;color:var(--ink2);">Pick a place to explore. Each biome has its own creatures, its own dangers, and its own wisdom. Some animals show up in more than one — that's how nature works.</p>
+
+      <div class="biome-grid" id="biomeGrid"></div>
+
+      <div class="gear-tip">
+        <div class="gear-tip-label">🥾 What to Wear</div>
+        <p>Long pants, closed-toe shoes, and a hat are baseline for any biome. During snake season (March–October), wear gaiters — they cover your lower legs and stop a fang from reaching skin. Tuck your pants into your boots. Light-colored clothing helps you spot ticks before they reach skin.</p>
+      </div>
+
+      <div class="fire-tip">
+        <div class="fire-tip-label">🔥 Wildfire Season</div>
+        <p>We live in the woods. Wildfire season runs roughly February through May and again in fall when the brush dries out. Clear underbrush around your property when and where you can. Don't burn on windy days. Keep a defensible space. Your neighbor's land and your land are connected by fire — what you clear protects everyone.</p>
+      </div>
+
+      <button class="start-btn" onclick="startAll()" style="margin-top:0.5rem;">Explore All Biomes →</button>
+    </div>
+
+    <!-- ── START (per biome) ───────────────────────── -->
+    <div class="cs" id="s-start">
+      <div style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:0.5rem;justify-content:center;">
+        <span style="width:16px;height:1.5px;background:var(--red);display:inline-block;"></span>
+        <span id="biomeLabel">Creek</span>
+        <span style="width:16px;height:1.5px;background:var(--red);display:inline-block;"></span>
+      </div>
+      <div style="font-family:var(--sans);font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);text-align:center;" id="biomeTitle">Five Mile Creek</div>
+      <p style="font-size:0.86rem;line-height:1.72;color:var(--ink2);text-align:center;max-width:340px;" id="biomeSub"></p>
+      <div id="biomeGear" class="gear-tip" style="display:none;"></div>
+      <button class="start-btn" onclick="showBiomeBrowse()">View Species in This Biome →</button>
+      <button class="browse-btn" onclick="startBiomeGame()">Play the Biome Quiz ↓</button>
+      <button class="back-btn" onclick="showBiomes()">← All Biomes</button>
+    </div>
+
+    <!-- ── ITEM ────────────────────────────────────── -->
+    <div class="cs" id="s-item">
+      <div class="item-ctx">
+        <span class="item-ctx-lbl" id="iCtx">—</span>
+        <span class="item-n" id="iNum">—</span>
+      </div>
+      <div class="item-stage">
+        <span class="item-emoji" id="iEmoji" onclick="handleTap()">🐟</span>
+        <div class="item-name" id="iName">—</div>
+        <div class="item-sci" id="iSci">—</div>
+        <div class="rarity-badge" id="iRarity"></div>
+        <div class="season-row" id="iSeasons"></div>
+        <div class="biome-badge" id="iBiomes"></div>
+      </div>
+      <div class="item-q" id="iQ"></div>
+      <div class="choices" id="iChoices"></div>
+      <div class="tap-action" id="iTap" onclick="handleTap()" style="display:none">
+        <div class="tap-action-text" id="iTapText">—</div>
+        <div class="tap-hint">👆 Tap to discover</div>
+      </div>
+      <div class="matrix-exits">
+        <button class="matrix-link" type="button" onclick="showState('welcome')">← Home</button>
+        <button class="matrix-link" type="button" onclick="showBiomes()">Biomes</button>
+        <button class="matrix-link" type="button" onclick="currentBiome?showBiomeBrowse():showBrowse()">Browse</button>
+      </div>
+    </div>
+
+    <!-- ── REVEAL ──────────────────────────────────── -->
+    <div class="cs" id="s-reveal">
+      <div class="reveal-top">
+        <div class="reveal-icon" id="rIcon">🐟</div>
+        <div><div class="reveal-name" id="rName">—</div><div class="reveal-sci" id="rSci">—</div></div>
+      </div>
+      <div class="reveal-verdict" id="rVerdict"></div>
+      <div class="quick-facts" id="rQuickFacts"></div>
+      <div class="lookalike-box" id="lookalikeBox" style="display:none">
+        <div class="lookalike-label">Often confused with</div>
+        <div class="lookalike-text" id="lookalikeText"></div>
+      </div>
+      <div class="local-note-box" id="localNoteBox" style="display:none">
+        <div class="local-note-label">Seen in Cardiff</div>
+        <div class="local-note-text" id="localNoteText"></div>
+      </div>
+      <div class="reveal-section-label">Field note</div>
+      <div class="reveal-body" id="rBody"></div>
+      <div class="recipe-link-box" id="recipeLinkBox" style="display:none">
+        <div class="recipe-link-label">Kitchen</div>
+        <a class="recipe-link" id="recipeLink" href="cardiff-kitchen.html">Open matching recipe →</a>
+      </div>
+      <div class="reveal-section-label">What to notice</div>
+      <div class="facts" id="rFacts"></div>
+      <div class="otw-strip" id="otwStrip" style="display:none">
+        <div class="otw-label">🪵 Old-Timer Wisdom</div>
+        <div class="otw-text" id="otwText"></div>
+      </div>
+      <button class="continue-btn" onclick="advanceFromReveal()"><span id="cBtnTxt">Next →</span></button>
+      <div class="matrix-exits">
+        <button class="matrix-link" type="button" onclick="showState('welcome')">← Home</button>
+        <button class="matrix-link" type="button" onclick="showBiomes()">Biomes</button>
+        <button class="matrix-link" type="button" onclick="currentBiome?showBiomeBrowse():showBrowse()">Browse</button>
+      </div>
+    </div>
+
+    <!-- ── BROWSE ──────────────────────────────────── -->
+    <div class="cs" id="s-browse">
+      <div style="padding:0 0.25rem;">
+        <div class="browse-header">
+          <div class="browse-title">All Species</div>
+          <button class="browse-back" onclick="showState('welcome')">← Back</button>
+        </div>
+        <div class="browse-filters" id="browseFilters"></div>
+        <div class="season-filters" id="seasonFilters"></div>
+        <div class="browse-search"><input id="browseSearch" type="search" placeholder="Search common names, nicknames, scientific names, or keywords" oninput="setBrowseSearch(this.value)"></div>
+        <div class="browse-note">Tap a species for the full field note. Search handles common names, local nicknames, keyword matches, and the active-now filter.</div>
+      </div>
+      <div class="browse-grid" id="browseList"></div>
+    </div>
+
+    <!-- ── END ─────────────────────────────────────── -->
+    <div class="cs" id="s-end">
+      <div class="score-ring"><div class="score-num" id="eScore">—</div><div class="score-lbl">correct</div></div>
+      <div class="end-title" id="eTitle">Well done.</div>
+      <p class="end-body" id="eBody">—</p>
+      <div class="end-discs" id="eDiscs"></div>
+      <button class="start-btn" onclick="showBiomes()" style="margin-top:0.5rem;">Try Another Biome →</button>
+      <button class="replay-btn" onclick="replayGame()">Play Again</button>
+      <button class="back-btn" onclick="showState('welcome')" style="margin-top:0.25rem;">← Home</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="mobile-quickbar" id="mobileQuickbar">
+  <button class="mqb-btn" type="button" onclick="showState('welcome')">Home</button>
+  <button class="mqb-btn" type="button" onclick="currentBiome?showBiomeBrowse():showBrowse()">Browse</button>
+  <button class="mqb-btn" type="button" onclick="focusGuideSearch()">Search</button>
+</div>
+
+<script>
+// ── RARITY ───────────────────────────────────────────────
+const RARITY={
+  common:{cls:'r-common',label:'Common'},
+  uncommon:{cls:'r-uncommon',label:'Uncommon'},
+  rare:{cls:'r-rare',label:'Rare'},
+  veryrare:{cls:'r-veryrare',label:'Very Rare'},
+  protected:{cls:'r-protected',label:'⭐ Protected'}
+};
+
+// ── BIOME DEFINITIONS ────────────────────────────────────
+const BIOMES = {
+  creek: {
+    icon:'🏞️', name:'Creek', title:'Five Mile Creek',
+    desc:'The water and everything that lives along its banks. Fish, amphibians, crawdads, and the insects that tell you whether the water is clean.',
+    gear:'Waterproof boots or old shoes you don\'t mind getting wet. A walking stick helps with slippery rocks. Watch your step on algae-covered stones — they\'re like ice.'
+  },
+  woods: {
+    icon:'🌲', name:'Woods', title:'The Bottomland Woods',
+    desc:'Hardwood forest along the creek corridor. Deer, fox, turkey, mushrooms, and the things that live under rocks and fallen logs.',
+    gear:'Long pants, boots, gaiters during snake season (March–October). Bring water — large wild grape vines in the deep woods can be cut for emergency water if you know what you\'re looking for. The vine should drip clear, not milky.'
+  },
+  treetops: {
+    icon:'🌳', name:'Treetops', title:'The Canopy',
+    desc:'Everything that lives above your head. Hawks, owls, woodpeckers, bats, cicadas, and the ecosystem that exists sixty feet up.',
+    gear:'Binoculars change everything up here. A field guide to birds of Alabama helps. Best time is early morning when the birds are active and calling.'
+  },
+  swamp: {
+    icon:'🫧', name:'Swamp', title:'The Bottomland Swamp',
+    desc:'Low, wet ground where the creek floods and the water sits. Turtles, snakes, salamanders, and things that thrive in standing water.',
+    gear:'Rubber boots — you will get wet. Gaiters are essential here, not optional. Cottonmouths prefer still, swampy water over moving creek water. Watch where you step and where you put your hands.'
+  },
+  meadow: {
+    icon:'🌾', name:'Meadow', title:'The Fields & Clearings',
+    desc:'Open ground, field edges, and the margins where forest meets clearing. Hawks overhead, deer at the edges, wildflowers, and the mice that feed everything.',
+    gear:'Hat for sun, light-colored clothing to spot ticks. Check yourself thoroughly after walking through tall grass. This is where chiggers live — tuck your pants into your socks.'
+  }
+};
+
+// ── SPECIES DATA ─────────────────────────────────────────
+let ITEMS=[
+  // ══════════════════════════════════════════════════════
+  // CREEK
+  // ══════════════════════════════════════════════════════
+  {id:'bream',biomes:['creek'],rarity:'common',icon:'🐟',name:'Bluegill',sci:'Lepomis macrochirus',ctx:'In the shallows',seasons:['spring','summer'],
+    type:'quiz',q:'You see a flash of color near a sunken log. Best way to catch a bluegill on Five Mile Creek?',
+    choices:['Fly fishing with a dry fly','Cricket under a bobber on a cane pole','Big spinner bait worked fast','Bottom rig with chicken liver'],correct:1,
+    vr:'That\'s exactly right.',vw:'The old-timers knew — a cricket under a bobber on a cane pole.',
+    body:'The bluegill — called "bream" by everyone around here — is the fish most Five Mile Creek kids catch first. Patient, curious, and relentless at stealing bait.',
+    facts:[{l:'Best Bait',v:'Live cricket under a bobber. Red worms and nightcrawler pieces also work. Match whatever is naturally hatching on the water.'},{l:'Best Time',v:'Early morning and late afternoon. Spawning in late spring — males guard shallow gravel nests and will bite anything that comes close.'},{l:'Cane Pole',v:'A long cane pole with no reel is still the best tool on Five Mile Creek. Quiet, accurate, drops a cricket exactly where you want it.'}],
+    otw:'A cricket under a bobber on a cane pole. Check any shady hole tight against the bank. The bream\'s in there — it just needs a reason to commit.'},
+
+  {id:'rock',biomes:['creek'],icon:'🪨',name:'Under the Rock',sci:'Benthic macroinvertebrates',ctx:'In a riffle',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'A flat rock in the riffle. Flip it over and see what\'s living underneath.',tapReveal:'🪲🦗🪱',verdict:'info',
+    body:'Turning over a flat rock in a fast riffle is the oldest water quality test there is. What you find tells you everything about the health of Five Mile Creek.',
+    facts:[{l:'Good Signs',v:'Stonefly nymphs, mayfly nymphs, caddisfly larvae in little stick cases. These need clean, well-oxygenated water.'},{l:'Bad Signs',v:'Mostly just worms and midges — these tolerate pollution. Their dominance means the creek is stressed.'},{l:'As Bait',v:'Hellgrammites and stonefly nymphs are premium bait. Creek fishermen have known this for centuries — same creatures that indicate clean water are the ones fish want to eat.'}],
+    otw:'Old creek fishermen turned over rocks before choosing where to fish — not for science, but because what they found told them where the fish were feeding.'},
+
+  {id:'crayfish',biomes:['creek'],icon:'🦞',name:'Crawdad',sci:'Cambarus spp.',ctx:'Behind the rock',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'Something scooted backward when you lifted that rock.',tapReveal:'🦞',verdict:'info',
+    body:'Crayfish are the cornerstone of the creek food web. Food for bass, bream, herons, and raccoons. Catch them, cook them, use them as bait — or just watch them work.',
+    facts:[{l:'How to Catch',v:'Cup your hand downstream when you lift a rock. Crayfish scoot backward — right into your hand if you\'re patient and positioned right.'},{l:'As Bait',v:'A live crayfish hooked through the tail is one of the best bass baits in any Alabama creek. Let it walk on the bottom naturally.'},{l:'To Eat',v:'Boil in heavily salted water with Old Bay for 3–5 minutes. Eat the tails. Takes a pile of them but absolutely worth the work.'}],
+    otw:'Lower a piece of salt pork on a string into a deep hole, wait, then lift slowly. The crawdad grips so hard it won\'t let go until it\'s clear of the water.'},
+
+  {id:'heron',biomes:['creek','swamp'],rarity:'uncommon',icon:'🦤',name:'Great Blue Heron',sci:'Ardea herodias',ctx:'Standing in the shallows',seasons:['spring','summer','fall'],
+    type:'quiz',q:'The great blue heron stands motionless for two full minutes, then strikes. What is it doing?',
+    choices:['Sleeping standing up','Waiting to ambush a fish','Calling for a mate','Cooling off in the current'],correct:1,
+    vr:'Exactly. Patience is the entire technique.',vw:'Patience is the whole technique — it waits for the fish to come to it.',
+    body:'Five Mile Creek\'s best fisherman. Residents have spotted one regularly working the shallows near the old bridge site. A heron working your stretch of creek means the water has fish.',
+    facts:[{l:'Strike Speed',v:'A heron\'s strike covers 18 inches in about 40 milliseconds. The fish is already caught before you see the heron move.'},{l:'What They Eat',v:'Fish up to 12 inches, frogs, crayfish, snakes, and occasionally small mammals near the water. They swallow everything whole.'},{l:'What It Means',v:'Herons need clean, fish-rich water. Every confirmed sighting on Five Mile Creek is worth writing down — it\'s real ecological data.'}],
+    otw:'Mountain tradition says to watch where a kingfisher dives — that\'s where the fish are. The heron gives you the same information with more patience.'},
+
+  {id:'mayfly',biomes:['creek'],icon:'🦟',name:'Mayfly',sci:'Order Ephemeroptera',ctx:'On the water surface',seasons:['spring','fall'],
+    type:'quiz',q:'A mayfly spends most of its life in which form?',
+    choices:['Flying adult','Underwater larva (nymph)','Egg on a leaf','Pupa in a cocoon'],correct:1,
+    vr:'Right. The adult you see is just the ending.',vw:'The flying adult is just the finale — almost the entire life is lived underwater.',
+    body:'Mayflies spend up to a year as aquatic nymphs before emerging as adults for just one or two days — long enough to mate and die. A mayfly hatch on Five Mile Creek is worth seeing.',
+    facts:[{l:'Water Quality',v:'Mayfly nymphs are highly sensitive to low oxygen and pollution. Finding them means the creek is relatively clean at that spot.'},{l:'For Fishing',v:'When mayflies are hatching, fish feed aggressively at the surface. Match the color and size of what\'s hatching.'},{l:'Hatches',v:'Spring and fall hatches are most dramatic on Alabama creeks. Early morning and evening, especially after a warm rain.'}],
+    otw:null},
+
+  {id:'snake',biomes:['creek','swamp'],icon:'🐍',name:'Water Snake',sci:'Nerodia sipedon',ctx:'On a rock at the water\'s edge',seasons:['spring','summer','fall'],
+    type:'quiz',q:'You see a thick, patterned snake near Five Mile Creek. It\'s most likely:',
+    choices:['A cottonmouth water moccasin','A northern water snake — not venomous','A rat snake that fell in','A copperhead cooling off'],correct:1,
+    vr:'Correct. Leave it alone and it\'ll leave you alone.',vw:'Almost certainly a northern water snake — the cottonmouth is far less common in moving water.',
+    body:'The northern water snake is the most common snake along Five Mile Creek and is almost always mistaken for a cottonmouth. It is not venomous. Please don\'t kill water snakes.',
+    facts:[{l:'vs. Cottonmouth',v:'Cottonmouths prefer still, swampy water. They have blocky triangular heads and cat-eye pupils. When uncertain, leave it alone — that\'s always the right call.'},{l:'Chicken Snake',v:'The black rat snake (called "chicken snake" locally) also lives near Five Mile Creek. Non-venomous, excellent climber, important rodent control.'},{l:'What They Eat',v:'Fish, frogs, crayfish, salamanders. Important predators keeping populations balanced in the creek ecosystem.'}],
+    otw:null},
+
+  {id:'frog',biomes:['creek','swamp'],icon:'🐸',name:'Green Frog',sci:'Lithobates clamitans',ctx:'On the bank',seasons:['spring','summer'],
+    type:'tap',tapText:'Something went "plunk" into the water before you could see it.',tapReveal:'🐸',verdict:'info',
+    body:'Green frogs live along the entire length of Five Mile Creek. Amphibians breathe partly through their skin — they\'re exquisitely sensitive to water quality and pesticides. A healthy frog population is a very good sign.',
+    facts:[{l:'That Sound',v:'"Plunk" — like a loose banjo string. That\'s the male green frog calling from the bank, May through August.'},{l:'Bullfrog',v:'The bullfrog also lives here. Its deep "jug-o-rum" call carries a long way on summer nights.'},{l:'Sensitivity',v:'Frogs absorb chemicals directly through their skin. Pesticide runoff and herbicides hit them harder than almost any other animal.'}],
+    otw:'Bullfrog gigging at night with a lantern along the creek bank — still legal in Alabama with a license. Move the lantern slowly so the frog watches the light, not you.'},
+
+  {id:'bass',biomes:['creek'],rarity:'uncommon',icon:'🐠',name:'Largemouth Bass',sci:'Micropterus salmoides',ctx:'In the deep hole',seasons:['spring','fall'],
+    type:'quiz',q:'You\'re fishing a deep hole in Five Mile Creek. Where exactly should your bait be?',
+    choices:['On the surface near the middle','Right against the undercut bank or submerged log','Drifting in open current','As deep as possible straight down'],correct:1,
+    vr:'That\'s where the fish lives.',vw:'Bass are ambush predators — they need structure. Put it against the undercut bank.',
+    body:'Largemouth bass are the top predator in Five Mile Creek. A healthy bass population means the food web is working. Catch one, look it over, release it.',
+    facts:[{l:'Structure',v:'Bass don\'t patrol open water — they sit against something: an undercut bank, a sunken log, a rock ledge, a depth change. Put your bait there.'},{l:'Best Bait',v:'Live crayfish or minnows from the creek itself are hard to beat. Match what\'s naturally in the water.'},{l:'Release',v:'Most Five Mile Creek bass run 10–14 inches. Releasing them healthy keeps the population building. Wet your hands before handling.'}],
+    otw:'Find where the creek bends, find where it deepens, find where a tree fell in the water — then fish where all three meet. That\'s where the big one lives.'},
+
+  {id:'dragonfly',biomes:['creek','swamp','meadow'],icon:'🪲',name:'Dragonfly',sci:'Order Odonata',ctx:'Hovering over the water',seasons:['spring','summer','fall'],
+    type:'quiz',q:'A creek full of dragonflies means:',
+    choices:['The water is stagnant — they like still water','The water is relatively clean — larvae need good oxygen','Mosquito season is ending','Water level is dropping'],correct:1,
+    vr:'Right. The larvae underwater tell the real story.',vw:'Actually the opposite — dragonfly larvae need clean, well-oxygenated water to survive.',
+    body:'Dragonflies are one of the best signs of a healthy creek. Their larvae live underwater for 1–3 years before emerging as adults.',
+    facts:[{l:'Mosquito Control',v:'A single adult dragonfly can eat hundreds of mosquitoes per day. They are one of the most effective natural mosquito controls that exists.'},{l:'Water Quality',v:'Scientists use dragonfly larvae to measure creek health without expensive equipment. Their absence at a likely site is a red flag.'},{l:'Species Here',v:'Twelve-spotted skimmer, blue dasher, and widow skimmer are all common along Five Mile Creek in summer.'}],
+    otw:null},
+
+  {id:'snail',biomes:['creek','swamp','woods'],icon:'🐌',name:'Creek Snail',sci:'Family Pleuroceridae',ctx:'On a submerged stone',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'Small spiral shells cling to the rocks in the current.',tapReveal:'🐌',verdict:'info',
+    body:'Freshwater snails are one of the most overlooked indicators of creek health. Alabama has more freshwater snail species than any other state — many found nowhere else on earth.',
+    facts:[{l:'Biodiversity',v:'Alabama\'s rivers and creeks contain the highest freshwater snail diversity in North America. Many species are endemic — they exist in a single creek system and nowhere else.'},{l:'What They Do',v:'Snails graze algae from rocks, keeping the creek clean. They\'re food for fish, crayfish, and turtles. Simple animals doing essential work.'},{l:'Water Quality',v:'Like mayflies, many snail species require clean, well-oxygenated water. Their presence or absence tells you something real about creek health.'},{l:'Threats',v:'Sedimentation from erosion smothers snail habitat. Every cleared bank that sends dirt into the creek directly impacts these animals.'}],
+    otw:null},
+
+  // ══════════════════════════════════════════════════════
+  // WOODS
+  // ══════════════════════════════════════════════════════
+  {id:'deer',biomes:['woods','meadow'],rarity:'common',icon:'🦌',name:'White-tailed Deer',sci:'Odocoileus virginianus',ctx:'At the forest edge at dawn',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'A white-tailed deer raises its tail and flashes white while running. Why?',
+    choices:['To attract a mate','To signal danger to other deer','To confuse predators with the flash','To cool down while running'],correct:1,
+    vr:'Right — that white flag is a warning to every other deer watching.',vw:'The white tail is a danger signal. Every deer that sees it knows to be alert or run.',
+    body:'White-tailed deer are the most visible large mammal in Cardiff. They browse the forest edge at dawn and dusk, and their trails through the bottomland are some of the oldest paths in these woods.',
+    facts:[{l:'Antlers',v:'Bucks shed antlers every year between January and March. Shed hunting — walking the woods looking for dropped antlers — is a legitimate winter activity. Dogs can be trained to find them.'},{l:'Deer Season',v:'Alabama deer season runs roughly October through February depending on zone. Check ADCNR for current dates. Archery season opens first.'},{l:'Tracks',v:'Heart-shaped hoofprints in creek mud are deer. Two pointed toes close together. A running deer spreads its toes and dew claws show behind the main print.'},{l:'Garden Damage',v:'Deer will eat almost anything in a garden. Fencing is the only reliable deterrent — they can jump 8 feet, so it needs to be tall or angled.'}],
+    otw:'Old-timers tracked deer by reading the browse line — the height where all leaves and twigs are nipped off tells you how many deer are using an area. A low browse line means heavy pressure.'},
+
+  {id:'shedantler',biomes:['woods'],rarity:'uncommon',icon:'🫎',name:'Shed Antlers',sci:'Odocoileus virginianus (cast antler)',ctx:'On the forest floor',seasons:['winter','spring'],
+    type:'tap',tapText:'Something pale and branching on the ground, half-buried in leaves.',tapReveal:'🫎',verdict:'info',
+    body:'Every buck drops both antlers between January and March. They start growing new ones almost immediately. Finding a shed antler is like finding a piece of the forest\'s calendar — proof of who was here and when.',
+    facts:[{l:'When to Look',v:'Late January through March. Walk deer trails, bedding areas, and fence crossings where the jolt of jumping can knock an antler loose.'},{l:'Why They Shed',v:'Decreasing daylight after the rut triggers a hormonal change. A thin layer of bone between antler and skull dissolves, and the antler simply falls off.'},{l:'What to Do',v:'Keep it — shed antlers are legal to collect in Alabama. They make good dog chews, knife handles, or just mantelpiece conversation pieces.'},{l:'Matched Pairs',v:'Finding both sides from the same buck is the goal. They usually drop within a hundred yards of each other, but not always.'}],
+    otw:'An old deer hunter\'s trick: find a shed, then circle 50-100 yards in every direction. The other side is usually nearby. The buck didn\'t go far between losing one and losing the other.'},
+
+  {id:'chanterelle',biomes:['woods'],icon:'🍄',name:'Chanterelle',sci:'Cantharellus cibarius',ctx:'In the bottomland',seasons:['spring','summer','fall'],
+    type:'quiz',q:'You find a golden-orange mushroom in the bottomland. How do you confirm it\'s a chanterelle?',
+    choices:['It grows in clusters at a tree base','Forking ridges (not true gills) and apricot scent','Bright orange with white spots','It glows faintly in the dark'],correct:1,
+    vr:'That\'s the key — forking ridges, not gills.',vw:'The test: forking ridges (not true gills) under the cap, and an apricot scent. The poisonous look-alike has true gills and grows in clusters at trees.',
+    body:'Chanterelles grow in Cardiff\'s hardwood bottomland from late spring through fall, especially after summer rain. One of the finest wild edibles in the Alabama forest.',
+    facts:[{l:'Where to Look',v:'Under oaks and hardwoods after summer rain. They grow in the same spots year after year — find one spot and return to it.'},{l:'False Chanterelle',v:'The jack-o-lantern mushroom looks similar but grows in clusters at tree bases, has true gills, and glows faintly in the dark. It will make you very sick.'},{l:'Cooking',v:'Sauté in butter with salt. Don\'t wash them — brush off debris with a dry brush. Simple is best.'}],
+    otw:'Chanterelles are "golden teachers" — not for any special property, but because learning to identify them correctly teaches you the patience and careful observation needed for all foraging. Rushing gets you sick.'},
+
+  {id:'oyster',biomes:['woods'],icon:'🍄',name:'Oyster Mushroom',sci:'Pleurotus ostreatus',ctx:'On a dead log',seasons:['spring','fall','winter'],
+    type:'tap',tapText:'A cluster of shelf mushrooms growing from a dead log near the water.',tapReveal:'🍄',verdict:'info',
+    body:'Oyster mushrooms grow in overlapping clusters on dead hardwoods along Five Mile Creek, especially in cool, moist weather. One of the easiest wild mushrooms to identify and one of the best to eat.',
+    facts:[{l:'Identification',v:'White to tan, shelf-shaped, growing in clusters from dead wood. Gills run down the stem. Mild, pleasant smell. No look-alikes that grow from wood in clusters this way.'},{l:'When to Find',v:'Spring and fall are peak season, but oysters fruit in winter too during warm spells. After rain is always the best time to check logs.'},{l:'Cooking',v:'Sauté in butter with garlic. They shrink a lot — cook a generous amount. Outstanding in eggs or on toast.'},{l:'What Tree',v:'Oak, sweetgum, and tulip poplar along the creek bottomland are the most productive hosts.'}],
+    otw:'Any dead log near water that hasn\'t been checked in a few days after a rain is worth looking at. Oysters can appear overnight and go fast — the weather window is short.'},
+
+  {id:'lionsmane',biomes:['woods'],rarity:'rare',icon:'🍄',name:'Lion\'s Mane Mushroom',sci:'Hericium erinaceus',ctx:'On an old oak',seasons:['fall'],
+    type:'tap',tapText:'A white cascading mass hanging from a wound in an old hardwood.',tapReveal:'🍄',verdict:'info',
+    body:'Lion\'s mane is one of the most distinctive wild mushrooms in the Alabama forest — white, cascading, resembling exactly what its name describes. No look-alikes. When you see it, you know it.',
+    facts:[{l:'Identification',v:'Pure white cascading spines growing from a single point on the tree. No cap, no gills, no stem to speak of. Unmistakable. Turns yellow-brown as it ages — harvest it young.'},{l:'Taste',v:'Mild, with a texture often compared to crab or lobster. Slice thick, sauté in butter until golden. One of the finest wild mushrooms in eastern North America.'},{l:'Medicinal Interest',v:'Lion\'s mane has significant research interest for nerve growth support. Whether the amounts in a meal make a difference is debated — but it\'s worth knowing.'},{l:'Where to Find',v:'Old oaks and beeches, usually on wounds or branch stubs. Look 8–12 feet up as well as at eye level — it often fruits out of easy reach.'}],
+    otw:'The old rule: when you find a lion\'s mane tree, remember it. Check it the same week every year in late fall. They often fruit from the same wound repeatedly for years.'},
+
+  {id:'boxturt',biomes:['woods','meadow'],icon:'🐢',name:'Box Turtle',sci:'Terrapene carolina',ctx:'In the leaf litter',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'Something moves slowly through the leaf litter near the bank.',tapReveal:'🐢',verdict:'info',
+    body:'The eastern box turtle is one of Cardiff\'s most recognizable residents — domed shell with orange and yellow markings, wandering slowly through the bottomland and forest floor. They can live 50 to 100 years.',
+    facts:[{l:'Age',v:'Box turtles can live longer than most people. The big old one in your yard may have been there since your grandparents\' time.'},{l:'What They Eat',v:'Mushrooms, berries, earthworms, insects, and carrion. They help spread fungal spores and seeds throughout the forest.'},{l:'Roads',v:'Box turtles cross roads slowly and get hit constantly. If you see one in the road, move it to the side it was heading toward — not back where it came from.'},{l:'Home Range',v:'Box turtles rarely travel more than a few acres their entire lives. Moving one far from where it was found is effectively a death sentence — they can\'t navigate back.'}],
+    otw:'Old-timers kept box turtles in the garden to eat slugs and insects. They\'ll come back year after year if you leave them be. Don\'t move them from your property — they\'ll stay if they want to.'},
+
+  {id:'fox',biomes:['woods','meadow'],icon:'🦊',name:'Red Fox',sci:'Vulpes vulpes',ctx:'At the edge of the field at dusk',seasons:['fall','winter','spring'],
+    type:'tap',tapText:'A flash of red at the edge of the field as the light fades.',tapReveal:'🦊',verdict:'info',
+    body:'Red foxes are active along Five Mile Creek\'s field edges and forest margins, especially at dawn and dusk. You\'re more likely to hear their bark than see them — a strange, raspy scream that sounds like someone being murdered.',
+    facts:[{l:'That Sound',v:'The red fox bark is one of the more startling sounds of the Alabama night — a sharp, raspy "WAAAH" sound. Terrifying the first time you hear it in the dark.'},{l:'Diet',v:'Field mice, rabbits, birds, insects, berries, and carrion. Foxes are critical for keeping field mouse populations controlled.'},{l:'Dens',v:'Foxes often reuse groundhog burrows, enlarging them. A large burrow with scattered bones and fur nearby is likely an active fox den.'},{l:'Gray Fox',v:'The gray fox is also present along Five Mile Creek and is the only canid that regularly climbs trees. Smaller and less bold than the red.'}],
+    otw:'Old-timers said a fox\'s track tells its mood — a direct, purposeful line means hunting. A wandering, looping track means it\'s just moving through. Learning to read tracks is learning to read the land.'},
+
+  {id:'opossum',biomes:['woods','swamp'],icon:'🦔',name:'Opossum',sci:'Didelphis virginiana',ctx:'On a branch over the water',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'The opossum is remarkable for which actual biological trait?',
+    choices:['It\'s the only marsupial native to North America','It can hold its breath underwater for 10 minutes','It\'s immune to bee stings','It has the best night vision of any North American mammal'],correct:0,
+    vr:'Right — the only marsupial native to North America.',vw:'The opossum is the only marsupial native to North America — it raises young in a pouch, like a kangaroo.',
+    body:'The opossum is one of Five Mile Creek\'s odder residents — slow-moving, ancient-looking, and deeply misunderstood. They are one of the most ecologically valuable animals in the watershed.',
+    facts:[{l:'Tick Control',v:'A single opossum can consume up to 5,000 ticks per season. They groom compulsively and ingest ticks while doing it. Extraordinary tick control for a neighborhood.'},{l:'Playing Dead',v:'"Playing possum" is an involuntary response to extreme stress — the animal actually loses consciousness. It can last minutes to hours and it cannot control it.'},{l:'Immune System',v:'Opossums are largely immune to most snake venoms, including copperhead and cottonmouth. Researchers are studying their blood for antivenin applications.'},{l:'Rabies',v:'Opossums almost never carry rabies — their body temperature is too low for the virus to survive. One of the safest wild animals to encounter.'}],
+    otw:'Old-timers called them "possums" and ate them regularly. Possum and sweet potatoes was a legitimate Appalachian dish — baked together, the fat from the possum basting the potatoes. Not fashionable now, but it fed families.'},
+
+  {id:'armadillo',biomes:['woods','meadow'],icon:'🛡️',name:'Armadillo',sci:'Dasypus novemcinctus',ctx:'Rooting in the leaf litter',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'Something is crashing through the leaves, sounding much larger than it is.',tapReveal:'🛡️',verdict:'info',
+    body:'The nine-banded armadillo has expanded throughout Alabama in recent decades. Their leaf-litter rooting is audible from 50 feet away — they have no idea how loud they are.',
+    facts:[{l:'How They Got Here',v:'Armadillos expanded north from Texas and Florida through the 20th century, aided by a warmer climate and no natural predators willing to deal with that shell.'},{l:'Eyesight',v:'Nearly blind. They navigate by smell and can\'t see you standing still right in front of them. Walk slowly toward one for a memorable experience.'},{l:'Always Quadruplets',v:'Armadillos always give birth to exactly four identical quadruplets from a single egg. Every time. No exceptions.'},{l:'Digging',v:'Their rooting for beetle larvae and earthworms does minor damage to lawns but is relatively harmless in the bottomland — they prefer soft, moist soil near water.'}],
+    otw:'Armadillos weren\'t here when the old-timers were young. Their appearance is a living record of climate change — they can\'t survive extended freezes, and those have become rarer here.'},
+
+  {id:'coyote',biomes:['woods','meadow'],icon:'🐕‍🦺',name:'Coyote',sci:'Canis latrans',ctx:'Calling after dark',seasons:['fall','winter'],
+    type:'quiz',q:'You hear coyotes howling along Five Mile Creek at night. This means:',
+    choices:['The pack is attacking something large','They\'re communicating — locating each other and marking territory','There\'s a fire nearby scaring them','They only howl when they\'re hungry'],correct:1,
+    vr:'Right — it\'s communication, not crisis.',vw:'Howling is communication — they\'re talking to each other, not signaling an attack.',
+    body:'Coyotes have expanded throughout Alabama and are well established along Five Mile Creek. Intelligent, adaptable, and mostly invisible — you\'ll hear them far more than you\'ll see them.',
+    facts:[{l:'Diet',v:'Field mice, rabbits, groundhogs, persimmons, berries, carrion, insects. They eat what\'s available — genuinely omnivorous.'},{l:'Tracks',v:'Similar to a medium dog but in a straight line — coyotes place their back feet almost exactly where their front feet were, conserving energy.'},{l:'Pups',v:'Litters born in spring, April–May. Pups begin howling by late summer. The sudden increase in noise in August means a new generation.'},{l:'Coexistence',v:'Secure your chickens and small pets at night. Don\'t feed them intentionally or accidentally (unsecured garbage). They do real ecological work keeping rodent populations in check.'}],
+    otw:null},
+
+  {id:'hog',biomes:['woods','swamp'],icon:'🐗',name:'Wild Hog',sci:'Sus scrofa',ctx:'Rooting in the bottomland',seasons:['fall','winter','spring'],
+    type:'quiz',q:'Wild hogs along Five Mile Creek are a major problem because:',
+    choices:['They compete with deer for acorns','They root up the soil and vegetation, causing erosion into the watershed','They scare off native birds','They\'re venomous'],correct:1,
+    vr:'Exactly right — they destroy the bank and fill the creek with sediment.',vw:'Rooting is the real damage — they destroy the vegetated bank that filters runoff and holds soil out of the water.',
+    body:'Wild hogs are an invasive species doing serious damage to Five Mile Creek\'s watershed. They root up streambanks, destroy native vegetation, and send sediment directly into the water. Not a native species. Not beneficial.',
+    facts:[{l:'Damage',v:'A single sounder of hogs can destroy an acre of creek bank overnight. They uproot the vegetation that holds soil in place and filters runoff.'},{l:'Breeding',v:'Females can have two litters per year of 4–8 piglets each. They\'re nearly impossible to eliminate once established — only sustained pressure controls numbers.'},{l:'Legal Status',v:'Wild hogs are not protected in Alabama. They can be hunted year-round on private land without a license. Hunting them is encouraged.'},{l:'Signs',v:'Rooted-up soil, wallows (muddy depressions near water), fence damage, and tracks with two pointed toes splayed wide.'}],
+    otw:'Feral hogs around here weren\'t always a problem — they spread from poorly managed domestic pigs. Old-timers let hogs roam because they\'d come home at slaughter time. That practice ended. The hogs didn\'t.'},
+
+  {id:'scorpion',biomes:['woods'],icon:'🦂',name:'Striped Bark Scorpion',sci:'Centruroides vittatus',ctx:'Under a piece of bark',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'You lift a piece of loose bark from a log near the creek. Something scuttles.',tapReveal:'🦂',verdict:'info',
+    body:'Yes, scorpions live along Five Mile Creek — the striped bark scorpion is found throughout Alabama. Small, pale tan, and less dangerous than its reputation.',
+    facts:[{l:'Venom',v:'The striped bark scorpion\'s sting is painful but rarely dangerous to healthy adults — comparable to a bee sting. Children, elderly, and those with allergies should be more careful.'},{l:'Where They Hide',v:'Under loose bark, in wood piles, under rocks at the edge of moist areas. Check your boots if they\'ve been sitting outside overnight.'},{l:'What They Eat',v:'Insects, spiders, and other small invertebrates. Part of the ground-level predator community keeping insect populations in check.'},{l:'Glow',v:'Scorpions fluoresce bright blue-green under UV/black light. A UV flashlight at night near a log pile is a reliable way to find them.'}],
+    otw:'Old-timers in the area called them "stinging lizards" and checked their boots every morning. Good practice.'},
+
+  {id:'skunk',biomes:['woods','meadow'],icon:'🦨',name:'Striped Skunk',sci:'Mephitis mephitis',ctx:'At the forest edge at dusk',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'A skunk stamps its front feet before spraying. Why?',
+    choices:['It\'s angry and aggressive','It\'s warning you — spraying is a last resort','It\'s trying to look bigger','It\'s marking territory'],correct:1,
+    vr:'Right — a skunk gives you every chance to leave before it commits.',vw:'Skunks give fair warning. The foot-stamping, raised tail, and backward shuffle are all saying "please leave so I don\'t have to spray."',
+    body:'Striped skunks are common along Five Mile Creek\'s forest margins and residential edges. They eat grubs, insects, mice, and eggs — useful pest controllers that would rather avoid you entirely.',
+    facts:[{l:'Warning Signs',v:'Foot-stamping, raised tail, backward shuffling, and sometimes a short charge. If you see any of these, back away slowly. They don\'t want to spray — it costs them energy to reload.'},{l:'Spray Range',v:'Accurate up to about 10 feet and can reach 15. The oily musk clings to everything. Tomato juice doesn\'t work well — hydrogen peroxide, baking soda, and dish soap does.'},{l:'Diet',v:'Grubs, beetle larvae, field mice, bird eggs, berries, and garbage. A skunk rooting in your lawn is eating the grubs that damage the grass.'},{l:'Rabies',v:'Skunks are a primary rabies vector in Alabama. Never approach a skunk that\'s active in daylight or seems disoriented. Contact animal control.'}],
+    otw:null},
+
+  {id:'raccoon',biomes:['woods','creek','swamp'],icon:'🦝',name:'Raccoon',sci:'Procyon lotor',ctx:'At the creek washing food',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'Wet footprints on a flat rock — five tiny fingers, like a small human hand.',tapReveal:'🦝',verdict:'info',
+    body:'Raccoons are among the most intelligent and adaptable animals along Five Mile Creek. Their hand-like paws and problem-solving ability make them both fascinating and occasionally frustrating to live alongside.',
+    facts:[{l:'Those Hands',v:'Raccoon paws have exceptional sensitivity — they "see" with their hands, feeling for crayfish and mussels underwater. The scientific name Procyon lotor means "washing pre-dog."'},{l:'Intelligence',v:'Raccoons can remember solutions to tasks for up to three years and can open complex latches. They regularly defeat "raccoon-proof" garbage cans.'},{l:'Disease',v:'Raccoons can carry rabies, distemper, and roundworm parasites. Don\'t feed them, don\'t handle them, and keep your trash secured.'},{l:'Tracks',v:'Raccoon tracks are unmistakable — they look like tiny human handprints with five fingers spread wide. Look for them in creek mud.'}],
+    otw:'Old-timers hunted raccoons at night with dogs — coon hunting was one of the major rural pastimes in this area. The dogs would tree the raccoon, and the hunters would follow the sound of the baying.'},
+
+  {id:'bobcat',biomes:['woods'],rarity:'rare',icon:'🐱',name:'Bobcat',sci:'Lynx rufus',ctx:'A shadow between the trees',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'A brief glimpse of something tawny and short-tailed moving through undergrowth, already gone.',tapReveal:'🐱',verdict:'info',
+    body:'Bobcats are present along Five Mile Creek but almost never seen. They\'re roughly twice the size of a house cat, with a bobbed tail, tufted ears, and a spotted coat. Seeing one is genuinely rare — they see you long before you see them.',
+    facts:[{l:'Size',v:'15–35 pounds, about twice a large house cat. Muscular, low-slung, built for ambush hunting. The bobbed tail is the diagnostic feature.'},{l:'Diet',v:'Rabbits, squirrels, mice, birds, and occasionally fawns. They hunt by stalking and pouncing, not chasing.'},{l:'Signs',v:'Tracks are round with no claw marks (cats retract their claws). Scratch marks on trees and covered scat are territorial signs.'},{l:'Behavior',v:'Bobcats are solitary and crepuscular — most active at dawn and dusk. A game camera near a creek crossing is the most reliable way to confirm their presence.'}],
+    otw:'Old-timers called them "wildcats" and told stories about their screams at night during mating season — a sound like a person in distress. If you hear it in February or March, that\'s what it is.'},
+
+  {id:'groundhog',biomes:['woods','meadow'],icon:'🦫',name:'Groundhog',sci:'Marmota monax',ctx:'At the field edge',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'A fat, low-slung animal sitting upright at the edge of the field, watching you.',tapReveal:'🦫',verdict:'info',
+    body:'Groundhogs (woodchucks) are common along Five Mile Creek\'s field margins and bottomland edges. They hibernate through the coldest months but are otherwise active and highly visible.',
+    facts:[{l:'Burrows',v:'Groundhog burrows are important habitat — foxes, skunks, rabbits, and opossums all use abandoned groundhog dens. One animal\'s digging creates housing for many others.'},{l:'True Hibernation',v:'Groundhogs genuinely hibernate — body temperature drops to near freezing, heart rate slows to a few beats per minute. They lose a third of their body weight over winter.'},{l:'Feeding',v:'Clover, grasses, dandelion, and garden vegetables. They eat several pounds per day in summer building fat reserves for winter.'},{l:'How Much Wood',v:'A groundhog can excavate more than 700 pounds of dirt for a burrow system. Wildlife biologists actually calculated it. The answer to that old question is: about 700 pounds.'}],
+    otw:null},
+
+  {id:'mole',biomes:['woods','meadow'],icon:'🐾',name:'Eastern Mole',sci:'Scalopus aquaticus',ctx:'Ridges of pushed-up earth across the yard',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'A raised tunnel of dirt cuts across the lawn in a wavering line.',tapReveal:'🐾',verdict:'info',
+    body:'Eastern moles are among the most industrious and least-seen animals in Cardiff. You\'ll know they\'re there by the raised ridges and molehills in your yard — the animal itself lives almost entirely underground.',
+    facts:[{l:'Diet',v:'Earthworms, grubs, and beetle larvae. A single mole eats 70–100% of its body weight daily. They\'re not eating your plants — they\'re eating the things that eat your plants.'},{l:'Tunneling',v:'Moles can dig 18 feet per hour. Their front paws are massive, paddle-shaped, and permanently turned outward — built for nothing but digging.'},{l:'Benefit',v:'Mole tunneling aerates soil and mixes organic material deeper into the ground. The lawn damage is cosmetic. The ecological work is real.'},{l:'Solitary',v:'Moles are fiercely territorial. Each mole claims its own tunnel system. If you have mole tunnels, you probably have one mole — not an infestation.'}],
+    otw:null},
+
+  {id:'skink',biomes:['woods','creek'],icon:'🦎',name:'Five-lined Skink',sci:'Plestiodon fasciatus',ctx:'On a sun-warmed rock',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'A sleek, striped lizard with a brilliant blue tail sunning on a flat rock.',tapReveal:'🦎',verdict:'info',
+    body:'Five-lined skinks are the most common lizard along Five Mile Creek — fast, glossy, and unmistakable with their bright blue tails as juveniles. The blue fades with age but the five cream stripes remain.',
+    facts:[{l:'Blue Tail',v:'Juvenile skinks have vivid blue tails. If grabbed by a predator, the tail breaks off and continues wiggling — a decoy while the skink escapes. The tail regrows but never as brightly.'},{l:'Identification',v:'Five cream stripes running head to tail on a dark brown or black body. Juveniles have the electric blue tail. Adult males lose the stripes and turn bronze with reddish-orange heads during breeding season.'},{l:'Habitat',v:'Rotting logs, rock piles, old foundations, woodpiles. Anywhere there\'s shelter and sun nearby. They eat insects, spiders, and small invertebrates.'},{l:'Broadhead Skink',v:'The broadhead skink is also present — larger, with adult males developing a wide, orange-red head. Often mistaken for a different species entirely, but it\'s still a skink.'}],
+    otw:null},
+
+  {id:'salamander',biomes:['woods','creek','swamp'],icon:'🦎',name:'Spotted Salamander',sci:'Ambystoma maculatum',ctx:'Under a rotting log',seasons:['spring','fall'],
+    rarity:'uncommon',
+    type:'tap',tapText:'Lift a damp, rotting log in the bottomland. Something dark and glistening moves slowly underneath.',tapReveal:'🦎',verdict:'info',
+    body:'Spotted salamanders are one of the hidden treasures of the Five Mile Creek bottomland — jet black with bright yellow spots, up to 9 inches long, and almost never seen unless you\'re looking. They spend most of their lives underground.',
+    facts:[{l:'Identification',v:'Glossy black body with two rows of bright yellow or orange spots from head to tail. Stout, slow-moving, and docile when found. One of the most beautiful animals in the Alabama forest.'},{l:'Breeding',v:'Spotted salamanders migrate to temporary pools (vernal pools) on rainy spring nights to breed. Their egg masses — gelatinous, softball-sized clusters — are found in shallow water.'},{l:'Indicator Species',v:'Their presence indicates healthy forest with intact leaf litter, moist soil, and seasonal wetlands. They\'re sensitive to habitat fragmentation and pollution.'},{l:'Handling',v:'Salamanders breathe partly through their skin and absorb chemicals easily. If you find one, look but don\'t handle — or wet your hands first if you must move it.'}],
+    otw:null},
+
+  // ══════════════════════════════════════════════════════
+  // TREETOPS
+  // ══════════════════════════════════════════════════════
+  {id:'woodpecker',biomes:['treetops','woods'],rarity:'protected',icon:'🦅',name:'Woodpeckers',sci:'Family Picidae',ctx:'In the forest canopy',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'The Cardiff area may have one of the rarest woodpeckers in North America. Which one?',
+    choices:['Ivory-billed woodpecker','Red-cockaded woodpecker','Pileated woodpecker','Northern flicker'],correct:1,
+    vr:'Correct — and it\'s a big deal if confirmed here.',vw:'The red-cockaded woodpecker is the one to watch for — it\'s federally endangered and present in parts of north Alabama.',
+    body:'Cardiff sits in territory that supports an impressive range of woodpeckers. Document every species you see — the Red-cockaded woodpecker is a federal priority and any confirmed sighting matters.',
+    facts:[{l:'Species Present',v:'Pileated, Red-headed, Downy, Hairy, and Yellow-bellied sapsucker are all confirmed in the area. "Yellowhammer" (Northern flicker) is the Alabama state bird.'},{l:'Red-cockaded',v:'Federally endangered. Nests only in old-growth longleaf pine with red heart disease. Any sighting should be reported to the Alabama Wildlife Federation.'},{l:'Pileated',v:'The largest woodpecker in North America at nearly 20 inches. Its rectangular excavations in dead trees are distinctive. Sounds like a jungle bird — loud, laughing call.'},{l:'Yellowhammer',v:'The Northern flicker — Alabama\'s state bird. Named for the yellow-shafted underside of its wings. More often seen on the ground than in trees, feeding on ants.'}],
+    otw:'Woodpecker holes are real estate in the forest. Screech owls, wood ducks, flying squirrels, and a dozen other species move into abandoned woodpecker cavities. One bird\'s work feeds an entire community.'},
+
+  {id:'hawk',biomes:['treetops','meadow'],icon:'🦅',name:'Chicken Hawk',sci:'Buteo jamaicensis',ctx:'Circling overhead',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'"Chicken hawk" is a local name for which bird?',
+    choices:['Cooper\'s hawk','Red-tailed hawk','Sharp-shinned hawk','Osprey'],correct:1,
+    vr:'Right — the red-tailed hawk is the bird most people around here call a chicken hawk.',vw:'The most common "chicken hawk" people see is actually the red-tailed hawk — the one circling in thermals over fields.',
+    body:'The red-tailed hawk is the large buteo you\'ll see circling over Five Mile Creek\'s fields and forest edges. Its call is the one Hollywood uses for every eagle in every movie — that piercing scream.',
+    facts:[{l:'That Scream',v:'The red-tailed hawk\'s call is used in virtually every Hollywood movie and TV show for any bird of prey, including bald eagles, which actually sound like seagulls.'},{l:'What They Eat',v:'Field mice, voles, rabbits, squirrels, and occasional small birds. One red-tail can significantly reduce rodent pressure on a property.'},{l:'The Perch',v:'Red-tails prefer high, open perches with a view — fence posts, dead trees, power poles. Once you know what to look for, you\'ll see them everywhere.'},{l:'Cooper\'s Hawk',v:'The Cooper\'s hawk — also called a chicken hawk — actually does take chickens and birds. It\'s a fast, agile accipiter that hunts through forest, not the circling buteo.'}],
+    otw:'Old-timers with chicken flocks had a complicated relationship with hawks. The big ones circling high were mostly harmless to full-grown chickens — it\'s the small fast ones in the trees that took birds.'},
+
+  {id:'owls',biomes:['treetops','woods'],rarity:'uncommon',icon:'🦉',name:'Owls',sci:'Order Strigiformes',ctx:'Calling after dark',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'You hear a deep "who-cooks-for-you, who-cooks-for-you-ALL" at night. Which owl?',
+    choices:['Great horned owl','Barred owl','Eastern screech owl','Barn owl'],correct:1,
+    vr:'Right — that eight-syllable call is the barred owl\'s signature.',vw:'That\'s the barred owl — the most vocal owl in the eastern woods. The "who cooks for you" call is unmistakable once you know it.',
+    body:'Multiple owl species work the Five Mile Creek corridor at night. The barred owl is the most commonly heard, the great horned owl is the apex predator, and the tiny screech owl might be living in a woodpecker hole in your yard right now.',
+    facts:[{l:'Barred Owl',v:'The "who cooks for you" call. Medium-large, brown-eyed, no ear tufts. Common along wooded creeks. Sometimes calls in full daylight, especially on overcast days.'},{l:'Great Horned',v:'The largest owl in the area — ear tufts, yellow eyes, deep "hoo-hoo-hoooo" call. Will take prey as large as skunks and small cats. Nests in January.'},{l:'Screech Owl',v:'Tiny — fits in a coffee mug. Makes a descending whinny, not a screech. Lives in tree cavities. Put up a nest box and you might get one in your yard.'},{l:'Pellets',v:'Owls swallow prey whole and regurgitate pellets of bone and fur. Finding pellets under a large tree is proof an owl is roosting above. Dissecting them is a biology lesson.'}],
+    otw:null},
+
+  {id:'bat',biomes:['treetops','swamp'],icon:'🦇',name:'Bats',sci:'Order Chiroptera',ctx:'Swooping at dusk',seasons:['spring','summer','fall'],
+    type:'quiz',q:'A single bat can eat how many mosquitoes in one night?',
+    choices:['About 50','Several hundred','Up to 1,000 or more','About a dozen'],correct:2,
+    vr:'Right — a thousand mosquitoes in a single night. Bats are the night shift for pest control.',vw:'A single bat can consume over 1,000 mosquitoes in one night. They are one of the most effective insect controllers in the ecosystem.',
+    body:'Several bat species work the Five Mile Creek corridor at dusk, including big brown bats, evening bats, and red bats. They emerge at twilight and spend the night consuming enormous quantities of insects.',
+    facts:[{l:'Mosquito Control',v:'A single bat can eat 1,000+ mosquitoes per night, along with moths, beetles, and other flying insects. A colony near your house is a gift, not a problem.'},{l:'White-nose Syndrome',v:'A devastating fungal disease has killed millions of bats across eastern North America. Alabama populations have been affected. Healthy bat colonies are more important than ever.'},{l:'Bat Houses',v:'Properly placed bat houses can attract colonies. Mount them 12–15 feet high on a pole or building, facing south or southeast for morning sun.'},{l:'Rabies',v:'Bats can carry rabies, but less than 1% do. Never handle a bat with bare hands. If you find a grounded bat, call animal control.'}],
+    otw:null},
+
+  {id:'cicada',biomes:['treetops'],rarity:'uncommon',icon:'🦗',name:'Periodical Cicada',sci:'Magicicada spp.',ctx:'Every 13 years',seasons:['summer'],
+    type:'quiz',q:'Periodical cicadas in Alabama emerge on a 13-year cycle. What are they doing when they make that noise?',
+    choices:['Warning predators away','Males singing to attract females','Communicating with the colony underground','Defending territory from other cicadas'],correct:1,
+    vr:'Right — every one of those is a male trying to find a mate.',vw:'That deafening chorus is all males singing for females — one of the loudest sounds in nature.',
+    body:'Periodical cicadas spend 13 years underground as nymphs feeding on tree roots, then emerge all at once in enormous numbers. Cardiff sits in Brood XIX territory — the Great Southern Brood.',
+    facts:[{l:'The Sound',v:'A chorus of periodical cicadas can reach 100 decibels — as loud as a motorcycle. Each male vibrates a membrane called a tymbal.'},{l:'The Wait',v:'13 years underground, five molts. They emerge, mate, lay eggs, and die within weeks. The eggs hatch, nymphs drop to ground, cycle starts again.'},{l:'Brood XIX',v:'The Great Southern Brood covers much of the South including north Alabama. Last emerged 2024 — a historic year when Brood XIII and XIX emerged simultaneously for the first time since 1803.'},{l:'For the Land',v:'Dead branches from egg-laying fertilize soil when they fall. The emergence aerates soil. Cicadas are good for the land — they just sound like the apocalypse.'}],
+    otw:'Old-timers said a heavy cicada year meant a good acorn crop to follow, and a good acorn crop meant fat squirrels come fall.'},
+
+  {id:'turkeyvulture',biomes:['treetops','meadow'],icon:'🪶',name:'Turkey Vulture',sci:'Cathartes aura',ctx:'Circling on thermals',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'Turkey vultures hold their wings in a distinctive V-shape while soaring. How do they find food?',
+    choices:['Exceptional eyesight only','Primarily by smell — one of the few birds that can','Echolocation like bats','They follow other predators'],correct:1,
+    vr:'Right — turkey vultures are one of the very few birds with a strong sense of smell.',vw:'Turkey vultures hunt primarily by smell — they can detect the gas from decomposition from miles away. One of the few bird species with this ability.',
+    body:'Turkey vultures are the clean-up crew of the Five Mile Creek corridor. They soar on thermals with a distinctive wobbling, V-shaped wing profile, and they perform an essential ecological function: removing carrion before it becomes a disease vector.',
+    facts:[{l:'Smell',v:'Turkey vultures can detect ethyl mercaptan — the gas released by decomposition — from more than a mile away. Gas companies add this same chemical to natural gas so humans can smell leaks.'},{l:'Identification',v:'Large, dark bird soaring with wings in a shallow V (dihedral). Wobbly, teetering flight. Red, featherless head in adults. Often mistaken for eagles at a distance.'},{l:'Hygiene',v:'They urinate on their own legs to kill bacteria picked up from carrion — a process called urohydrosis. It also cools them. Disgusting and brilliant.'},{l:'vs. Black Vulture',v:'Black vultures are also present. Shorter, broader wings held flat. They find food by following turkey vultures, not by smell. More aggressive at carcasses.'}],
+    otw:null},
+
+  // ══════════════════════════════════════════════════════
+  // SWAMP
+  // ══════════════════════════════════════════════════════
+  {id:'turtle',biomes:['swamp','creek'],icon:'🐢',name:'Painted Turtle',sci:'Chrysemys picta',ctx:'Basking on a log',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'A row of turtles lined up on a half-submerged log, soaking up sun.',tapReveal:'🐢',verdict:'info',
+    body:'Painted turtles and sliders are the turtles you see basking on logs in every pond and slow stretch of Five Mile Creek. They stack up in rows, slide into the water at the slightest disturbance, and climb right back up five minutes later.',
+    facts:[{l:'Basking',v:'Turtles bask to regulate body temperature and to dry out their shells — which prevents algae and parasites from taking hold. It\'s not laziness, it\'s maintenance.'},{l:'Species Here',v:'Red-eared sliders and painted turtles are most common. Snapping turtles are also present but stay in the water. Softshell turtles occasionally show up in sandy-bottomed areas.'},{l:'Diet',v:'Aquatic plants, insects, small fish, and carrion. They\'re omnivorous scavengers that help keep the water clean.'},{l:'Release',v:'Red-eared sliders sold as pets and released into the wild are an invasive problem in many waterways. Don\'t release pet turtles.'}],
+    otw:null},
+
+  {id:'rolypoly',biomes:['swamp','woods'],icon:'🐛',name:'Roly-Poly',sci:'Armadillidium vulgare',ctx:'Under a rock',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'Lift a rock near the damp bank. Grey armored things curl into balls.',tapReveal:'🐛',verdict:'info',
+    body:'The roly-poly (pillbug or woodlouse) is not actually an insect — it\'s a crustacean, more closely related to crayfish and shrimp than to any bug. It\'s the only crustacean fully adapted to life on land.',
+    facts:[{l:'A Crustacean',v:'Roly-polies breathe through gills, need moist environments, and are more closely related to crayfish than to any insect. One of evolution\'s more surprising moves.'},{l:'What They Do',v:'They decompose dead plant material, cycling nutrients back into the soil. Critical to the decomposer community that keeps the bottomland functioning.'},{l:'Defense',v:'Rolling into a perfect sphere exposes only the armored back. It works against most small predators — birds and toads learn to wait for them to unroll.'},{l:'For Kids',v:'The roly-poly may be the most important gateway species in natural history — the creature that makes kids curious about what else is living under rocks. Don\'t underestimate it.'}],
+    otw:null},
+
+  // ══════════════════════════════════════════════════════
+  // MEADOW
+  // ══════════════════════════════════════════════════════
+  {id:'mouse',biomes:['meadow','woods'],icon:'🐭',name:'Field Mouse',sci:'Peromyscus spp.',ctx:'In the grass at the bank edge',seasons:['spring','summer','fall','winter'],
+    type:'tap',tapText:'A tiny rustle in the grass at the creek bank. Something very small is moving.',tapReveal:'🐭',verdict:'info',
+    body:'Field mice (white-footed mice and deer mice) are the most numerous mammals along Five Mile Creek — and the foundation of the food web that feeds foxes, coyotes, hawks, owls, and snakes.',
+    facts:[{l:'Ecological Role',v:'Field mice convert seeds, berries, and insects into protein for every predator in the watershed. Without them, the food chain above collapses.'},{l:'Population',v:'In a good year, mouse populations can explode dramatically. A high mouse year is followed by a good year for hawks, owls, foxes, and coyotes — the system self-regulates.'},{l:'Hantavirus',v:'White-footed mice can carry hantavirus. Don\'t handle live or dead mice, and ventilate before cleaning spaces where mice have nested.'},{l:'Seeds',v:'White-footed mice cache thousands of seeds and forget many of them. A significant portion of the forest regenerates from mice\'s forgotten food stores.'}],
+    otw:null},
+
+  {id:'wildflowers',biomes:['meadow','woods'],icon:'🌸',name:'Wildflowers',sci:'Various species',ctx:'Along the trail and field edges',seasons:['spring','summer','fall'],
+    type:'tap',tapText:'A patch of color at the sunny edge of the trail catches your eye.',tapReveal:'🌺',verdict:'info',
+    body:'Cardiff\'s fields and forest edges host a rotating display of native wildflowers from early spring through fall. They\'re not just pretty — they\'re the foundation of the pollinator food web that supports everything above them.',
+    facts:[{l:'Spring First',v:'Trillium, bloodroot, hepatica, and Virginia bluebells bloom before the canopy fills in, using the brief window of direct sunlight on the forest floor. April is prime time.'},{l:'Summer Fields',v:'Black-eyed Susan, bee balm, ironweed, and Joe-Pye weed dominate the sunny meadows and road edges from June through August.'},{l:'Passion Flower',v:'The wild passion flower (Passiflora incarnata, called maypop) grows along fences and field edges. Its elaborate purple flower is one of the most striking native blooms. The fruit is edible when ripe.'},{l:'Pollinators',v:'Native wildflowers support native bees, butterflies, and moths that commercial crops depend on for pollination. Every patch of wildflowers is doing economic work.'}],
+    otw:null},
+
+  {id:'passionflower',biomes:['meadow'],rarity:'uncommon',icon:'💜',name:'Wild Passion Flower',sci:'Passiflora incarnata',ctx:'Climbing a fence at the field edge',seasons:['summer','fall'],
+    type:'tap',tapText:'An intricate purple and white flower unlike anything else, climbing a wire fence.',tapReveal:'💜',verdict:'info',
+    body:'The wild passion flower — called maypop locally because the hollow fruit "may pop" when you step on it — produces one of the most architecturally complex flowers of any plant in North America. It\'s native here and it\'s spectacular.',
+    facts:[{l:'The Flower',v:'Purple filaments radiating from a central column in a geometric pattern. Spanish missionaries saw in it symbols of the Passion of Christ — the filaments as the crown of thorns, the five anthers as the five wounds.'},{l:'Fruit',v:'The maypop fruit is edible when ripe (yellow-green, slightly soft). The pulp inside tastes tropical — related to commercial passion fruit but milder. Makes good jelly.'},{l:'Butterflies',v:'The Gulf fritillary butterfly lays its eggs exclusively on passion flower vines. The caterpillars eat the leaves and develop toxic compounds from the plant that make them unpalatable to birds.'},{l:'Medicinal',v:'Passionflower has documented mild sedative and anxiolytic properties and is used in herbal medicine. The dried leaves make a tea. Research supports its calming effects.'}],
+    otw:null},
+
+  {id:'geese',biomes:['meadow','creek'],icon:'🦆',name:'Canada Geese',sci:'Branta canadensis',ctx:'On the water',seasons:['fall','winter'],
+    type:'tap',tapText:'A large flock of birds drops out of the sky onto Five Mile Creek.',tapReveal:'🦆',verdict:'info',
+    body:'Canada geese migrate through Cardiff in fall and winter, using Five Mile Creek as a rest stop. Seeing a big flock on the water is one of the genuine spectacles of the season.',
+    facts:[{l:'Migration',v:'Peak movement through north Alabama is October through December. They follow creek corridors south.'},{l:'What They Need',v:'Open water and nearby fields or grassy areas for feeding. Five Mile Creek bottomland provides both.'},{l:'Calls',v:'The high-low honking duet — two birds, two tones, calling back and forth. Once you know it, you\'ll hear them flying over at night.'},{l:'Hunting',v:'Canada geese are a prized waterfowl in Alabama. Season runs October through January — check ADCNR for current dates and bag limits.'}],
+    otw:'Old-timers watched geese flights to predict weather. A flock flying fast and low usually meant a front was coming. Flying high and slow meant clear skies ahead. Not science — but not wrong either.'},
+
+  {id:'turkey',biomes:['woods','meadow'],rarity:'uncommon',icon:'🦃',name:'Wild Turkey',sci:'Meleagris gallopavo',ctx:'Scratching in the leaf litter',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'A male wild turkey "gobbles" primarily to:',
+    choices:['Warn other males away','Attract females during mating season','Signal alarm to the flock','Mark feeding territory'],correct:1,
+    vr:'Right — the gobble is a mating call. Everything about a tom in spring is about attracting hens.',vw:'The gobble is a mating call — the tom is advertising himself to every hen within hearing distance. It also announces his position to rival males.',
+    body:'Wild turkeys were nearly extinct in Alabama by the early 1900s due to overhunting and habitat loss. Conservation efforts brought them back, and they\'re now common along Five Mile Creek\'s bottomland and forest edges.',
+    facts:[{l:'Comeback',v:'Alabama\'s wild turkey population recovered from near-zero to over 400,000 birds through one of the most successful wildlife restoration programs in American history.'},{l:'Intelligence',v:'Wild turkeys are far more intelligent and wary than their domestic cousins. They have excellent color vision, can run 25 mph, and fly short distances at up to 55 mph.'},{l:'Spring Season',v:'Alabama\'s spring turkey season is one of the most popular hunting seasons in the state. Calling a gobbler into range requires genuine skill and patience.'},{l:'Roosting',v:'Turkeys roost in trees at night — usually large oaks or pines near water. They fly up at dusk and fly down at dawn. Finding a roost tree is key to hunting them.'}],
+    otw:null},
+
+  // ══════════════════════════════════════════════════════
+  // CROSS-BIOME ITEMS (plants, invasives, hazards)
+  // ══════════════════════════════════════════════════════
+  {id:'kudzu',biomes:['woods','meadow'],icon:'🌿',name:'Kudzu',sci:'Pueraria montana',ctx:'Covering everything',seasons:['summer'],
+    type:'quiz',q:'Kudzu can grow how fast in Alabama summer conditions?',
+    choices:['About an inch per day','Up to a foot per day','Six inches per week','It grows slowly but just keeps spreading'],correct:1,
+    vr:'A foot per day. That\'s not a plant, that\'s a siege.',vw:'A foot per day in peak summer. By the end of August it has covered everything it started on in June.',
+    body:'Kudzu was introduced as an ornamental and for erosion control. It has no natural predators in North America, grows up to a foot per day in summer, and covers everything that doesn\'t move regularly.',
+    facts:[{l:'How to Kill It',v:'Repeated cutting at ground level over 2–3 seasons exhausts the root. Goats are surprisingly effective. Herbicide works but must stay away from the water.'},{l:'What\'s Under It',v:'Often the same native hardwoods that were there before. Kudzu shades but doesn\'t always kill them. Clearing reveals what\'s underneath.'},{l:'Privet Too',v:'Chinese privet is equally aggressive along Five Mile Creek — leaves out earlier, crowds out native seedlings, birds spread its berries everywhere.'},{l:'Why Clear It',v:'Every acre cleared on the Five Mile Creek bank is an acre returning to bottomland forest — which filters water, prevents erosion, and supports wildlife.'}],
+    otw:'The old clearing tradition: work in the same place every year, a little more each time. The land remembers what it was supposed to be. You\'re just helping it get back there.'},
+
+  {id:'poison_ivy',biomes:['woods','creek','swamp','meadow'],icon:'🌿',name:'Poison Ivy',sci:'Toxicodendron radicans',ctx:'Climbing the creek bank',seasons:['spring','summer','fall'],
+    type:'quiz',q:'The saying is "leaves of three, let it be." When along Five Mile Creek is poison ivy most dangerous to touch?',
+    choices:['Only in summer when the leaves are fully green','All year — including winter when it\'s leafless','Only when the leaves turn red in fall','Only when it\'s flowering in spring'],correct:1,
+    vr:'Correct — the urushiol oil is present year-round, including on bare winter stems.',vw:'All year round. The urushiol oil that causes the rash is in the stems, roots, and berries — not just the leaves.',
+    body:'Poison ivy grows enthusiastically along Five Mile Creek. Learn to identify it in every season — the leafless winter vine is the sneakiest.',
+    facts:[{l:'Identification',v:'Three leaflets, the middle one on a longer stalk. Glossy when young, can be red in spring and fall. Grows as ground cover, shrub, or large vine on trees.'},{l:'The Vine',v:'Poison ivy vines on trees develop a distinctive "hairy" appearance from aerial rootlets — the "fuzzy rope" vine. Do not touch it in any season.'},{l:'Winter Hazard',v:'The bare stems and roots in winter still carry urushiol. People who burn brush in winter and inhale the smoke can develop severe internal reactions — medical emergency.'},{l:'Treatment',v:'Wash with soap and cold water immediately after exposure. The oil takes 10–30 minutes to bond to skin — quick washing can prevent or reduce the rash.'}],
+    otw:'Old-timers said if you ate a small poison ivy leaf every spring you\'d build immunity. This is dangerous advice — some people are extremely sensitive. The actual traditional remedy was jewel weed (touch-me-not), which grows near poison ivy and whose juice soothes the rash.'},
+
+  {id:'oil',biomes:['creek'],icon:'🛢️',name:'Used Motor Oil',sci:'Petroleum hydrocarbons',ctx:'By the roadside ditch',seasons:['spring','summer','fall','winter'],
+    type:'quiz',q:'Someone pours used motor oil in a drainage ditch near Five Mile Creek. Where does it end up?',
+    choices:['It stays in the ditch and evaporates','It flows into the watershed and contaminates the water','It breaks down harmlessly in the soil','Rain sweeps it off the road surface'],correct:1,
+    vr:'Correct. Everything near Five Mile Creek drains to Five Mile Creek.',vw:'It flows. Everything that enters a ditch near Five Mile Creek eventually reaches Five Mile Creek.',
+    body:'Used motor oil is one of the most common water pollutants in suburban and rural Alabama. One quart can contaminate 250,000 gallons of water.',
+    facts:[{l:'The Numbers',v:'One quart of used motor oil can contaminate up to 250,000 gallons of drinking water. It binds to sediment and doesn\'t break down.'},{l:'Where to Take It',v:'AutoZone, O\'Reilly, and Advance Auto Parts all accept used motor oil for free recycling.'},{l:'What It Does',v:'Oil creates a surface film blocking oxygen exchange. Fish, insects, and amphibians all suffer. Recovery from an oil spill in a small creek takes years.'},{l:'Report It',v:'Illegal dumping hotline: Jefferson County (205) 325-5877. Document with photos and GPS location before calling.'}],
+    otw:null},
+];
+
+// ── GAME STATE ───────────────────────────────────────────
+let idx=0,score=0,discovered=[],shuffled=[],answered=false;
+let currentBiome=null; // null = all biomes
+let viewMode='quiz';
+let infoIdx=0;
+let infoList=[];
+
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+
+function getItemsForBiome(biome){
+  if(!biome) return ITEMS;
+  return ITEMS.filter(it=>it.biomes.includes(biome));
+}
+function getCurrentSeason(){
+  const m=new Date().getMonth()+1;
+  if(m===12||m<=2) return 'winter';
+  if(m<=5) return 'spring';
+  if(m<=8) return 'summer';
+  return 'fall';
+}
+const LOOKALIKE_NOTES={
+  snake:'Usually mistaken for a cottonmouth. Along moving water here, a patterned water snake is much more likely. Leave both alone and give them room.',
+  hawk:'Often called a chicken hawk. Locally, that usually means a red-tailed hawk, though broad-winged hawks can confuse people in migration.',
+  chanterelle:'The jack-o\'lantern mushroom is the dangerous look-alike. Chanterelles have blunt, forking ridges rather than sharp true gills.',
+  oyster:'People sometimes confuse oysters with pale shelf fungi, but true oyster mushrooms grow in layered clusters from wood with gills running down the stem.',
+  frog:'Green frogs and bullfrogs overlap. Green frogs give the banjo-string note; bullfrogs give the deeper jug-o-rum call.',
+  deermushroom:'Beginners mix these up with small brown mushrooms too often. If you are not fully confident, do not eat any little brown mushroom.'
+};
+const LOCAL_NOTES={
+  heron:'Often spotted working the shallows near bridge approaches and slower bends after rain settles out.',
+  hawk:'Most often noticed circling above meadow edges and utility clearings, especially late afternoon.',
+  opossum:'Shows up around sheds, compost edges, and brushy transitions where insects and fallen fruit collect.',
+  crayfish:'A reliable sign in clean riffles and under flat rocks where the current breaks just enough to make a pocket.',
+  chanterelle:'Good years come after warm summer rains when the woods stay damp for a few days in a row.',
+  snake:'Most often seen sunning on low branches, roots, or rocks beside the water rather than out in dry upland woods.'
+};
+
+// ── BUILD BIOME GRID ─────────────────────────────────────
+function buildBiomeGrid(){
+  const grid=document.getElementById('biomeGrid');
+  grid.innerHTML=Object.entries(BIOMES).map(([key,b])=>{
+    const count=getItemsForBiome(key).length;
+    return `<div class="biome-card" onclick="selectBiome('${key}')">
+      <div class="biome-icon">${b.icon}</div>
+      <div class="biome-info">
+        <div class="biome-name">${b.name}</div>
+        <div class="biome-desc">${b.desc}</div>
+        <div class="biome-count">${count} species</div>
+      </div>
+      <div class="biome-arrow">→</div>
+    </div>`;
+  }).join('');
+}
+
+function showBiomes(){
+  buildBiomeGrid();
+  showState('biomes');
+}
+
+function selectBiome(key){
+  currentBiome=key;
+  const b=BIOMES[key];
+  document.getElementById('biomeLabel').textContent=b.name;
+  document.getElementById('biomeTitle').textContent=b.title;
+  document.getElementById('biomeSub').textContent=b.desc;
+  const gearEl=document.getElementById('biomeGear');
+  if(b.gear){
+    gearEl.style.display='block';
+    gearEl.innerHTML=`<div class="gear-tip-label">🥾 Gear Up</div><p>${b.gear}</p>`;
+  } else gearEl.style.display='none';
+  showState('start');
+}
+
+function startBiomeGame(){
+  viewMode='quiz';
+  const items=getItemsForBiome(currentBiome);
+  shuffled=shuffle(items);
+  idx=0;score=0;discovered=[];answered=false;
+  document.getElementById('progPill').style.display='flex';
+  document.getElementById('pt').textContent=shuffled.length;
+  showItem();
+}
+
+function startAll(){
+  viewMode='quiz';
+  currentBiome=null;
+  shuffled=shuffle(ITEMS);
+  idx=0;score=0;discovered=[];answered=false;
+  document.getElementById('progPill').style.display='flex';
+  document.getElementById('pt').textContent=shuffled.length;
+  showItem();
+}
+
+
+const GUIDE_ASSET_BASE='assets/';
+const GUIDE_ASSETS={
+  "shedantler": "guide_antlers.png",
+  "armadillo": "guide_armadillo.png",
+  "owls": "guide_barredowl.png",
+  "bass": "guide_bass.png",
+  "bat": "guide_bat.png",
+  "bream": "guide_bream.png",
+  "boxturt": "guide_boxturtle.png",
+  "frog": "guide_greenfrog.png",
+  "geese": "guide_canadagoose.png",
+  "crayfish": "guide_crawdad.png",
+  "snake": "guide_watersnake.png",
+  "snail": "guide_creeksnail.png",
+  "deer": "guide_deer.png",
+  "dragonfly": "guide_dragonfly.png",
+  "fox": "guide_fox.png",
+  "groundhog": "guide_groundhog.png",
+  "hawk": "guide_hawk.png",
+  "heron": "guide_heron.png",
+  "hog": "guide_hog.png",
+  "kudzu": "guide_kudzu.png",
+  "lionsmane": "guide_lionsmane.png",
+  "mayfly": "guide_mayfly.png",
+  "mole": "guide_mole.png",
+  "mouse": "guide_mouse.png",
+  "oil": "guide_oil.png",
+  "opossum": "guide_opossum.png",
+  "oyster": "guide_oyster.png",
+  "passionflower": "guide_passionflower.png",
+  "poison_ivy": "guide_poisonivy.png",
+  "raccoon": "guide_raccoon.png",
+  "rock": "guide_rock.png",
+  "rolypoly": "guide_pillbug.png",
+  "salamander": "guide_salamander.png",
+  "scorpion": "guide_scorpion.png",
+  "skink": "guide_skink.png",
+  "skunk": "guide_skunk.png",
+  "turkey": "guide_turkeystrut.png",
+  "turkeyvulture": "guide_vulture.png",
+  "turtle": "guide_paintedturtle.png",
+  "wildflowers": "guide_blackeyedsusans.png",
+  "woodpecker": "guide_woodpecker.png",
+  "bobcat": "guide_bobcat.png",
+  "chanterelle": "guide_chanterelle.png",
+  "cicada": "guide_cicada.png",
+  "coyote": "guide_coyote.png",
+  "beaver": "guide_beaver.png",
+  "blackeyedsusans": "guide_blackeyedsusans.png",
+  "bluejay": "guide_bluejay.png",
+  "bullfrog": "guide_bullfrog.png",
+  "cardinal": "guide_cardinal.png",
+  "caterpillar": "guide_caterpillar.png",
+  "channelcatfish": "guide_catfish.png",
+  "cattails": "guide_cattails.png",
+  "chickensnake": "guide_chickensnake.png",
+  "chipmunk": "guide_chipmunk.png",
+  "commode": "guide_commode.png",
+  "copperhead": "guide_copperhead.png",
+  "cottonmouth": "guide_cottonmouth.png",
+  "crow": "guide_crow.png",
+  "funeralbells": "guide_funeralbells.png",
+  "garbage": "guide_garbage.png",
+  "goldenrod": "guide_goldenrod.png",
+  "hornworm": "guide_hornworm.png",
+  "ironweed": "guide_ironweed.png",
+  "kingfisher": "guide_kingfisher.png",
+  "kingsnake": "guide_kingsnake.png",
+  "mockingbird": "guide_mockingbird.png",
+  "pokeweed": "guide_pokeweed.png",
+  "rabbit": "guide_rabbit.png",
+  "snappingturtle": "guide_snappingturtle.png",
+  "squirrel": "guide_squirrel.png",
+  "tick": "guide_tick.png",
+  "tirecreek": "guide_tirecreek.png",
+  "tirewoods": "guide_tirewoods.png",
+  "trash": "guide_trash.png",
+  "wisteria": "guide_wisteria.png"
+};
+const GUIDE_EXPANSIONS=[
+  {
+    "id": "beaver",
+    "biomes": [
+      "creek",
+      "swamp"
+    ],
+    "rarity": "uncommon",
+    "icon": "🦫",
+    "name": "Beaver",
+    "sci": "Castor canadensis",
+    "ctx": "At the edge of still water",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "Freshly gnawed sticks and a slick mud slide cut into the bank.",
+    "tapReveal": "🦫",
+    "body": "Beavers are watershed engineers. Where they work, water slows, sediment settles out, and a whole new wet place appears. A beaver pond is not just a puddle — it is a different habitat built by teeth and patience.",
+    "facts": [
+      {
+        "l": "What They Leave",
+        "v": "Fresh-cut saplings with a sharpened-pencil point, muddy slides, peeled bark, and quiet ponding water are the giveaway signs."
+      },
+      {
+        "l": "Why It Matters",
+        "v": "Beaver ponds hold water on the land, trap silt before it reaches the creek, and create habitat for frogs, dragonflies, herons, and turtles."
+      },
+      {
+        "l": "Night Shift",
+        "v": "Beavers do most of their work at dusk and through the night. You usually see the evidence before you see the animal."
+      }
+    ],
+    "otw": "If the branch that used to run clear is backing up and spreading out, do not guess. Walk the edge. A beaver has likely made itself part of the conversation."
+  },
+  {
+    "id": "blackeyedsusans",
+    "biomes": [
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🌼",
+    "name": "Black-eyed Susan",
+    "sci": "Rudbeckia hirta",
+    "ctx": "At the sunny edge of the field",
+    "seasons": [
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A stand of yellow flowers holds the heat of the afternoon.",
+    "tapReveal": "🌼",
+    "body": "Black-eyed Susan is one of the signature flowers of an Alabama roadside meadow — bright, tough, and busy with bees. It is not just decoration. It is food and structure for pollinators when summer gets hard and hot.",
+    "facts": [
+      {
+        "l": "Pollinators",
+        "v": "Native bees, butterflies, and small beetles all work these flowers. A patch in bloom is a feeding station."
+      },
+      {
+        "l": "Seed Heads",
+        "v": "After bloom, the dark seed heads feed goldfinches and other small birds into fall."
+      },
+      {
+        "l": "Tough Native",
+        "v": "It handles heat, disturbed ground, and poor soils better than many showier flowers. That is part of why it belongs here."
+      }
+    ],
+    "otw": "If you want to know whether a field still has some life in it, stand still by the black-eyed Susans and count what lands there."
+  },
+  {
+    "id": "bluejay",
+    "biomes": [
+      "treetops",
+      "woods",
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🐦",
+    "name": "Blue Jay",
+    "sci": "Cyanocitta cristata",
+    "ctx": "Up in the oak canopy",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A loud blue bird raises a fuss before you ever spot it.",
+    "tapReveal": "🐦",
+    "body": "Blue jays are the town criers of the woods. Sharp-eyed, noisy, and smarter than people give them credit for, they warn everything around them when a hawk, snake, cat, or stranger moves through.",
+    "facts": [
+      {
+        "l": "Alarm Voice",
+        "v": "When blue jays start scolding, other birds pay attention. They are often the first to announce that a predator is nearby."
+      },
+      {
+        "l": "Oak Planters",
+        "v": "Blue jays carry and hide acorns. They forget some of them, which means they accidentally plant trees."
+      },
+      {
+        "l": "Mimicry",
+        "v": "They can imitate hawk calls. Sometimes they mean it as a warning; sometimes they seem to enjoy stirring things up."
+      }
+    ],
+    "otw": "A blue jay can save you time. If it is raising Cain in one direction, that is where the story is."
+  },
+  {
+    "id": "bullfrog",
+    "biomes": [
+      "creek",
+      "swamp"
+    ],
+    "rarity": "common",
+    "icon": "🐸",
+    "name": "Bullfrog",
+    "sci": "Lithobates catesbeianus",
+    "ctx": "On the still edge after dark",
+    "seasons": [
+      "spring",
+      "summer"
+    ],
+    "type": "quiz",
+    "q": "When people say a bullfrog sounds like a jug of rum, what call are they talking about?",
+    "choices": [
+      "A thin peeping whistle",
+      "A deep resonant \"jug-o-rum\"",
+      "A long descending scream",
+      "A fast clicking rattle"
+    ],
+    "correct": 1,
+    "vr": "Right — that deep \"jug-o-rum\" is the bullfrog.",
+    "vw": "The bullfrog is the deep one — the classic \"jug-o-rum\" rolling out over still water.",
+    "body": "Bullfrogs own the summer night in Alabama. Bigger than green frogs, heavier-voiced, and fond of still edges and quiet water, they are hunters from the tadpole stage on.",
+    "facts": [
+      {
+        "l": "Diet",
+        "v": "Insects, crayfish, fish, other frogs, and anything else they can overpower. A big bullfrog is not delicate about what counts as supper."
+      },
+      {
+        "l": "Tadpoles",
+        "v": "Bullfrog tadpoles may stay in the water more than one year before changing into frogs."
+      },
+      {
+        "l": "Best Time",
+        "v": "Warm, wet evenings from late spring through midsummer are when the chorus is strongest."
+      }
+    ],
+    "otw": "Lantern light and a still bank used to be enough for frog gigging. If the night feels heavy and warm, listen first and move second."
+  },
+  {
+    "id": "cardinal",
+    "biomes": [
+      "treetops",
+      "meadow",
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🐦",
+    "name": "Northern Cardinal",
+    "sci": "Cardinalis cardinalis",
+    "ctx": "In the hedge and low limbs",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A red flash lands in the privet and disappears.",
+    "tapReveal": "🐦",
+    "body": "The cardinal is one of the few birds that feels like it belongs to every season at once. Bright in winter, vocal in spring, and loyal to edges, thickets, and yards, it bridges the wild and the tended.",
+    "facts": [
+      {
+        "l": "Both Sexes Sing",
+        "v": "Unlike many songbirds, female cardinals sing too. Mated pairs often answer each other."
+      },
+      {
+        "l": "Edge Bird",
+        "v": "Cardinals like the in-between places — hedges, fence lines, brushy edges, and open understory."
+      },
+      {
+        "l": "Winter Color",
+        "v": "That red against gray woods is why people remember them, but they are just as much a summer bird as a winter one."
+      }
+    ],
+    "otw": "When the woods look empty, a cardinal will often prove they are not."
+  },
+  {
+    "id": "caterpillar",
+    "biomes": [
+      "woods",
+      "meadow"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐛",
+    "name": "Hickory Tussock Moth Caterpillar",
+    "sci": "Lophocampa caryae",
+    "ctx": "On a leaf at hand height",
+    "seasons": [
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A shaggy white caterpillar looks soft enough to touch. Don't.",
+    "tapReveal": "🐛",
+    "body": "The Hickory Tussock Moth caterpillar is beautiful and absolutely not for handling. Those pale hairs can cause an itchy rash and a lesson you would rather skip.",
+    "facts": [
+      {
+        "l": "Do Not Touch",
+        "v": "Its barbed hairs can break in the skin and cause stinging, redness, and itching in sensitive people."
+      },
+      {
+        "l": "Host Trees",
+        "v": "Hickory, walnut, pecan, ash, and elm are all on the menu. They are usually a brief defoliator, not a lasting disaster."
+      },
+      {
+        "l": "Best Rule",
+        "v": "Admire hairy caterpillars with your eyes first. Bare fingers are not the tool for this kind of beauty."
+      }
+    ],
+    "otw": "Around here, if a caterpillar looks especially soft, assume the Lord gave it that look for its own protection, not your comfort."
+  },
+  {
+    "id": "channelcatfish",
+    "biomes": [
+      "creek"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐟",
+    "name": "Channel Catfish",
+    "sci": "Ictalurus punctatus",
+    "ctx": "In a deep bend after rain",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "In stained or muddy water, what does a channel catfish rely on most to find food?",
+    "choices": [
+      "Its eyesight",
+      "Taste and smell through barbels and skin",
+      "Hearing only",
+      "Electric fields"
+    ],
+    "correct": 1,
+    "vr": "Exactly. Catfish live by taste and smell in dirty water.",
+    "vw": "Catfish are built for murky water. They use taste and smell through their barbels and skin more than sight.",
+    "body": "Channel catfish haunt deeper holes, cut banks, and slow runs where the creek settles down. They are working fish — whiskered, patient, and built for water that is not perfectly clear.",
+    "facts": [
+      {
+        "l": "Best Bait",
+        "v": "Cut bait, chicken liver, nightcrawlers, or something oily that puts a smell line in the water."
+      },
+      {
+        "l": "Where To Fish",
+        "v": "Outside bends, deeper holes below riffles, and any cover that breaks current are worth your time."
+      },
+      {
+        "l": "Handling",
+        "v": "Watch the sharp pectoral and dorsal spines. A small catfish can stick you worse than a big one if you get careless."
+      }
+    ],
+    "otw": "If the creek has color after a rain, that is catfish weather. Let the bait sit where the current slackens and wait longer than you want to."
+  },
+  {
+    "id": "cattails",
+    "biomes": [
+      "swamp",
+      "creek"
+    ],
+    "rarity": "common",
+    "icon": "🌾",
+    "name": "Cattails",
+    "sci": "Typha latifolia",
+    "ctx": "Rooted in the wet margin",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "Tall blades and brown seed heads stand where the ground turns to muck.",
+    "tapReveal": "🌾",
+    "body": "Cattails mark wet ground the way a church steeple marks a town. Where they stand, water has a say. They anchor soft edges, slow runoff, and provide cover for frogs, birds, insects, and muskrats where those still exist.",
+    "facts": [
+      {
+        "l": "Wetland Signal",
+        "v": "A stand of cattails means the soil stays wet enough for roots to live in waterlogged ground."
+      },
+      {
+        "l": "Habitat",
+        "v": "Red-winged blackbirds, dragonflies, frogs, and countless insects use cattail stands for cover and nesting."
+      },
+      {
+        "l": "Human Uses",
+        "v": "People have used cattails for mats, stuffing, tinder, and food parts in the right season. A useful plant if you know it well."
+      }
+    ],
+    "otw": "If you see cattails, stop pretending it is dry ground just because grass is growing there."
+  },
+  {
+    "id": "chickensnake",
+    "biomes": [
+      "woods",
+      "meadow",
+      "treetops"
+    ],
+    "rarity": "common",
+    "icon": "🐍",
+    "name": "Chicken Snake",
+    "sci": "Pantherophis alleghaniensis",
+    "ctx": "On a fence or in the rafters",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "Why did people around here tolerate chicken snakes even when they raided eggs now and then?",
+    "choices": [
+      "They keep rodents in check",
+      "They scare off hawks",
+      "They eat copperheads only",
+      "They predict rain"
+    ],
+    "correct": 0,
+    "vr": "Right. A good rat snake earns its keep by eating rodents.",
+    "vw": "The main reason was simple: rat snakes kill rats and mice, which saves feed, eggs, and trouble.",
+    "body": "The chicken snake — the local name for a black rat snake — is long, calm compared with most snakes, and excellent at climbing. It belongs around barns, sheds, and brushy edges because that is where the rodents are.",
+    "facts": [
+      {
+        "l": "Not Venomous",
+        "v": "It may bluff, vibrate its tail, and act offended, but it is not a venomous snake."
+      },
+      {
+        "l": "Climber",
+        "v": "Rat snakes can climb rough bark, walls, rafters, and almost anything with a little purchase."
+      },
+      {
+        "l": "Real Job",
+        "v": "Mice, rats, young birds, and eggs are all on the menu. In a feed room, that is useful work."
+      }
+    ],
+    "otw": "A barn with one chicken snake usually has fewer mice than a barn without one."
+  },
+  {
+    "id": "chipmunk",
+    "biomes": [
+      "woods"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐿️",
+    "name": "Eastern Chipmunk",
+    "sci": "Tamias striatus",
+    "ctx": "Near a rock pile in the woods",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A striped little body shoots from log to stump and freezes.",
+    "tapReveal": "🐿️",
+    "body": "Chipmunks are quick little edge-runners of the woods, more often heard chipping than properly seen. They love rock piles, roots, old foundations, and any place that gives them both seed and cover.",
+    "facts": [
+      {
+        "l": "Burrower",
+        "v": "Chipmunks dig extensive burrows with storage chambers, sleeping rooms, and several entrances they keep surprisingly tidy."
+      },
+      {
+        "l": "Food Cache",
+        "v": "Nuts, seeds, berries, acorns, and fungi all get carried underground for later."
+      },
+      {
+        "l": "Different From Squirrels",
+        "v": "They spend much more time on the ground and vanish into holes instead of heading for the canopy."
+      }
+    ],
+    "otw": "If you find a quiet stone pile and sit long enough, the chipmunk will often forgive your presence before most bigger animals do."
+  },
+  {
+    "id": "commode",
+    "biomes": [
+      "swamp"
+    ],
+    "rarity": "common",
+    "icon": "🚽",
+    "name": "Commode in the Swamp",
+    "sci": "Discarded porcelain",
+    "ctx": "Where dumping met wet ground",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "An old toilet bowl sits where no toilet ought to be.",
+    "tapReveal": "🚽",
+    "body": "A dumped commode in the swamp is funny for about three seconds, then it becomes evidence. Dumping in wet ground means trash, residues, and whatever came with them are one flood away from the creek.",
+    "facts": [
+      {
+        "l": "What It Signals",
+        "v": "If one bulky item got dumped there, it is worth looking around for paint cans, tires, metal, or household junk nearby."
+      },
+      {
+        "l": "Floodplain Problem",
+        "v": "Swamps and bottomland flood. What sits still in dry weather moves when the water rises."
+      },
+      {
+        "l": "Document It",
+        "v": "Photograph it, note the location, and report it. Dumping gets easier to ignore the longer it stays invisible."
+      }
+    ],
+    "otw": "The swamp keeps receipts. What people throw away on a dry day often comes back into the open after the next hard rain."
+  },
+  {
+    "id": "copperhead",
+    "biomes": [
+      "woods",
+      "meadow"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐍",
+    "name": "Copperhead",
+    "sci": "Agkistrodon contortrix",
+    "ctx": "Still as leaf litter on the trail edge",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "What is the safest rule when you spot a snake you are not fully sure about?",
+    "choices": [
+      "Get closer for a better look",
+      "Kill it before it moves",
+      "Back off and leave it alone",
+      "Try to pin its head with a stick"
+    ],
+    "correct": 2,
+    "vr": "Exactly. Distance is the right answer every time.",
+    "vw": "The safest, smartest move is to back off and leave it alone. No close inspection is required.",
+    "body": "Copperheads are the venomous snake most people around here are most likely to meet in leaf litter, brushy edges, wood piles, and warm rocks. Their best defense is staying still, which is also why boots and attention matter.",
+    "facts": [
+      {
+        "l": "Camouflage",
+        "v": "A copperhead disappears into dead leaves better than most people expect. That is why so many encounters happen at close range."
+      },
+      {
+        "l": "Where They Like",
+        "v": "Edges, cover, brush piles, old boards, and sunny spots near shelter. They do not need a swamp to be present."
+      },
+      {
+        "l": "Best Prevention",
+        "v": "Watch where you step, do not put hands where you cannot see, and wear boots or gaiters during warm months."
+      }
+    ],
+    "otw": "Around old houses and wood piles, assume a copperhead could be under the board you are about to move."
+  },
+  {
+    "id": "cottonmouth",
+    "biomes": [
+      "swamp",
+      "creek"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐍",
+    "name": "Cottonmouth",
+    "sci": "Agkistrodon piscivorus",
+    "ctx": "Where still water meets muck",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "Along the Five Mile Creek watershed, where are you more likely to meet a true cottonmouth?",
+    "choices": [
+      "In fast riffles over clean rock",
+      "In still, swampy water with cover",
+      "High in the dry canopy",
+      "In open mowed lawn"
+    ],
+    "correct": 1,
+    "vr": "Right. Cottonmouths fit still, swampy water better than fast creek water.",
+    "vw": "Cottonmouths are much more at home in still, swampy water than in a fast clean riffle.",
+    "body": "Cottonmouths are real, but they are not under every rock in the creek. Give slow, swampy margins the respect they deserve, and do not turn every harmless water snake into a moccasin out of habit.",
+    "facts": [
+      {
+        "l": "Still Water Snake",
+        "v": "Swamps, oxbows, sloughs, beaver ponds, and flooded backwaters are much more their style than lively moving water."
+      },
+      {
+        "l": "Defensive Display",
+        "v": "When threatened they may coil, hold ground, and flash the pale mouth that gave them their common name."
+      },
+      {
+        "l": "Same Rule",
+        "v": "If you are not certain, do not test your certainty with your hands. Step back and leave it be."
+      }
+    ],
+    "otw": "People around here called every water snake a moccasin for generations. The swamp deserves caution, but accuracy matters too."
+  },
+  {
+    "id": "crow",
+    "biomes": [
+      "treetops",
+      "meadow",
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🐦",
+    "name": "American Crow",
+    "sci": "Corvus brachyrhynchos",
+    "ctx": "Calling over the open ground",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A black bird calls from high up like it has something to say about all of this.",
+    "tapReveal": "🐦",
+    "body": "Crows are among the smartest birds in the watershed. They notice people, patterns, tools, predators, and opportunity. If a crow is making a scene, it usually has a reason.",
+    "facts": [
+      {
+        "l": "Problem Solver",
+        "v": "Crows remember faces, learn routines, and can work out surprisingly complicated food problems."
+      },
+      {
+        "l": "Mobbing",
+        "v": "They will harass owls, hawks, and even eagles in groups when they think a threat is too close."
+      },
+      {
+        "l": "Family Bird",
+        "v": "Young from prior years often help parents feed a new nest. Crow society is more organized than it first appears."
+      }
+    ],
+    "otw": "A crow seldom wastes a commotion. If several are carrying on in one place, look there."
+  },
+  {
+    "id": "funeralbells",
+    "biomes": [
+      "woods"
+    ],
+    "rarity": "rare",
+    "icon": "🍄",
+    "name": "Funeral Bells",
+    "sci": "Galerina marginata",
+    "ctx": "On a damp log after rain",
+    "seasons": [
+      "spring",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "Why is a small brown mushroom on wood worth extra caution?",
+    "choices": [
+      "Brown mushrooms are always edible",
+      "Some small brown mushrooms are lethally poisonous",
+      "They are too bitter to eat",
+      "They only grow near sewage"
+    ],
+    "correct": 1,
+    "vr": "Right. Small brown mushrooms can be some of the most dangerous things in the woods.",
+    "vw": "That is the danger. Tiny brown mushrooms are not harmless by default — some, like funeral bells, can be lethal.",
+    "body": "Funeral bells are the reason experienced foragers speak carefully about little brown mushrooms. Unremarkable at first glance, growing on wood like several edible species, and loaded with the same amatoxins that make death cap mushrooms infamous.",
+    "facts": [
+      {
+        "l": "Lethal",
+        "v": "These are not \"upset your stomach\" mushrooms. They can destroy the liver and kill."
+      },
+      {
+        "l": "Look-alikes",
+        "v": "They overlap visually with harmless and edible wood-growing mushrooms enough to punish carelessness."
+      },
+      {
+        "l": "Best Practice",
+        "v": "If you are not fully certain on a mushroom, it is not food. Full stop."
+      }
+    ],
+    "otw": "The old rule still holds: little brown mushrooms will humble a proud person in a hurry."
+  },
+  {
+    "id": "garbage",
+    "biomes": [
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🗑️",
+    "name": "Garbage Bag in the Woods",
+    "sci": "Human refuse",
+    "ctx": "Tossed just out of sight of the road",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A ripped bag leaks household junk into leaf litter.",
+    "tapReveal": "🗑️",
+    "body": "Garbage in the woods is not only ugly. It feeds raccoons, draws dogs, cuts wildlife, leaches chemicals, and teaches people that the edge of town is where care stops. That lesson travels fast.",
+    "facts": [
+      {
+        "l": "Wildlife Trap",
+        "v": "Food waste draws raccoons, crows, opossums, rats, and feral animals into places they should not be."
+      },
+      {
+        "l": "Plastic Problem",
+        "v": "Bags, line, wrappers, and rings tangle feet, necks, and wings far more often than people think."
+      },
+      {
+        "l": "Small Dumping Grows",
+        "v": "One bag often becomes several. Visible trash invites more trash."
+      }
+    ],
+    "otw": "If you want to keep a place from becoming a dump, the first pile matters most."
+  },
+  {
+    "id": "goldenrod",
+    "biomes": [
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🌿",
+    "name": "Goldenrod",
+    "sci": "Solidago spp.",
+    "ctx": "Lighting up the field edge",
+    "seasons": [
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "Tall yellow sprays lean into late summer light.",
+    "tapReveal": "🌿",
+    "body": "Goldenrod is one of the great late-season plants of the South — a pollinator lifeline when much of the field is tired and drying down. If the meadow hums in September, goldenrod is usually part of the reason.",
+    "facts": [
+      {
+        "l": "Bee Plant",
+        "v": "Bees, wasps, butterflies, flies, and beetles all work goldenrod hard in late summer and early fall."
+      },
+      {
+        "l": "Not The Culprit",
+        "v": "People blame goldenrod for hay fever because it blooms when ragweed does. Ragweed is the real sneeze-maker; goldenrod pollen is heavier and insect-carried."
+      },
+      {
+        "l": "Late Fuel",
+        "v": "This is one of the important last big nectar sources before cold weather closes the year down."
+      }
+    ],
+    "otw": "When goldenrod blooms, the field is not done. It is finishing strong."
+  },
+  {
+    "id": "hornworm",
+    "biomes": [
+      "meadow"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐛",
+    "name": "Tomato Hornworm",
+    "sci": "Manduca quinquemaculata",
+    "ctx": "On the garden row at dusk",
+    "seasons": [
+      "summer"
+    ],
+    "type": "tap",
+    "tapText": "The tomato plant looks thinner than it did yesterday. Look closely.",
+    "tapReveal": "🐛",
+    "body": "Tomato hornworms are masters of not being seen until the damage is obvious. Big, green, and leaf-colored, they can strip a tomato plant fast if you do not catch them early.",
+    "facts": [
+      {
+        "l": "Look For Frass",
+        "v": "Dark droppings on lower leaves or the ground are often easier to spot than the caterpillar itself."
+      },
+      {
+        "l": "Beneficial Wasps",
+        "v": "If a hornworm is covered with white cocoons, leave it. Parasitic wasps have already claimed it and are doing you a favor."
+      },
+      {
+        "l": "Adult Form",
+        "v": "This caterpillar becomes a large sphinx moth — one of the strong-flying pollinating moths of summer nights."
+      }
+    ],
+    "otw": "If the tomatoes suddenly look chewed and you cannot find the thief, stand still at eye level and follow the damage upward."
+  },
+  {
+    "id": "ironweed",
+    "biomes": [
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🌸",
+    "name": "Ironweed",
+    "sci": "Vernonia gigantea",
+    "ctx": "Standing tall in the wet meadow",
+    "seasons": [
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A purple stand rises above the rest of the meadow like a banner.",
+    "tapReveal": "🌸",
+    "body": "Ironweed is one of those plants that makes a meadow feel honest. Tall, purple, late, and loaded with pollinators, it tells you the season is turning even while the heat is still hanging on.",
+    "facts": [
+      {
+        "l": "Wet Ground Friend",
+        "v": "Giant ironweed thrives in moist meadows, ditches, and low ground that stays richer than the dry upland."
+      },
+      {
+        "l": "Butterfly Plant",
+        "v": "Swallowtails, monarchs, skippers, bees, and wasps all use it."
+      },
+      {
+        "l": "Tall Signal",
+        "v": "When ironweed is up, you are looking at a field that has at least some structure left in it."
+      }
+    ],
+    "otw": "A meadow with ironweed still has backbone."
+  },
+  {
+    "id": "kingfisher",
+    "biomes": [
+      "creek",
+      "treetops"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐦",
+    "name": "Belted Kingfisher",
+    "sci": "Megaceryle alcyon",
+    "ctx": "On a branch over the creek",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A rattling call zips down the creek before you find the bird.",
+    "tapReveal": "🐦",
+    "body": "The belted kingfisher is one of the true creek birds — loud, top-heavy, blue-gray, and all business. When you hear that dry rattling call along the water, the creek still has somebody working it.",
+    "facts": [
+      {
+        "l": "Fishing Style",
+        "v": "Kingfishers perch, hover, or patrol, then dive headfirst into the creek for small fish and crayfish."
+      },
+      {
+        "l": "Bank Nests",
+        "v": "They tunnel into vertical dirt banks to nest, which means a hard clean cut bank can be valuable habitat."
+      },
+      {
+        "l": "Local Lookout",
+        "v": "The bridge coming into town is exactly the kind of place a kingfisher likes — a clear view, water below, and a perch with authority."
+      }
+    ],
+    "otw": "Watch where the kingfisher dives. That is information."
+  },
+  {
+    "id": "kingsnake",
+    "biomes": [
+      "woods",
+      "meadow"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐍",
+    "name": "Kingsnake",
+    "sci": "Lampropeltis getula",
+    "ctx": "Crossing warm ground after a cool night",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "quiz",
+    "q": "Why have farmers and old-timers long liked kingsnakes around barns and edges?",
+    "choices": [
+      "They eat only insects",
+      "They keep rodents and other snakes in check",
+      "They scare deer away",
+      "They are easy to tame"
+    ],
+    "correct": 1,
+    "vr": "Exactly. Kingsnakes do useful work where feed and rodents meet.",
+    "vw": "The respect comes from usefulness — kingsnakes eat rodents and other snakes, including venomous ones when the chance comes.",
+    "body": "Kingsnakes are handsome, clean-patterned, and remarkably effective predators. They are not venomous, but they are well-equipped for taking down rodents and sometimes other snakes much bigger than you would expect.",
+    "facts": [
+      {
+        "l": "Constrictor",
+        "v": "Kingsnakes overpower prey by coiling and squeezing, then swallowing it whole."
+      },
+      {
+        "l": "Snake Eater",
+        "v": "They are famous for eating other snakes, which is part of how they got the name."
+      },
+      {
+        "l": "Leave It Be",
+        "v": "A kingsnake on your place is usually helping more than hurting."
+      }
+    ],
+    "otw": "If you have feed, you have mice. If you have mice, a kingsnake is worth more than most people know."
+  },
+  {
+    "id": "mockingbird",
+    "biomes": [
+      "treetops",
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🐦",
+    "name": "Northern Mockingbird",
+    "sci": "Mimus polyglottos",
+    "ctx": "On the wire over the yard",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "One bird keeps changing the song every few seconds.",
+    "tapReveal": "🐦",
+    "body": "Mockingbirds stitch the sounds of a place together. Alarm notes, borrowed phrases, repeats, attitude, and stamina — one good mockingbird can make the whole yard sound more crowded than it is.",
+    "facts": [
+      {
+        "l": "Imitator",
+        "v": "Mockingbirds borrow from other birds and from whatever sounds have impressed them enough to keep."
+      },
+      {
+        "l": "Territory",
+        "v": "During nesting season they defend space fiercely and will dive people, cats, hawks, and anything else that seems rude."
+      },
+      {
+        "l": "Night Song",
+        "v": "Unmated males and city birds often sing at night under lights."
+      }
+    ],
+    "otw": "If one bird sounds like six, it is probably a mockingbird showing off."
+  },
+  {
+    "id": "pokeweed",
+    "biomes": [
+      "meadow",
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🌿",
+    "name": "Pokeweed",
+    "sci": "Phytolacca americana",
+    "ctx": "In disturbed ground by the edge",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A strong-stemmed plant rises fast where the ground has been turned or neglected.",
+    "tapReveal": "🌿",
+    "body": "Pokeweed is one of the great Southern contradiction plants: beautiful, useful to wildlife, traditionally eaten when very young and correctly prepared, and dangerous enough to make fools of the careless.",
+    "facts": [
+      {
+        "l": "Poke Salad",
+        "v": "Only the very young spring shoots have been traditionally cooked as food, and only after repeated boiling with the water discarded. Getting casual with poke is a mistake."
+      },
+      {
+        "l": "Bird Plant",
+        "v": "The dark berries feed birds in late season, which is why poke pops up so often under fence lines and trees."
+      },
+      {
+        "l": "Toxic Parts",
+        "v": "Roots, mature stems, and seeds are more dangerous. Treat the whole plant with respect."
+      }
+    ],
+    "otw": "Your elders were not wrong about poke salad, but they also did not skip the hard part. Knowledge is what makes the difference."
+  },
+  {
+    "id": "rabbit",
+    "biomes": [
+      "meadow",
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🐇",
+    "name": "Eastern Cottontail",
+    "sci": "Sylvilagus floridanus",
+    "ctx": "At the edge where grass meets brush",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "Something still and brown becomes obvious only when it moves.",
+    "tapReveal": "🐇",
+    "body": "Rabbits belong to the edge — not deep woods, not open field, but that in-between country where cover and food sit side by side. When brushy edges disappear, rabbits usually go with them.",
+    "facts": [
+      {
+        "l": "Edge Animal",
+        "v": "Brush piles, briars, field margins, and young growth are rabbit country."
+      },
+      {
+        "l": "Food Web",
+        "v": "Foxes, hawks, coyotes, bobcats, and owls all know rabbit country too."
+      },
+      {
+        "l": "Freeze First",
+        "v": "A rabbit trusts stillness before speed. Many people walk past one before the ears give it away."
+      }
+    ],
+    "otw": "A place with rabbits still has some cover in it somewhere, even if the field looks open at first glance."
+  },
+  {
+    "id": "snappingturtle",
+    "biomes": [
+      "swamp",
+      "creek"
+    ],
+    "rarity": "uncommon",
+    "icon": "🐢",
+    "name": "Snapping Turtle",
+    "sci": "Chelydra serpentina",
+    "ctx": "In the mud line where water gets quiet",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall"
+    ],
+    "type": "tap",
+    "tapText": "A dark shell and ancient face appear where the water clouds up.",
+    "tapReveal": "🐢",
+    "body": "Snapping turtles are old-country animals — armored, patient, and not interested in small talk. In the water they usually mind their business. Out of the water they remind you quickly that they are not a box turtle.",
+    "facts": [
+      {
+        "l": "Best Rule",
+        "v": "Give a snapping turtle space. Do not try to pick one up unless you truly know what you are doing."
+      },
+      {
+        "l": "Out Of Water",
+        "v": "They are most defensive on land because that is where they feel most exposed."
+      },
+      {
+        "l": "Scavenger Too",
+        "v": "Snappers eat living prey, carrion, and almost anything animal-rich they can manage. They help clean things up."
+      }
+    ],
+    "otw": "Never lift a snapping turtle by the tail. You can hurt the turtle and teach yourself a bad lesson at the same time."
+  },
+  {
+    "id": "squirrel",
+    "biomes": [
+      "woods",
+      "treetops"
+    ],
+    "rarity": "common",
+    "icon": "🐿️",
+    "name": "Gray Squirrel",
+    "sci": "Sciurus carolinensis",
+    "ctx": "In the hickories overhead",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A bark shower falls before the squirrel comes into view.",
+    "tapReveal": "🐿️",
+    "body": "Gray squirrels are part clown, part forester, part prey animal, and part acorn accountant. They shape the woods more than people credit them for because every buried nut is a decision about tomorrow.",
+    "facts": [
+      {
+        "l": "Seed Cacher",
+        "v": "Squirrels bury acorns, hickory nuts, and walnuts all over the woods. Many of those become future trees."
+      },
+      {
+        "l": "Drey",
+        "v": "That leafy ball high in the fork is a squirrel nest, called a drey."
+      },
+      {
+        "l": "Fall Sign",
+        "v": "Cut hickory shells, chewed pine cones, and scattered nut chips under a tree mean squirrels have been working above you."
+      }
+    ],
+    "otw": "If you want to know where the mast crop is strongest, look under the tree for shells before you look up for squirrels."
+  },
+  {
+    "id": "tick",
+    "biomes": [
+      "woods",
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🕷️",
+    "name": "Tick",
+    "sci": "Several hard tick species",
+    "ctx": "Waiting at knee height in the grass",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "quiz",
+    "q": "After walking grass or brush in warm weather, what is the smartest next move?",
+    "choices": [
+      "Wait until tomorrow to check",
+      "Do a tick check as soon as you get in",
+      "Cover the bite in nail polish",
+      "Ignore it unless you itch"
+    ],
+    "correct": 1,
+    "vr": "Exactly. The sooner you find them, the better.",
+    "vw": "Do the tick check early. Fast removal matters more than old folk remedies.",
+    "body": "Ticks are not rare events in this country. They are part of warm-weather life wherever grass, edges, brush, deer, mice, and people overlap. That means prevention is a habit, not a mood.",
+    "facts": [
+      {
+        "l": "Questing",
+        "v": "Ticks climb stems and hold out front legs, waiting to grab passing fur, fabric, or skin."
+      },
+      {
+        "l": "Best Removal",
+        "v": "Use fine tweezers, grab close to the skin, and pull steadily. Then wash the area and your hands."
+      },
+      {
+        "l": "Clothing Matters",
+        "v": "Light pants, tucked socks, and a full body check after the walk beat wishful thinking every time."
+      }
+    ],
+    "otw": "If you walked the tall grass, check before you sit down on the couch."
+  },
+  {
+    "id": "tirecreek",
+    "biomes": [
+      "creek"
+    ],
+    "rarity": "common",
+    "icon": "🛞",
+    "name": "Tire in the Creek",
+    "sci": "Discarded tire",
+    "ctx": "Caught against the bank in moving water",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A black ring sits where driftwood should be.",
+    "tapReveal": "🛞",
+    "body": "A tire in the creek is not just an eyesore. It traps leaves, changes flow, sheds compounds as it ages, and announces that someone treated the water like a ditch instead of a living system.",
+    "facts": [
+      {
+        "l": "Flow Change",
+        "v": "Anything large left in a small creek changes how water moves around it, which changes erosion and deposition."
+      },
+      {
+        "l": "Trash Magnet",
+        "v": "One tire catches branches, plastic, line, and cans until the problem looks older and more natural than it really is."
+      },
+      {
+        "l": "Worth Removing",
+        "v": "Bulky trash in water is worth documenting and organizing a cleanup for because it keeps collecting consequences."
+      }
+    ],
+    "otw": "The creek carries what people leave in it farther than people think."
+  },
+  {
+    "id": "tirewoods",
+    "biomes": [
+      "woods"
+    ],
+    "rarity": "common",
+    "icon": "🛞",
+    "name": "Tire in the Woods",
+    "sci": "Discarded tire",
+    "ctx": "Hidden just beyond the shoulder",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "A half-sunk tire turns up under honeysuckle and leaves.",
+    "tapReveal": "🛞",
+    "body": "A tire in the woods is the kind of slow insult people stop seeing because it is old. But it still holds water, still shelters mosquitoes, and still says somebody used the woods as a dump.",
+    "facts": [
+      {
+        "l": "Mosquito Water",
+        "v": "Any tire that can hold rain becomes a breeding bucket in warm weather."
+      },
+      {
+        "l": "Old Problem",
+        "v": "A weathered tire often means the dumping has been normal long enough for the place to start absorbing it."
+      },
+      {
+        "l": "Cleanups Matter",
+        "v": "Bulky dump items make a place feel abandoned. Taking them out changes behavior as much as appearance."
+      }
+    ],
+    "otw": "Some trash gets uglier with age. Tires mostly just get more accepted, which is worse."
+  },
+  {
+    "id": "trash",
+    "biomes": [
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "🗑️",
+    "name": "Trash in the Meadow",
+    "sci": "Household litter",
+    "ctx": "Scattered where flowers should be",
+    "seasons": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
+    "type": "tap",
+    "tapText": "The meadow catches whatever blows or gets thrown into it.",
+    "tapReveal": "🗑️",
+    "body": "Trash in the meadow competes with every good thing that open ground can be — pollinator habitat, seed head, field edge, and breathing room. Litter is small until it is normal. Then it gets large fast.",
+    "facts": [
+      {
+        "l": "Pollinator Cost",
+        "v": "Litter and mowing culture together can erase the very flowers and stems insects need."
+      },
+      {
+        "l": "Sharp Edges",
+        "v": "Cans, broken glass, and wire turn a harmless place into a cut hazard for people, dogs, and wildlife."
+      },
+      {
+        "l": "Cultural Signal",
+        "v": "A cared-for meadow tells people not to dump. A neglected one often invites it."
+      }
+    ],
+    "otw": "If you want wildflowers, start by getting the trash out of their way."
+  },
+  {
+    "id": "wisteria",
+    "biomes": [
+      "woods",
+      "meadow"
+    ],
+    "rarity": "common",
+    "icon": "💜",
+    "name": "Wisteria",
+    "sci": "Wisteria spp.",
+    "ctx": "Climbing over what it can get hold of",
+    "seasons": [
+      "spring"
+    ],
+    "type": "tap",
+    "tapText": "Purple hanging blooms make a vine look more innocent than it is.",
+    "tapReveal": "💜",
+    "body": "Wisteria is beautiful enough to get forgiven too easily. The showy blooms are real, but so is the strangling, shading, and weight it puts on trees and edges when it gets loose.",
+    "facts": [
+      {
+        "l": "Mostly Escaped Ornamentals",
+        "v": "The heavy, aggressive blankets people complain about are often nonnative wisterias rather than the more restrained native species."
+      },
+      {
+        "l": "Tree Load",
+        "v": "Large vines add real weight and shade, pulling branches down and smothering understory growth."
+      },
+      {
+        "l": "Cut Low",
+        "v": "Control usually means cutting stems near the base and staying after resprouts, not just pulling the pretty flowers."
+      }
+    ],
+    "otw": "A vine can be handsome and still be a problem. Wisteria is proof."
+  }
+];
+ITEMS.push(...GUIDE_EXPANSIONS);
+const HIDDEN_GUIDE_IDS=new Set(['oil','commode','garbage','trash','tirecreek','tirewoods']);
+ITEMS=ITEMS.filter(it=>!HIDDEN_GUIDE_IDS.has(it.id));
+
+const RECIPE_LINKS={
+  bream:{href:'cardiff-kitchen.html#fried-bream',label:'Open Fried Bream →'},
+  pokeweed:{href:'cardiff-kitchen.html#polk-salad',label:'Open Polk Salad →'},
+  squirrel:{href:'cardiff-kitchen.html#squirrel-stew',label:'Open Squirrel Stew →'}
+};
+
+function buildGuideAssetPath(file){ return file ? GUIDE_ASSET_BASE + file : ''; }
+function getGuideAsset(it){
+  const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
+  return buildGuideAssetPath(file);
+}
+function getGuideEeAsset(it){
+  const direct=(it && it.eeAsset) ? buildGuideAssetPath(it.eeAsset) : '';
+  if(direct) return direct;
+  const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
+  if(!file || !/\.png$/i.test(file)) return '';
+  return buildGuideAssetPath(file.replace(/\.png$/i,'_ee.png'));
+}
+const _assetCheckCache={};
+function assetExists(src){
+  if(!src) return Promise.resolve(false);
+  if(src in _assetCheckCache) return Promise.resolve(_assetCheckCache[src]);
+  return new Promise(resolve=>{
+    const img=new Image();
+    img.onload=()=>{_assetCheckCache[src]=true;resolve(true);};
+    img.onerror=()=>{_assetCheckCache[src]=false;resolve(false);};
+    img.src=src;
+  });
+}
+function getGuideVisualHtml(it,cls='',variant='main'){
+  const src=variant==='ee' ? getGuideEeAsset(it) : getGuideAsset(it);
+  if(!src){
+    return `<span class="guide-figure ${cls||''} is-fallback"><span class="guide-fallback">${it.icon}</span></span>`;
+  }
+  return `<span class="guide-figure ${cls||''}"><img src="${src}" alt="${it.name}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false;this.closest('.guide-figure').classList.add('is-fallback');"><span class="guide-fallback" hidden>${it.icon}</span></span>`;
+}
+function renderGuideVisual(el,it,cls,variant='main'){
+  el.innerHTML=getGuideVisualHtml(it,cls,variant);
+}
+
+function getActiveBrowseItems(){
+  return browseFilter==='all'?ITEMS:ITEMS.filter(it=>it.biomes.includes(browseFilter));
+}
+
+function scrollGuideTop(){
+  const area=document.getElementById('scroll-area');
+  if(area) area.scrollTo({top:0,behavior:'auto'});
+  window.scrollTo({top:0,behavior:'auto'});
+}
+function clearTapState(){
+  const active=document.activeElement;
+  if(active && typeof active.blur==='function') active.blur();
+}
+
+function openInfo(id){
+  infoList=getActiveBrowseItems();
+  infoIdx=Math.max(0, infoList.findIndex(i=>i.id===id));
+  viewMode='info';
+  document.getElementById('progPill').style.display='none';
+  showReveal(infoList[infoIdx],'info');
+  scrollGuideTop();
+}
+
+
+function showItem(){
+  if(idx>=shuffled.length){showEnd();return;}
+  const it=shuffled[idx];answered=false;
+  setProg(idx/shuffled.length);
+  document.getElementById('pc').textContent=idx+1;
+  document.getElementById('iCtx').textContent=it.ctx;
+  document.getElementById('iNum').textContent=`${idx+1} of ${shuffled.length}`;
+  const em=document.getElementById('iEmoji');
+  renderGuideVisual(em,it,'item-asset');
+  em.style.animation='none';em.offsetHeight;em.style.animation='floatIn .4s cubic-bezier(.34,1.56,.64,1)';
+  document.getElementById('iName').textContent=it.name;
+  document.getElementById('iSci').textContent=it.sci;
+  // Rarity
+  const rv=RARITY[it.rarity||'common'];
+  const rb=document.getElementById('iRarity');
+  if(rb){rb.className='rarity-badge '+(rv?rv.cls:'r-common');rb.innerHTML='<span class="r-dot"></span>'+(rv?rv.label:'Common');}
+  // Seasons
+  const sb=document.getElementById('iSeasons');
+  const SMAP={spring:'sb-spring',summer:'sb-summer',fall:'sb-fall',winter:'sb-winter'};
+  const SLBL={spring:'Spring',summer:'Summer',fall:'Fall',winter:'Winter'};
+  if(sb)sb.innerHTML=(it.seasons||[]).map(s=>`<span class="sb ${SMAP[s]||'sb-year'}">${SLBL[s]||s}</span>`).join('');
+  // Biomes
+  const bb=document.getElementById('iBiomes');
+  if(bb)bb.innerHTML=(it.biomes||[]).map(b=>`${BIOMES[b]?.icon||''} ${BIOMES[b]?.name||b}`).join(' · ');
+  // Quiz or tap
+  const qEl=document.getElementById('iQ'),chEl=document.getElementById('iChoices'),tapEl=document.getElementById('iTap');
+  if(it.type==='quiz'){
+    qEl.textContent=it.q;qEl.style.display='block';chEl.style.display='grid';tapEl.style.display='none';
+    chEl.innerHTML=it.choices.map((ch,i)=>`<button class="cb" id="ch${i}" onclick="answerQ(${i},${it.correct})">${ch}</button>`).join('');
+  }else{
+    qEl.style.display='none';chEl.style.display='none';tapEl.style.display='block';
+    document.getElementById('iTapText').textContent=it.tapText;
+  }
+  showState('item');
+  scrollGuideTop();
+}
+
+
+async function playRevealTransition(it,vtype){
+  const em=document.getElementById('iEmoji');
+  const eeSrc=getGuideEeAsset(it);
+  const hasEe=await assetExists(eeSrc);
+  if(hasEe){
+    renderGuideVisual(em,it,'item-asset','ee');
+    em.classList.remove('ee-beat');
+    em.offsetHeight;
+    em.classList.add('ee-beat');
+    await new Promise(r=>setTimeout(r,520));
+    em.classList.remove('ee-beat');
+  }else if(it.type==='tap' && it.tapReveal && !getGuideAsset(it)){
+    em.style.transform='scale(0)';
+    await new Promise(r=>setTimeout(r,160));
+    em.textContent=it.tapReveal;
+    em.style.transition='transform .3s cubic-bezier(.34,1.56,.64,1)';
+    em.style.transform='scale(1)';
+    await new Promise(r=>setTimeout(r,360));
+  }else{
+    await new Promise(r=>setTimeout(r,220));
+  }
+  showReveal(it,vtype,hasEe?'ee':'main');
+}
+
+function answerQ(chosen,correct){
+  if(answered)return;answered=true;
+  const it=shuffled[idx];const right=chosen===correct;if(right)score++;
+  for(let i=0;i<it.choices.length;i++){const b=document.getElementById('ch'+i);if(!b)continue;b.disabled=true;if(i===correct)b.classList.add('correct');else if(i===chosen&&!right)b.classList.add('wrong');}
+  setTimeout(()=>{playRevealTransition(it,right?'correct':'wrong');},380);
+}
+
+function summarizeSeasons(it){
+  const s=it.seasons||[];
+  if(!s.length) return 'Year-round';
+  const map={spring:'Spring',summer:'Summer',fall:'Fall',winter:'Winter'};
+  return s.map(x=>map[x]||x).join(' · ');
+}
+function summarizeBiomes(it){
+  return (it.biomes||[]).map(b=>BIOMES[b]?.name||b).join(' · ');
+}
+function getSafetyNote(it){
+  const t=[it.name,it.body,it.q,it.tapText,it.otw,(it.facts||[]).map(f=>f.v).join(' ')].join(' ').toLowerCase();
+  if(/copperhead|cottonmouth|venom|venomous/.test(t)) return 'Use caution';
+  if(/tick|poison ivy|scorpion|wild hog|hog/.test(t)) return 'Watch yourself';
+  if(/not venomous|harmless|leave it alone/.test(t)) return 'Low risk if left alone';
+  return 'Observe, do not handle';
+}
+function getQuickFacts(it){
+  return [
+    {k:'Found here',v:summarizeBiomes(it)||'Cardiff'},
+    {k:'Season',v:summarizeSeasons(it)},
+    {k:'Status',v:(RARITY[it.rarity||'common']||RARITY.common).label},
+    {k:'Field use',v:getSafetyNote(it)}
+  ];
+}
+
+function handleTap(){
+  if(answered)return;answered=true;
+  const it=shuffled[idx];
+  playRevealTransition(it,'info');
+}
+
+function showReveal(it,vtype,variant='main'){
+  discovered.push(it.icon);
+  renderGuideVisual(document.getElementById('rIcon'),it,'reveal-asset',variant);
+  document.getElementById('rName').textContent=it.name;
+  document.getElementById('rSci').textContent=it.sci;
+  const vEl=document.getElementById('rVerdict');
+  if(viewMode==='info'){
+    vEl.innerHTML=`<span class="vd vd-inf">Field note · fast identification first</span>`;
+  }else if(vtype==='correct')vEl.innerHTML=`<span class="vd vd-ok">✓ ${it.vr}</span>`;
+  else if(vtype==='wrong')vEl.innerHTML=`<span class="vd vd-no">✗ ${it.vw}</span>`;
+  else vEl.innerHTML=`<span class="vd vd-inf">↓ Here's what you found</span>`;
+  document.getElementById('rQuickFacts').innerHTML=getQuickFacts(it).map(f=>`<div class="qf"><div class="qf-k">${f.k}</div><div class="qf-v">${f.v}</div></div>`).join('');
+  const look=LOOKALIKE_NOTES[it.id]||'';
+  const lookBox=document.getElementById('lookalikeBox');
+  if(look){ lookBox.style.display='block'; document.getElementById('lookalikeText').textContent=look; } else { lookBox.style.display='none'; }
+  const local=LOCAL_NOTES[it.id]||'';
+  const localBox=document.getElementById('localNoteBox');
+  if(local){ localBox.style.display='block'; document.getElementById('localNoteText').textContent=local; } else { localBox.style.display='none'; }
+  document.getElementById('rBody').textContent=it.body;
+  const recipe=RECIPE_LINKS[it.id];
+  const recipeBox=document.getElementById('recipeLinkBox');
+  if(recipe){
+    recipeBox.style.display='block';
+    const recipeLink=document.getElementById('recipeLink');
+    recipeLink.href=recipe.href;
+    recipeLink.textContent=recipe.label;
+  } else {
+    recipeBox.style.display='none';
+  }
+  document.getElementById('rFacts').innerHTML=it.facts.map(f=>`<div class="fact"><div class="fact-l">${f.l}</div><div class="fact-v">${f.v}</div></div>`).join('');
+  const otwEl=document.getElementById('otwStrip');
+  if(it.otw){otwEl.style.display='block';document.getElementById('otwText').textContent=it.otw;}else otwEl.style.display='none';
+  document.getElementById('cBtnTxt').textContent=viewMode==='info' ? (infoIdx>=infoList.length-1?'Back to List →':'Next Species →') : (idx===shuffled.length-1?'See Results →':'Next →');
+  showState('reveal');
+}
+
+function nextItem(){idx++;if(idx>=shuffled.length){showEnd();return;}showItem();}
+function advanceFromReveal(){
+  if(viewMode==='info'){
+    infoIdx++;
+    if(infoIdx>=infoList.length){showState('browse'); return;}
+    showReveal(infoList[infoIdx],'info');
+    scrollGuideTop();
+    return;
+  }
+  nextItem();
+}
+
+function showEnd(){
+  setProg(1);
+  const quizCount=shuffled.filter(i=>i.type==='quiz').length;
+  document.getElementById('eScore').textContent=score+'/'+quizCount;
+  document.getElementById('eTitle').textContent=score===quizCount?'Creek expert.':score>=quizCount*.7?'Good instincts.':score>=quizCount*.4?'Learning the creek.':'Keep exploring.';
+  document.getElementById('eBody').textContent=score===quizCount?'You know Five Mile Creek. Everything you learned is actually out there waiting for you.':'Every creek rewards the curious. Go turn over a rock and see what\'s underneath — that\'s where the real learning starts.';
+  document.getElementById('eDiscs').innerHTML=discovered.map((d,i)=>`<div class="ed" style="animation-delay:${i*.07}s">${d}</div>`).join('');
+  showState('end');document.getElementById('progPill').style.display='none';
+}
+
+function replayGame(){document.getElementById('progPill').style.display='flex';currentBiome?startBiomeGame():startAll();}
+
+const appBackStack=[];
+let suppressHistoryPush=false;
+function currentScreen(){
+  const on=document.querySelector('.cs.on');
+  return on ? on.id.replace('s-','') : 'welcome';
+}
+function captureAppSnapshot(){
+  return {
+    screen:currentScreen(),
+    currentBiome,viewMode,browseFilter,browseSearch,browseSeason,idx,infoIdx,score,answered,
+    discovered:[...discovered],
+    shuffledIds:shuffled.map(i=>i.id),
+    infoListIds:infoList.map(i=>i.id)
+  };
+}
+function restoreAppSnapshot(snap){
+  if(!snap) return;
+  suppressHistoryPush=true;
+  currentBiome=snap.currentBiome||null;
+  viewMode=snap.viewMode||'quiz';
+  browseFilter=snap.browseFilter||'all';
+  browseSearch=snap.browseSearch||'';
+  browseSeason=snap.browseSeason||'all';
+  idx=Number.isInteger(snap.idx)?snap.idx:0;
+  infoIdx=Number.isInteger(snap.infoIdx)?snap.infoIdx:0;
+  score=Number.isInteger(snap.score)?snap.score:0;
+  answered=!!snap.answered;
+  discovered=Array.isArray(snap.discovered)?[...snap.discovered]:[];
+  shuffled=(snap.shuffledIds||[]).map(id=>ITEMS.find(it=>it.id===id)).filter(Boolean);
+  infoList=(snap.infoListIds||[]).map(id=>ITEMS.find(it=>it.id===id)).filter(Boolean);
+  if(snap.screen==='biomes'){
+    buildBiomeGrid();
+    showState('biomes');
+  }else if(snap.screen==='start'){
+    if(currentBiome && BIOMES[currentBiome]){
+      const b=BIOMES[currentBiome];
+      document.getElementById('biomeLabel').textContent=b.name;
+      document.getElementById('biomeTitle').textContent=b.title;
+      document.getElementById('biomeSub').textContent=b.desc;
+      const gearEl=document.getElementById('biomeGear');
+      if(b.gear){
+        gearEl.style.display='block';
+        gearEl.innerHTML=`<div class="gear-tip-label">🥾 Gear Up</div><p>${b.gear}</p>`;
+      } else gearEl.style.display='none';
+    }
+    showState('start');
+  }else if(snap.screen==='browse'){
+    renderBrowse();
+    showState('browse');
+  }else if(snap.screen==='item'){
+    if(!shuffled.length) shuffled=shuffle(getItemsForBiome(currentBiome));
+    document.getElementById('progPill').style.display='flex';
+    document.getElementById('pt').textContent=shuffled.length;
+    showItem();
+  }else if(snap.screen==='reveal'){
+    const current=viewMode==='info' ? infoList[infoIdx] : shuffled[idx];
+    if(current){
+      document.getElementById('progPill').style.display=viewMode==='info'?'none':'flex';
+      if(viewMode!=='info') document.getElementById('pt').textContent=shuffled.length;
+      showReveal(current, viewMode==='info' ? 'info' : 'correct');
+      showState('reveal');
+      scrollGuideTop();
+    } else {
+      showState('welcome');
+    }
+  }else if(snap.screen==='end'){
+    showEnd();
+  }else {
+    showState('welcome');
+  }
+  suppressHistoryPush=false;
+}
+function showState(n){
+  clearTapState();
+  if(!suppressHistoryPush && currentScreen()!==n){
+    appBackStack.push(captureAppSnapshot());
+    history.pushState({cardiffGuide:true},'',window.location.href);
+  }
+  ['welcome','biomes','start','item','reveal','end','browse'].forEach(s=>document.getElementById('s-'+s).classList.toggle('on',s===n));
+  updateMobileQuickbar(n);
+  scrollGuideTop();
+}
+function updateMobileQuickbar(screen){
+  const bar=document.getElementById('mobileQuickbar');
+  const show=!['welcome','biomes','start','end'].includes(screen);
+  bar.style.display=show?'flex':'none';
+  document.body.classList.toggle('has-mobile-quickbar',show);
+}
+function focusGuideSearch(){
+  if(currentScreen()!=='browse') showBrowse();
+  setTimeout(()=>{
+    const el=document.getElementById('browseSearch');
+    if(el){ el.focus(); el.select?.(); }
+  },60);
+}
+function handleWelcomeSearchKey(e){
+  if(e.key==='Enter') runWelcomeSearch();
+}
+function runWelcomeSearch(){
+  const q=(document.getElementById('welcomeSearch')?.value||'').trim();
+  browseFilter='all';
+  browseSeason='all';
+  browseSearch=q.toLowerCase();
+  renderBrowse();
+  showState('browse');
+}
+function quickBrowse(term){
+  browseFilter='all';
+  browseSeason='all';
+  browseSearch=(term||'').toLowerCase();
+  renderBrowse();
+  showState('browse');
+}
+function showActiveNow(){
+  browseFilter='all';
+  browseSearch='';
+  browseSeason=getCurrentSeason();
+  renderBrowse();
+  showState('browse');
+}
+window.addEventListener('popstate',()=>{
+  if(!appBackStack.length) return;
+  const snap=appBackStack.pop();
+  restoreAppSnapshot(snap);
+});
+history.replaceState({cardiffGuide:true},'',window.location.href);
+function setProg(p){document.getElementById('pf').style.width=(p*100)+'%';}
+
+function startOnItem(id){
+  if(!id){currentBiome?startBiomeGame():startAll();return;}
+  viewMode='quiz';
+  const items=getItemsForBiome(currentBiome);
+  shuffled=shuffle(items);
+  const t=shuffled.findIndex(i=>i.id===id);
+  if(t>0){const ti=shuffled.splice(t,1)[0];shuffled.unshift(ti);}
+  idx=0;score=0;discovered=[];answered=false;
+  document.getElementById('progPill').style.display='flex';
+  document.getElementById('pt').textContent=shuffled.length;
+  showItem();
+}
+
+// ── BROWSE ───────────────────────────────────────────────
+let browseFilter='all';
+let browseSearch='';
+let browseSeason='all';
+
+function showBrowse(){
+  currentBiome=null;browseFilter='all';browseSearch='';browseSeason='all';
+  renderBrowse();
+  showState('browse');
+}
+function showBiomeBrowse(){
+  browseFilter=currentBiome||'all';browseSearch='';browseSeason='all';
+  renderBrowse();
+  showState('browse');
+}
+function setBrowseFilter(f){
+  browseFilter=f;
+  renderBrowse();
+}
+function setBrowseSeason(s){
+  browseSeason=s;
+  renderBrowse();
+}
+function setBrowseSearch(v){
+  browseSearch=(v||'').trim().toLowerCase();
+  renderBrowse();
+}
+function getSearchHaystack(it){
+  const aliases=[];
+  if(it.name) aliases.push(it.name);
+  if(it.sci) aliases.push(it.sci);
+  if(it.ctx) aliases.push(it.ctx);
+  if(it.q) aliases.push(it.q);
+  if(it.body) aliases.push(it.body);
+  if(it.otw) aliases.push(it.otw);
+  if(it.id) aliases.push(it.id.replace(/_/g,' '));
+  if(it.id==='hawk') aliases.push('chicken hawk red tailed hawk red-tail');
+  if(it.id==='snake') aliases.push('watersnake water snake northern water snake moccasin cottonmouth');
+  if(it.id==='channelcatfish') aliases.push('catfish channel cat');
+  if(it.id==='bream') aliases.push('bluegill brim sunfish');
+  if(it.id==='opossum') aliases.push('possum');
+  if(it.id==='geese') aliases.push('canada goose goose');
+  return aliases.join(' ').toLowerCase();
+}
+function renderBrowse(){
+  // Filters
+  const ff=document.getElementById('browseFilters');
+  ff.innerHTML=[{k:'all',l:'All'},...Object.entries(BIOMES).map(([k,b])=>({k,l:b.icon+' '+b.name}))].map(f=>
+    `<button class="bf-tab${f.k===browseFilter?' active':''}" onclick="setBrowseFilter('${f.k}')">${f.l}</button>`
+  ).join('');
+  const sf=document.getElementById('seasonFilters');
+  const currentSeason=getCurrentSeason();
+  sf.innerHTML=[{k:'all',l:'All seasons'},{k:currentSeason,l:'Active now'}].map(f=>
+    `<button class="bf-tab${f.k===browseSeason?' active':''}" onclick="setBrowseSeason('${f.k}')">${f.l}</button>`
+  ).join('');
+  // Items
+  let items=browseFilter==='all'?ITEMS:ITEMS.filter(it=>it.biomes.includes(browseFilter));
+  if(browseSeason!=='all'){ items=items.filter(it=>(it.seasons||[]).includes(browseSeason)); }
+  if(browseSearch){ items=items.filter(it=>getSearchHaystack(it).includes(browseSearch)); }
+  const list=document.getElementById('browseList');
+  const input=document.getElementById('browseSearch');
+  if(input && input.value!==browseSearch) input.value=browseSearch;
+  if(!items.length){
+    list.innerHTML='<div class="browse-item" style="cursor:default"><div><div class="browse-name">Nothing matched that combination</div><div class="browse-sci">Try a broader word, switch seasons, or clear back to all species. No news is good news, but no results usually means the filter is too tight.</div></div></div>';
+    return;
+  }
+  list.innerHTML=items.map(it=>{
+    const rv=RARITY[it.rarity||'common'];
+    return `<div class="browse-item" onclick="openInfo('${it.id}')">
+      <span class="browse-thumb">${getGuideVisualHtml(it,'browse-asset')}</span>
+      <div>
+        <div class="browse-name">${it.name}</div>
+        <div class="browse-sci">${it.sci}</div>
+      </div>
+      <div class="browse-right">
+        <span class="rarity-badge ${rv.cls}" style="font-size:0.52rem"><span class="r-dot"></span>${rv.label}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+document.addEventListener('touchend',()=>{ setTimeout(clearTapState,0); },{passive:true});
+document.addEventListener('keydown',e=>{
+  if(e.key==='1'){const b=document.getElementById('ch0');if(b&&!b.disabled)b.click();}
+  if(e.key==='2'){const b=document.getElementById('ch1');if(b&&!b.disabled)b.click();}
+  if(e.key==='3'){const b=document.getElementById('ch2');if(b&&!b.disabled)b.click();}
+  if(e.key==='4'){const b=document.getElementById('ch3');if(b&&!b.disabled)b.click();}
+  if(e.key==='Enter'){const c=document.querySelector('.cs.on .continue-btn');if(c)c.click();}
+});
+
+// ════════════════════════════════════════════════════════
+// CARDIFF SHARED JAVASCRIPT
+// ════════════════════════════════════════════════════════
+
+// ── TOPO BACKGROUND ──────────────────────────────────────
+function initTopo(){
+  const canvas=document.getElementById('topo-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,lines=[],frame=0;
+  function build(){
+    lines=[];
+    for(let i=0;i<30;i++){
+      const baseY=(H/29)*i;const pts=[];
+      for(let s=0;s<=26;s++){
+        pts.push([(W/26)*s,baseY+Math.sin(s*0.41+i*0.63)*15+Math.sin(s*0.18+i*1.1)*30+Math.sin(s*0.07+i*0.35)*46+Math.cos(s*0.55+i*0.82)*11]);
+      }
+      const isIndex=i%5===0;
+      lines.push({pts,color:isIndex?'rgba(80,44,8,0.11)':'rgba(80,44,8,0.052)',w:isIndex?1.2:0.6,ph:Math.random()*Math.PI*2,sp:0.0004+Math.random()*0.0004});
+    }
+    const ck=[];
+    for(let s=0;s<=52;s++)ck.push([(W/52)*s,H*0.72+Math.sin(s*0.22)*58+Math.sin(s*0.13)*88+Math.cos(s*0.35)*26]);
+    lines.push({pts:ck,color:'rgba(150,40,20,0.11)',w:2.4,ph:0,sp:0.00025,dash:[8,10]});
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    lines.forEach(l=>{
+      ctx.beginPath();ctx.strokeStyle=l.color;ctx.lineWidth=l.w;ctx.setLineDash(l.dash||[]);
+      const t=frame*l.sp+l.ph;
+      l.pts.forEach(([x,y],i)=>{
+        const dy=y+Math.sin(t+i*0.28)*2.8+Math.sin(t*1.7+i*0.14)*1.2+Math.cos(t*0.8+i*0.42)*1.6;
+        i===0?ctx.moveTo(x,dy):ctx.lineTo(x,dy);
+      });
+      ctx.stroke();
+    });
+    ctx.setLineDash([]);frame++;requestAnimationFrame(draw);
+  }
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;build();}
+  window.addEventListener('resize',resize);resize();draw();
+}
+
+// ── WEATHER ──────────────────────────────────────────────
+const WX_URL='https://api.weather.com/v2/pws/observations/current?stationId=KALGRAYS4&format=json&units=e&apiKey=e643322b432c400b83322b432ce00bb5';
+const WDIRS=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+function wdir(d){return Number.isFinite(d)?WDIRS[Math.round((((d%360)+360)%360)/22.5)%16]:'';}
+
+function wxCondition(o){
+  const t=o.imperial.temp,h=o.humidity,pr=o.imperial.precipRate||0,sr=o.solarRadiation||0,w=o.imperial.windSpeed,hr=new Date().getHours();
+  if(pr>.05)return'Rain';if(sr>700)return'Sunny';if(sr>350)return'Partly cloudy';
+  if(sr<30&&hr>7&&hr<19)return'Overcast';if(t>90)return'Hot';
+  if(t>76)return h>72?'Warm & humid':'Warm';if(t>58)return w>12?'Breezy':'Mild';return'Cold';
+}
+
+function setEl(id,val){const e=document.getElementById(id);if(e)e.textContent=val;}
+
+async function loadWeather(callback){
+  try{
+    const r=await fetch(WX_URL);const d=await r.json();const o=d.observations[0],imp=o.imperial;
+    const temp=Math.round(imp.temp),feels=Math.round(imp.heatIndex||imp.windChill||imp.temp);
+    const dir=wdir(o.winddir);
+    const wind=Math.round(imp.windSpeed)+' mph'+(dir?' '+dir:'');
+    const rain=(imp.precipTotal||0).toFixed(2)+'"';const cond=wxCondition(o);
+    const wxEmoji=cond==='Rain'?'🌧️':cond==='Sunny'?'☀️':cond==='Hot'?'🌡️':cond==='Overcast'?'☁️':cond==='Breezy'?'🌬️':cond==='Cold'?'🥶':'🌤️';
+    const windSpd=Math.round(imp.windSpeed);
+    const windEmoji=windSpd<5?'🍃':windSpd<15?'💨':'🌬️';
+    setEl('mhTemp',wxEmoji+' '+temp+'°F');setEl('mhCond',cond);setEl('mhWind',windEmoji+' '+wind);
+    setEl('tkTemp',wxEmoji+' '+temp+'°F');setEl('tkFeels',feels+'°F');setEl('tkHum',o.humidity+'%');
+    setEl('tkWind',windEmoji+' '+wind);setEl('tkRain',rain);setEl('tkUV',o.uv??'—');
+    window._wx={...o,temp,feels,wind,rain,cond,imp};
+    if(callback)callback(window._wx);
+  }catch(e){setEl('mhTemp','—');setEl('mhCond','Offline');if(callback)callback(null);}
+}
+
+// ── DATES ────────────────────────────────────────────────
+const DAYS_LONG=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS_LONG=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const now=new Date();const todayMonth=now.getMonth();
+const dayOfYear=Math.floor((now-new Date(now.getFullYear(),0,0))/864e5);
+
+// ── MOON PHASE ───────────────────────────────────────────
+const MOON_PHASES=[
+  {name:'New Moon',icon:'🌑',min:0,max:1.85},{name:'Waxing Crescent',icon:'🌒',min:1.85,max:7.38},
+  {name:'First Quarter',icon:'🌓',min:7.38,max:11.07},{name:'Waxing Gibbous',icon:'🌔',min:11.07,max:14.77},
+  {name:'Full Moon',icon:'🌕',min:14.77,max:16.61},{name:'Waning Gibbous',icon:'🌖',min:16.61,max:22.15},
+  {name:'Last Quarter',icon:'🌗',min:22.15,max:25.84},{name:'Waning Crescent',icon:'🌘',min:25.84,max:29.53},
+];
+const knownNew=new Date(2000,0,6,18,14,0);
+const moonDay=((now-knownNew)/864e5%29.53+29.53)%29.53;
+const moonPhase=MOON_PHASES.find(p=>moonDay>=p.min&&moonDay<p.max)||MOON_PHASES[0];
+
+// ── SUNRISE / SUNSET ─────────────────────────────────────
+function getSunTimes(){
+  const lat=33.64*Math.PI/180;
+  const decl=0.4093*Math.sin(2*Math.PI*(dayOfYear-81)/368);
+  const ha=Math.acos(-Math.tan(lat)*Math.tan(decl))*180/Math.PI;
+  const noon=12-(-86.87+Math.ceil(-86.87/15)*15)/15;
+  return{rise:noon-ha/15,set:noon+ha/15};
+}
+const sunTimes=getSunTimes();
+function fmtHour(h){const hh=Math.floor(h),mm=Math.round((h-hh)*60);const ap=hh>=12?'PM':'AM';return`${hh>12?hh-12:hh||12}:${mm.toString().padStart(2,'0')} ${ap}`;}
+const isAM=now.getHours()<12;
+
+// ── INIT ─────────────────────────────────────────────────
+initTopo();
+
+loadWeather(function(wx){
+  if(!wx){document.getElementById('wxCard').innerHTML='<span style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3)">Weather offline</span>';return;}
+  const hr=new Date().getHours();
+  const timeOfDay=hr<5?'Night':hr<9?'Morning':hr<12?'Late morning':hr<17?'Afternoon':hr<20?'Evening':'Night';
+  const timeEmoji=hr<5?'🌙':hr<9?'🌅':hr<12?'☀️':hr<17?'🌤️':hr<20?'🌇':'🌙';
+  const wxEmoji=wx.cond==='Rain'?'🌧️':wx.cond==='Sunny'?'☀️':wx.cond==='Hot'?'🌡️':wx.cond==='Overcast'?'☁️':wx.cond==='Breezy'?'🌬️':'🌤️';
+  const seasons=[{s:'spring',range:[2,3,4],icon:'🌿'},{s:'summer',range:[5,6,7],icon:'☀️'},{s:'fall',range:[8,9,10],icon:'🍂'},{s:'winter',range:[11,0,1],icon:'❄️'}];
+  const m2=new Date().getMonth();const currentSeason=seasons.find(s=>s.range.includes(m2));
+  const strip=document.getElementById('seasonStrip');
+  if(strip&&currentSeason){
+    strip.innerHTML=seasons.map(s=>`<span style="padding:.2rem .6rem;border-radius:100px;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid ${s.s===currentSeason.s?'rgba(80,44,8,0.4)':'rgba(80,44,8,0.12)'};background:${s.s===currentSeason.s?'rgba(80,44,8,0.08)':'transparent'};color:${s.s===currentSeason.s?'var(--ink2)':'var(--ink3)'};">${s.icon} ${s.s}</span>`).join('');
+  }
+  document.getElementById('wxCard').className='wx-card';
+  document.getElementById('wxCard').innerHTML=`
+    <div class="wx-stat"><div class="wx-stat-val">${timeEmoji} ${timeOfDay}</div><div class="wx-stat-lbl">Time of Day</div></div>
+    <div class="wx-stat"><div class="wx-stat-val">${wxEmoji} ${wx.temp}°F</div><div class="wx-stat-lbl">Temperature</div></div>
+    <div class="wx-stat"><div class="wx-stat-val">${wxEmoji} ${wx.cond}</div><div class="wx-stat-lbl">Conditions</div></div>
+    <div class="wx-stat"><div class="wx-stat-val">${moonPhase.icon} ${moonPhase.name}</div><div class="wx-stat-lbl">Moon Phase</div></div>
+  `;
+});
+setInterval(()=>loadWeather(),5*60*1000);
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>

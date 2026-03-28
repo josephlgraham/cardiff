@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiff Kitchen · Recipes from the Land</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:200ms ease;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 2rem 4rem;}
+.k-hero{padding:2.25rem 0 1.4rem;}
+.k-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.k-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
+.k-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
+.k-sub{font-size:0.92rem;line-height:1.78;color:var(--ink2);max-width:720px;}
+.k-box{display:grid;grid-template-columns:320px 1fr;gap:1rem;align-items:start;margin-bottom:2rem;}
+.recipe-list-shell,.recipe-detail,.sub-card,.tip-band{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative;overflow:hidden;}
+.recipe-list-shell{padding:1.4rem 1rem 1rem;position:sticky;top:140px;}
+.list-head,.detail-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.8rem;}
+.list-kicker,.detail-kicker{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--red);}
+.list-copy{font-size:0.82rem;line-height:1.65;color:var(--ink2);margin-bottom:0.8rem;}
+.recipe-list{display:grid;gap:0.55rem;}
+.recipe-btn{appearance:none;text-align:left;width:100%;padding:0.9rem 0.95rem;border-radius:var(--r);border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all var(--ease);display:grid;grid-template-columns:auto 1fr auto;gap:0.75rem;align-items:center;}
+.recipe-btn:hover{border-color:var(--amber);transform:translateY(-1px);}
+.recipe-btn.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--shadow);}
+.recipe-emoji{font-size:1.45rem;line-height:1;}
+.recipe-copy{display:flex;flex-direction:column;gap:0.14rem;min-width:0;}
+.recipe-name{display:block;font-size:0.92rem;font-weight:800;line-height:1.2;}
+.recipe-sub{display:block;font-family:var(--mono);font-size:0.56rem;letter-spacing:0.08em;color:var(--ink3);line-height:1.45;}
+.recipe-meta{display:block;font-family:var(--mono);font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);line-height:1.4;}
+.recipe-btn.active .recipe-sub{color:rgba(255,255,255,0.82);}
+.recipe-btn.active .recipe-meta{color:rgba(255,255,255,0.9);}
+.recipe-arrow{font-size:1rem;color:var(--ink3);}
+.recipe-btn.active .recipe-arrow{color:#fff;}
+.recipe-detail{padding:1.45rem 1.1rem 1.25rem;}
+.detail-hero{display:grid;grid-template-columns:220px 1fr;gap:1rem;align-items:start;}
+.detail-art{height:220px;border-radius:22px;background:transparent;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;padding:0;}
+.detail-emoji{font-size:5rem;line-height:1;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#fff;border:1px solid rgba(80,44,8,0.08);border-radius:22px;box-shadow:0 8px 18px rgba(80,44,8,0.06);}
+.detail-art img{display:block;width:100%;height:100%;object-fit:contain;position:relative;z-index:1;background:#fff;border:1px solid rgba(80,44,8,0.08);border-radius:22px;padding:1rem;box-shadow:0 8px 18px rgba(80,44,8,0.06);}
+.detail-title{font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.45rem;}
+.detail-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.11em;color:var(--ink3);margin-bottom:0.55rem;}
+.detail-tag{display:inline-flex;align-items:center;padding:0.35rem 0.75rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper2);font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.8rem;}
+.detail-body{font-size:0.88rem;line-height:1.78;color:var(--ink2);max-width:62ch;}
+.safety-box{margin-top:0.9rem;padding:0.85rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:0.82rem;line-height:1.68;color:var(--ink2);}
+.recipe-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:1rem;margin-top:1rem;}
+.recipe-col{padding:1rem;background:rgba(255,255,255,0.38);border:1px solid var(--border);border-radius:var(--r);}
+.col-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:0.75rem;}
+.ing-list,.step-list{display:grid;gap:0.55rem;}
+.ing-list li{list-style:none;padding:0.45rem 0;border-bottom:1px solid var(--rule);font-size:0.84rem;line-height:1.55;color:var(--ink2);}
+.ing-list li:last-child,.step-list li:last-child{border-bottom:none;}
+.ing-list .amt{color:var(--amber);font-weight:700;margin-right:0.35rem;}
+.step-list li{list-style:none;padding:0.6rem 0;border-bottom:1px solid var(--rule);display:flex;gap:0.75rem;}
+.step-num{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--red);width:1.5rem;flex-shrink:0;padding-top:0.1rem;}
+.step-title{font-weight:800;color:var(--ink);margin-bottom:0.12rem;font-size:0.84rem;}
+.step-copy{font-size:0.83rem;line-height:1.68;color:var(--ink2);}
+.step-timer{display:inline-flex;align-items:center;margin-top:0.35rem;padding:0.24rem 0.58rem;background:var(--paper);border:1px solid var(--border);border-radius:999px;font-family:var(--mono);font-size:0.58rem;color:var(--green);cursor:pointer;transition:all var(--ease);}
+.step-timer:hover{background:rgba(42,122,58,0.08);border-color:var(--green);}
+.step-timer.running{background:rgba(42,122,58,0.12);border-color:var(--green);font-weight:500;}
+.step-timer.done{background:rgba(42,122,58,0.16);border-color:var(--green);font-weight:700;}
+.note-box{margin-top:1rem;padding:0.9rem 1rem;background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);font-size:0.84rem;line-height:1.7;color:var(--ink2);}
+.note-box strong{display:block;color:var(--ink);margin-bottom:0.2rem;}
+.tip-band{padding:1.1rem 1.15rem;margin-bottom:1rem;}
+.tip-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;}
+.tip-copy{font-size:0.84rem;line-height:1.7;color:var(--ink2);}
+.sub-card{padding:2rem 1.75rem 1.75rem;}
+.sub-title{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;}
+.sub-desc{font-size:0.86rem;line-height:1.7;color:var(--ink2);margin-bottom:1.1rem;}
+.sub-form{display:flex;flex-direction:column;gap:0.6rem;}
+.sub-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+.sub-form input,.sub-form textarea{width:100%;padding:0.68rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:0.86rem;color:var(--ink);outline:none;transition:border-color var(--ease);}
+.sub-form input:focus,.sub-form textarea:focus{border-color:var(--amber);}
+.sub-form textarea{min-height:110px;resize:vertical;}
+.sub-btn{padding:0.72rem 1.5rem;background:var(--green);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;cursor:pointer;align-self:flex-start;transition:background var(--ease),transform var(--ease);}
+.sub-btn:hover{background:var(--green-hi);transform:translateY(-1px);}
+@media(max-width:980px){.k-box,.detail-hero,.recipe-grid{grid-template-columns:1fr;}.recipe-list-shell{position:static;}}
+@media(max-width:640px){.wrap{padding:0 1rem 4rem;}.sub-row{grid-template-columns:1fr;}.detail-title{font-size:1.7rem;}.detail-art{height:180px;}}
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+<div id="cardiff-masthead"></div>
+<div class="wrap">
+  <section class="k-hero">
+    <div class="k-kicker">From the Land</div>
+    <h1 class="k-title">The Cardiff Kitchen</h1>
+    <p class="k-sub">A recipe box for meals tied to the land, the season, and the local table.</p>
+  </section>
+
+  <div class="tip-band info-box" data-kicker="Kitchen guide">
+    <div class="tip-title">How to use this page</div>
+    <p class="tip-copy">Choose a dish from the recipe list, read the notes first, and use the timer chips when a step needs one.</p>
+  </div>
+
+  <section class="k-box">
+    <aside class="recipe-list-shell">
+      <div class="list-head"><div class="list-kicker">Recipe box</div></div>
+      <p class="list-copy">Browse on the left. Read the full recipe on the right.</p>
+      <div class="recipe-list" id="recipeList"></div>
+    </aside>
+
+    <article class="recipe-detail" id="recipeDetail" aria-live="polite"></article>
+  </section>
+
+  <div class="sub-card info-box" id="recipeSubForm" data-kicker="Recipe submission">
+    <div class="sub-title">Submit a Recipe</div>
+    <p class="sub-desc">Tell us the dish, the ingredients, and how to make it. Family history and practical notes are welcome. Recipe submissions go into the site inbox.</p>
+    <div class="sub-form">
+      <div class="sub-row"><input type="text" id="rsubName" placeholder="Your name"><input type="text" id="rsubDish" placeholder="Name of the dish"></div>
+      <textarea id="rsubRecipe" placeholder="The recipe — ingredients, method, and any story behind it"></textarea>
+      <button class="sub-btn" id="recipeSubmitBtn" type="button" onclick="submitRecipe()">Send it in →</button>
+    </div>
+    <div id="recipeSubStatus" style="margin-top:0.9rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink2);" aria-live="polite"></div>
+  </div>
+</div>
+</div>
+<script>
+const RECIPES=[
+  {id:'polk-salad',title:'Polk Salad',subtitle:'Poke Sallet · Phytolacca americana',label:'Foraged · Spring',emoji:'🌿',
+    intro:'A spring greens dish with real safety rules. This one belongs in the recipe box because the preparation matters as much as the flavor.',
+    warning:'Only harvest young spring leaves before stems turn red. Boil twice, discarding water each time. Both boils are required. Do not eat berries, roots, or mature stems.',
+    ingredients:[{amt:'2 lbs',name:'young pokeweed leaves (spring only, stems still green)'},{amt:'4 strips',name:'thick-cut bacon'},{amt:'4',name:'eggs'},{amt:'1 medium',name:'onion, sliced thin'},{amt:'2 tbsp',name:'bacon grease or butter'},{amt:'—',name:'salt, pepper, hot sauce'}],
+    steps:[
+      {title:'First boil',text:'Fill your largest pot with water and bring it to a rolling boil. Add the pokeweed leaves. Boil hard for 10 minutes. Drain completely and discard all the water.',timer:600},
+      {title:'Second boil',text:'Return the drained greens to the pot, cover with fresh water, and bring to a boil again. Boil 10 more minutes, then drain completely and press out the liquid.',timer:600},
+      {title:'Fry the bacon',text:'In a cast iron skillet over medium heat, fry the bacon until crisp. Remove and set aside, leaving the drippings in the pan.'},
+      {title:'Cook the onion',text:'Cook the sliced onion in the bacon drippings until soft and beginning to color, about 8 minutes.',timer:480},
+      {title:'Add the greens',text:'Add the twice-boiled greens to the skillet with the onions. Toss to coat, season with salt and pepper, and cook together for 3 to 4 minutes.',timer:240},
+      {title:'Add the eggs',text:'Push the greens to the sides, crack the eggs into the center, scramble lightly as they cook, and fold them into the greens. Crumble bacon over the top.'},
+      {title:'Serve',text:'Serve hot off the skillet with cornbread and hot sauce.'}],
+    notes:'Some cooks do a third boil for extra caution. If the taste is still harsh after the second boil, boil again.'},
+  {id:'fried-bream',title:'Fried Bream',subtitle:'Pan-fried Bluegill · Lepomis macrochirus',label:'Creek Fish · Year-Round',emoji:'🐟',
+    intro:'A creek-side fish supper built for a hot skillet and a short distance between catch and table.',
+    ingredients:[{amt:'12-16',name:'bream, cleaned and scaled'},{amt:'1 cup',name:'fine yellow cornmeal'},{amt:'1/2 cup',name:'all-purpose flour'},{amt:'2',name:'eggs, beaten'},{amt:'1/4 cup',name:'buttermilk or whole milk'},{amt:'1 tsp each',name:'salt, black pepper'},{amt:'—',name:'vegetable oil or lard for frying'}],
+    steps:[
+      {title:'Prepare the fish',text:'Rinse cleaned fish in cold water and pat completely dry. Score whole fish with two or three diagonal cuts down to the bone.'},
+      {title:'Set up the dredge',text:'Whisk eggs with buttermilk in one bowl. Combine cornmeal, flour, salt, and pepper in another. Egg wash first, then cornmeal.'},
+      {title:'Heat the oil',text:'Fill a cast iron skillet with about an inch of oil. Heat over medium-high to 350 degrees F. A pinch of cornmeal should sizzle immediately.',timer:300},
+      {title:'Fry',text:'Dip each fish in egg wash, then press into cornmeal mixture. Lay gently into hot oil. Fry 3 to 4 minutes per side until deep golden brown. Do not crowd the skillet.',timer:480},
+      {title:'Drain and serve',text:'Drain on a rack or paper towels. Season with salt immediately. Serve with slaw, hush puppies, and lemon wedges.'}],
+    notes:'Hot grease, not warm grease. If the oil is lazy, the crust will be too.'},
+  {id:'squirrel-stew',title:'Squirrel Stew',subtitle:'Fall Squirrel Stew · Wild Game',label:'Wild Game · Fall',emoji:'🐿️',
+    intro:'A long, steady pot meant for cool weather and a patient simmer.',
+    ingredients:[{amt:'2-3',name:'squirrels, cleaned and cut into pieces'},{amt:'4 strips',name:'bacon, cut into pieces'},{amt:'1 large',name:'onion, diced'},{amt:'3 cloves',name:'garlic, minced'},{amt:'3 medium',name:'potatoes, cubed'},{amt:'2',name:'carrots, sliced'},{amt:'2 stalks',name:'celery, sliced'},{amt:'1 can',name:'diced tomatoes (or 2 fresh, summer)'},{amt:'4 cups',name:'water or stock'},{amt:'1/2 cup',name:'flour for dredging'},{amt:'1 tsp each',name:'salt, pepper, thyme'},{amt:'2',name:'bay leaves'}],
+    steps:[
+      {title:'Soak and dry',text:'Soak the squirrel pieces in cold salted water for an hour. Drain and pat dry. Season with salt and pepper, then dredge in flour.',timer:3600},
+      {title:'Brown the meat',text:'Cook bacon in a heavy pot until the fat renders. Remove bacon. In the bacon fat, brown the squirrel pieces on all sides until deep golden. Work in batches.',timer:600},
+      {title:'Build the stew',text:'Remove browned meat. Add onion, garlic, and celery. Cook until soft, about 5 minutes. Add tomatoes and scrape up the browned bits.',timer:360},
+      {title:'Long braise',text:'Return squirrel and bacon to the pot. Add water or stock, potatoes, carrots, thyme, and bay leaves. Bring to a boil, then reduce to a bare simmer. Cover and cook 90 minutes until tender.',timer:5400},
+      {title:'Finish and serve',text:'Remove bay leaves. Taste and adjust seasoning. If too thin, simmer uncovered 15 more minutes. Serve with cornbread.'}],
+    notes:'This stew is better the next day. If the animal is older and tougher, add extra simmer time.'}
+];
+
+function getRecipeFromHash(){
+  const hash=(window.location.hash||'').replace(/^#/,'');
+  return RECIPES.some(recipe=>recipe.id===hash) ? hash : RECIPES[0].id;
+}
+
+function updateRecipeHash(id){
+  const next='#'+id;
+  if(window.location.hash!==next) history.replaceState(null,'',next);
+}
+
+let activeRecipe=getRecipeFromHash();
+const recipeList=document.getElementById('recipeList');
+const detail=document.getElementById('recipeDetail');
+
+function formatTimer(seconds){const mins=Math.floor(seconds/60);return `${mins} min`;}
+
+const RECIPE_ASSETS={
+  'polk-salad':'assets/guide_pokeweed.png',
+  'fried-bream':'assets/guide_bream.png',
+  'squirrel-stew':'assets/guide_squirrel.png'
+};
+function getRecipeDetailArt(recipe){
+  const src=RECIPE_ASSETS[recipe.id]||'';
+  return src
+    ? `<img src="${src}" alt="${recipe.title}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'detail-emoji',textContent:${JSON.stringify(recipe.emoji)}}))">`
+    : `<div class="detail-emoji">${recipe.emoji}</div>`;
+}
+
+function renderList(){recipeList.innerHTML=RECIPES.map(recipe=>`<button class="recipe-btn ${recipe.id===activeRecipe?'active':''}" type="button" data-id="${recipe.id}"><span class="recipe-emoji">${recipe.emoji}</span><span class="recipe-copy"><span class="recipe-name">${recipe.title}</span><span class="recipe-sub">${recipe.subtitle}</span><span class="recipe-meta">${recipe.label}</span></span><span class="recipe-arrow">→</span></button>`).join('');recipeList.querySelectorAll('.recipe-btn').forEach(btn=>btn.addEventListener('click',()=>{activeRecipe=btn.dataset.id;updateRecipeHash(activeRecipe);renderList();renderDetail();}));}
+function renderDetail(){const recipe=RECIPES.find(item=>item.id===activeRecipe)||RECIPES[0];updateRecipeHash(recipe.id);detail.innerHTML=`<div class="detail-head"><div class="detail-kicker">Selected recipe</div></div><div class="detail-hero"><div class="detail-art">${getRecipeDetailArt(recipe)}</div><div><div class="detail-title">${recipe.title}</div><div class="detail-sub">${recipe.subtitle}</div><div class="detail-tag">${recipe.label}</div><p class="detail-body">${recipe.intro}</p>${recipe.warning?`<div class="safety-box"><strong>Safety note.</strong> ${recipe.warning}</div>`:''}</div></div><div class="recipe-grid"><div class="recipe-col"><div class="col-title">Ingredients</div><ul class="ing-list">${recipe.ingredients.map(item=>`<li><span class="amt">${item.amt}</span> ${item.name}</li>`).join('')}</ul></div><div class="recipe-col"><div class="col-title">Method</div><ol class="step-list">${recipe.steps.map((step,index)=>`<li><div class="step-num">${String(index+1).padStart(2,'0')}</div><div><div class="step-title">${step.title}</div><div class="step-copy">${step.text}</div>${step.timer?`<button type="button" class="step-timer" onclick="startTimer(this,${step.timer})">⏱ ${formatTimer(step.timer)}</button>`:''}</div></li>`).join('')}</ol></div></div><div class="note-box"><strong>Kitchen note</strong>${recipe.notes}</div>`;}
+
+const activeTimers=new Map();
+function startTimer(el,seconds){const key=el.dataset.key||(el.dataset.key=Math.random().toString(36).slice(2));if(activeTimers.has(key)){clearInterval(activeTimers.get(key));activeTimers.delete(key);el.classList.remove('running','done');el.textContent=el.dataset.original;return;}el.dataset.original=el.textContent;let remaining=seconds;el.classList.add('running');function tick(){remaining--;if(remaining<=0){clearInterval(activeTimers.get(key));activeTimers.delete(key);el.classList.remove('running');el.classList.add('done');el.textContent='Done';return;}const m=Math.floor(remaining/60),s=remaining%60;el.textContent=`${m}:${s.toString().padStart(2,'0')} remaining`;}
+const interval=setInterval(tick,1000);activeTimers.set(key,interval);tick();}
+
+async function submitRecipe(){const name=document.getElementById('rsubName').value.trim(),dish=document.getElementById('rsubDish').value.trim(),recipe=document.getElementById('rsubRecipe').value.trim(),status=document.getElementById('recipeSubStatus'),btn=document.getElementById('recipeSubmitBtn');status.textContent='';if(!dish||!recipe){if(!dish)document.getElementById('rsubDish').style.borderColor='var(--red)';if(!recipe)document.getElementById('rsubRecipe').style.borderColor='var(--red)';status.textContent='Please add the dish name and the recipe.';setTimeout(()=>{document.getElementById('rsubDish').style.borderColor='';document.getElementById('rsubRecipe').style.borderColor='';},2000);return;}try{btn.disabled=true;btn.textContent='Sending...';status.textContent='Sending this to the site inbox...';await window.CardiffSite.submitForm({form:'Recipe Submission',name:name||'',email:'',topic:dish,message:recipe,page:'cardiff-kitchen.html'});document.getElementById('recipeSubForm').innerHTML='<div style="padding:1.5rem;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your recipe has been added to the site inbox.</div>';}catch(err){const subject=encodeURIComponent('Cardiff recipe submission: '+dish);const body=encodeURIComponent('Name: '+(name||'')+'\nDish: '+dish+'\n\n'+recipe);window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;document.getElementById('recipeSubForm').innerHTML='<div style="padding:1.5rem;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';}}
+
+window.addEventListener('hashchange',()=>{const next=getRecipeFromHash();if(next!==activeRecipe){activeRecipe=next;renderList();renderDetail();}});
+
+renderList();renderDetail();
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>

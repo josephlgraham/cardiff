@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiff Cemetery · Cardiff, Alabama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:200ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.45);--hdr-dimmer:rgba(245,234,216,0.32);--hdr-nav:rgba(245,234,216,0.48);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+
+/* MASTHEAD */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.55rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:52px;}
+.mh-left-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(1.2rem,2.8vw,1.8rem);font-weight:800;letter-spacing:-0.01em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--red);}
+.mh-brand-sub{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.18rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.7rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+/* ANNOUNCEMENT STRIP — set display:none to hide */
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem;}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;animation:marquee 30s linear infinite;padding-left:100%;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+@media(max-width:700px){.mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}}
+@media(max-width:480px){.mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}}
+
+/* PAGE */
+.wrap{max-width:860px;margin:0 auto;padding:0 2rem 5rem;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hero */
+.cem-hero{padding:3.5rem 0 2rem;}
+.cem-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.cem-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
+.cem-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;letter-spacing:-0.02em;line-height:0.95;color:var(--ink);margin-bottom:1rem;}
+.cem-sub{font-size:0.95rem;line-height:1.78;color:var(--ink2);max-width:580px;margin-bottom:1.5rem;}
+.cs-badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:var(--paper2);border:1px solid var(--border2);border-radius:100px;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);}
+.cs-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);}
+.season-note{margin-top:1rem;max-width:640px;padding:.95rem 1rem;background:rgba(180,120,0,0.08);border:1px solid rgba(180,120,0,0.2);border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:.84rem;line-height:1.7;color:var(--ink2);}
+
+/* Section rule */
+.s-rule{display:flex;align-items:center;gap:0.75rem;margin:2.5rem 0 1.5rem;}
+.s-rule h2{font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.s-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+
+/* Vision cards — independent 2-col with red accent */
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2.5rem;}
+.vision-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;position:relative;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);transition:transform var(--ease),box-shadow var(--ease);display:grid;grid-template-columns:auto 1fr;column-gap:0.85rem;row-gap:0.18rem;align-items:start;}
+.vision-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09);}
+.vision-icon{grid-column:1;grid-row:2 / span 2;font-size:1.3rem;line-height:1;display:block;margin-top:0.16rem;pointer-events:none;}
+.vision-title{grid-column:1 / -1;font-family:var(--sans);font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;padding-right:0;}
+.vision-body{grid-column:2;font-size:0.82rem;line-height:1.7;color:var(--ink2);padding-right:0;}
+
+/* Notify card */
+.notify-card{background:var(--ink);border-radius:14px;padding:2rem;text-align:center;position:relative;overflow:hidden;}
+.notify-card::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.band-kicker{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,234,216,0.82);display:flex;align-items:center;justify-content:center;gap:0.45rem;margin-bottom:0.55rem;position:relative;}
+.band-kicker::before{content:"";width:10px;height:2px;background:var(--red);display:inline-block;}
+.notify-title{font-family:var(--sans);font-size:1.5rem;font-weight:800;color:var(--paper);margin-bottom:0.5rem;position:relative;}
+.notify-body{font-size:0.86rem;line-height:1.7;color:rgba(242,232,213,0.6);margin-bottom:1.25rem;position:relative;max-width:400px;margin-left:auto;margin-right:auto;}
+.notify-form{display:flex;gap:0.5rem;max-width:420px;margin:0 auto;position:relative;}
+.notify-form input{flex:1;padding:0.65rem 0.85rem;background:rgba(255,215,140,0.08);border:1px solid rgba(255,215,140,0.18);border-radius:8px;color:var(--paper);font-family:var(--sans);font-size:0.85rem;outline:none;}
+.notify-form input:focus{border-color:rgba(200,16,46,0.5);}
+.notify-form input::placeholder{color:rgba(242,232,213,0.35);}
+.notify-form button{padding:0.65rem 1.1rem;background:var(--red);border:none;border-radius:8px;font-family:var(--sans);font-size:0.85rem;font-weight:700;color:#fff;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.notify-form button:hover{background:var(--red-mid);}
+
+/* CTA */
+.cta-band{background:var(--ink);border-radius:var(--r-lg);padding:2rem;text-align:center;position:relative;overflow:hidden;margin-top:2.5rem;}
+.cta-band::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.cta-title{font-family:var(--sans);font-size:1.4rem;font-weight:800;color:var(--paper);margin-bottom:0.4rem;position:relative;}
+.cta-body{font-size:0.86rem;line-height:1.7;color:rgba(245,234,216,0.55);max-width:420px;margin:0 auto 1rem;position:relative;}
+.cta-btn{display:inline-block;padding:0.6rem 1.3rem;background:var(--red);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.84rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
+.cta-btn:hover{background:var(--red-mid);}
+
+@media(max-width:640px){.vision-grid{grid-template-columns:1fr;}.notify-form{flex-direction:column;}.wrap{padding:0 1rem 4rem;}}
+
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+
+<div id="cardiff-masthead"></div>
+
+<div class="page">
+<div class="wrap">
+  <div class="cem-hero reveal">
+    <div class="cem-kicker">Living Archive</div>
+    <h1 class="cem-title">Cardiff Cemetery</h1>
+    <p class="cem-sub">The families who built Cardiff are buried here — Welsh miners, Sicilian immigrants, Black families who raised children and kept communities together through a century of change. Every grave is a record of who this place actually was. We are building that record carefully, one headstone at a time.</p>
+    <div class="cs-badge">Documentation begins in the fall</div>
+    <div class="season-note">The cemetery documentation project has not officially started yet. Fieldwork is planned for the cooler weather in the fall, when brush, heat, and visibility make careful recording easier to do well.</div>
+  </div>
+
+  <div class="s-rule reveal"><h2>What this archive will be</h2><hr></div>
+
+  <div class="vision-grid">
+    <div class="vision-card info-box reveal" data-kicker="Archive plan">
+      <span class="vision-icon">📷</span>
+      <div class="vision-title">Every grave, documented</div>
+      <div class="vision-body">A complete photographic record of every legible headstone in Cardiff Cemetery. Names, dates, inscriptions, symbols. Nothing left out.</div>
+    </div>
+    <div class="vision-card info-box reveal" data-kicker="Family search">
+      <span class="vision-icon">🔍</span>
+      <div class="vision-title">Searchable by family</div>
+      <div class="vision-body">Find your family by surname. See who is buried near whom. Trace the multi-generational families who stayed in Cardiff across decades.</div>
+    </div>
+    <div class="vision-card info-box reveal" data-kicker="Local history">
+      <span class="vision-icon">📖</span>
+      <div class="vision-title">Stories, not just names</div>
+      <div class="vision-body">Where we have them, the archive will hold the stories — occupations, relationships, events. A headstone gives you a name and two dates. We want the years in between.</div>
+    </div>
+    <div class="vision-card info-box reveal" data-kicker="Equal care">
+      <span class="vision-icon">🤝</span>
+      <div class="vision-title">Everyone documented equally</div>
+      <div class="vision-body">Every section of Cardiff Cemetery will be documented with the same attention and the same respect. If you have family buried here and want to contribute what you know, we want to hear from you.</div>
+    </div>
+  </div>
+
+  <div class="s-rule reveal"><h2>Stay informed</h2><hr></div>
+
+  <div class="notify-card reveal">
+    <div class="band-kicker">Stay informed</div>
+    <div class="notify-title">Be the first to know</div>
+    <p class="notify-body">Leave your email and I can add you to the cemetery documentation list for this fall. This form goes into the site inbox, and you can also write directly to josephlgraham@gmail.com.</p>
+    <div class="notify-form">
+      <input type="email" placeholder="your@email.com" id="cemEmail">
+      <button id="cemNotifyBtn" type="button" onclick="handleCemNotify()">Notify me</button>
+    </div>
+    <div id="cemNotifyStatus" style="margin-top:0.9rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:rgba(245,234,216,0.72);" aria-live="polite"></div>
+  </div>
+
+  <div class="cta-band reveal">
+    <div class="band-kicker">Family records</div>
+    <div class="cta-title">Help us get ready for cemetery documentation.</div>
+    <p class="cta-body">If you have family here, old photographs, or stories about the people buried in this cemetery, we would like to hear from you before the fieldwork begins.</p>
+    <a href="mailto:josephlgraham@gmail.com?subject=Cardiff%20cemetery%20project" class="cta-btn">Email Joe →</a>
+  </div>
+</div>
+</div>
+
+<script>
+// SHARED JS
+
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});
+
+async function handleCemNotify(){
+  const e=document.getElementById('cemEmail');
+  const status=document.getElementById('cemNotifyStatus');
+  const btn=document.getElementById('cemNotifyBtn');
+  status.textContent='';
+  if(!e.value||!e.value.includes('@')){e.style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>e.style.borderColor='',2000);return;}
+  try{
+    btn.disabled=true;
+    btn.textContent='Sending...';
+    status.textContent='Sending this to the site inbox...';
+    await window.CardiffSite.submitForm({
+      form:'Cemetery Notify',
+      name:'',
+      email:e.value.trim(),
+      topic:'Cemetery documentation updates',
+      message:'Please add me to the Cardiff Cemetery documentation updates list.',
+      page:'cardiff-cemetery.html'
+    });
+    document.querySelector('.notify-card').innerHTML='<div style="padding:1rem;font-family:var(--sans);color:var(--paper);font-size:1rem;font-weight:600;text-align:center;position:relative;">Thank you. You have been added to the site inbox for cemetery updates.</div>';
+  }catch(err){
+    const subject=encodeURIComponent('Cardiff cemetery updates');
+    const body=encodeURIComponent('Please add me to the Cardiff Cemetery documentation updates list.\n\nEmail: '+e.value.trim());
+    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
+    document.querySelector('.notify-card').innerHTML='<div style="padding:1rem;font-family:var(--sans);color:var(--paper);font-size:1rem;font-weight:600;text-align:center;position:relative;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+  }
+}
+
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>

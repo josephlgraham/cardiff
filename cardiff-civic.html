@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civic Pathway · Cardiff, Alabama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px;}
+.mh-left-info{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--hdr-dimmer);font-weight:300;}
+.mh-brand-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.22rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.88rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem;}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;animation:marquee 30s linear infinite;padding-left:100%;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+.wrap{max-width:1040px;margin:0 auto;padding:0 2rem 5rem;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.hero{padding:1.35rem 0 2rem;}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:1rem;align-items:stretch;}
+.hero-card,.quick-card,.section-card,.callout,.timeline-card,.role-shell,.faq-shell,.footer-card,.checklist-shell,.project-card,.step-card,.fact-card,.plain-card,.tracker-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative;overflow:hidden;}
+.hero-card{padding:1.8rem;}
+.hero-kicker,.section-kicker,.mini-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:0.5rem;padding-bottom:.7rem;margin-bottom:.75rem;border-bottom:1px solid var(--rule);}
+.hero-kicker::before,.section-kicker::before,.mini-kicker::before{content:"";width:12px;height:2px;background:var(--red);display:inline-block;}
+.hero-title{font-size:clamp(2.6rem,6vw,4.6rem);line-height:0.98;letter-spacing:-0.03em;font-weight:800;color:var(--ink);margin:.9rem 0 .9rem;}
+.hero-sub{font-size:1rem;line-height:1.82;color:var(--ink2);max-width:62ch;}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.15rem;}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.82rem 1rem;border-radius:var(--r);font-size:.84rem;font-weight:800;text-decoration:none;border:1px solid transparent;transition:all var(--ease);cursor:pointer;}
+.btn.primary{background:var(--red);color:#fff;}
+.btn.primary:hover{background:var(--red-mid);}
+.btn.ghost{background:var(--paper2);color:var(--ink2);border-color:var(--border2);}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber);}
+.quick-card{padding:1.2rem 1.15rem 1.1rem;display:grid;align-content:start;gap:.8rem;}
+.quick-title{font-size:1.02rem;font-weight:800;color:var(--ink);}
+.quick-copy{font-size:.85rem;line-height:1.7;color:var(--ink2);}
+.quick-list{display:grid;gap:.55rem;}
+.quick-list li{list-style:none;font-size:.8rem;line-height:1.55;color:var(--ink2);padding-left:1rem;position:relative;}
+.quick-list li::before{content:"";position:absolute;left:0;top:.55rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
+.pill-strip{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding:.2rem 0 1.6rem;}
+.pill-strip::-webkit-scrollbar{display:none;}
+.pill-link{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:999px;text-decoration:none;white-space:nowrap;transition:all var(--ease);}
+.pill-link:hover{border-color:var(--red);background:var(--paper2);}
+.pill-emoji{font-size:1rem;line-height:1;}
+.pill-text{font-size:.78rem;font-weight:700;color:var(--ink);}
+.pill-sub{font-family:var(--mono);font-size:.56rem;color:var(--ink3);}
+.section-head{display:flex;align-items:center;gap:.75rem;margin:1.8rem 0 1rem;}
+.section-head h2{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.section-head hr{border:none;border-top:1px solid var(--rule);flex:1;}
+.grid-3,.grid-4,.grid-2{display:grid;gap:1rem;}
+.grid-3{grid-template-columns:repeat(3,1fr);} .grid-4{grid-template-columns:repeat(4,1fr);} .grid-2{grid-template-columns:repeat(2,1fr);}
+.section-card,.plain-card,.project-card,.fact-card,.step-card{padding:1.1rem;}
+.card-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.45rem;}
+.card-copy{font-size:.86rem;line-height:1.72;color:var(--ink2);}
+.callout{padding:1.4rem 1.45rem;display:grid;grid-template-columns:1.1fr .9fr;gap:1rem;}
+.callout-copy{font-size:.93rem;line-height:1.8;color:var(--ink2);max-width:62ch;}
+.meta-stack{display:grid;gap:.75rem;}
+.meta-item{padding:.95rem;background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);}
+.meta-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:.38rem;}
+.meta-copy{font-size:.82rem;line-height:1.62;color:var(--ink2);}
+.timeline-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.timeline-card{padding:1.2rem;}
+.timeline-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--paper2);border:1px solid var(--border);font-family:var(--mono);font-size:.72rem;color:var(--ink3);margin-bottom:.72rem;}
+.timeline-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.45rem;}
+.timeline-copy{font-size:.84rem;line-height:1.72;color:var(--ink2);margin-bottom:.75rem;}
+.timeline-list{display:grid;gap:.45rem;}
+.timeline-list li{list-style:none;font-size:.78rem;line-height:1.55;color:var(--ink2);padding-left:.95rem;position:relative;}
+.timeline-list li::before{content:"";position:absolute;left:0;top:.52rem;width:5px;height:5px;border-radius:50%;background:var(--red);}
+.tracker-card{padding:1.2rem 1.2rem 1.1rem;margin-bottom:1.2rem;}
+.tracker-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.85rem;}
+.tracker-title{font-size:1.04rem;font-weight:800;color:var(--ink);}
+.tracker-copy{font-size:.85rem;line-height:1.7;color:var(--ink2);max-width:58ch;}
+.progress-row{display:grid;grid-template-columns:1fr auto;gap:.85rem;align-items:center;margin-bottom:.8rem;}
+.progress-bar{height:10px;border-radius:999px;background:var(--paper2);border:1px solid var(--border);overflow:hidden;}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--amber));transition:width var(--ease);}
+.progress-copy{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--ink3);}
+.tracker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem 1rem;}
+.check-item{display:flex;align-items:flex-start;gap:.65rem;padding:.7rem .75rem;background:rgba(255,255,255,.38);border:1px solid var(--border);border-radius:var(--r);}
+.check-item input{accent-color:var(--red);width:18px;height:18px;margin-top:.12rem;flex-shrink:0;}
+.check-item label{font-size:.82rem;line-height:1.58;color:var(--ink2);cursor:pointer;}
+.check-item strong{color:var(--ink);}
+.role-shell{padding:1.55rem 1.25rem 1.25rem;}
+.role-top{display:grid;grid-template-columns:.85fr 1.15fr;gap:1rem;align-items:start;}
+.role-buttons{display:grid;gap:.7rem;}
+.role-btn{appearance:none;width:100%;text-align:left;padding:.9rem 1rem;border-radius:var(--r);border:1px solid var(--border2);background:var(--paper);cursor:pointer;transition:all var(--ease);}
+.role-btn:hover{border-color:var(--amber);}
+.role-btn.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--shadow);}
+.role-btn-step{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;opacity:.82;margin-bottom:.25rem;display:block;}
+.role-btn-title{font-size:.92rem;font-weight:800;display:block;}
+.role-btn-copy{font-size:.78rem;line-height:1.5;display:block;opacity:.9;margin-top:.22rem;}
+.role-panel{padding:1.05rem;border:1px solid var(--border);border-radius:var(--r);background:rgba(255,255,255,.42);min-height:100%;}
+.role-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem;}
+.role-title{font-size:1.12rem;font-weight:800;color:var(--ink);margin-bottom:.5rem;}
+.role-body{font-size:.86rem;line-height:1.78;color:var(--ink2);margin-bottom:.95rem;}
+.role-points{display:grid;gap:.52rem;}
+.role-points li{list-style:none;position:relative;padding-left:1rem;font-size:.82rem;line-height:1.58;color:var(--ink2);}
+.role-points li::before{content:"";position:absolute;left:0;top:.53rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
+.role-foot{font-size:.75rem;line-height:1.62;color:var(--ink3);border-top:1px solid var(--rule);margin-top:.9rem;padding-top:.8rem;}
+.checklist-shell{padding:1.55rem 1.25rem 1.25rem;}
+.check-tabs{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1rem;}
+.check-tab{appearance:none;border:1px solid var(--border2);background:var(--paper);padding:.58rem .85rem;border-radius:999px;font-size:.76rem;font-weight:800;color:var(--ink2);cursor:pointer;transition:all var(--ease);}
+.check-tab.active{background:var(--red);border-color:var(--red);color:#fff;}
+.check-panel{display:none;}
+.check-panel.active{display:block;}
+.check-panel-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.4rem;}
+.check-panel-copy{font-size:.84rem;line-height:1.68;color:var(--ink2);margin-bottom:.9rem;}
+.check-list{display:grid;gap:.62rem;}
+.check-list li{list-style:none;padding:.78rem .85rem;border:1px solid var(--border);background:rgba(255,255,255,.38);border-radius:var(--r);font-size:.81rem;line-height:1.6;color:var(--ink2);}
+.check-list strong{color:var(--ink);}
+.project-card{display:flex;flex-direction:column;gap:.7rem;}
+.project-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);}
+.project-steps{display:grid;gap:.55rem;}
+.project-steps li{list-style:none;position:relative;padding-left:1rem;font-size:.8rem;line-height:1.58;color:var(--ink2);}
+.project-steps li::before{content:"";position:absolute;left:0;top:.52rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
+.fact-card{padding:1rem 1.1rem;}
+.fact-row{display:flex;gap:.6rem;align-items:flex-start;}
+.fact-icon{font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:.12rem;}
+.fact-title{font-size:.87rem;font-weight:800;color:var(--ink);margin-bottom:.15rem;}
+.fact-copy{font-size:.79rem;line-height:1.6;color:var(--ink2);}
+.faq-shell{padding:1.55rem 1.25rem 1.25rem;}
+.faq-item{border-top:1px solid var(--rule);}
+.faq-item:first-child{border-top:none;}
+.faq-question{width:100%;text-align:left;border:none;background:transparent;padding:.95rem 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.9rem;font-weight:800;color:var(--ink);}
+.faq-plus{font-family:var(--mono);font-size:.95rem;color:var(--red);}
+.faq-answer{display:none;padding:0 0 1rem;color:var(--ink2);font-size:.84rem;line-height:1.72;max-width:72ch;}
+.faq-item.open .faq-answer{display:block;}
+.footer-card{padding:1.35rem;margin-top:1rem;}
+.footer-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.55rem;}
+.footer-copy{font-size:.88rem;line-height:1.75;color:var(--ink2);}
+.small-note{font-size:.74rem;line-height:1.6;color:var(--ink3);}
+.code-strip{font-family:var(--mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);padding:.7rem .85rem;border:1px dashed var(--border2);border-radius:var(--r);background:rgba(255,255,255,.32);margin-top:.85rem;}
+@media(max-width:980px){.hero-grid,.callout,.role-top{grid-template-columns:1fr;}.timeline-wrap,.grid-4{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:760px){.wrap{padding:0 1rem 4rem;}.grid-3,.grid-2,.tracker-grid,.timeline-wrap,.grid-4{grid-template-columns:1fr;} .pill-link{padding:.58rem .82rem;} }
+@media(max-width:600px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem);}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem;}.hero{padding:1rem 0 1.5rem;}}
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+<div id="cardiff-masthead"></div>
+
+<div class="wrap">
+  <section class="hero reveal">
+    <div class="pill-strip" aria-label="jump links">
+      <a class="pill-link" href="#start-here"><span class="pill-emoji">🧭</span><div><div class="pill-text">Start Here</div><div class="pill-sub">New resident basics</div></div></a>
+      <a class="pill-link" href="#reboot"><span class="pill-emoji">🔧</span><div><div class="pill-text">90-Day Reboot</div><div class="pill-sub">First moves</div></div></a>
+      <a class="pill-link" href="#roles"><span class="pill-emoji">🪑</span><div><div class="pill-text">Who Does What</div><div class="pill-sub">Mayor · council · clerk</div></div></a>
+      <a class="pill-link" href="#meeting-kit"><span class="pill-emoji">📝</span><div><div class="pill-text">Meeting Kit</div><div class="pill-sub">Before · during · after</div></div></a>
+      <a class="pill-link" href="#projects"><span class="pill-emoji">🚧</span><div><div class="pill-text">Town Priorities</div><div class="pill-sub">Roads · safety · cleanup</div></div></a>
+      <a class="pill-link" href="#faq"><span class="pill-emoji">❓</span><div><div class="pill-text">Plain Answers</div><div class="pill-sub">Simple civic words</div></div></a>
+    </div>
+    <div class="hero-grid">
+      <article class="hero-card">
+        <div class="hero-kicker">Get To Work</div>
+        <h1 class="hero-title">A town can wake up.<br>But it has to work in the open.</h1>
+        <p class="hero-sub">This page is for Cardiff residents old and new. It explains, in plain language, what a working town government looks like, what each role is supposed to do, and what it will take to restart public business and keep it running. The goal is simple: fewer rumors, more understanding, more people ready to help.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#start-here">Start the pathway</a>
+          <a class="btn ghost" href="#meeting-kit">Open the meeting kit</a>
+          <a class="btn ghost" href="cardiff-calendar.html">See the calendar</a>
+        </div>
+      </article>
+      <aside class="quick-card">
+        <div class="section-kicker">Cardiff right now</div>
+        <div class="quick-title">What matters first</div>
+        <div class="quick-copy">A healthy town does not begin with a big dream. It begins with a quorum, regular meetings, clear notice, clean minutes, honest books, and people who keep showing up.</div>
+        <ul class="quick-list">
+          <li>Fill seats and build enough attendance to do business.</li>
+          <li>Meet on a regular schedule people can remember.</li>
+          <li>Keep minutes, notices, and money records clean.</li>
+          <li>Pick a few public priorities and finish them.</li>
+        </ul>
+        <div class="code-strip">Plain language on purpose · built for neighbors, not insiders</div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="section-head reveal" id="start-here"><h2>Start here</h2><hr></div>
+  <section class="callout reveal">
+    <div>
+      <div class="section-kicker">What this page is</div>
+      <h2 class="card-title" style="font-size:1.45rem;margin:.7rem 0;">A civic field guide for a town that needs steady hands.</h2>
+      <p class="callout-copy">Cardiff still has people, history, streets, buildings, and public needs. The town is not just an idea. But a town only works when public business is done in public, on a schedule, with records people can inspect. That is the baseline. This page is here to help residents learn the basics, spot the weak points, and build a better civic habit together.</p>
+    </div>
+    <div class="meta-stack">
+      <div class="meta-item"><div class="meta-label">If you are new here</div><div class="meta-copy">Read the first three sections. You will know what the jobs are, what a meeting needs, and what the town must fix first. When dates begin posting, the community calendar is where they should live.</div></div>
+      <div class="meta-item"><div class="meta-label">If you want to help</div><div class="meta-copy">Pick one lane: attend, document, serve, clean up, or help finish a real project. Small towns run on follow-through.</div></div>
+      <div class="meta-item"><div class="meta-label">If you want office</div><div class="meta-copy">Learn the rules, get trained, protect the records, and remember that public trust is built from dozens of boring correct actions.</div></div>
+    </div>
+  </section>
+
+  <section class="tracker-card reveal" aria-labelledby="tracker-title" style="margin-top:1.25rem;">
+    <div class="tracker-top">
+      <div>
+        <h2 class="tracker-title" id="tracker-title">Town reboot tracker</h2>
+        <p class="tracker-copy">Use this with neighbors. It is a learning tool, not an official act. Check the things Cardiff can truly say are in place.</p>
+      </div>
+      <button class="btn ghost" type="button" id="resetTracker">Reset</button>
+    </div>
+    <div class="progress-row">
+      <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="trackerFill"></div></div>
+      <div class="progress-copy" id="trackerText">0 of 8 ready</div>
+    </div>
+    <div class="tracker-grid" id="trackerGrid">
+      <div class="check-item"><input type="checkbox" id="t1" data-track><label for="t1"><strong>Seats are being filled.</strong> There are enough willing people to build a functioning council.</label></div>
+      <div class="check-item"><input type="checkbox" id="t2" data-track><label for="t2"><strong>A regular meeting day exists.</strong> Residents know when to come without guessing.</label></div>
+      <div class="check-item"><input type="checkbox" id="t3" data-track><label for="t3"><strong>Notice is posted.</strong> People can see when and where the meeting will happen.</label></div>
+      <div class="check-item"><input type="checkbox" id="t4" data-track><label for="t4"><strong>Someone is keeping minutes.</strong> The public record is being written down every time.</label></div>
+      <div class="check-item"><input type="checkbox" id="t5" data-track><label for="t5"><strong>The books are organized.</strong> Bills, receipts, bank records, and ledgers can be followed.</label></div>
+      <div class="check-item"><input type="checkbox" id="t6" data-track><label for="t6"><strong>Public files are together.</strong> Ordinances, minutes, contracts, and contact lists can be found.</label></div>
+      <div class="check-item"><input type="checkbox" id="t7" data-track><label for="t7"><strong>The town has 2 to 3 shared priorities.</strong> Roads, safety, cleanup, or another practical target.</label></div>
+      <div class="check-item"><input type="checkbox" id="t8" data-track><label for="t8"><strong>People will keep coming back.</strong> Not one meeting. Not one burst. A habit.</label></div>
+    </div>
+  </section>
+
+  <div class="section-head reveal"><h2>What a working town needs</h2><hr></div>
+  <section class="grid-4">
+    <article class="section-card reveal"><h3 class="card-title">Enough people</h3><p class="card-copy">A town of any size still needs enough humans to serve, vote, keep records, and attend. Low numbers break everything downstream.</p></article>
+    <article class="section-card reveal"><h3 class="card-title">Open process</h3><p class="card-copy">Public business cannot live in side conversations and half-memory. Meetings, notices, votes, and minutes have to be visible.</p></article>
+    <article class="section-card reveal"><h3 class="card-title">Clean records</h3><p class="card-copy">Minutes, ordinances, ledgers, receipts, contracts, and contact lists are not extras. They are the skeleton of the town.</p></article>
+    <article class="section-card reveal"><h3 class="card-title">Staying power</h3><p class="card-copy">The first success is showing up. The real success is still doing it six months later when the novelty is gone.</p></article>
+  </section>
+
+  <div class="section-head reveal" id="reboot"><h2>90-day reboot</h2><hr></div>
+  <section class="timeline-wrap">
+    <article class="timeline-card reveal">
+      <div class="timeline-num">01</div>
+      <h3 class="timeline-title">Stabilize the room</h3>
+      <p class="timeline-copy">The first phase is not glamorous. It is about getting enough people, choosing a regular meeting rhythm, and making the room feel dependable again.</p>
+      <ul class="timeline-list">
+        <li>Identify who can serve, who can attend, and who can help document.</li>
+        <li>Choose one regular day, time, and place for meetings.</li>
+        <li>Post basic contact information and a simple calendar.</li>
+      </ul>
+    </article>
+    <article class="timeline-card reveal">
+      <div class="timeline-num">02</div>
+      <h3 class="timeline-title">Repair the paper trail</h3>
+      <p class="timeline-copy">Once the room exists, the town has to rebuild public memory. A town cannot govern well when its own files are scattered or unclear.</p>
+      <ul class="timeline-list">
+        <li>Gather minutes, ordinances, contracts, bank papers, bonds, and ledgers.</li>
+        <li>Start a clean minute book and a clean agenda file right away.</li>
+        <li>Build a simple records index so any resident can find the basics.</li>
+      </ul>
+    </article>
+    <article class="timeline-card reveal">
+      <div class="timeline-num">03</div>
+      <h3 class="timeline-title">Finish real work</h3>
+      <p class="timeline-copy">Trust grows when people see visible wins. Pick a few public jobs and complete them in order, out in the open.</p>
+      <ul class="timeline-list">
+        <li>Start with emergency access, road needs, and basic cleanup.</li>
+        <li>Assign owners, dates, and next actions in the meeting minutes.</li>
+        <li>Report back every month until each task is truly done.</li>
+      </ul>
+    </article>
+  </section>
+
+  <div class="section-head reveal" id="roles"><h2>Who does what</h2><hr></div>
+  <section class="role-shell reveal">
+    <div class="role-top">
+      <div class="role-buttons" id="roleButtons"></div>
+      <div class="role-panel" id="rolePanel">
+        <div class="role-kicker">Role guide</div>
+        <div class="role-title">Pick a role.</div>
+        <div class="role-body">Use the buttons to load the duties, watch-outs, and simple wisdom for each part of town government.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head reveal" id="meeting-kit"><h2>Meeting kit</h2><hr></div>
+  <section class="checklist-shell reveal">
+    <div class="check-tabs">
+      <button class="check-tab active" data-checktab="before" type="button">Before the meeting</button>
+      <button class="check-tab" data-checktab="during" type="button">During the meeting</button>
+      <button class="check-tab" data-checktab="after" type="button">After the meeting</button>
+      <button class="check-tab" data-checktab="records" type="button">Records and money</button>
+    </div>
+
+    <div class="check-panel active" data-checkpanel="before">
+      <div class="check-panel-title">Before the meeting</div>
+      <div class="check-panel-copy">A meeting goes bad before it starts when people do not know about it, the room is not ready, or the agenda is a mystery.</div>
+      <ul class="check-list">
+        <li><strong>Post notice.</strong> Residents need a clear day, time, place, and basic purpose.</li>
+        <li><strong>Prepare a simple agenda.</strong> Old business, new business, money items, project updates, public concerns.</li>
+        <li><strong>Bring the core files.</strong> Last meeting minutes, ledger, bank papers, contracts, and any item being voted on.</li>
+        <li><strong>Know who will keep minutes.</strong> If the clerk is absent, appoint an acting minute-keeper for that meeting.</li>
+      </ul>
+    </div>
+
+    <div class="check-panel" data-checkpanel="during">
+      <div class="check-panel-title">During the meeting</div>
+      <div class="check-panel-copy">The room should feel orderly, understandable, and fair. Fancy procedure is less important than basic discipline and clean decisions.</div>
+      <ul class="check-list">
+        <li><strong>Confirm the room can act.</strong> If there is no quorum, do not pretend there is business when there is not.</li>
+        <li><strong>Read or approve minutes.</strong> The town should know what it says it did last time.</li>
+        <li><strong>Make motions clearly.</strong> State the action in plain words before people vote.</li>
+        <li><strong>Record who voted.</strong> Especially when electing officers, passing permanent measures, or moving money.</li>
+      </ul>
+    </div>
+
+    <div class="check-panel" data-checkpanel="after">
+      <div class="check-panel-title">After the meeting</div>
+      <div class="check-panel-copy">This is where trust is either built or lost. What happened must be easy to find later.</div>
+      <ul class="check-list">
+        <li><strong>Write the minutes fast.</strong> Do not let memory get fuzzy.</li>
+        <li><strong>Save the packet.</strong> Keep notice, agenda, handouts, and final minutes together by date.</li>
+        <li><strong>List the next actions.</strong> Name the person, the task, and the deadline.</li>
+        <li><strong>Tell the public what changed.</strong> Meeting schedule, road update, cleanup day, emergency planning, or other real outcome.</li>
+      </ul>
+    </div>
+
+    <div class="check-panel" data-checkpanel="records">
+      <div class="check-panel-title">Records and money</div>
+      <div class="check-panel-copy">A town does not stay healthy on trust alone. It needs files that match and money records that can be followed by the next person.</div>
+      <ul class="check-list">
+        <li><strong>Minute book.</strong> Signed minutes in order by date.</li>
+        <li><strong>Ordinance and resolution book.</strong> Permanent measures should be easy to locate.</li>
+        <li><strong>Ledger plus backup.</strong> Receipts, invoices, bank statements, and checks must support the numbers.</li>
+        <li><strong>Audit folder.</strong> Keep a current file for annual audit, questions, and follow-up items.</li>
+        <li><strong>Bond, ethics, and training folder.</strong> Officials need the basics handled, not guessed at.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-head reveal" id="projects"><h2>Town priorities</h2><hr></div>
+  <section class="grid-2">
+    <article class="project-card reveal">
+      <div class="project-tag">Priority one</div>
+      <h3 class="card-title">Emergency access and the train-blocked route</h3>
+      <p class="card-copy">If the normal way out is blocked, the alternate route becomes a public safety issue, not just a convenience problem.</p>
+      <ul class="project-steps">
+        <li>Map the route clearly and gather photos, surface condition notes, and problem dates.</li>
+        <li>Put the route on every agenda until there is a funding and paving plan.</li>
+        <li>Coordinate with county, state, rail, and emergency partners with one clear request.</li>
+      </ul>
+    </article>
+    <article class="project-card reveal">
+      <div class="project-tag">Priority two</div>
+      <h3 class="card-title">Preparedness for storms, fire, and outages</h3>
+      <p class="card-copy">A small town cannot wait until the sirens sound to decide who calls who.</p>
+      <ul class="project-steps">
+        <li>Create a one-page emergency contact tree and post it publicly.</li>
+        <li>List shelter options, generator needs, water access, and vulnerable residents.</li>
+        <li>Run one tabletop drill in public so people know the plan is real.</li>
+      </ul>
+    </article>
+    <article class="project-card reveal">
+      <div class="project-tag">Priority three</div>
+      <h3 class="card-title">Cleanup, dumping, blight, and brush</h3>
+      <p class="card-copy">Visible neglect teaches people that nothing matters. Visible cleanup teaches the opposite.</p>
+      <ul class="project-steps">
+        <li>Make a simple map of trouble spots and update it every month.</li>
+        <li>Pair volunteer cleanup days with a record of what was hauled off.</li>
+        <li>Keep the work boring, public, and repeatable until the culture changes.</li>
+      </ul>
+    </article>
+    <article class="project-card reveal">
+      <div class="project-tag">Priority four</div>
+      <h3 class="card-title">Basic civic infrastructure</h3>
+      <p class="card-copy">The town hall, website, email, calendar, files, and public postings are part of the machinery of self-government.</p>
+      <ul class="project-steps">
+        <li>Post official contact information and meeting dates in one place.</li>
+        <li>Keep one shared public calendar and one records index.</li>
+        <li>Make it easy for a resident to know where to begin without asking around.</li>
+      </ul>
+    </article>
+  </section>
+
+  <div class="section-head reveal"><h2>Pearls of wisdom</h2><hr></div>
+  <section class="grid-3">
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">🧱</div><div><div class="fact-title">Boring is good government.</div><div class="fact-copy">A lot of civic failure starts when people chase drama and skip process. Repetition is not weakness. It is how trust gets built.</div></div></div></article>
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">📚</div><div><div class="fact-title">If it is not written down, it fades.</div><div class="fact-copy">Minutes, ledgers, folders, and posted notices are not clerical fluff. They are how the next resident knows what happened.</div></div></div></article>
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">🧭</div><div><div class="fact-title">Pick the next right thing.</div><div class="fact-copy">Do not wait for perfect clarity. Fill the next seat. Hold the next meeting. Finish the next road or cleanup step. Momentum matters.</div></div></div></article>
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">🤝</div><div><div class="fact-title">Not everyone has to hold office.</div><div class="fact-copy">A healthy town also needs note-takers, volunteer hands, researchers, listeners, and neighbors who just keep showing up.</div></div></div></article>
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">🔎</div><div><div class="fact-title">Ask the dumb question out loud.</div><div class="fact-copy">What are we voting on? Where is the file? Who is responsible? When is the deadline? Simple questions prevent expensive confusion.</div></div></div></article>
+    <article class="fact-card reveal"><div class="fact-row"><div class="fact-icon">⏳</div><div><div class="fact-title">Dormancy ends slowly.</div><div class="fact-copy">One good month does not repair years of drift. What changes the town is a public routine that survives fatigue and turnover.</div></div></div></article>
+  </section>
+
+  <div class="section-head reveal" id="faq"><h2>Plain answers</h2><hr></div>
+  <section class="faq-shell reveal">
+    <div class="faq-item open">
+      <button class="faq-question" type="button">What is a quorum?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">It is the minimum number of members needed for the body to do business. No quorum means no pretending. You can talk, but official action has to wait.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button">Why do minutes matter so much?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">Minutes are the town's memory. They show who met, what was voted on, and what changed. Without them, the next person inherits a fog.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button">What does the mayor do in a small town?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">The mayor leads day-to-day executive work, helps keep departments and tasks moving, and in smaller Alabama municipalities is also part of the council process. The mayor should not try to become the whole town government alone.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button">What does the council do?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">The council sets policy, makes decisions in public, fills vacancies as allowed by law, approves money moves, and keeps town business from becoming one-person rule.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button">What does the clerk do?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">The clerk is a record and process backbone. Meetings, minutes, public records, filings, notices, and a lot of the town's administrative memory run through that office.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button">How can a regular resident help right now?<span class="faq-plus">+</span></button>
+      <div class="faq-answer">Attend, read the notices, ask clear questions, volunteer for cleanup or documentation, and be the neighbor who comes back next month too. Consistency is civic power.</div>
+    </div>
+  </section>
+
+  <div class="section-head reveal"><h2>Current Alabama guardrails</h2><hr></div>
+  <section class="grid-2">
+    <article class="plain-card reveal"><h3 class="card-title">Useful legal anchors</h3><p class="card-copy">Current Alabama League and public guidance indicates that in municipalities under 12,000 population, the mayor is part of the council; a quorum is a majority of the whole authorized council including the mayor; the council sets the time and place of regular meetings; minutes are public records; and the clerk attends meetings and keeps the journal unless an acting minute-keeper is appointed for that meeting.</p></article>
+    <article class="plain-card reveal"><h3 class="card-title">Why that matters here</h3><p class="card-copy">Those rules mean Cardiff does not need mystery. It needs seats filled, meetings properly noticed, minutes kept every time, and vacancies handled on time. Since 2025, Alabama also requires municipal official training for mayors and councilmembers, which raises the bar for anyone taking office.</p></article>
+  </section>
+
+  <section class="footer-card reveal">
+    <h2 class="footer-title">What this page is for</h2>
+    <p class="footer-copy">This is a living civic document. It is meant to lower confusion, raise expectations, and help residents act like co-owners of the town. It does not replace legal advice, audit work, or official notice. It does give Cardiff a plain-language path: fill seats, meet regularly, protect the record, guard the money, finish real projects, and keep going.</p>
+  </section>
+</div>
+</div>
+
+<script>
+const roles=[
+  {id:'mayor',step:'Role 1',button:'Mayor',sub:'Executive lead and public face',title:'Mayor',body:'In a small town, the mayor helps keep daily civic work moving. That means supervising the town\'s operations, keeping projects from stalling, and helping make sure the town actually carries out what is decided in public. In Alabama municipalities under 12,000, the mayor also participates in council process as part of the governing body.',points:['Keep the town moving between meetings without hiding the work from the public.','Bring problems into the room instead of trying to solve everything alone.','Help protect records, finances, and deadlines.','Coordinate with county, state, emergency, and utility partners when outside help is needed.'],foot:'Pearl: a strong mayor does not replace the council. A strong mayor makes it easier for the council and residents to see what is happening.'},
+  {id:'council',step:'Role 2',button:'Council',sub:'Policy, votes, and public direction',title:'Council',body:'The council is where town policy is shaped in public. Councilmembers vote, fill vacancies as allowed by law, adopt ordinances and resolutions, approve spending, and keep decisions from becoming one-person government. A town with empty seats or weak attendance gets fragile fast.',points:['Show up regularly and read the packet before the meeting.','Make motions clearly and vote in public.','Track money, priorities, and deadlines month by month.','Keep the work understandable for residents who are not insiders.'],foot:'Pearl: a council seat is not just a title. It is a promise to keep coming back, even when the room feels tired.'},
+  {id:'clerk',step:'Role 3',button:'Clerk',sub:'Records, notice, minutes, filings',title:'Clerk',body:'The clerk is the town\'s process backbone. The clerk handles minutes, records, notices, certifications, filings, and a large share of the town\'s administrative memory. When the clerk office is weak or unsupported, confusion spreads fast. When the clerk office is strong, the whole town becomes easier to trust.',points:['Attend meetings and keep the journal of proceedings.','Keep files in date order and easy to inspect.','Track notices, permanent records, and supporting documents.','Help create continuity when officers change or vacancies happen.'],foot:'Pearl: protecting the clerk role is not bureaucracy for bureaucracy\'s sake. It is how the town remembers what it did.'},
+  {id:'resident',step:'Role 4',button:'Resident',sub:'The town belongs to the people',title:'Resident',body:'Residents are not spectators. A working town depends on people who ask clear questions, read notices, attend meetings, volunteer, and help spot problems before they turn into civic rot. Not everyone must hold office, but everyone can help make the public room stronger.',points:['Read the notice and show up.','Ask plain questions without trying to burn the room down.','Help document local needs: roads, dumping, storm issues, blocked access.','Volunteer for cleanup, records help, outreach, or project follow-up.'],foot:'Pearl: most towns do not fall apart because nobody cared. They fall apart because not enough people turned care into a routine.'}
+];
+const roleButtons=document.getElementById('roleButtons');
+const rolePanel=document.getElementById('rolePanel');
+function renderRoles(activeId='mayor'){roleButtons.innerHTML='';roles.forEach(role=>{const btn=document.createElement('button');btn.type='button';btn.className='role-btn'+(role.id===activeId?' active':'');btn.innerHTML=`<span class="role-btn-step">${role.step}</span><span class="role-btn-title">${role.button}</span><span class="role-btn-copy">${role.sub}</span>`;btn.addEventListener('click',()=>renderRoles(role.id));roleButtons.appendChild(btn);});const role=roles.find(r=>r.id===activeId);rolePanel.innerHTML=`<div class="role-kicker">${role.sub}</div><div class="role-title">${role.title}</div><div class="role-body">${role.body}</div><ul class="role-points">${role.points.map(point=>`<li>${point}</li>`).join('')}</ul><div class="role-foot">${role.foot}</div>`;}
+const trackerKey='cardiff-civic-tracker';
+const trackerBoxes=[...document.querySelectorAll('[data-track]')];
+function updateTracker(){const count=trackerBoxes.filter(box=>box.checked).length;document.getElementById('trackerText').textContent=`${count} of ${trackerBoxes.length} ready`;document.getElementById('trackerFill').style.width=`${count/trackerBoxes.length*100}%`;localStorage.setItem(trackerKey,JSON.stringify(trackerBoxes.map(box=>box.checked)));}
+function loadTracker(){try{const saved=JSON.parse(localStorage.getItem(trackerKey)||'[]');trackerBoxes.forEach((box,i)=>{box.checked=!!saved[i];});}catch(e){}updateTracker();}
+trackerBoxes.forEach(box=>box.addEventListener('change',updateTracker));
+document.getElementById('resetTracker').addEventListener('click',()=>{trackerBoxes.forEach(box=>box.checked=false);updateTracker();});
+const tabs=[...document.querySelectorAll('[data-checktab]')];
+const panels=[...document.querySelectorAll('[data-checkpanel]')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{const key=tab.dataset.checktab;tabs.forEach(t=>t.classList.toggle('active',t===tab));panels.forEach(panel=>panel.classList.toggle('active',panel.dataset.checkpanel===key));}));
+document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.parentElement;item.classList.toggle('open');}));
+renderRoles('mayor');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.08});
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>

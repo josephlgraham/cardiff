@@ -1,0 +1,840 @@
+(function () {
+  "use strict";
+
+  const LAT = 33.640;
+  const LON = -86.870;
+  const WX_URL = "https://api.weather.com/v2/pws/observations/current?stationId=KALGRAYS4&format=json&units=e&apiKey=e643322b432c400b83322b432ce00bb5";
+  const FORECAST_POINTS_URL = "https://api.weather.gov/points/33.640,-86.870";
+  const TICKER_URL = "ticker.json";
+  const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
+  const TICKER_REFRESH_MS = 5 * 60 * 1000;
+  const WDIRS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  const DAYS_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const STRIP_COLORS = {
+    extreme: "#8b0000",
+    severe: "#C8102E",
+    moderate: "#b47800",
+    minor: "#446b52"
+  };
+
+  const PLANTING_GUIDE = {
+    0: {
+      tag: "Steady winter work",
+      items: [
+        { icon: "🥬", name: "Collards and mustard", action: "Harvest", note: "Keep cutting outer leaves. Cold snaps sweeten the flavor." },
+        { icon: "🧅", name: "Onion starts", action: "Plan", note: "Order starts now so beds are ready before the late-winter warm spell." },
+        { icon: "🪵", name: "Garden beds", action: "Prepare", note: "Top up compost and leaf mold while growth is quiet and the ground is open." }
+      ]
+    },
+    1: {
+      tag: "Late-winter prep",
+      items: [
+        { icon: "🧅", name: "Onions and leeks", action: "Plant", note: "A good month for getting alliums rooted before the heat builds." },
+        { icon: "🥔", name: "Irish potatoes", action: "Plant", note: "Start once the soil is workable and the creek bottoms are not sticky." },
+        { icon: "🫛", name: "English peas", action: "Plant", note: "Get them in early so they can bloom before real spring warmth arrives." }
+      ]
+    },
+    2: {
+      tag: "Spring opening",
+      items: [
+        { icon: "🥔", name: "Potatoes", action: "Plant", note: "A classic creek-bottom crop now that the worst freezes are usually behind us." },
+        { icon: "🥬", name: "Lettuce and greens", action: "Plant", note: "Succession sow every week or two while nights still run cool." },
+        { icon: "🥕", name: "Carrots and beets", action: "Plant", note: "Keep seedbeds evenly damp. Early spring moisture helps them start well." }
+      ]
+    },
+    3: {
+      tag: "Tender plants on deck",
+      items: [
+        { icon: "🌽", name: "Sweet corn", action: "Plant", note: "Plant after the ground warms and the creek bottoms stop feeling cold at dawn." },
+        { icon: "🫘", name: "Pole beans", action: "Plant", note: "Wait for settled warmth. Beans sulk in chilly soil." },
+        { icon: "🍅", name: "Tomatoes", action: "Set out", note: "Harden them off first and keep row cover handy for late cold surprises." }
+      ]
+    },
+    4: {
+      tag: "Main garden weather",
+      items: [
+        { icon: "🍅", name: "Tomatoes and peppers", action: "Plant", note: "This is when the warm-season garden starts to look like itself." },
+        { icon: "🥒", name: "Cucumbers and squash", action: "Plant", note: "Direct sow in rich soil and watch for fast overnight growth." },
+        { icon: "🌿", name: "Basil and herbs", action: "Plant", note: "Warm nights help them take hold without sulking." }
+      ]
+    },
+    5: {
+      tag: "Keep it mulched",
+      items: [
+        { icon: "🌽", name: "Corn and okra", action: "Tend", note: "Side-dress, weed, and keep moisture even while the heat is still climbing." },
+        { icon: "🍅", name: "Tomatoes", action: "Train", note: "Tie, prune, and mulch before the first hard push of summer humidity." },
+        { icon: "🫘", name: "Beans", action: "Plant", note: "A fresh sowing now stretches the harvest deeper into summer." }
+      ]
+    },
+    6: {
+      tag: "Heat-smart gardening",
+      items: [
+        { icon: "🍅", name: "Tomatoes", action: "Harvest", note: "Pick often and keep airflow open through the vines." },
+        { icon: "🫑", name: "Peppers and okra", action: "Harvest", note: "These love the heat once they are fully rooted." },
+        { icon: "🥒", name: "Fall brassica starts", action: "Start", note: "Begin seed in shade so transplants are ready for late summer." }
+      ]
+    },
+    7: {
+      tag: "Fall garden setup",
+      items: [
+        { icon: "🥦", name: "Broccoli and cabbage", action: "Start", note: "Set transplants once nights soften and the worst heat breaks." },
+        { icon: "🥬", name: "Collards", action: "Plant", note: "They settle in now and shine once cooler weather arrives." },
+        { icon: "🥕", name: "Carrots", action: "Plant", note: "Consistent moisture matters more than anything else in August seedbeds." }
+      ]
+    },
+    8: {
+      tag: "Second-season greens",
+      items: [
+        { icon: "🥬", name: "Turnip greens and mustard", action: "Plant", note: "One of the easiest and most rewarding fall plantings around here." },
+        { icon: "🧄", name: "Garlic bed prep", action: "Prepare", note: "Build loose, fertile rows now so cloves can go in later." },
+        { icon: "🥦", name: "Brassicas", action: "Tend", note: "Protect young leaves from chewing insects while the weather is still warm." }
+      ]
+    },
+    9: {
+      tag: "Cool-season rhythm",
+      items: [
+        { icon: "🥬", name: "Greens", action: "Plant", note: "Keep the bed full. October is one of the prettiest months in a Southern garden." },
+        { icon: "🧄", name: "Garlic", action: "Plant", note: "Plant toward the end of the month into loose, weed-free soil." },
+        { icon: "🥔", name: "Sweet potatoes", action: "Harvest", note: "Lift before nights get too cool and cure them somewhere dry." }
+      ]
+    },
+    10: {
+      tag: "Tuck in winter crops",
+      items: [
+        { icon: "🧄", name: "Garlic", action: "Plant", note: "A prime month for a dependable garlic patch." },
+        { icon: "🥬", name: "Kale and collards", action: "Harvest", note: "Flavor improves as the air turns colder." },
+        { icon: "🍂", name: "Beds and mulch", action: "Prepare", note: "Leaves are not waste here. They are next spring's soil." }
+      ]
+    },
+    11: {
+      tag: "Quiet season, living soil",
+      items: [
+        { icon: "🥬", name: "Winter greens", action: "Harvest", note: "Pick what you need and let the patch keep working through the cold." },
+        { icon: "🧄", name: "Garlic", action: "Watch", note: "Leave it be under mulch and let the roots build over winter." },
+        { icon: "🌱", name: "Cover beds", action: "Rest", note: "A little protection now pays you back in spring texture and fertility." }
+      ]
+    }
+  };
+
+  const NATURE_GUIDE = {
+    0: [
+      { icon: "🦆", title: "Winter birds on the move", note: "Creek edges and open fields stay busy with mixed flocks while the hardwood canopy is bare." },
+      { icon: "🌤", title: "Clear-sky tracking", note: "Low leaves and soft ground make it easier to read prints and crossings after a cold night." },
+      { icon: "🌿", title: "Moss brightens first", note: "Even in the quietest month, wet banks glow green before almost anything else does." }
+    ],
+    1: [
+      { icon: "🐸", title: "First frog talk", note: "Warm evenings can wake up the earliest calls from wet ground near the creek." },
+      { icon: "🌼", title: "Edges start greening", note: "Sunny fence lines and ditch banks begin the spring show before the woods do." },
+      { icon: "🕊", title: "Songbird mornings", note: "Dawn gets louder this month as territory and nesting season start up." }
+    ],
+    2: [
+      { icon: "🌸", title: "Dogwood and redbud cues", note: "When the understory lights up, the whole watershed starts shifting into spring." },
+      { icon: "🐟", title: "Creek life rising", note: "Longer days pull more visible life to the shallows and margins." },
+      { icon: "🦋", title: "First pollinator push", note: "Sunny, still afternoons bring out the first real butterfly traffic." }
+    ],
+    3: [
+      { icon: "🐝", title: "Pollinator month", note: "Bloom, warmth, and longer light make this one of the liveliest months in the bottoms." },
+      { icon: "🌿", title: "Fresh edible growth", note: "Tender greens, herbs, and creekside plants grow fast enough to notice day by day." },
+      { icon: "🕊", title: "Nest-building everywhere", note: "Listen for concentrated bird activity in hedges, brush piles, and edge habitat." }
+    ],
+    4: [
+      { icon: "🪺", title: "Young wildlife season", note: "Give thickets and tall grass a little extra grace. A lot is hiding there now." },
+      { icon: "🦎", title: "Warm rocks, more reptiles", note: "Sunny paths and bank edges draw out basking lizards and snakes." },
+      { icon: "🌼", title: "Field margins stay busy", note: "Disturbed ground and open meadows carry a lot of insect and bird traffic this month." }
+    ],
+    5: [
+      { icon: "🌳", title: "Deep green canopy", note: "Shade over the creek changes temperature, sound, and how far you can see into the woods." },
+      { icon: "🪲", title: "Insect life spikes", note: "You notice it in the air first, then in the birds that follow it." },
+      { icon: "🐢", title: "Sunny log watch", note: "Turtles love a stable warm stretch with bright afternoon light." }
+    ],
+    6: [
+      { icon: "🎣", title: "Creek mornings matter", note: "Wildlife movement is strongest before the heat settles in for the day." },
+      { icon: "🦌", title: "Edges after rain", note: "Soft soil and fresh growth make movement easier to spot after a shower." },
+      { icon: "🌩", title: "Storm rhythms", note: "Summer weather changes the whole pace of the watershed from one day to the next." }
+    ],
+    7: [
+      { icon: "🦗", title: "Late-summer soundscape", note: "Cicadas, katydids, and tree frogs take over once the air starts holding heat at dusk." },
+      { icon: "🍄", title: "Moisture brings fungi", note: "A wet stretch can wake up logs, stumps, and shaded banks almost overnight." },
+      { icon: "🌾", title: "Seed and grass season", note: "Field margins feed birds and small mammals even when the woods feel still." }
+    ],
+    8: [
+      { icon: "🦅", title: "Migration hints", note: "The first real sense of movement returns to the sky on cooler mornings." },
+      { icon: "🍂", title: "Light changes first", note: "Before the leaves turn, the angle of the sun starts changing the whole feel of the place." },
+      { icon: "🐟", title: "Creek clarity checks", note: "Early fall is a good time to notice where current, shade, and bottom color shift." }
+    ],
+    9: [
+      { icon: "🍁", title: "Leaf-color scouting", note: "Ridges usually start first, but creek bottoms hold their green a little longer." },
+      { icon: "🦃", title: "Field-edge mornings", note: "Open patches and oak edges can get active at first light." },
+      { icon: "🌰", title: "Mast season", note: "Acorns and nuts rearrange where wildlife spends its time." }
+    ],
+    10: [
+      { icon: "🪶", title: "Quiet woods, better visibility", note: "As leaves thin out, tracks, nests, and movement all get easier to read." },
+      { icon: "🍁", title: "Bottomland color", note: "The creek corridor often turns later, but it can be some of the prettiest color in the watershed." },
+      { icon: "🐦", title: "Mixed flock season", note: "Small birds bunch up and work through the woods together when the weather cools." }
+    ],
+    11: [
+      { icon: "❄️", title: "Open sightlines", note: "Bare structure makes it easier to understand the shape of the land and how water moves through it." },
+      { icon: "🦌", title: "Fresh sign after cold rain", note: "Tracks and crossings show up cleanly when the ground softens again." },
+      { icon: "🌙", title: "Long dark evenings", note: "Clear winter skies make the moon feel closer and the creek sound louder." }
+    ]
+  };
+
+  const ALMANAC_FACTS = [
+    { kicker: "Five Mile Creek", title: "Creek bends make their own weather", body: "Creek bottoms often hold cooler dawn air, a touch more humidity, and a little extra growing time compared with the nearby ridges." },
+    { kicker: "Old Garden Sense", title: "Leaf mulch is future soil", body: "A pile of leaves on Cardiff ground is not clutter. It is moisture retention, weed suppression, and next season's garden structure." },
+    { kicker: "Moon Lore", title: "Bright nights change movement", body: "People who hunt, fish, and garden all watch the moon because brighter nights can change feeding, visibility, and when the woods feel active." },
+    { kicker: "Watershed Note", title: "Rain upstream still counts here", body: "A creek can rise from weather you never felt at home. Watching upstream rain is part of reading local water." },
+    { kicker: "Fieldcraft", title: "Morning tells on the ground", body: "The first hour after sunrise shows dew lines, tracks, spider webs, and fresh disturbance better than the middle of the day does." },
+    { kicker: "Season Marker", title: "Dogwoods are a clock", body: "People have long used bloom timing as a rough local calendar because plants respond to accumulated warmth, not just the date on paper." },
+    { kicker: "Fishing Note", title: "Stable weather usually helps", body: "A few settled days often make creek fish more predictable than a sharp front swinging through overnight." }
+  ];
+
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  }
+
+  function setHTML(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = value;
+  }
+
+  function iconHtml(icon) {
+    return '<span class="emoji">' + icon + "</span>";
+  }
+
+  function emojiText(icon, text) {
+    return iconHtml(icon) + " " + text;
+  }
+
+  function setEmojiText(id, icon, text) {
+    setHTML(id, emojiText(icon, text));
+  }
+
+  function formatClock(date) {
+    return date.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit"
+    });
+  }
+
+  function dayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 0);
+    return Math.floor((date - start) / 86400000);
+  }
+
+  function minutesToTime(date, minutes) {
+    const normalized = ((minutes % 1440) + 1440) % 1440;
+    const hours = Math.floor(normalized / 60);
+    const mins = Math.round(normalized % 60);
+    const out = new Date(date);
+    out.setHours(hours, mins, 0, 0);
+    return out;
+  }
+
+  function getSunTimes(date) {
+    const day = dayOfYear(date);
+    const gamma = 2 * Math.PI / 365 * (day - 1 + ((date.getHours() - 12) / 24));
+    const eqtime = 229.18 * (0.000075 + 0.001868 * Math.cos(gamma) - 0.032077 * Math.sin(gamma) - 0.014615 * Math.cos(2 * gamma) - 0.040849 * Math.sin(2 * gamma));
+    const decl = 0.006918 - 0.399912 * Math.cos(gamma) + 0.070257 * Math.sin(gamma) - 0.006758 * Math.cos(2 * gamma) + 0.000907 * Math.sin(2 * gamma) - 0.002697 * Math.cos(3 * gamma) + 0.00148 * Math.sin(3 * gamma);
+    const latRad = LAT * Math.PI / 180;
+    const hourAngle = Math.acos((Math.cos(90.833 * Math.PI / 180) / (Math.cos(latRad) * Math.cos(decl))) - Math.tan(latRad) * Math.tan(decl));
+    const timezoneOffsetHours = -date.getTimezoneOffset() / 60;
+    const solarNoonMinutes = 720 - (4 * LON) - eqtime + (timezoneOffsetHours * 60);
+    const sunriseMinutes = solarNoonMinutes - (hourAngle * 180 / Math.PI) * 4;
+    const sunsetMinutes = solarNoonMinutes + (hourAngle * 180 / Math.PI) * 4;
+    return {
+      rise: minutesToTime(date, sunriseMinutes),
+      set: minutesToTime(date, sunsetMinutes)
+    };
+  }
+
+  function directionFromDegrees(deg) {
+    if (!Number.isFinite(deg)) return "Calm";
+    return WDIRS[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16];
+  }
+
+  function getMoonPhase(date) {
+    const phases = [
+      { name: "New Moon", icon: "🌑", min: 0, max: 1.85, lore: "Dark nights make stars stronger and animal movement easier to hear than see.", science: "A new moon means the moon is roughly between Earth and the sun, so the lit side faces away from us." },
+      { name: "Waxing Crescent", icon: "🌒", min: 1.85, max: 7.38, lore: "Old almanac readers took the first light as a sign to start adding things back into the week.", science: "The illuminated fraction grows each evening, adding a little more moonlight after sunset." },
+      { name: "First Quarter", icon: "🌓", min: 7.38, max: 11.07, lore: "Half-lit nights are a good time to notice how moonlight changes the feel of fields and creek bends.", science: "From Earth we see half the near side lit because the moon has moved one quarter of the way around its orbit." },
+      { name: "Waxing Gibbous", icon: "🌔", min: 11.07, max: 14.77, lore: "This is when the moon begins to dominate the evening sky and stretch useful light later into the night.", science: "The moon is approaching full, so the visible illuminated portion keeps expanding toward a complete disk." },
+      { name: "Full Moon", icon: "🌕", min: 14.77, max: 16.61, lore: "Bright nights change how the woods look and how people move through them. Even the creek sounds different under a full moon.", science: "The Earth sits roughly between the sun and moon, so the moon's Earth-facing side is fully illuminated." },
+      { name: "Waning Gibbous", icon: "🌖", min: 16.61, max: 22.15, lore: "After full, the bright hours shift later into the night and toward dawn.", science: "The moon is still mostly lit, but the illuminated area shrinks a little each night after full." },
+      { name: "Last Quarter", icon: "🌗", min: 22.15, max: 25.84, lore: "Morning people notice this one first. It hangs over the early day rather than the evening.", science: "Again we see a half-lit moon, but now it is the opposite half compared with first quarter." },
+      { name: "Waning Crescent", icon: "🌘", min: 25.84, max: 29.53, lore: "The moon gives back the night a little at a time before the cycle resets.", science: "Only a thin illuminated slice remains visible before the moon returns to new." }
+    ];
+    const knownNew = new Date(2000, 0, 6, 18, 14, 0);
+    const moonDay = (((date - knownNew) / 86400000) % 29.53 + 29.53) % 29.53;
+    return phases.find((phase) => moonDay >= phase.min && moonDay < phase.max) || phases[0];
+  }
+
+  function plantActionClass(action) {
+    if (/plant|set out|start/i.test(action)) return "pa-plant";
+    if (/harvest/i.test(action)) return "pa-harvest";
+    return "pa-wait";
+  }
+
+  function buildPlanting(monthIndex) {
+    const guide = PLANTING_GUIDE[monthIndex];
+    setText("plantTag", guide.tag);
+    setText("pillPlant", guide.items[0].name);
+    setHTML("plantBody", guide.items.map((item) => (
+      '<div class="plant-item">' +
+        '<div class="plant-icon">' + item.icon + "</div>" +
+        "<div><div class=\"plant-name\">" + item.name + "</div><div class=\"plant-action " + plantActionClass(item.action) + "\">" + item.action + "</div><div class=\"plant-note\">" + item.note + "</div></div>" +
+      "</div>"
+    )).join(""));
+  }
+
+  function buildNature(monthIndex) {
+    const entries = NATURE_GUIDE[monthIndex];
+    setText("natureTag", "This week");
+    setText("pillNature", entries[0].title);
+    setHTML("natureBody", entries.map((entry) => (
+      '<div class="nature-row">' +
+        '<div class="nature-icon">' + entry.icon + "</div>" +
+        "<div><div class=\"nature-title\">" + entry.title + "</div><div class=\"nature-note\">" + entry.note + "</div></div>" +
+      "</div>"
+    )).join(""));
+  }
+
+  function buildFact(date) {
+    const fact = ALMANAC_FACTS[dayOfYear(date) % ALMANAC_FACTS.length];
+    setText("factKicker", fact.kicker);
+    setText("factTitle", fact.title);
+    setText("factBody", fact.body);
+  }
+
+  function buildHunting(date) {
+    const month = date.getMonth();
+    const springFrostNear = month === 2 || month === 3;
+    const fallFrostNear = month === 9 || month === 10;
+    const entries = [
+      {
+        icon: "🦃",
+        name: "Turkey",
+        dates: "Spring woods",
+        open: month >= 2 && month <= 4,
+        badge: month >= 2 && month <= 4 ? "on now" : "later",
+        note: "Gobblers, green-up, and early starts. The legal dates still live in the digest."
+      },
+      {
+        icon: "🐿️",
+        name: "Squirrel",
+        dates: "Long cool-weather run",
+        open: month >= 8 || month <= 1,
+        badge: month >= 8 || month <= 1 ? "good now" : "later",
+        note: "One of the friendlier seasons to learn because the sign is obvious and the rhythm is simple."
+      },
+      {
+        icon: "🦌",
+        name: "Deer",
+        dates: "Fall into winter",
+        open: month === 10 || month === 11 || month === 0,
+        badge: month === 10 || month === 11 || month === 0 ? "watch now" : "later",
+        note: "Still the big woods conversation once the leaves turn and the mornings sharpen up."
+      },
+      {
+        icon: "🍄",
+        name: "Morels",
+        dates: "Warm spring rain",
+        open: month >= 2 && month <= 3,
+        badge: month >= 2 && month <= 3 ? "worth a look" : "wait for spring",
+        note: "Check tulip poplar slopes, old orchards, and the first real run of warm wet days."
+      },
+      {
+        icon: "🐦",
+        name: "Snipe",
+        dates: "Wet-field foolishness",
+        open: month >= 10 || month <= 1,
+        badge: month >= 10 || month <= 1 ? "prime nonsense" : "off season",
+        note: "Half joke, half tradition. It still belongs in any proper almanac list."
+      },
+      {
+        icon: "❄️",
+        name: "Last spring frost",
+        dates: "Around March 20",
+        open: springFrostNear,
+        badge: springFrostNear ? "keep cover handy" : "mostly past",
+        note: "Creek-bottom gardens often squeeze out a few extra days, but late cold still likes to surprise people."
+      },
+      {
+        icon: "🍂",
+        name: "First fall frost",
+        dates: "Around November 15",
+        open: fallFrostNear,
+        badge: fallFrostNear ? "coming up" : "later on",
+        note: "The ridges feel it first. The bottoms often hold on a little longer before the first real nip."
+      }
+    ];
+
+    const summary = '<div class="hunt-summary"><strong>Cardiff season windows.</strong><div class="hunt-meta">A mix of legal hunting reminders, local foraging timing, and the frost dates people actually plan around.</div></div>';
+    const activeEntry = entries.find((entry) => entry.open) || entries[0];
+    setHTML("pillHunt", emojiText(activeEntry.icon, activeEntry.name));
+    setHTML("huntBody", summary + entries.map((entry) => (
+      '<div class="hunt-season">' +
+        '<div class="hs-top">' +
+          '<div><div class="hs-name">' + iconHtml(entry.icon) + " " + entry.name + "</div><div class=\"hs-dates\">" + entry.dates + "</div></div>" +
+          '<div class="' + (entry.open ? "hs-open" : "hs-closed") + '">' + entry.badge + "</div>" +
+        "</div>" +
+        '<div class="hunt-meta">' + entry.note + "</div>" +
+      "</div>"
+    )).join(""));
+  }
+
+  function buildSky(date, sun, moon) {
+    const tonightNote = moon.name === "Full Moon"
+      ? "Expect a bright evening and stronger moonlight over open ground and creek bends."
+      : moon.name === "New Moon"
+        ? "Dark skies favor stars, silhouettes, and listening more than looking."
+        : "Moonlight will be moderate tonight, enough to shape the woods without washing everything out.";
+    setHTML("skyBody",
+      '<div class="side-item"><div class="side-icon">🌇</div><div><div class="side-val">Sunset</div><div class="side-sub">' + formatClock(sun.set) + ' local time</div></div></div>' +
+      '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">' + tonightNote + "</div></div></div>" +
+      '<div class="side-item"><div class="side-icon">✨</div><div><div class="side-val">Sky note</div><div class="side-sub">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div></div>'
+    );
+  }
+
+  function buildDateHero(date, sun, moon) {
+    const moonAge = Math.round((((date - new Date(2000, 0, 6, 18, 14, 0)) / 86400000) % 29.53 + 29.53) % 29.53);
+    const daylightHours = Math.round(((sun.set - sun.rise) / 3600000) * 10) / 10;
+    setText("dateDayName", DAYS_LONG[date.getDay()]);
+    setText("dateBig", String(date.getDate()));
+    setText("dateMonthName", MONTHS_LONG[date.getMonth()]);
+    setText("dateYearNum", String(date.getFullYear()));
+    setText("sunTimes", formatClock(sun.rise) + " · " + formatClock(sun.set));
+    setText("dayLength", daylightHours + " hours of daylight");
+    setText("heroMoon", moon.icon + " " + moon.name);
+    setText("heroMoonSub", "Moon age in cycle: " + moonAge + " days");
+    setText("moonIcon", moon.icon);
+    setText("moonName", moon.name);
+    setText("moonMeta", "Tonight over Five Mile Creek");
+    setText("moonLore", moon.lore);
+    setText("moonSci", moon.science);
+    setText("pillMoonIcon", moon.icon);
+    setText("pillMoon", moon.name);
+  }
+
+  function buildStaticSections() {
+    const now = new Date();
+    const sun = getSunTimes(now);
+    const moon = getMoonPhase(now);
+    buildDateHero(now, sun, moon);
+    buildPlanting(now.getMonth());
+    buildNature(now.getMonth());
+    buildFact(now);
+    buildHunting(now);
+    buildSky(now, sun, moon);
+  }
+
+  function weatherCondition(obs) {
+    const imp = obs.imperial || {};
+    const temp = Number(imp.temp);
+    const humidity = Number(obs.humidity);
+    const precipRate = Number(imp.precipRate || 0);
+    const solar = Number(obs.solarRadiation || 0);
+    const wind = Number(imp.windSpeed || 0);
+    const hour = new Date().getHours();
+
+    if (precipRate > 0.05) return "Rain";
+    if (solar > 700) return "Sunny";
+    if (solar > 350) return "Partly cloudy";
+    if (solar < 30 && hour > 7 && hour < 19) return "Overcast";
+    if (temp > 90) return "Hot";
+    if (temp > 76) return humidity > 72 ? "Warm & humid" : "Warm";
+    if (temp > 58) return wind > 12 ? "Breezy" : "Mild";
+    return "Cold";
+  }
+
+  function conditionIcon(condition) {
+    if (condition === "Rain") return "🌧";
+    if (condition === "Sunny") return "☀️";
+    if (condition === "Hot") return "🌡";
+    if (condition === "Overcast") return "☁️";
+    if (condition === "Breezy") return "🌬";
+    if (condition === "Cold") return "🥶";
+    if (condition === "Warm & humid") return "💧";
+    return "🌤";
+  }
+
+  function windIcon(speed) {
+    if (speed < 5) return "🍃";
+    if (speed < 15) return "💨";
+    return "🌬";
+  }
+
+  function tempNote(temp) {
+    if (temp >= 90) return "Heat-stress kind of day";
+    if (temp >= 80) return "Warm enough for shade breaks";
+    if (temp >= 65) return "Comfortable working weather";
+    if (temp >= 50) return "Light jacket early, easy later";
+    if (temp >= 35) return "Cold enough to slow the morning";
+    return "Hard-cold conditions";
+  }
+
+  function humidityNote(humidity) {
+    if (humidity >= 85) return "Air feels heavy and sticky";
+    if (humidity >= 70) return "Moist air helps dew linger";
+    if (humidity >= 50) return "Balanced moisture in the air";
+    return "Dry for this part of Alabama";
+  }
+
+  function windNote(speed) {
+    if (speed >= 18) return "Strong enough to move treetops";
+    if (speed >= 10) return "Enough breeze to cool the bottoms";
+    if (speed >= 4) return "Light movement in open spots";
+    return "Mostly still air";
+  }
+
+  function pressureNote(pressureIn) {
+    if (!Number.isFinite(pressureIn)) return { label: "Steady", note: "No pressure signal available.", icon: "🧭" };
+    if (pressureIn >= 30.15) return { label: "High and settled", note: "Usually steadier skies and more predictable creek conditions.", icon: "📈" };
+    if (pressureIn >= 29.95) return { label: "Moderate", note: "A fair-weather middle ground with no strong front signal.", icon: "🧭" };
+    return { label: "Lower pressure", note: "Often means a front is near or the air is turning more unsettled.", icon: "🌦️" };
+  }
+
+  function groundCondition(precipTotal, humidity) {
+    if (precipTotal >= 0.3) return { title: "Soft and muddy", note: "The ground is taking on water right now.", icon: "🫧" };
+    if (precipTotal >= 0.05) return { title: "Freshly damp", note: "Good scent, soft tracks, and slick creek banks.", icon: "👣" };
+    if (humidity >= 80) return { title: "Holding moisture", note: "Shade and bottoms will stay damp longer than open ground.", icon: "🌿" };
+    if (humidity >= 60) return { title: "Normal footing", note: "Neither baked out nor soupy in most spots.", icon: "🪵" };
+    return { title: "Dry on top", note: "Open ground will crust faster than shaded creek edges.", icon: "☀️" };
+  }
+
+  function uvNote(uv) {
+    if (!Number.isFinite(uv)) return "UV reading offline";
+    if (uv >= 8) return "High exposure in open sun";
+    if (uv >= 5) return "Moderate sun strength";
+    if (uv >= 2) return "Mild sun load";
+    return "Low UV right now";
+  }
+
+  function forecastIcon(text, isDaytime) {
+    const lower = (text || "").toLowerCase();
+    if (/tornado|severe/.test(lower)) return "🚨";
+    if (/thunder|storm/.test(lower)) return "⛈️";
+    if (/snow|sleet|ice/.test(lower)) return "❄️";
+    if (/rain|shower|drizzle/.test(lower)) return isDaytime ? "🌦️" : "🌧️";
+    if (/fog|mist|haze/.test(lower)) return "🌫️";
+    if (/wind|breezy|gust/.test(lower)) return "💨";
+    if (/partly|mostly sunny/.test(lower)) return isDaytime ? "⛅" : "🌙";
+    if (/cloud/.test(lower) || /overcast/.test(lower)) return "☁️";
+    return isDaytime ? "☀️" : "🌙";
+  }
+
+  function estimateWaterTemp(temp, monthIndex) {
+    const seasonalOffset = [-8, -8, -6, -4, -2, 0, 2, 2, 0, -2, -5, -7][monthIndex];
+    return Math.max(40, Math.min(86, Math.round(temp + seasonalOffset)));
+  }
+
+  function fishingRows(wx) {
+    const water = estimateWaterTemp(wx.temp, new Date().getMonth());
+    const pressure = pressureNote(wx.pressureIn);
+    const catfishScore = (wx.condition === "Rain" ? 3 : 2) + (water >= 58 ? 1 : 0);
+    const bassScore = (pressure.label === "High and settled" ? 3 : 2) + (water >= 55 && water <= 75 ? 1 : 0);
+    const breamScore = water >= 68 ? 3 : 2;
+
+    return [
+      {
+        icon: "🐟",
+        stars: catfishScore >= 4 ? "★★★" : "★★",
+        cls: catfishScore >= 4 ? "f-good" : "f-mid",
+        name: "Catfish",
+        note: wx.condition === "Rain" ? "Fresh color and moving water can make the creek feel alive for catfish." : "Stable warm water keeps catfish worth a try around deeper bends and cover."
+      },
+      {
+        icon: "🐠",
+        stars: bassScore >= 4 ? "★★★" : "★★",
+        cls: bassScore >= 4 ? "f-good" : "f-mid",
+        name: "Largemouth and spotted bass",
+        note: pressure.label === "High and settled" ? "Settled weather helps fish hold more predictable edges and ambush cover." : "A changing barometer can scatter bass, so slow down and fish the obvious structure."
+      },
+      {
+        icon: "🐡",
+        stars: breamScore >= 3 ? "★★★" : "★",
+        cls: breamScore >= 3 ? "f-good" : "f-low",
+        name: "Bream",
+        note: water >= 68 ? "Warm shallows and quiet banks make bluegill and shellcracker a solid bet." : "They are still around, but the bite usually improves once the water warms more."
+      }
+    ];
+  }
+
+  function buildFishing(wx, moon) {
+    const waterTemp = estimateWaterTemp(wx.temp, new Date().getMonth());
+    const pressure = pressureNote(wx.pressureIn);
+    const bestTime = wx.temp >= 82 ? "First light" : (wx.condition === "Rain" ? "Before the shower" : "Late afternoon");
+    const bestTimeNote = wx.temp >= 82 ? "Cooler water and softer light help." : (wx.condition === "Rain" ? "Pressure changes can wake things up briefly." : "A stable evening window looks strongest.");
+    const bestIcon = wx.temp >= 82 ? "🌅" : (wx.condition === "Rain" ? "🌦️" : "🌇");
+    const rows = fishingRows(wx);
+
+    setEmojiText("fishWater", "💧", waterTemp + "°F");
+    setEmojiText("fishPressure", pressure.icon, pressure.label);
+    setText("fishPNote", pressure.note);
+    setHTML("fishMoon", emojiText(moon.icon, moon.name));
+    setText("fishMoonNote", "Moonlight shifts feeding windows, especially overnight.");
+    setEmojiText("fishBest", bestIcon, bestTime);
+    setText("fishBestNote", bestTimeNote);
+    setHTML("pillFish", emojiText("🎣", rows[0].name));
+
+    setHTML("fishBody", rows.map((row) => (
+      '<div class="fish-row">' +
+        '<div class="fish-stars ' + row.cls + '">' + row.stars + "</div>" +
+        "<div><div class=\"fish-name\">" + iconHtml(row.icon) + " " + row.name + "</div><div class=\"fish-note\">" + row.note + "</div></div>" +
+      "</div>"
+    )).join(""));
+  }
+
+  function buildSideSnapshot(wx, sun, moon, ground) {
+    setHTML("sideSnap",
+      '<div class="side-item"><div class="side-icon">' + conditionIcon(wx.condition) + '</div><div><div class="side-val">' + wx.temp + '°F and ' + wx.condition.toLowerCase() + '</div><div class="side-sub">' + wx.summary + "</div></div></div>" +
+      '<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">Sunrise to sunset</div><div class="side-sub">' + formatClock(sun.rise) + " to " + formatClock(sun.set) + "</div></div></div>" +
+      '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">Night light and animal movement can feel different under this phase.</div></div></div>' +
+      '<div class="side-item"><div class="side-icon">👣</div><div><div class="side-val">' + ground.title + '</div><div class="side-sub">' + ground.note + "</div></div></div>"
+    );
+  }
+
+  function buildWeather(wx) {
+    const moon = getMoonPhase(new Date());
+    const sun = getSunTimes(new Date());
+    const ground = groundCondition(wx.precipTotal, wx.humidity);
+    const pressure = pressureNote(wx.pressureIn);
+    const updatedLabel = "Updated " + formatClock(new Date(wx.obsTime || Date.now()));
+
+    setText("wxUpdated", updatedLabel);
+    setEmojiText("wxTemp", conditionIcon(wx.condition), wx.temp + "°F");
+    setText("wxTempNote", tempNote(wx.temp));
+    setEmojiText("wxHum", "💧", wx.humidity + "%");
+    setText("wxHumNote", humidityNote(wx.humidity));
+    setEmojiText("wxWind", windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph");
+    setText("wxWindNote", windNote(wx.windSpeed));
+    setEmojiText("wxRain", ground.icon, ground.title);
+    setText("wxRainNote", ground.note);
+    setEmojiText("wxPressure", pressure.icon, Number.isFinite(wx.pressureIn) ? wx.pressureIn.toFixed(2) + '"' : "—");
+    setText("wxPressureNote", pressure.note);
+    setEmojiText("wxUV", "☀️", Number.isFinite(wx.uv) ? String(Math.round(wx.uv)) : "—");
+    setText("wxUVNote", uvNote(wx.uv));
+    setText("wxNarrative", wx.summary);
+    setText("wxScience", "Air temperature, humidity, pressure, wind, and recent precipitation together explain why the creek bottoms feel different from the open ridge even on the same day.");
+    setHTML("heroCond", emojiText(conditionIcon(wx.condition), wx.condition));
+    setText("heroCondSub", "Feels like " + wx.feels + "°F · Wind " + Math.round(wx.windSpeed) + " mph " + wx.windDir);
+    setHTML("heroRain", emojiText(ground.icon, ground.title));
+    setText("heroRainSub", ground.note);
+    setHTML("pillWeather", emojiText(conditionIcon(wx.condition), wx.temp + "°F · " + wx.condition));
+
+    buildFishing(wx, moon);
+    buildSideSnapshot(wx, sun, moon, ground);
+  }
+
+  function summarizeWeather(wx) {
+    const pieces = [];
+    pieces.push(wx.temp + "°F");
+    pieces.push(wx.condition.toLowerCase());
+    if (wx.windSpeed >= 4) pieces.push("wind around " + Math.round(wx.windSpeed) + " mph");
+    if (wx.humidity >= 75) pieces.push("humid air in the bottoms");
+    if (wx.precipRate > 0.05) pieces.push("active precipitation");
+    return "Right now around Cardiff it feels " + pieces.join(", ") + ".";
+  }
+
+  async function loadWeather() {
+    try {
+      const response = await fetch(WX_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("weather");
+      const data = await response.json();
+      if (!data.observations || !data.observations.length) throw new Error("weather");
+      const obs = data.observations[0];
+      const imp = obs.imperial || {};
+      const wx = {
+        temp: Math.round(Number(imp.temp)),
+        feels: Math.round(Number(imp.heatIndex || imp.windChill || imp.temp)),
+        humidity: Math.round(Number(obs.humidity || 0)),
+        windSpeed: Number(imp.windSpeed || 0),
+        windDir: directionFromDegrees(Number(obs.winddir)),
+        precipRate: Number(imp.precipRate || 0),
+        precipTotal: Number(imp.precipTotal || 0),
+        pressureIn: Number((obs.imperial && obs.imperial.pressure) || imp.pressure || 0),
+        uv: Number(obs.uv),
+        obsTime: obs.obsTimeLocal || obs.obsTimeUtc,
+        condition: weatherCondition(obs)
+      };
+      wx.summary = summarizeWeather(wx);
+      setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
+      setText("mhCond", wx.condition);
+      setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
+      buildWeather(wx);
+      return wx;
+    } catch (error) {
+      setHTML("mhTemp", "&mdash;");
+      setText("mhCond", "Offline");
+      setText("mhWind", "Trying again soon");
+      setText("wxUpdated", "Weather offline");
+      setText("wxNarrative", "The live weather station did not answer just now. The rest of the almanac is still available.");
+      setText("pillWeather", "Offline");
+      setHTML("heroCond", emojiText("📡", "Station offline"));
+      setText("heroCondSub", "Live conditions will return when the station responds.");
+      setHTML("heroRain", emojiText("👣", "Use local ground check"));
+      setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
+      setHTML("sideSnap",
+        '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
+      );
+      setHTML("fishBody",
+        '<div class="fish-row"><div class="fish-stars f-low">—</div><div><div class="fish-name">Live conditions unavailable</div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
+      );
+      return null;
+    }
+  }
+
+  function getStripColor(alerts) {
+    if (!alerts || !alerts.length) return "";
+    return STRIP_COLORS[(alerts[0].severity || "").toLowerCase()] || STRIP_COLORS.moderate;
+  }
+
+  async function loadTicker() {
+    try {
+      const response = await fetch(TICKER_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("ticker");
+      const data = await response.json();
+      const stripText = document.querySelector(".announce-strip-text");
+      const strip = document.querySelector(".announce-strip");
+      if (stripText) {
+        const message = (data.ticker || DEFAULT_TICKER).trim();
+        stripText.textContent = message;
+        stripText.style.animationDuration = Math.max(20, Math.round(32 * (message.length / 100))) + "s";
+      }
+      if (strip) {
+        const color = getStripColor(data.alerts);
+        strip.style.background = (data.hasAlerts && color) ? color : "";
+      }
+    } catch (error) {
+      const stripText = document.querySelector(".announce-strip-text");
+      if (stripText) stripText.textContent = DEFAULT_TICKER;
+    }
+  }
+
+  async function loadForecast() {
+    try {
+      const pointsResponse = await fetch(FORECAST_POINTS_URL, {
+        headers: { "Accept": "application/geo+json" }
+      });
+      if (!pointsResponse.ok) throw new Error("points");
+      const pointsData = await pointsResponse.json();
+      const forecastUrl = pointsData.properties && pointsData.properties.forecast;
+      if (!forecastUrl) throw new Error("forecast");
+
+      const forecastResponse = await fetch(forecastUrl, {
+        headers: { "Accept": "application/geo+json" }
+      });
+      if (!forecastResponse.ok) throw new Error("forecast");
+      const forecastData = await forecastResponse.json();
+      const periods = (forecastData.properties && forecastData.properties.periods) ? forecastData.properties.periods.slice(0, 6) : [];
+      if (!periods.length) throw new Error("forecast");
+
+      setHTML("weekBody", periods.map((period) => (
+        '<div class="side-item">' +
+          '<div class="side-icon">' + forecastIcon(period.shortForecast, period.isDaytime) + "</div>" +
+          "<div><div class=\"side-val\">" + period.name + " · " + period.temperature + "°" + period.temperatureUnit + "</div><div class=\"side-sub\">" + period.shortForecast + "</div></div>" +
+        "</div>"
+      )).join(""));
+    } catch (error) {
+      setHTML("weekBody",
+        '<div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Forecast temporarily unavailable.</div>'
+      );
+    }
+  }
+
+  function initTopo() {
+    const canvas = document.getElementById("topo-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+    let lines = [];
+
+    function build() {
+      lines = [];
+      for (let i = 0; i < 30; i++) {
+        const baseY = (height / 29) * i;
+        const pts = [];
+        for (let s = 0; s <= 26; s++) {
+          pts.push([
+            (width / 26) * s,
+            baseY + Math.sin(s * 0.41 + i * 0.63) * 15 + Math.sin(s * 0.18 + i * 1.1) * 30 + Math.sin(s * 0.07 + i * 0.35) * 46 + Math.cos(s * 0.55 + i * 0.82) * 11
+          ]);
+        }
+        const isIndex = i % 5 === 0;
+        lines.push({
+          pts: pts,
+          color: isIndex ? "rgba(80,44,8,0.11)" : "rgba(80,44,8,0.052)",
+          width: isIndex ? 1.2 : 0.6,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.0004 + Math.random() * 0.0004
+        });
+      }
+
+      const creek = [];
+      for (let s = 0; s <= 52; s++) {
+        creek.push([
+          (width / 52) * s,
+          height * 0.72 + Math.sin(s * 0.22) * 58 + Math.sin(s * 0.13) * 88 + Math.cos(s * 0.35) * 26
+        ]);
+      }
+      lines.push({
+        pts: creek,
+        color: "rgba(150,40,20,0.11)",
+        width: 2.4,
+        phase: 0,
+        speed: 0.00025,
+        dash: [8, 10]
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      lines.forEach((line) => {
+        ctx.beginPath();
+        ctx.strokeStyle = line.color;
+        ctx.lineWidth = line.width;
+        ctx.setLineDash(line.dash || []);
+        const tick = frame * line.speed + line.phase;
+        line.pts.forEach((point, index) => {
+          const y = point[1] + Math.sin(tick + index * 0.28) * 2.8 + Math.sin(tick * 1.7 + index * 0.14) * 1.2 + Math.cos(tick * 0.8 + index * 0.42) * 1.6;
+          if (index === 0) ctx.moveTo(point[0], y);
+          else ctx.lineTo(point[0], y);
+        });
+        ctx.stroke();
+      });
+      ctx.setLineDash([]);
+      frame += 1;
+      requestAnimationFrame(draw);
+    }
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      build();
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  }
+
+  function boot() {
+    buildStaticSections();
+    initTopo();
+    loadTicker();
+    loadWeather();
+    loadForecast();
+    window.setInterval(loadTicker, TICKER_REFRESH_MS);
+    window.setInterval(loadWeather, 5 * 60 * 1000);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();

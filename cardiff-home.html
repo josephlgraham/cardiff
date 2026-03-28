@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiff, Alabama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--amber-soft:#d1a038;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--paper3:#e5d5b5;--card:#faf6ee;--card2:#f7f0e4;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:16px;--ease:220ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.page{position:relative;z-index:1}
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
+.mh-left-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;color:var(--hdr-dim);line-height:1.75}
+.mh-brand{text-align:center}.mh-brand-link{text-decoration:none;display:inline-block}
+.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
+.mh-brand-name .comma{color:var(--hdr-dimmer);font-weight:300}
+.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
+.mh-right-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--hdr-dim);text-align:right;line-height:1.75}
+.mh-right-info .wx-hi{color:rgba(245,234,216,.88);font-weight:500;font-size:.88rem}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule)}
+.mh-tabs::-webkit-scrollbar{display:none}
+.mh-tabs a{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,.05)}
+.mh-tabs a.active{color:var(--red)}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red)}
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em;animation:marquee 34s linear infinite;padding-left:100%}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem 5rem}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.hero{padding:3rem 0 1.6rem}
+.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:1.4rem;align-items:start}
+.kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem;display:flex;align-items:center;gap:.5rem}
+.kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block}
+.title{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:800;letter-spacing:-.03em;line-height:.96;color:var(--ink);margin-bottom:.9rem}
+.sub{font-size:1rem;line-height:1.8;color:var(--ink2);max-width:68ch}
+.soft{color:var(--ink3)}
+.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:var(--r);font-size:.82rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all var(--ease);border:1px solid transparent}
+.btn.primary{background:var(--red);color:#fff}.btn.primary:hover{background:var(--red-mid)}
+.btn.ghost{background:var(--paper2);color:var(--ink2);border-color:var(--border2)}.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
+.pill-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border2);border-radius:999px;padding:.38rem .72rem;background:rgba(255,255,255,.4);font-size:.72rem;font-weight:700;color:var(--ink2)}
+.pill-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+.section-rule{display:flex;align-items:center;gap:.75rem;margin:2rem 0 1.25rem}
+.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
+.card,.band,.photo-shell,.news-shell,.quote-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative}
+.band{padding:1.5rem}
+.card{padding:1.2rem}
+.card-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.5rem}.card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
+.photo-shell{padding:1rem;box-shadow:var(--shadow-lg);--ibox-pad-x:1rem}
+.photo-shell{box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09)}
+.photo-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+.photo-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.photo-nav{display:flex;gap:.5rem}
+.icon-btn{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.52rem .82rem;border-radius:999px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all var(--ease)}
+.icon-btn:hover{border-color:var(--amber);color:var(--amber)}
+.photo-stage{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#ddd;aspect-ratio:1/1;min-height:360px}
+.photo-stage img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.02)}
+.photo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,16,10,.08),rgba(25,16,10,.24));pointer-events:none}
+.marker{position:absolute;z-index:2;display:flex;align-items:center;gap:.45rem;transform:translate(-50%,-50%)}
+.marker-dot{width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid rgba(255,255,255,.9);box-shadow:0 0 0 4px rgba(200,16,46,.16)}
+.marker-label{background:rgba(28,18,8,.76);color:#fff;padding:.22rem .45rem;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.02em;backdrop-filter:blur(6px)}
+.photo-caption{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;padding-top:.9rem}
+.photo-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.28rem}
+.photo-copy{font-size:.84rem;line-height:1.7;color:var(--ink2)}
+.photo-copy:empty{display:none}
+.photo-credit{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.grid-2,.grid-3,.grid-4,.news-grid{display:grid;gap:1rem}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.quote-card{padding:1.3rem;background:linear-gradient(180deg,rgba(250,246,238,.94),rgba(247,241,231,.88))}
+.quote-text{font-size:1rem;line-height:1.85;color:var(--ink2)}
+.quote-by{margin-top:.8rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.letter-card{padding:1.45rem 1.5rem;background:linear-gradient(180deg,rgba(250,246,238,.97),rgba(247,241,231,.9))}
+.letter-kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem}
+.letter-kicker::before{content:"";width:12px;height:2px;background:var(--red);display:inline-block}
+.letter-title{font-size:1.22rem;font-weight:800;color:var(--ink);padding-bottom:.55rem;margin-bottom:.85rem;border-bottom:1px solid var(--rule)}
+.letter-body{display:grid;gap:.9rem;max-width:78ch}
+.letter-body p{font-size:.92rem;line-height:1.82;color:var(--ink2)}
+.letter-body a{color:var(--red);font-weight:700;text-decoration:none}
+.letter-body a:hover{text-decoration:underline}
+.letter-signature{padding-top:.2rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.letter-signature-name{display:block;margin-top:.28rem;font-family:"Caveat",cursive;font-size:2rem;font-weight:600;letter-spacing:.01em;text-transform:none;color:var(--ink)}
+.letter-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.35rem}
+.news-shell{padding:1.5rem}
+.news-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.status-line{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.9rem}
+.news-grid{grid-template-columns:repeat(3,1fr)}
+.news-card{padding:1.1rem;background:rgba(255,255,255,.45);border:1px solid var(--border);border-radius:var(--r);transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease)}
+.news-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--border2)}
+.news-card a{text-decoration:none;color:inherit;display:block}
+.news-source{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem}
+.news-title{font-size:.96rem;font-weight:800;line-height:1.42;color:var(--ink);margin-bottom:.55rem}
+.news-snippet{font-size:.84rem;line-height:1.68;color:var(--ink2)}
+.news-meta{margin-top:.85rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:.74rem;color:var(--ink3);display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.loading{color:var(--ink3)}
+.site-card{display:flex;flex-direction:column;gap:.7rem;height:100%}
+.site-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.site-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:auto;color:var(--ink);font-weight:700;text-decoration:none}
+.site-link:hover{color:var(--red)}
+.hero-side{display:grid;gap:1rem}
+.hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hero-quick-card{min-height:100%}
+.tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
+@media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}}
+
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+<div id="cardiff-masthead"></div>
+
+<div class="wrap">
+  <section class="hero reveal">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Welcome</div>
+        <h1 class="title">A small town with a long memory.</h1>
+        <p class="sub">This site is a front porch for the record. It gathers history, land, local knowledge, and the civic questions shaping Cardiff now. Begin with the weather, the news, or the pages that help explain the place.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="cardiff-news.html">Read the news</a>
+          <a class="btn primary" href="cardiff-almanac.html">Check the weather</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="photo-shell info-box reveal" data-kicker="Photo viewer">
+          <div class="photo-toolbar">
+            <div class="photo-meta" id="photoMeta">Cardiff archive</div>
+            <div class="photo-nav">
+              <button class="icon-btn" id="prevPhoto" type="button">Previous</button>
+              <button class="icon-btn" id="nextPhoto" type="button">Next</button>
+            </div>
+          </div>
+          <div class="photo-stage">
+            <img id="heroPhoto" src="photos/cardiff-1951.jpg" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
+            <div id="photoMarkers"></div>
+          </div>
+          <div class="photo-caption">
+            <div>
+              <div class="photo-title" id="photoTitle">Aerial view, 1951</div>
+              <p class="photo-copy" id="photoCopy"></p>
+            </div>
+            <div class="photo-credit" id="photoCredit">Historical photograph</div>
+          </div>
+        </div>
+        <div class="hero-quick-grid">
+          <article class="card site-card hero-quick-card reveal">
+            <div class="site-kicker">Daily conditions</div>
+            <h3 class="card-title">Check the weather and local rhythms.</h3>
+            <p class="card-body">Open the almanac for live weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
+            <a class="site-link" href="cardiff-almanac.html">Open the almanac →</a>
+          </article>
+          <article class="card site-card hero-quick-card reveal">
+            <div class="site-kicker">Current signal</div>
+            <h3 class="card-title">Keep one eye on the wider area.</h3>
+            <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
+            <a class="site-link" href="cardiff-news.html">Open the news page →</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-rule reveal"><h2>Start here</h2><hr></div>
+  <section class="grid-2">
+    <article class="card site-card reveal">
+      <div class="site-kicker">Context</div>
+      <h3 class="card-title">Learn the place.</h3>
+      <p class="card-body">The history matters. So do the land, the creek, the old roads, the cemetery, and the record left behind. The better people understand the place, the better they can move through the present.</p>
+      <a class="site-link" href="cardiff-guide.html">Open the field guide →</a>
+    </article>
+    <article class="card site-card reveal">
+      <div class="site-kicker">Civic life</div>
+      <h3 class="card-title">Follow the civic question clearly.</h3>
+      <p class="card-body">Cardiff is small, but the choices in front of it are real. The Civic Pathway explains what dormancy means, what it takes to restart local government, and how residents can think through next steps.</p>
+      <a class="site-link" href="cardiff-civic.html">Open the civic pathway →</a>
+    </article>
+  </section>
+
+  <div class="section-rule reveal"><h2>Around the site</h2><hr></div>
+  <section class="grid-3">
+    <article class="card site-card reveal"><div class="site-kicker">Field Guide</div><h3 class="card-title">Plants, water, and ground truth.</h3><p class="card-body">Use the Field Guide to connect the built town to the landscape around it.</p><a class="site-link" href="cardiff-guide.html">Go to field guide →</a></article>
+    <article class="card site-card reveal"><div class="site-kicker">Cemetery</div><h3 class="card-title">Read the older names.</h3><p class="card-body">The cemetery page gives the town a longer frame and keeps memory attached to place.</p><a class="site-link" href="cardiff-cemetery.html">Go to cemetery →</a></article>
+    <article class="card site-card reveal"><div class="site-kicker">Hills &amp; Hollers</div><h3 class="card-title">Follow the shape of the land.</h3><p class="card-body">Terrain tells its own story. This section helps visitors understand the ridges, cuts, and movement through the area.</p><a class="site-link" href="cardiff-hollers.html">Go to hills &amp; hollers →</a></article>
+    <article class="card site-card reveal"><div class="site-kicker">Get Involved</div><h3 class="card-title">Take one practical step.</h3><p class="card-body">The involvement page stays concrete: serve, share, document, help, or simply stay informed.</p><a class="site-link" href="cardiff-involved.html">Go to get involved →</a></article>
+    <article class="card site-card reveal"><div class="site-kicker">Calendar</div><h3 class="card-title">See what is coming up next.</h3><p class="card-body">Holidays, workdays, meetings, and community dates now have a home of their own instead of getting scattered across the site.</p><a class="site-link" href="cardiff-calendar.html">Open the calendar →</a></article>
+  </section>
+
+  <section class="quote-card letter-card reveal" style="margin-top:1rem;">
+    <div class="letter-kicker">A note from the creator</div>
+    <h2 class="letter-title">Why this site exists</h2>
+    <div class="letter-body">
+      <p>Hello, my name is Joe.</p>
+      <p>I created this site as an attempt to share information about Cardiff. Somewhere along the way, it turned into a labor of love.</p>
+      <p>I have lived in Cardiff since 2009, in the house I inherited from my grandparents. My grandfather and his father before him both served as mayor of this town. I grew up here learning the woods and the creek from people who knew every inch of this place. Cardiff is in my bones.</p>
+      <p>I served on the town council until we lost our quorum and could no longer seat a new mayor. Because of timing and circumstances, our town government became dormant. I hope this site can help answer questions people have about what happened and what our next steps forward look like. If any of that is new to you, please take a few minutes with the <a href="cardiff-civic.html">Civic Pathway</a> section. Our future depends on people understanding where things stand.</p>
+      <p>I am not here to represent any political party or agenda. I believe in doing what is right no matter the cost.</p>
+      <p>This is an independent community website I built on my own time and at my own expense. It is not the official municipal website for the Town of Cardiff, and anything raised through this project supports the development and upkeep of the site itself.</p>
+      <p>I feel like there are enough people around here who care, otherwise I would not have taken the time to build this. I do not want the place I live and love to turn into the last garbage dump on the left.</p>
+      <p>A quick note on how this site was built: I made it with the help of AI tools. If you have strong feelings about that, I understand, but I hope you will judge the site by what is in it.</p>
+      <p>Please use the features here and contribute what you can. I will be making regular updates, and I am always open to ideas.</p>
+      <div class="letter-signature">Respectfully,<span class="letter-signature-name">Joe Graham</span></div>
+      <div class="letter-actions">
+        <a class="btn primary" href="cardiff-civic.html">Open Civic Pathway</a>
+        <a class="btn primary" href="cardiff-involved.html">Get involved</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-rule reveal"><h2>Fresh area news</h2><hr></div>
+  <section class="news-shell reveal">
+    <div class="news-head">
+      <div>
+        <div class="status-line" id="homeNewsStatus">Checking current local and regional stories</div>
+        <h2 class="card-title" style="font-size:1.35rem;margin-bottom:.35rem;">What is happening around Cardiff right now</h2>
+        <p class="card-body" style="max-width:68ch;">These stories pull from live area coverage and favor nearby, recent, practical reporting over filler. Use the full news page for more filters and more stories.</p>
+      </div>
+      <div class="btn-row" style="margin-top:0;">
+        <button class="btn primary" type="button" id="refreshHomeNews">Refresh</button>
+        <a class="btn primary" href="cardiff-news.html">Open full news page</a>
+      </div>
+    </div>
+    <div class="news-grid" id="homeNewsGrid">
+      <div class="news-card loading">Loading live stories…</div>
+    </div>
+    <p class="tiny" style="margin-top:1rem;">Story selection favors fresh reporting from Birmingham and Jefferson County outlets, plus nearby-place matches when Cardiff itself is not named in the headline.</p>
+  </section>
+</div>
+</div>
+
+<script>
+
+const FALLBACK_GALLERY=[{src:'photos/cardiff-1951.jpg',title:'Aerial view, 1951',copy:'A long look at Cardiff from above, with the town and its neighboring communities still easy to read in the landscape.',credit:'Historical photograph',alt:'Historical aerial photograph of Cardiff and the surrounding area from 1951',markers:[{label:'Cardiff',left:'42%',top:'39%'},{label:'Brookside',left:'63%',top:'48%'}]},{src:'photos/historical-marker.jpg',title:'Historic marker',copy:'A grounded reminder that Cardiff has always been part of a bigger regional story, even while keeping its own identity.',credit:'Site collection',alt:'Historical marker connected to Cardiff local history',markers:[]},{src:'photos/town-hall.jpg',title:'Town hall',copy:'A present-day view that keeps the homepage tied to the real built fabric of Cardiff, not just the archive.',credit:'Site collection',alt:'Town hall building in Cardiff',markers:[]}];
+let gallery=[],photoIndex=0;
+function renderMarkers(markers){const shell=document.getElementById('photoMarkers');if(!shell)return;shell.innerHTML=(markers||[]).map(marker=>`<div class="marker" style="left:${marker.left};top:${marker.top};"><span class="marker-dot"></span><span class="marker-label">${marker.label}</span></div>`).join('')}
+function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;return {...item,src}}
+function renderPhoto(){if(!gallery.length)return;const item=gallery[photoIndex];document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent=`Photo ${photoIndex+1} of ${gallery.length}`;renderMarkers(item.markers||[])}
+async function loadGallery(){try{const response=await fetch('cardiff-home-gallery.json',{cache:'no-store'});if(!response.ok)throw new Error('gallery file missing');const data=await response.json();if(Array.isArray(data.items)&&data.items.length){gallery=data.items.map(normalizeGalleryItem);renderPhoto();return;}}catch(e){}gallery=FALLBACK_GALLERY;renderPhoto();}
+document.getElementById('prevPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex-1+gallery.length)%gallery.length;renderPhoto()});
+document.getElementById('nextPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex+1)%gallery.length;renderPhoto()});
+loadGallery();
+
+const APPROVED_SOURCES=['WBRC','WVTM 13','ABC 33/40','BirminghamWatch','AL.com','Bham Now','CBS 42'];
+const FEED_GROUPS={
+  nearby:'https://news.google.com/rss/search?q='+encodeURIComponent('(Cardiff OR Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR western Jefferson County) Alabama')+'&hl=en-US&gl=US&ceid=US:en',
+  regional:'https://news.google.com/rss/search?q='+encodeURIComponent('(Jefferson County OR Birmingham) Alabama local government OR public safety OR development OR schools')+'&hl=en-US&gl=US&ceid=US:en'
+};
+const NEARBY_KEYWORDS=['cardiff','brookside','graysville','adamsville','gardendale','fultondale','minor','bayview','western jefferson','warrior road','five mile creek'];
+const REGIONAL_KEYWORDS=['birmingham','jefferson county','public safety','weather','roads','school','city council','county commission','development','zoning'];
+function cleanTitle(title){return title.replace(/\s+-\s+[^-]+$/,'').trim()}
+function extractSource(item){if(item.author&&item.author.trim())return item.author.trim();const m=(item.title||'').match(/\s+-\s+([^-]+)$/);return m?m[1].trim():'Regional source'}
+function plainText(html){const div=document.createElement('div');div.innerHTML=html||'';return (div.textContent||'').replace(/\s+/g,' ').trim()}
+function parseDate(dateStr){const d=new Date(dateStr);return isNaN(+d)?null:d}
+function relativeTime(date){if(!date)return 'Date unavailable';const diff=Date.now()-date.getTime();const hrs=Math.round(diff/36e5);if(hrs<1)return 'Just now';if(hrs<24)return hrs+' hour'+(hrs===1?'':'s')+' ago';const days=Math.round(diff/864e5);return days+' day'+(days===1?'':'s')+' ago'}
+function isFresh(date,days=6){return date&&(Date.now()-date.getTime())<=days*864e5}
+function scoreItem(item){const hay=(item.title+' '+item.description+' '+item.source).toLowerCase();let score=0;NEARBY_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=4});REGIONAL_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=2});if(APPROVED_SOURCES.some(s=>item.source.includes(s)))score+=6;return score}
+async function fetchFeed(url){const rss2json='https://api.rss2json.com/v1/api.json?count=24&rss_url='+encodeURIComponent(url);try{const res=await fetch(rss2json);const data=await res.json();if(data.status==='ok'&&Array.isArray(data.items)){return data.items.map(item=>({title:cleanTitle(item.title||'Untitled'),source:extractSource(item),link:item.link||'#',description:plainText(item.description||item.content||''),date:parseDate(item.pubDate||item.published||''),raw:item}))}}catch(e){}try{const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetch(proxy);const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');return [...xml.querySelectorAll('item')].map(node=>({title:cleanTitle(node.querySelector('title')?.textContent||'Untitled'),source:node.querySelector('source')?.textContent?.trim()||extractSource({title:node.querySelector('title')?.textContent||''}),link:node.querySelector('link')?.textContent||'#',description:plainText(node.querySelector('description')?.textContent||''),date:parseDate(node.querySelector('pubDate')?.textContent||''),raw:node}))}catch(e){return []}}
+async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories…</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,8));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live feed note</div><div class="news-title">No fresh local stories passed the filter right now.</div><div class="news-snippet">That usually means the nearby outlets are quiet or a feed request was blocked. Open the full news page to try again.</div></div>';status.textContent='Live feed empty or filtered out';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'…':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story ↗</span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
+document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);loadHomeNews();
+</script>
+<script src="cardiff-common.js"></script>
+</body>
+</html>
