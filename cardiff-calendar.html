@@ -66,16 +66,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .mini-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
 .mini-copy{font-size:.84rem;line-height:1.68;color:var(--ink2)}
 .mini-date{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
-.lane-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.lane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
 .lane-card{padding:1.08rem}
 .lane-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
 .lane-copy{font-size:.84rem;line-height:1.7;color:var(--ink2)}
 .lane-note{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--ink3)}
 .month-shell{padding:1.25rem 1.2rem 1.15rem}
 .month-list{display:grid;gap:.75rem}
-.month-item{display:grid;grid-template-columns:auto 1fr;gap:.8rem;padding:.55rem 0;border-top:1px solid var(--rule)}
+.month-item{display:grid;grid-template-columns:minmax(108px,128px) 2.1rem minmax(0,1fr);gap:.85rem;padding:.8rem 0;border-top:1px solid var(--rule);align-items:start}
 .month-item:first-child{border-top:none;padding-top:0}
-.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red);min-width:102px}
+.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red)}
+.month-icon{font-size:1.35rem;line-height:1;display:flex;align-items:flex-start;justify-content:center;padding-top:.05rem}
+.month-main{min-width:0}
 .month-title{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:.12rem}
 .month-copy{font-size:.8rem;line-height:1.6;color:var(--ink2)}
 .footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
@@ -111,12 +113,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
     <div class="hero-grid">
       <div>
-        <div class="kicker">Community Calendar</div>
+        <div class="kicker">📅 Community Calendar</div>
         <h1 class="title">A place for Cardiff dates that matter.</h1>
         <p class="sub">This page is the public date spine for the site: season windows, frost timing, sky markers, workdays, and civic dates once they are truly set. It is meant to help people plan, not just fill space.</p>
         <div class="btn-row">
-          <a class="btn primary" href="#next-up">See what is next</a>
-          <a class="btn ghost" href="#send-date">Send a date in</a>
+          <a class="btn primary" href="#next-up">📌 See what is next</a>
+          <a class="btn ghost" href="#send-date">📬 Send a date in</a>
         </div>
       </div>
       <aside class="quick-card reveal">
@@ -157,27 +159,33 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="lane-grid">
     <article class="lane-card reveal">
       <div class="section-kicker">Nature</div>
-      <div class="lane-title">Foraging and field windows</div>
+      <div class="lane-title">🍃 Foraging and field windows</div>
       <div class="lane-copy">Ramps, morels, fireflies, blackberries, muscadines, persimmons, and the other local markers people still plan around.</div>
       <div class="lane-note">Creek bottoms usually speak first.</div>
     </article>
     <article class="lane-card reveal">
       <div class="section-kicker">Hunting</div>
-      <div class="lane-title">Season windows worth tracking</div>
+      <div class="lane-title">🦌 Season windows worth tracking</div>
       <div class="lane-copy">Turkey, catfish noodling, dove, squirrel, and deer all belong here when they help people think ahead.</div>
       <div class="lane-note">Approximate where needed, confirmed when official dates are posted.</div>
     </article>
     <article class="lane-card reveal">
       <div class="section-kicker">Sky</div>
-      <div class="lane-title">Celestial markers</div>
+      <div class="lane-title">🔭 Celestial markers</div>
       <div class="lane-copy">Equinoxes, solstices, and the meteor showers that are actually worth stepping outside for around Cardiff.</div>
       <div class="lane-note">The Almanac keeps the mood. This page keeps the date spine.</div>
     </article>
     <article class="lane-card reveal">
       <div class="section-kicker">Civic</div>
-      <div class="lane-title">Town and community dates</div>
+      <div class="lane-title">🏛️ Town and community dates</div>
       <div class="lane-copy">The incorporation anniversary lives here now. Town council meetings can join it as soon as they have real dates again.</div>
       <div class="lane-note">No guessing, no ghost meetings, no buried notices.</div>
+    </article>
+    <article class="lane-card reveal">
+      <div class="section-kicker">Traditions</div>
+      <div class="lane-title">🕯️ Older turning customs</div>
+      <div class="lane-copy">Solstice, harvest, spring-fire, and seasonal customs help show the older layers that still shape how people talk about the year.</div>
+      <div class="lane-note">Careful with claims, generous with context.</div>
     </article>
   </section>
 
@@ -221,7 +229,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </select>
       </div>
       <textarea id="calDetails" placeholder="What should be on the calendar? Include the name of the date, what it is, and any useful details."></textarea>
-      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">Send date -></button>
+      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">📬 Send date in</button>
       <div class="submit-status" id="calendarStatus" aria-live="polite"></div>
     </div>
   </section>

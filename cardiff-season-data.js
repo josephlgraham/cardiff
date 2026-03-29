@@ -67,7 +67,22 @@
       seasonTag: "calendar",
       activeTag: "watch for",
       upcomingTag: "watch for",
-      summary: "Day and night in balance. One of the clean turning points in the year."
+      summary: "Day and night in balance. Older planting calendars treated this as a real turning, not just a date on paper."
+    },
+    {
+      id: "may-day-echoes",
+      title: "May Day & old spring customs",
+      category: "Tradition",
+      lane: "tradition",
+      kind: "day",
+      month: 5,
+      day: 1,
+      windowLabel: "May 1",
+      calendarLabel: "May 1",
+      seasonTag: "calendar",
+      activeTag: "watch for",
+      upcomingTag: "watch for",
+      summary: "Flowering, ribbons, bonfires, and spring-fire customs in older European calendars lived near this turning. Not a local legal holiday, just part of the longer seasonal inheritance."
     },
     {
       id: "last-spring-frost",
@@ -148,7 +163,24 @@
       seasonTag: "calendar",
       activeTag: "watch for",
       upcomingTag: "watch for",
-      summary: "The longest day of the year. One of the plainest turning points on the whole calendar."
+      summary: "The longest day of the year. Peoples across the Southeast watched solar turnings long before they lived on printed calendars, and later midsummer customs gathered around the same light."
+    },
+    {
+      id: "midsummer-customs",
+      title: "Midsummer customs",
+      category: "Tradition",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 6,
+      startDay: 21,
+      endMonth: 6,
+      endDay: 24,
+      windowLabel: "Around Jun 21 - 24",
+      calendarLabel: "Around Jun 21 - 24",
+      seasonTag: "calendar",
+      activeTag: "watch for",
+      upcomingTag: "watch for",
+      summary: "Bonfires, flower customs, and long-light celebrations sit near this point in older midsummer traditions. The shape of the season came first, the names came later."
     },
     {
       id: "blackberries",
@@ -202,6 +234,23 @@
       summary: "August into September in the creek edge tangles and old fence lines. Native and wild and as local as it gets."
     },
     {
+      id: "green-corn-time",
+      title: "Green Corn time (regional)",
+      category: "Tradition",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 8,
+      startDay: 1,
+      endMonth: 8,
+      endDay: 31,
+      windowLabel: "Aug",
+      calendarLabel: "August",
+      seasonTag: "calendar",
+      activeTag: "watch for",
+      upcomingTag: "later on",
+      summary: "Across the Southeast, many Native communities tied ceremony to the corn cycle rather than one fixed printed date. Timing varied by people and place, which is part of the point."
+    },
+    {
       id: "dove-season",
       title: "Dove season",
       category: "Hunting",
@@ -231,7 +280,24 @@
       seasonTag: "calendar",
       activeTag: "watch for",
       upcomingTag: "watch for",
-      summary: "The second balance point of the year, when the whole place starts leaning harder into fall."
+      summary: "The second balance point of the year, when old harvest calendars and the land itself both start leaning harder into fall."
+    },
+    {
+      id: "all-hallows-turn",
+      title: "All Hallows turning",
+      category: "Tradition",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 10,
+      startDay: 31,
+      endMonth: 11,
+      endDay: 1,
+      windowLabel: "Oct 31 - Nov 1",
+      calendarLabel: "Oct 31 - Nov 1",
+      seasonTag: "calendar",
+      activeTag: "watch for",
+      upcomingTag: "later on",
+      summary: "Old end-of-harvest and turning-to-winter customs gathered around this edge of the year long before modern porch decorations got there first."
     },
     {
       id: "squirrel-season",
@@ -359,7 +425,7 @@
       seasonTag: "calendar",
       activeTag: "watch for",
       upcomingTag: "watch for",
-      summary: "The shortest day of the year and the other big turning point on the plain calendar."
+      summary: "The shortest day of the year. Long before modern Christmas calendars, people marked this dark turn with sky watching, fire, evergreens, and return-of-light traditions."
     }
   ];
 
