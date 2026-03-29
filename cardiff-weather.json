@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-03-29T09:37:00.199Z",
+  "updatedAt": "2026-03-29T10:33:53.466Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-29 04:36:00",
+  "sourceUpdatedAt": "2026-03-29 05:33:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-29T09:36:00Z",
-      "obsTimeLocal": "2026-03-29 04:36:00",
+      "obsTimeUtc": "2026-03-29T10:33:00Z",
+      "obsTimeLocal": "2026-03-29 05:33:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774776960,
+      "epoch": 1774780380,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 301,
-      "humidity": 98,
+      "winddir": 349,
+      "humidity": 91,
       "qcStatus": 0,
       "imperial": {
-        "temp": 40,
-        "heatIndex": 40,
+        "temp": 42,
+        "heatIndex": 42,
         "dewpt": 39,
-        "windChill": 40,
-        "windSpeed": 0,
-        "windGust": 0,
-        "pressure": 30.04,
+        "windChill": 42,
+        "windSpeed": 1,
+        "windGust": 2,
+        "pressure": 30.05,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 40,
-    "feels": 40,
-    "humidity": 98,
-    "windSpeed": 0,
-    "windGust": 0,
-    "windDir": "WNW",
-    "windDirDegrees": 301,
+    "temp": 42,
+    "feels": 42,
+    "humidity": 91,
+    "windSpeed": 1,
+    "windGust": 2,
+    "windDir": "N",
+    "windDirDegrees": 349,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 30.04,
+    "pressureIn": 30.05,
     "uv": 0,
     "condition": "Overcast",
-    "obsTime": "2026-03-29 04:36:00",
+    "obsTime": "2026-03-29 05:33:00",
     "solarRadiation": 0,
-    "summary": "Right now around Cardiff it feels 40°F, overcast, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 42°F, overcast, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -58,18 +58,18 @@
     "monthCoverageStart": "2026-03-01",
     "morningReport": {
       "amount": 0,
-      "lowTemp": 39,
-      "windGust": 0,
+      "lowTemp": 42,
+      "windGust": 2,
       "label": "So far today",
       "isMorning": false,
-      "coverageStart": "2026-03-28"
+      "coverageStart": "2026-03-29"
     }
   },
   "forecast": [
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-03-29T04:00:00-05:00",
+      "startTime": "2026-03-29T05:00:00-05:00",
       "endTime": "2026-03-29T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 47,
@@ -81,9 +81,9 @@
       },
       "windSpeed": "10 mph",
       "windDirection": "SE",
-      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-      "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 47. Southeast wind around 10 mph."
+      "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
+      "shortForecast": "Clear",
+      "detailedForecast": "Clear, with a low around 47. Southeast wind around 10 mph."
     },
     {
       "number": 2,
