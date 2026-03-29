@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cardiff Almanac · Five Mile Creek</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -295,7 +296,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <a href="#plant-card" class="today-pill"><span class="pill-icon">🌱</span><div><div class="pill-text">Planting</div><div class="pill-sub" id="pillPlant">—</div></div></a>
     <a href="#moon-card" class="today-pill"><span class="pill-icon" id="pillMoonIcon">🌙</span><div><div class="pill-text">Moon</div><div class="pill-sub" id="pillMoon">—</div></div></a>
     <a href="#nature-card" class="today-pill"><span class="pill-icon">🍃</span><div><div class="pill-text">Nature</div><div class="pill-sub" id="pillNature">—</div></div></a>
-    <a href="#hunt-card" class="today-pill"><span class="pill-icon">🦌</span><div><div class="pill-text">Hunting</div><div class="pill-sub" id="pillHunt">—</div></div></a>
+    <a href="#hunt-card" class="today-pill"><span class="pill-icon" id="pillHuntIcon">🦌</span><div><div class="pill-text">Hunting</div><div class="pill-sub" id="pillHunt">—</div></div></a>
   </div>
 </div>
 
@@ -321,7 +322,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <div class="rain-note" id="rainTodayNote">Since midnight around Cardiff</div>
         </div>
         <div class="rain-stat">
-          <div class="rain-label">Rain this month</div>
+          <div class="rain-label" id="rainMonthLabel">Rain this month</div>
           <div class="rain-value" id="rainMonth">—</div>
           <div class="rain-note" id="rainMonthNote">Tracking from the site log</div>
         </div>

@@ -479,7 +479,8 @@
 
     const summary = '<div class="hunt-summary"><strong>Cardiff season windows.</strong><div class="hunt-meta">A mix of legal hunting reminders, local foraging timing, and the frost dates people actually plan around.</div></div>';
     const activeEntry = entries.find((entry) => entry.open) || entries[0];
-    setHTML("pillHunt", emojiText(activeEntry.icon, activeEntry.name));
+    setText("pillHunt", activeEntry.name);
+    setText("pillHuntIcon", activeEntry.icon);
     setHTML("huntBody", summary + entries.map((entry) => (
       '<div class="hunt-season">' +
         '<div class="hs-top">' +
@@ -707,16 +708,18 @@
     const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
     const monthLabel = rain && rain.monthLabel ? rain.monthLabel : "This month";
     const monthCoverage = rain && rain.monthCoverageStart ? new Date(rain.monthCoverageStart + "T12:00:00") : null;
+    const hasFullMonthCoverage = !!(rain && rain.monthComplete);
 
     setText("rainToday", formatInches(todayAmount));
     setText("rainTodayNote", "Measured by the station since midnight.");
+    setText("rainMonthLabel", hasFullMonthCoverage ? "Rain this month" : "Rain tracked");
     setText("rainMonth", formatInches(monthAmount));
-    if (rain && rain.monthComplete) {
+    if (hasFullMonthCoverage) {
       setText("rainMonthNote", monthLabel + " total so far.");
     } else if (monthCoverage && !Number.isNaN(monthCoverage.getTime())) {
-      setText("rainMonthNote", "Tracking from " + monthCoverage.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ".");
+      setText("rainMonthNote", "Tracking from " + monthCoverage.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ", not a full month total.");
     } else {
-      setText("rainMonthNote", "Tracking from the site log.");
+      setText("rainMonthNote", "Tracking from the site log, not a full month total.");
     }
   }
 
@@ -937,9 +940,10 @@
       setHTML("heroRain", emojiText("👣", "Use local ground check"));
       setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
       setText("rainToday", "—");
+      setText("rainMonthLabel", "Rain tracked");
       setText("rainMonth", "—");
       setText("rainTodayNote", "Rain totals will return with the station feed.");
-      setText("rainMonthNote", "Monthly tracking will return with the station feed.");
+      setText("rainMonthNote", "Tracked month-to-date rain will return with the station feed.");
       buildMorningReport(null);
       setHTML("sideSnap",
         '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
