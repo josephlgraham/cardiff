@@ -9,12 +9,14 @@ const ROOT = path.resolve(__dirname, '..');
 const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
 const NEWS_FILE = path.join(ROOT, 'cardiff-news-live.json');
 const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
+const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
 
 const WEATHER_STATION_ID = process.env.WEATHER_STATION_ID || 'KALGRAYS4';
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_API_KEY || '';
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
+const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
 const DATE_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
   timeZone: LOCAL_TIME_ZONE,
   year: 'numeric',
@@ -87,6 +89,53 @@ const TAG_RULES = [
   ['Schools', ['school', 'education', 'student', 'board']],
   ['Utilities', ['water', 'sewer', 'utility', 'outage', 'power']],
   ['Safety', ['police', 'fire', 'public safety', 'rescue', 'emergency']]
+];
+
+const NORMALIZED_TOPIC_RULES = [
+  ['weather', ['weather', 'storm', 'tornado', 'wind', 'rain']],
+  ['flood', ['flood', 'flash flood', 'high water', 'hydrologic']],
+  ['fire', ['fire', 'wildfire', 'burn', 'smoke']],
+  ['roads', ['road', 'traffic', 'closure', 'detour', 'paving', 'train']],
+  ['government', ['council', 'commission', 'mayor', 'clerk', 'budget', 'ordinance', 'hearing', 'legislature']],
+  ['community', ['school', 'education', 'community', 'workday', 'meeting']],
+  ['creek', ['five mile creek', 'creek', 'watershed']],
+  ['environment', ['dumping', 'cleanup', 'pollution', 'water quality', 'epa']]
+];
+
+const NORMALIZED_LOCATION_RULES = [
+  'cardiff',
+  'five_mile_creek',
+  'brookside',
+  'graysville',
+  'jefferson_county',
+  'birmingham_metro'
+];
+
+const WATERSHED_GAUGES = [
+  {
+    id: '02457625',
+    label: 'Brookside',
+    name: 'Fivemile Creek at Brookside',
+    place: 'Brookside',
+    role: 'lead',
+    locationTags: ['brookside', 'five_mile_creek']
+  },
+  {
+    id: '02457650',
+    label: 'Cardiff',
+    name: 'Fivemile Creek at Cardiff',
+    place: 'Cardiff',
+    role: 'local',
+    locationTags: ['cardiff', 'five_mile_creek']
+  },
+  {
+    id: '02457700',
+    label: 'Linn Crossing',
+    name: 'Fivemile Creek at Linn Crossing',
+    place: 'Graysville edge',
+    role: 'downstream',
+    locationTags: ['graysville', 'five_mile_creek']
+  }
 ];
 
 function directionFromDegrees(deg) {
@@ -264,7 +313,7 @@ async function fetchForecast() {
 async function updateWeatherFile() {
   if (!WEATHER_API_KEY) {
     console.log('Skipping weather update because WEATHER_API_KEY is not set.');
-    return;
+    return null;
   }
 
   const url = `https://api.weather.com/v2/pws/observations/current?stationId=${encodeURIComponent(WEATHER_STATION_ID)}&format=json&units=e&apiKey=${encodeURIComponent(WEATHER_API_KEY)}`;
@@ -306,6 +355,7 @@ async function updateWeatherFile() {
 
   await writeJson(WEATHER_FILE, payload);
   console.log(`Updated ${path.basename(WEATHER_FILE)}`);
+  return payload;
 }
 
 function decodeHtml(text = '') {
@@ -330,6 +380,10 @@ function plainText(text = '') {
 
 function cleanTitle(title = '') {
   return title.replace(/\s+-\s+[^-]+$/, '').replace(/\s+\|\s+[^|]+$/, '').trim();
+}
+
+function slugify(value = '') {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64) || 'item';
 }
 
 function parseDate(value) {
@@ -401,6 +455,26 @@ function buildTags(item) {
   return tags;
 }
 
+function buildNormalizedTopicTags(item) {
+  const blob = textBlob(item);
+  const tags = [];
+  NORMALIZED_TOPIC_RULES.forEach(([label, terms]) => {
+    if (tags.length < 4 && terms.some((term) => blob.includes(term))) tags.push(label);
+  });
+  if (!tags.length) tags.push('community');
+  return tags;
+}
+
+function buildNormalizedLocationTags(item) {
+  const blob = textBlob(item)
+    .replace(/five mile creek/g, 'five_mile_creek')
+    .replace(/jefferson county/g, 'jefferson_county')
+    .replace(/birmingham metro/g, 'birmingham_metro');
+  const tags = NORMALIZED_LOCATION_RULES.filter((label) => blob.includes(label));
+  if (!tags.length) tags.push('cardiff');
+  return tags;
+}
+
 function scoreItem(item) {
   const blob = textBlob(item);
   return freshnessScore(item.date) + sourceScore(item.source) + listScore(blob, PLACE_WEIGHTS) + listScore(blob, TOPIC_WEIGHTS) + penaltyScore(blob);
@@ -435,6 +509,7 @@ function parseRssItems(xml) {
 
 async function fetchNewsStories() {
   const stories = [];
+  const syncedAt = new Date().toISOString();
 
   for (const entry of NEWS_QUERIES) {
     const url = `https://news.google.com/rss/search?q=${encodeURIComponent(entry.query)}&hl=en-US&gl=US&ceid=US:en`;
@@ -464,16 +539,38 @@ async function fetchNewsStories() {
     .filter((story) => story.date && freshnessScore(story.date) > -20)
     .sort((a, b) => scoreItem(b) - scoreItem(a) || ((b.date || 0) - (a.date || 0)))
     .slice(0, 24)
-    .map((story) => ({
-      title: story.title,
-      source: story.source,
-      link: story.link,
-      description: story.description,
-      date: story.date ? story.date.toISOString() : '',
-      modes: story.modes,
-      tags: story.tags,
-      priority: story.priority
-    }));
+    .map((story, index) => {
+      const isoDate = story.date ? story.date.toISOString() : '';
+      return {
+        id: `news-${index + 1}-${slugify(story.source)}-${slugify(story.title)}`,
+        source_type: 'media_feed',
+        source_name: story.source,
+        title: story.title,
+        summary: story.description,
+        url: story.link,
+        published_at: isoDate,
+        location_tags: buildNormalizedLocationTags(story),
+        topic_tags: buildNormalizedTopicTags(story),
+        priority_level: story.priority,
+        section_target: 'news',
+        module_target: 'regional_news_tracker',
+        is_alert: containsAny(textBlob(story), ['alert', 'warning', 'watch', 'closure', 'outage', 'flood', 'storm']),
+        is_featured: scoreItem(story) >= 26,
+        image_url: '',
+        raw_payload: {
+          modes: story.modes,
+          tags: story.tags
+        },
+        last_synced_at: syncedAt,
+        source: story.source,
+        link: story.link,
+        description: story.description,
+        date: isoDate,
+        modes: story.modes,
+        tags: story.tags,
+        priority: story.priority
+      };
+    });
 }
 
 async function updateNewsFile() {
@@ -490,8 +587,143 @@ async function updateNewsFile() {
   console.log(`Updated ${path.basename(NEWS_FILE)}`);
 }
 
+function findSeries(data, parameterCode) {
+  return (data.value?.timeSeries || []).find((series) => {
+    const code = series.variable?.variableCode?.[0]?.value || '';
+    return code === parameterCode;
+  });
+}
+
+function latestPoint(series) {
+  const values = series?.values?.[0]?.value || [];
+  const filtered = values
+    .map((entry) => ({
+      value: Number(entry.value),
+      dateTime: entry.dateTime || ''
+    }))
+    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime);
+  return filtered.length ? filtered[filtered.length - 1] : null;
+}
+
+function gaugeTrend(series) {
+  const values = series?.values?.[0]?.value || [];
+  const filtered = values
+    .map((entry) => ({
+      value: Number(entry.value),
+      dateTime: entry.dateTime || ''
+    }))
+    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime);
+  if (filtered.length < 2) return 'steady';
+  const latest = filtered[filtered.length - 1];
+  const earlier = filtered[Math.max(0, filtered.length - 7)];
+  const diff = latest.value - earlier.value;
+  if (diff >= 0.12) return 'rising';
+  if (diff <= -0.12) return 'falling';
+  return 'steady';
+}
+
+function gaugeNote(gauge) {
+  if (!Number.isFinite(gauge.stage_ft) && !Number.isFinite(gauge.discharge_cfs)) {
+    return 'Gauge synced without a readable current value.';
+  }
+  if (gauge.trend === 'rising') {
+    return 'Water is moving up at this watch point.';
+  }
+  if (gauge.trend === 'falling') {
+    return 'Water is easing back down at this watch point.';
+  }
+  return 'This reach looks fairly steady right now.';
+}
+
+async function fetchGaugeSnapshot(gauge) {
+  const params = new URLSearchParams({
+    format: 'json',
+    sites: gauge.id,
+    parameterCd: '00060,00065',
+    siteStatus: 'all',
+    period: 'P2D'
+  });
+  const url = `${USGS_IV_BASE_URL}?${params.toString()}`;
+  const data = await fetchJson(url, { headers: { Accept: 'application/json' } });
+  const stageSeries = findSeries(data, '00065');
+  const dischargeSeries = findSeries(data, '00060');
+  const trend = gaugeTrend(stageSeries);
+  const stagePoint = latestPoint(stageSeries);
+  const dischargePoint = latestPoint(dischargeSeries);
+  return {
+    id: gauge.id,
+    label: gauge.label,
+    name: gauge.name,
+    place: gauge.place,
+    role: gauge.role,
+    location_tags: gauge.locationTags,
+    source_name: 'USGS',
+    source_type: 'watershed_gauge',
+    stage_ft: stagePoint ? Number(stagePoint.value.toFixed(2)) : null,
+    discharge_cfs: dischargePoint ? Number(dischargePoint.value.toFixed(1)) : null,
+    trend,
+    updated_at: stagePoint?.dateTime || dischargePoint?.dateTime || '',
+    note: gaugeNote({
+      stage_ft: stagePoint ? Number(stagePoint.value) : null,
+      discharge_cfs: dischargePoint ? Number(dischargePoint.value) : null,
+      trend
+    })
+  };
+}
+
+function summarizeWatershed(gauges, rain) {
+  const lead = gauges.find((gauge) => gauge.role === 'lead') || gauges[0];
+  if (!lead || !Number.isFinite(lead.stage_ft)) {
+    return 'Brookside stays the lead watch point for Cardiff. The watershed file is ready, but the latest gauge numbers have not synced yet.';
+  }
+  const rainToday = Number(rain?.today || 0);
+  const rainMonth = Number(rain?.monthToDate || 0);
+  const rainLine = rainToday >= 0.01
+    ? `Cardiff has picked up ${rainToday.toFixed(2)} inches today`
+    : 'Cardiff is dry today';
+  const trendLine = lead.trend === 'rising'
+    ? 'and Brookside is climbing'
+    : (lead.trend === 'falling' ? 'and Brookside is easing down' : 'and Brookside is holding fairly steady');
+  return `${rainLine}, ${trendLine}. Lead stage is ${lead.stage_ft.toFixed(2)} ft with about ${lead.discharge_cfs?.toFixed(1) || '0.0'} cfs moving through the channel. Month-to-date rain is ${rainMonth.toFixed(2)} inches.`;
+}
+
+async function updateWatershedFile(weatherPayload = null) {
+  const weather = weatherPayload || await readJson(WEATHER_FILE, { rain: null });
+  const results = await Promise.allSettled(WATERSHED_GAUGES.map((gauge) => fetchGaugeSnapshot(gauge)));
+  const gauges = results.map((result, index) => {
+    if (result.status === 'fulfilled') return result.value;
+    const gauge = WATERSHED_GAUGES[index];
+    return {
+      id: gauge.id,
+      label: gauge.label,
+      name: gauge.name,
+      place: gauge.place,
+      role: gauge.role,
+      location_tags: gauge.locationTags,
+      source_name: 'USGS',
+      source_type: 'watershed_gauge',
+      stage_ft: null,
+      discharge_cfs: null,
+      trend: 'steady',
+      updated_at: '',
+      note: 'Gauge sync missed this cycle.'
+    };
+  });
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    leadGaugeId: '02457625',
+    summary: summarizeWatershed(gauges, weather?.rain || null),
+    rainContext: weather?.rain || null,
+    gauges
+  };
+  await writeJson(WATERSHED_FILE, payload);
+  console.log(`Updated ${path.basename(WATERSHED_FILE)}`);
+  return payload;
+}
+
 async function main() {
-  await updateWeatherFile();
+  const weather = await updateWeatherFile();
+  await updateWatershedFile(weather);
   await updateNewsFile();
 }
 

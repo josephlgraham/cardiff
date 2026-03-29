@@ -48,6 +48,25 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hh-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
 .hh-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
 .hh-sub{font-size:1rem;line-height:1.78;color:var(--ink2);max-width:600px;margin-bottom:1.5rem;}
+.holler-top{display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;margin-bottom:2rem;}
+.feature-card,.aside-card,.texture-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
+.feature-card{padding:1.35rem 1.35rem 1.2rem;}
+.aside-stack{display:grid;gap:1rem;}
+.aside-card,.texture-card{padding:1.1rem 1.1rem 1rem;}
+.feature-title{font-size:1.35rem;font-weight:800;color:var(--ink);line-height:1.15;margin:.55rem 0;}
+.feature-copy{font-size:.9rem;line-height:1.78;color:var(--ink2);}
+.feature-foot{margin-top:.95rem;padding-top:.85rem;border-top:1px solid var(--rule);font-size:.76rem;color:var(--ink3);}
+.aside-title{font-size:1rem;font-weight:800;color:var(--ink);margin:.45rem 0 .35rem;}
+.aside-copy{font-size:.84rem;line-height:1.7;color:var(--ink2);}
+.aside-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.85rem}
+.aside-actions .btn{font-size:.72rem;padding:.56rem .82rem;border-radius:999px}
+.riddle-answer{margin-top:.7rem;padding:.72rem .78rem;background:rgba(32,96,160,.06);border:1px solid rgba(32,96,160,.16);border-radius:var(--r);font-size:.78rem;line-height:1.62;color:var(--ink2);display:none}
+.riddle-answer.visible{display:block}
+.riddle-answer strong{color:var(--blue)}
+.texture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.texture-card .site-kicker{margin-bottom:.38rem;}
+.texture-card .card-title{margin-bottom:.35rem;}
+.texture-card .card-body{font-size:.83rem;}
 
 /* Section rule */
 .s-rule{display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1.25rem;}
@@ -112,7 +131,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .cta-btn{display:inline-block;padding:0.6rem 1.3rem;background:var(--red);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.84rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
 .cta-btn:hover{background:var(--red-mid);}
 
-@media(max-width:640px){.wrap{padding:0 1rem 4rem;}.cat-grid,.listing-grid,.post-row{grid-template-columns:1fr;}}
+@media(max-width:640px){.wrap{padding:0 1rem 4rem;}.holler-top,.texture-grid,.cat-grid,.listing-grid,.post-row{grid-template-columns:1fr;}}
 
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
@@ -129,6 +148,55 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <h1 class="hh-title">Hills &amp; Hollers</h1>
     <p class="hh-sub">The classified section for Cardiff and the Five Mile Creek watershed. Free to post, free to read. No account required. Think of it as the community bulletin board that used to hang at the feed store — for everyone in the watershed.</p>
   </div>
+
+  <section class="holler-top reveal">
+    <article class="feature-card">
+      <div class="section-kicker">Featured Holler</div>
+      <div class="feature-title">A page that can carry both a fence-post laugh and a real local need.</div>
+      <p class="feature-copy">Hills &amp; Hollers is where the site loosens its collar a little. It can hold a porch joke, a chainsaw recommendation, a memory about the old road, a note about something odd on the creek, or a neighbor asking who still knows how to fix a thing right.</p>
+      <p class="feature-copy">That mix matters. A community page should feel useful, but it should also sound like people actually live here.</p>
+      <div class="feature-foot">Use it for neighbor-to-neighbor texture, not for official notice. This is the porch, not the podium.</div>
+    </article>
+    <div class="aside-stack">
+      <article class="aside-card">
+        <div class="site-kicker">Old-Timer Joke</div>
+        <div class="aside-title" id="hollerJokeTitle">Taking the scenic route</div>
+        <div class="aside-copy" id="hollerJokeBody">"I ain't lost. I'm just taking the scenic way back."</div>
+        <div class="aside-actions">
+          <button class="btn ghost" type="button" id="nextJokeBtn">Another joke</button>
+        </div>
+      </article>
+      <article class="aside-card">
+        <div class="site-kicker">Front Porch Riddle</div>
+        <div class="aside-title" id="hollerRiddleQuestion">What runs all through Cardiff but never wears a shoe?</div>
+        <div class="aside-copy">Riddles work best here when they are playful, local, and kid-safe enough to tell before supper.</div>
+        <div class="riddle-answer" id="hollerRiddleAnswer"><strong>Answer:</strong> Five Mile Creek.</div>
+        <div class="aside-actions">
+          <button class="btn ghost" type="button" id="toggleRiddleBtn">Show answer</button>
+          <button class="btn ghost" type="button" id="nextRiddleBtn">Another riddle</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="s-rule reveal"><h2>Porch notes</h2><hr></div>
+  <section class="texture-grid">
+    <article class="texture-card reveal">
+      <div class="site-kicker">Community Ask</div>
+      <h3 class="card-title">Who still sharpens mower blades right and does not make a mess of them?</h3>
+      <p class="card-body">This is where a practical neighbor question belongs. Not every useful post is a classified. Sometimes people just need the right name, the right truck, or the right old hand.</p>
+    </article>
+    <article class="texture-card reveal">
+      <div class="site-kicker">Porch Note</div>
+      <h3 class="card-title">The dogwoods are waking up and the creek bottoms are greener than the ridges.</h3>
+      <p class="card-body">Short, true, local notes help the page feel alive. They can be seasonal, funny, neighborly, or just the sort of thing someone would say leaning on a tailgate.</p>
+    </article>
+    <article class="texture-card reveal">
+      <div class="site-kicker">Local Memory</div>
+      <h3 class="card-title">Save the story before the person who knows it is gone.</h3>
+      <p class="card-body">Little memories, old names for places, flood recollections, and "what used to be there" notes belong here before they get their own archive lane later.</p>
+    </article>
+  </section>
 
   <div class="s-rule reveal"><h2>Board now</h2><hr></div>
 
@@ -227,7 +295,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
   <section class="post-shell reveal" id="holler-post">
     <div class="section-kicker">Site inbox</div>
-    <p class="post-copy">Use this form to send a new listing, answer an existing one, or pass along a watershed note. Nothing posts automatically. It comes into the site inbox first so the board can stay neighborly and readable.</p>
+    <p class="post-copy">Use this form to send a new listing, answer an existing one, pass along a watershed note, or drop off a porch joke, riddle, ask, or memory. Nothing posts automatically. It comes into the site inbox first so the board can stay neighborly and readable.</p>
     <div class="post-form" id="hollerForm">
       <div class="post-row">
         <input type="text" id="hollerName" placeholder="Your name">
@@ -238,6 +306,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <option value="">What are you sending?</option>
           <option>New listing</option>
           <option>Reply to a listing</option>
+          <option>Community ask</option>
+          <option>Porch note</option>
+          <option>Joke or riddle</option>
+          <option>Local memory</option>
           <option>Watershed note</option>
           <option>Community notice</option>
         </select>
@@ -266,6 +338,87 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
 
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const HOLLER_ROTATOR_URL='cardiff-hollers-rotator.json';
+const FALLBACK_ROTATOR={
+  jokes:[
+    {title:'Taking the scenic route',body:'"I ain\\'t lost. I\\'m just taking the scenic way back."'},
+    {title:'Creek-level forecasting',body:'"Around here, if three people mention the creek before breakfast, somebody better check the gauge."'},
+    {title:'Cardiff traffic report',body:'"Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk."'}
+  ],
+  riddles:[
+    {question:'What runs all through Cardiff but never wears a shoe?',answer:'Five Mile Creek.'},
+    {question:'What shows up after a rain, tells the truth, and never says a word?',answer:'Tracks in the mud.'},
+    {question:'What belongs to the whole town, but gets used one porch at a time?',answer:'Good neighbor advice.'}
+  ]
+};
+let hollerRotator=FALLBACK_ROTATOR;
+let jokeIndex=0;
+let riddleIndex=0;
+
+function pickDailyIndex(length,offset=0){
+  if(!length)return 0;
+  const today=new Date();
+  const key=`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}-${offset}`;
+  let total=0;
+  for(let i=0;i<key.length;i++) total+=key.charCodeAt(i);
+  return total%length;
+}
+
+function renderJoke(){
+  const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
+  const joke=jokes[jokeIndex%jokes.length];
+  document.getElementById('hollerJokeTitle').textContent=joke.title||'Porch joke';
+  document.getElementById('hollerJokeBody').textContent=joke.body||'Warm porch humor lives here.';
+}
+
+function renderRiddle(){
+  const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
+  const riddle=riddles[riddleIndex%riddles.length];
+  document.getElementById('hollerRiddleQuestion').textContent=riddle.question||'Front porch riddle';
+  document.getElementById('hollerRiddleAnswer').innerHTML='<strong>Answer:</strong> '+(riddle.answer||'Still thinking on that one.');
+  document.getElementById('hollerRiddleAnswer').classList.remove('visible');
+  document.getElementById('toggleRiddleBtn').textContent='Show answer';
+}
+
+async function loadHollerRotator(){
+  try{
+    const res=await fetch(HOLLER_ROTATOR_URL,{cache:'no-store'});
+    if(!res.ok)throw new Error('rotator');
+    const data=await res.json();
+    hollerRotator={
+      jokes:Array.isArray(data.jokes)&&data.jokes.length?data.jokes:FALLBACK_ROTATOR.jokes,
+      riddles:Array.isArray(data.riddles)&&data.riddles.length?data.riddles:FALLBACK_ROTATOR.riddles
+    };
+  }catch(err){
+    hollerRotator=FALLBACK_ROTATOR;
+  }
+  jokeIndex=pickDailyIndex(hollerRotator.jokes.length,0);
+  riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
+  renderJoke();
+  renderRiddle();
+}
+
+document.getElementById('nextJokeBtn').addEventListener('click',()=>{
+  const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
+  jokeIndex=(jokeIndex+1)%jokes.length;
+  renderJoke();
+});
+
+document.getElementById('toggleRiddleBtn').addEventListener('click',()=>{
+  const answer=document.getElementById('hollerRiddleAnswer');
+  const btn=document.getElementById('toggleRiddleBtn');
+  const showing=answer.classList.toggle('visible');
+  btn.textContent=showing?'Hide answer':'Show answer';
+});
+
+document.getElementById('nextRiddleBtn').addEventListener('click',()=>{
+  const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
+  riddleIndex=(riddleIndex+1)%riddles.length;
+  renderRiddle();
+});
+
+loadHollerRotator();
 
 function prefillHollerReply(topic){
   const mode=document.getElementById('hollerMode');

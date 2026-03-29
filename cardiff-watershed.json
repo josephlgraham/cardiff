@@ -1,0 +1,62 @@
+{
+  "updatedAt": "",
+  "leadGaugeId": "02457625",
+  "summary": "Brookside stays the lead watch point for Cardiff. Gauge sync will fill in the latest creek numbers after the site data script runs.",
+  "rainContext": null,
+  "gauges": [
+    {
+      "id": "02457625",
+      "label": "Brookside",
+      "name": "Fivemile Creek at Brookside",
+      "place": "Brookside",
+      "role": "lead",
+      "location_tags": [
+        "brookside",
+        "five_mile_creek"
+      ],
+      "source_name": "USGS",
+      "source_type": "watershed_gauge",
+      "stage_ft": null,
+      "discharge_cfs": null,
+      "trend": "steady",
+      "updated_at": "",
+      "note": "Gauge sync has not run yet."
+    },
+    {
+      "id": "02457650",
+      "label": "Cardiff",
+      "name": "Fivemile Creek at Cardiff",
+      "place": "Cardiff",
+      "role": "local",
+      "location_tags": [
+        "cardiff",
+        "five_mile_creek"
+      ],
+      "source_name": "USGS",
+      "source_type": "watershed_gauge",
+      "stage_ft": null,
+      "discharge_cfs": null,
+      "trend": "steady",
+      "updated_at": "",
+      "note": "Gauge sync has not run yet."
+    },
+    {
+      "id": "02457700",
+      "label": "Linn Crossing",
+      "name": "Fivemile Creek at Linn Crossing",
+      "place": "Graysville edge",
+      "role": "downstream",
+      "location_tags": [
+        "graysville",
+        "five_mile_creek"
+      ],
+      "source_name": "USGS",
+      "source_type": "watershed_gauge",
+      "stage_ft": null,
+      "discharge_cfs": null,
+      "trend": "steady",
+      "updated_at": "",
+      "note": "Gauge sync has not run yet."
+    }
+  ]
+}

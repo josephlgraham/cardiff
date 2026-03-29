@@ -4,6 +4,7 @@
   const LAT = 33.640;
   const LON = -86.870;
   const WX_URL = "cardiff-weather.json";
+  const WATERSHED_URL = "cardiff-watershed.json";
   const TICKER_URL = "ticker.json";
   const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
   const TICKER_REFRESH_MS = 5 * 60 * 1000;
@@ -217,6 +218,38 @@
 
   function formatTemp(value) {
     return Number.isFinite(value) ? Math.round(value) + "°F" : "—";
+  }
+
+  function formatFeet(value) {
+    return Number.isFinite(value) ? value.toFixed(2) + " ft" : "Waiting on gauge sync";
+  }
+
+  function formatCfs(value) {
+    return Number.isFinite(value) ? value.toFixed(value >= 100 ? 0 : 1) + " cfs" : "Discharge pending";
+  }
+
+  function numericOrNaN(value) {
+    return value === null || value === undefined || value === "" ? NaN : Number(value);
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function relativeGaugeTime(value) {
+    if (!value) return "Sync pending";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "Sync pending";
+    const diffHours = Math.round((Date.now() - date.getTime()) / 36e5);
+    if (diffHours <= 0) return "Updated just now";
+    if (diffHours < 24) return "Updated " + diffHours + "h ago";
+    const diffDays = Math.round(diffHours / 24);
+    return "Updated " + diffDays + "d ago";
   }
 
   function centralHourNow() {
@@ -661,6 +694,56 @@
     );
   }
 
+  function renderWatershedGauge(gauge) {
+    const trend = gauge && gauge.trend ? gauge.trend : "steady";
+    const role = gauge && gauge.role ? gauge.role : "watch";
+    const stage = numericOrNaN(gauge.stage_ft);
+    const discharge = numericOrNaN(gauge.discharge_cfs);
+    return '<div class="watershed-stat">' +
+      '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(gauge.label || gauge.name || "Gauge") + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
+      '<div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div>' +
+      '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trend) + '</div>' +
+      '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + " - " + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
+      "</div>";
+  }
+
+  async function loadWatershed() {
+    try {
+      const response = await fetch(WATERSHED_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("watershed");
+      const data = await response.json();
+      const gauges = Array.isArray(data.gauges) ? data.gauges : [];
+      const lead = gauges.find((gauge) => gauge.role === "lead") || gauges[0] || null;
+      setText("watershedUpdated", lead ? relativeGaugeTime(lead.updated_at) : "Gauge sync pending");
+      setHTML("watershedNarrative", escapeHtml(data.summary || "Brookside stays the lead watch point for Cardiff."));
+      setHTML("watershedGrid", gauges.length ? gauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
+        label: "Brookside",
+        role: "lead",
+        stage_ft: null,
+        discharge_cfs: null,
+        trend: "steady",
+        note: "Gauge values will appear here after the watershed file refreshes."
+      }));
+      setText("watershedScience", lead && Number.isFinite(numericOrNaN(lead.stage_ft))
+        ? "Brookside gives Cardiff the first hard number to watch. Compare that lead stage with Cardiff and Linn Crossing so the creek reads like a moving system instead of a single spot."
+        : "Upstream rain and gauge movement can matter in Cardiff before your own yard looks dramatic. Brookside is the first watch point, Cardiff is the local check, and Linn Crossing helps show what is moving downstream.");
+      setText("pillWatershed", lead && Number.isFinite(numericOrNaN(lead.stage_ft)) ? formatFeet(numericOrNaN(lead.stage_ft)) : "Gauge sync");
+    } catch (error) {
+      setText("watershedUpdated", "Gauge sync offline");
+      setHTML("watershedNarrative", "Brookside stays the lead watch point for Cardiff. The watershed file is not responding right now.");
+      setHTML("watershedGrid", renderWatershedGauge({
+        label: "Brookside",
+        role: "lead",
+        stage_ft: null,
+        discharge_cfs: null,
+        trend: "steady",
+        note: "Gauge sync is temporarily offline."
+      }));
+      setText("watershedScience", "Use local rain, creek color, and low-water crossings as backup clues until the gauge file comes back.");
+      setText("pillWatershed", "Offline");
+    }
+  }
+
   function lightningNote(alerts) {
     const thunderAlert = (alerts || []).find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
     if (thunderAlert) {
@@ -685,6 +768,30 @@
     setHTML("alertsBody",
       '<div class="alert-calm"><strong>Weather desk is quiet right now.</strong> No active Jefferson County alerts are posted at the moment.</div>' +
       '<div style="margin-top:0.7rem;">' + lightningNote([]) + "</div>"
+    );
+  }
+
+  function buildAlertsActiveOnly(alerts) {
+    const card = document.getElementById("alerts-card");
+    if (!alerts || !alerts.length) {
+      if (card) card.style.display = "none";
+      setHTML("alertsBody", "");
+      return;
+    }
+
+    const thunderAlert = alerts.find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
+    const lightning = thunderAlert
+      ? '<div class="alert-banner"><strong>Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk around Cardiff.</div>'
+      : "";
+
+    if (card) card.style.display = "";
+    setHTML("alertsBody",
+      (lightning ? lightning : "") +
+      '<div class="alert-stack" style="margin-top:' + (lightning ? "0.7rem" : "0") + ';">' +
+      alerts.slice(0, 3).map((alert) => (
+        '<div class="alert-row"><div class="alert-label">Active alert</div><div class="alert-value">' + (alert.emoji || "Alert") + " " + (alert.headline || alert.event || "Weather alert") + '</div><div class="alert-note">' + ((alert.endsShort ? "Through " + alert.endsShort + ". " : "") + (alert.description || "Jefferson County alert from the weather desk.")) + "</div></div>"
+      )).join("") +
+      "</div>"
     );
   }
 
@@ -806,11 +913,11 @@
         const color = getStripColor(data.alerts);
         strip.style.background = (data.hasAlerts && color) ? color : "";
       }
-      buildAlerts(Array.isArray(data.alerts) ? data.alerts : []);
+      buildAlertsActiveOnly(Array.isArray(data.alerts) ? data.alerts : []);
     } catch (error) {
       const stripText = document.querySelector(".announce-strip-text");
       if (stripText) stripText.textContent = DEFAULT_TICKER;
-      buildAlerts([]);
+      buildAlertsActiveOnly([]);
     }
   }
 
@@ -917,9 +1024,11 @@
     buildStaticSections();
     initTopo();
     loadTicker();
+    loadWatershed();
     loadWeather();
     loadForecast();
     window.setInterval(loadTicker, TICKER_REFRESH_MS);
+    window.setInterval(loadWatershed, 10 * 60 * 1000);
     window.setInterval(loadWeather, 5 * 60 * 1000);
   }
 

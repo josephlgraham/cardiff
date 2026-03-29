@@ -113,9 +113,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .hero-side>.hero-quick-grid{display:none}
 .hero-quick-card{min-height:100%}
+.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.snapshot-list,.preview-list{display:grid;gap:.75rem}
+.mini-row{padding:.78rem .84rem;background:rgba(255,255,255,.46);border:1px solid var(--border);border-radius:var(--r)}
+.mini-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.28rem}
+.mini-value{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.45}
+.mini-copy{font-size:.78rem;line-height:1.62;color:var(--ink3);margin-top:.18rem}
+.alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
+.alert-band .mini-label{color:var(--red)}
+.accent-card{background:linear-gradient(180deg,rgba(250,246,238,.98),rgba(247,240,228,.92))}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
-@media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}}
+@media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}}
 
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
@@ -188,6 +197,70 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="alert-band reveal" id="homeAlertBand" aria-live="polite">
+    <div class="mini-label">Alert strip</div>
+    <div class="mini-value" id="homeAlertText">Checking current alerts for Cardiff and nearby roads.</div>
+  </section>
+
+  <div class="section-rule reveal"><h2>Dashboard now</h2><hr></div>
+  <section class="dashboard-grid">
+    <article class="card accent-card reveal">
+      <div class="site-kicker">Right now in Cardiff</div>
+      <h3 class="card-title">One fast read before you head out.</h3>
+      <div class="snapshot-list" id="homeRightNow">
+        <div class="mini-row"><div class="mini-label">Conditions</div><div class="mini-value">Loading local conditions</div><div class="mini-copy">Weather, creek read, and desk signal are syncing.</div></div>
+      </div>
+    </article>
+    <article class="card reveal">
+      <div class="site-kicker">Watershed summary</div>
+      <h3 class="card-title">Five Mile Creek at a glance.</h3>
+      <div class="snapshot-list" id="homeWatershed">
+        <div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Brookside remains the first watch point for Cardiff.</div></div>
+      </div>
+      <a class="site-link" href="cardiff-almanac.html">Open the almanac &rarr;</a>
+    </article>
+    <article class="card reveal">
+      <div class="site-kicker">Civic highlight</div>
+      <h3 class="card-title">Keep the process practical.</h3>
+      <div class="snapshot-list">
+        <div class="mini-row"><div class="mini-label">Current lane</div><div class="mini-value">Community site, not a municipal portal.</div><div class="mini-copy">Use Civic Pathway for the practical process basics, then come back here for the daily signal.</div></div>
+        <div class="mini-row"><div class="mini-label">Why it matters</div><div class="mini-value">Good decisions need clear records.</div><div class="mini-copy">Minutes, notices, roads, flood issues, and access questions still affect daily life even when the site stays community-first.</div></div>
+      </div>
+      <a class="site-link" href="cardiff-civic.html">Open Civic Pathway &rarr;</a>
+    </article>
+  </section>
+
+  <div class="section-rule reveal"><h2>Community lanes</h2><hr></div>
+  <section class="dashboard-grid">
+    <article class="card site-card reveal">
+      <div class="site-kicker">Seen Along Five Mile Creek</div>
+      <h3 class="card-title">Field notes and repeat-visit ground truth.</h3>
+      <div class="preview-list">
+        <div class="mini-row"><div class="mini-label">Field guide</div><div class="mini-value">Wildlife, plants, fungi, birds, and creek signs.</div><div class="mini-copy">This lane is meant to feel useful on a walk, a drive, or a slow look at the water.</div></div>
+        <div class="mini-row"><div class="mini-label">Next step</div><div class="mini-value">Observation feeds come next.</div><div class="mini-copy">The tracker is being shaped for iNaturalist, eBird, invasive watch, and local sightings.</div></div>
+      </div>
+      <a class="site-link" href="cardiff-guide.html">Open the field guide &rarr;</a>
+    </article>
+    <article class="card site-card reveal">
+      <div class="site-kicker">Hills &amp; Hollers</div>
+      <h3 class="card-title">Neighbor notes, porch humor, and useful oddments.</h3>
+      <div class="preview-list">
+        <div class="mini-row"><div class="mini-label">Now building</div><div class="mini-value">Porch jokes, riddles, asks, classifieds, and memory snippets.</div><div class="mini-copy">This page is becoming the most neighbor-to-neighbor part of the site.</div></div>
+        <div class="mini-row"><div class="mini-label">Tone</div><div class="mini-value">Warm, local, and hand-kept.</div><div class="mini-copy">Useful enough for errands, light enough to feel like a front porch instead of a dashboard panel.</div></div>
+      </div>
+      <a class="site-link" href="cardiff-hollers.html">Open Hills &amp; Hollers &rarr;</a>
+    </article>
+    <article class="card site-card reveal">
+      <div class="site-kicker">Get involved</div>
+      <h3 class="card-title">One practical step still matters.</h3>
+      <div class="preview-list">
+        <div class="mini-row"><div class="mini-label">Report</div><div class="mini-value">Wildlife, water conditions, local notes, and community items.</div><div class="mini-copy">This site works best when people feed it real local signal.</div></div>
+        <div class="mini-row"><div class="mini-label">Show up</div><div class="mini-value">Cleanup, records help, civic questions, and neighbor support.</div><div class="mini-copy">Not every contribution has to be formal to be useful.</div></div>
+      </div>
+      <a class="site-link" href="cardiff-involved.html">Go to get involved &rarr;</a>
+    </article>
   </section>
 
   <div class="section-rule reveal"><h2>Start here</h2><hr></div>
@@ -275,12 +348,15 @@ const FEED_GROUPS={
   regional:'https://news.google.com/rss/search?q='+encodeURIComponent('(Jefferson County OR Birmingham) Alabama local government OR public safety OR development OR schools')+'&hl=en-US&gl=US&ceid=US:en'
 };
 const HOME_NEWS_URLS={desk:'cardiff-news-feed.json',live:'cardiff-news-live.json'};
+const HOME_DATA_URLS={weather:'cardiff-weather.json',watershed:'cardiff-watershed.json',alerts:'ticker.json'};
 const NEARBY_KEYWORDS=['cardiff','brookside','graysville','adamsville','gardendale','fultondale','minor','bayview','western jefferson','warrior road','five mile creek'];
 const REGIONAL_KEYWORDS=['birmingham','jefferson county','public safety','weather','roads','school','city council','county commission','development','zoning'];
 function cleanTitle(title){return title.replace(/\s+-\s+[^-]+$/,'').trim()}
 function extractSource(item){if(item.author&&item.author.trim())return item.author.trim();const m=(item.title||'').match(/\s+-\s+([^-]+)$/);return m?m[1].trim():'Regional source'}
 function plainText(html){const div=document.createElement('div');div.innerHTML=html||'';return (div.textContent||'').replace(/\s+/g,' ').trim()}
 function parseDate(dateStr){const d=new Date(dateStr);return isNaN(+d)?null:d}
+function formatInches(value){return Number.isFinite(value)?value.toFixed(value>=1?1:2)+'"':'Gauge sync'}
+function numericOrNaN(value){return value===null||value===undefined||value===''?NaN:Number(value)}
 function relativeTime(date){if(!date)return 'Date unavailable';const diff=Date.now()-date.getTime();const hrs=Math.round(diff/36e5);if(hrs<1)return 'Just now';if(hrs<24)return hrs+' hour'+(hrs===1?'':'s')+' ago';const days=Math.round(diff/864e5);return days+' day'+(days===1?'':'s')+' ago'}
 function isFresh(date,days=6){return date&&(Date.now()-date.getTime())<=days*864e5}
 function scoreItem(item){const hay=(item.title+' '+item.description+' '+item.source).toLowerCase();let score=0;NEARBY_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=4});REGIONAL_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=2});if(APPROVED_SOURCES.some(s=>item.source.includes(s)))score+=6;return score}
@@ -307,12 +383,55 @@ async function loadHomeNewsLocal(){
   status.textContent='Updated from the local GitHub news feed';
 }
 
+async function loadHomeDashboard(){
+  const loadJson=async url=>{const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error(url);return res.json()};
+  const [weatherResult,watershedResult,alertsResult,liveResult]=await Promise.allSettled([
+    loadJson(HOME_DATA_URLS.weather),
+    loadJson(HOME_DATA_URLS.watershed),
+    loadJson(HOME_DATA_URLS.alerts),
+    loadJson(HOME_NEWS_URLS.live)
+  ]);
+  const weather=weatherResult.status==='fulfilled'?weatherResult.value:null;
+  const watershed=watershedResult.status==='fulfilled'?watershedResult.value:null;
+  const alerts=alertsResult.status==='fulfilled'?alertsResult.value:null;
+  const live=liveResult.status==='fulfilled'?liveResult.value:{stories:[]};
+  const topStory=Array.isArray(live.stories)&&live.stories.length?live.stories[0]:null;
+
+  const alertBand=document.getElementById('homeAlertBand');
+  if(alertBand&&alerts&&alerts.hasAlerts&&Array.isArray(alerts.alerts)&&alerts.alerts.length){
+    const topAlert=alerts.alerts[0];
+    document.getElementById('homeAlertText').textContent=(topAlert.headline||topAlert.event||'Active alert')+(topAlert.endsShort?' - Through '+topAlert.endsShort:'');
+    alertBand.style.display='block';
+  }else if(alertBand){
+    alertBand.style.display='none';
+  }
+
+  const current=weather&&weather.current?weather.current:null;
+  const rain=weather&&weather.rain?weather.rain:null;
+  const gauges=watershed&&Array.isArray(watershed.gauges)?watershed.gauges:[];
+  const leadGauge=gauges.find(g=>g.role==='lead')||gauges[0]||null;
+  const leadStage=leadGauge?numericOrNaN(leadGauge.stage_ft):NaN;
+  document.getElementById('homeRightNow').innerHTML=[
+    `<div class="mini-row"><div class="mini-label">Conditions</div><div class="mini-value">${current?`${current.temp}F and ${current.condition}`:'Station sync pending'}</div><div class="mini-copy">${current&&current.summary?current.summary:'Local weather will populate here when the station responds.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Creek read</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?leadGauge.label+' at '+leadStage.toFixed(2)+' ft':'Brookside lead gauge pending'}</div><div class="mini-copy">${watershed&&watershed.summary?watershed.summary:'Brookside remains the first watch point for Cardiff.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Top headline</div><div class="mini-value">${topStory?topStory.title:'Desk update pending'}</div><div class="mini-copy">${topStory?(topStory.source_name||topStory.source||'Cardiff Desk')+' - '+relativeTime(parseDate(topStory.published_at||topStory.date||'')):'The news tracker will lift the strongest current local item here.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Community note</div><div class="mini-value">Carry it with you.</div><div class="mini-copy">The site is being shaped to work both as a citizen dashboard and as something useful on a slow walk around the creek and hills.</div></div>`
+  ].join('');
+
+  document.getElementById('homeWatershed').innerHTML=[
+    `<div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?leadStage.toFixed(2)+' ft':'Gauge sync pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.note?leadGauge.note:'Brookside remains the first watch point for Cardiff.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Rain today</div><div class="mini-value">${rain?formatInches(Number(rain.today)):formatInches(NaN)}</div><div class="mini-copy">${rain?formatInches(Number(rain.monthToDate))+' month to date.':'Monthly rain will populate here with the station log.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Hydrologic read</div><div class="mini-value">${alerts&&alerts.hasAlerts?'Active alert in the region':'No active official alert'}</div><div class="mini-copy">${alerts&&alerts.hasAlerts&&alerts.alerts&&alerts.alerts[0]?(alerts.alerts[0].headline||alerts.alerts[0].event||'Alert active'):'Gauge trend and rainfall are leading the creek read right now.'}</div></div>`
+  ].join('');
+}
+
 const refreshHomeNewsBtn=document.getElementById('refreshHomeNews');
 if(refreshHomeNewsBtn&&refreshHomeNewsBtn.parentNode){
   const wiredRefreshHomeNewsBtn=refreshHomeNewsBtn.cloneNode(true);
   refreshHomeNewsBtn.parentNode.replaceChild(wiredRefreshHomeNewsBtn,refreshHomeNewsBtn);
   wiredRefreshHomeNewsBtn.addEventListener('click',loadHomeNewsLocal);
 }
+loadHomeDashboard().catch(()=>{});
 loadHomeNewsLocal();
 </script>
 <script src="cardiff-common.js"></script>
