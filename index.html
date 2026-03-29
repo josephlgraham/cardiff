@@ -124,6 +124,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .mini-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.28rem}
 .mini-value{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.45}
 .mini-copy{font-size:.78rem;line-height:1.62;color:var(--ink3);margin-top:.18rem}
+.today-list{display:grid;gap:0}
+.today-list .side-item{display:grid;grid-template-columns:1rem minmax(0,1fr);align-items:flex-start;gap:.65rem;padding:.75rem 0;border-bottom:1px solid var(--rule);width:100%}
+.today-list .side-item:first-child{padding-top:.18rem}
+.today-list .side-item:last-child{border-bottom:none}
+.today-list .side-icon{font-size:1rem;line-height:1;flex-shrink:0;margin-top:.1rem}
+.today-list .side-item>div{min-width:0}
+.today-list .side-val{font-size:.83rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.today-list .side-sub{font-size:.72rem;color:var(--ink3);line-height:1.5;margin-top:.1rem;overflow-wrap:anywhere}
 .alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
 .alert-band .mini-label{color:var(--red)}
 .accent-card{background:linear-gradient(180deg,rgba(250,246,238,.98),rgba(247,240,228,.92))}
@@ -208,14 +216,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="section-rule reveal"><h2>Dashboard now</h2><hr></div>
   <section class="dashboard-grid">
     <article class="card accent-card reveal">
-      <div class="site-kicker">Right now in Cardiff</div>
-      <h3 class="card-title">One fast read before you head out.</h3>
-      <div class="snapshot-list" id="homeRightNow">
-        <div class="mini-row"><div class="mini-label">Conditions</div><div class="mini-value">Loading local conditions</div><div class="mini-copy">Weather, creek read, and desk signal are syncing.</div></div>
+      <div class="site-kicker">At a glance</div>
+      <h3 class="card-title">Today in Cardiff</h3>
+      <div class="today-list" id="homeToday">
+        <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Loading local conditions</div><div class="side-sub">Weather, daylight, moon, and ground read are syncing.</div></div></div>
       </div>
     </article>
     <article class="card reveal">
-      <div class="site-kicker">Watershed summary</div>
+      <div class="site-kicker">Creek and rain</div>
       <h3 class="card-title">Five Mile Creek at a glance.</h3>
       <div class="snapshot-list" id="homeWatershed">
         <div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Brookside remains the first watch point for Cardiff.</div></div>
@@ -223,13 +231,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <a class="site-link" href="cardiff-almanac.html">Open the almanac</a>
     </article>
     <article class="card reveal">
-      <div class="site-kicker">Civic highlight</div>
-      <h3 class="card-title">Keep the process practical.</h3>
-      <div class="snapshot-list">
-        <div class="mini-row"><div class="mini-label">Current lane</div><div class="mini-value">Community site, not a municipal portal.</div><div class="mini-copy">Use Civic Pathway for the practical process basics, then come back here for the daily signal.</div></div>
-        <div class="mini-row"><div class="mini-label">Why it matters</div><div class="mini-value">Good decisions need clear records.</div><div class="mini-copy">Minutes, notices, roads, flood issues, and access questions still affect daily life even when the site stays community-first.</div></div>
+      <div class="site-kicker">Morning report</div>
+      <h3 class="card-title">Since midnight.</h3>
+      <div class="snapshot-list" id="homeMorning">
+        <div class="mini-row"><div class="mini-label">Weather desk</div><div class="mini-value">Waiting on the station log.</div><div class="mini-copy">Rain, low temp, and gust read will settle in here when the station answers.</div></div>
       </div>
-      <a class="site-link" href="cardiff-civic.html">Open Civic Pathway</a>
     </article>
   </section>
 
@@ -361,6 +367,65 @@ function numericOrNaN(value){return value===null||value===undefined||value===''?
 function relativeTime(date){if(!date)return 'Date unavailable';const diff=Date.now()-date.getTime();const hrs=Math.round(diff/36e5);if(hrs<1)return 'Just now';if(hrs<24)return hrs+' hour'+(hrs===1?'':'s')+' ago';const days=Math.round(diff/864e5);return days+' day'+(days===1?'':'s')+' ago'}
 function isFresh(date,days=6){return date&&(Date.now()-date.getTime())<=days*864e5}
 function scoreItem(item){const hay=(item.title+' '+item.description+' '+item.source).toLowerCase();let score=0;NEARBY_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=4});REGIONAL_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=2});if(APPROVED_SOURCES.some(s=>item.source.includes(s)))score+=6;return score}
+function formatClock(date){return date.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
+function getSunTimes(date){
+  const start = new Date(date.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((date - start) / 86400000);
+  const lngHour = -86.870 / 15;
+  function calc(isSunrise){
+    const t = dayOfYear + ((isSunrise ? 6 : 18) - lngHour) / 24;
+    let M = (0.9856 * t) - 3.289;
+    let L = M + (1.916 * Math.sin(M * Math.PI / 180)) + (0.020 * Math.sin(2 * M * Math.PI / 180)) + 282.634;
+    L = (L + 360) % 360;
+    let RA = Math.atan(0.91764 * Math.tan(L * Math.PI / 180)) * 180 / Math.PI;
+    RA = (RA + 360) % 360;
+    const Lquadrant = Math.floor(L / 90) * 90;
+    const RAquadrant = Math.floor(RA / 90) * 90;
+    RA = (RA + Lquadrant - RAquadrant) / 15;
+    const sinDec = 0.39782 * Math.sin(L * Math.PI / 180);
+    const cosDec = Math.cos(Math.asin(sinDec));
+    const cosH = (Math.cos(90.833 * Math.PI / 180) - (sinDec * Math.sin(33.640 * Math.PI / 180))) / (cosDec * Math.cos(33.640 * Math.PI / 180));
+    const H = (isSunrise ? 360 - (Math.acos(cosH) * 180 / Math.PI) : (Math.acos(cosH) * 180 / Math.PI)) / 15;
+    const T = H + RA - (0.06571 * t) - 6.622;
+    const UT = (T - lngHour + 24) % 24;
+    const out = new Date(date);
+    out.setUTCHours(0,0,0,0);
+    out.setUTCMinutes(Math.round(UT * 60));
+    return out;
+  }
+  return { rise: calc(true), set: calc(false) };
+}
+function getMoonPhase(date){
+  const phases=[
+    {name:'New Moon',icon:'🌑',min:0,max:1.85},
+    {name:'Waxing Crescent',icon:'🌒',min:1.85,max:7.38},
+    {name:'First Quarter',icon:'🌓',min:7.38,max:11.07},
+    {name:'Waxing Gibbous',icon:'🌔',min:11.07,max:14.77},
+    {name:'Full Moon',icon:'🌕',min:14.77,max:16.61},
+    {name:'Waning Gibbous',icon:'🌖',min:16.61,max:22.15},
+    {name:'Last Quarter',icon:'🌗',min:22.15,max:25.84},
+    {name:'Waning Crescent',icon:'🌘',min:25.84,max:29.53}
+  ];
+  const knownNew = new Date(2000, 0, 6, 18, 14, 0);
+  const moonDay = (((date - knownNew) / 86400000) % 29.53 + 29.53) % 29.53;
+  return phases.find((phase)=>moonDay>=phase.min&&moonDay<phase.max)||phases[0];
+}
+function groundRead(current,rain){
+  const today=rain?Number(rain.today||0):0;
+  const humidity=current?Number(current.humidity||0):0;
+  if(today>=0.25)return {title:'Wet ground',note:'Recent rain is enough to soften yards, creek edges, and low spots.',icon:'🫧'};
+  if(today>=0.01)return {title:'Freshly damp',note:'A little rain has settled the dust and left a trace on the ground.',icon:'👣'};
+  if(humidity>=80)return {title:'Holding moisture',note:'Shade and bottoms will stay damp longer than open ground.',icon:'👣'};
+  if(humidity>=60)return {title:'Normal footing',note:'Neither baked out nor soupy in most spots.',icon:'🪵'};
+  return {title:'Dry on top',note:'Open ground will crust faster than shaded creek edges.',icon:'☀️'};
+}
+function buildSkyNote(moon){
+  return moon.name==='Full Moon'
+    ? 'Expect a bright evening and stronger moonlight over open ground and creek bends.'
+    : moon.name==='New Moon'
+      ? 'Dark skies favor stars, silhouettes, and listening more than looking.'
+      : 'Moonlight will be moderate tonight, enough to shape the woods without washing everything out.';
+}
 async function fetchFeed(url){const rss2json='https://api.rss2json.com/v1/api.json?count=24&rss_url='+encodeURIComponent(url);try{const res=await fetch(rss2json);const data=await res.json();if(data.status==='ok'&&Array.isArray(data.items)){return data.items.map(item=>({title:cleanTitle(item.title||'Untitled'),source:extractSource(item),link:item.link||'#',description:plainText(item.description||item.content||''),date:parseDate(item.pubDate||item.published||''),raw:item}))}}catch(e){}try{const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetch(proxy);const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');return [...xml.querySelectorAll('item')].map(node=>({title:cleanTitle(node.querySelector('title')?.textContent||'Untitled'),source:node.querySelector('source')?.textContent?.trim()||extractSource({title:node.querySelector('title')?.textContent||''}),link:node.querySelector('link')?.textContent||'#',description:plainText(node.querySelector('description')?.textContent||''),date:parseDate(node.querySelector('pubDate')?.textContent||''),raw:node}))}catch(e){return []}}
 async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories…</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,8));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live feed note</div><div class="news-title">No fresh local stories passed the filter right now.</div><div class="news-snippet">That usually means the nearby outlets are quiet or a feed request was blocked. Open the full news page to try again.</div></div>';status.textContent='Live feed empty or filtered out';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'…':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story ↗</span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
 document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);
@@ -412,18 +477,45 @@ async function loadHomeDashboard(){
   const gauges=watershed&&Array.isArray(watershed.gauges)?watershed.gauges:[];
   const leadGauge=gauges.find(g=>g.role==='lead')||gauges[0]||null;
   const leadStage=leadGauge?numericOrNaN(leadGauge.stage_ft):NaN;
-  document.getElementById('homeRightNow').innerHTML=[
-    `<div class="mini-row"><div class="mini-label">Conditions</div><div class="mini-value">${current?`${current.temp}F and ${current.condition}`:'Station sync pending'}</div><div class="mini-copy">${current&&current.summary?current.summary:'Local weather will populate here when the station responds.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">Creek read</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?leadGauge.label+' at '+leadStage.toFixed(2)+' ft':'Brookside lead gauge pending'}</div><div class="mini-copy">${watershed&&watershed.summary?watershed.summary:'Brookside remains the first watch point for Cardiff.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">Top headline</div><div class="mini-value">${topStory?topStory.title:'Desk update pending'}</div><div class="mini-copy">${topStory?(topStory.source_name||topStory.source||'Cardiff Desk')+' - '+relativeTime(parseDate(topStory.published_at||topStory.date||'')):'The news tracker will lift the strongest current local item here.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">Community note</div><div class="mini-value">Carry it with you.</div><div class="mini-copy">The site is being shaped to work both as a citizen dashboard and as something useful on a slow walk around the creek and hills.</div></div>`
+  const leadFlow=leadGauge?numericOrNaN(leadGauge.discharge_cfs):NaN;
+  const now=new Date();
+  const sun=getSunTimes(now);
+  const moon=getMoonPhase(now);
+  const ground=groundRead(current,rain);
+  const morning=rain&&rain.morningReport?rain.morningReport:null;
+  const showTonight=now.getHours()>=12;
+
+  document.getElementById('homeToday').innerHTML=[
+    `<div class="side-item"><div class="side-icon">${current?current.condition==='Rain'?'🌧':current.condition==='Sunny'?'☀️':current.condition==='Cold'?'🥶':'🌤':'📡'}</div><div><div class="side-val">${current?`${current.temp}°F and ${current.condition.toLowerCase()}`:'Station sync pending'}</div><div class="side-sub">${current&&current.summary?current.summary:'Weather summary will populate here when the station responds.'}</div></div></div>`,
+    `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">Sunrise to sunset</div><div class="side-sub">${formatClock(sun.rise)} to ${formatClock(sun.set)}</div></div></div>`,
+    `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">Night light and animal movement can feel different under this phase.</div></div></div>`,
+    `<div class="side-item"><div class="side-icon">${ground.icon}</div><div><div class="side-val">${ground.title}</div><div class="side-sub">${ground.note}</div></div></div>`
   ].join('');
 
   document.getElementById('homeWatershed').innerHTML=[
-    `<div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?leadStage.toFixed(2)+' ft':'Gauge sync pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.note?leadGauge.note:'Brookside remains the first watch point for Cardiff.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">Rain today</div><div class="mini-value">${rain?formatInches(Number(rain.today)):formatInches(NaN)}</div><div class="mini-copy">${rain?formatInches(Number(rain.monthToDate))+' month to date.':'Monthly rain will populate here with the station log.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">Hydrologic read</div><div class="mini-value">${alerts&&alerts.hasAlerts?'Active alert in the region':'No active official alert'}</div><div class="mini-copy">${alerts&&alerts.hasAlerts&&alerts.alerts&&alerts.alerts[0]?(alerts.alerts[0].headline||alerts.alerts[0].event||'Alert active'):'Gauge trend and rainfall are leading the creek read right now.'}</div></div>`
+    `<div class="mini-row"><div class="mini-label">Live gauge</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?`${leadGauge.label} at ${leadStage.toFixed(2)} ft`:'Gauge sync pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.note?leadGauge.note:'The live creek gauge will settle in here when the file responds.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Flow</div><div class="mini-value">${leadGauge&&Number.isFinite(leadFlow)?leadFlow.toFixed(leadFlow>=100?0:1)+' cfs':'Flow pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.trend?`Trend looks ${String(leadGauge.trend).toLowerCase()} right now.`:'Trend will populate with the live gauge sync.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Rain</div><div class="mini-value">${rain?formatInches(Number(rain.today)):formatInches(NaN)}</div><div class="mini-copy">${rain?`${formatInches(Number(rain.monthToDate))} for the month so far.`:'Rain totals will populate here with the station log.'}</div></div>`
   ].join('');
+
+  const morningCard=document.getElementById('homeMorning');
+  const morningKicker=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.site-kicker'):null;
+  const morningTitle=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.card-title'):null;
+  if(morningKicker) morningKicker.textContent=showTonight?'Tonight\'s sky':'Morning report';
+  if(morningTitle) morningTitle.textContent=showTonight?'After dark.':'Since midnight.';
+  if(morningCard){
+    morningCard.innerHTML=showTonight
+      ? [
+          `<div class="mini-row"><div class="mini-label">Sunset</div><div class="mini-value">${formatClock(sun.set)}</div><div class="mini-copy">Local sunset time for Cardiff this evening.</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Moon</div><div class="mini-value">${moon.name}</div><div class="mini-copy">${buildSkyNote(moon)}</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Sky note</div><div class="mini-value">Best first look</div><div class="mini-copy">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div>`
+        ].join('')
+      : [
+          `<div class="mini-row"><div class="mini-label">${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Low temperature</div><div class="mini-value">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="mini-copy">The coolest point the station logged overnight or so far today.</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Strongest gust</div><div class="mini-value">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="mini-copy">A quick check on whether the night stayed still or worked the trees a little.</div></div>`
+        ].join('');
+  }
 }
 
 const refreshHomeNewsBtn=document.getElementById('refreshHomeNews');
