@@ -17,7 +17,7 @@ const WEATHER_STATION_ID = process.env.WEATHER_STATION_ID || 'KALGRAYS4';
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_API_KEY || '';
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
 const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=33.640&longitude=-86.870&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
-const CARDIFF_CENSUS_URL = 'https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E,B01002_001E,B19013_001E,B25003_001E,B25003_002E,B25003_003E&for=place:12040&in=state:01';
+const CARDIFF_CENSUS_URL = 'https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E,B01002_001E,B19013_001E,B19301_001E,B25003_001E,B25003_002E,B25003_003E&for=place:12040&in=state:01';
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
 const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
@@ -869,7 +869,11 @@ function communitySummary(snapshot) {
   const ownerShare = Number.isFinite(snapshot.ownerOccupiedSharePct) ? `${snapshot.ownerOccupiedSharePct}% owner-occupied` : 'owner occupancy still parsing';
   const renterShare = Number.isFinite(snapshot.renterOccupiedSharePct) ? `${snapshot.renterOccupiedSharePct}% renter-occupied` : 'renter share still parsing';
   const age = Number.isFinite(snapshot.medianAge) ? `median age about ${snapshot.medianAge}` : 'median age still parsing';
-  const income = Number.isFinite(snapshot.medianHouseholdIncome) ? `median household income about $${Math.round(snapshot.medianHouseholdIncome).toLocaleString('en-US')}` : 'income still parsing';
+  const income = Number.isFinite(snapshot.medianHouseholdIncome)
+    ? `median household income about $${Math.round(snapshot.medianHouseholdIncome).toLocaleString('en-US')}`
+    : (Number.isFinite(snapshot.perCapitaIncome)
+        ? `median household income is suppressed in the current ACS place file, but per-capita income is about $${Math.round(snapshot.perCapitaIncome).toLocaleString('en-US')}`
+        : 'income still parsing');
   return `ACS estimates suggest Cardiff is a very small town by scale, with about ${Math.round(snapshot.population).toLocaleString('en-US')} residents, ${age}, ${income}, and housing that looks roughly ${ownerShare} and ${renterShare}.`;
 }
 
@@ -886,6 +890,7 @@ async function updateCommunitySnapshotFile() {
   const population = censusNumber(record.B01003_001E);
   const medianAge = roundValue(record.B01002_001E, 1);
   const medianHouseholdIncome = censusNumber(record.B19013_001E);
+  const perCapitaIncome = censusNumber(record.B19301_001E);
   const occupiedHousingUnits = censusNumber(record.B25003_001E);
   const ownerOccupied = censusNumber(record.B25003_002E);
   const renterOccupied = censusNumber(record.B25003_003E);
@@ -896,6 +901,7 @@ async function updateCommunitySnapshotFile() {
     population,
     medianAge,
     medianHouseholdIncome,
+    perCapitaIncome,
     occupiedHousingUnits,
     ownerOccupied,
     renterOccupied,

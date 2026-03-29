@@ -68,6 +68,24 @@
     }
   }
 
+  function storageJsonGet(key, fallback) {
+    const raw = storageGet(key);
+    if (!raw) return fallback;
+    try {
+      return JSON.parse(raw);
+    } catch (error) {
+      return fallback;
+    }
+  }
+
+  function storageJsonSet(key, value) {
+    try {
+      storageSet(key, JSON.stringify(value));
+    } catch (error) {
+      // Ignore storage misses.
+    }
+  }
+
   function injectStyles() {
     if (document.getElementById("cardiff-community-styles")) return;
     const style = document.createElement("style");
@@ -149,6 +167,7 @@
 
   async function initReactions(target, client) {
     const page = target.getAttribute("data-page") || "cardiff";
+    const localCountsKey = "cardiff-reaction-counts-" + page;
     renderCard(
       target,
       "Community pulse",
@@ -159,38 +178,63 @@
     );
 
     const actions = target.querySelector("[data-reaction-actions]");
+    const meta = target.querySelector(".cardiff-community-meta");
 
     async function refresh() {
       const counts = {};
+      let usingRemote = false;
       REACTION_EMOJIS.forEach((item) => { counts[item.icon] = 0; });
       if (client) {
         const result = await client.from("reactions").select("emoji").eq("page", page);
         if (!result.error && Array.isArray(result.data)) {
+          usingRemote = true;
           result.data.forEach((row) => {
             counts[row.emoji] = Number(counts[row.emoji] || 0) + 1;
           });
+          storageJsonSet(localCountsKey, counts);
         }
+      }
+      if (!usingRemote) {
+        const localCounts = storageJsonGet(localCountsKey, {});
+        Object.keys(localCounts).forEach((emoji) => {
+          counts[emoji] = Number(localCounts[emoji] || counts[emoji] || 0);
+        });
       }
 
       actions.innerHTML = REACTION_EMOJIS.map((item) => {
         const key = "cardiff-reaction-" + page + "-" + item.icon;
         const done = storageGet(key) === "1";
-        return '<button class="cardiff-emoji-btn' + (done ? " is-done" : "") + '" type="button" data-emoji="' + escapeHtml(item.icon) + '"' + (client ? "" : " disabled") + '>' + escapeHtml(item.icon) + '<span class="cardiff-count">' + String(counts[item.icon] || 0) + "</span></button>";
+        return '<button class="cardiff-emoji-btn' + (done ? " is-done" : "") + '" type="button" data-emoji="' + escapeHtml(item.icon) + '">' + escapeHtml(item.icon) + '<span class="cardiff-count">' + String(counts[item.icon] || 0) + "</span></button>";
       }).join("");
+      if (meta) {
+        meta.textContent = usingRemote
+          ? "One tap per icon per browser. The little count board updates live when the desk is awake."
+          : "One tap per icon per browser. Shared live counts are resting, so this board is keeping score on this browser for now.";
+      }
     }
 
     actions.addEventListener("click", async function (event) {
       const button = event.target.closest("[data-emoji]");
-      if (!button || !client) return;
+      if (!button) return;
       const emoji = button.getAttribute("data-emoji");
       const key = "cardiff-reaction-" + page + "-" + emoji;
       if (storageGet(key) === "1") return;
       button.disabled = true;
-      const result = await client.from("reactions").insert({ page: page, emoji: emoji });
-      if (!result.error) {
-        storageSet(key, "1");
-        await refresh();
+      let stored = false;
+      if (client) {
+        const result = await client.from("reactions").insert({ page: page, emoji: emoji });
+        if (!result.error) {
+          storageSet(key, "1");
+          stored = true;
+        }
       }
+      if (!stored) {
+        const localCounts = storageJsonGet(localCountsKey, {});
+        localCounts[emoji] = Number(localCounts[emoji] || 0) + 1;
+        storageJsonSet(localCountsKey, localCounts);
+        storageSet(key, "1");
+      }
+      await refresh();
       button.disabled = false;
     });
 
@@ -206,6 +250,7 @@
   async function initPoll(target, client) {
     const pollId = target.getAttribute("data-poll-id") || "spring-2026";
     const poll = POLLS[pollId] || POLLS["spring-2026"];
+    const localTotalsKey = "cardiff-poll-local-" + pollId;
     if (!poll) return;
 
     renderCard(
@@ -225,14 +270,23 @@
 
     async function loadVotes() {
       const totals = {};
+      let usingRemote = false;
       poll.options.forEach((option) => { totals[option.key] = 0; });
       if (client) {
         const result = await client.from("poll_votes").select("option_key").eq("poll_id", pollId);
         if (!result.error && Array.isArray(result.data)) {
+          usingRemote = true;
           result.data.forEach((row) => {
             totals[row.option_key] = Number(totals[row.option_key] || 0) + 1;
           });
+          storageJsonSet(localTotalsKey, totals);
         }
+      }
+      if (!usingRemote) {
+        const localTotals = storageJsonGet(localTotalsKey, {});
+        poll.options.forEach((option) => {
+          totals[option.key] = Number(localTotals[option.key] || totals[option.key] || 0);
+        });
       }
       return totals;
     }
@@ -245,7 +299,7 @@
       actions.innerHTML = voted
         ? ""
         : poll.options.map((option) => (
-            '<button class="cardiff-poll-btn" type="button" data-option="' + escapeHtml(option.key) + '"' + (client ? "" : " disabled") + ">" + escapeHtml(option.label) + "</button>"
+            '<button class="cardiff-poll-btn" type="button" data-option="' + escapeHtml(option.key) + '">' + escapeHtml(option.label) + "</button>"
           )).join("");
 
       results.innerHTML = poll.options.map((option) => {
@@ -261,19 +315,29 @@
 
       status.textContent = voted
         ? "Thanks. This browser has already weighed in on this question."
-        : (client ? "One vote per browser. The room updates as soon as you choose." : "The poll desk will wake up when the Supabase connection is available.");
+        : (client ? "One vote per browser. The room updates as soon as you choose." : "One vote per browser. The shared poll desk is resting, so this browser is keeping the room warm for now.");
     }
 
     actions.addEventListener("click", async function (event) {
       const button = event.target.closest("[data-option]");
-      if (!button || !client || storageGet(votedKey)) return;
+      if (!button || storageGet(votedKey)) return;
       const optionKey = button.getAttribute("data-option");
       button.disabled = true;
-      const result = await client.from("poll_votes").insert({ poll_id: pollId, option_key: optionKey });
-      if (!result.error) {
-        storageSet(votedKey, optionKey);
-        await renderPoll();
+      let stored = false;
+      if (client) {
+        const result = await client.from("poll_votes").insert({ poll_id: pollId, option_key: optionKey });
+        if (!result.error) {
+          storageSet(votedKey, optionKey);
+          stored = true;
+        }
       }
+      if (!stored) {
+        const localTotals = storageJsonGet(localTotalsKey, {});
+        localTotals[optionKey] = Number(localTotals[optionKey] || 0) + 1;
+        storageJsonSet(localTotalsKey, localTotals);
+        storageSet(votedKey, optionKey);
+      }
+      await renderPoll();
       button.disabled = false;
     });
 

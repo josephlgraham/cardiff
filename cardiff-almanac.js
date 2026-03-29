@@ -332,6 +332,14 @@
     setHTML(id, emojiText(icon, text));
   }
 
+  function multiEmojiText(icons, text) {
+    return icons.map(iconHtml).join(" ") + " " + text;
+  }
+
+  function setMultiEmojiText(id, icons, text) {
+    setHTML(id, multiEmojiText(icons, text));
+  }
+
   function formatInches(value) {
     return Number.isFinite(value) ? value.toFixed(value >= 1 ? 1 : 2) + '"' : "—";
   }
@@ -357,6 +365,52 @@
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return "";
     return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  }
+
+  function quantile(values, q) {
+    if (!Array.isArray(values) || !values.length) return NaN;
+    const sorted = values.slice().sort((a, b) => a - b);
+    const index = (sorted.length - 1) * q;
+    const lower = Math.floor(index);
+    const upper = Math.ceil(index);
+    if (lower === upper) return sorted[lower];
+    return sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
+  }
+
+  function displayStageRange(points, stageNow) {
+    const values = points.map((point) => point.stage_ft);
+    const rawMin = Math.min.apply(null, values);
+    const rawMax = Math.max.apply(null, values);
+    const p10 = quantile(values, 0.1);
+    const p90 = quantile(values, 0.9);
+    const focusSpread = Math.max(p90 - p10, 0.18);
+    const rawSpread = Math.max(rawMax - rawMin, 0.18);
+    const latestStage = Number.isFinite(stageNow) ? stageNow : values[values.length - 1];
+    let displayMin = rawMin - rawSpread * 0.08;
+    let displayMax = rawMax + rawSpread * 0.12;
+
+    if (rawSpread > focusSpread * 3.5) {
+      displayMin = Math.min(rawMin, latestStage, p10 - focusSpread * 0.35);
+      displayMax = Math.max(latestStage, p90 + focusSpread * 0.9);
+    }
+
+    if (!Number.isFinite(displayMin) || !Number.isFinite(displayMax) || displayMax <= displayMin) {
+      displayMin = rawMin;
+      displayMax = rawMax + 0.2;
+    }
+
+    const padding = Math.max((displayMax - displayMin) * 0.08, 0.08);
+    displayMin -= padding;
+    displayMax += padding;
+
+    return {
+      rawMin,
+      rawMax,
+      displayMin,
+      displayMax,
+      clippedTop: rawMax > displayMax,
+      clippedBottom: rawMin < displayMin
+    };
   }
 
   function escapeHtml(value) {
@@ -509,18 +563,22 @@
     }
 
     const width = 760;
-    const height = 190;
-    const padLeft = 10;
-    const padRight = 10;
-    const padTop = 10;
-    const padBottom = 26;
-    const min = Math.min.apply(null, points.map((point) => point.stage_ft));
-    const max = Math.max.apply(null, points.map((point) => point.stage_ft));
-    const range = Math.max(max - min, 0.2);
+    const height = 230;
+    const padLeft = 12;
+    const padRight = 12;
+    const padTop = 14;
+    const padBottom = 28;
+    const stageRange = displayStageRange(points, stageNow);
+    const min = stageRange.rawMin;
+    const max = stageRange.rawMax;
+    const displayMin = stageRange.displayMin;
+    const displayMax = stageRange.displayMax;
+    const range = Math.max(displayMax - displayMin, 0.2);
     const lastIndex = Math.max(points.length - 1, 1);
     const coords = points.map((point, index) => {
       const x = padLeft + (index / lastIndex) * (width - padLeft - padRight);
-      const y = padTop + ((max - point.stage_ft) / range) * (height - padTop - padBottom);
+      const stage = Math.max(displayMin, Math.min(displayMax, point.stage_ft));
+      const y = padTop + ((displayMax - stage) / range) * (height - padTop - padBottom);
       return { x, y };
     });
     const polyline = coords.map((point) => point.x.toFixed(1) + "," + point.y.toFixed(1)).join(" ");
@@ -543,6 +601,9 @@
     const lastLabel = formatGaugeDay(points[points.length - 1].at);
     const changeLabel = Number.isFinite(change24h) ? formatDeltaFeet(change24h) : "Need more history";
     const metaSuffix = availableDays >= watershedChartRange ? chartRangeLabel(watershedChartRange) : ("Last " + availableDays + " days loaded");
+    const chartNote = stageRange.clippedTop || stageRange.clippedBottom
+      ? '<div style="margin-top:0.45rem;font-size:0.7rem;line-height:1.5;color:var(--ink3);">Scaled toward the everyday creek range so smaller rises stay readable. Big spikes still count in the stats above.</div>'
+      : "";
 
     return {
       meta: (label || "Lead gauge") + " · " + metaSuffix,
@@ -556,14 +617,16 @@
         '<rect x="' + padLeft + '" y="' + padTop + '" width="' + (width - padLeft - padRight) + '" height="' + (height - padTop - padBottom) + '" rx="12" fill="rgba(49,120,72,0.12)"/>' +
         '<polygon points="' + topArea + '" fill="rgba(57,133,75,0.18)"/>' +
         '<polygon points="' + bottomArea + '" fill="rgba(32,96,160,0.18)"/>' +
+        '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.33) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.33) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
+        '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.66) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.66) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
         '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
         '<polyline fill="none" stroke="#0f5c6d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
         '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + "</text>" +
         '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
-        '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 1) + '">' + escapeHtml(max.toFixed(2) + " ft") + "</text>" +
-        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(min.toFixed(2) + " ft") + "</text>" +
-        "</svg>"
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 1) + '">' + escapeHtml(displayMax.toFixed(2) + " ft") + "</text>" +
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(displayMin.toFixed(2) + " ft") + "</text>" +
+        "</svg>" + chartNote
     };
   }
 
@@ -1264,6 +1327,46 @@
     );
   }
 
+  function refreshWeatherEmojiLayer(wx, ground, pressure) {
+    setMultiEmojiText("wxTemp", [conditionIcon(wx.condition), "🌡️"], wx.temp + "°F");
+    setMultiEmojiText("wxHum", ["💧", "🌫️"], wx.humidity + "%");
+    setMultiEmojiText("wxWind", [windIcon(wx.windSpeed), "🌬"], Math.round(wx.windSpeed) + " mph");
+    setMultiEmojiText("wxRain", [ground.icon, "🌧"], ground.title);
+    setMultiEmojiText("wxPressure", [pressure.icon, "🧭"], Number.isFinite(wx.pressureIn) ? wx.pressureIn.toFixed(2) + '"' : "—");
+    setMultiEmojiText("wxUV", ["☀️", "🕶️"], Number.isFinite(wx.uv) ? String(Math.round(wx.uv)) : "—");
+
+    const labels = document.querySelectorAll("#wx-card .wx-lbl");
+    if (labels.length >= 6) {
+      labels[0].textContent = "🌡️ Temperature";
+      labels[1].textContent = "💧🌫️ Humidity";
+      labels[2].textContent = "🍃🌬 Wind";
+      labels[3].textContent = "🌧👣 Rain & Ground";
+      labels[4].textContent = "📏🧭 Pressure";
+      labels[5].textContent = "☀️🕶️ UV Index";
+    }
+  }
+
+  function refreshFishingEmojiLayer(wx) {
+    const rows = fishingRows(wx);
+    const waterTemp = estimateWaterTemp(wx.temp, new Date().getMonth());
+    const pressure = pressureNote(wx.pressureIn);
+    setMultiEmojiText("fishWater", ["💧", "🌡️"], waterTemp + "°F");
+    setMultiEmojiText("fishPressure", [pressure.icon, "🧭"], pressure.label);
+    if (rows.length) {
+      setHTML("pillFish", emojiText(rows[0].icon, rows[0].name));
+    }
+  }
+
+  function refreshRainEmojiLayer(rain) {
+    const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
+    const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
+    setHTML("rainToday", multiEmojiText(["🌧", "📏"], formatInches(todayAmount)));
+    setHTML("rainMonth", multiEmojiText(["💧", "🗂️"], formatInches(monthAmount)));
+    setText("rainMonthLabel", (rain && rain.monthComplete) ? "🗓️ Rain this month" : "🗓️ Rain tracked");
+    const labels = document.querySelectorAll("#wx-card .rain-label");
+    if (labels.length >= 1) labels[0].textContent = "🌧 Today's rain";
+  }
+
   function buildRainSummary(rain) {
     const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
     const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
@@ -1460,6 +1563,9 @@
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
     buildFishing(wx, moon);
     buildSideSnapshot(wx, sun, moon, ground);
+    refreshWeatherEmojiLayer(wx, ground, pressure);
+    refreshFishingEmojiLayer(wx);
+    refreshRainEmojiLayer(rain);
   }
 
   function summarizeWeather(wx) {

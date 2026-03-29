@@ -289,6 +289,7 @@
         // Update news page bulletin box if present
         var bulletin = document.getElementById('deskBulletin');
         var bulletinBox = document.getElementById('deskBulletinBox');
+        var topWatch = document.getElementById('top-watch');
         if (bulletin && data.hasAlerts && data.alerts && data.alerts.length) {
           var top = data.alerts[0];
           var text = top.emoji + ' ' + top.headline;
@@ -296,6 +297,7 @@
           if (top.description) text += ' \u2014 ' + top.description;
           bulletin.textContent = text;
           if (bulletinBox) bulletinBox.style.display = '';
+          if (topWatch) topWatch.style.display = '';
         }
       })
       .catch(function () {

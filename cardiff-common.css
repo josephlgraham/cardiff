@@ -144,6 +144,7 @@ html{scroll-behavior:smooth;}
 .btn,
 .btn.primary,
 .btn.ghost,
+.site-link,
 .cta-btn,
 .cs-btn,
 .sub-btn,
@@ -175,6 +176,7 @@ html{scroll-behavior:smooth;}
 .btn:hover,
 .btn.primary:hover,
 .btn.ghost:hover,
+.site-link:hover,
 .cta-btn:hover,
 .cs-btn:hover,
 .sub-btn:hover,
@@ -190,6 +192,7 @@ html{scroll-behavior:smooth;}
 }
 
 .btn:focus-visible,
+.site-link:focus-visible,
 .cta-btn:focus-visible,
 .cs-btn:focus-visible,
 .sub-btn:focus-visible,

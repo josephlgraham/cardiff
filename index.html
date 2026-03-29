@@ -67,6 +67,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .photo-stage{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);background:#ddd;aspect-ratio:1/1;min-height:360px}
 .photo-stage img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,16,10,.08),rgba(25,16,10,.24));pointer-events:none}
+.featured-note{margin-top:.9rem;padding:.82rem .9rem;background:rgba(255,255,255,.5);border:1px solid var(--border);border-radius:var(--r);font-size:.8rem;line-height:1.62;color:var(--ink2)}
+.featured-note strong{color:var(--ink)}
+.mobile-status-grid{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:0 0 1.15rem}
+.mobile-status-card{padding:.9rem .95rem;background:linear-gradient(180deg,rgba(250,246,238,.98),rgba(247,240,228,.92));border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.mobile-status-kicker{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.35rem}
+.mobile-status-value{font-size:.9rem;font-weight:800;color:var(--ink);line-height:1.35}
+.mobile-status-copy{font-size:.75rem;line-height:1.55;color:var(--ink3);margin-top:.2rem}
 .marker{position:absolute;z-index:2;display:flex;align-items:center;gap:.45rem;transform:translate(-50%,-50%)}
 .marker-dot{width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid rgba(255,255,255,.9);box-shadow:0 0 0 4px rgba(200,16,46,.16)}
 .marker-label{background:rgba(28,18,8,.76);color:#fff;padding:.22rem .45rem;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.02em;backdrop-filter:blur(6px)}
@@ -137,7 +144,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .accent-card{background:linear-gradient(180deg,rgba(250,246,238,.98),rgba(247,240,228,.92))}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 @media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}}
+@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}}
 
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
@@ -170,13 +177,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </div>
       </div>
       <div class="hero-side">
-        <div class="photo-shell info-box reveal" data-kicker="Photo viewer">
+        <div class="photo-shell info-box reveal" data-kicker="Featured photo">
           <div class="photo-toolbar">
-            <div class="photo-meta" id="photoMeta">Cardiff archive</div>
-            <div class="photo-nav">
-              <button class="icon-btn" id="prevPhoto" type="button">Previous</button>
-              <button class="icon-btn" id="nextPhoto" type="button">Next</button>
-            </div>
+            <div class="photo-meta" id="photoMeta">Featured photo · Cardiff archive</div>
           </div>
           <div class="photo-stage">
             <img id="heroPhoto" src="photos/1951 From the Sky.jpg?v=2026-03-28d" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
@@ -189,6 +192,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
             </div>
             <div class="photo-credit" id="photoCredit">Historical photograph</div>
           </div>
+          <div class="featured-note" id="photoHistoryNote"><strong>🏛️ History note:</strong> The homepage now treats this as a featured local image rather than a viewer, so the picture can carry a little context instead of just rotating past.</div>
         </div>
         <div class="hero-quick-grid">
           <article class="card site-card hero-quick-card reveal">
@@ -205,6 +209,19 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           </article>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="mobile-status-grid reveal" aria-label="Mobile status">
+    <div class="mobile-status-card">
+      <div class="mobile-status-kicker">🌊 Creek status</div>
+      <div class="mobile-status-value" id="mobileCreekValue">Five Mile Creek is checking in.</div>
+      <div class="mobile-status-copy" id="mobileCreekCopy">Gauge, flow, and rain notes will settle in here.</div>
+    </div>
+    <div class="mobile-status-card">
+      <div class="mobile-status-kicker">🌤 Weather status</div>
+      <div class="mobile-status-value" id="mobileWeatherValue">Cardiff weather is syncing.</div>
+      <div class="mobile-status-copy" id="mobileWeatherCopy">Current sky and ground feel will show up here.</div>
     </div>
   </section>
 
@@ -340,13 +357,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <script>
 
 const FALLBACK_GALLERY=[{src:'photos/1951 From the Sky.jpg?v=2026-03-28e',title:'Aerial view, 1951',copy:'A long look at Cardiff from above, with the town and its neighboring communities still easy to read in the landscape.',credit:'Historical photograph',alt:'Historical aerial photograph of Cardiff and the surrounding area from 1951',markers:[]},{src:'photos/historical-marker.jpg',title:'Historic marker',copy:'A grounded reminder that Cardiff has always been part of a bigger regional story, even while keeping its own identity.',credit:'Site collection',alt:'Historical marker connected to Cardiff local history',markers:[]},{src:'photos/town-hall.jpg',title:'Town hall',copy:'This town hall view is more than 25 years old, which makes it part of Cardiff\'s archive as much as its streetscape.',credit:'Site collection',alt:'Town hall building in Cardiff',markers:[]}];
-let gallery=[],photoIndex=0,galleryVersion='2026-03-28T22:05:00-05:00';
+let gallery=[],galleryVersion='2026-03-28T22:05:00-05:00';
 function renderMarkers(markers){const shell=document.getElementById('photoMarkers');if(!shell)return;shell.innerHTML=(markers||[]).map(marker=>`<div class="marker" style="left:${marker.left};top:${marker.top};"><span class="marker-dot"></span><span class="marker-label">${marker.label}</span></div>`).join('')}
 function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;const hasQuery=src.includes('?');return {...item,src:hasQuery?src:`${src}?v=${encodeURIComponent(galleryVersion)}`}}
-function renderPhoto(){if(!gallery.length)return;const item=gallery[photoIndex];document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent=`Photo ${photoIndex+1} of ${gallery.length}`;renderMarkers(item.markers||[])}
+function featuredPhoto(){return gallery.find(item=>item.featured)||gallery[0]||null}
+function renderPhoto(){const item=featuredPhoto();if(!item)return;document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent='Featured photo · Cardiff archive';document.getElementById('photoHistoryNote').innerHTML=`<strong>🏛️ History note:</strong> ${(item.historyNote||item.copy||'This featured image carries a little local context instead of rotating by like a generic viewer.')}`;renderMarkers(item.markers||[])}
 async function loadGallery(){try{const response=await fetch('cardiff-home-gallery.json',{cache:'no-store'});if(!response.ok)throw new Error('gallery file missing');const data=await response.json();if(data.updatedAt)galleryVersion=data.updatedAt;if(Array.isArray(data.items)&&data.items.length){gallery=data.items.map(normalizeGalleryItem);renderPhoto();return;}}catch(e){}gallery=FALLBACK_GALLERY.map(normalizeGalleryItem);renderPhoto();}
-document.getElementById('prevPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex-1+gallery.length)%gallery.length;renderPhoto()});
-document.getElementById('nextPhoto').addEventListener('click',()=>{if(!gallery.length)return;photoIndex=(photoIndex+1)%gallery.length;renderPhoto()});
 loadGallery();
 
 const APPROVED_SOURCES=['WBRC','WVTM 13','ABC 33/40','BirminghamWatch','AL.com','Bham Now','CBS 42'];
@@ -484,6 +500,11 @@ async function loadHomeDashboard(){
   const ground=groundRead(current,rain);
   const morning=rain&&rain.morningReport?rain.morningReport:null;
   const showTonight=now.getHours()>=12;
+
+  document.getElementById('mobileWeatherValue').textContent=current?`${current.condition==='Rain'?'🌧':'🌤'} ${current.temp}°F · ${current.condition}`:'🌤 Weather sync pending';
+  document.getElementById('mobileWeatherCopy').textContent=current&&current.summary?current.summary:'Current sky and ground feel will settle in here when the station answers.';
+  document.getElementById('mobileCreekValue').textContent=leadGauge&&Number.isFinite(leadStage)?`🌊 ${leadStage.toFixed(2)} ft at ${leadGauge.label}`:'🌊 Gauge sync pending';
+  document.getElementById('mobileCreekCopy').textContent=leadGauge&&leadGauge.note?leadGauge.note:(rain?`${formatInches(Number(rain.today))} of rain has shown up since midnight.`:'Gauge, flow, and rain notes will settle in here.');
 
   document.getElementById('homeToday').innerHTML=[
     `<div class="side-item"><div class="side-icon">${current?current.condition==='Rain'?'🌧':current.condition==='Sunny'?'☀️':current.condition==='Cold'?'🥶':'🌤':'📡'}</div><div><div class="side-val">${current?`${current.temp}°F and ${current.condition.toLowerCase()}`:'Station sync pending'}</div><div class="side-sub">${current&&current.summary?current.summary:'Weather summary will populate here when the station responds.'}</div></div></div>`,

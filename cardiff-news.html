@@ -401,5 +401,61 @@ document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>{
 modeCache.clear();
 loadNewsLocal('all');
 </script>
+<script>
+(function(){
+  const originalUpdateDeskMeta = window.updateDeskMeta;
+  const originalLoadAlertPanel = window.loadAlertPanel;
+
+  function applyDeskBulletinVisibility(desk) {
+    const topWatch = document.getElementById('top-watch');
+    const bulletinBox = document.getElementById('deskBulletinBox');
+    const bulletin = document.getElementById('deskBulletin');
+    const hasManualBulletin = !!(desk && desk.bulletin);
+    const alertPanel = document.getElementById('current-alerts');
+    const hasLiveAlert = !!(alertPanel && alertPanel.style.display !== 'none');
+
+    if (hasManualBulletin) {
+      if (bulletin) bulletin.textContent = desk.bulletin;
+      if (bulletinBox) bulletinBox.style.display = '';
+      if (topWatch) topWatch.style.display = '';
+      return;
+    }
+
+    if (hasLiveAlert) {
+      if (bulletinBox) bulletinBox.style.display = '';
+      if (topWatch) topWatch.style.display = '';
+      return;
+    }
+
+    if (bulletin) bulletin.textContent = '';
+    if (bulletinBox) bulletinBox.style.display = 'none';
+    if (topWatch) topWatch.style.display = 'none';
+  }
+
+  if (typeof originalUpdateDeskMeta === 'function') {
+    window.updateDeskMeta = function(desk, items, mode) {
+      originalUpdateDeskMeta(desk, items, mode);
+      applyDeskBulletinVisibility(desk);
+    };
+  }
+
+  if (typeof originalLoadAlertPanel === 'function') {
+    window.loadAlertPanel = async function() {
+      const result = await originalLoadAlertPanel();
+      applyDeskBulletinVisibility(window.__cardiffDeskData || null);
+      return result;
+    };
+  }
+
+  const originalGetDeskData = window.getDeskData;
+  if (typeof originalGetDeskData === 'function') {
+    window.getDeskData = async function() {
+      const desk = await originalGetDeskData();
+      window.__cardiffDeskData = desk;
+      return desk;
+    };
+  }
+})();
+</script>
 </body>
 </html>
