@@ -59,7 +59,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .aside-title{font-size:1rem;font-weight:800;color:var(--ink);margin:.45rem 0 .35rem;}
 .aside-copy{font-size:.84rem;line-height:1.7;color:var(--ink2);}
 .aside-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.85rem}
-.aside-actions .btn{font-size:.72rem;padding:.56rem .82rem;border-radius:999px}
+.aside-actions .btn{font-family:var(--sans);font-size:.78rem;letter-spacing:0}
 .riddle-answer{margin-top:.7rem;padding:.72rem .78rem;background:rgba(32,96,160,.06);border:1px solid rgba(32,96,160,.16);border-radius:var(--r);font-size:.78rem;line-height:1.62;color:var(--ink2);display:none}
 .riddle-answer.visible{display:block}
 .riddle-answer strong{color:var(--blue)}
@@ -99,7 +99,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .listing-list li::before{content:"";position:absolute;left:0;top:0.53rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
 .listing-foot{padding-top:0.7rem;border-top:1px solid var(--rule);font-size:0.76rem;line-height:1.58;color:var(--ink3);}
 .listing-actions{display:flex;gap:.55rem;flex-wrap:wrap}
-.listing-actions .btn{font-size:.72rem;padding:.58rem .85rem;border-radius:999px}
+.listing-actions .btn{font-family:var(--sans);font-size:.78rem;letter-spacing:0}
 .finish-note{margin:1.1rem 0 0;padding:.9rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:.84rem;line-height:1.68;color:var(--red-mid);}
 .post-shell{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.2rem 1.15rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
 .post-copy{font-size:.86rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem;max-width:62ch}
@@ -158,23 +158,17 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="feature-foot">Use it for neighbor-to-neighbor texture, not for official notice. This is the porch, not the podium.</div>
     </article>
     <div class="aside-stack">
-      <article class="aside-card" id="hollerJokeCard">
-        <div class="site-kicker">Old-Timer Joke</div>
-        <div class="aside-title" id="hollerJokeTitle">Taking the scenic route</div>
-        <div class="aside-copy" id="hollerJokeBody">"I ain't lost. I'm just taking the scenic way back."</div>
+      <article class="aside-card" id="hollerPlayCard">
+        <div class="site-kicker" id="hollerPlayKicker">Old-Timer Joke</div>
+        <div class="aside-title" id="hollerPlayTitle">Taking the scenic route</div>
+        <div class="aside-copy" id="hollerPlayBody">"I ain't lost. I'm just taking the scenic way back."</div>
+        <div class="riddle-answer" id="hollerRiddleAnswer"><strong>Answer:</strong> Five Mile Creek.</div>
         <div class="aside-actions">
           <button class="btn ghost" type="button" id="nextJokeBtn">Another joke</button>
           <button class="btn ghost" type="button" id="showRiddleBtn">Show a riddle</button>
-        </div>
-      </article>
-      <article class="aside-card" id="hollerRiddleCard" hidden aria-hidden="true">
-        <div class="site-kicker">Front Porch Riddle</div>
-        <div class="aside-title" id="hollerRiddleQuestion">What runs all through Cardiff but never wears a shoe?</div>
-        <div class="riddle-answer" id="hollerRiddleAnswer"><strong>Answer:</strong> Five Mile Creek.</div>
-        <div class="aside-actions">
-          <button class="btn ghost" type="button" id="toggleRiddleBtn">Show answer</button>
-          <button class="btn ghost" type="button" id="nextRiddleBtn">Another riddle</button>
-          <button class="btn ghost" type="button" id="showJokeBtn">Show a joke</button>
+          <button class="btn ghost" type="button" id="toggleRiddleBtn" hidden>Show answer</button>
+          <button class="btn ghost" type="button" id="nextRiddleBtn" hidden>Another riddle</button>
+          <button class="btn ghost" type="button" id="showJokeBtn" hidden>Show a joke</button>
         </div>
       </article>
     </div>
@@ -370,14 +364,22 @@ function pickDailyIndex(length,offset=0){
 function renderJoke(){
   const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
   const joke=jokes[jokeIndex%jokes.length];
-  document.getElementById('hollerJokeTitle').textContent=joke.title||'Porch joke';
-  document.getElementById('hollerJokeBody').textContent=joke.body||'Warm porch humor lives here.';
+  document.getElementById('hollerPlayKicker').textContent='Old-Timer Joke';
+  document.getElementById('hollerPlayTitle').textContent=joke.title||'Porch joke';
+  const body=document.getElementById('hollerPlayBody');
+  body.textContent=joke.body||'Warm porch humor lives here.';
+  body.hidden=false;
+  document.getElementById('hollerRiddleAnswer').classList.remove('visible');
 }
 
 function renderRiddle(){
   const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
   const riddle=riddles[riddleIndex%riddles.length];
-  document.getElementById('hollerRiddleQuestion').textContent=riddle.question||'Front porch riddle';
+  document.getElementById('hollerPlayKicker').textContent='Front Porch Riddle';
+  document.getElementById('hollerPlayTitle').textContent=riddle.question||'Front porch riddle';
+  const body=document.getElementById('hollerPlayBody');
+  body.textContent='';
+  body.hidden=true;
   document.getElementById('hollerRiddleAnswer').innerHTML='<strong>Answer:</strong> '+(riddle.answer||'Still thinking on that one.');
   document.getElementById('hollerRiddleAnswer').classList.remove('visible');
   document.getElementById('toggleRiddleBtn').textContent='Show answer';
@@ -385,13 +387,17 @@ function renderRiddle(){
 
 function setPlayMode(mode){
   playMode=mode==='riddle'?'riddle':'joke';
-  const jokeCard=document.getElementById('hollerJokeCard');
-  const riddleCard=document.getElementById('hollerRiddleCard');
   const showJoke=playMode==='joke';
-  jokeCard.hidden=!showJoke;
-  jokeCard.setAttribute('aria-hidden',showJoke?'false':'true');
-  riddleCard.hidden=showJoke;
-  riddleCard.setAttribute('aria-hidden',showJoke?'true':'false');
+  document.getElementById('nextJokeBtn').hidden=!showJoke;
+  document.getElementById('showRiddleBtn').hidden=!showJoke;
+  document.getElementById('toggleRiddleBtn').hidden=showJoke;
+  document.getElementById('nextRiddleBtn').hidden=showJoke;
+  document.getElementById('showJokeBtn').hidden=showJoke;
+  if(showJoke){
+    renderJoke();
+  }else{
+    renderRiddle();
+  }
 }
 
 async function loadHollerRotator(){
@@ -408,15 +414,12 @@ async function loadHollerRotator(){
   }
   jokeIndex=pickDailyIndex(hollerRotator.jokes.length,0);
   riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
-  renderJoke();
-  renderRiddle();
   setPlayMode(pickDailyIndex(2,21)===0?'joke':'riddle');
 }
 
 document.getElementById('nextJokeBtn').addEventListener('click',()=>{
   const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
   jokeIndex=(jokeIndex+1)%jokes.length;
-  renderJoke();
   setPlayMode('joke');
 });
 
@@ -430,7 +433,6 @@ document.getElementById('toggleRiddleBtn').addEventListener('click',()=>{
 document.getElementById('nextRiddleBtn').addEventListener('click',()=>{
   const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
   riddleIndex=(riddleIndex+1)%riddles.length;
-  renderRiddle();
   setPlayMode('riddle');
 });
 

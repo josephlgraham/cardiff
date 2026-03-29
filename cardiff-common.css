@@ -159,6 +159,12 @@ html{scroll-behavior:smooth;}
   display:inline-flex !important;
   align-items:center !important;
   justify-content:center !important;
+  font-family:var(--sans,inherit) !important;
+  font-weight:700 !important;
+  line-height:1.2 !important;
+  padding:.72rem 1rem !important;
+  gap:.45rem !important;
+  white-space:nowrap !important;
   width:auto !important;
   max-width:100% !important;
   flex:0 0 auto !important;

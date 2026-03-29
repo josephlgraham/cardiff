@@ -106,14 +106,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .loading{color:var(--ink3)}
 .site-card{display:flex;flex-direction:column;gap:.7rem;height:100%}
 .site-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-.site-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:auto;color:var(--ink);font-weight:700;text-decoration:none}
-.site-link:hover{color:var(--red)}
+.site-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;align-self:flex-start;padding:.72rem 1rem;border-radius:999px;background:var(--red);border:1px solid var(--red);color:#fff;font-family:var(--sans);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;transition:background var(--ease),border-color var(--ease),transform var(--ease)}
+.site-link::after{content:"\2192";font-size:.9em;line-height:1}
+.site-link:hover{background:var(--red-mid);border-color:var(--red-mid);color:#fff;transform:translateY(-1px)}
 .hero-copy{display:grid;align-content:start;gap:1rem}
 .hero-side{display:grid;gap:1rem}
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .hero-side>.hero-quick-grid{display:none}
-.hero-quick-card{min-height:100%}
+.hero-quick-card{min-height:100%;display:flex;flex-direction:column}
+.hero-quick-card .card-body{flex:1}
 .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.dashboard-grid>.card{display:flex;flex-direction:column}
+.snapshot-list,.preview-list{flex:1}
 .snapshot-list,.preview-list{display:grid;gap:.75rem}
 .mini-row{padding:.78rem .84rem;background:rgba(255,255,255,.46);border:1px solid var(--border);border-radius:var(--r)}
 .mini-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.28rem}
@@ -141,22 +145,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="kicker">Welcome</div>
         <h1 class="title">A small town with a long memory.</h1>
         <p class="sub">This site is a front porch for the record. It gathers history, land, local knowledge, and the civic questions shaping Cardiff now. Begin with the weather, the news, or the pages that help explain the place.</p>
-        <div class="btn-row">
-          <a class="btn primary" href="cardiff-news.html">Read the news</a>
-          <a class="btn primary" href="cardiff-almanac.html">Check the weather</a>
-        </div>
         <div class="hero-quick-grid">
           <article class="card site-card hero-quick-card reveal">
             <div class="site-kicker">Daily rhythm</div>
             <h3 class="card-title">Check the weather and local rhythms.</h3>
             <p class="card-body">Open the almanac for live weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
-            <a class="site-link" href="cardiff-almanac.html">Open the almanac &rarr;</a>
+            <a class="site-link" href="cardiff-almanac.html">Open the almanac</a>
           </article>
           <article class="card site-card hero-quick-card reveal">
             <div class="site-kicker">Around us</div>
             <h3 class="card-title">Keep one eye on the wider area.</h3>
             <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
-            <a class="site-link" href="cardiff-news.html">Open the news page &rarr;</a>
+            <a class="site-link" href="cardiff-news.html">Open the news page</a>
           </article>
         </div>
       </div>
@@ -219,7 +219,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="snapshot-list" id="homeWatershed">
         <div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Brookside remains the first watch point for Cardiff.</div></div>
       </div>
-      <a class="site-link" href="cardiff-almanac.html">Open the almanac &rarr;</a>
+      <a class="site-link" href="cardiff-almanac.html">Open the almanac</a>
     </article>
     <article class="card reveal">
       <div class="site-kicker">Civic highlight</div>
@@ -228,7 +228,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="mini-row"><div class="mini-label">Current lane</div><div class="mini-value">Community site, not a municipal portal.</div><div class="mini-copy">Use Civic Pathway for the practical process basics, then come back here for the daily signal.</div></div>
         <div class="mini-row"><div class="mini-label">Why it matters</div><div class="mini-value">Good decisions need clear records.</div><div class="mini-copy">Minutes, notices, roads, flood issues, and access questions still affect daily life even when the site stays community-first.</div></div>
       </div>
-      <a class="site-link" href="cardiff-civic.html">Open Civic Pathway &rarr;</a>
+      <a class="site-link" href="cardiff-civic.html">Open Civic Pathway</a>
     </article>
   </section>
 
@@ -241,7 +241,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="mini-row"><div class="mini-label">Field guide</div><div class="mini-value">Wildlife, plants, fungi, birds, and creek signs.</div><div class="mini-copy">This lane is meant to feel useful on a walk, a drive, or a slow look at the water.</div></div>
         <div class="mini-row"><div class="mini-label">Next step</div><div class="mini-value">Observation feeds come next.</div><div class="mini-copy">The tracker is being shaped for iNaturalist, eBird, invasive watch, and local sightings.</div></div>
       </div>
-      <a class="site-link" href="cardiff-guide.html">Open the field guide &rarr;</a>
+      <a class="site-link" href="cardiff-guide.html">Open the field guide</a>
     </article>
     <article class="card site-card reveal">
       <div class="site-kicker">Hills &amp; Hollers</div>
@@ -250,7 +250,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="mini-row"><div class="mini-label">Now building</div><div class="mini-value">Porch jokes, riddles, asks, classifieds, and memory snippets.</div><div class="mini-copy">This page is becoming the most neighbor-to-neighbor part of the site.</div></div>
         <div class="mini-row"><div class="mini-label">Tone</div><div class="mini-value">Warm, local, and hand-kept.</div><div class="mini-copy">Useful enough for errands, light enough to feel like a front porch instead of a dashboard panel.</div></div>
       </div>
-      <a class="site-link" href="cardiff-hollers.html">Open Hills &amp; Hollers &rarr;</a>
+      <a class="site-link" href="cardiff-hollers.html">Open Hills &amp; Hollers</a>
     </article>
     <article class="card site-card reveal">
       <div class="site-kicker">Get involved</div>
@@ -259,12 +259,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="mini-row"><div class="mini-label">Report</div><div class="mini-value">Wildlife, water conditions, local notes, and community items.</div><div class="mini-copy">This site works best when people feed it real local signal.</div></div>
         <div class="mini-row"><div class="mini-label">Show up</div><div class="mini-value">Cleanup, records help, civic questions, and neighbor support.</div><div class="mini-copy">Not every contribution has to be formal to be useful.</div></div>
       </div>
-      <a class="site-link" href="cardiff-involved.html">Go to get involved &rarr;</a>
+      <a class="site-link" href="cardiff-involved.html">Get involved</a>
     </article>
   </section>
 
-  <div class="section-rule reveal"><h2>Start here</h2><hr></div>
-  <section class="grid-2">
+  <div class="section-rule reveal" hidden><h2>Start here</h2><hr></div>
+  <section class="grid-2" hidden>
     <article class="card site-card reveal">
       <div class="site-kicker">Context</div>
       <h3 class="card-title">Learn the place.</h3>
@@ -279,8 +279,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </article>
   </section>
 
-  <div class="section-rule reveal"><h2>Around the site</h2><hr></div>
-  <section class="grid-3">
+  <div class="section-rule reveal" hidden><h2>Around the site</h2><hr></div>
+  <section class="grid-3" hidden>
     <article class="card site-card reveal"><div class="site-kicker">Field Guide</div><h3 class="card-title">Plants, water, and ground truth.</h3><p class="card-body">Use the Field Guide to connect the built town to the landscape around it.</p><a class="site-link" href="cardiff-guide.html">Go to field guide →</a></article>
     <article class="card site-card reveal"><div class="site-kicker">Cemetery</div><h3 class="card-title">Read the older names.</h3><p class="card-body">The cemetery page gives the town a longer frame and keeps memory attached to place.</p><a class="site-link" href="cardiff-cemetery.html">Go to cemetery →</a></article>
     <article class="card site-card reveal"><div class="site-kicker">Hills &amp; Hollers</div><h3 class="card-title">Follow the shape of the land.</h3><p class="card-body">Terrain tells its own story. This section helps visitors understand the ridges, cuts, and movement through the area.</p><a class="site-link" href="cardiff-hollers.html">Go to hills &amp; hollers →</a></article>
@@ -302,7 +302,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <p>A quick note on how this site was built: I made it with the help of AI tools. If you have strong feelings about that, I understand, but I hope you will judge the site by what is in it.</p>
       <p>Please use the features here and contribute what you can. I will be making regular updates, and I am always open to ideas.</p>
       <div class="letter-signature">Respectfully,<span class="letter-signature-name">Joe Graham</span></div>
-      <div class="letter-actions">
+      <div class="letter-actions" hidden>
         <a class="btn primary" href="cardiff-civic.html">Open Civic Pathway</a>
         <a class="btn primary" href="cardiff-involved.html">Get involved</a>
       </div>
