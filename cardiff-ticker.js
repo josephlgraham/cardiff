@@ -45,14 +45,14 @@
       var baseSpeed = 32;
       var charRatio = message.length / 100;
       var speed = Math.max(20, Math.round(baseSpeed * charRatio));
-      stripText.style.animation = 'marquee ' + speed + 's linear infinite';
-      stripText.style.paddingLeft = '100%';
-      stripText.style.transform = '';
+      stripText.style.setProperty('animation', 'marquee ' + speed + 's linear infinite', 'important');
+      stripText.style.setProperty('padding-left', '100%', 'important');
+      stripText.style.setProperty('transform', '', 'important');
       return;
     }
-    stripText.style.animation = 'none';
-    stripText.style.paddingLeft = '0';
-    stripText.style.transform = 'none';
+    stripText.style.setProperty('animation', 'none', 'important');
+    stripText.style.setProperty('padding-left', '0', 'important');
+    stripText.style.setProperty('transform', 'none', 'important');
   }
 
   function loadTicker() {

@@ -964,14 +964,14 @@
     if (!stripText) return;
     if (shouldScroll) {
       const speed = Math.max(20, Math.round(32 * (message.length / 100)));
-      stripText.style.animation = "marquee " + speed + "s linear infinite";
-      stripText.style.paddingLeft = "100%";
-      stripText.style.transform = "";
+      stripText.style.setProperty("animation", "marquee " + speed + "s linear infinite", "important");
+      stripText.style.setProperty("padding-left", "100%", "important");
+      stripText.style.setProperty("transform", "", "important");
       return;
     }
-    stripText.style.animation = "none";
-    stripText.style.paddingLeft = "0";
-    stripText.style.transform = "none";
+    stripText.style.setProperty("animation", "none", "important");
+    stripText.style.setProperty("padding-left", "0", "important");
+    stripText.style.setProperty("transform", "none", "important");
   }
 
   async function loadTicker() {
