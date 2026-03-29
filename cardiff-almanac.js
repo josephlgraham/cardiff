@@ -1328,21 +1328,21 @@
   }
 
   function refreshWeatherEmojiLayer(wx, ground, pressure) {
-    setMultiEmojiText("wxTemp", [conditionIcon(wx.condition), "🌡️"], wx.temp + "°F");
-    setMultiEmojiText("wxHum", ["💧", "🌫️"], wx.humidity + "%");
-    setMultiEmojiText("wxWind", [windIcon(wx.windSpeed), "🌬"], Math.round(wx.windSpeed) + " mph");
-    setMultiEmojiText("wxRain", [ground.icon, "🌧"], ground.title);
-    setMultiEmojiText("wxPressure", [pressure.icon, "🧭"], Number.isFinite(wx.pressureIn) ? wx.pressureIn.toFixed(2) + '"' : "—");
-    setMultiEmojiText("wxUV", ["☀️", "🕶️"], Number.isFinite(wx.uv) ? String(Math.round(wx.uv)) : "—");
+    setEmojiText("wxTemp", conditionIcon(wx.condition), wx.temp + "°F");
+    setEmojiText("wxHum", "💧", wx.humidity + "%");
+    setEmojiText("wxWind", windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph");
+    setEmojiText("wxRain", ground.icon, ground.title);
+    setEmojiText("wxPressure", pressure.icon, Number.isFinite(wx.pressureIn) ? wx.pressureIn.toFixed(2) + '"' : "—");
+    setEmojiText("wxUV", "☀️", Number.isFinite(wx.uv) ? String(Math.round(wx.uv)) : "—");
 
     const labels = document.querySelectorAll("#wx-card .wx-lbl");
     if (labels.length >= 6) {
       labels[0].textContent = "🌡️ Temperature";
-      labels[1].textContent = "💧🌫️ Humidity";
-      labels[2].textContent = "🍃🌬 Wind";
-      labels[3].textContent = "🌧👣 Rain & Ground";
-      labels[4].textContent = "📏🧭 Pressure";
-      labels[5].textContent = "☀️🕶️ UV Index";
+      labels[1].textContent = "💧 Humidity";
+      labels[2].textContent = "🍃 Wind";
+      labels[3].textContent = "👣 Ground";
+      labels[4].textContent = "🧭 Pressure";
+      labels[5].textContent = "🕶️ UV Index";
     }
   }
 
@@ -1360,8 +1360,8 @@
   function refreshRainEmojiLayer(rain) {
     const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
     const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
-    setHTML("rainToday", multiEmojiText(["🌧", "📏"], formatInches(todayAmount)));
-    setHTML("rainMonth", multiEmojiText(["💧", "🗂️"], formatInches(monthAmount)));
+    setHTML("rainToday", emojiText("📏", formatInches(todayAmount)));
+    setHTML("rainMonth", emojiText("🗂️", formatInches(monthAmount)));
     setText("rainMonthLabel", (rain && rain.monthComplete) ? "🗓️ Rain this month" : "🗓️ Rain tracked");
     const labels = document.querySelectorAll("#wx-card .rain-label");
     if (labels.length >= 1) labels[0].textContent = "🌧 Today's rain";
