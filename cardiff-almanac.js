@@ -983,7 +983,7 @@
       const strip = document.querySelector(".announce-strip");
       if (stripText) {
         const message = (data.ticker || DEFAULT_TICKER).trim();
-        stripText.textContent = message;
+        stripText.textContent = data.hasAlerts ? message : "";
         setTickerMotion(stripText, !!data.hasAlerts, message);
       }
       if (strip) {
@@ -994,8 +994,8 @@
     } catch (error) {
       const stripText = document.querySelector(".announce-strip-text");
       if (stripText) {
-        stripText.textContent = DEFAULT_TICKER;
-        setTickerMotion(stripText, false, DEFAULT_TICKER);
+        stripText.textContent = "";
+        setTickerMotion(stripText, false, "");
       }
       buildAlertsActiveOnly([]);
     }

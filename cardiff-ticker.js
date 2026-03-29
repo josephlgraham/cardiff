@@ -65,7 +65,7 @@
         applyTicker(data);
       })
       .catch(function () {
-        applyTicker({ ticker: DEFAULT_MSG, alerts: [], hasAlerts: false });
+        applyTicker({ ticker: '', alerts: [], hasAlerts: false });
       });
   }
 
@@ -74,7 +74,7 @@
     var stripText = document.querySelector('.announce-strip-text');
     if (stripText) {
       var msg = (data.ticker || DEFAULT_MSG).trim();
-      stripText.textContent = msg;
+      stripText.textContent = data.hasAlerts ? msg : '';
       setTickerMotion(stripText, !!data.hasAlerts, msg);
     }
 

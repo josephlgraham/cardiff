@@ -275,7 +275,7 @@
         var stripText = document.querySelector('.announce-strip-text');
         if (stripText) {
           var msg = (data.ticker || DEFAULT_TICKER).trim();
-          stripText.textContent = msg;
+          stripText.textContent = data.hasAlerts ? msg : '';
           setTickerMotion(stripText, !!data.hasAlerts, msg);
         }
 
@@ -301,8 +301,8 @@
       .catch(function () {
         var stripText = document.querySelector('.announce-strip-text');
         if (stripText) {
-          stripText.textContent = DEFAULT_TICKER;
-          setTickerMotion(stripText, false, DEFAULT_TICKER);
+          stripText.textContent = '';
+          setTickerMotion(stripText, false, '');
         }
       });
   }
