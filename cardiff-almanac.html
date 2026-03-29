@@ -178,8 +178,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .alert-banner strong{color:var(--ink);}
 .alert-calm{padding:0.78rem 0.86rem;background:rgba(42,122,58,0.06);border:1px solid rgba(42,122,58,0.14);border-left:3px solid var(--green);border-radius:var(--r);font-size:0.78rem;line-height:1.62;color:var(--ink2);}
 .alert-calm strong{color:var(--ink);}
-.sky-grid{display:grid;gap:0.7rem;}
-.sky-note{padding:0.72rem 0.82rem;background:rgba(180,120,0,0.06);border:1px solid rgba(180,120,0,0.16);border-radius:var(--r);font-size:0.78rem;line-height:1.62;color:var(--ink2);}
+.sky-stack{display:grid;gap:0.6rem;}
+.sky-callout{padding:0.75rem 0.82rem;background:rgba(180,120,0,0.06);border:1px solid rgba(180,120,0,0.16);border-radius:var(--r);font-size:0.79rem;line-height:1.65;color:var(--ink2);}
+.sky-event{padding:0.72rem 0.8rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);display:grid;grid-template-columns:auto 1fr;gap:0.6rem;align-items:flex-start;}
+.sky-event-icon{font-size:1.1rem;line-height:1;margin-top:0.06rem;}
+.sky-event-title{font-size:0.82rem;font-weight:700;color:var(--ink);}
+.sky-event-note{font-size:0.74rem;line-height:1.58;color:var(--ink3);margin-top:0.16rem;}
 .week-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem;}
 .week-item{padding:0.72rem 0.78rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);text-align:center;display:grid;gap:0.25rem;}
 .week-item-icon{font-size:1.2rem;line-height:1;}
@@ -414,10 +418,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-  <div class="alm-card">
-    <div class="card-head"><div><div class="card-kicker">At a Glance</div><div class="card-title">Cardiff Right Now</div></div></div>
-    <div class="card-body" id="sideSnap">—</div>
-  </div>
   <div class="alm-card" id="alerts-card" style="display:none;">
     <div class="card-head"><div><div class="card-kicker">Weather Desk</div><div class="card-title">Hydrologic Alerts</div></div></div>
     <div class="card-body" id="alertsBody">
@@ -433,10 +433,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </div>
   <div class="alm-card" id="sky-card">
-    <div class="card-head"><div><div class="card-kicker">After Dark</div><div class="card-title">Night Sky</div></div></div>
+    <div class="card-head"><div><div class="card-kicker">Celestial Happenings</div><div class="card-title">Sky Almanac</div></div><div class="card-tag" id="skyWatchTag">—</div></div>
     <div class="card-body">
-      <div class="sky-grid" id="skyBody">
-        <div class="side-item"><div class="side-icon">✨</div><div><div class="side-val">Loading night sky read</div><div class="side-sub">Moonlight, sunset, and best-look notes are settling in.</div></div></div>
+      <div class="sky-stack" id="skyWatchBody">
+        <div class="sky-callout">Loading the sky desk. Seasonal patterns, meteor timing, and planet-lane notes are settling in.</div>
       </div>
     </div>
   </div>

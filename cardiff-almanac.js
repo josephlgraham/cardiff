@@ -5,6 +5,7 @@
   const LON = -86.870;
   const WX_URL = "cardiff-weather.json";
   const WATERSHED_URL = "cardiff-watershed.json";
+  const SKY_WATCH_URL = "cardiff-skywatch.json";
   const TICKER_URL = "ticker.json";
   const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
   const TICKER_REFRESH_MS = 5 * 60 * 1000;
@@ -189,6 +190,114 @@
     { kicker: "Season Marker", title: "Dogwoods are a clock", body: "People have long used bloom timing as a rough local calendar because plants respond to accumulated warmth, not just the date on paper." },
     { kicker: "Fishing Note", title: "Stable weather usually helps", body: "A few settled days often make creek fish more predictable than a sharp front swinging through overnight." }
   ];
+  const FALLBACK_SKY_GUIDE = {
+    0: {
+      tag: "Winter sky",
+      opening: "Long dark evenings still favor the big winter patterns. This is the time to learn bright anchor stars by shape, not by app.",
+      pattern: { icon: "🔺", title: "Winter Triangle", note: "Sirius, Procyon, and Betelgeuse make a giant bright triangle across the evening sky." },
+      planet: { icon: "🪐", title: "Planet alignment lane", note: "The planets stay on the sun's path through the sky, so any bright lineup will trace that same zodiac lane." },
+      calendar: { icon: "❄️", title: "Deep-night season", note: "Cold clear nights often give the sharpest star views of the year if haze stays off the bottoms." },
+      special: { icon: "✨", title: "Best naked-eye lesson", note: "Use the Winter Triangle first, then branch outward into Orion and the brighter winter stars around it." }
+    },
+    1: {
+      tag: "Late winter",
+      opening: "Winter stars still own the early evening, but the season is already pivoting. This is a handoff month in the sky.",
+      pattern: { icon: "🔺", title: "Winter Triangle holding strong", note: "The triangle is still easy after dark, especially with Sirius blazing low in the south." },
+      planet: { icon: "🪐", title: "Western dusk watch", note: "Any bright evening planet will sit low on the sunset side now, riding the same path the sun just took." },
+      calendar: { icon: "🌒", title: "Moon-and-star contrast", note: "Waxing-crescent evenings are especially good for pairing moonlight with bright stars and planets." },
+      special: { icon: "📍", title: "Good porch pointer month", note: "February is one of the friendliest months for teaching somebody three or four bright stars without overwhelming them." }
+    },
+    2: {
+      tag: "Spring turnover",
+      opening: "This is the month when the winter sky starts sliding west and the spring stars take over the open eastern sky.",
+      pattern: { icon: "🔺", title: "Winter Triangle fading west", note: "Look soon after dark; by late evening it is already giving ground to spring patterns." },
+      planet: { icon: "🪐", title: "Steeper planet lane", note: "Around the spring equinox the ecliptic stands taller after sunset, so planet pairings separate from the horizon more cleanly." },
+      calendar: { icon: "🌱", title: "Equinox sky shift", note: "The March equinox changes which constellations dominate the evening and how fast twilight gives way to stars." },
+      special: { icon: "⚖️", title: "Equinox effect", note: "March is when the evening sky starts feeling taller and cleaner, which helps any bright-planet alignment pull away from the sunset glow." }
+    },
+    3: {
+      tag: "Spring sky",
+      opening: "Spring rewards patience more than fireworks. The bright patterns are cleaner, farther apart, and easier to trace for beginners.",
+      pattern: { icon: "🔻", title: "Spring Triangle watch", note: "Arcturus, Spica, and Regulus start to define the season once the winter figures sink away." },
+      planet: { icon: "🪐", title: "High ecliptic evenings", note: "Spring is one of the friendlier seasons for spotting bright planets after sunset because the zodiac lane climbs higher." },
+      calendar: { icon: "☄️", title: "Lyrid lead-up", note: "Late April brings the Lyrids, so this is when the meteor desk wakes back up." },
+      special: { icon: "🔭", title: "Planet-pair month", note: "If bright planets crowd the evening sky at all, April is one of the cleaner months for reading their spacing by eye." }
+    },
+    4: {
+      tag: "Late spring",
+      opening: "Warmer nights bring shorter dark windows, so the trick is to know what you want to catch before full night arrives.",
+      pattern: { icon: "🔻", title: "Spring Triangle overhead", note: "Arcturus and Spica help you read the whole season once they stand high after dusk." },
+      planet: { icon: "🪐", title: "Twilight planet hunting", note: "Bright planets can linger in the last blue light this time of year, so start looking before the sky goes fully black." },
+      calendar: { icon: "🌌", title: "Milky Way season warming up", note: "The richer summer star fields are starting to push up later in the night." },
+      special: { icon: "🌆", title: "Twilight timing matters", note: "May rewards earlier sky-watching. A lot of the best planetary color and crescent-moon pairing happens before full dark." }
+    },
+    5: {
+      tag: "Summer opening",
+      opening: "The sky begins shifting from neat spring geometry to richer, busier summer star fields and later-night Milky Way country.",
+      pattern: { icon: "🔺", title: "Summer Triangle rising", note: "Vega, Deneb, and Altair begin taking over once the sky gets properly dark." },
+      planet: { icon: "🪐", title: "Low-bright planet watch", note: "Summer dusk can hide low planets in haze, so the cleanest views usually come after a dry front." },
+      calendar: { icon: "☀️", title: "Solstice light swing", note: "Near the June solstice, darkness comes late and leaves early, so timing matters more than usual." },
+      special: { icon: "🕘", title: "Late-start season", note: "June asks for patience. The best sky usually waits until later than your body wants to stay up on a work night." }
+    },
+    6: {
+      tag: "High summer",
+      opening: "This is the broadest, richest sky stretch of the year, with the Summer Triangle and Milky Way doing most of the work.",
+      pattern: { icon: "🔺", title: "Summer Triangle prime time", note: "Vega, Deneb, and Altair become the easiest big-shape lesson in the whole sky." },
+      planet: { icon: "🪐", title: "Southern planet lane", note: "Any bright planet near opposition tends to look best this time of year when it climbs higher before midnight." },
+      calendar: { icon: "🌌", title: "Milky Way window", note: "Truly dark summer nights are when the dense star river is easiest to explain to somebody standing beside you." },
+      special: { icon: "🫧", title: "Haze check", note: "July skies can look promising and still turn syrupy near the horizon. Dry air makes all the difference for planets and low objects." }
+    },
+    7: {
+      tag: "Meteor month",
+      opening: "August is less about one shape and more about staying out long enough for the sky to put on a show.",
+      pattern: { icon: "🔺", title: "Summer Triangle still leading", note: "Use Vega first, then walk the triangle out to Deneb and Altair." },
+      planet: { icon: "🪐", title: "Warm-night planet watch", note: "Good transparency matters now because humidity near the horizon can swallow low bright objects." },
+      calendar: { icon: "☄️", title: "Perseid season", note: "Mid-August is the annual reminder that meteor watching rewards patience more than equipment." },
+      special: { icon: "🌠", title: "Prime backyard spectacle", note: "August is when a plain lawn chair and a long look up can beat almost any telescope plan." }
+    },
+    8: {
+      tag: "Early fall",
+      opening: "The sky begins turning from summer richness toward cleaner autumn geometry, especially once the evening air starts drying out.",
+      pattern: { icon: "⬜", title: "Great Square on deck", note: "Pegasus begins to take shape in the east while the Summer Triangle still hangs on overhead." },
+      planet: { icon: "🪐", title: "Evening ecliptic flattening", note: "The sunset planet lane starts lying lower again, which can make horizon clutter matter more." },
+      calendar: { icon: "🍂", title: "Equinox approach", note: "The September equinox shifts the balance of daylight fast and helps autumn constellations take the evening stage." },
+      special: { icon: "🧭", title: "Cleaner horizon month", note: "September is often a better month than people expect for western-horizon planet watching because the air can finally settle down." }
+    },
+    9: {
+      tag: "Autumn sky",
+      opening: "Autumn evenings are cleaner and more architectural. The sky trades spectacle for structure, which makes it easy to teach.",
+      pattern: { icon: "⬜", title: "Great Square of Pegasus", note: "A big square standing high is one of the easiest fall landmarks to point out to anybody." },
+      planet: { icon: "🪐", title: "Planet pairings near the horizon", note: "Autumn can bunch evening planets lower, so a clean western horizon matters more than ever." },
+      calendar: { icon: "☄️", title: "Orionid season", note: "Late October is one of the first reminders that meteor watching is back in earnest." },
+      special: { icon: "🟦", title: "Geometry season", note: "October skies are excellent for teaching big clean shapes because the humidity drops and the constellations feel more spaced out." }
+    },
+    10: {
+      tag: "Late fall",
+      opening: "The sharpest nights of the year start showing up now, and the winter stars begin reclaiming the eastern sky.",
+      pattern: { icon: "⬜", title: "Pegasus to winter handoff", note: "The Great Square still rules overhead while Orion starts climbing into the picture." },
+      planet: { icon: "🪐", title: "Long-night planet watch", note: "With darkness arriving earlier, bright planets earn much more evening time if they are favorably placed." },
+      calendar: { icon: "🦁", title: "Leonid window", note: "November's Leonids are not always loud, but they keep the meteor desk worth checking." },
+      special: { icon: "⏰", title: "Early-dark bonus", note: "November is great for sky plans because you can get real observing time without staying up half the night." }
+    },
+    11: {
+      tag: "Winter return",
+      opening: "December is when the sky gets dramatic again. Big bright stars return, darkness comes early, and the winter figures feel close.",
+      pattern: { icon: "🔺", title: "Winter Triangle returning", note: "By the end of the month the triangle is back in force and easy to use as a sky lesson." },
+      planet: { icon: "🪐", title: "Cold-clear planet lane", note: "Winter transparency often gives the crispest naked-eye planet views when the air settles down." },
+      calendar: { icon: "❄️", title: "Solstice darkness", note: "The longest nights of the year give you the biggest possible observing window." },
+      special: { icon: "🎄", title: "Holiday sky payoff", note: "December is the easiest month to step outside for fifteen minutes and still feel like the sky gave you a full show." }
+    }
+  };
+  const METEOR_SHOWERS = [
+    { name: "Quadrantids", month: 0, day: 3, note: "A short, sharp peak that rewards a cold pre-dawn watch." },
+    { name: "Lyrids", month: 3, day: 22, note: "One of spring's dependable meteor checks when the sky stays dark enough." },
+    { name: "Eta Aquariids", month: 4, day: 5, note: "Best before dawn, with fast meteors and a low radiant from our latitude." },
+    { name: "Perseids", month: 7, day: 12, note: "The annual crowd favorite, best after midnight and before the first hint of dawn." },
+    { name: "Orionids", month: 9, day: 21, note: "A strong fall shower tied to Halley's Comet, often best in the late-night hours." },
+    { name: "Leonids", month: 10, day: 17, note: "Usually modest now, but still one of the named fall events worth a look." },
+    { name: "Geminids", month: 11, day: 13, note: "Often the steadiest rich shower of the whole year if the moon cooperates." }
+  ];
+  let skyGuide = JSON.parse(JSON.stringify(FALLBACK_SKY_GUIDE));
   let watershedLeadGauge = null;
   let watershedChartRange = 7;
 
@@ -623,19 +732,106 @@
     )).join(""));
   }
 
+  function nextMeteorShower(date) {
+    const year = date.getFullYear();
+    const candidates = METEOR_SHOWERS.map((shower) => {
+      const peak = new Date(year, shower.month, shower.day, 2, 0, 0);
+      const nextPeak = peak < date ? new Date(year + 1, shower.month, shower.day, 2, 0, 0) : peak;
+      return {
+        ...shower,
+        peak: nextPeak
+      };
+    }).sort((a, b) => a.peak - b.peak);
+    return candidates[0];
+  }
+
+  function normalizeSkyEntry(entry, fallback) {
+    const safe = entry && typeof entry === "object" ? entry : {};
+    const base = fallback && typeof fallback === "object" ? fallback : FALLBACK_SKY_GUIDE[0];
+    const clean = {
+      tag: safe.tag || base.tag,
+      opening: safe.opening || base.opening,
+      pattern: {
+        icon: safe.pattern && safe.pattern.icon ? safe.pattern.icon : base.pattern.icon,
+        title: safe.pattern && safe.pattern.title ? safe.pattern.title : base.pattern.title,
+        note: safe.pattern && safe.pattern.note ? safe.pattern.note : base.pattern.note
+      },
+      planet: {
+        icon: safe.planet && safe.planet.icon ? safe.planet.icon : base.planet.icon,
+        title: safe.planet && safe.planet.title ? safe.planet.title : base.planet.title,
+        note: safe.planet && safe.planet.note ? safe.planet.note : base.planet.note
+      },
+      calendar: {
+        icon: safe.calendar && safe.calendar.icon ? safe.calendar.icon : base.calendar.icon,
+        title: safe.calendar && safe.calendar.title ? safe.calendar.title : base.calendar.title,
+        note: safe.calendar && safe.calendar.note ? safe.calendar.note : base.calendar.note
+      }
+    };
+    const specialSource = safe.special && typeof safe.special === "object" ? safe.special : (base.special || null);
+    if (specialSource) {
+      clean.special = {
+        icon: specialSource.icon || "✨",
+        title: specialSource.title || "Sky note",
+        note: specialSource.note || ""
+      };
+    }
+    return clean;
+  }
+
+  function mergeSkyGuide(payload) {
+    const source = payload && typeof payload === "object" ? (payload.months || payload) : {};
+    const merged = {};
+    for (let month = 0; month < 12; month += 1) {
+      merged[month] = normalizeSkyEntry(source[month], FALLBACK_SKY_GUIDE[month]);
+    }
+    return merged;
+  }
+
+  async function loadSkyGuide() {
+    try {
+      const response = await fetch(SKY_WATCH_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("skywatch");
+      const data = await response.json();
+      skyGuide = mergeSkyGuide(data);
+    } catch (error) {
+      skyGuide = JSON.parse(JSON.stringify(FALLBACK_SKY_GUIDE));
+    }
+    const now = new Date();
+    buildSky(now, getSunTimes(now), getMoonPhase(now));
+  }
+
+  function skyMoonNote(moon) {
+    if (moon.name === "Full Moon") {
+      return "Bright moonlight will wash out the fainter star fields, so lean into the moon itself and the brightest planets or stars.";
+    }
+    if (moon.name === "New Moon") {
+      return "Dark-sky window. This is when the faint stuff earns a better chance if haze and porch lights stay polite.";
+    }
+    return "Moderate moonlight tonight. Bright patterns still read well, but the faintest stars will have to fight for it.";
+  }
+
   function buildSky(date, sun, moon) {
-    const tonightNote = moon.name === "Full Moon"
-      ? "Bright moonlight is the star tonight. Great for moonrise, less great for deep-sky peeking."
-      : moon.name === "New Moon"
-        ? "This is your best darker-sky window. Stars get first billing when porch lights behave."
-        : "Moderate moonlight should keep the sky readable without washing out every star.";
-    const bestLook = moon.name === "New Moon"
-      ? "Best stargazing window"
-      : (moon.name === "Full Moon" ? "Best moon-viewing window" : "Best first look");
-    setHTML("skyBody",
-      '<div class="side-item"><div class="side-icon">🌇</div><div><div class="side-val">Sunset</div><div class="side-sub">' + formatClock(sun.set) + ' local time</div></div></div>' +
-      '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">' + tonightNote + "</div></div></div>" +
-      '<div class="sky-note"><strong>' + bestLook + ':</strong> The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div>'
+    const guide = skyGuide[date.getMonth()] || FALLBACK_SKY_GUIDE[0];
+    const meteor = nextMeteorShower(date);
+    const daysUntilMeteor = Math.ceil((meteor.peak - date) / 86400000);
+    const meteorLabel = daysUntilMeteor <= 3
+      ? meteor.name + " peak"
+      : (daysUntilMeteor <= 14 ? meteor.name + " soon" : "Next named shower");
+    const meteorNote = daysUntilMeteor <= 3
+      ? meteor.note
+      : (daysUntilMeteor <= 14
+        ? meteor.name + " peaks around " + meteor.peak.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ". " + meteor.note
+        : meteor.name + " is the next major stop on the meteor calendar, peaking around " + meteor.peak.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ".");
+    const moonlightLabel = moon.name === "New Moon" ? "Dark-sky advantage" : (moon.name === "Full Moon" ? "Moonlight-heavy night" : "Moonlight factor");
+    setText("skyWatchTag", guide.tag);
+    setHTML("skyWatchBody",
+      '<div class="sky-callout">' + guide.opening + "</div>" +
+      '<div class="sky-event"><div class="sky-event-icon">' + guide.pattern.icon + '</div><div><div class="sky-event-title">' + guide.pattern.title + '</div><div class="sky-event-note">' + guide.pattern.note + "</div></div></div>" +
+      '<div class="sky-event"><div class="sky-event-icon">' + guide.planet.icon + '</div><div><div class="sky-event-title">' + guide.planet.title + '</div><div class="sky-event-note">' + guide.planet.note + "</div></div></div>" +
+      '<div class="sky-event"><div class="sky-event-icon">☄️</div><div><div class="sky-event-title">' + meteorLabel + '</div><div class="sky-event-note">' + meteorNote + "</div></div></div>" +
+      '<div class="sky-event"><div class="sky-event-icon">' + moon.icon + '</div><div><div class="sky-event-title">' + moonlightLabel + '</div><div class="sky-event-note">' + skyMoonNote(moon) + ' Sunset is around ' + formatClock(sun.set) + " local time.</div></div></div>" +
+      (guide.special ? '<div class="sky-event"><div class="sky-event-icon">' + guide.special.icon + '</div><div><div class="sky-event-title">' + guide.special.title + '</div><div class="sky-event-note">' + guide.special.note + "</div></div></div>" : "") +
+      '<div class="sky-event"><div class="sky-event-icon">' + guide.calendar.icon + '</div><div><div class="sky-event-title">' + guide.calendar.title + '</div><div class="sky-event-note">' + guide.calendar.note + "</div></div></div>"
     );
   }
 
@@ -1284,6 +1480,7 @@
 
   function boot() {
     buildStaticSections();
+    loadSkyGuide();
     initTopo();
     setupWatershedRangeControls();
     loadTicker();
