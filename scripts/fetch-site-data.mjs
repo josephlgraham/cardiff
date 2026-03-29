@@ -18,6 +18,7 @@ const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
 const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=33.640&longitude=-86.870&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
 const CARDIFF_CENSUS_URL = 'https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E,B01002_001E,B19013_001E,B19301_001E,B25003_001E,B25003_002E,B25003_003E&for=place:12040&in=state:01';
+const CARDIFF_CENSUS_MEDIAN_INCOME_FALLBACK_URL = 'https://api.census.gov/data/2019/acs/acs5?get=NAME,B19013_001E&for=place:12040&in=state:01';
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
 const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
@@ -871,9 +872,11 @@ function communitySummary(snapshot) {
   const age = Number.isFinite(snapshot.medianAge) ? `median age about ${snapshot.medianAge}` : 'median age still parsing';
   const income = Number.isFinite(snapshot.medianHouseholdIncome)
     ? `median household income about $${Math.round(snapshot.medianHouseholdIncome).toLocaleString('en-US')}`
-    : (Number.isFinite(snapshot.perCapitaIncome)
-        ? `median household income is suppressed in the current ACS place file, but per-capita income is about $${Math.round(snapshot.perCapitaIncome).toLocaleString('en-US')}`
-        : 'income still parsing');
+    : (Number.isFinite(snapshot.medianHouseholdIncomeLatestAvailable)
+        ? `last non-suppressed median household income estimate was about $${Math.round(snapshot.medianHouseholdIncomeLatestAvailable).toLocaleString('en-US')} from the ACS ${snapshot.medianHouseholdIncomeLatestAvailableYear} 5-year release`
+        : (Number.isFinite(snapshot.perCapitaIncome)
+            ? `median household income is suppressed in the current ACS place file, but per-capita income is about $${Math.round(snapshot.perCapitaIncome).toLocaleString('en-US')}`
+            : 'income still parsing'));
   return `ACS estimates suggest Cardiff is a very small town by scale, with about ${Math.round(snapshot.population).toLocaleString('en-US')} residents, ${age}, ${income}, and housing that looks roughly ${ownerShare} and ${renterShare}.`;
 }
 
@@ -886,10 +889,15 @@ async function updateCommunitySnapshotFile() {
   const headers = rows[0];
   const values = rows[1];
   const record = Object.fromEntries(headers.map((key, index) => [key, values[index]]));
+  const fallbackRows = await fetchJson(CARDIFF_CENSUS_MEDIAN_INCOME_FALLBACK_URL, { cache: 'no-store' });
+  const fallbackHeaders = Array.isArray(fallbackRows) && Array.isArray(fallbackRows[0]) ? fallbackRows[0] : [];
+  const fallbackValues = Array.isArray(fallbackRows) && Array.isArray(fallbackRows[1]) ? fallbackRows[1] : [];
+  const fallbackRecord = Object.fromEntries(fallbackHeaders.map((key, index) => [key, fallbackValues[index]]));
 
   const population = censusNumber(record.B01003_001E);
   const medianAge = roundValue(record.B01002_001E, 1);
   const medianHouseholdIncome = censusNumber(record.B19013_001E);
+  const medianHouseholdIncomeLatestAvailable = censusNumber(fallbackRecord.B19013_001E);
   const perCapitaIncome = censusNumber(record.B19301_001E);
   const occupiedHousingUnits = censusNumber(record.B25003_001E);
   const ownerOccupied = censusNumber(record.B25003_002E);
@@ -901,6 +909,8 @@ async function updateCommunitySnapshotFile() {
     population,
     medianAge,
     medianHouseholdIncome,
+    medianHouseholdIncomeLatestAvailable,
+    medianHouseholdIncomeLatestAvailableYear: medianHouseholdIncomeLatestAvailable ? 2019 : null,
     perCapitaIncome,
     occupiedHousingUnits,
     ownerOccupied,

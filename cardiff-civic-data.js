@@ -53,15 +53,23 @@
     const ownerShare = formatPercent(snapshot.ownerOccupiedSharePct);
     const renterShare = formatPercent(snapshot.renterOccupiedSharePct);
     const medianIncome = finiteNumber(snapshot.medianHouseholdIncome);
+    const medianIncomeLatestAvailable = finiteNumber(snapshot.medianHouseholdIncomeLatestAvailable);
+    const medianIncomeLatestYear = finiteNumber(snapshot.medianHouseholdIncomeLatestAvailableYear);
     const perCapitaIncome = finiteNumber(snapshot.perCapitaIncome);
+    const incomeValue = medianIncome === null ? formatMoney(medianIncomeLatestAvailable) : formatMoney(medianIncome);
+    const incomeCopy = medianIncome === null
+      ? "The 2023 ACS place-level median is suppressed for Cardiff, so this card shows the last non-suppressed official place estimate from " + (medianIncomeLatestYear || 2019) + "."
+      : "Helpful for scale only. This is a census estimate, not a live payroll report.";
+
     tag.textContent = "🏛️ ACS 2023 5-year";
     grid.innerHTML = [
       statCard("👥 Population", formatWhole(snapshot.population), "A rough count of how many people this little town is carrying in the current ACS snapshot."),
       statCard("🕰️ Median age", formatOneDecimal(snapshot.medianAge), "A useful clue about the life stage mix shaping schools, services, and civic rhythm."),
-      statCard("💵 Median income", formatMoney(snapshot.medianHouseholdIncome), "Helpful for scale only. This is a census estimate, not a live payroll report."),
+      statCard("💵 Median income", incomeValue, incomeCopy),
       statCard("🏠 Housing mix", ownerShare === "—" ? "—" : ownerShare + " owner", renterShare === "—" ? "Occupied-home share is still settling out of the census file." : renterShare + " renter among occupied homes.")
     ].join("");
-    if (medianIncome === null) {
+
+    if (medianIncome === null && medianIncomeLatestAvailable === null) {
       const incomeCard = grid.children[2];
       if (incomeCard) {
         const label = incomeCard.querySelector(".civic-snapshot-label");
@@ -69,9 +77,10 @@
         const copy = incomeCard.querySelector(".civic-snapshot-copy");
         if (label) label.textContent = "💵 Income read";
         if (value) value.textContent = perCapitaIncome === null ? "—" : "$" + Math.round(perCapitaIncome).toLocaleString("en-US");
-        if (copy) copy.textContent = "The official ACS 2023 place-level median-household-income field is suppressed for Cardiff, so this card falls back to per-capita income to keep the label honest.";
+        if (copy) copy.textContent = "The official ACS median-household-income field is suppressed for Cardiff, so this card falls back to per-capita income to keep the label honest.";
       }
     }
+
     note.textContent = ((data.summary || "").trim() ? data.summary.trim() + " " : "") + "These numbers lag real time, but they still help us talk about Cardiff as it is: small in scale, real in responsibility, and worth understanding clearly.";
     card.style.display = "";
   }

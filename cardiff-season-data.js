@@ -85,6 +85,23 @@
       summary: "Flowering, ribbons, bonfires, and spring-fire customs in older European calendars lived near this turning. Not a local legal holiday, just part of the longer seasonal inheritance."
     },
     {
+      id: "easter-season",
+      title: "Easter season",
+      category: "Christian calendar",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 3,
+      startDay: 29,
+      endMonth: 4,
+      endDay: 12,
+      windowLabel: "Late Mar - early Apr",
+      calendarLabel: "Moves each spring",
+      seasonTag: "calendar",
+      activeTag: "watch for",
+      upcomingTag: "watch for",
+      summary: "Christian spring observance gathered around older rebirth-season symbols, dawn worship, flowers, and egg imagery that long predate modern church calendars. The exact date moves year to year."
+    },
+    {
       id: "last-spring-frost",
       title: "Last spring frost",
       category: "Garden",
@@ -298,6 +315,23 @@
       activeTag: "watch for",
       upcomingTag: "later on",
       summary: "Old end-of-harvest and turning-to-winter customs gathered around this edge of the year long before modern porch decorations got there first."
+    },
+    {
+      id: "christmas-tide",
+      title: "Christmas tide",
+      category: "Christian calendar",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 12,
+      startDay: 24,
+      endMonth: 1,
+      endDay: 6,
+      windowLabel: "Dec 24 - Jan 6",
+      calendarLabel: "Dec 24 - Jan 6",
+      seasonTag: "calendar",
+      activeTag: "on now",
+      upcomingTag: "later on",
+      summary: "Christian Christmas observance landed on a season already full of fire, evergreen, feast, and return-of-light customs. The church calendar came later than the winter turning it settled onto."
     },
     {
       id: "squirrel-season",
@@ -545,8 +579,40 @@
       const monthEnd = new Date(start.getFullYear(), start.getMonth() + index + 1, 0, 12, 0, 0, 0);
       const items = SEASON_ENTRIES
         .map((entry) => resolveEntry(entry, monthStart))
-        .filter((entry) => entry.end >= monthStart && entry.start <= monthEnd)
-        .sort((a, b) => a.start - b.start);
+        .flatMap((entry) => {
+          if (entry.end < monthStart || entry.start > monthEnd) return [];
+          if (entry.kind !== "range") return [entry];
+
+          const startInMonth = entry.start >= monthStart && entry.start <= monthEnd;
+          const endInMonth = entry.end >= monthStart && entry.end <= monthEnd;
+          if (startInMonth && endInMonth) return [entry];
+
+          const markers = [];
+          if (startInMonth) {
+            markers.push({
+              ...entry,
+              title: entry.title + " begins",
+              dateLabel: formatMonthDay(entry.start),
+              longDateLabel: formatFullDate(entry.start),
+              summary: entry.summary
+            });
+          }
+          if (endInMonth) {
+            markers.push({
+              ...entry,
+              title: entry.title + " ends",
+              dateLabel: formatMonthDay(entry.end),
+              longDateLabel: formatFullDate(entry.end),
+              summary: entry.summary
+            });
+          }
+          return markers;
+        })
+        .sort((a, b) => {
+          const aDate = a.kind === "range" && / ends$/.test(a.title) ? a.end : a.start;
+          const bDate = b.kind === "range" && / ends$/.test(b.title) ? b.end : b.start;
+          return aDate - bDate;
+        });
       months.push({
         key: `${monthStart.getFullYear()}-${monthStart.getMonth() + 1}`,
         label: monthStart.toLocaleDateString("en-US", { month: "long", year: "numeric" }),
