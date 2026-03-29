@@ -503,6 +503,10 @@ body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;back
   </div>
 </div>
 
+<div style="max-width:660px;margin:1rem auto 0;padding:0 1rem 2rem;position:relative;z-index:2;">
+  <div data-cardiff-widget="reactions" data-page="field-guide"></div>
+</div>
+
 <script>
 // ── RARITY ───────────────────────────────────────────────
 const RARITY={
@@ -2811,6 +2815,7 @@ loadWeather(function(wx){
 });
 setInterval(()=>loadWeather(),5*60*1000);
 </script>
+<script src="cardiff-community.js"></script>
 <script src="cardiff-common.js"></script>
 </body>
 </html>

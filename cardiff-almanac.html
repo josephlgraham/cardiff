@@ -203,11 +203,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hs-top{display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;}
 .hs-name{font-size:0.84rem;font-weight:700;color:var(--ink);}
 .hs-dates{font-family:var(--mono);font-size:0.6rem;color:var(--ink3);}
+.hs-category{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);margin-top:0.18rem;}
 .hs-open{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:100px;background:rgba(42,122,58,0.12);color:var(--green);border:1px solid rgba(42,122,58,0.25);white-space:nowrap;}
 .hs-closed{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:100px;background:rgba(80,44,8,0.06);color:var(--ink3);border:1px solid var(--border);white-space:nowrap;}
 .hunt-summary{padding:0.72rem 0.82rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);margin-bottom:0.75rem;}
 .hunt-summary strong{color:var(--ink);}
 .hunt-meta{font-size:0.74rem;line-height:1.55;color:var(--ink3);margin-top:0.18rem;}
+.hunt-expand{margin-top:0.8rem;width:100%;padding:0.72rem 0.9rem;border-radius:var(--r);border:1px solid var(--border2);background:var(--paper);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);cursor:pointer;transition:border-color var(--ease),color var(--ease),background var(--ease);}
+.hunt-expand:hover{border-color:var(--amber);color:var(--amber);background:#fff;}
 
 /* CTA */
 .cta-band{background:var(--ink);border-radius:var(--r-lg);padding:2rem;text-align:center;position:relative;overflow:hidden;margin:0 2rem 3rem;max-width:940px;}
@@ -270,7 +273,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <a href="#plant-card" class="today-pill"><span class="pill-icon">🌱</span><div><div class="pill-text">Planting</div><div class="pill-sub" id="pillPlant">—</div></div></a>
     <a href="#moon-card" class="today-pill"><span class="pill-icon" id="pillMoonIcon">🌙</span><div><div class="pill-text">Moon</div><div class="pill-sub" id="pillMoon">—</div></div></a>
     <a href="#nature-card" class="today-pill"><span class="pill-icon">🍃</span><div><div class="pill-text">Nature</div><div class="pill-sub" id="pillNature">—</div></div></a>
-    <a href="#hunt-card" class="today-pill"><span class="pill-icon" id="pillHuntIcon">🦌</span><div><div class="pill-text">Hunting</div><div class="pill-sub" id="pillHunt">—</div></div></a>
+    <a href="#hunt-card" class="today-pill"><span class="pill-icon" id="pillHuntIcon">🦌</span><div><div class="pill-text">Season Windows</div><div class="pill-sub" id="pillHunt">—</div></div></a>
   </div>
 </div>
 <!-- DATE HERO — three infoboxes on topo background -->
@@ -440,6 +443,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </div>
   </div>
+  <div class="alm-card" id="air-card" style="display:none;">
+    <div class="card-head"><div><div class="card-kicker">Open-Meteo Snapshot</div><div class="card-title">Air & Haze</div></div><div class="card-tag" id="airUpdated">Air desk</div></div>
+    <div class="card-body" id="airBody">
+      <div class="report-stack">
+        <div class="report-row"><div class="report-label">Air desk</div><div class="report-value">Waiting on the air-quality file.</div></div>
+      </div>
+    </div>
+  </div>
   <div class="alm-card" id="hunt-card">
     <div class="card-head"><div><div class="card-kicker">Cardiff · Woods, Fields, and Garden</div><div class="card-title">Season Windows</div></div></div>
     <div class="card-body" id="huntBody">—</div>
@@ -448,6 +459,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <div class="card-head"><div><div class="card-kicker">7-Day Outlook</div><div class="card-title">Peek at Next Week</div></div></div>
     <div class="card-body" id="weekBody"><div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Loading forecast…</div></div>
   </div>
+  <div data-cardiff-widget="reactions" data-page="almanac" class="reveal"></div>
 </div><!-- /sidebar -->
 </div><!-- /grid -->
 
@@ -467,6 +479,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 </div><!-- /page -->
 
+<script src="cardiff-season-data.js"></script>
+<script src="cardiff-community.js"></script>
 <script src="cardiff-almanac.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   const LAT = 33.640;
   const LON = -86.870;
   const WX_URL = "cardiff-weather.json";
+  const AIR_QUALITY_URL = "cardiff-air-quality.json";
   const WATERSHED_URL = "cardiff-watershed.json";
   const SKY_WATCH_URL = "cardiff-skywatch.json";
   const TICKER_URL = "ticker.json";
@@ -298,8 +299,11 @@
     { name: "Geminids", month: 11, day: 13, note: "Often the steadiest rich shower of the whole year if the moon cooperates." }
   ];
   let skyGuide = JSON.parse(JSON.stringify(FALLBACK_SKY_GUIDE));
+  let latestWeatherPayload = null;
+  let latestAirQualityPayload = null;
   let watershedLeadGauge = null;
   let watershedChartRange = 7;
+  let seasonWindowsExpanded = false;
 
   function setText(id, value) {
     const el = document.getElementById(id);
@@ -309,6 +313,11 @@
   function setHTML(id, value) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = value;
+  }
+
+  function showCard(id, visible) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = visible ? "" : "none";
   }
 
   function iconHtml(icon) {
@@ -357,6 +366,31 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function seasonIcon(entry) {
+    const title = String(entry && entry.title || "").toLowerCase();
+    const lane = String(entry && entry.lane || "").toLowerCase();
+    if (title.includes("meteor")) return "✨";
+    if (title.includes("frost")) return title.includes("spring") ? "❄️" : "🍂";
+    if (title.includes("solstice")) return title.includes("summer") ? "☀️" : "❄️";
+    if (title.includes("equinox")) return "⚖️";
+    if (title.includes("fireflies")) return "🌟";
+    if (title.includes("ramps")) return "🌿";
+    if (title.includes("morels")) return "🍄";
+    if (title.includes("blackberries")) return "🫐";
+    if (title.includes("muscadines")) return "🍇";
+    if (title.includes("persimmons")) return "🧺";
+    if (title.includes("catfish")) return "🐟";
+    if (title.includes("dove")) return "🕊️";
+    if (title.includes("turkey")) return "🦃";
+    if (title.includes("squirrel")) return "🐿️";
+    if (title.includes("deer")) return "🦌";
+    if (lane === "celestial") return "🌠";
+    if (lane === "nature") return "🍃";
+    if (lane === "hunting") return "🏹";
+    if (lane === "civic") return "🏛️";
+    return "📆";
   }
 
   function relativeGaugeTime(value) {
@@ -732,6 +766,56 @@
     )).join(""));
   }
 
+  function buildSeasonWindows(date) {
+    const sharedSeasonData = window.CardiffSeasonData;
+    if (!sharedSeasonData || typeof sharedSeasonData.getSeasonEntries !== "function") {
+      buildHunting(date);
+      return;
+    }
+
+    const previewEntries = sharedSeasonData.getSeasonEntries(date, 3);
+    const fullEntries = sharedSeasonData.getUpcomingCalendar(date, 18);
+    const entries = seasonWindowsExpanded ? fullEntries : previewEntries;
+    const leadEntry = previewEntries.find((entry) => entry.active) || previewEntries[0] || fullEntries[0];
+    if (!leadEntry) {
+      buildHunting(date);
+      return;
+    }
+
+    setText("pillHunt", leadEntry.title);
+    setHTML("pillHuntIcon", seasonIcon(leadEntry));
+
+    const rows = entries.map((entry) => (
+      '<div class="hunt-season">' +
+        '<div class="hs-top">' +
+          '<div><div class="hs-name">' + iconHtml(seasonIcon(entry)) + " " + escapeHtml(entry.title) + '</div><div class="hs-dates">' + escapeHtml(entry.longDateLabel || entry.dateLabel || entry.windowLabel || "Watch the season") + '</div><div class="hs-category">' + escapeHtml(entry.category || "Season window") + "</div></div>" +
+          '<div class="' + (entry.active ? "hs-open" : "hs-closed") + '">' + escapeHtml(entry.badge || entry.seasonTag || "watch for") + "</div>" +
+        "</div>" +
+        '<div class="hunt-meta">' + escapeHtml(entry.summary) + "</div>" +
+      "</div>"
+    )).join("");
+
+    const shouldToggle = fullEntries.length > previewEntries.length;
+    const toggle = shouldToggle
+      ? '<button class="hunt-expand" id="huntToggle" type="button">' + (seasonWindowsExpanded ? "Show the three-month peek" : "Show the full run of seasons") + "</button>"
+      : "";
+
+    setHTML("huntBody", rows + toggle);
+
+    const toggleBtn = document.getElementById("huntToggle");
+    if (toggleBtn) {
+      toggleBtn.onclick = function () {
+        seasonWindowsExpanded = !seasonWindowsExpanded;
+        try {
+          window.localStorage.setItem("cardiff-season-windows-expanded", seasonWindowsExpanded ? "1" : "0");
+        } catch (error) {
+          // Storage is optional here.
+        }
+        buildSeasonWindows(date);
+      };
+    }
+  }
+
   function nextMeteorShower(date) {
     const year = date.getFullYear();
     const candidates = METEOR_SHOWERS.map((shower) => {
@@ -810,9 +894,118 @@
     return "Moderate moonlight tonight. Bright patterns still read well, but the faintest stars will have to fight for it.";
   }
 
+  function nextNightForecast(payload, date) {
+    const periods = payload && Array.isArray(payload.forecast) ? payload.forecast : [];
+    const now = date || new Date();
+    return periods.find((period) => !period.isDaytime && new Date(period.startTime || period.endTime || 0) >= now) ||
+      periods.find((period) => !period.isDaytime) ||
+      null;
+  }
+
+  function cloudScore(shortForecast) {
+    const text = String(shortForecast || "").toLowerCase();
+    if (!text) return 0;
+    if (/showers|thunder|storm|rain|fog/.test(text)) return -20;
+    if (/cloudy|overcast/.test(text) && /mostly/.test(text)) return -10;
+    if (/cloudy|overcast/.test(text)) return -16;
+    if (/partly cloudy|partly clear/.test(text)) return 2;
+    if (/mostly clear/.test(text)) return 10;
+    if (/clear|sunny/.test(text)) return 16;
+    return 0;
+  }
+
+  function moonScore(moon) {
+    switch (moon.name) {
+      case "New Moon":
+        return 16;
+      case "Waxing Crescent":
+      case "Waning Crescent":
+        return 10;
+      case "First Quarter":
+      case "Last Quarter":
+        return 3;
+      case "Waxing Gibbous":
+      case "Waning Gibbous":
+        return -8;
+      case "Full Moon":
+        return -18;
+      default:
+        return 0;
+    }
+  }
+
+  function airQualitySkyEffect(payload) {
+    const current = payload && payload.current ? payload.current : null;
+    if (!current) {
+      return {
+        delta: 0,
+        note: "No live haze read is folded into the score yet"
+      };
+    }
+
+    const aqi = Number(current.usAqi);
+    const pm25 = Number(current.pm25);
+    let delta = 0;
+
+    if (Number.isFinite(aqi)) {
+      if (aqi <= 35) delta += 4;
+      else if (aqi <= 50) delta += 2;
+      else if (aqi <= 100) delta -= 3;
+      else if (aqi <= 150) delta -= 8;
+      else if (aqi <= 200) delta -= 14;
+      else delta -= 18;
+    }
+
+    if (Number.isFinite(pm25)) {
+      if (pm25 <= 8) delta += 2;
+      else if (pm25 >= 35) delta -= 8;
+      else if (pm25 >= 20) delta -= 5;
+      else if (pm25 >= 12) delta -= 2;
+    }
+
+    let note = "Air clarity is not pushing the sky much one way or the other tonight";
+    if (delta >= 4) note = "The air looks pretty clean, so haze should mind its manners tonight";
+    else if (delta >= 1) note = "The air is giving the night sky a small helping hand";
+    else if (delta <= -12) note = "Smoke, particulates, or plain old haze could flatten the fainter stars tonight";
+    else if (delta <= -5) note = "A little haze may take some of the fine detail out of the sky tonight";
+    return { delta, note };
+  }
+
+  function airQualityLabel(payload) {
+    const current = payload && payload.current ? payload.current : null;
+    if (!current) return "🌫 Air desk pending";
+    const category = current.category || "Air snapshot";
+    const aqi = Number(current.usAqi);
+    return Number.isFinite(aqi) ? "🌿 " + category + " · AQI " + Math.round(aqi) : "🌫 " + category;
+  }
+
+  function skywatchSummary(date, moon, payload, airPayload) {
+    const baseline = 46;
+    const night = nextNightForecast(payload, date);
+    const airEffect = airQualitySkyEffect(airPayload);
+    let score = baseline + moonScore(moon) + cloudScore(night && night.shortForecast) + airEffect.delta;
+    const humidity = payload && payload.current ? Number(payload.current.humidity || 0) : NaN;
+    if (Number.isFinite(humidity) && humidity >= 85) score -= 4;
+    score = Math.max(8, Math.min(92, Math.round(score)));
+
+    const rating = score >= 74 ? "Great" : (score >= 60 ? "Good" : (score >= 44 ? "Fair" : (score >= 28 ? "Rough" : "Poor")));
+    const drivers = ["Cardiff already has a little Birmingham glow working against the darkest skies"];
+    if (moon.name === "Full Moon") drivers.push("the moon is doing real washout tonight");
+    else if (moon.name === "New Moon") drivers.push("moonlight is mostly staying out of the way");
+    if (night && night.shortForecast) drivers.push("the next night forecast reads " + night.shortForecast.toLowerCase());
+    if (airPayload && airPayload.current) drivers.push(airEffect.note.toLowerCase());
+
+    return {
+      score,
+      rating,
+      note: drivers.join(", ") + "."
+    };
+  }
+
   function buildSky(date, sun, moon) {
     const guide = skyGuide[date.getMonth()] || FALLBACK_SKY_GUIDE[0];
     const meteor = nextMeteorShower(date);
+    const score = skywatchSummary(date, moon, latestWeatherPayload, latestAirQualityPayload);
     const daysUntilMeteor = Math.ceil((meteor.peak - date) / 86400000);
     const meteorLabel = daysUntilMeteor <= 3
       ? meteor.name + " peak"
@@ -825,6 +1018,7 @@
     const moonlightLabel = moon.name === "New Moon" ? "Dark-sky advantage" : (moon.name === "Full Moon" ? "Moonlight-heavy night" : "Moonlight factor");
     setText("skyWatchTag", guide.tag);
     setHTML("skyWatchBody",
+      '<div class="sky-event"><div class="sky-event-icon">🔭</div><div><div class="sky-event-title">Skywatch score: ' + score.score + '/100 · ' + score.rating + '</div><div class="sky-event-note">' + score.note + "</div></div></div>" +
       '<div class="sky-callout">' + guide.opening + "</div>" +
       '<div class="sky-event"><div class="sky-event-icon">' + guide.pattern.icon + '</div><div><div class="sky-event-title">' + guide.pattern.title + '</div><div class="sky-event-note">' + guide.pattern.note + "</div></div></div>" +
       '<div class="sky-event"><div class="sky-event-icon">' + guide.planet.icon + '</div><div><div class="sky-event-title">' + guide.planet.title + '</div><div class="sky-event-note">' + guide.planet.note + "</div></div></div>" +
@@ -833,6 +1027,43 @@
       (guide.special ? '<div class="sky-event"><div class="sky-event-icon">' + guide.special.icon + '</div><div><div class="sky-event-title">' + guide.special.title + '</div><div class="sky-event-note">' + guide.special.note + "</div></div></div>" : "") +
       '<div class="sky-event"><div class="sky-event-icon">' + guide.calendar.icon + '</div><div><div class="sky-event-title">' + guide.calendar.title + '</div><div class="sky-event-note">' + guide.calendar.note + "</div></div></div>"
     );
+  }
+
+  function renderAirQuality(data) {
+    const current = data && data.current ? data.current : null;
+    const aqi = current ? Number(current.usAqi) : NaN;
+    const pm25 = current ? Number(current.pm25) : NaN;
+    const ozone = current ? Number(current.ozone) : NaN;
+    if (!current || (!Number.isFinite(aqi) && !Number.isFinite(pm25) && !Number.isFinite(ozone))) {
+      showCard("air-card", false);
+      return;
+    }
+
+    showCard("air-card", true);
+    setText("airUpdated", airQualityLabel(data));
+    setHTML("airBody",
+      '<div class="report-stack">' +
+        '<div class="report-row"><div class="report-label">Air quality index</div><div class="report-value">' + escapeHtml((current.category || "Air snapshot") + (Number.isFinite(aqi) ? " · AQI " + Math.round(aqi) : "")) + '</div><div class="report-note">' + escapeHtml(current.label || current.note || "Live air-quality snapshot for the Cardiff area.") + "</div></div>" +
+        '<div class="report-row"><div class="report-label">Fine particles</div><div class="report-value">' + escapeHtml(Number.isFinite(pm25) ? pm25.toFixed(1) + " " + (current.pm25Unit || "μg/m³") : "—") + '</div><div class="report-note">PM2.5 often shows up as the kind of extra haze you feel in your chest and notice in the night sky.</div></div>' +
+        '<div class="report-row"><div class="report-label">Ozone</div><div class="report-value">' + escapeHtml(Number.isFinite(ozone) ? ozone.toFixed(1) + " " + (current.ozoneUnit || "μg/m³") : "—") + '</div><div class="report-note">' + escapeHtml(current.note || "Outdoor air can feel different when ozone or particulates start creeping up.") + "</div></div>" +
+      "</div>" +
+      '<div class="sci-box"><div class="sci-label">Sky desk crossover</div><p>Cleaner air usually means better transparency, while extra haze can flatten the faint-star contrast even when the clouds behave themselves.</p></div>'
+    );
+  }
+
+  async function loadAirQuality() {
+    try {
+      const response = await fetch(AIR_QUALITY_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("air");
+      const data = await response.json();
+      latestAirQualityPayload = data;
+      renderAirQuality(data);
+      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
+    } catch (error) {
+      latestAirQualityPayload = null;
+      showCard("air-card", false);
+      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
+    }
   }
 
   function buildDateHero(date, sun, moon) {
@@ -863,7 +1094,7 @@
     buildPlanting(now.getMonth());
     buildNature(now.getMonth());
     buildFact(now);
-    buildHunting(now);
+    buildSeasonWindows(now);
     buildSky(now, sun, moon);
   }
 
@@ -1263,12 +1494,15 @@
         condition: weatherCondition(obs)
       };
       wx.summary = summarizeWeather(wx);
+      latestWeatherPayload = data;
       setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
       setText("mhCond", wx.condition);
       setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
       buildWeather(wx, data.rain || null);
+      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {
+      latestWeatherPayload = null;
       setHTML("mhTemp", "&mdash;");
       setText("mhCond", "Offline");
       setText("mhWind", "Trying again soon");
@@ -1479,6 +1713,11 @@
   }
 
   function boot() {
+    try {
+      seasonWindowsExpanded = window.localStorage.getItem("cardiff-season-windows-expanded") === "1";
+    } catch (error) {
+      seasonWindowsExpanded = false;
+    }
     buildStaticSections();
     loadSkyGuide();
     initTopo();
@@ -1486,10 +1725,12 @@
     loadTicker();
     loadWatershed();
     loadWeather();
+    loadAirQuality();
     loadForecast();
     window.setInterval(loadTicker, TICKER_REFRESH_MS);
     window.setInterval(loadWatershed, 10 * 60 * 1000);
     window.setInterval(loadWeather, 5 * 60 * 1000);
+    window.setInterval(loadAirQuality, 15 * 60 * 1000);
   }
 
   if (document.readyState === "loading") {

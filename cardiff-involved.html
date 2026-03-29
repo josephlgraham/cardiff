@@ -158,6 +158,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </div>
 
+  <div class="s-rule reveal"><h2>Anonymous interest tracker</h2><hr></div>
+  <div data-cardiff-widget="signup" class="reveal"></div>
+
   <div class="s-rule reveal" id="donate"><h2>Support the Site</h2><hr></div>
 
   <div class="donate-band reveal">
@@ -212,6 +215,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
     <div id="subStatus" style="margin-top:0.9rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink2);" aria-live="polite"></div>
   </div>
+
+  <div style="margin-top:1rem;" class="reveal">
+    <div data-cardiff-widget="reactions" data-page="involved"></div>
+  </div>
 </div>
 </div>
 
@@ -253,6 +260,7 @@ async function submitForm(){
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
 
 </script>
+<script src="cardiff-community.js"></script>
 <script src="cardiff-common.js"></script>
 </body>
 </html>

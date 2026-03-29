@@ -10,10 +10,14 @@ const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
 const NEWS_FILE = path.join(ROOT, 'cardiff-news-live.json');
 const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
 const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
+const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
+const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json');
 
 const WEATHER_STATION_ID = process.env.WEATHER_STATION_ID || 'KALGRAYS4';
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_API_KEY || '';
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
+const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=33.640&longitude=-86.870&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
+const CARDIFF_CENSUS_URL = 'https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E,B01002_001E,B19013_001E,B25003_001E,B25003_002E,B25003_003E&for=place:12040&in=state:01';
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
 const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
@@ -758,9 +762,170 @@ async function updateWatershedFile(weatherPayload = null) {
   return payload;
 }
 
+function roundValue(value, digits = 0) {
+  const number = Number(value);
+  return Number.isFinite(number) ? Number(number.toFixed(digits)) : null;
+}
+
+function formatPercent(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.round(number) : null;
+}
+
+function describeAirQuality(aqi) {
+  if (!Number.isFinite(aqi)) {
+    return {
+      category: 'Pending',
+      label: 'Air quality waiting on a readable index.',
+      note: 'The feed answered, but a clean AQI value was not available in this refresh.'
+    };
+  }
+  if (aqi <= 50) {
+    return {
+      category: 'Good',
+      label: 'A fairly clean-air day for most people.',
+      note: 'Outdoor work, porch time, and sky watching should not be fighting much haze from the air-quality side.'
+    };
+  }
+  if (aqi <= 100) {
+    return {
+      category: 'Moderate',
+      label: 'Air is generally manageable, but sensitive lungs may notice it.',
+      note: 'Most folks can stay outside normally, though haze or breathing irritation can start to matter for sensitive groups.'
+    };
+  }
+  if (aqi <= 150) {
+    return {
+      category: 'Unhealthy for sensitive groups',
+      label: 'Sensitive groups should take the air seriously today.',
+      note: 'Children, older adults, and anyone with asthma or heart and lung concerns may want lighter outdoor effort.'
+    };
+  }
+  if (aqi <= 200) {
+    return {
+      category: 'Unhealthy',
+      label: 'This is a rough air day, not just a dusty one.',
+      note: 'Long outdoor stretches are harder to justify when the AQI is this elevated.'
+    };
+  }
+  if (aqi <= 300) {
+    return {
+      category: 'Very unhealthy',
+      label: 'The air is pushing into serious caution territory.',
+      note: 'Outdoor plans deserve real caution while the AQI is this high.'
+    };
+  }
+  return {
+    category: 'Hazardous',
+    label: 'This is a stay-alert air quality day.',
+    note: 'Air this poor deserves the same kind of respect as a major public-health warning.'
+  };
+}
+
+async function updateAirQualityFile() {
+  const data = await fetchJson(AIR_QUALITY_URL, { cache: 'no-store' });
+  const current = data && data.current ? data.current : {};
+  const units = data && data.current_units ? data.current_units : {};
+  const aqi = roundValue(current.us_aqi, 0);
+  const pm25 = roundValue(current.pm2_5, 1);
+  const ozone = roundValue(current.ozone, 1);
+  const descriptor = describeAirQuality(aqi);
+
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    source_name: 'Open-Meteo Air Quality',
+    source_type: 'air_quality',
+    latitude: roundValue(data.latitude, 3) || 33.64,
+    longitude: roundValue(data.longitude, 3) || -86.87,
+    timezone: data.timezone || LOCAL_TIME_ZONE,
+    current: {
+      observedLocalTime: current.time || '',
+      usAqi: aqi,
+      category: descriptor.category,
+      label: descriptor.label,
+      note: descriptor.note,
+      pm25,
+      pm25Unit: units.pm2_5 || 'μg/m³',
+      ozone,
+      ozoneUnit: units.ozone || 'μg/m³'
+    }
+  };
+
+  await writeJson(AIR_QUALITY_FILE, payload);
+  console.log(`Updated ${path.basename(AIR_QUALITY_FILE)}`);
+  return payload;
+}
+
+function censusNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function communitySummary(snapshot) {
+  if (!snapshot || !Number.isFinite(snapshot.population)) {
+    return 'The community snapshot file is ready, but the latest census estimate did not parse cleanly.';
+  }
+
+  const ownerShare = Number.isFinite(snapshot.ownerOccupiedSharePct) ? `${snapshot.ownerOccupiedSharePct}% owner-occupied` : 'owner occupancy still parsing';
+  const renterShare = Number.isFinite(snapshot.renterOccupiedSharePct) ? `${snapshot.renterOccupiedSharePct}% renter-occupied` : 'renter share still parsing';
+  const age = Number.isFinite(snapshot.medianAge) ? `median age about ${snapshot.medianAge}` : 'median age still parsing';
+  const income = Number.isFinite(snapshot.medianHouseholdIncome) ? `median household income about $${Math.round(snapshot.medianHouseholdIncome).toLocaleString('en-US')}` : 'income still parsing';
+  return `ACS estimates suggest Cardiff is a very small town by scale, with about ${Math.round(snapshot.population).toLocaleString('en-US')} residents, ${age}, ${income}, and housing that looks roughly ${ownerShare} and ${renterShare}.`;
+}
+
+async function updateCommunitySnapshotFile() {
+  const rows = await fetchJson(CARDIFF_CENSUS_URL, { cache: 'no-store' });
+  if (!Array.isArray(rows) || rows.length < 2 || !Array.isArray(rows[0]) || !Array.isArray(rows[1])) {
+    throw new Error('Census snapshot returned an unexpected shape');
+  }
+
+  const headers = rows[0];
+  const values = rows[1];
+  const record = Object.fromEntries(headers.map((key, index) => [key, values[index]]));
+
+  const population = censusNumber(record.B01003_001E);
+  const medianAge = roundValue(record.B01002_001E, 1);
+  const medianHouseholdIncome = censusNumber(record.B19013_001E);
+  const occupiedHousingUnits = censusNumber(record.B25003_001E);
+  const ownerOccupied = censusNumber(record.B25003_002E);
+  const renterOccupied = censusNumber(record.B25003_003E);
+  const ownerShare = occupiedHousingUnits ? formatPercent((ownerOccupied / occupiedHousingUnits) * 100) : null;
+  const renterShare = occupiedHousingUnits ? formatPercent((renterOccupied / occupiedHousingUnits) * 100) : null;
+
+  const snapshot = {
+    population,
+    medianAge,
+    medianHouseholdIncome,
+    occupiedHousingUnits,
+    ownerOccupied,
+    renterOccupied,
+    ownerOccupiedSharePct: ownerShare,
+    renterOccupiedSharePct: renterShare
+  };
+
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    source_name: 'U.S. Census Bureau ACS 2023 5-year',
+    source_type: 'community_snapshot',
+    geography: {
+      name: record.NAME || 'Cardiff town, Alabama',
+      state: record.state || '01',
+      place: record.place || '12040'
+    },
+    snapshot,
+    summary: communitySummary(snapshot)
+  };
+
+  await writeJson(COMMUNITY_SNAPSHOT_FILE, payload);
+  console.log(`Updated ${path.basename(COMMUNITY_SNAPSHOT_FILE)}`);
+  return payload;
+}
+
 async function main() {
   const weather = await updateWeatherFile();
   await updateWatershedFile(weather);
+  await updateAirQualityFile();
+  await updateCommunitySnapshotFile();
   await updateNewsFile();
 }
 

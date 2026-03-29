@@ -75,7 +75,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .month-list{display:grid;gap:.75rem}
 .month-item{display:grid;grid-template-columns:auto 1fr;gap:.8rem;padding:.55rem 0;border-top:1px solid var(--rule)}
 .month-item:first-child{border-top:none;padding-top:0}
-.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red);min-width:82px}
+.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red);min-width:102px}
 .month-title{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:.12rem}
 .month-copy{font-size:.8rem;line-height:1.6;color:var(--ink2)}
 .footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
@@ -104,30 +104,30 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <main class="wrap">
   <section class="hero reveal">
     <div class="pill-strip" aria-label="jump links">
-      <a class="pill-link" href="#next-up"><span class="pill-emoji">📅</span><div><div class="pill-text">Next dates</div><div class="pill-sub">Seasonal markers</div></div></a>
-      <a class="pill-link" href="#calendar-lanes"><span class="pill-emoji">🗂️</span><div><div class="pill-text">Calendar lanes</div><div class="pill-sub">Public record</div></div></a>
-      <a class="pill-link" href="#seasonal-view"><span class="pill-emoji">🌷</span><div><div class="pill-text">Seasonal view</div><div class="pill-sub">Spring markers</div></div></a>
-      <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Holiday notes</div><div class="pill-sub">Older roots</div></div></a>
+      <a class="pill-link" href="#next-up"><span class="pill-emoji">📅</span><div><div class="pill-text">Next dates</div><div class="pill-sub">What is coming up</div></div></a>
+      <a class="pill-link" href="#calendar-lanes"><span class="pill-emoji">🗂️</span><div><div class="pill-text">Calendar lanes</div><div class="pill-sub">Kinds of dates</div></div></a>
+      <a class="pill-link" href="#seasonal-view"><span class="pill-emoji">🌿</span><div><div class="pill-text">Year ahead</div><div class="pill-sub">Shared season list</div></div></a>
+      <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Desk notes</div><div class="pill-sub">How this page works</div></div></a>
     </div>
     <div class="hero-grid">
       <div>
         <div class="kicker">Community Calendar</div>
         <h1 class="title">A place for Cardiff dates that matter.</h1>
-        <p class="sub">Cardiff's calendar is the public record for holidays, meetings, workdays, deadlines, and community dates. It gives the town one clear place to look for what is coming next while also teaching the older seasonal roots behind the dates people still keep.</p>
+        <p class="sub">This page is the public date spine for the site: season windows, frost timing, sky markers, workdays, and civic dates once they are truly set. It is meant to help people plan, not just fill space.</p>
         <div class="btn-row">
-          <a class="btn primary" href="#next-up">See next dates</a>
+          <a class="btn primary" href="#next-up">See what is next</a>
           <a class="btn ghost" href="#send-date">Send a date in</a>
         </div>
       </div>
       <aside class="quick-card reveal">
-        <div class="section-kicker">Holiday notes</div>
-        <div class="quick-title">Spring dates with older roots behind them</div>
-        <div class="quick-copy">These first entries are written as layered spring observances. Many people see the later church calendar as sitting on top of much older seasonal rites, fertility symbols, and equinox-era festivals that long predate it.</div>
+        <div class="section-kicker">What belongs here</div>
+        <div class="quick-title">One calendar, shared across the site.</div>
+        <div class="quick-copy">The Almanac and this page now read from the same seasonal list. That means new foraging windows, meteor dates, and civic markers only need to be added once to stay in sync.</div>
         <ul class="quick-list">
-          <li>Easter keeps a moon-linked spring date, which is one reason it feels tied to older seasonal calendars.</li>
-          <li>Eggs, hares, and spring rebirth imagery are often linked to pre-Christian fertility traditions.</li>
-          <li>Later Christian observances were layered onto existing seasonal power points many cultures already marked.</li>
-          <li>These entries give the calendar a real start while keeping the teaching focus broader than church language.</li>
+          <li>Nature windows belong here when they help people plan a walk, a harvest, or a creek visit.</li>
+          <li>Sky dates belong here when they are worth stepping outside for.</li>
+          <li>Meetings belong here when they have a real posted date, not before.</li>
+          <li>Town updates can still hit the alert strip while bigger dates live here for the longer view.</li>
         </ul>
       </aside>
     </div>
@@ -135,39 +135,20 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
   <div class="section-rule reveal" id="next-up"><h2>Next Up</h2><hr></div>
   <section class="feature-grid">
-    <article class="feature-card reveal">
+    <article class="feature-card reveal" id="featuredDateShell">
       <div class="section-kicker">Featured date</div>
       <div class="feature-row">
-        <div class="date-chip">Spring observance</div>
-        <div class="date-chip">Sunday, April 5, 2026</div>
+        <div class="date-chip">Loading</div>
+        <div class="date-chip">Checking current entries</div>
       </div>
-      <h2 class="holiday-title">Easter Sunday</h2>
-      <p class="holiday-copy">Easter lands in the oldest part of the spring calendar: the return of light, fertility, and visible renewal in the natural world. Its shifting date follows a moon-based pattern after the spring equinox, which is one reason many people see it as a later religious layer placed over older seasonal rites.</p>
-      <div class="event-meta">
-        <div class="meta-row">
-          <div class="meta-icon">⛪</div>
-          <div><div class="meta-label">Category</div><div class="meta-copy">Movable spring holiday · seasonal marker · layered observance</div></div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-icon">📍</div>
-          <div><div class="meta-label">Historical note</div><div class="meta-copy">The name, symbols, and timing around Easter are often connected to older spring festivals and rebirth imagery, even though later Christian tradition gave the day its dominant modern framing.</div></div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-icon">📝</div>
-          <div><div class="meta-label">Why it is here</div><div class="meta-copy">Holidays belong on the public calendar because they shape schedules, family plans, school breaks, meals, and the larger seasonal rhythm whether people read them as church dates, inherited customs, or nature markers.</div></div>
-        </div>
-      </div>
+      <h2 class="holiday-title">The calendar is syncing.</h2>
+      <p class="holiday-copy">Pulling the shared season list into the calendar view now.</p>
     </article>
-    <div class="stack">
+    <div class="stack" id="upcomingMiniShell">
       <article class="card mini-card reveal">
-        <div class="mini-date">Sunday, March 29, 2026</div>
-        <div class="mini-title">Palm Sunday</div>
-        <div class="mini-copy">Palm Sunday marks the opening of the church version of Holy Week, one more example of later observances being placed across an already important spring threshold.</div>
-      </article>
-      <article class="card mini-card reveal">
-        <div class="mini-date">Friday, April 3, 2026</div>
-        <div class="mini-title">Good Friday</div>
-        <div class="mini-copy">Good Friday is the solemn lead-in to Easter weekend, held close to the same older spring turning points that many cultures had already marked in different ways.</div>
+        <div class="mini-date">Stand by</div>
+        <div class="mini-title">Upcoming entries are loading.</div>
+        <div class="mini-copy">The next few dates will settle in here once the shared season file responds.</div>
       </article>
     </div>
   </section>
@@ -175,54 +156,48 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="section-rule reveal" id="calendar-lanes"><h2>Calendar Lanes</h2><hr></div>
   <section class="lane-grid">
     <article class="lane-card reveal">
-      <div class="section-kicker">Meetings</div>
-      <div class="lane-title">Town business</div>
-      <div class="lane-copy">Council meetings, public hearings, notice deadlines, and anything else residents should be able to plan around.</div>
-      <div class="lane-note">Official meeting dates can be posted here as they are set.</div>
+      <div class="section-kicker">Nature</div>
+      <div class="lane-title">Foraging and field windows</div>
+      <div class="lane-copy">Ramps, morels, fireflies, blackberries, muscadines, persimmons, and the other local markers people still plan around.</div>
+      <div class="lane-note">Creek bottoms usually speak first.</div>
     </article>
     <article class="lane-card reveal">
-      <div class="section-kicker">Workdays</div>
-      <div class="lane-title">Hands-on help</div>
-      <div class="lane-copy">Cleanup days, creek work, cemetery documentation, brush clearing, and any practical date where extra hands matter.</div>
-      <div class="lane-note">Volunteer dates and cleanup calls can live in this lane.</div>
+      <div class="section-kicker">Hunting</div>
+      <div class="lane-title">Season windows worth tracking</div>
+      <div class="lane-copy">Turkey, catfish noodling, dove, squirrel, and deer all belong here when they help people think ahead.</div>
+      <div class="lane-note">Approximate where needed, confirmed when official dates are posted.</div>
     </article>
     <article class="lane-card reveal">
-      <div class="section-kicker">Community</div>
-      <div class="lane-title">Gatherings and shared dates</div>
-      <div class="lane-copy">Cookouts, school-related dates, holiday markers, and community events that shape the season even when they are informal.</div>
-      <div class="lane-note">Holiday observances and community dates belong here.</div>
+      <div class="section-kicker">Sky</div>
+      <div class="lane-title">Celestial markers</div>
+      <div class="lane-copy">Equinoxes, solstices, and the meteor showers that are actually worth stepping outside for around Cardiff.</div>
+      <div class="lane-note">The Almanac keeps the mood. This page keeps the date spine.</div>
     </article>
     <article class="lane-card reveal">
-      <div class="section-kicker">Deadlines</div>
-      <div class="lane-title">Things easy to miss</div>
-      <div class="lane-copy">Application cutoffs, due dates, reminders, and practical civic or household deadlines that belong in the public flow of information.</div>
-      <div class="lane-note">Public reminders and due dates can be carried here.</div>
+      <div class="section-kicker">Civic</div>
+      <div class="lane-title">Town and community dates</div>
+      <div class="lane-copy">The incorporation anniversary lives here now. Town council meetings can join it as soon as they have real dates again.</div>
+      <div class="lane-note">No guessing, no ghost meetings, no buried notices.</div>
     </article>
   </section>
 
-  <div class="section-rule reveal" id="seasonal-view"><h2>Seasonal View</h2><hr></div>
-  <section class="card month-shell reveal">
-    <div class="section-kicker">Spring 2026</div>
-    <div class="month-list">
-      <div class="month-item">
-        <div class="month-date">Mar 29</div>
-        <div><div class="month-title">Palm Sunday</div><div class="month-copy">The opening church observance of Holy Week, layered onto the same spring season long associated with renewal, procession, and ceremonial return.</div></div>
+  <div class="section-rule reveal" id="seasonal-view"><h2>Year Ahead</h2><hr></div>
+  <div class="stack" id="seasonalMonthShell">
+    <section class="card month-shell reveal">
+      <div class="section-kicker">Loading the year ahead</div>
+      <div class="month-list">
+        <div class="month-item">
+          <div class="month-date">Syncing</div>
+          <div><div class="month-title">Shared season entries are loading.</div><div class="month-copy">This section groups the next several months from the same list used by Season Windows in the Almanac.</div></div>
+        </div>
       </div>
-      <div class="month-item">
-        <div class="month-date">Apr 3</div>
-        <div><div class="month-title">Good Friday</div><div class="month-copy">A solemn observance in the later Christian calendar, placed just before Easter in the same spring window many older traditions already treated as charged and transitional.</div></div>
-      </div>
-      <div class="month-item">
-        <div class="month-date">Apr 5</div>
-        <div><div class="month-title">Easter Sunday</div><div class="month-copy">A spring holiday whose date still follows the moon after the equinox, carrying symbols of rebirth, fertility, and return that many people connect to older pagan seasonal traditions.</div></div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <section class="footer-band reveal" id="calendar-notes">
-    <div class="section-kicker">Holiday background</div>
-    <h2 class="footer-title">These first entries sit inside a much older spring calendar.</h2>
-    <p class="footer-copy">This page treats Easter season as a layered inheritance rather than a church-only story. The timing, symbols, and seasonal mood around these dates overlap with older spring festivals, fertility rites, and equinox-era observances that many people believe were later co-opted or rebranded. Additional town dates, workdays, and public notices can be added here as they are set and shared.</p>
+    <div class="section-kicker">Desk notes</div>
+    <h2 class="footer-title">This page now follows the same source list as the Almanac.</h2>
+    <p class="footer-copy" id="calendarStatusNote">Checking the shared season and calendar list now.</p>
   </section>
 
   <section class="card submit-card reveal" id="send-date">
@@ -246,7 +221,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </select>
       </div>
       <textarea id="calDetails" placeholder="What should be on the calendar? Include the name of the date, what it is, and any useful details."></textarea>
-      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">Send date →</button>
+      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">Send date -></button>
       <div class="submit-status" id="calendarStatus" aria-live="polite"></div>
     </div>
   </section>
@@ -286,6 +261,8 @@ async function submitCalendarDate(){
   }
 }
 </script>
+<script src="cardiff-season-data.js"></script>
+<script src="cardiff-calendar.js"></script>
 <script src="cardiff-common.js"></script>
 </body>
 </html>
