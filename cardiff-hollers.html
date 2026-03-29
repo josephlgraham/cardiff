@@ -158,22 +158,23 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="feature-foot">Use it for neighbor-to-neighbor texture, not for official notice. This is the porch, not the podium.</div>
     </article>
     <div class="aside-stack">
-      <article class="aside-card">
+      <article class="aside-card" id="hollerJokeCard">
         <div class="site-kicker">Old-Timer Joke</div>
         <div class="aside-title" id="hollerJokeTitle">Taking the scenic route</div>
         <div class="aside-copy" id="hollerJokeBody">"I ain't lost. I'm just taking the scenic way back."</div>
         <div class="aside-actions">
           <button class="btn ghost" type="button" id="nextJokeBtn">Another joke</button>
+          <button class="btn ghost" type="button" id="showRiddleBtn">Show a riddle</button>
         </div>
       </article>
-      <article class="aside-card">
+      <article class="aside-card" id="hollerRiddleCard" hidden aria-hidden="true">
         <div class="site-kicker">Front Porch Riddle</div>
         <div class="aside-title" id="hollerRiddleQuestion">What runs all through Cardiff but never wears a shoe?</div>
-        <div class="aside-copy">Riddles work best here when they are playful, local, and kid-safe enough to tell before supper.</div>
         <div class="riddle-answer" id="hollerRiddleAnswer"><strong>Answer:</strong> Five Mile Creek.</div>
         <div class="aside-actions">
           <button class="btn ghost" type="button" id="toggleRiddleBtn">Show answer</button>
           <button class="btn ghost" type="button" id="nextRiddleBtn">Another riddle</button>
+          <button class="btn ghost" type="button" id="showJokeBtn">Show a joke</button>
         </div>
       </article>
     </div>
@@ -224,7 +225,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <li>Local recommendations and insured help would be ideal.</li>
         </ul>
         <div class="listing-actions">
-          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need a tree cut down')">Reply to this listing →</button>
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need a tree cut down')">Reply to this listing</button>
         </div>
         <div class="listing-foot">Replies can come through the board desk for review.</div>
       </article>
@@ -238,7 +239,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <li>Good fit for local crews, recommendations, or someone available for estimate work.</li>
         </ul>
         <div class="listing-actions">
-          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need grading and dirt work')">Reply to this listing →</button>
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need grading and dirt work')">Reply to this listing</button>
         </div>
         <div class="listing-foot">Local equipment work and estimate leads are welcome.</div>
       </article>
@@ -316,7 +317,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <input type="text" id="hollerTopic" placeholder="Listing title or reply target">
       </div>
       <textarea id="hollerMessage" placeholder="Describe the listing, the reply, or the note you want to send. Include any useful local details."></textarea>
-      <button class="btn primary" id="hollerSubmitBtn" type="button" onclick="submitHoller()">Send to the board desk →</button>
+      <button class="btn primary" id="hollerSubmitBtn" type="button" onclick="submitHoller()">Send to the board desk</button>
       <div class="post-status" id="hollerStatus" aria-live="polite"></div>
     </div>
   </section>
@@ -324,7 +325,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="cta-band reveal">
     <div class="cta-title">Five Mile Creek needs your help.</div>
     <p class="cta-body">Volunteer for creek cleanup days. Report illegal dumping. Help document the watershed. Every set of eyes matters.</p>
-    <a href="cardiff-involved.html" class="cta-btn">Get involved →</a>
+    <a href="cardiff-involved.html" class="cta-btn">Get involved</a>
   </div>
 </div>
 </div>
@@ -355,6 +356,7 @@ const FALLBACK_ROTATOR={
 let hollerRotator=FALLBACK_ROTATOR;
 let jokeIndex=0;
 let riddleIndex=0;
+let playMode='joke';
 
 function pickDailyIndex(length,offset=0){
   if(!length)return 0;
@@ -381,6 +383,17 @@ function renderRiddle(){
   document.getElementById('toggleRiddleBtn').textContent='Show answer';
 }
 
+function setPlayMode(mode){
+  playMode=mode==='riddle'?'riddle':'joke';
+  const jokeCard=document.getElementById('hollerJokeCard');
+  const riddleCard=document.getElementById('hollerRiddleCard');
+  const showJoke=playMode==='joke';
+  jokeCard.hidden=!showJoke;
+  jokeCard.setAttribute('aria-hidden',showJoke?'false':'true');
+  riddleCard.hidden=showJoke;
+  riddleCard.setAttribute('aria-hidden',showJoke?'true':'false');
+}
+
 async function loadHollerRotator(){
   try{
     const res=await fetch(HOLLER_ROTATOR_URL,{cache:'no-store'});
@@ -397,12 +410,14 @@ async function loadHollerRotator(){
   riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
   renderJoke();
   renderRiddle();
+  setPlayMode(pickDailyIndex(2,21)===0?'joke':'riddle');
 }
 
 document.getElementById('nextJokeBtn').addEventListener('click',()=>{
   const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
   jokeIndex=(jokeIndex+1)%jokes.length;
   renderJoke();
+  setPlayMode('joke');
 });
 
 document.getElementById('toggleRiddleBtn').addEventListener('click',()=>{
@@ -416,6 +431,15 @@ document.getElementById('nextRiddleBtn').addEventListener('click',()=>{
   const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
   riddleIndex=(riddleIndex+1)%riddles.length;
   renderRiddle();
+  setPlayMode('riddle');
+});
+
+document.getElementById('showRiddleBtn').addEventListener('click',()=>{
+  setPlayMode('riddle');
+});
+
+document.getElementById('showJokeBtn').addEventListener('click',()=>{
+  setPlayMode('joke');
 });
 
 loadHollerRotator();
