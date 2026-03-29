@@ -301,6 +301,15 @@
       "</svg>";
   }
 
+  function preferredGauge(gauges) {
+    const list = Array.isArray(gauges) ? gauges : [];
+    return list.find((gauge) => Array.isArray(gauge.stage_history) && gauge.stage_history.length)
+      || list.find((gauge) => Number.isFinite(numericOrNaN(gauge.stage_ft)))
+      || list.find((gauge) => gauge.role === "lead")
+      || list[0]
+      || null;
+  }
+
   function centralHourNow() {
     return Number(new Intl.DateTimeFormat("en-US", {
       timeZone: "America/Chicago",
@@ -762,25 +771,25 @@
       if (!response.ok) throw new Error("watershed");
       const data = await response.json();
       const gauges = Array.isArray(data.gauges) ? data.gauges : [];
-      const lead = gauges.find((gauge) => gauge.role === "lead") || gauges[0] || null;
-      setText("watershedUpdated", lead ? relativeGaugeTime(lead.updated_at) : "Gauge sync pending");
+      const primary = preferredGauge(gauges);
+      setText("watershedUpdated", primary ? relativeGaugeTime(primary.updated_at) : "Gauge sync pending");
       setHTML("watershedGrid", gauges.length ? gauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
-        label: "Brookside upstream",
+        label: "Republic live gauge",
         role: "lead",
         stage_ft: null,
         discharge_cfs: null,
         trend: "steady",
         note: "Gauge values will appear here after the watershed file refreshes."
       }));
-      setHTML("watershedChart", renderWatershedChart(lead && lead.stage_history ? lead.stage_history : [], lead ? (lead.label || lead.name || "Lead gauge") : "Lead gauge"));
-      setText("watershedScience", lead && Number.isFinite(numericOrNaN(lead.stage_ft))
-        ? "Use the upstream and downstream numbers as a quick check on how the creek is moving through Cardiff."
+      setHTML("watershedChart", renderWatershedChart(primary && primary.stage_history ? primary.stage_history : [], primary ? (primary.label || primary.name || "Lead gauge") : "Lead gauge"));
+      setText("watershedScience", primary && Number.isFinite(numericOrNaN(primary.stage_ft))
+        ? "Use the available live gauge as a quick check on how Five Mile Creek is moving, even while we keep looking for a stronger Brookside-area feed."
         : "Live creek numbers will drop in here after the watershed file refreshes.");
-      setText("pillWatershed", lead && Number.isFinite(numericOrNaN(lead.stage_ft)) ? formatFeet(numericOrNaN(lead.stage_ft)) : "Gauge sync");
+      setText("pillWatershed", primary && Number.isFinite(numericOrNaN(primary.stage_ft)) ? formatFeet(numericOrNaN(primary.stage_ft)) : "Gauge sync");
     } catch (error) {
       setText("watershedUpdated", "Gauge sync offline");
       setHTML("watershedGrid", renderWatershedGauge({
-        label: "Brookside upstream",
+        label: "Republic live gauge",
         role: "lead",
         stage_ft: null,
         discharge_cfs: null,

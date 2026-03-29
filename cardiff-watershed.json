@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-03-29T05:48:36.562Z",
-  "leadGaugeId": "02457620",
+  "updatedAt": "2026-03-29T04:39:48.461Z",
+  "leadGaugeId": "02457595",
   "summary": "The live creek gauge file is ready, but the latest numbers have not synced yet.",
   "rainContext": {
     "today": 0,
@@ -10,7 +10,7 @@
     "monthCoverageStart": "2026-03-28",
     "morningReport": {
       "amount": 0,
-      "lowTemp": 41,
+      "lowTemp": 42,
       "windGust": 0,
       "label": "So far today",
       "isMorning": false,
@@ -19,13 +19,13 @@
   },
   "gauges": [
     {
-      "id": "02457620",
-      "label": "Brookside upstream",
-      "name": "Five Mile Creek nr Brookside, Ala",
-      "place": "Brookside",
+      "id": "02457595",
+      "label": "Republic live gauge",
+      "name": "Fivemile Creek near Republic, Ala",
+      "place": "Republic",
       "role": "lead",
       "location_tags": [
-        "brookside",
+        "jefferson_county",
         "five_mile_creek"
       ],
       "source_name": "USGS",
@@ -38,23 +38,23 @@
       "note": "Gauge synced without a readable current value."
     },
     {
-      "id": "02457595",
-      "label": "Republic downstream",
-      "name": "Fivemile Creek near Republic, Ala",
-      "place": "Republic",
-      "role": "downstream",
+      "id": "02457620",
+      "label": "Brookside upstream",
+      "name": "Five Mile Creek nr Brookside, Ala",
+      "place": "Brookside",
+      "role": "upstream_watch",
       "location_tags": [
-        "five_mile_creek",
-        "jefferson_county"
+        "brookside",
+        "five_mile_creek"
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 1.34,
-      "discharge_cfs": 35.1,
+      "stage_ft": null,
+      "discharge_cfs": null,
       "trend": "steady",
-      "updated_at": "2026-03-29T00:00:00.000-05:00",
+      "updated_at": "",
       "stage_history": [],
-      "note": "This reach looks fairly steady right now."
+      "note": "Gauge synced without a readable current value."
     }
   ]
 }

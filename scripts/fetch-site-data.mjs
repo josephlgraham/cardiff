@@ -113,20 +113,20 @@ const NORMALIZED_LOCATION_RULES = [
 
 const WATERSHED_GAUGES = [
   {
+    id: '02457595',
+    label: 'Republic live gauge',
+    name: 'Fivemile Creek near Republic, Ala',
+    place: 'Republic',
+    role: 'lead',
+    locationTags: ['five_mile_creek', 'jefferson_county']
+  },
+  {
     id: '02457620',
     label: 'Brookside upstream',
     name: 'Five Mile Creek nr Brookside, Ala',
     place: 'Brookside',
-    role: 'lead',
+    role: 'upstream_watch',
     locationTags: ['brookside', 'five_mile_creek']
-  },
-  {
-    id: '02457595',
-    label: 'Republic downstream',
-    name: 'Fivemile Creek near Republic, Ala',
-    place: 'Republic',
-    role: 'downstream',
-    locationTags: ['five_mile_creek', 'jefferson_county']
   }
 ];
 
@@ -705,8 +705,8 @@ function summarizeWatershed(gauges, rain) {
     ? `Cardiff has picked up ${rainToday.toFixed(2)} inches today`
     : 'Cardiff is dry today';
   const trendLine = lead.trend === 'rising'
-    ? 'and the upstream gauge is climbing'
-    : (lead.trend === 'falling' ? 'and the upstream gauge is easing down' : 'and the upstream gauge is holding fairly steady');
+    ? `and ${lead.label} is climbing`
+    : (lead.trend === 'falling' ? `and ${lead.label} is easing down` : `and ${lead.label} is holding fairly steady`);
   return `${rainLine}, ${trendLine}. Lead stage is ${lead.stage_ft.toFixed(2)} ft with about ${lead.discharge_cfs?.toFixed(1) || '0.0'} cfs moving through the channel. Month-to-date rain is ${rainMonth.toFixed(2)} inches.`;
 }
 
@@ -735,7 +735,7 @@ async function updateWatershedFile(weatherPayload = null) {
   });
   const payload = {
     updatedAt: new Date().toISOString(),
-    leadGaugeId: '02457620',
+    leadGaugeId: '02457595',
     summary: summarizeWatershed(gauges, weather?.rain || null),
     rainContext: weather?.rain || null,
     gauges
