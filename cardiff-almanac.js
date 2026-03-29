@@ -232,6 +232,13 @@
     return value === null || value === undefined || value === "" ? NaN : Number(value);
   }
 
+  function formatGaugeDay(value) {
+    if (!value) return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  }
+
   function escapeHtml(value) {
     return String(value || "")
       .replace(/&/g, "&amp;")
@@ -250,6 +257,48 @@
     if (diffHours < 24) return "Updated " + diffHours + "h ago";
     const diffDays = Math.round(diffHours / 24);
     return "Updated " + diffDays + "d ago";
+  }
+
+  function renderWatershedChart(history, label) {
+    const points = Array.isArray(history)
+      ? history
+          .map((entry) => ({
+            at: entry && entry.at ? entry.at : "",
+            stage_ft: numericOrNaN(entry && entry.stage_ft)
+          }))
+          .filter((entry) => Number.isFinite(entry.stage_ft) && entry.at)
+      : [];
+    if (points.length < 2) {
+      setText("watershedChartMeta", (label || "Lead gauge") + " history");
+      return '<div class="watershed-chart-empty">A seven-day stage chart will appear here after the live gauge file refreshes.</div>';
+    }
+    const width = 640;
+    const height = 160;
+    const padLeft = 12;
+    const padRight = 12;
+    const padTop = 12;
+    const padBottom = 28;
+    const min = Math.min.apply(null, points.map((point) => point.stage_ft));
+    const max = Math.max.apply(null, points.map((point) => point.stage_ft));
+    const range = Math.max(max - min, 0.2);
+    const lastIndex = Math.max(points.length - 1, 1);
+    const polyline = points.map((point, index) => {
+      const x = padLeft + (index / lastIndex) * (width - padLeft - padRight);
+      const y = padTop + ((max - point.stage_ft) / range) * (height - padTop - padBottom);
+      return x.toFixed(1) + "," + y.toFixed(1);
+    }).join(" ");
+    const firstLabel = formatGaugeDay(points[0].at);
+    const lastLabel = formatGaugeDay(points[points.length - 1].at);
+    setText("watershedChartMeta", (label || "Lead gauge") + " stage in feet");
+    return '<svg viewBox="0 0 ' + width + ' ' + height + '" role="img" aria-label="' + escapeHtml((label || "Lead gauge") + ' seven-day stage history') + '">' +
+      '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
+      '<line x1="' + padLeft + '" y1="' + padTop + '" x2="' + padLeft + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.1)" stroke-width="1"/>' +
+      '<polyline fill="none" stroke="#C8102E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
+      '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + '</text>' +
+      '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + '</text>' +
+      '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 2) + '">' + escapeHtml(max.toFixed(2) + " ft") + '</text>' +
+      '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(min.toFixed(2) + " ft") + '</text>' +
+      "</svg>";
   }
 
   function centralHourNow() {
@@ -629,9 +678,8 @@
 
     setHTML("fishBody", rows.map((row) => (
       '<div class="fish-row">' +
-        '<div class="fish-stars ' + row.cls + '">' + row.stars + "</div>" +
         '<div class="fish-icon">' + iconHtml(row.icon) + "</div>" +
-        '<div class="fish-main"><div class="fish-name">' + row.name + '</div><div class="fish-note">' + row.note + "</div></div>" +
+        '<div class="fish-main"><div class="fish-name-line"><div class="fish-stars ' + row.cls + '">' + row.stars + '</div><div class="fish-name">' + row.name + '</div></div><div class="fish-note">' + row.note + "</div></div>" +
       "</div>"
     )).join(""));
   }
@@ -703,7 +751,8 @@
       '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(gauge.label || gauge.name || "Gauge") + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
       '<div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div>' +
       '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trend) + '</div>' +
-      '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + " - " + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
+      '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + '</div>' +
+      '<div class="watershed-sub">' + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
       "</div>";
   }
 
@@ -715,31 +764,32 @@
       const gauges = Array.isArray(data.gauges) ? data.gauges : [];
       const lead = gauges.find((gauge) => gauge.role === "lead") || gauges[0] || null;
       setText("watershedUpdated", lead ? relativeGaugeTime(lead.updated_at) : "Gauge sync pending");
-      setHTML("watershedNarrative", escapeHtml(data.summary || "Brookside stays the lead watch point for Cardiff."));
       setHTML("watershedGrid", gauges.length ? gauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
-        label: "Brookside",
+        label: "Brookside upstream",
         role: "lead",
         stage_ft: null,
         discharge_cfs: null,
         trend: "steady",
         note: "Gauge values will appear here after the watershed file refreshes."
       }));
+      setHTML("watershedChart", renderWatershedChart(lead && lead.stage_history ? lead.stage_history : [], lead ? (lead.label || lead.name || "Lead gauge") : "Lead gauge"));
       setText("watershedScience", lead && Number.isFinite(numericOrNaN(lead.stage_ft))
-        ? "Brookside gives Cardiff the first hard number to watch. Compare that lead stage with Cardiff and Linn Crossing so the creek reads like a moving system instead of a single spot."
-        : "Upstream rain and gauge movement can matter in Cardiff before your own yard looks dramatic. Brookside is the first watch point, Cardiff is the local check, and Linn Crossing helps show what is moving downstream.");
+        ? "Use the upstream and downstream numbers as a quick check on how the creek is moving through Cardiff."
+        : "Live creek numbers will drop in here after the watershed file refreshes.");
       setText("pillWatershed", lead && Number.isFinite(numericOrNaN(lead.stage_ft)) ? formatFeet(numericOrNaN(lead.stage_ft)) : "Gauge sync");
     } catch (error) {
       setText("watershedUpdated", "Gauge sync offline");
-      setHTML("watershedNarrative", "Brookside stays the lead watch point for Cardiff. The watershed file is not responding right now.");
       setHTML("watershedGrid", renderWatershedGauge({
-        label: "Brookside",
+        label: "Brookside upstream",
         role: "lead",
         stage_ft: null,
         discharge_cfs: null,
         trend: "steady",
         note: "Gauge sync is temporarily offline."
       }));
-      setText("watershedScience", "Use local rain, creek color, and low-water crossings as backup clues until the gauge file comes back.");
+      setText("watershedChartMeta", "Lead gauge history");
+      setHTML("watershedChart", '<div class="watershed-chart-empty">Seven-day creek depth is offline until the gauge file comes back.</div>');
+      setText("watershedScience", "Use the weather, rain totals, and creek color as backup clues until the gauge file comes back.");
       setText("pillWatershed", "Offline");
     }
   }
@@ -886,7 +936,7 @@
         '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
       );
       setHTML("fishBody",
-        '<div class="fish-row"><div class="fish-stars f-low">—</div><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name">Live conditions unavailable</div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
+        '<div class="fish-row"><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name-line"><div class="fish-stars f-low">—</div><div class="fish-name">Live conditions unavailable</div></div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
       );
       return null;
     }

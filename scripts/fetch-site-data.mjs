@@ -113,28 +113,20 @@ const NORMALIZED_LOCATION_RULES = [
 
 const WATERSHED_GAUGES = [
   {
-    id: '02457625',
-    label: 'Brookside',
-    name: 'Fivemile Creek at Brookside',
+    id: '02457620',
+    label: 'Brookside upstream',
+    name: 'Five Mile Creek nr Brookside, Ala',
     place: 'Brookside',
     role: 'lead',
     locationTags: ['brookside', 'five_mile_creek']
   },
   {
-    id: '02457650',
-    label: 'Cardiff',
-    name: 'Fivemile Creek at Cardiff',
-    place: 'Cardiff',
-    role: 'local',
-    locationTags: ['cardiff', 'five_mile_creek']
-  },
-  {
-    id: '02457700',
-    label: 'Linn Crossing',
-    name: 'Fivemile Creek at Linn Crossing',
-    place: 'Graysville edge',
+    id: '02457595',
+    label: 'Republic downstream',
+    name: 'Fivemile Creek near Republic, Ala',
+    place: 'Republic',
     role: 'downstream',
-    locationTags: ['graysville', 'five_mile_creek']
+    locationTags: ['five_mile_creek', 'jefferson_county']
   }
 ];
 
@@ -605,6 +597,36 @@ function latestPoint(series) {
   return filtered.length ? filtered[filtered.length - 1] : null;
 }
 
+function historyPoints(series, maxPoints = 64) {
+  const values = series?.values?.[0]?.value || [];
+  const filtered = values
+    .map((entry) => ({
+      value: Number(entry.value),
+      dateTime: entry.dateTime || ''
+    }))
+    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime)
+    .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+  if (!filtered.length) return [];
+  if (filtered.length <= maxPoints) {
+    return filtered.map((entry) => ({
+      at: entry.dateTime,
+      stage_ft: Number(entry.value.toFixed(2))
+    }));
+  }
+  const stride = (filtered.length - 1) / (maxPoints - 1);
+  const trimmed = [];
+  for (let index = 0; index < maxPoints; index += 1) {
+    const sourceIndex = Math.round(index * stride);
+    const entry = filtered[sourceIndex];
+    if (!entry) continue;
+    trimmed.push({
+      at: entry.dateTime,
+      stage_ft: Number(entry.value.toFixed(2))
+    });
+  }
+  return trimmed;
+}
+
 function gaugeTrend(series) {
   const values = series?.values?.[0]?.value || [];
   const filtered = values
@@ -641,7 +663,7 @@ async function fetchGaugeSnapshot(gauge) {
     sites: gauge.id,
     parameterCd: '00060,00065',
     siteStatus: 'all',
-    period: 'P2D'
+    period: 'P7D'
   });
   const url = `${USGS_IV_BASE_URL}?${params.toString()}`;
   const data = await fetchJson(url, { headers: { Accept: 'application/json' } });
@@ -663,6 +685,7 @@ async function fetchGaugeSnapshot(gauge) {
     discharge_cfs: dischargePoint ? Number(dischargePoint.value.toFixed(1)) : null,
     trend,
     updated_at: stagePoint?.dateTime || dischargePoint?.dateTime || '',
+    stage_history: gauge.role === 'lead' ? historyPoints(stageSeries) : [],
     note: gaugeNote({
       stage_ft: stagePoint ? Number(stagePoint.value) : null,
       discharge_cfs: dischargePoint ? Number(dischargePoint.value) : null,
@@ -674,7 +697,7 @@ async function fetchGaugeSnapshot(gauge) {
 function summarizeWatershed(gauges, rain) {
   const lead = gauges.find((gauge) => gauge.role === 'lead') || gauges[0];
   if (!lead || !Number.isFinite(lead.stage_ft)) {
-    return 'Brookside stays the lead watch point for Cardiff. The watershed file is ready, but the latest gauge numbers have not synced yet.';
+    return 'The live creek gauge file is ready, but the latest numbers have not synced yet.';
   }
   const rainToday = Number(rain?.today || 0);
   const rainMonth = Number(rain?.monthToDate || 0);
@@ -682,8 +705,8 @@ function summarizeWatershed(gauges, rain) {
     ? `Cardiff has picked up ${rainToday.toFixed(2)} inches today`
     : 'Cardiff is dry today';
   const trendLine = lead.trend === 'rising'
-    ? 'and Brookside is climbing'
-    : (lead.trend === 'falling' ? 'and Brookside is easing down' : 'and Brookside is holding fairly steady');
+    ? 'and the upstream gauge is climbing'
+    : (lead.trend === 'falling' ? 'and the upstream gauge is easing down' : 'and the upstream gauge is holding fairly steady');
   return `${rainLine}, ${trendLine}. Lead stage is ${lead.stage_ft.toFixed(2)} ft with about ${lead.discharge_cfs?.toFixed(1) || '0.0'} cfs moving through the channel. Month-to-date rain is ${rainMonth.toFixed(2)} inches.`;
 }
 
@@ -706,12 +729,13 @@ async function updateWatershedFile(weatherPayload = null) {
       discharge_cfs: null,
       trend: 'steady',
       updated_at: '',
+      stage_history: [],
       note: 'Gauge sync missed this cycle.'
     };
   });
   const payload = {
     updatedAt: new Date().toISOString(),
-    leadGaugeId: '02457625',
+    leadGaugeId: '02457620',
     summary: summarizeWatershed(gauges, weather?.rain || null),
     rainContext: weather?.rain || null,
     gauges
