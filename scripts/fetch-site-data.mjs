@@ -230,7 +230,7 @@ function localShortDate(value) {
 }
 
 async function updateRainLog(current, obsDate) {
-  const log = await readJson(RAIN_LOG_FILE, { updatedAt: '', samples: [] });
+  const log = await readJson(RAIN_LOG_FILE, { updatedAt: '', samples: [], monthSeeds: [] });
   const sample = {
     obsTime: obsDate.toISOString(),
     localDate: localDateKey(obsDate),
@@ -244,6 +244,7 @@ async function updateRainLog(current, obsDate) {
   };
 
   const samples = Array.isArray(log.samples) ? log.samples.slice() : [];
+  const monthSeeds = Array.isArray(log.monthSeeds) ? log.monthSeeds.slice() : [];
   if (!samples.length || samples[samples.length - 1].obsTime !== sample.obsTime) {
     samples.push(sample);
   }
@@ -263,9 +264,20 @@ async function updateRainLog(current, obsDate) {
   const monthDays = [...dailyMax.entries()]
     .filter(([dateKey]) => dateKey.startsWith(currentMonthKey))
     .sort((a, b) => a[0].localeCompare(b[0]));
-  const monthToDate = monthDays.reduce((sum, [, total]) => sum + Number(total || 0), 0);
-  const monthCoverageStart = monthDays.length ? monthDays[0][0] : currentDateKey;
-  const monthComplete = monthCoverageStart.endsWith('-01');
+  const monthSeed = monthSeeds.find((seed) => seed && seed.month === currentMonthKey) || null;
+  const seedDate = monthSeed && monthSeed.asOfDate ? String(monthSeed.asOfDate) : '';
+  const seedTotal = monthSeed ? Number(monthSeed.total || 0) : 0;
+  const seedDailyTotal = monthSeed ? Number(monthSeed.asOfDailyTotal || 0) : 0;
+  const trackedMonthTotal = monthDays.reduce((sum, [dateKey, total]) => {
+    const numericTotal = Number(total || 0);
+    if (!monthSeed) return sum + numericTotal;
+    if (dateKey < seedDate) return sum;
+    if (dateKey === seedDate) return sum + Math.max(0, numericTotal - seedDailyTotal);
+    return sum + numericTotal;
+  }, 0);
+  const monthToDate = seedTotal + trackedMonthTotal;
+  const monthCoverageStart = monthSeed ? `${currentMonthKey}-01` : (monthDays.length ? monthDays[0][0] : currentDateKey);
+  const monthComplete = monthSeed ? true : monthCoverageStart.endsWith('-01');
   const todaySamples = trimmedSamples.filter((entry) => entry.localDate === currentDateKey);
   const rainToday = todaySamples.reduce((max, entry) => Math.max(max, Number(entry.dailyTotal || 0)), Number(current.precipTotal || 0));
   const overnightLow = todaySamples.length ? todaySamples.reduce((min, entry) => Math.min(min, Number(entry.temp || current.temp || 0)), Number(current.temp || 0)) : Number(current.temp || 0);
@@ -273,7 +285,8 @@ async function updateRainLog(current, obsDate) {
 
   const updatedLog = {
     updatedAt: new Date().toISOString(),
-    samples: trimmedSamples
+    samples: trimmedSamples,
+    monthSeeds
   };
   await writeJson(RAIN_LOG_FILE, updatedLog);
 

@@ -39,6 +39,22 @@
     return STRIP_COLORS[sev] || STRIP_COLORS.moderate;
   }
 
+  function setTickerMotion(stripText, shouldScroll, message) {
+    if (!stripText) return;
+    if (shouldScroll) {
+      var baseSpeed = 32;
+      var charRatio = message.length / 100;
+      var speed = Math.max(20, Math.round(baseSpeed * charRatio));
+      stripText.style.animation = 'marquee ' + speed + 's linear infinite';
+      stripText.style.paddingLeft = '100%';
+      stripText.style.transform = '';
+      return;
+    }
+    stripText.style.animation = 'none';
+    stripText.style.paddingLeft = '0';
+    stripText.style.transform = 'none';
+  }
+
   function loadTicker() {
     fetch(TICKER_URL, { cache: 'no-store' })
       .then(function (res) {
@@ -49,7 +65,7 @@
         applyTicker(data);
       })
       .catch(function () {
-        // ticker.json missing or bad — just show default, no error to user
+        applyTicker({ ticker: DEFAULT_MSG, alerts: [], hasAlerts: false });
       });
   }
 
@@ -59,13 +75,7 @@
     if (stripText) {
       var msg = (data.ticker || DEFAULT_MSG).trim();
       stripText.textContent = msg;
-
-      // Adjust scroll speed based on message length
-      // Longer messages need more time to scroll across
-      var baseSpeed = 32; // seconds for ~100 chars
-      var charRatio = msg.length / 100;
-      var speed = Math.max(20, Math.round(baseSpeed * charRatio));
-      stripText.style.animationDuration = speed + 's';
+      setTickerMotion(stripText, !!data.hasAlerts, msg);
     }
 
     // ── Change strip background color for active alerts ──

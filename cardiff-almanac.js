@@ -960,6 +960,20 @@
     return STRIP_COLORS[(alerts[0].severity || "").toLowerCase()] || STRIP_COLORS.moderate;
   }
 
+  function setTickerMotion(stripText, shouldScroll, message) {
+    if (!stripText) return;
+    if (shouldScroll) {
+      const speed = Math.max(20, Math.round(32 * (message.length / 100)));
+      stripText.style.animation = "marquee " + speed + "s linear infinite";
+      stripText.style.paddingLeft = "100%";
+      stripText.style.transform = "";
+      return;
+    }
+    stripText.style.animation = "none";
+    stripText.style.paddingLeft = "0";
+    stripText.style.transform = "none";
+  }
+
   async function loadTicker() {
     try {
       const response = await fetch(TICKER_URL, { cache: "no-store" });
@@ -970,7 +984,7 @@
       if (stripText) {
         const message = (data.ticker || DEFAULT_TICKER).trim();
         stripText.textContent = message;
-        stripText.style.animationDuration = Math.max(20, Math.round(32 * (message.length / 100))) + "s";
+        setTickerMotion(stripText, !!data.hasAlerts, message);
       }
       if (strip) {
         const color = getStripColor(data.alerts);
@@ -979,7 +993,10 @@
       buildAlertsActiveOnly(Array.isArray(data.alerts) ? data.alerts : []);
     } catch (error) {
       const stripText = document.querySelector(".announce-strip-text");
-      if (stripText) stripText.textContent = DEFAULT_TICKER;
+      if (stripText) {
+        stripText.textContent = DEFAULT_TICKER;
+        setTickerMotion(stripText, false, DEFAULT_TICKER);
+      }
       buildAlertsActiveOnly([]);
     }
   }

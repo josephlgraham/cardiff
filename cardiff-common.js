@@ -250,6 +250,20 @@
     return STRIP_COLORS[sev] || STRIP_COLORS.moderate;
   }
 
+  function setTickerMotion(stripText, shouldScroll, message) {
+    if (!stripText) return;
+    if (shouldScroll) {
+      var speed = Math.max(20, Math.round(32 * (message.length / 100)));
+      stripText.style.animation = 'marquee ' + speed + 's linear infinite';
+      stripText.style.paddingLeft = '100%';
+      stripText.style.transform = '';
+      return;
+    }
+    stripText.style.animation = 'none';
+    stripText.style.paddingLeft = '0';
+    stripText.style.transform = 'none';
+  }
+
   function loadTicker() {
     fetch(TICKER_URL, { cache: 'no-store' })
       .then(function (res) {
@@ -262,9 +276,7 @@
         if (stripText) {
           var msg = (data.ticker || DEFAULT_TICKER).trim();
           stripText.textContent = msg;
-          // Adjust scroll speed for longer messages
-          var speed = Math.max(20, Math.round(32 * (msg.length / 100)));
-          stripText.style.animationDuration = speed + 's';
+          setTickerMotion(stripText, !!data.hasAlerts, msg);
         }
 
         // Change strip color for active alerts
@@ -287,7 +299,11 @@
         }
       })
       .catch(function () {
-        // ticker.json not found — no action, default message stays
+        var stripText = document.querySelector('.announce-strip-text');
+        if (stripText) {
+          stripText.textContent = DEFAULT_TICKER;
+          setTickerMotion(stripText, false, DEFAULT_TICKER);
+        }
       });
   }
 
