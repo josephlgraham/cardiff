@@ -610,7 +610,7 @@ function latestPoint(series) {
   return filtered.length ? filtered[filtered.length - 1] : null;
 }
 
-function historyPoints(series, maxPoints = 64) {
+function historyPoints(series, maxPoints = 120) {
   const values = series?.values?.[0]?.value || [];
   const filtered = values
     .map((entry) => ({
@@ -676,7 +676,7 @@ async function fetchGaugeSnapshot(gauge) {
     sites: gauge.id,
     parameterCd: '00060,00065',
     siteStatus: 'all',
-    period: 'P7D'
+    period: 'P30D'
   });
   const url = `${USGS_IV_BASE_URL}?${params.toString()}`;
   const data = await fetchJson(url, { headers: { Accept: 'application/json' } });

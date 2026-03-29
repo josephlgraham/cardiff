@@ -189,6 +189,8 @@
     { kicker: "Season Marker", title: "Dogwoods are a clock", body: "People have long used bloom timing as a rough local calendar because plants respond to accumulated warmth, not just the date on paper." },
     { kicker: "Fishing Note", title: "Stable weather usually helps", body: "A few settled days often make creek fish more predictable than a sharp front swinging through overnight." }
   ];
+  let watershedLeadGauge = null;
+  let watershedChartRange = 7;
 
   function setText(id, value) {
     const el = document.getElementById(id);
@@ -259,46 +261,175 @@
     return "Updated " + diffDays + "d ago";
   }
 
-  function renderWatershedChart(history, label) {
-    const points = Array.isArray(history)
+  function chartRangeLabel(days) {
+    return days >= 30 ? "Month view" : "Week view";
+  }
+
+  function sanitizeGaugeHistory(history) {
+    return Array.isArray(history)
       ? history
           .map((entry) => ({
             at: entry && entry.at ? entry.at : "",
             stage_ft: numericOrNaN(entry && entry.stage_ft)
           }))
           .filter((entry) => Number.isFinite(entry.stage_ft) && entry.at)
+          .sort((a, b) => new Date(a.at) - new Date(b.at))
       : [];
-    if (points.length < 2) {
-      setText("watershedChartMeta", (label || "Lead gauge") + " history");
-      return '<div class="watershed-chart-empty">A seven-day stage chart will appear here after the live gauge file refreshes.</div>';
+  }
+
+  function historySpanDays(points) {
+    if (!points.length) return 0;
+    const first = new Date(points[0].at);
+    const last = new Date(points[points.length - 1].at);
+    return Math.max(1, Math.round((last - first) / 86400000));
+  }
+
+  function filterHistoryRange(points, rangeDays) {
+    if (!points.length) return [];
+    const lastDate = new Date(points[points.length - 1].at);
+    const startCutoff = new Date(lastDate);
+    startCutoff.setDate(startCutoff.getDate() - Math.max(1, rangeDays));
+    const filtered = points.filter((point) => new Date(point.at) >= startCutoff);
+    return filtered.length >= 2 ? filtered : points;
+  }
+
+  function formatDeltaFeet(value) {
+    if (!Number.isFinite(value)) return "Flat read";
+    if (Math.abs(value) < 0.01) return "Barely moved";
+    return (value > 0 ? "+" : "") + value.toFixed(2) + " ft";
+  }
+
+  function creekMood(stage) {
+    if (!Number.isFinite(stage)) {
+      return { icon: "📡", label: "Gauge watch", boat: "Desk lamp only", note: "Waiting on a fresh creek read." };
     }
-    const width = 640;
-    const height = 160;
-    const padLeft = 12;
-    const padRight = 12;
-    const padTop = 12;
-    const padBottom = 28;
+    if (stage < 1.5) {
+      return { icon: "🥾", label: "Low and wadable", boat: "Boot water", note: "More boots than boat at this level." };
+    }
+    if (stage < 2.25) {
+      return { icon: "🛶", label: "Creek-peeking level", boat: "Canoe daydream", note: "Enough water to look lively without feeling pushy." };
+    }
+    if (stage < 3.5) {
+      return { icon: "🚣", label: "Moving with purpose", boat: "Paddle craft energy", note: "The channel has more muscle and less loafing." };
+    }
+    return { icon: "🛟", label: "High-water caution", boat: "No joke boat water", note: "Fast, higher water deserves a respectful eye." };
+  }
+
+  function trendEmoji(trend) {
+    if (trend === "rising") return "📈";
+    if (trend === "falling") return "📉";
+    return "🟰";
+  }
+
+  function findPointNear(points, hoursBack) {
+    if (!points.length) return null;
+    const lastTime = new Date(points[points.length - 1].at).getTime();
+    const target = lastTime - (hoursBack * 3600000);
+    let best = points[0];
+    let bestDiff = Math.abs(new Date(best.at).getTime() - target);
+    points.forEach((point) => {
+      const diff = Math.abs(new Date(point.at).getTime() - target);
+      if (diff < bestDiff) {
+        best = point;
+        bestDiff = diff;
+      }
+    });
+    return best;
+  }
+
+  function setWatershedRangeButtons(points) {
+    const availableDays = historySpanDays(points);
+    const monthReady = availableDays >= 20;
+    document.querySelectorAll(".watershed-range-btn").forEach((btn) => {
+      const range = Number(btn.getAttribute("data-range") || 7);
+      const allowed = range === 7 || monthReady;
+      btn.disabled = !allowed;
+      if (!allowed && range === watershedChartRange) {
+        watershedChartRange = 7;
+      }
+      btn.classList.toggle("active", range === watershedChartRange);
+    });
+  }
+
+  function buildWatershedChart(history, label, trend, stageNow) {
+    const allPoints = sanitizeGaugeHistory(history);
+    const availableDays = historySpanDays(allPoints);
+    setWatershedRangeButtons(allPoints);
+    const points = filterHistoryRange(allPoints, watershedChartRange);
+    const mood = creekMood(stageNow);
+    if (points.length < 2) {
+      return {
+        meta: (label || "Lead gauge") + " · " + chartRangeLabel(watershedChartRange),
+        stats: '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">' + mood.icon + " " + mood.label + "</div></div>",
+        chart: '<div class="watershed-chart-empty">A ' + (watershedChartRange >= 30 ? "thirty-day" : "seven-day") + ' stage chart will appear here after the live gauge file refreshes.</div>'
+      };
+    }
+
+    const width = 760;
+    const height = 190;
+    const padLeft = 10;
+    const padRight = 10;
+    const padTop = 10;
+    const padBottom = 26;
     const min = Math.min.apply(null, points.map((point) => point.stage_ft));
     const max = Math.max.apply(null, points.map((point) => point.stage_ft));
     const range = Math.max(max - min, 0.2);
     const lastIndex = Math.max(points.length - 1, 1);
-    const polyline = points.map((point, index) => {
+    const coords = points.map((point, index) => {
       const x = padLeft + (index / lastIndex) * (width - padLeft - padRight);
       const y = padTop + ((max - point.stage_ft) / range) * (height - padTop - padBottom);
-      return x.toFixed(1) + "," + y.toFixed(1);
-    }).join(" ");
+      return { x, y };
+    });
+    const polyline = coords.map((point) => point.x.toFixed(1) + "," + point.y.toFixed(1)).join(" ");
+    const topArea = ([
+      [padLeft, padTop],
+      [width - padRight, padTop],
+      ...coords.slice().reverse().map((point) => [point.x, point.y]),
+      [coords[0].x, coords[0].y]
+    ]).map((point) => point[0].toFixed(1) + "," + point[1].toFixed(1)).join(" ");
+    const bottomArea = ([
+      [coords[0].x, coords[0].y],
+      ...coords.map((point) => [point.x, point.y]),
+      [width - padRight, height - padBottom],
+      [padLeft, height - padBottom]
+    ]).map((point) => point[0].toFixed(1) + "," + point[1].toFixed(1)).join(" ");
+    const latest = points[points.length - 1];
+    const previous24h = findPointNear(allPoints, 24);
+    const change24h = previous24h ? latest.stage_ft - previous24h.stage_ft : NaN;
     const firstLabel = formatGaugeDay(points[0].at);
     const lastLabel = formatGaugeDay(points[points.length - 1].at);
-    setText("watershedChartMeta", (label || "Lead gauge") + " stage in feet");
-    return '<svg viewBox="0 0 ' + width + ' ' + height + '" role="img" aria-label="' + escapeHtml((label || "Lead gauge") + ' seven-day stage history') + '">' +
-      '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
-      '<line x1="' + padLeft + '" y1="' + padTop + '" x2="' + padLeft + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.1)" stroke-width="1"/>' +
-      '<polyline fill="none" stroke="#C8102E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
-      '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + '</text>' +
-      '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + '</text>' +
-      '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 2) + '">' + escapeHtml(max.toFixed(2) + " ft") + '</text>' +
-      '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(min.toFixed(2) + " ft") + '</text>' +
-      "</svg>";
+    const changeLabel = Number.isFinite(change24h) ? formatDeltaFeet(change24h) : "Need more history";
+    const metaSuffix = availableDays >= watershedChartRange ? chartRangeLabel(watershedChartRange) : ("Last " + availableDays + " days loaded");
+
+    return {
+      meta: (label || "Lead gauge") + " · " + metaSuffix,
+      stats: [
+        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Current</div><div class="watershed-chart-value">' + escapeHtml(formatFeet(stageNow)) + "</div></div>",
+        '<div class="watershed-chart-stat"><div class="watershed-chart-label">24h change</div><div class="watershed-chart-value">' + escapeHtml(changeLabel) + "</div></div>",
+        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Window range</div><div class="watershed-chart-value">' + escapeHtml(min.toFixed(2) + "–" + max.toFixed(2) + " ft") + "</div></div>",
+        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">' + escapeHtml(mood.icon + " " + mood.boat) + "</div></div>"
+      ].join(""),
+      chart: '<svg viewBox="0 0 ' + width + " " + height + '" role="img" aria-label="' + escapeHtml((label || "Lead gauge") + " creek stage history") + '">' +
+        '<rect x="' + padLeft + '" y="' + padTop + '" width="' + (width - padLeft - padRight) + '" height="' + (height - padTop - padBottom) + '" rx="12" fill="rgba(49,120,72,0.12)"/>' +
+        '<polygon points="' + topArea + '" fill="rgba(57,133,75,0.18)"/>' +
+        '<polygon points="' + bottomArea + '" fill="rgba(32,96,160,0.18)"/>' +
+        '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
+        '<polyline fill="none" stroke="#0f5c6d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
+        '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + "</text>" +
+        '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 1) + '">' + escapeHtml(max.toFixed(2) + " ft") + "</text>" +
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(min.toFixed(2) + " ft") + "</text>" +
+        "</svg>"
+    };
+  }
+
+  function renderWatershedChartPanel() {
+    const gauge = watershedLeadGauge;
+    const chart = buildWatershedChart(gauge && gauge.stage_history ? gauge.stage_history : [], gauge ? (gauge.label || gauge.name || "Lead gauge") : "Lead gauge", gauge ? gauge.trend : "steady", gauge ? numericOrNaN(gauge.stage_ft) : NaN);
+    setText("watershedChartMeta", chart.meta);
+    setHTML("watershedChartStats", chart.stats);
+    setHTML("watershedChart", chart.chart);
   }
 
   function preferredGauge(gauges) {
@@ -494,14 +625,17 @@
 
   function buildSky(date, sun, moon) {
     const tonightNote = moon.name === "Full Moon"
-      ? "Expect a bright evening and stronger moonlight over open ground and creek bends."
+      ? "Bright moonlight is the star tonight. Great for moonrise, less great for deep-sky peeking."
       : moon.name === "New Moon"
-        ? "Dark skies favor stars, silhouettes, and listening more than looking."
-        : "Moonlight will be moderate tonight, enough to shape the woods without washing everything out.";
+        ? "This is your best darker-sky window. Stars get first billing when porch lights behave."
+        : "Moderate moonlight should keep the sky readable without washing out every star.";
+    const bestLook = moon.name === "New Moon"
+      ? "Best stargazing window"
+      : (moon.name === "Full Moon" ? "Best moon-viewing window" : "Best first look");
     setHTML("skyBody",
       '<div class="side-item"><div class="side-icon">🌇</div><div><div class="side-val">Sunset</div><div class="side-sub">' + formatClock(sun.set) + ' local time</div></div></div>' +
       '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">' + tonightNote + "</div></div></div>" +
-      '<div class="side-item"><div class="side-icon">✨</div><div><div class="side-val">Sky note</div><div class="side-sub">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div></div>'
+      '<div class="sky-note"><strong>' + bestLook + ':</strong> The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div>'
     );
   }
 
@@ -759,11 +893,13 @@
     const role = gauge && gauge.role ? gauge.role : "watch";
     const stage = numericOrNaN(gauge.stage_ft);
     const discharge = numericOrNaN(gauge.discharge_cfs);
+    const mood = creekMood(stage);
     return '<div class="watershed-stat">' +
-      '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(gauge.label || gauge.name || "Gauge") + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
-      '<div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div>' +
-      '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trend) + '</div>' +
+      '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(mood.icon + " " + (gauge.label || gauge.name || "Gauge")) + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
+      '<div class="watershed-mainline"><div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div><div class="watershed-boat">' + escapeHtml(mood.boat) + "</div></div>" +
+      '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trendEmoji(trend) + " " + trend) + '</div>' +
       '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + '</div>' +
+      '<div class="watershed-sub">' + escapeHtml(mood.label + ". " + mood.note) + '</div>' +
       '<div class="watershed-sub">' + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
       "</div>";
   }
@@ -775,6 +911,7 @@
       const data = await response.json();
       const gauges = Array.isArray(data.gauges) ? data.gauges : [];
       const primary = preferredGauge(gauges);
+      watershedLeadGauge = primary || null;
       setText("watershedUpdated", primary ? relativeGaugeTime(primary.updated_at) : "Gauge sync pending");
       setHTML("watershedGrid", gauges.length ? gauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
         label: "Republic live gauge",
@@ -784,12 +921,18 @@
         trend: "steady",
         note: "Gauge values will appear here after the watershed file refreshes."
       }));
-      setHTML("watershedChart", renderWatershedChart(primary && primary.stage_history ? primary.stage_history : [], primary ? (primary.label || primary.name || "Lead gauge") : "Lead gauge"));
+      renderWatershedChartPanel();
       setText("watershedScience", primary && Number.isFinite(numericOrNaN(primary.stage_ft))
-        ? "Use the available live gauge as a quick check on how Five Mile Creek is moving, even while we keep looking for a stronger Brookside-area feed."
+        ? "Stage, discharge, and the little boat cue are a quick local shorthand for whether the creek is whispering, moving along, or worth giving extra respect."
         : "Live creek numbers will drop in here after the watershed file refreshes.");
-      setText("pillWatershed", primary && Number.isFinite(numericOrNaN(primary.stage_ft)) ? formatFeet(numericOrNaN(primary.stage_ft)) : "Gauge sync");
+      if (primary && Number.isFinite(numericOrNaN(primary.stage_ft))) {
+        const mood = creekMood(numericOrNaN(primary.stage_ft));
+        setHTML("pillWatershed", emojiText(mood.icon, mood.label));
+      } else {
+        setText("pillWatershed", "Gauge sync");
+      }
     } catch (error) {
+      watershedLeadGauge = null;
       setText("watershedUpdated", "Gauge sync offline");
       setHTML("watershedGrid", renderWatershedGauge({
         label: "Republic live gauge",
@@ -799,8 +942,9 @@
         trend: "steady",
         note: "Gauge sync is temporarily offline."
       }));
-      setText("watershedChartMeta", "Lead gauge history");
-      setHTML("watershedChart", '<div class="watershed-chart-empty">Seven-day creek depth is offline until the gauge file comes back.</div>');
+      setText("watershedChartMeta", "Lead gauge · Week view");
+      setHTML("watershedChartStats", '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">📡 Offline</div></div>');
+      setHTML("watershedChart", '<div class="watershed-chart-empty">Creek depth is offline until the gauge file comes back.</div>');
       setText("watershedScience", "Use the weather, rain totals, and creek color as backup clues until the gauge file comes back.");
       setText("pillWatershed", "Offline");
     }
@@ -1022,6 +1166,44 @@
     }
   }
 
+  function setupWatershedRangeControls() {
+    document.querySelectorAll(".watershed-range-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const nextRange = Number(btn.getAttribute("data-range") || 7);
+        if (btn.disabled || nextRange === watershedChartRange) return;
+        watershedChartRange = nextRange;
+        renderWatershedChartPanel();
+      });
+    });
+  }
+
+  function loadForecast() {
+    fetch(WX_URL, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("forecast");
+        return response.json();
+      })
+      .then((data) => {
+        const forecastPeriods = Array.isArray(data.forecast) ? data.forecast : [];
+        const daytimePeriods = forecastPeriods.filter((period) => period && period.isDaytime).slice(0, 6);
+        const periods = daytimePeriods.length ? daytimePeriods : forecastPeriods.slice(0, 6);
+        if (!periods.length) throw new Error("forecast");
+        setHTML("weekBody", '<div class="week-grid">' + periods.map((period) => (
+          '<div class="week-item">' +
+            '<div class="week-item-icon">' + forecastIcon(period.shortForecast, period.isDaytime) + "</div>" +
+            '<div class="week-item-day">' + period.name + "</div>" +
+            '<div class="week-item-temp">' + period.temperature + "°" + period.temperatureUnit + "</div>" +
+            '<div class="week-item-note">' + period.shortForecast + "</div>" +
+          "</div>"
+        )).join("") + "</div>");
+      })
+      .catch(() => {
+        setHTML("weekBody",
+          '<div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Forecast temporarily unavailable.</div>'
+        );
+      });
+  }
+
   function initTopo() {
     const canvas = document.getElementById("topo-canvas");
     if (!canvas) return;
@@ -1103,6 +1285,7 @@
   function boot() {
     buildStaticSections();
     initTopo();
+    setupWatershedRangeControls();
     loadTicker();
     loadWatershed();
     loadWeather();

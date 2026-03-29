@@ -61,9 +61,23 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .aside-copy{font-size:.84rem;line-height:1.7;color:var(--ink2);}
 .aside-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.85rem}
 .aside-actions .btn{font-family:var(--sans);font-size:.78rem;letter-spacing:0}
+.aside-card.play-refresh{animation:playPulse .24s ease;}
+@keyframes playPulse{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
 .riddle-answer{margin-top:.7rem;padding:.72rem .78rem;background:rgba(32,96,160,.06);border:1px solid rgba(32,96,160,.16);border-radius:var(--r);font-size:.78rem;line-height:1.62;color:var(--ink2);display:none}
 .riddle-answer.visible{display:block}
 .riddle-answer strong{color:var(--blue)}
+.holler-feedback{margin-top:.95rem;padding-top:.9rem;border-top:1px solid var(--rule);display:grid;gap:.65rem}
+.feedback-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.feedback-title{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.feedback-copy{font-size:.74rem;line-height:1.55;color:var(--ink3);max-width:36ch}
+.feedback-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.feedback-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .72rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);font:inherit;font-size:.77rem;font-weight:700;cursor:pointer;transition:border-color var(--ease),background var(--ease),transform var(--ease),color var(--ease)}
+.feedback-btn:hover{border-color:rgba(200,16,46,.4);background:#fff}
+.feedback-btn.active{background:rgba(200,16,46,.08);border-color:rgba(200,16,46,.4);color:var(--red-mid)}
+.feedback-count{display:inline-flex;align-items:center;justify-content:center;min-width:1.6rem;padding:.12rem .4rem;border-radius:999px;background:rgba(28,18,8,.08);font-family:var(--mono);font-size:.63rem;font-weight:500;color:var(--ink3)}
+.feedback-btn.active .feedback-count{background:rgba(200,16,46,.16);color:var(--red-mid)}
+.feedback-status{font-size:.72rem;line-height:1.55;color:var(--ink3)}
+.feedback-status.error{color:var(--red-mid)}
 .texture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
 .texture-card .site-kicker{margin-bottom:.38rem;}
 .texture-card .card-title{margin-bottom:.35rem;}
@@ -170,6 +184,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <button class="btn ghost" type="button" id="toggleRiddleBtn" hidden>Show answer</button>
           <button class="btn ghost" type="button" id="nextRiddleBtn" hidden>Another riddle</button>
           <button class="btn ghost" type="button" id="showJokeBtn" hidden>Show a joke</button>
+        </div>
+        <div class="holler-feedback">
+          <div class="feedback-head">
+            <div class="feedback-title">Porch-safe feedback</div>
+            <div class="feedback-copy" id="hollerFeedbackMeta">Positive taps only. This browser remembers the tally while the board desk starts collecting the real count.</div>
+          </div>
+          <div class="feedback-actions" id="hollerFeedbackActions">
+            <button class="feedback-btn" type="button" data-reaction="laugh">😂 Funny <span class="feedback-count" id="feedbackCountLaugh">0</span></button>
+            <button class="feedback-btn" type="button" data-reaction="grin">🙂 Got a grin <span class="feedback-count" id="feedbackCountGrin">0</span></button>
+            <button class="feedback-btn" type="button" data-reaction="helpful">👍 Helpful <span class="feedback-count" id="feedbackCountHelpful">0</span></button>
+          </div>
+          <div class="feedback-status" id="hollerFeedbackStatus">Tap one reaction. Only the neighborly ones live here.</div>
         </div>
       </article>
     </div>
@@ -336,22 +362,56 @@ const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isInte
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 const HOLLER_ROTATOR_URL='cardiff-hollers-rotator.json';
+const HOLLER_FEEDBACK_FORM='Hills and Hollers Feedback';
+const HOLLER_FEEDBACK_VOTES_KEY='cardiff-holler-feedback-votes';
+const HOLLER_FEEDBACK_DELTAS_KEY='cardiff-holler-feedback-deltas';
+const REACTION_META={
+  laugh:{icon:'😂',label:'Funny'},
+  grin:{icon:'🙂',label:'Got a grin'},
+  helpful:{icon:'👍',label:'Helpful'}
+};
 const FALLBACK_ROTATOR={
   jokes:[
-    {title:'Taking the scenic route',body:'"I ain\\'t lost. I\\'m just taking the scenic way back."'},
-    {title:'Creek-level forecasting',body:'"Around here, if three people mention the creek before breakfast, somebody better check the gauge."'},
-    {title:'Cardiff traffic report',body:'"Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk."'}
+    {id:'joke-taking-the-scenic-route',title:'Taking the scenic route',body:"\"I ain't lost. I'm just taking the scenic way back.\"",feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-creek-level-forecasting',title:'Creek-level forecasting',body:'"Around here, if three people mention the creek before breakfast, somebody better check the gauge."',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-cardiff-traffic-report',title:'Cardiff traffic report',body:'"Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk."',feedback:{laugh:0,grin:0,helpful:0}}
   ],
   riddles:[
-    {question:'What runs all through Cardiff but never wears a shoe?',answer:'Five Mile Creek.'},
-    {question:'What shows up after a rain, tells the truth, and never says a word?',answer:'Tracks in the mud.'},
-    {question:'What belongs to the whole town, but gets used one porch at a time?',answer:'Good neighbor advice.'}
+    {id:'riddle-runs-all-through-cardiff',question:'What runs all through Cardiff but never wears a shoe?',answer:'Five Mile Creek.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-shows-up-after-a-rain',question:'What shows up after a rain, tells the truth, and never says a word?',answer:'Tracks in the mud.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-belongs-to-the-whole-town',question:'What belongs to the whole town, but gets used one porch at a time?',answer:'Good neighbor advice.',feedback:{laugh:0,grin:0,helpful:0}}
   ]
 };
-let hollerRotator=FALLBACK_ROTATOR;
+let hollerRotator={
+  jokes:FALLBACK_ROTATOR.jokes.slice(),
+  riddles:FALLBACK_ROTATOR.riddles.slice()
+};
 let jokeIndex=0;
 let riddleIndex=0;
 let playMode='joke';
+let hasPlayInteraction=false;
+const hollerEls={
+  card:document.getElementById('hollerPlayCard'),
+  kicker:document.getElementById('hollerPlayKicker'),
+  title:document.getElementById('hollerPlayTitle'),
+  body:document.getElementById('hollerPlayBody'),
+  answer:document.getElementById('hollerRiddleAnswer'),
+  nextJokeBtn:document.getElementById('nextJokeBtn'),
+  showRiddleBtn:document.getElementById('showRiddleBtn'),
+  toggleRiddleBtn:document.getElementById('toggleRiddleBtn'),
+  nextRiddleBtn:document.getElementById('nextRiddleBtn'),
+  showJokeBtn:document.getElementById('showJokeBtn'),
+  feedbackMeta:document.getElementById('hollerFeedbackMeta'),
+  feedbackStatus:document.getElementById('hollerFeedbackStatus'),
+  feedbackButtons:[...document.querySelectorAll('#hollerFeedbackActions .feedback-btn')],
+  feedbackCounts:{
+    laugh:document.getElementById('feedbackCountLaugh'),
+    grin:document.getElementById('feedbackCountGrin'),
+    helpful:document.getElementById('feedbackCountHelpful')
+  }
+};
+const localFeedbackVotes=readStoredObject(HOLLER_FEEDBACK_VOTES_KEY);
+const localFeedbackDeltas=readStoredObject(HOLLER_FEEDBACK_DELTAS_KEY);
 
 function pickDailyIndex(length,offset=0){
   if(!length)return 0;
@@ -362,43 +422,183 @@ function pickDailyIndex(length,offset=0){
   return total%length;
 }
 
-function renderJoke(){
-  const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
-  const joke=jokes[jokeIndex%jokes.length];
-  document.getElementById('hollerPlayKicker').textContent='Old-Timer Joke';
-  document.getElementById('hollerPlayTitle').textContent=joke.title||'Porch joke';
-  const body=document.getElementById('hollerPlayBody');
-  body.textContent=joke.body||'Warm porch humor lives here.';
-  body.hidden=false;
-  document.getElementById('hollerRiddleAnswer').classList.remove('visible');
+function readStoredObject(key){
+  try{
+    const raw=window.localStorage.getItem(key);
+    return raw?JSON.parse(raw):{};
+  }catch(err){
+    return {};
+  }
 }
 
-function renderRiddle(){
-  const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
-  const riddle=riddles[riddleIndex%riddles.length];
-  document.getElementById('hollerPlayKicker').textContent='Front Porch Riddle';
-  document.getElementById('hollerPlayTitle').textContent=riddle.question||'Front porch riddle';
-  const body=document.getElementById('hollerPlayBody');
-  body.textContent='';
-  body.hidden=true;
-  document.getElementById('hollerRiddleAnswer').innerHTML='<strong>Answer:</strong> '+(riddle.answer||'Still thinking on that one.');
-  document.getElementById('hollerRiddleAnswer').classList.remove('visible');
-  document.getElementById('toggleRiddleBtn').textContent='Show answer';
+function writeStoredObject(key,value){
+  try{
+    window.localStorage.setItem(key,JSON.stringify(value));
+  }catch(err){}
 }
 
-function setPlayMode(mode){
+function normalizeFeedback(feedback){
+  return {
+    laugh:Math.max(0,Number(feedback&&feedback.laugh)||0),
+    grin:Math.max(0,Number(feedback&&feedback.grin)||0),
+    helpful:Math.max(0,Number(feedback&&feedback.helpful)||0)
+  };
+}
+
+function slugify(value){
+  return String(value||'cardiff').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'cardiff';
+}
+
+function normalizeRotatorItems(items,fallback,type){
+  const source=Array.isArray(items)&&items.length?items:fallback;
+  return source.map((item,index)=>({
+    ...item,
+    id:item&&item.id?String(item.id):`${type}-${slugify((item&&item.title)||(item&&item.question)||('item-'+(index+1)))}`,
+    feedback:normalizeFeedback(item&&item.feedback)
+  }));
+}
+
+function getItemsForMode(mode){
+  if(mode==='riddle'){
+    return Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
+  }
+  return Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
+}
+
+function getCurrentItem(){
+  const items=getItemsForMode(playMode);
+  const index=playMode==='riddle'?riddleIndex:jokeIndex;
+  return items[index%items.length];
+}
+
+function flashPlayCard(){
+  if(!hollerEls.card)return;
+  hollerEls.card.classList.remove('play-refresh');
+  void hollerEls.card.offsetWidth;
+  hollerEls.card.classList.add('play-refresh');
+}
+
+function setFeedbackStatus(message,isError=false){
+  if(!hollerEls.feedbackStatus)return;
+  hollerEls.feedbackStatus.textContent=message;
+  hollerEls.feedbackStatus.classList.toggle('error',!!isError);
+}
+
+function feedbackCountsFor(item){
+  const base=normalizeFeedback(item&&item.feedback);
+  const local=localFeedbackDeltas[item&&item.id]||{};
+  return {
+    laugh:Math.max(0,base.laugh+Number(local.laugh||0)),
+    grin:Math.max(0,base.grin+Number(local.grin||0)),
+    helpful:Math.max(0,base.helpful+Number(local.helpful||0))
+  };
+}
+
+function renderFeedback(item){
+  if(!item)return;
+  const counts=feedbackCountsFor(item);
+  const currentVote=localFeedbackVotes[item.id]||'';
+  const total=counts.laugh+counts.grin+counts.helpful;
+  if(hollerEls.feedbackCounts.laugh) hollerEls.feedbackCounts.laugh.textContent=String(counts.laugh);
+  if(hollerEls.feedbackCounts.grin) hollerEls.feedbackCounts.grin.textContent=String(counts.grin);
+  if(hollerEls.feedbackCounts.helpful) hollerEls.feedbackCounts.helpful.textContent=String(counts.helpful);
+  hollerEls.feedbackButtons.forEach((btn)=>{
+    btn.classList.toggle('active',btn.dataset.reaction===currentVote);
+  });
+  if(hollerEls.feedbackMeta){
+    hollerEls.feedbackMeta.textContent=total?`${total} local porch tap${total===1?'':'s'} remembered here so far.`:'No local porch taps yet. Positive reactions only.';
+  }
+  if(currentVote&&REACTION_META[currentVote]){
+    setFeedbackStatus(`${REACTION_META[currentVote].icon} Saved as ${REACTION_META[currentVote].label}.`);
+  }else{
+    setFeedbackStatus('Tap one reaction. Only the neighborly ones live here.');
+  }
+}
+
+function renderJoke(options={}){
+  const joke=getCurrentItem();
+  hollerEls.kicker.textContent='Old-Timer Joke';
+  hollerEls.title.textContent=joke.title||'Porch joke';
+  hollerEls.body.textContent=joke.body||'Warm porch humor lives here.';
+  hollerEls.body.hidden=false;
+  hollerEls.answer.classList.remove('visible');
+  renderFeedback(joke);
+  if(options.pulse) flashPlayCard();
+}
+
+function renderRiddle(options={}){
+  const riddle=getCurrentItem();
+  hollerEls.kicker.textContent='Front Porch Riddle';
+  hollerEls.title.textContent=riddle.question||'Front porch riddle';
+  hollerEls.body.textContent='';
+  hollerEls.body.hidden=true;
+  hollerEls.answer.innerHTML='<strong>Answer:</strong> '+(riddle.answer||'Still thinking on that one.');
+  hollerEls.answer.classList.remove('visible');
+  hollerEls.toggleRiddleBtn.textContent='Show answer';
+  renderFeedback(riddle);
+  if(options.pulse) flashPlayCard();
+}
+
+function setPlayMode(mode,options={}){
   playMode=mode==='riddle'?'riddle':'joke';
   const showJoke=playMode==='joke';
-  document.getElementById('nextJokeBtn').hidden=!showJoke;
-  document.getElementById('showRiddleBtn').hidden=!showJoke;
-  document.getElementById('toggleRiddleBtn').hidden=showJoke;
-  document.getElementById('nextRiddleBtn').hidden=showJoke;
-  document.getElementById('showJokeBtn').hidden=showJoke;
+  hollerEls.nextJokeBtn.hidden=!showJoke;
+  hollerEls.showRiddleBtn.hidden=!showJoke;
+  hollerEls.toggleRiddleBtn.hidden=showJoke;
+  hollerEls.nextRiddleBtn.hidden=showJoke;
+  hollerEls.showJokeBtn.hidden=showJoke;
   if(showJoke){
-    renderJoke();
+    renderJoke(options);
   }else{
-    renderRiddle();
+    renderRiddle(options);
   }
+}
+
+function queueFeedbackLog(item,reaction){
+  if(!window.CardiffSite||typeof window.CardiffSite.submitForm!=='function')return;
+  const title=playMode==='riddle'?(item.question||item.id):(item.title||item.id);
+  window.CardiffSite.submitForm({
+    form:HOLLER_FEEDBACK_FORM,
+    name:'',
+    email:'',
+    topic:`${playMode==='riddle'?'Riddle':'Joke'} feedback · ${REACTION_META[reaction].label}`,
+    message:`Item ID: ${item.id}\nTitle: ${title}\nReaction: ${REACTION_META[reaction].label}\nPage: Hills and Hollers`,
+    page:'cardiff-hollers.html'
+  }).then(()=>{
+    const currentItem=getCurrentItem();
+    if(currentItem&&currentItem.id===item.id){
+      setFeedbackStatus(`${REACTION_META[reaction].icon} Saved as ${REACTION_META[reaction].label}. Sent to the board desk too.`);
+    }
+  }).catch(()=>{
+    const currentItem=getCurrentItem();
+    if(currentItem&&currentItem.id===item.id){
+      setFeedbackStatus(`${REACTION_META[reaction].icon} Saved here. The inbox missed this tap.`,true);
+    }
+  });
+}
+
+function registerFeedback(reaction){
+  const item=getCurrentItem();
+  if(!item||!REACTION_META[reaction])return;
+  const previous=localFeedbackVotes[item.id]||'';
+  if(previous===reaction){
+    setFeedbackStatus(`${REACTION_META[reaction].icon} Already marked ${REACTION_META[reaction].label}.`);
+    return;
+  }
+  if(previous&&REACTION_META[previous]){
+    const previousDelta=localFeedbackDeltas[item.id]||{};
+    previousDelta[previous]=Number(previousDelta[previous]||0)-1;
+    localFeedbackDeltas[item.id]=previousDelta;
+  }
+  const nextDelta=localFeedbackDeltas[item.id]||{};
+  nextDelta[reaction]=Number(nextDelta[reaction]||0)+1;
+  localFeedbackDeltas[item.id]=nextDelta;
+  localFeedbackVotes[item.id]=reaction;
+  writeStoredObject(HOLLER_FEEDBACK_VOTES_KEY,localFeedbackVotes);
+  writeStoredObject(HOLLER_FEEDBACK_DELTAS_KEY,localFeedbackDeltas);
+  renderFeedback(item);
+  setFeedbackStatus(`${REACTION_META[reaction].icon} Saving ${REACTION_META[reaction].label.toLowerCase()}...`);
+  queueFeedbackLog(item,reaction);
 }
 
 async function loadHollerRotator(){
@@ -407,44 +607,61 @@ async function loadHollerRotator(){
     if(!res.ok)throw new Error('rotator');
     const data=await res.json();
     hollerRotator={
-      jokes:Array.isArray(data.jokes)&&data.jokes.length?data.jokes:FALLBACK_ROTATOR.jokes,
-      riddles:Array.isArray(data.riddles)&&data.riddles.length?data.riddles:FALLBACK_ROTATOR.riddles
+      jokes:normalizeRotatorItems(data.jokes,FALLBACK_ROTATOR.jokes,'joke'),
+      riddles:normalizeRotatorItems(data.riddles,FALLBACK_ROTATOR.riddles,'riddle')
     };
   }catch(err){
-    hollerRotator=FALLBACK_ROTATOR;
+    hollerRotator={
+      jokes:normalizeRotatorItems(FALLBACK_ROTATOR.jokes,FALLBACK_ROTATOR.jokes,'joke'),
+      riddles:normalizeRotatorItems(FALLBACK_ROTATOR.riddles,FALLBACK_ROTATOR.riddles,'riddle')
+    };
   }
-  jokeIndex=pickDailyIndex(hollerRotator.jokes.length,0);
-  riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
-  setPlayMode(pickDailyIndex(2,21)===0?'joke':'riddle');
+  if(!hasPlayInteraction){
+    jokeIndex=pickDailyIndex(hollerRotator.jokes.length,0);
+    riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
+    setPlayMode(pickDailyIndex(2,21)===0?'joke':'riddle');
+  }else{
+    setPlayMode(playMode);
+  }
 }
 
-document.getElementById('nextJokeBtn').addEventListener('click',()=>{
-  const jokes=Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
+hollerEls.nextJokeBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  const jokes=getItemsForMode('joke');
   jokeIndex=(jokeIndex+1)%jokes.length;
-  setPlayMode('joke');
+  setPlayMode('joke',{pulse:true});
 });
 
-document.getElementById('toggleRiddleBtn').addEventListener('click',()=>{
-  const answer=document.getElementById('hollerRiddleAnswer');
-  const btn=document.getElementById('toggleRiddleBtn');
-  const showing=answer.classList.toggle('visible');
+hollerEls.toggleRiddleBtn.addEventListener('click',()=>{
+  const showing=hollerEls.answer.classList.toggle('visible');
+  const btn=hollerEls.toggleRiddleBtn;
   btn.textContent=showing?'Hide answer':'Show answer';
 });
 
-document.getElementById('nextRiddleBtn').addEventListener('click',()=>{
-  const riddles=Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
+hollerEls.nextRiddleBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  const riddles=getItemsForMode('riddle');
   riddleIndex=(riddleIndex+1)%riddles.length;
-  setPlayMode('riddle');
+  setPlayMode('riddle',{pulse:true});
 });
 
-document.getElementById('showRiddleBtn').addEventListener('click',()=>{
-  setPlayMode('riddle');
+hollerEls.showRiddleBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  setPlayMode('riddle',{pulse:true});
 });
 
-document.getElementById('showJokeBtn').addEventListener('click',()=>{
-  setPlayMode('joke');
+hollerEls.showJokeBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  setPlayMode('joke',{pulse:true});
 });
 
+hollerEls.feedbackButtons.forEach((btn)=>{
+  btn.addEventListener('click',()=>{
+    registerFeedback(btn.dataset.reaction||'');
+  });
+});
+
+setPlayMode('joke');
 loadHollerRotator();
 
 function prefillHollerReply(topic){
