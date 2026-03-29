@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-03-29T07:04:12.523Z",
+  "updatedAt": "2026-03-29T07:07:22.403Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-29 02:03:00",
+  "sourceUpdatedAt": "2026-03-29 02:06:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-29T07:03:00Z",
-      "obsTimeLocal": "2026-03-29 02:03:00",
+      "obsTimeUtc": "2026-03-29T07:06:00Z",
+      "obsTimeLocal": "2026-03-29 02:06:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774767780,
+      "epoch": 1774767960,
       "lat": 33.647,
       "uv": 0,
       "winddir": 280,
@@ -46,7 +46,7 @@
     "pressureIn": 30.03,
     "uv": 0,
     "condition": "Cold",
-    "obsTime": "2026-03-29 02:03:00",
+    "obsTime": "2026-03-29 02:06:00",
     "solarRadiation": 0,
     "summary": "Right now around Cardiff it feels 39°F, cold, humid air in the bottoms."
   },
@@ -69,7 +69,7 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-03-29T02:00:00-05:00",
+      "startTime": "2026-03-29T01:00:00-05:00",
       "endTime": "2026-03-29T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 47,
@@ -80,10 +80,10 @@
         "value": 0
       },
       "windSpeed": "5 to 10 mph",
-      "windDirection": "SE",
+      "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 47. Southeast wind 5 to 10 mph."
+      "detailedForecast": "Mostly clear, with a low around 47. East wind 5 to 10 mph."
     },
     {
       "number": 2,
