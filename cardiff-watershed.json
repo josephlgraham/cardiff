@@ -1,8 +1,22 @@
 {
-  "updatedAt": "",
+  "updatedAt": "2026-03-29T04:18:14.935Z",
   "leadGaugeId": "02457625",
-  "summary": "Brookside stays the lead watch point for Cardiff. Gauge sync will fill in the latest creek numbers after the site data script runs.",
-  "rainContext": null,
+  "summary": "Brookside stays the lead watch point for Cardiff. The watershed file is ready, but the latest gauge numbers have not synced yet.",
+  "rainContext": {
+    "today": 0,
+    "monthToDate": 0,
+    "monthLabel": "March 2026",
+    "monthComplete": false,
+    "monthCoverageStart": "2026-03-28",
+    "morningReport": {
+      "amount": 0,
+      "lowTemp": 42,
+      "windGust": 0,
+      "label": "So far today",
+      "isMorning": false,
+      "coverageStart": "2026-03-28"
+    }
+  },
   "gauges": [
     {
       "id": "02457625",
@@ -20,7 +34,7 @@
       "discharge_cfs": null,
       "trend": "steady",
       "updated_at": "",
-      "note": "Gauge sync has not run yet."
+      "note": "Gauge synced without a readable current value."
     },
     {
       "id": "02457650",
@@ -38,7 +52,7 @@
       "discharge_cfs": null,
       "trend": "steady",
       "updated_at": "",
-      "note": "Gauge sync has not run yet."
+      "note": "Gauge synced without a readable current value."
     },
     {
       "id": "02457700",
@@ -56,7 +70,7 @@
       "discharge_cfs": null,
       "trend": "steady",
       "updated_at": "",
-      "note": "Gauge sync has not run yet."
+      "note": "Gauge synced without a readable current value."
     }
   ]
 }
