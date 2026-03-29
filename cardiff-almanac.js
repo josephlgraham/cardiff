@@ -219,6 +219,14 @@
     return Number.isFinite(value) ? Math.round(value) + "°F" : "—";
   }
 
+  function centralHourNow() {
+    return Number(new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Chicago",
+      hour: "numeric",
+      hour12: false
+    }).format(new Date()));
+  }
+
   function formatClock(date) {
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
@@ -589,7 +597,8 @@
     setHTML("fishBody", rows.map((row) => (
       '<div class="fish-row">' +
         '<div class="fish-stars ' + row.cls + '">' + row.stars + "</div>" +
-        "<div><div class=\"fish-name\">" + iconHtml(row.icon) + " " + row.name + "</div><div class=\"fish-note\">" + row.note + "</div></div>" +
+        '<div class="fish-icon">' + iconHtml(row.icon) + "</div>" +
+        '<div class="fish-main"><div class="fish-name">' + row.name + '</div><div class="fish-note">' + row.note + "</div></div>" +
       "</div>"
     )).join(""));
   }
@@ -622,6 +631,8 @@
   }
 
   function buildMorningReport(report) {
+    const card = document.getElementById("morning-card");
+    if (card) card.style.display = centralHourNow() < 12 ? "" : "none";
     if (!report) {
       setHTML("morningBody",
         '<div class="report-stack"><div class="report-row"><div class="report-label">Weather desk</div><div class="report-value">Waiting on the station log.</div></div></div>'
@@ -768,7 +779,7 @@
         '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
       );
       setHTML("fishBody",
-        '<div class="fish-row"><div class="fish-stars f-low">—</div><div><div class="fish-name">Live conditions unavailable</div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
+        '<div class="fish-row"><div class="fish-stars f-low">—</div><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name">Live conditions unavailable</div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
       );
       return null;
     }

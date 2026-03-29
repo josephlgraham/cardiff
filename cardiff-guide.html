@@ -89,9 +89,6 @@ body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;back
 .recipe-link:hover{color:var(--red);}
 .lookalike-text,.local-note-text{font-size:0.84rem;line-height:1.58;color:var(--ink2);}
 .season-filters{display:flex;gap:0.35rem;flex-wrap:wrap;margin:-0.2rem 0 0.75rem;}
-.mobile-quickbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:0.55rem;justify-content:center;padding:0.7rem 0.9rem calc(0.7rem + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(248,246,240,0),rgba(248,246,240,.98) 22%,rgba(248,246,240,1));pointer-events:none;}
-.mobile-quickbar .mqb-btn{pointer-events:auto;appearance:none;border:1px solid var(--border);background:#fff;border-radius:999px;padding:0.72rem 0.95rem;font:800 0.78rem/1 var(--sans);color:var(--ink);box-shadow:0 10px 24px rgba(0,0,0,.08);}
-body.has-mobile-quickbar #scroll-area{padding-bottom:5.4rem;}
 
 /* ── BIOME PICKER ─────────────────────────────────────── */
 #s-biomes{padding:1.5rem 1.25rem;gap:1rem;}
@@ -503,12 +500,6 @@ body.has-mobile-quickbar #scroll-area{padding-bottom:5.4rem;}
     </div>
 
   </div>
-</div>
-
-<div class="mobile-quickbar" id="mobileQuickbar">
-  <button class="mqb-btn" type="button" onclick="showState('welcome')">Home</button>
-  <button class="mqb-btn" type="button" onclick="currentBiome?showBiomeBrowse():showBrowse()">Browse</button>
-  <button class="mqb-btn" type="button" onclick="focusGuideSearch()">Search</button>
 </div>
 
 <script>
@@ -2545,14 +2536,7 @@ function showState(n){
     history.pushState({cardiffGuide:true},'',window.location.href);
   }
   ['welcome','biomes','start','item','reveal','end','browse'].forEach(s=>document.getElementById('s-'+s).classList.toggle('on',s===n));
-  updateMobileQuickbar(n);
   scrollGuideTop();
-}
-function updateMobileQuickbar(screen){
-  const bar=document.getElementById('mobileQuickbar');
-  const show=!['welcome','biomes','start','end'].includes(screen);
-  bar.style.display=show?'flex':'none';
-  document.body.classList.toggle('has-mobile-quickbar',show);
 }
 function focusGuideSearch(){
   if(currentScreen()!=='browse') showBrowse();

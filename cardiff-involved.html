@@ -65,17 +65,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .role-btn:hover{background:var(--red-mid);border-color:var(--red-mid);color:#fff;}
 
 /* Contact */
-.contact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;margin-bottom:1.5rem;position:relative;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
-.contact-body{font-size:0.9rem;line-height:1.75;color:var(--ink2);}
-.contact-email{display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;padding:.5rem .9rem;border-radius:999px;background:rgba(200,16,46,.06);border:1px solid rgba(200,16,46,.16);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--red);text-decoration:none;}
-.contact-email:hover{background:rgba(200,16,46,.1);color:var(--red-mid);}
-
 /* Donate */
 .donate-band{background:var(--ink);border-radius:var(--r-lg);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;margin-bottom:1.5rem;}
 .donate-band::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
 .donate-title{font-family:var(--sans);font-size:2rem;font-weight:800;letter-spacing:-0.02em;color:var(--paper);margin-bottom:0.5rem;position:relative;}
 .donate-title .red{color:var(--red);}
 .donate-body{font-size:0.9rem;line-height:1.72;color:rgba(245,234,216,0.62);max-width:480px;margin:0 auto 1.5rem;position:relative;}
+.donate-personal{font-size:0.84rem;line-height:1.76;color:rgba(245,234,216,0.72);max-width:520px;margin:0 auto 1.3rem;position:relative;}
 .donate-uses{display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;margin-bottom:1.5rem;position:relative;}
 .donate-use{padding:0.25rem 0.7rem;background:rgba(245,234,216,0.08);border:1px solid rgba(245,234,216,0.14);border-radius:100px;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;color:rgba(245,234,216,0.6);}
 .donate-btns{display:flex;gap:0.65rem;justify-content:center;flex-wrap:wrap;position:relative;}
@@ -99,7 +95,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .sub-form input,.sub-form textarea,.sub-form select{width:100%;padding:0.65rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:0.86rem;color:var(--ink);outline:none;transition:border-color var(--ease);}
 .sub-form input:focus,.sub-form textarea:focus,.sub-form select:focus{border-color:var(--amber);}
 .sub-form textarea{min-height:100px;resize:vertical;}
-.sub-btn{padding:0.7rem 1.5rem;background:var(--green);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;cursor:pointer;align-self:flex-start;transition:background var(--ease),transform var(--ease);}
+.sub-btn{padding:0.7rem 1.5rem;background:var(--green);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;cursor:pointer;align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;width:auto;max-width:100%;transition:background var(--ease),transform var(--ease);}
 .sub-btn:hover{background:var(--green-hi);transform:translateY(-1px);}
 
 @media(max-width:640px){.wrap{padding:0 1rem 4rem;}.role-grid{grid-template-columns:1fr;}.sub-row{grid-template-columns:1fr;}}
@@ -166,6 +162,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="donate-band reveal">
     <div class="donate-title">Support this<br><span class="red">project.</span></div>
     <p class="donate-body">This is an independent community website built on personal time and personal money. Contributions support the development, upkeep, hosting, tools, and expansion of the site itself. They do not go to the Town of Cardiff or to any official municipal account.</p>
+    <p class="donate-personal">I am building this because Cardiff is home to me, and I want this place to have a living record that is useful, welcoming, and worth returning to. Support helps me keep documenting the town, improving the site, and adding the tools this project still needs.</p>
     <div class="donate-uses">
       <span class="donate-use">Cemetery documentation</span>
       <span class="donate-use">Site hosting &amp; tools</span>
@@ -180,11 +177,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   </div>
 
   <div class="s-rule reveal" id="contact"><h2>Get in touch</h2><hr></div>
-
-  <div class="contact-card info-box reveal" data-kicker="Contact Joe">
-    <p class="contact-body">Use the form below to get in touch about volunteering, council service, local history, watershed work, or anything else related to Cardiff. This is an independent community project, not an official town office, and everything submitted here is read by a real person connected to the site.</p>
-    <a class="contact-email" href="mailto:josephlgraham@gmail.com">josephlgraham@gmail.com</a>
-  </div>
 
   <div class="sub-card info-box reveal" data-kicker="Community rules">
     <div class="sub-title">Before you submit</div>
@@ -250,7 +242,7 @@ async function submitForm(){
     const subject=encodeURIComponent('Cardiff website: '+type);
     const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nInterest: '+type+'\n\n'+msg);
     window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.getElementById('subForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+    document.getElementById('subForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, use the Email Joe button above.</div>';
   }
 }
 

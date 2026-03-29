@@ -119,9 +119,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .fc-lbl{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.15rem;}
 .fc-val{font-size:0.86rem;font-weight:700;color:var(--ink);}
 .fc-note{font-size:0.68rem;color:var(--ink3);margin-top:0.15rem;line-height:1.45;}
-.fish-row{display:flex;align-items:flex-start;gap:0.65rem;padding:0.6rem 0;border-bottom:1px solid var(--rule);}
+.fish-row{display:grid;grid-template-columns:minmax(3.5rem,auto) 1.15rem minmax(0,1fr);align-items:flex-start;column-gap:0.65rem;padding:0.6rem 0;border-bottom:1px solid var(--rule);}
 .fish-row:last-child{border-bottom:none;}
 .fish-stars{font-family:var(--mono);font-size:0.72rem;white-space:nowrap;min-width:3.5rem;margin-top:0.05rem;}
+.fish-icon{font-size:1rem;line-height:1;display:flex;align-items:flex-start;justify-content:center;margin-top:0.08rem;}
+.fish-main{min-width:0;}
 .fish-name{font-size:0.84rem;font-weight:700;color:var(--ink);}
 .fish-note{font-size:0.77rem;line-height:1.6;color:var(--ink3);margin-top:0.12rem;}
 .f-good{color:var(--green);}.f-mid{color:var(--amber);}.f-low{color:var(--ink3);}
@@ -169,6 +171,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .cta-body{font-size:0.86rem;line-height:1.7;color:rgba(245,234,216,0.55);max-width:420px;margin:0 auto 1rem;position:relative;}
 .cta-btn{display:inline-block;padding:0.6rem 1.3rem;background:var(--red);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.84rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
 .cta-btn:hover{background:var(--red-mid);}
+.site-footer{max-width:940px;margin:0 auto;padding:0 2rem 2.5rem;}
+.site-footer-inner{border-top:1px solid var(--rule);padding-top:1rem;text-align:center;}
+.site-footer-slogan{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);}
+.site-footer-copy{margin-top:0.35rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);}
 
 @media(max-width:720px){
   .alm-grid{grid-template-columns:1fr;padding:1rem 1rem 4rem;}
@@ -177,6 +183,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   .today-strip{padding:1rem 1rem 0;}
   .sidebar{position:static;}
   .cta-band{margin:0 1rem 3rem;}
+  .site-footer{padding:0 1rem 2rem;}
 }
 @media(max-width:700px){.mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}}
 @media(max-width:480px){.mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}.side-item{grid-template-columns:1rem minmax(0,1fr);}.wx-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.wx-cell{min-width:0;padding:0.58rem 0.5rem;display:grid;align-content:start;gap:0.16rem;}.wx-val{font-size:1rem;line-height:1.2;word-break:break-word;min-height:2.35em;display:flex;align-items:center;justify-content:center;text-align:center;}.wx-lbl{line-height:1.35;min-height:2.45em;display:flex;align-items:center;justify-content:center;text-align:center;}.wx-note{font-size:0.66rem;line-height:1.42;max-width:12ch;margin:0.12rem auto 0;text-align:center;}.rain-strip{grid-template-columns:1fr;}}
@@ -380,6 +387,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <p class="cta-body">Report wildlife sightings, water conditions, or unusual activity on the creek. Every observation is real ecological data.</p>
   <a href="cardiff-involved.html" class="cta-btn">Get Involved →</a>
 </div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-slogan">100 Years Y2K</div>
+    <div class="site-footer-copy">Copyright 2026</div>
+  </div>
+</footer>
 
 </div><!-- /page -->
 

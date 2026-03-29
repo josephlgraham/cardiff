@@ -154,7 +154,14 @@ html{scroll-behavior:smooth;}
   background:var(--red) !important;
   color:#fff !important;
   border:1px solid var(--red) !important;
+  border-radius:var(--r) !important;
   box-shadow:none !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  max-width:100% !important;
+  flex:0 0 auto !important;
 }
 
 .btn:hover,
@@ -184,4 +191,44 @@ html{scroll-behavior:smooth;}
 .sub-form button:focus-visible{
   outline:2px solid rgba(200,16,46,0.24) !important;
   outline-offset:2px !important;
+}
+
+.sub-btn,
+.sub-form button{
+  align-self:flex-start !important;
+}
+
+.cardiff-site-footer{
+  max-width:980px;
+  margin:3rem auto 0;
+  padding:0 2rem 2.5rem;
+}
+
+.cardiff-site-footer-inner{
+  border-top:1px solid var(--rule);
+  padding-top:1rem;
+  text-align:center;
+}
+
+.cardiff-site-footer-slogan{
+  font-family:var(--mono);
+  font-size:0.66rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--ink3);
+}
+
+.cardiff-site-footer-copy{
+  margin-top:0.35rem;
+  font-family:var(--mono);
+  font-size:0.6rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ink3);
+}
+
+@media(max-width:600px){
+  .cardiff-site-footer{
+    padding:0 1rem 2rem;
+  }
 }

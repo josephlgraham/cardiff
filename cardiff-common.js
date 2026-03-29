@@ -116,6 +116,22 @@
     target.outerHTML = buildMasthead();
   }
 
+  function buildFooter() {
+    return '<footer class="cardiff-site-footer" id="cardiff-site-footer">' +
+      '<div class="cardiff-site-footer-inner">' +
+      '<div class="cardiff-site-footer-slogan">100 Years Y2K</div>' +
+      '<div class="cardiff-site-footer-copy">Copyright 2026</div>' +
+      '</div>' +
+      '</footer>';
+  }
+
+  function injectFooter() {
+    if (document.getElementById('cardiff-site-footer')) return;
+    var page = document.querySelector('.page');
+    if (!page) return;
+    page.insertAdjacentHTML('beforeend', buildFooter());
+  }
+
   function submitSiteForm(payload) {
     return new Promise(function (resolve, reject) {
       try {
@@ -387,6 +403,7 @@
 
   function boot() {
     injectMasthead();
+    injectFooter();
     centerActiveTab();
     window.CardiffSite = window.CardiffSite || {};
     window.CardiffSite.submitForm = submitSiteForm;

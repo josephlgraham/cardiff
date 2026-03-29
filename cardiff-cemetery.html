@@ -137,7 +137,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="notify-card reveal">
     <div class="band-kicker">Stay informed</div>
     <div class="notify-title">Be the first to know</div>
-    <p class="notify-body">Leave your email and I can add you to the cemetery documentation list for this fall. This form goes into the site inbox, and you can also write directly to josephlgraham@gmail.com.</p>
+  <p class="notify-body">Leave your email and I can add you to the cemetery documentation list for this fall. This form goes into the site inbox, and the Email Joe button is there if you would rather write directly.</p>
     <div class="notify-form">
       <input type="email" placeholder="your@email.com" id="cemEmail">
       <button id="cemNotifyBtn" type="button" onclick="handleCemNotify()">Notify me</button>
@@ -184,7 +184,7 @@ async function handleCemNotify(){
     const subject=encodeURIComponent('Cardiff cemetery updates');
     const body=encodeURIComponent('Please add me to the Cardiff Cemetery documentation updates list.\n\nEmail: '+e.value.trim());
     window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.querySelector('.notify-card').innerHTML='<div style="padding:1rem;font-family:var(--sans);color:var(--paper);font-size:1rem;font-weight:600;text-align:center;position:relative;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+    document.querySelector('.notify-card').innerHTML='<div style="padding:1rem;font-family:var(--sans);color:var(--paper);font-size:1rem;font-weight:600;text-align:center;position:relative;">The inbox connection missed. Your email app should open instead. If it does not, use the Email Joe button.</div>';
   }
 }
 

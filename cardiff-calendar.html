@@ -281,7 +281,7 @@ async function submitCalendarDate(){
     const subject=encodeURIComponent('Cardiff calendar date: '+type+' · '+date);
     const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
     window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, write to josephlgraham@gmail.com.</div>';
+    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, use the Email Joe button.</div>';
   }
 }
 </script>
