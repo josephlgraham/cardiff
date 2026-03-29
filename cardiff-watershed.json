@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-29T04:39:48.461Z",
+  "updatedAt": "2026-03-29T05:18:35.236Z",
   "leadGaugeId": "02457620",
   "summary": "The live creek gauge file is ready, but the latest numbers have not synced yet.",
   "rainContext": {
@@ -10,7 +10,7 @@
     "monthCoverageStart": "2026-03-28",
     "morningReport": {
       "amount": 0,
-      "lowTemp": 42,
+      "lowTemp": 41,
       "windGust": 0,
       "label": "So far today",
       "isMorning": false,
@@ -44,17 +44,17 @@
       "place": "Republic",
       "role": "downstream",
       "location_tags": [
-        "jefferson_county",
-        "five_mile_creek"
+        "five_mile_creek",
+        "jefferson_county"
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": null,
-      "discharge_cfs": null,
+      "stage_ft": 1.35,
+      "discharge_cfs": 36.1,
       "trend": "steady",
-      "updated_at": "",
+      "updated_at": "2026-03-28T23:00:00.000-05:00",
       "stage_history": [],
-      "note": "Gauge synced without a readable current value."
+      "note": "This reach looks fairly steady right now."
     }
   ]
 }
