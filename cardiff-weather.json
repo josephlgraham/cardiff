@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-03-29T17:31:03.752Z",
+  "updatedAt": "2026-03-29T18:30:11.795Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-29 12:29:00",
+  "sourceUpdatedAt": "2026-03-29 13:28:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-29T17:29:00Z",
-      "obsTimeLocal": "2026-03-29 12:29:00",
+      "obsTimeUtc": "2026-03-29T18:28:00Z",
+      "obsTimeLocal": "2026-03-29 13:28:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 661.3,
+      "solarRadiation": 617.5,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774805340,
+      "epoch": 1774808880,
       "lat": 33.647,
       "uv": 6,
-      "winddir": 292,
-      "humidity": 56,
+      "winddir": 332,
+      "humidity": 54,
       "qcStatus": 1,
       "imperial": {
-        "temp": 66,
-        "heatIndex": 66,
-        "dewpt": 50,
-        "windChill": 66,
+        "temp": 69,
+        "heatIndex": 69,
+        "dewpt": 52,
+        "windChill": 69,
         "windSpeed": 1,
-        "windGust": 6,
-        "pressure": 30.09,
+        "windGust": 3,
+        "pressure": 30.07,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 66,
-    "feels": 66,
-    "humidity": 56,
+    "temp": 69,
+    "feels": 69,
+    "humidity": 54,
     "windSpeed": 1,
-    "windGust": 6,
-    "windDir": "WNW",
-    "windDirDegrees": 292,
+    "windGust": 3,
+    "windDir": "NNW",
+    "windDirDegrees": 332,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 30.09,
+    "pressureIn": 30.07,
     "uv": 6,
     "condition": "Partly cloudy",
-    "obsTime": "2026-03-29 12:29:00",
-    "solarRadiation": 661.3,
-    "summary": "Right now around Cardiff it feels 66°F, partly cloudy."
+    "obsTime": "2026-03-29 13:28:00",
+    "solarRadiation": 617.5,
+    "summary": "Right now around Cardiff it feels 69°F, partly cloudy."
   },
   "rain": {
     "today": 0,
@@ -68,8 +68,8 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Today",
-      "startTime": "2026-03-29T11:00:00-05:00",
+      "name": "This Afternoon",
+      "startTime": "2026-03-29T13:00:00-05:00",
       "endTime": "2026-03-29T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 69,
@@ -83,7 +83,7 @@
       "windDirection": "SE",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 69. Southeast wind around 10 mph, with gusts as high as 25 mph."
+      "detailedForecast": "Mostly sunny, with a high near 69. Southeast wind around 10 mph."
     },
     {
       "number": 2,
@@ -210,13 +210,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 39
+        "value": 36
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,40?size=medium",
+      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,40/tsra_hi,20?size=medium",
       "shortForecast": "Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms before 7pm, then a chance of showers and thunderstorms. Mostly cloudy, with a low around 62. Chance of precipitation is 40%."
+      "detailedForecast": "A chance of showers and thunderstorms before 1am. Partly cloudy, with a low around 62. Chance of precipitation is 40%."
     }
   ]
 }
