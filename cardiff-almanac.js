@@ -381,17 +381,21 @@
     const values = points.map((point) => point.stage_ft);
     const rawMin = Math.min.apply(null, values);
     const rawMax = Math.max.apply(null, values);
-    const p10 = quantile(values, 0.1);
-    const p90 = quantile(values, 0.9);
-    const focusSpread = Math.max(p90 - p10, 0.18);
-    const rawSpread = Math.max(rawMax - rawMin, 0.18);
+    const p05 = quantile(values, 0.05);
+    const p15 = quantile(values, 0.15);
+    const p85 = quantile(values, 0.85);
+    const p95 = quantile(values, 0.95);
+    const focusMin = Number.isFinite(p15) ? p15 : rawMin;
+    const focusMax = Number.isFinite(p85) ? p85 : rawMax;
+    const focusSpread = Math.max(focusMax - focusMin, 0.16);
+    const rawSpread = Math.max(rawMax - rawMin, 0.16);
     const latestStage = Number.isFinite(stageNow) ? stageNow : values[values.length - 1];
-    let displayMin = rawMin - rawSpread * 0.08;
-    let displayMax = rawMax + rawSpread * 0.12;
+    let displayMin = Math.min(rawMin, latestStage) - rawSpread * 0.05;
+    let displayMax = Math.max(rawMax, latestStage) + rawSpread * 0.08;
 
-    if (rawSpread > focusSpread * 3.5) {
-      displayMin = Math.min(rawMin, latestStage, p10 - focusSpread * 0.35);
-      displayMax = Math.max(latestStage, p90 + focusSpread * 0.9);
+    if (rawSpread > focusSpread * 2.2) {
+      displayMin = Math.min(focusMin, latestStage, Number.isFinite(p05) ? p05 : focusMin) - Math.max(focusSpread * 0.18, 0.06);
+      displayMax = Math.max(focusMax, latestStage, Number.isFinite(p95) ? p95 : focusMax) + Math.max(focusSpread * 0.22, 0.08);
     }
 
     if (!Number.isFinite(displayMin) || !Number.isFinite(displayMax) || displayMax <= displayMin) {
@@ -399,7 +403,7 @@
       displayMax = rawMax + 0.2;
     }
 
-    const padding = Math.max((displayMax - displayMin) * 0.08, 0.08);
+    const padding = Math.max((displayMax - displayMin) * 0.04, 0.04);
     displayMin -= padding;
     displayMax += padding;
 
@@ -563,11 +567,11 @@
     }
 
     const width = 760;
-    const height = 230;
+    const height = 272;
     const padLeft = 12;
     const padRight = 12;
-    const padTop = 14;
-    const padBottom = 28;
+    const padTop = 10;
+    const padBottom = 22;
     const stageRange = displayStageRange(points, stageNow);
     const min = stageRange.rawMin;
     const max = stageRange.rawMax;
@@ -620,7 +624,7 @@
         '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.33) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.33) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
         '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.66) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.66) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
         '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
-        '<polyline fill="none" stroke="#0f5c6d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
+        '<polyline fill="none" stroke="#0f5c6d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
         '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + "</text>" +
         '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
@@ -1308,7 +1312,7 @@
     setText("fishMoonNote", "Moonlight shifts feeding windows, especially overnight.");
     setEmojiText("fishBest", bestIcon, bestTime);
     setText("fishBestNote", bestTimeNote);
-    setHTML("pillFish", emojiText("🎣", rows[0].name));
+    setText("pillFish", rows[0].name);
 
     setHTML("fishBody", rows.map((row) => (
       '<div class="fish-row">' +
@@ -1353,7 +1357,7 @@
     setMultiEmojiText("fishWater", ["💧", "🌡️"], waterTemp + "°F");
     setMultiEmojiText("fishPressure", [pressure.icon, "🧭"], pressure.label);
     if (rows.length) {
-      setHTML("pillFish", emojiText(rows[0].icon, rows[0].name));
+      setText("pillFish", rows[0].name);
     }
   }
 
@@ -1457,7 +1461,7 @@
         : "Live creek numbers will drop in here after the watershed file refreshes.");
       if (primary && Number.isFinite(numericOrNaN(primary.stage_ft))) {
         const mood = creekMood(numericOrNaN(primary.stage_ft));
-        setHTML("pillWatershed", emojiText(mood.icon, mood.label));
+        setText("pillWatershed", mood.label);
       } else {
         setText("pillWatershed", "Gauge sync");
       }
@@ -1557,7 +1561,7 @@
     setText("heroCondSub", "Feels like " + wx.feels + "°F · Wind " + Math.round(wx.windSpeed) + " mph " + wx.windDir);
     setHTML("heroRain", emojiText(ground.icon, ground.title));
     setText("heroRainSub", ground.note);
-    setHTML("pillWeather", emojiText(conditionIcon(wx.condition), wx.temp + "°F · " + wx.condition));
+    setText("pillWeather", wx.temp + "°F · " + wx.condition);
 
     buildRainSummary(rain);
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);

@@ -144,6 +144,12 @@
   function submitSiteForm(payload) {
     return new Promise(function (resolve, reject) {
       try {
+        var enrichedPayload = Object.assign({
+          submissionId: 'msg-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8),
+          pageTitle: document.title || '',
+          url: window.location.href || '',
+          referrer: document.referrer || ''
+        }, payload || {});
         var iframeName = 'cardiff-site-inbox-frame';
         var iframe = document.querySelector('iframe[name="' + iframeName + '"]');
         if (!iframe) {
@@ -164,11 +170,11 @@
         form.acceptCharset = 'UTF-8';
         form.style.display = 'none';
 
-        Object.keys(payload || {}).forEach(function (key) {
+        Object.keys(enrichedPayload).forEach(function (key) {
           var input = document.createElement('input');
           input.type = 'hidden';
           input.name = key;
-          input.value = payload[key] == null ? '' : String(payload[key]);
+          input.value = enrichedPayload[key] == null ? '' : String(enrichedPayload[key]);
           form.appendChild(input);
         });
 
