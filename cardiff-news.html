@@ -8,130 +8,71 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--amber-soft:#d1a038;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:16px;--ease:220ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82)}
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#4A7C59;--amber:#E87722;--blue:#2E86AB;--purple:#6B4C9A;--gold:#8B6914;--paper:#F2E8D5;--card:#FAF6EE;--ink:#1C1208;--ink2:#4A3418;--ink3:#7A5838;--border:rgba(80,44,8,.13);--border2:rgba(80,44,8,.24);--rule:rgba(80,44,8,.15);--shadow:0 2px 10px rgba(80,44,8,.09),0 1px 3px rgba(80,44,8,.06);--shadow-lg:0 8px 30px rgba(80,44,8,.12),0 2px 8px rgba(80,44,8,.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
 #topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 .page{position:relative;z-index:1}
-
-.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
-.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
-.mh-left-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;color:var(--hdr-dim);line-height:1.75}
-.mh-brand{text-align:center}
-.mh-brand-link{text-decoration:none;display:inline-block}
-.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
-.mh-brand-name .comma{color:var(--hdr-dimmer);font-weight:300}
-.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
-.mh-right-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--hdr-dim);text-align:right;line-height:1.75}
-.mh-right-info .wx-hi{color:rgba(245,234,216,.88);font-weight:500;font-size:.88rem}
-.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule)}
-.mh-tabs::-webkit-scrollbar{display:none}
-.mh-tabs a{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative}
-.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,.05)}
-.mh-tabs a.active{color:var(--red)}
-.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red)}
-.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
-.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
-.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em;animation:marquee 32s linear infinite;padding-left:100%}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-
-.wrap{max-width:1180px;margin:0 auto;padding:0 2rem 5rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem 5rem}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.hero{padding:2.4rem 0 1.2rem}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:1.2rem;align-items:start}
-.hero-kicker,.section-kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;padding-bottom:.7rem;margin-bottom:.75rem;border-bottom:1px solid var(--rule)}
-.hero-kicker::before,.section-kicker::before{content:"";width:12px;height:2px;background:var(--red);display:inline-block}
-.hero-title{font-size:clamp(2.55rem,6vw,4.6rem);line-height:.98;letter-spacing:-.03em;font-weight:800;color:var(--ink);margin:.85rem 0 .95rem}
-.hero-sub{font-size:1rem;line-height:1.82;color:var(--ink2);max-width:64ch}
-.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:var(--r);font-size:.82rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all var(--ease);border:1px solid transparent}
-.btn.primary{background:var(--red);color:#fff}
-.btn.primary:hover{background:var(--red-mid)}
-.btn.ghost{background:var(--paper2);color:var(--ink2);border-color:var(--border2)}
-.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
-
-.hero-panel,.lead-card,.watch-card,.news-shell,.card,.footer-band{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative}
-.hero-panel{padding:1.35rem 1.35rem 1.2rem}
-.card-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
+.hero{padding:2.3rem 0 1.2rem}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:1rem;align-items:start}
+.hero-copy,.side,.scanner,.priority{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.hero-copy,.side,.scanner,.priority{position:relative}
+.hero-copy{padding:1.35rem}
+.section-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.35rem;margin-bottom:.38rem}
+.section-kicker::before{content:"";width:8px;height:2px;border-radius:999px;background:var(--red);display:inline-block}
+.title{font-size:clamp(2.5rem,6vw,4.3rem);line-height:.98;letter-spacing:-.03em;font-weight:800;color:var(--ink);margin:.7rem 0 .78rem}
+.sub{font-size:1rem;line-height:1.82;color:var(--ink2);max-width:62ch}
+.mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+.mini{background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);padding:.78rem .84rem}
+.mini strong{display:block;font-size:.82rem;color:var(--ink);margin-bottom:.22rem}
+.mini p{font-size:.76rem;line-height:1.6;color:var(--ink3)}
+.side{padding:1.08rem 1.12rem}
+.card-title{display:block;font-size:1.03rem;font-weight:800;color:var(--ink);padding-bottom:.5rem;margin-bottom:.45rem;border-bottom:1px solid var(--rule)}
 .card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
-.hero-list{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1rem}
-.hero-list .watch-item{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:.72rem .78rem}
-
-.pill-strip{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding:.2rem 0 1.45rem}
-.pill-strip::-webkit-scrollbar{display:none}
-.pill-link{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:999px;text-decoration:none;white-space:nowrap;transition:all var(--ease)}
-.pill-link:hover{border-color:var(--red);background:var(--paper2)}
-.pill-emoji{font-size:1rem;line-height:1}
-.pill-text{font-size:.78rem;font-weight:700;color:var(--ink)}
-.pill-sub{font-family:var(--mono);font-size:.56rem;color:var(--ink3)}
-
-.section-rule{display:flex;align-items:center;gap:.75rem;margin:1.9rem 0 1.15rem}
-.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
-
-.desk-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:1rem;align-items:start}
-.lead-card,.watch-card{padding:1.2rem 1.2rem 1.15rem}
-.lead-shell a{text-decoration:none;color:inherit;display:block}
-.lead-source{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem}
-.lead-title{font-size:1.45rem;font-weight:800;line-height:1.16;color:var(--ink);margin-bottom:.65rem}
-.lead-snippet{font-size:.94rem;line-height:1.72;color:var(--ink2)}
-.lead-footer{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule);color:var(--ink3);font-size:.74rem}
-.lead-meta{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-.story-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
-.tag{display:inline-flex;align-items:center;padding:.25rem .5rem;border-radius:999px;border:1px solid var(--border2);background:rgba(255,255,255,.55);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.9rem}
-.watch-item{padding:.78rem .85rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r)}
-.watch-item strong{display:block;font-size:.83rem;color:var(--ink);margin-bottom:.18rem}
-.watch-item p{font-size:.76rem;line-height:1.56;color:var(--ink3)}
-.bulletin{margin-top:.95rem;padding:.82rem .92rem;background:rgba(32,96,160,.06);border:1px solid rgba(32,96,160,.16);border-radius:var(--r);border-left:3px solid var(--blue)}
-.bulletin-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem}
-.bulletin-copy{font-size:.84rem;line-height:1.68;color:var(--ink2)}
-.small-meta{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;color:var(--ink3);margin-top:.75rem}
-
-.news-shell{padding:1.35rem 1.35rem 1.5rem}
-.status-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start}
-.status-line{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
-.status-date{font-size:.76rem;color:var(--ink3)}
-.filter-row{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0 .9rem}
-.filter-btn{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.62rem .95rem;border-radius:999px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all var(--ease)}
-.filter-btn:hover{border-color:var(--amber);color:var(--amber)}
-.filter-btn.active{background:var(--red);border-color:var(--red);color:#fff}
-.source-strip{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1rem}
-.source-chip{display:inline-flex;align-items:center;padding:.33rem .6rem;border-radius:999px;background:rgba(255,255,255,.55);border:1px solid var(--border);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--ink3)}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.news-card{padding:1.05rem;background:rgba(255,255,255,.48);border:1px solid var(--border);border-radius:var(--r);transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease)}
-.news-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--border2)}
-.news-card a{text-decoration:none;color:inherit;display:block;height:100%}
-.news-source{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.48rem}
-.news-title{font-size:.98rem;font-weight:800;line-height:1.36;color:var(--ink);margin-bottom:.52rem}
-.news-snippet{font-size:.84rem;line-height:1.68;color:var(--ink2)}
-.news-meta{margin-top:.85rem;padding-top:.78rem;border-top:1px solid var(--rule);font-size:.74rem;color:var(--ink3);display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
-.empty-state{padding:1.05rem;border:1px dashed var(--border2);border-radius:var(--r);background:rgba(255,255,255,.38);color:var(--ink3);font-size:.88rem;line-height:1.7}
-.loading{color:var(--ink3)}
-
-.coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.card{padding:1.15rem 1.15rem 1.1rem}
-.list-copy{font-size:.84rem;line-height:1.74;color:var(--ink2)}
-.list-copy strong{color:var(--ink)}
-.tracker-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:.85rem;color:var(--ink);font-weight:700;text-decoration:none}
-.tracker-link:hover{color:var(--red)}
-.footer-band{margin-top:1.4rem;padding:1.25rem 1.2rem 1.18rem}
-.footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.5rem}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
-
-
-.priority-alert{margin:0 0 1.1rem;padding:1.1rem 1.15rem 1rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12);position:relative}
-.priority-alert .alert-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
-.priority-alert .alert-title{font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:.3rem}
-.priority-alert .alert-copy{font-size:.92rem;line-height:1.68;color:var(--ink2)}
-.priority-alert .alert-copy strong{color:var(--red-mid)}
-
-@media(max-width:980px){.hero-grid,.desk-grid,.news-grid,.coverage-grid{grid-template-columns:1fr 1fr}.hero-list,.watch-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.desk-grid,.news-grid,.coverage-grid,.hero-list,.watch-grid{grid-template-columns:1fr}.hero-title{font-size:clamp(2.25rem,10vw,3.45rem)}}
-
+.creek{margin:0 0 1.2rem;padding:.95rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:999px;background:rgba(250,246,238,.92);border:1px solid rgba(80,44,8,.14);box-shadow:var(--shadow)}
+.creek-main{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.creek-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.creek-read{font-size:1rem;font-weight:800;color:var(--ink)}
+.creek-badge{display:inline-flex;align-items:center;padding:.3rem .6rem;border-radius:999px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent,var(--green))}
+.creek-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3);text-align:right}
+.priority{margin:0 0 1.2rem;padding:1rem 1.05rem;background:#fff6f7;border-color:rgba(200,16,46,.18);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
+.priority-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.36rem}
+.priority-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.28rem}
+.priority-copy{font-size:.9rem;line-height:1.68;color:var(--ink2)}
+.rule{display:flex;align-items:center;gap:.75rem;margin:1.7rem 0 1rem}
+.rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
+.scanner{padding:1.2rem 1.2rem 1.3rem}
+.scanner-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem}
+.meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.btn-lite{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.7rem 1rem;border-radius:var(--r);font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--ease)}
+.btn-lite:hover{border-color:var(--amber);color:var(--amber);background:rgba(255,255,255,.7)}
+.list{display:grid;gap:.85rem;max-width:720px;margin:0 auto}
+.item{background:rgba(255,255,255,.48);border:1px solid var(--border);border-left:4px solid var(--accent,var(--red));border-radius:var(--r);padding:1rem 1.05rem}
+.item-top{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;align-items:center}
+.tag{display:inline-flex;align-items:center;padding:.27rem .54rem;border-radius:999px;border:1px solid rgba(80,44,8,.14);background:rgba(255,255,255,.45);font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--ink3))}
+.date{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3)}
+.item h3{font-size:1.02rem;line-height:1.32;color:var(--ink);margin:.72rem 0 .42rem;font-weight:800}
+.body-copy{font-size:.9rem;line-height:1.74;color:var(--ink2)}
+.body-copy a,.source a{color:var(--red);font-weight:700;text-decoration:none}
+.body-copy a:hover,.source a:hover{text-decoration:underline}
+.source{margin-top:.78rem;padding-top:.68rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--ink3)}
+.actions{display:flex;justify-content:center;margin-top:1rem}
+.empty{padding:1.1rem;border:1px dashed var(--border2);border-radius:var(--r);background:rgba(255,255,255,.42);font-size:.88rem;line-height:1.72;color:var(--ink3)}
+.resources-copy{max-width:62ch;font-size:.86rem;line-height:1.72;color:var(--ink3);margin-bottom:1rem}
+.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.resource-group h3{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:.55rem}
+.resource-group ul{list-style:none;display:grid;gap:.46rem}
+.resource-group a{color:var(--ink2);text-decoration:none;font-size:.82rem;line-height:1.55}
+.resource-group a:hover{color:var(--red)}
+@media(max-width:980px){.hero-grid,.resource-grid{grid-template-columns:1fr 1fr}.hero-copy{grid-column:1/-1}}
+@media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.mini-grid,.resource-grid{grid-template-columns:1fr}.creek{border-radius:var(--r-lg);align-items:flex-start;flex-direction:column}.creek-meta{text-align:left}.title{font-size:clamp(2.2rem,10vw,3.4rem)}}
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
 </head>
@@ -139,323 +80,120 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <div id="cardiff-masthead"></div>
-
 <main class="wrap">
-  <section class="hero reveal">
-    <div class="pill-strip" aria-label="jump links">
-      <a class="pill-link" href="#top-watch"><span class="pill-emoji">📰</span><div><div class="pill-text">Top Watch</div><div class="pill-sub">Best current signal</div></div></a>
-      <a class="pill-link" href="#live-feed"><span class="pill-emoji">📡</span><div><div class="pill-text">Live Feed</div><div class="pill-sub">Fresh stories</div></div></a>
-      <a class="pill-link" href="#coverage-map"><span class="pill-emoji">🗺️</span><div><div class="pill-text">Coverage Map</div><div class="pill-sub">Places and beats</div></div></a>
-      <a class="pill-link" href="#desk-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">How It Reads</div><div class="pill-sub">Why stories rise</div></div></a>
-    </div>
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">News Desk</div>
-        <h1 class="hero-title">What Cardiff should be watching right now.</h1>
-        <p class="hero-sub">Fresh local reporting, nearby town notices, weather, roads, schools, and public decisions—ranked for daily life around Cardiff instead of statewide noise. The goal is simple: fewer filler stories, more signal.</p>
-        <div class="btn-row">
-          <button class="btn ghost" type="button" id="refreshNews">Refresh stories</button>
-          <a class="btn primary" href="#live-feed">Jump to live feed</a>
-        </div>
-      </div>
-      <aside class="hero-panel reveal">
-        <div class="section-kicker">Desk focus</div>
-        <h2 class="card-title" style="font-size:1.18rem;margin:.6rem 0 .55rem;">Nearness first. Public value first.</h2>
-        <p class="card-body">This page gives extra weight to places around Cardiff and to stories about roads, storms, outages, schools, utilities, public safety, and government actions that can actually affect town life.</p>
-        <div class="hero-list">
-          <div class="watch-item"><strong>Roads &amp; rail</strong><p>Closures, detours, blocked crossings, paving, and safer ways in and out.</p></div>
-          <div class="watch-item"><strong>Storms &amp; outages</strong><p>Weather threats, sheltering needs, power trouble, and emergency alerts.</p></div>
-          <div class="watch-item"><strong>Towns nearby</strong><p>Brookside, Graysville, Adamsville, Minor, Bayview, Gardendale, and Fultondale.</p></div>
-          <div class="watch-item"><strong>Public business</strong><p>Councils, commissions, schools, zoning, utilities, and public safety decisions.</p></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="priority-alert reveal" id="current-alerts" aria-live="polite" style="display:none;">
-    <div class="alert-label">Important now</div>
-    <div class="alert-title">Local alerts panel</div>
-    <div class="alert-copy" id="priorityAlertCopy"><strong>Checking conditions.</strong> Pulling current official alerts before the full news feed.</div>
-  </section>
-
-  <article class="watch-card reveal" id="top-watch">
-    <div class="section-kicker">Desk bulletin</div>
-    <h2 class="card-title" style="font-size:1.12rem;margin:.6rem 0 .45rem;">What needs attention first.</h2>
-    <div class="bulletin" id="deskBulletinBox" style="margin-top:0;">
-      <div class="bulletin-label">Blue desk bulletin</div>
-      <div class="bulletin-copy" id="deskBulletin">Cardiff news desk keeps an eye on nearby towns, weather, roads, schools, and public decisions.</div>
-    </div>
-    <div class="small-meta" id="deskUpdated">Desk update pending</div>
-  </article>
-
-  <div class="section-rule reveal"><h2>Top story</h2><hr></div>
-  <article class="lead-card reveal">
-    <div class="section-kicker">Top watch</div>
-    <div class="lead-shell" id="leadStory">
-      <div class="lead-source">Scanning nearby outlets</div>
-      <h2 class="lead-title">Loading the strongest local signal.</h2>
-      <p class="lead-snippet">Pulling nearby towns, weather, roads, schools, and public business.</p>
-      <div class="story-tags"><span class="tag">Loading</span></div>
-      <div class="lead-footer"><div class="lead-meta"><span>Stand by</span></div><span>Desk is warming up</span></div>
-    </div>
-  </article>
-
-  <div class="section-rule reveal"><h2>Live feed</h2><hr></div>
-  <section class="news-shell reveal" id="live-feed">
-    <div class="status-row">
-      <div class="status-line" id="newsStatus">Checking current area reporting</div>
-      <div class="status-date" id="newsSubStatus">Local desk is standing by</div>
-    </div>
-    <div class="filter-row" id="newsFilters">
-      <button class="filter-btn active" type="button" data-mode="all">Everything</button>
-      <button class="filter-btn" type="button" data-mode="nearby">Nearby towns</button>
-      <button class="filter-btn" type="button" data-mode="civic">Civic &amp; schools</button>
-      <button class="filter-btn" type="button" data-mode="weather">Weather &amp; roads</button>
-      <button class="filter-btn" type="button" data-mode="regional">Regional</button>
-    </div>
-    <div class="source-strip" id="sourceChips">
-      <span class="source-chip">Loading sources</span>
-    </div>
-    <div class="news-grid" id="newsGrid">
-      <div class="news-card loading">Loading live stories…</div>
-    </div>
-  </section>
-
-  <div class="section-rule reveal"><h2>Tracker notes</h2><hr></div>
-  <section class="coverage-grid" id="coverage-map">
-    <article class="card reveal">
-      <div class="section-kicker">Nearby places</div>
-      <h3 class="card-title" style="margin-top:.55rem;">The daily watch zone</h3>
-      <p class="list-copy"><strong>Closest watch:</strong> Cardiff, Brookside, Graysville, Adamsville, Minor, and Bayview.<br><strong>Next ring:</strong> Gardendale, Fultondale, Warrior, Kimberly, Morris, Jefferson County, and Birmingham when the story affects the west or north side of county life.</p>
-    </article>
-    <article class="card reveal" id="creekWatchCard">
-      <div class="section-kicker">Creek watch</div>
-      <h3 class="card-title" style="margin-top:.55rem;">Public-interest water note</h3>
-      <div class="list-copy" id="creekWatchBody">Watching the desk for stories tied to the creek, dumping, flooding, cleanup, or environmental oversight.</div>
-    </article>
-    <article class="card reveal" id="governmentImpactCard">
-      <div class="section-kicker">Government impact</div>
-      <h3 class="card-title" style="margin-top:.55rem;">What could change life on the ground</h3>
-      <div class="list-copy" id="governmentImpactBody">Tracking county, school, utility, and legislative items that could affect Cardiff households.</div>
-    </article>
-  </section>
-
-  <div class="section-rule reveal"><h2>Desk notes</h2><hr></div>
-  <section class="desk-grid reveal" id="desk-notes">
-    <article class="watch-card">
-      <div class="section-kicker">Watch list</div>
-      <h2 class="card-title" style="font-size:1.12rem;margin:.6rem 0 .45rem;">The beats this desk keeps in view.</h2>
-      <div class="watch-grid">
-        <div class="watch-item"><strong>Water, sewer, and utilities</strong><p>Anything that touches service reliability, outages, bills, or infrastructure.</p></div>
-        <div class="watch-item"><strong>Schools and youth</strong><p>Board decisions, closures, schedules, safety, and support systems for families.</p></div>
-        <div class="watch-item"><strong>County and city action</strong><p>Votes, budgets, hearings, grants, and public works that can shape the area.</p></div>
-        <div class="watch-item"><strong>Safety and emergency prep</strong><p>Storm readiness, fire response, police notices, and community alerts.</p></div>
+<section class="hero reveal">
+  <div class="hero-grid">
+    <article class="hero-copy">
+      <div class="section-kicker">Scanner log</div>
+      <h1 class="title">Useful news, closer to home.</h1>
+      <p class="sub">The scanner keeps one eye on Cardiff, one on Five Mile Creek, and the rest on the nearby decisions that can change life on the ground. It blends hand-written notes, local live signals, and a short list of outside stories worth the click.</p>
+      <div class="mini-grid">
+        <div class="mini"><strong>Manual notes land first</strong><p>The page now has room for short Cardiff-first dispatches instead of only a ranked outside feed.</p></div>
+        <div class="mini"><strong>Local signals stay visible</strong><p>Creek, weather, and air-quality reads can keep the page alive even when the region is quiet.</p></div>
+        <div class="mini"><strong>Outside links face a local test</strong><p>If a story does not matter to Cardiff, it does not earn much room here.</p></div>
       </div>
     </article>
-    <div style="display:grid;gap:1rem;">
-      <article class="card reveal">
-        <div class="section-kicker">What rises</div>
-        <h3 class="card-title" style="margin-top:.55rem;">Stories with daily-use value</h3>
-        <p class="list-copy">Road closures, storms, outages, schools, public safety, public works, grants, votes, hearings, and local government decisions move upward. Old stories, generic statewide filler, and broad noise stay lower.</p>
-      </article>
-      <article class="card reveal">
-        <div class="section-kicker">Refresh rhythm</div>
-        <h3 class="card-title" style="margin-top:.55rem;">How often this page updates</h3>
-        <p class="list-copy">News stories refresh on the hour. Weather updates every half hour. For anything urgent in between, keep an eye on the ticker at the top of the site.</p>
-      </article>
-      <article class="card reveal">
-        <div class="section-kicker">Read it fast</div>
-        <h3 class="card-title" style="margin-top:.55rem;">A simple newsroom workflow</h3>
-        <p class="list-copy">Start with <strong>Top Watch</strong>. Then use the filter pills for the kind of information you need. Check the source line, the time stamp, and the tags. When a town notice matters more than a news article, pin it into the desk file later.</p>
-      </article>
-      <section class="footer-band reveal">
-        <div class="section-kicker">How to use this page</div>
-        <h2 class="footer-title">Check the urgent notice first, then read the live stories.</h2>
-        <p class="card-body">When things are quiet, that is usually good news. Use the filters when you want only weather and roads, nearby towns, or civic and school stories.</p>
-      </section>
+    <aside class="side">
+      <div class="section-kicker">Desk method</div>
+      <h2 class="card-title">More signal, less filler.</h2>
+      <p class="card-body">This page now reads more like a dispatch log than a regional homepage. The town does not need mystery here. It needs a cleaner read on the creek, weather, county business, and nearby reporting that touches ordinary life.</p>
+      <p class="tiny" style="margin-top:.8rem;">Manual scanner entries live in the <code>SCANNER_ITEMS</code> array near the top of this page script. Local JSON files and the live feed fill in the quiet spells.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="creek reveal" id="creekStrip" aria-live="polite">
+  <div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">Checking the Republic gauge</span><span class="creek-badge">Loading</span></div>
+  <div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL</div>
+</section>
+
+<section class="priority reveal" id="priorityNote" hidden aria-live="polite">
+  <div class="priority-label">Priority note</div>
+  <div class="priority-title" id="priorityTitle">Desk note</div>
+  <div class="priority-copy" id="priorityCopy">Reading the latest note.</div>
+</section>
+
+<div class="rule reveal"><h2>The Scanner</h2><hr></div>
+<section class="scanner reveal" aria-labelledby="scannerHeading">
+  <div class="scanner-top">
+    <div>
+      <div class="section-kicker">Dispatch log</div>
+      <h2 class="card-title" id="scannerHeading">Latest Cardiff-first stories</h2>
     </div>
-  </section>
+    <div style="display:grid;gap:.55rem;justify-items:end;">
+      <div class="meta" id="scannerMeta">Reading local desk files</div>
+      <button class="btn-lite" type="button" id="refreshBtn">Refresh dispatches</button>
+    </div>
+  </div>
+  <div class="list" id="scannerList" aria-live="polite">
+    <div class="item"><div class="item-top"><span class="tag">Loading</span><span class="date">Stand by</span></div><h3>Building the scanner log.</h3><div class="body-copy">Pulling local signals, desk notes, and nearby reporting.</div></div>
+  </div>
+  <div class="actions"><button class="btn-lite" type="button" id="showOlderBtn" hidden>Show older</button></div>
+</section>
+
+<div class="rule reveal"><h2>Resources</h2><hr></div>
+<section class="reveal" aria-labelledby="resourcesHeading">
+  <div class="section-kicker">Standing links</div>
+  <h2 class="card-title" id="resourcesHeading">Keep the basics within reach.</h2>
+  <p class="resources-copy">These links stay parked here on purpose. They are not news. They are the places we keep going back to when weather turns, roads shift, county business moves, or somebody needs the clean source first.</p>
+  <div class="resource-grid">
+    <section class="resource-group"><h3>Emergency &amp; Safety</h3><ul><li><a href="https://weather.gov/bmx" target="_blank" rel="noreferrer">NWS Birmingham</a></li><li><a href="https://jeffcosheriffal.com" target="_blank" rel="noreferrer">Jefferson County Sheriff</a></li><li><a href="https://al811.com" target="_blank" rel="noreferrer">Alabama 811</a></li><li><a href="https://outagemap.alabamapower.com" target="_blank" rel="noreferrer">Alabama Power Outage Map</a></li></ul></section>
+    <section class="resource-group"><h3>County &amp; Civic</h3><ul><li><a href="https://jccal.org" target="_blank" rel="noreferrer">Jefferson County Government</a></li><li><a href="https://jeffersoncountyal.iqm2.com" target="_blank" rel="noreferrer">Jefferson County Commission Meetings</a></li><li><a href="https://myinfo.alabamavotes.gov" target="_blank" rel="noreferrer">Alabama VoterView</a></li></ul></section>
+    <section class="resource-group"><h3>Roads &amp; Traffic</h3><ul><li><a href="https://algotraffic.com" target="_blank" rel="noreferrer">ALGO Traffic / I-22</a></li><li><a href="https://dot.state.al.us" target="_blank" rel="noreferrer">ALDOT</a></li></ul></section>
+    <section class="resource-group"><h3>Watershed &amp; Environment</h3><ul><li><a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noreferrer">Five Mile Creek - USGS Water Data</a></li><li><a href="https://freshwaterlandtrust.org" target="_blank" rel="noreferrer">Freshwater Land Trust</a></li><li><a href="https://freshwaterlandtrust.org/trail-map" target="_blank" rel="noreferrer">Five Mile Creek Greenway Map</a></li></ul></section>
+    <section class="resource-group"><h3>Local News</h3><ul><li><a href="https://northjeffersonherald.com" target="_blank" rel="noreferrer">North Jefferson Herald</a></li><li><a href="https://patch.com/alabama/graysville-al" target="_blank" rel="noreferrer">Graysville Patch</a></li><li><a href="https://www.al.com" target="_blank" rel="noreferrer">AL.com Birmingham</a></li><li><a href="https://bhamnow.com" target="_blank" rel="noreferrer">Bham Now</a></li><li><a href="https://birminghamwatch.org" target="_blank" rel="noreferrer">BirminghamWatch</a></li></ul></section>
+  </div>
+</section>
 </main>
 </div>
-
 <script src="cardiff-common.js"></script>
 <script>
-const NEWS_CONFIG={localDeskUrl:'cardiff-news-feed.json',maxItems:12,freshDays:9,timeoutMs:12000};
-const ALERTS_URL='ticker.json';
-const SOURCE_WEIGHTS={'Cardiff Desk':14,'Cardiff Town Hall':14,'Jefferson County':10,'Jefferson County EMA':10,'BirminghamWatch':8,'AL.com':7,'WBRC':7,'WBRC FOX6 News':7,'WVTM 13':6,'ABC 33/40':6,'ABC3340':6,'CBS 42':6,'WIAT':6,'WBHM':6,'Bham Now':5,'Alabama Public Radio':5,'Birmingham Business Journal':5,'The Birmingham Times':5,'Patch':4,'The Trussville Tribune':4};
-const PLACE_WEIGHTS=[['cardiff',20],['brookside',16],['graysville',15],['adamsville',15],['minor',14],['bayview',13],['gardendale',11],['fultondale',11],['warrior',9],['kimberly',8],['morris',7],['five mile creek',10],['western jefferson',10],['north jefferson',8],['jefferson county',8],['birmingham',3]];
-const TOPIC_WEIGHTS=[['train',10],['closure',9],['detour',8],['road',8],['traffic',7],['paving',8],['weather',8],['storm',10],['tornado',12],['flood',10],['outage',9],['emergency',8],['school',8],['education',7],['council',9],['commission',8],['mayor',7],['clerk',7],['zoning',8],['budget',7],['hearing',7],['grant',6],['utility',8],['water',9],['sewer',9],['fire',7],['police',7],['public safety',8]];
-const LOW_SIGNAL_TERMS=['football','basketball','softball','baseball','lottery','horoscope','crossword','celebrity','radar'];
-const TAG_RULES=[['Nearby',['cardiff','brookside','graysville','adamsville','minor','bayview','gardendale','fultondale','warrior','kimberly','morris']],['Roads',['road','traffic','closure','detour','paving','train']],['Weather',['weather','storm','tornado','rain','flood','outage','wind']],['Civic',['council','commission','mayor','clerk','zoning','budget','ordinance','hearing']],['Schools',['school','education','student','board']],['Utilities',['water','sewer','utility','outage','power']],['Safety',['police','fire','public safety','rescue','emergency']]];
-const MODE_DEFS={
-  all:{label:'Everything',queries:[
-    '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview OR Gardendale OR Fultondale) Alabama local news',
-    '(Jefferson County OR western Jefferson County) Alabama roads weather schools public safety utilities',
-    '(Jefferson County OR Birmingham) Alabama city council county commission school board zoning sewer water',
-    '("Five Mile Creek" OR Brookside OR Graysville OR Adamsville) Alabama watershed cleanup dumping'
-  ]},
-  nearby:{label:'Nearby towns',queries:[
-    '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama local news',
-    '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama local news',
-    '("Five Mile Creek" OR Cardiff) Alabama Brookside Graysville'
-  ]},
-  civic:{label:'Civic & schools',queries:[
-    '(Jefferson County OR Birmingham OR Gardendale OR Fultondale) Alabama city council county commission mayor zoning utility',
-    '(Jefferson County OR Birmingham) Alabama school board education budget public hearing police fire',
-    '(Jefferson County OR Birmingham) Alabama sewer water utility board public works'
-  ]},
-  weather:{label:'Weather & roads',queries:[
-    '(Jefferson County OR Birmingham) Alabama weather storm tornado flood outage emergency',
-    '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Brookside OR Graysville OR Adamsville OR Gardendale) Alabama',
-    '(Jefferson County EMA OR Birmingham) Alabama shelter wind damage severe weather roads'
-  ]},
-  regional:{label:'Regional',queries:[
-    '(Jefferson County OR Birmingham) Alabama local news',
-    '(north Jefferson County OR western Jefferson County) Alabama development public safety schools',
-    '(Jefferson County OR Birmingham) Alabama infrastructure utilities transportation'
-  ]}
-};
-const MODE_KEYWORDS={
-  nearby:['cardiff','brookside','graysville','adamsville','minor','bayview','gardendale','fultondale','warrior','kimberly','morris','five mile creek'],
-  civic:['council','commission','mayor','clerk','school','education','budget','zoning','hearing','ordinance','board','police','fire','utility','water','sewer'],
-  weather:['weather','storm','tornado','wind','rain','flood','outage','road','traffic','closure','detour','train','paving'],
-  regional:['jefferson county','birmingham','north jefferson','western jefferson','development','public safety','roads','schools']
-};
-const MONITORED_SOURCES={
-  all:['Cardiff Desk','AL.com','WBRC FOX6 News','WVTM 13','ABC 33/40','CBS 42','WBHM','Jefferson County'],
-  nearby:['Cardiff Desk','AL.com','WBRC FOX6 News','WVTM 13','ABC 33/40','CBS 42'],
-  civic:['Cardiff Desk','Jefferson County','WBHM','AL.com','The Birmingham Times','Birmingham Business Journal'],
-  weather:['Jefferson County EMA','WBRC FOX6 News','WVTM 13','ABC 33/40','CBS 42','AL.com'],
-  regional:['AL.com','WBRC FOX6 News','WVTM 13','ABC 33/40','CBS 42','WBHM','Bham Now']
-};
-
-const modeCache=new Map();
-let deskDataPromise=null;
-let currentMode='all';
-
-function buildNewsUrl(query){return 'https://news.google.com/rss/search?q='+encodeURIComponent(query)+'&hl=en-US&gl=US&ceid=US:en'}
-function escapeHtml(str=''){return str.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function plainText(html){const div=document.createElement('div');div.innerHTML=html||'';return(div.textContent||'').replace(/\s+/g,' ').trim()}
-function cleanTitle(title){return(title||'').replace(/\s+-\s+[^-]+$/,'').replace(/\s+\|\s+[^|]+$/,'').trim()}
-function normalizeSource(source=''){return source.replace(/^By\s+/i,'').trim()||'Regional source'}
-function parseDate(dateStr){const d=new Date(dateStr);return isNaN(+d)?null:d}
-function relativeTime(date){if(!date)return'Date unavailable';const diff=Date.now()-date.getTime();const hrs=Math.round(diff/36e5);if(hrs<1)return'Just now';if(hrs<24)return hrs+' hour'+(hrs===1?'':'s')+' ago';const days=Math.round(diff/864e5);return days+' day'+(days===1?'':'s')+' ago'}
-function isFresh(date,days=NEWS_CONFIG.freshDays){return date&&(Date.now()-date.getTime())<=days*864e5}
-function formatClock(date){return date.toLocaleString(undefined,{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}
-function normalizeLink(link=''){return link.replace(/^https?:\/\/(www\.)?/i,'').replace(/[#?].*$/,'').replace(/\/$/,'').trim()}
-function itemKey(item){const normTitle=cleanTitle(item.title||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();const normLink=normalizeLink(item.link||'').slice(0,160);return normTitle+'|'+normLink}
-function textBlob(item){return [item.title,item.description,item.source,(item.tags||[]).join(' '),(item.modes||[]).join(' ')].join(' ').toLowerCase()}
-function containsAny(blob,terms){return terms.some(term=>blob.includes(term))}
-function listScore(blob,pairs){return pairs.reduce((sum,[term,val])=>sum+(blob.includes(term)?val:0),0)}
-function sourceScore(source=''){let score=0;Object.entries(SOURCE_WEIGHTS).forEach(([name,val])=>{if(source.includes(name))score=Math.max(score,val)});return score}
-function freshnessScore(date){if(!date)return 0;const hours=(Date.now()-date.getTime())/36e5;if(hours<6)return 14;if(hours<24)return 11;if(hours<48)return 8;if(hours<96)return 5;if(hours<NEWS_CONFIG.freshDays*24)return 2;return-30}
-function penaltyScore(blob){let penalty=0;LOW_SIGNAL_TERMS.forEach(term=>{if(blob.includes(term))penalty-=4});return penalty}
-function classifyModes(item){const blob=textBlob(item);const modes=['all'];Object.keys(MODE_KEYWORDS).forEach(mode=>{if(containsAny(blob,MODE_KEYWORDS[mode]))modes.push(mode)});return[...new Set(modes)]}
-function buildTags(item){const blob=textBlob(item);const tags=[];TAG_RULES.forEach(([label,terms])=>{if(tags.length<3&&terms.some(term=>blob.includes(term)))tags.push(label)});if(!tags.length)tags.push('Local');return tags}
-function storyFitsMode(item,mode){if(mode==='all')return true;const modes=item.modes||[];if(modes.includes(mode)||modes.includes('all'))return true;return containsAny(textBlob(item),MODE_KEYWORDS[mode]||[])}
-function scoreItem(item,mode){const blob=textBlob(item);let score=(item.manualPriority||0)*12+freshnessScore(item.date)+sourceScore(item.source)+listScore(blob,PLACE_WEIGHTS)+listScore(blob,TOPIC_WEIGHTS)+penaltyScore(blob);if(mode!=='all')score+=containsAny(blob,MODE_KEYWORDS[mode]||[])?10:-8;if(item.isPinned)score+=18;return score}
-function summarizeSnippet(text,max=185){const plain=(text||'').trim();if(!plain)return'Open the story for the latest details.';if(plain.length<=max)return plain;return plain.slice(0,max).replace(/\s+\S*$/,'').trim()+'…'}
-function fetchWithTimeout(url,ms=NEWS_CONFIG.timeoutMs){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),ms);return fetch(url,{signal:controller.signal}).finally(()=>clearTimeout(timer))}
-async function fetchViaRss2Json(url,mode){const endpoint='https://api.rss2json.com/v1/api.json?count=18&rss_url='+encodeURIComponent(url);const res=await fetchWithTimeout(endpoint);if(!res.ok)throw new Error('rss2json failed');const data=await res.json();if(data.status!=='ok'||!Array.isArray(data.items))throw new Error('rss2json bad payload');return data.items.map(item=>normalizeRemoteItem({title:item.title,author:item.author,link:item.link,description:item.description||item.content,pubDate:item.pubDate||item.published},mode))}
-async function fetchViaAllOrigins(url,mode){const endpoint='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetchWithTimeout(endpoint);if(!res.ok)throw new Error('allorigins failed');const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');const items=[...xml.querySelectorAll('item')];if(!items.length)throw new Error('allorigins empty');return items.map(node=>normalizeRemoteItem({title:node.querySelector('title')?.textContent||'',source:node.querySelector('source')?.textContent||'',link:node.querySelector('link')?.textContent||'',description:node.querySelector('description')?.textContent||'',pubDate:node.querySelector('pubDate')?.textContent||''},mode))}
-function normalizeRemoteItem(raw,mode){const source=normalizeSource(raw.source||raw.author||extractSourceFromTitle(raw.title||''));const item={title:cleanTitle(raw.title||'Untitled'),source,link:raw.link||'#',description:plainText(raw.description||''),date:parseDate(raw.pubDate||''),manualPriority:0,isPinned:false,modes:[mode]};item.modes=[...new Set([...item.modes,...classifyModes(item)])];item.tags=buildTags(item);return item}
-function extractSourceFromTitle(title=''){const m=title.match(/\s+-\s+([^-]+)$/);return m?m[1].trim():'Regional source'}
-function pickTrackerItem(items,matcher){return items.find(item=>matcher(textBlob(item),item))||null}
-function renderTrackerBody(item,fallback){if(!item){return '<p class="list-copy">'+escapeHtml(fallback)+'</p>'}const tags=(item.tags||[]).slice(0,3).map(tag=>'<span class="tag">'+escapeHtml(tag)+'</span>').join('');return '<div class="list-copy"><strong>'+escapeHtml(item.title)+'</strong>'+(item.description?' '+escapeHtml(summarizeSnippet(item.description,180)):'')+'</div><div class="story-tags">'+tags+'</div><div class="small-meta">'+escapeHtml(item.source)+' - '+escapeHtml(relativeTime(item.date))+'</div><a class="tracker-link" href="'+escapeHtml(item.link)+'" target="_blank" rel="noreferrer">Open story -></a>'}
-function renderTrackerCards(items){const creek=pickTrackerItem(items,(blob)=>/(creek|watershed|dumping|cleanup|pollution|water quality|floodplain|stream|epa|echo)/i.test(blob));const gov=pickTrackerItem(items,(blob,item)=>storyFitsMode(item,'civic')||/(commission|agenda|minutes|legislature|fema|zoning|grant|ordinance|hearing|utility|school board)/i.test(blob));document.getElementById('creekWatchBody').innerHTML=renderTrackerBody(creek,'When a creek, cleanup, dumping, or water-quality story clears the Cardiff filter, it will rise here.');document.getElementById('governmentImpactBody').innerHTML=renderTrackerBody(gov,'County, school, utility, and legislative items that could affect Cardiff households will rise here when they matter.')}
-async function loadAlertPanel(){const panel=document.getElementById('current-alerts');const copy=document.getElementById('priorityAlertCopy');try{const res=await fetch(ALERTS_URL,{cache:'no-store'});if(!res.ok)throw new Error('alerts');const data=await res.json();if(data.hasAlerts&&Array.isArray(data.alerts)&&data.alerts.length){const top=data.alerts[0];panel.style.display='';copy.innerHTML='<strong>'+escapeHtml(top.headline||top.event||'Active alert')+'</strong>'+(top.description?' '+escapeHtml(top.description):'')+(top.endsShort?' <span style="white-space:nowrap">(Through '+escapeHtml(top.endsShort)+')</span>':'');return}}catch(e){}panel.style.display='none';copy.innerHTML=''}
-async function fetchFeed(url,mode){for(const loader of [fetchViaRss2Json,fetchViaAllOrigins]){try{const items=await loader(url,mode);if(items&&items.length)return items}catch(e){}}return[]}
-async function getDeskData(){if(!deskDataPromise)deskDataPromise=loadDeskData();return deskDataPromise}
-async function loadDeskData(){try{const res=await fetch(NEWS_CONFIG.localDeskUrl,{cache:'no-store'});if(!res.ok)throw new Error('desk file missing');const data=await res.json();const normalizeLocal=item=>{const base={title:cleanTitle(item.title||''),source:normalizeSource(item.source||'Cardiff Desk'),link:item.link||'#',description:plainText(item.description||''),date:parseDate(item.date||item.updatedAt||''),manualPriority:Number(item.priority||0),isPinned:Boolean(item.pinned||item.isPinned),modes:Array.isArray(item.modes)?item.modes.filter(Boolean):item.mode?[item.mode]:['all']};base.modes=[...new Set([...base.modes,...classifyModes(base)])];base.tags=Array.isArray(item.tags)&&item.tags.length?item.tags.slice(0,3):buildTags(base);return base};return{updatedAt:parseDate(data.updatedAt||''),bulletin:(data.bulletin||'').trim(),pinned:Array.isArray(data.pinned)?data.pinned.map(normalizeLocal):[],stories:Array.isArray(data.stories)?data.stories.map(normalizeLocal):[]}}catch(e){return{updatedAt:null,bulletin:'',pinned:[],stories:[]}}}
-function dedupeItems(items){const seen=new Set();const output=[];for(const item of items){const key=itemKey(item);if(!item.title||!item.link||seen.has(key))continue;seen.add(key);output.push(item)}return output}
-function diversify(items,mode,limit){const bySource={};const picked=[];for(const item of items){const source=item.source||'Regional source';const cap=picked.length<6?2:3;const current=bySource[source]||0;if(current>=cap&&!item.isPinned)continue;if(mode!=='all'&&!storyFitsMode(item,mode))continue;if(item.date&&!isFresh(item.date,NEWS_CONFIG.freshDays)&&!item.isPinned)continue;bySource[source]=current+1;picked.push(item);if(picked.length===limit)break}return picked}
-async function fetchModeItems(mode){const desk=await getDeskData();const local=[...desk.pinned,...desk.stories].filter(item=>storyFitsMode(item,mode));const queries=(MODE_DEFS[mode]||MODE_DEFS.all).queries;const remoteResults=await Promise.allSettled(queries.map(query=>fetchFeed(buildNewsUrl(query),mode)));const remote=remoteResults.flatMap(result=>result.status==='fulfilled'?result.value:[]);const merged=dedupeItems([...local,...remote]).map(item=>({...item,tags:item.tags&&item.tags.length?item.tags:buildTags(item),modes:item.modes&&item.modes.length?item.modes:classifyModes(item)}));const ranked=merged.sort((a,b)=>scoreItem(b,mode)-scoreItem(a,mode)||((b.date||0)-(a.date||0)));return diversify(ranked,mode,NEWS_CONFIG.maxItems)}
-async function getModeItems(mode){if(modeCache.has(mode))return modeCache.get(mode);const promise=fetchModeItems(mode).catch(err=>{modeCache.delete(mode);throw err});modeCache.set(mode,promise);return promise}
-function renderLead(item,mode){const target=document.getElementById('leadStory');if(!item){target.innerHTML='<div class="lead-source">Desk note</div><h2 class="lead-title">Nothing strong came through the filter yet.</h2><p class="lead-snippet">That usually means the outlets are quiet, the feed requests were blocked, or the stories were too broad to clear the Cardiff-first bar. Try another filter or refresh again later.</p><div class="story-tags"><span class="tag">Quiet moment</span></div><div class="lead-footer"><div class="lead-meta"><span>Filter: '+escapeHtml((MODE_DEFS[mode]||MODE_DEFS.all).label)+'</span></div><span>Waiting on stronger signal</span></div>';return}const tags=(item.tags||[]).slice(0,3).map(tag=>'<span class="tag">'+escapeHtml(tag)+'</span>').join('');target.innerHTML='<a href="'+escapeHtml(item.link)+'" target="_blank" rel="noreferrer"><div class="lead-source">'+escapeHtml(item.source)+'</div><h2 class="lead-title">'+escapeHtml(item.title)+'</h2><p class="lead-snippet">'+escapeHtml(summarizeSnippet(item.description,250))+'</p><div class="story-tags">'+tags+'</div><div class="lead-footer"><div class="lead-meta"><span>'+escapeHtml(relativeTime(item.date))+'</span><span>Filter: '+escapeHtml((MODE_DEFS[mode]||MODE_DEFS.all).label)+'</span></div><span>Open story ↗</span></div></a>'}
-function renderSources(items,mode){const target=document.getElementById('sourceChips');const seen=[];items.forEach(item=>{if(item.source&&!seen.includes(item.source))seen.push(item.source)});(MONITORED_SOURCES[mode]||MONITORED_SOURCES.all||[]).forEach(source=>{if(!seen.includes(source))seen.push(source)});if(!seen.length){target.innerHTML='<span class="source-chip">Cardiff Desk</span>';return}target.innerHTML=seen.slice(0,10).map(source=>'<span class="source-chip">'+escapeHtml(source)+'</span>').join('')}
-function renderGrid(items){const target=document.getElementById('newsGrid');if(!items.length){target.innerHTML='<div class="empty-state">No story is rising above the Cardiff filter right now. The desk is still monitoring nearby outlets, schools, weather, roads, and public notices.</div>';return}target.innerHTML=items.map(item=>'<article class="news-card"><a href="'+escapeHtml(item.link)+'" target="_blank" rel="noreferrer"><div class="news-source">'+escapeHtml(item.source)+'</div><h3 class="news-title">'+escapeHtml(item.title)+'</h3><p class="news-snippet">'+escapeHtml(summarizeSnippet(item.description,175))+'</p><div class="story-tags">'+(item.tags||[]).slice(0,3).map(tag=>'<span class="tag">'+escapeHtml(tag)+'</span>').join('')+'</div><div class="news-meta"><span>'+escapeHtml(relativeTime(item.date))+'</span><span>Open story ↗</span></div></a></article>').join('')}
-function activateButtons(mode){document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===mode))}
-function updateDeskMeta(desk,items,mode){const status=document.getElementById('newsStatus');const sub=document.getElementById('newsSubStatus');const updated=document.getElementById('deskUpdated');const uniqueSources=new Set(items.map(item=>item.source)).size;status.textContent=items.length+' stories · '+uniqueSources+' outlets · '+(MODE_DEFS[mode]||MODE_DEFS.all).label;sub.textContent='Refreshed '+formatClock(new Date());updated.textContent=desk.updatedAt?'Local desk file updated '+formatClock(desk.updatedAt):'Live desk refreshed '+formatClock(new Date());if(desk.bulletin){document.getElementById('deskBulletin').textContent=desk.bulletin}else if(items.length){document.getElementById('deskBulletin').textContent='Desk read: '+items[0].title}}
-async function loadNews(mode='all'){currentMode=mode;activateButtons(mode);document.getElementById('newsStatus').textContent='Checking current area reporting';document.getElementById('newsSubStatus').textContent='Pulling nearby outlets and official feeds';document.getElementById('newsGrid').innerHTML='<div class="news-card loading">Loading live stories…</div>';try{const [desk,items]=await Promise.all([getDeskData(),getModeItems(mode)]);renderLead(items[0],mode);renderGrid(items);renderSources(items,mode);renderTrackerCards(items);updateDeskMeta(desk,items,mode);loadAlertPanel()}catch(e){renderLead(null,mode);renderGrid([]);renderSources([],mode);renderTrackerCards([]);loadAlertPanel();document.getElementById('newsStatus').textContent='Live feed ran into a snag';document.getElementById('newsSubStatus').textContent='The desk is still watching monitored outlets'}}
-document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>btn.addEventListener('click',()=>loadNews(btn.dataset.mode)));
-document.getElementById('refreshNews').addEventListener('click',()=>{modeCache.delete(currentMode);loadNews(currentMode)});
-
-const AUTO_NEWS_URL='cardiff-news-live.json';
-let autoDataPromise=null;
-async function getAutoData(){if(!autoDataPromise)autoDataPromise=loadAutoData();return autoDataPromise}
-async function loadAutoData(){try{const res=await fetch(AUTO_NEWS_URL,{cache:'no-store'});if(!res.ok)throw new Error('auto feed missing');const data=await res.json();const normalizeLocal=item=>{const base={title:cleanTitle(item.title||''),source:normalizeSource(item.source||'Cardiff Desk'),link:item.link||'#',description:plainText(item.description||''),date:parseDate(item.date||item.updatedAt||''),manualPriority:Number(item.priority||0),isPinned:Boolean(item.pinned||item.isPinned),modes:Array.isArray(item.modes)?item.modes.filter(Boolean):item.mode?[item.mode]:['all']};base.modes=[...new Set([...base.modes,...classifyModes(base)])];base.tags=Array.isArray(item.tags)&&item.tags.length?item.tags.slice(0,3):buildTags(base);return base};return{updatedAt:parseDate(data.updatedAt||''),stories:Array.isArray(data.stories)?data.stories.map(normalizeLocal):[]}}catch(e){return{updatedAt:null,stories:[]}}}
-async function fetchModeItemsLocal(mode){const [desk,auto]=await Promise.all([getDeskData(),getAutoData()]);const local=[...desk.pinned,...desk.stories,...auto.stories].filter(item=>storyFitsMode(item,mode));const merged=dedupeItems(local).map(item=>({...item,tags:item.tags&&item.tags.length?item.tags:buildTags(item),modes:item.modes&&item.modes.length?item.modes:classifyModes(item)}));const ranked=merged.sort((a,b)=>scoreItem(b,mode)-scoreItem(a,mode)||((b.date||0)-(a.date||0)));return diversify(ranked,mode,NEWS_CONFIG.maxItems)}
-async function getModeItemsLocal(mode){if(modeCache.has(mode))return modeCache.get(mode);const promise=fetchModeItemsLocal(mode).catch(err=>{modeCache.delete(mode);throw err});modeCache.set(mode,promise);return promise}
-async function loadNewsLocal(mode='all'){currentMode=mode;activateButtons(mode);document.getElementById('newsStatus').textContent='Checking current area reporting';document.getElementById('newsSubStatus').textContent='Reading local GitHub data files';document.getElementById('newsGrid').innerHTML='<div class="news-card loading">Loading live storiesâ€¦</div>';try{const [desk,items]=await Promise.all([getDeskData(),getModeItemsLocal(mode)]);renderLead(items[0],mode);renderGrid(items);renderSources(items,mode);renderTrackerCards(items);updateDeskMeta(desk,items,mode);loadAlertPanel()}catch(e){renderLead(null,mode);renderGrid([]);renderSources([],mode);renderTrackerCards([]);loadAlertPanel();document.getElementById('newsStatus').textContent='Local feed ran into a snag';document.getElementById('newsSubStatus').textContent='The desk is still watching local JSON files'}}
-const refreshNewsBtn=document.getElementById('refreshNews');
-if(refreshNewsBtn&&refreshNewsBtn.parentNode){
-  const wiredRefreshNewsBtn=refreshNewsBtn.cloneNode(true);
-  refreshNewsBtn.parentNode.replaceChild(wiredRefreshNewsBtn,refreshNewsBtn);
-  wiredRefreshNewsBtn.addEventListener('click',()=>{modeCache.clear();autoDataPromise=null;deskDataPromise=null;loadNewsLocal(currentMode)});
-}
-document.querySelectorAll('#newsFilters .filter-btn').forEach(btn=>{
-  const cleanBtn=btn.cloneNode(true);
-  btn.parentNode.replaceChild(cleanBtn,btn);
-  cleanBtn.addEventListener('click',()=>{modeCache.clear();loadNewsLocal(cleanBtn.dataset.mode)});
-});
-modeCache.clear();
-loadNewsLocal('all');
-</script>
-<script>
-(function(){
-  const originalUpdateDeskMeta = window.updateDeskMeta;
-  const originalLoadAlertPanel = window.loadAlertPanel;
-
-  function applyDeskBulletinVisibility(desk) {
-    const topWatch = document.getElementById('top-watch');
-    const bulletinBox = document.getElementById('deskBulletinBox');
-    const bulletin = document.getElementById('deskBulletin');
-    const hasManualBulletin = !!(desk && desk.bulletin);
-    const alertPanel = document.getElementById('current-alerts');
-    const hasLiveAlert = !!(alertPanel && alertPanel.style.display !== 'none');
-
-    if (hasManualBulletin) {
-      if (bulletin) bulletin.textContent = desk.bulletin;
-      if (bulletinBox) bulletinBox.style.display = '';
-      if (topWatch) topWatch.style.display = '';
-      return;
-    }
-
-    if (hasLiveAlert) {
-      if (bulletinBox) bulletinBox.style.display = '';
-      if (topWatch) topWatch.style.display = '';
-      return;
-    }
-
-    if (bulletin) bulletin.textContent = '';
-    if (bulletinBox) bulletinBox.style.display = 'none';
-    if (topWatch) topWatch.style.display = 'none';
-  }
-
-  if (typeof originalUpdateDeskMeta === 'function') {
-    window.updateDeskMeta = function(desk, items, mode) {
-      originalUpdateDeskMeta(desk, items, mode);
-      applyDeskBulletinVisibility(desk);
-    };
-  }
-
-  if (typeof originalLoadAlertPanel === 'function') {
-    window.loadAlertPanel = async function() {
-      const result = await originalLoadAlertPanel();
-      applyDeskBulletinVisibility(window.__cardiffDeskData || null);
-      return result;
-    };
-  }
-
-  const originalGetDeskData = window.getDeskData;
-  if (typeof originalGetDeskData === 'function') {
-    window.getDeskData = async function() {
-      const desk = await originalGetDeskData();
-      window.__cardiffDeskData = desk;
-      return desk;
-    };
-  }
-})();
+const SCANNER_ITEMS=[
+  /*
+    Write like a neighbor talking to neighbors.
+    Keep items to 1-3 sentences.
+    Explain why something matters to Cardiff specifically.
+    No contractions in body copy.
+    Inline HTML is only for this array: <a>, <strong>, <em>.
+  */
+];
+const URLS={ticker:"ticker.json",watershed:"cardiff-watershed.json",weather:"cardiff-weather.json",air:"cardiff-air-quality.json",desk:"cardiff-news-feed.json",live:"cardiff-news-live.json"};
+const COLORS={"CREEK WATCH":"#2E86AB","COUNTY":"#6B4C9A","BURN BAN":"#E87722","WEATHER":"#E87722","AIR":"#E87722","PICKED UP":"#4A7C59","GREENWAY":"#4A7C59","COMMUNITY":"#4A7C59","NEARBY":"#4A7C59","CIVIC":"#C8102E","UTILITIES":"#C8102E","SAFETY":"#C8102E","WILDLIFE":"#8B6914","SCHOOLS":"#6B4C9A","ROADS":"#8B6914","DESK":"#7A5838","REGIONAL":"#7A5838"};
+const SHOW_COUNT=12,REFRESH_MS=15*60*1e3,state={items:[],expanded:false};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+const plain=s=>{const d=document.createElement("div");d.innerHTML=s||"";return(d.textContent||"").replace(/\s+/g," ").trim();};
+const trunc=(s,n)=>{s=plain(s);return s.length<=n?s:s.slice(0,n).replace(/\s+\S*$/,"").trim()+"...";};
+const dt=v=>{const d=v?new Date(v):null;return d&&Number.isFinite(d.getTime())?d:null;};
+const dateText=v=>{const d=dt(v);return d?d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"Date unavailable";};
+const stamp=v=>{const d=dt(v);return d?d.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):"Update time unavailable";};
+const whole=v=>{v=Number(v);return Number.isFinite(v)?Math.round(v).toLocaleString("en-US"):null;};
+const json=u=>fetch(u,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(u);return r.json();});
+const slug=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80)||"item";
+const tag=t=>String(t||"COMMUNITY").trim().toUpperCase();
+const color=t=>COLORS[tag(t)]||"#7A5838";
+const status=s=>!Number.isFinite(s)?["Offline","#7A5838"]:s<2?["Low","#4A7C59"]:s<5?["Normal","#4A7C59"]:s<8?["Elevated","#E87722"]:s<12?["High","#c25d19"]:["Flood Stage","#C8102E"];
+const sourceLine=i=>!i.source?"":'<div class="source">&mdash; '+(i.link?'<a href="'+esc(i.link)+'" target="_blank" rel="noreferrer">'+esc(i.source)+"</a>":esc(i.source))+"</div>";
+function creekItem(w){const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==="lead"||x.id==="02457595"))||(Array.isArray(w&&w.gauges)?w.gauges[0]:null);if(!g||!Number.isFinite(Number(g.stage_ft)))return null;const ft=Number(g.stage_ft),cfs=whole(g.discharge_cfs),s=status(ft)[0],trend=String(g.trend||"").toLowerCase();return{id:"creek-"+slug(g.updated_at||w.updatedAt),date:g.updated_at||w.updatedAt,tag:"CREEK WATCH",title:"Five Mile Creek is at "+ft.toFixed(1)+" ft near Republic",body:"Republic gauge is reading "+ft.toFixed(1)+" ft"+(cfs?" and about "+cfs+" cfs moving through the channel.":".")+(trend?" The line is "+trend+".":" ")+"That reads as "+s.toLowerCase()+" for the Cardiff watch right now.",source:"USGS Gauge 02457595",link:"https://waterdata.usgs.gov/monitoring-location/02457595/",priority:95};}
+function weatherItem(w){const next=(Array.isArray(w&&w.forecast)?w.forecast:[]).find(x=>x&&x.isDaytime)||(Array.isArray(w&&w.forecast)?w.forecast[0]:null),cur=w&&w.current?w.current:null;if(!next&&!cur)return null;return{id:"weather-"+slug((next&&next.startTime)||(w&&w.updatedAt)),date:(next&&next.startTime)||(w&&w.updatedAt),tag:"WEATHER",title:next?next.name+" forecast: "+plain(next.shortForecast||"Local conditions"):"Weather read from around Cardiff",body:next&&next.detailedForecast?next.detailedForecast:(cur&&cur.summary)||"Weather details are settling in from the local station.",source:"NWS Birmingham",link:"https://weather.gov/bmx",priority:82};}
+function rainItem(w,y){const r=(w&&w.rainContext)||(y&&y.rain);if(!r||!Number.isFinite(Number(r.monthToDate)))return null;return{id:"rain-"+slug((r.monthLabel||"month")+"-"+r.monthToDate),date:(w&&w.updatedAt)||(y&&y.updatedAt),tag:"WEATHER",title:(r.monthLabel||"This month")+" closed at "+Number(r.monthToDate).toFixed(2)+" inches on the Cardiff rain log",body:"That is the current local weather-station running total. It gives the watershed some recharge while the lead creek gauge stays out of trouble right now.",source:"Cardiff weather log",link:"cardiff-almanac.html",priority:72};}
+function airItem(a){const c=a&&a.current?a.current:null,aqi=Number(c&&c.usAqi);if(!c)return null;return{id:"air-"+slug((c.observedLocalTime||a.updatedAt)+"-"+(c.category||"air")),date:c.observedLocalTime||a.updatedAt,tag:"AIR",title:Number.isFinite(aqi)?"Air quality is "+plain(c.category||"Good").toLowerCase()+" with AQI "+Math.round(aqi):"Air quality read for Cardiff",body:c.note||c.label||"The air-quality feed checked in without a longer note.",source:"Open-Meteo air quality",link:"cardiff-almanac.html",priority:70};}
+function alertItems(t){return!(t&&Array.isArray(t.alerts)&&t.alerts.length)?[]:t.alerts.map((a,i)=>({id:"alert-"+i+"-"+slug(a.headline||a.event),date:t.updatedAt||new Date().toISOString(),tag:"WEATHER",title:plain(a.headline||a.event||"Active alert"),body:[plain(a.description||""),a.endsShort?"This one is listed through "+plain(a.endsShort)+".":""].filter(Boolean).join(" "),source:"Cardiff ticker",link:"https://weather.gov/bmx",priority:120-i}));}
+function bulletinItem(d){return!plain(d&&d.bulletin)?null:{id:"bulletin-"+slug((d&&d.updatedAt)||d.bulletin),date:(d&&d.updatedAt)||new Date().toISOString(),tag:"DESK",title:"Desk bulletin",body:d.bulletin,source:"Cardiff Desk",priority:110};}
+function deskItems(items,pinned){return(Array.isArray(items)?items:[]).map((x,i)=>({id:x.id||"desk-"+i+"-"+slug(x.title||x.date),date:x.date||x.updatedAt||new Date().toISOString(),tag:(Array.isArray(x.tags)&&x.tags[0])||x.tag||"COMMUNITY",title:plain(x.title||"Desk note"),body:trunc(x.description||x.body||"",240),source:plain(x.source||"Cardiff Desk"),link:x.link||"",priority:Number(x.priority||0)+(pinned?95:60)})).filter(x=>x.title&&x.body);}
+function manualItems(){return SCANNER_ITEMS.map((x,i)=>({id:x.id||"manual-"+i+"-"+slug(x.title||x.date),date:x.date||new Date().toISOString(),tag:x.tag||"COMMUNITY",title:plain(x.title||"Scanner item"),body:String(x.body||""),source:plain(x.source||"Cardiff Desk"),link:x.link||"",priority:Number(x.priority||100),manual:true})).filter(x=>x.title&&x.body);}
+function liveItems(items){return(Array.isArray(items)?items:[]).map((x,i)=>({id:x.id||"live-"+i+"-"+slug(x.title||x.date),date:x.date||x.published_at||x.updatedAt||"",tag:(Array.isArray(x.tags)&&x.tags[0])||(Array.isArray(x.topic_tags)&&x.topic_tags[0])||"REGIONAL",title:plain(x.title||"Nearby report"),body:trunc(x.description||x.summary||"",220),source:plain(x.source||x.source_name||"Regional source"),link:x.link||x.url||"",priority:Number(x.priority||x.priority_level||0)+35})).filter(x=>x.title&&x.body&&dt(x.date));}
+function dedupe(items){const seen=new Set();return items.filter(x=>{const k=slug(x.title)+"|"+String(x.link||"").replace(/[#?].*$/,"");if(!x.title||seen.has(k))return false;seen.add(k);return true;});}
+function sortItems(items){return items.slice().sort((a,b)=>{const at=dt(a.date),bt=dt(b.date),am=at?at.getTime():0,bm=bt?bt.getTime():0;return bm-am||Number(b.priority||0)-Number(a.priority||0);});}
+function renderCreek(w){const el=$("creekStrip");if(!el)return;const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==="lead"||x.id==="02457595"))||(Array.isArray(w&&w.gauges)?w.gauges[0]:null),ft=g?Number(g.stage_ft):NaN,s=status(ft);el.style.setProperty("--accent",s[1]);el.innerHTML=!g||!Number.isFinite(ft)?'<div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">Data unavailable</span><span class="creek-badge">Offline</span></div><div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL</div>':'<div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">'+ft.toFixed(1)+' ft</span><span class="creek-badge">'+esc(s[0])+'</span></div><div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL<br>Updated '+esc(stamp(g.updated_at||w.updatedAt))+"</div>";}
+function renderPriority(t,d){const box=$("priorityNote"),title=$("priorityTitle"),copy=$("priorityCopy");if(!box)return;if(t&&Array.isArray(t.alerts)&&t.alerts.length){const a=t.alerts[0];box.hidden=false;title.textContent=plain(a.headline||a.event||"Active alert");copy.textContent=[plain(a.description||""),a.endsShort?"Through "+plain(a.endsShort)+".":""].filter(Boolean).join(" ");return;}if(d&&plain(d.bulletin)){box.hidden=false;title.textContent="Desk bulletin";copy.textContent=plain(d.bulletin);return;}box.hidden=true;}
+function renderList(items){const el=$("scannerList"),btn=$("showOlderBtn");if(!el||!btn)return;if(!items.length){el.innerHTML='<div class="empty">The scanner did not pull any usable items this pass. The page shell is up, but the desk files or local signal files need another look.</div>';btn.hidden=true;return;}const list=state.expanded?items:items.slice(0,SHOW_COUNT);el.innerHTML=list.map(x=>'<article class="item" style="--accent:'+color(x.tag)+';"><div class="item-top"><span class="tag">'+esc(tag(x.tag))+'</span><span class="date">'+esc(dateText(x.date))+'</span></div><h3>'+esc(x.title)+'</h3><div class="body-copy">'+(x.manual?x.body:esc(plain(x.body||"")))+'</div>'+sourceLine(x)+'</article>').join("");btn.hidden=state.expanded||items.length<=SHOW_COUNT;}
+function renderMeta(items,updated){const el=$("scannerMeta");if(!el)return;const manual=items.filter(x=>x.manual||x.priority>=60&&x.source==="Cardiff Desk").length,signal=items.filter(x=>["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))&&x.source!=="Regional source").length,live=items.filter(x=>x.link&&/^https?:/i.test(x.link)&&!x.manual&&!["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))).length;el.textContent=items.length+" items - "+manual+" desk notes - "+signal+" local signals - "+live+" nearby reports - refreshed "+stamp(updated);}
+async function load(){const [t,w,y,a,d,l]=await Promise.allSettled([json(URLS.ticker),json(URLS.watershed),json(URLS.weather),json(URLS.air),json(URLS.desk),json(URLS.live)]);const ticker=t.status==="fulfilled"?t.value:null,watershed=w.status==="fulfilled"?w.value:null,weather=y.status==="fulfilled"?y.value:null,air=a.status==="fulfilled"?a.value:null,desk=d.status==="fulfilled"?d.value:null,live=l.status==="fulfilled"?l.value:null;renderCreek(watershed);renderPriority(ticker,desk);state.items=sortItems(dedupe([bulletinItem(desk),creekItem(watershed),weatherItem(weather),rainItem(watershed,weather),airItem(air),...alertItems(ticker),...manualItems(),...deskItems(desk&&desk.pinned,true),...deskItems(desk&&desk.stories,false),...liveItems(live&&live.stories)].filter(Boolean)));renderList(state.items);renderMeta(state.items,(live&&live.updatedAt)||(desk&&desk.updatedAt)||(watershed&&watershed.updatedAt)||(weather&&weather.updatedAt)||new Date().toISOString());}
+$("showOlderBtn").addEventListener("click",()=>{state.expanded=true;renderList(state.items);});
+$("refreshBtn").addEventListener("click",()=>{state.expanded=false;load();});
+load();
+window.setInterval(load,REFRESH_MS);
 </script>
 </body>
 </html>

@@ -140,6 +140,90 @@ html{scroll-behavior:smooth;}
   border-bottom:none;
 }
 
+/* Shared inline link treatment for body copy */
+:where(
+  .sub,
+  .hero-sub,
+  .card-body,
+  .tiny,
+  .list-copy,
+  .quote-text,
+  .featured-note,
+  .photo-copy,
+  .mini-copy,
+  .mini-value,
+  .meta-copy,
+  .body-copy,
+  .story-body,
+  .story-source,
+  .resources-copy,
+  .holiday-copy,
+  .note-box,
+  .letter-body p,
+  .letter-body li,
+  .today-list .side-val,
+  .today-list .side-sub
+) a:not(.btn):not(.site-link):not(.cta-btn):not(.cs-btn):not(.sub-btn):not(.donate-btn):not(.donate-btn-primary):not(.donate-btn-ghost):not(.icon-btn){
+  color:var(--red) !important;
+  font-weight:700 !important;
+  text-decoration:none !important;
+  text-underline-offset:0.12em;
+}
+
+:where(
+  .sub,
+  .hero-sub,
+  .card-body,
+  .tiny,
+  .list-copy,
+  .quote-text,
+  .featured-note,
+  .photo-copy,
+  .mini-copy,
+  .mini-value,
+  .meta-copy,
+  .body-copy,
+  .story-body,
+  .story-source,
+  .resources-copy,
+  .holiday-copy,
+  .note-box,
+  .letter-body p,
+  .letter-body li,
+  .today-list .side-val,
+  .today-list .side-sub
+) a:not(.btn):not(.site-link):not(.cta-btn):not(.cs-btn):not(.sub-btn):not(.donate-btn):not(.donate-btn-primary):not(.donate-btn-ghost):not(.icon-btn):hover{
+  color:var(--red-mid) !important;
+  text-decoration:underline !important;
+}
+
+:where(
+  .sub,
+  .hero-sub,
+  .card-body,
+  .tiny,
+  .list-copy,
+  .quote-text,
+  .featured-note,
+  .photo-copy,
+  .mini-copy,
+  .mini-value,
+  .meta-copy,
+  .body-copy,
+  .story-body,
+  .story-source,
+  .resources-copy,
+  .holiday-copy,
+  .note-box,
+  .letter-body p,
+  .letter-body li,
+  .today-list .side-val,
+  .today-list .side-sub
+) a:not(.btn):not(.site-link):not(.cta-btn):not(.cs-btn):not(.sub-btn):not(.donate-btn):not(.donate-btn-primary):not(.donate-btn-ghost):not(.icon-btn):focus-visible{
+  outline:2px solid rgba(200,16,46,0.24) !important;
+  outline-offset:2px !important;
+}
+
 /* Shared button treatment */
 .btn,
 .btn.primary,

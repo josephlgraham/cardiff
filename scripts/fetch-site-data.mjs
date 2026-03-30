@@ -42,10 +42,15 @@ const HOUR_FORMATTER = new Intl.DateTimeFormat('en-US', {
 const NEWS_QUERIES = [
   { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama local news' },
   { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama local news' },
+  { mode: 'nearby', query: '("Five Mile Creek" OR Brookside OR Graysville OR Cardiff) Alabama watershed greenway cleanup' },
   { mode: 'weather', query: '(Jefferson County OR Birmingham) Alabama weather storm tornado flood outage emergency' },
   { mode: 'weather', query: '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Brookside OR Graysville OR Adamsville OR Gardendale) Alabama' },
+  { mode: 'weather', query: '(Jefferson County EMA OR Alabama Power OR ALDOT) Jefferson County Alabama outage shelter severe weather' },
   { mode: 'civic', query: '(Jefferson County OR Birmingham) Alabama city council county commission school board zoning sewer water' },
-  { mode: 'regional', query: '(north Jefferson County OR western Jefferson County) Alabama development public safety schools' }
+  { mode: 'civic', query: '(Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR Warrior) Alabama council commission mayor public works' },
+  { mode: 'civic', query: '(Jefferson County OR western Jefferson County) Alabama brush pickup debris public works utility board' },
+  { mode: 'regional', query: '(north Jefferson County OR western Jefferson County) Alabama development public safety schools' },
+  { mode: 'regional', query: '(Brookside OR Graysville OR Gardendale OR Fultondale) Alabama police fire rescue school' }
 ];
 
 const SOURCE_WEIGHTS = {
@@ -61,7 +66,12 @@ const SOURCE_WEIGHTS = {
   'ABC3340': 6,
   'CBS 42': 6,
   'WBHM': 6,
-  'Bham Now': 5
+  'Bham Now': 5,
+  'North Jefferson Herald': 6,
+  'North Jefferson Post': 5,
+  'The Birmingham Times': 5,
+  'Birmingham Business Journal': 5,
+  'Patch': 4
 };
 
 const PLACE_WEIGHTS = [
@@ -548,7 +558,7 @@ async function fetchNewsStories() {
   return deduped
     .filter((story) => story.date && freshnessScore(story.date) > -20)
     .sort((a, b) => scoreItem(b) - scoreItem(a) || ((b.date || 0) - (a.date || 0)))
-    .slice(0, 24)
+    .slice(0, 36)
     .map((story, index) => {
       const isoDate = story.date ? story.date.toISOString() : '';
       return {
