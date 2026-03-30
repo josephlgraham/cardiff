@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-03-30T03:48:40.077Z",
+  "updatedAt": "2026-03-30T04:14:36.183Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-29 22:47:00",
+  "sourceUpdatedAt": "2026-03-29 23:12:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-30T03:47:00Z",
-      "obsTimeLocal": "2026-03-29 22:47:00",
+      "obsTimeUtc": "2026-03-30T04:12:00Z",
+      "obsTimeLocal": "2026-03-29 23:12:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774842420,
+      "epoch": 1774843920,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 333,
+      "winddir": 315,
       "humidity": 80,
       "qcStatus": 1,
       "imperial": {
-        "temp": 60,
-        "heatIndex": 60,
+        "temp": 59,
+        "heatIndex": 59,
         "dewpt": 53,
-        "windChill": 60,
+        "windChill": 59,
         "windSpeed": 0,
-        "windGust": 2,
+        "windGust": 1,
         "pressure": 30.04,
         "precipRate": 0,
         "precipTotal": 0,
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 60,
-    "feels": 60,
+    "temp": 59,
+    "feels": 59,
     "humidity": 80,
     "windSpeed": 0,
-    "windGust": 2,
-    "windDir": "NNW",
-    "windDirDegrees": 333,
+    "windGust": 1,
+    "windDir": "NW",
+    "windDirDegrees": 315,
     "precipRate": 0,
     "precipTotal": 0,
     "pressureIn": 30.04,
     "uv": 0,
     "condition": "Mild",
-    "obsTime": "2026-03-29 22:47:00",
+    "obsTime": "2026-03-29 23:12:00",
     "solarRadiation": 0,
-    "summary": "Right now around Cardiff it feels 60°F, mild, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 59°F, mild, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -69,7 +69,7 @@
     {
       "number": 1,
       "name": "Tonight",
-      "startTime": "2026-03-29T22:00:00-05:00",
+      "startTime": "2026-03-29T18:00:00-05:00",
       "endTime": "2026-03-30T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 56,
@@ -79,11 +79,11 @@
         "unitCode": "wmoUnit:percent",
         "value": 5
       },
-      "windSpeed": "5 mph",
+      "windSpeed": "5 to 10 mph",
       "windDirection": "SE",
       "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
       "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 56. Southeast wind around 5 mph."
+      "detailedForecast": "Partly cloudy, with a low around 56. Southeast wind 5 to 10 mph."
     },
     {
       "number": 2,
