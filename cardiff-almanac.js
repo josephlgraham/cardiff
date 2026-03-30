@@ -1351,8 +1351,8 @@
     const rows = fishingRows(wx);
     const waterTemp = estimateWaterTemp(wx.temp, new Date().getMonth());
     const pressure = pressureNote(wx.pressureIn);
-    setMultiEmojiText("fishWater", ["💧", "🌡️"], waterTemp + "°F");
-    setMultiEmojiText("fishPressure", [pressure.icon, "🧭"], pressure.label);
+    setEmojiText("fishWater", "💧", waterTemp + "°F");
+    setEmojiText("fishPressure", pressure.icon, pressure.label);
     if (rows.length) {
       setText("pillFish", rows[0].name);
     }
