@@ -40,14 +40,16 @@ const HOUR_FORMATTER = new Intl.DateTimeFormat('en-US', {
 });
 
 const NEWS_QUERIES = [
-  { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama local news' },
-  { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama local news' },
-  { mode: 'nearby', query: '("Five Mile Creek" OR Brookside OR Graysville OR Cardiff) Alabama watershed greenway cleanup' },
+  { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
+  { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama' },
+  { mode: 'nearby', query: '("Five Mile Creek" OR Brookside OR Graysville OR Cardiff) Alabama' },
+  { mode: 'nearby', query: '(Brookside OR Graysville OR Adamsville OR Cardiff) Alabama police fire rescue school road' },
   { mode: 'weather', query: '(Jefferson County OR Birmingham) Alabama weather storm tornado flood outage emergency' },
   { mode: 'weather', query: '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Brookside OR Graysville OR Adamsville OR Gardendale) Alabama' },
   { mode: 'weather', query: '(Jefferson County EMA OR Alabama Power OR ALDOT) Jefferson County Alabama outage shelter severe weather' },
   { mode: 'civic', query: '(Jefferson County OR Birmingham) Alabama city council county commission school board zoning sewer water' },
   { mode: 'civic', query: '(Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR Warrior) Alabama council commission mayor public works' },
+  { mode: 'civic', query: '(Brookside OR Graysville OR Cardiff) Alabama water sewer utility public works' },
   { mode: 'civic', query: '(Jefferson County OR western Jefferson County) Alabama brush pickup debris public works utility board' },
   { mode: 'regional', query: '(north Jefferson County OR western Jefferson County) Alabama development public safety schools' },
   { mode: 'regional', query: '(Brookside OR Graysville OR Gardendale OR Fultondale) Alabama police fire rescue school' }
@@ -452,6 +454,10 @@ function freshnessScore(date) {
   return -30;
 }
 
+function isRecentStory(date, maxDays = 5) {
+  return !!date && (Date.now() - date.getTime()) <= maxDays * 864e5;
+}
+
 function penaltyScore(blob) {
   return LOW_SIGNAL_TERMS.reduce((penalty, term) => penalty + (blob.includes(term) ? -4 : 0), 0);
 }
@@ -556,9 +562,9 @@ async function fetchNewsStories() {
   }
 
   return deduped
-    .filter((story) => story.date && freshnessScore(story.date) > -20)
+    .filter((story) => isRecentStory(story.date, 5))
     .sort((a, b) => scoreItem(b) - scoreItem(a) || ((b.date || 0) - (a.date || 0)))
-    .slice(0, 36)
+    .slice(0, 48)
     .map((story, index) => {
       const isoDate = story.date ? story.date.toISOString() : '';
       return {
@@ -595,16 +601,11 @@ async function fetchNewsStories() {
 
 async function updateNewsFile() {
   const stories = await fetchNewsStories();
-  if (!stories.length) {
-    console.log('Skipping news write because no fresh stories were gathered.');
-    return;
-  }
-
   await writeJson(NEWS_FILE, {
     updatedAt: new Date().toISOString(),
     stories
   });
-  console.log(`Updated ${path.basename(NEWS_FILE)}`);
+  console.log(`Updated ${path.basename(NEWS_FILE)} with ${stories.length} stor${stories.length === 1 ? 'y' : 'ies'}`);
 }
 
 function findSeries(data, parameterCode) {

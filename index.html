@@ -120,7 +120,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hero-copy{display:grid;align-content:start;gap:1rem}
 .hero-side{display:grid;gap:1rem}
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.hero-side>.hero-quick-grid{display:none}
+.hero-side>.hero-quick-grid{display:grid}
 .hero-quick-card{min-height:100%;display:flex;flex-direction:column}
 .hero-quick-card .card-body{flex:1}
 .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -161,20 +161,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div class="kicker">Welcome</div>
         <h1 class="title">What Comes Next for Cardiff</h1>
         <p class="sub">Cardiff has been a real place for a long time &mdash; a community with names, history, and neighbors who chose to stay. Right now, the town government has gone quiet, and what happens next depends on the people who live here.<br><br>There are three ways this can go.<br><br>Restart &mdash; Residents step forward, meetings resume, and the town continues as a functioning municipality.<br>Maintain &mdash; A small group keeps the essential work going, without a full revival.<br>Release &mdash; If no one participates, Cardiff eventually ceases to exist as an incorporated town.<br><br>None of these paths are permanent yet. That is what makes this moment worth paying attention to.<br><br>Want to stay informed or get involved?<br><a href="cardiff-civic.html">The Civic Pathway page</a> has the full picture &mdash; what the situation is, what the options mean, and how to make your voice heard.</p>
-        <div class="hero-quick-grid">
-          <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Daily rhythm</div>
-            <h3 class="card-title">Check the weather and local rhythms.</h3>
-            <p class="card-body">Open the almanac for live weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
-            <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
-          </article>
-          <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Around us</div>
-            <h3 class="card-title">Keep one eye on the wider area.</h3>
-            <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
-            <a class="site-link" href="cardiff-news.html">📰 News</a>
-          </article>
-        </div>
       </div>
       <div class="hero-side">
         <div class="photo-shell info-box reveal" data-kicker="Featured photo">
@@ -195,13 +181,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </div>
         <div class="hero-quick-grid">
           <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Daily conditions</div>
+            <div class="site-kicker">Daily rhythm</div>
             <h3 class="card-title">Check the weather and local rhythms.</h3>
             <p class="card-body">Open the almanac for live weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
             <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
           </article>
           <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Current signal</div>
+            <div class="site-kicker">Around us</div>
             <h3 class="card-title">Keep one eye on the wider area.</h3>
             <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
             <a class="site-link" href="cardiff-news.html">📰 News</a>
@@ -233,7 +219,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="dashboard-grid">
     <article class="card accent-card reveal">
       <div class="site-kicker">At a glance</div>
-      <h3 class="card-title">🌤 Today in Cardiff</h3>
+      <h3 class="card-title">🌤️ Today in Cardiff</h3>
       <div class="today-list" id="homeToday">
         <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Loading local conditions</div><div class="side-sub">Weather, daylight, moon, and ground read are syncing.</div></div></div>
       </div>
@@ -244,11 +230,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="snapshot-list" id="homeWatershed">
         <div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Brookside remains the first watch point for Cardiff.</div></div>
       </div>
-      <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
     </article>
     <article class="card reveal">
       <div class="site-kicker">Morning report</div>
-      <h3 class="card-title">Since midnight.</h3>
+      <h3 class="card-title">🌦️ Since midnight.</h3>
       <div class="snapshot-list" id="homeMorning">
         <div class="mini-row"><div class="mini-label">Weather desk</div><div class="mini-value">Waiting on the station log.</div><div class="mini-copy">Rain, low temp, and gust read will settle in here when the station answers.</div></div>
       </div>
@@ -428,11 +413,22 @@ function getMoonPhase(date){
 function groundRead(current,rain){
   const today=rain?Number(rain.today||0):0;
   const humidity=current?Number(current.humidity||0):0;
-  if(today>=0.25)return {title:'Wet ground',note:'Recent rain is enough to soften yards, creek edges, and low spots.',icon:'🫧'};
-  if(today>=0.01)return {title:'Freshly damp',note:'A little rain has settled the dust and left a trace on the ground.',icon:'👣'};
-  if(humidity>=80)return {title:'Holding moisture',note:'Shade and bottoms will stay damp longer than open ground.',icon:'👣'};
-  if(humidity>=60)return {title:'Normal footing',note:'Neither baked out nor soupy in most spots.',icon:'🪵'};
+  if(today>=0.25)return {title:'Wet ground',note:'Recent rain is enough to soften yards, creek edges, and low spots.',icon:'💧'};
+  if(today>=0.01)return {title:'Freshly damp',note:'A little rain has settled the dust and left a trace on the ground.',icon:'🌿'};
+  if(humidity>=80)return {title:'Holding moisture',note:'Shade and bottoms will stay damp longer than open ground.',icon:'🍃'};
+  if(humidity>=60)return {title:'Normal footing',note:'Neither baked out nor soupy in most spots.',icon:'🌱'};
   return {title:'Dry on top',note:'Open ground will crust faster than shaded creek edges.',icon:'☀️'};
+}
+function conditionIcon(condition){
+  if(condition==='Rain')return '🌧️';
+  if(condition==='Sunny')return '☀️';
+  if(condition==='Cold')return '🥶';
+  if(condition==='Partly cloudy')return '⛅';
+  if(condition==='Overcast')return '☁️';
+  if(condition==='Hot')return '🔥';
+  if(condition==='Warm & humid')return '💦';
+  if(condition==='Breezy')return '🌬️';
+  return '🌤️';
 }
 function buildSkyNote(moon){
   return moon.name==='Full Moon'
@@ -442,25 +438,25 @@ function buildSkyNote(moon){
       : 'Moonlight will be moderate tonight, enough to shape the woods without washing everything out.';
 }
 async function fetchFeed(url){const rss2json='https://api.rss2json.com/v1/api.json?count=24&rss_url='+encodeURIComponent(url);try{const res=await fetch(rss2json);const data=await res.json();if(data.status==='ok'&&Array.isArray(data.items)){return data.items.map(item=>({title:cleanTitle(item.title||'Untitled'),source:extractSource(item),link:item.link||'#',description:plainText(item.description||item.content||''),date:parseDate(item.pubDate||item.published||''),raw:item}))}}catch(e){}try{const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetch(proxy);const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');return [...xml.querySelectorAll('item')].map(node=>({title:cleanTitle(node.querySelector('title')?.textContent||'Untitled'),source:node.querySelector('source')?.textContent?.trim()||extractSource({title:node.querySelector('title')?.textContent||''}),link:node.querySelector('link')?.textContent||'#',description:plainText(node.querySelector('description')?.textContent||''),date:parseDate(node.querySelector('pubDate')?.textContent||''),raw:node}))}catch(e){return []}}
-async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories…</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,8));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live feed note</div><div class="news-title">No fresh local stories passed the filter right now.</div><div class="news-snippet">That usually means the nearby outlets are quiet or a feed request was blocked. Open the full news page to try again.</div></div>';status.textContent='Live feed empty or filtered out';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'…':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story ↗</span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
+async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories...</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,5));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<4)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live read</div><div class="news-title">No fresh nearby stories are showing right now.</div><div class="news-snippet">The creek, weather, and wider scanner are still updating while the outside feed thins out.</div></div>';status.textContent='Waiting on fresh nearby coverage';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'...':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story -></span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
 document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);
 
 async function loadHomeNewsLocal(){
   const target=document.getElementById('homeNewsGrid');
   const status=document.getElementById('homeNewsStatus');
-  target.innerHTML='<div class="news-card loading">Loading live storiesâ€¦</div>';
+  target.innerHTML='<div class="news-card loading">Loading live stories...</div>';
   status.textContent='Checking current local and regional stories';
   const loadJson=async url=>{const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error(url);return res.json()};
   const [deskResult,liveResult]=await Promise.allSettled([loadJson(HOME_NEWS_URLS.desk),loadJson(HOME_NEWS_URLS.live)]);
   const desk=deskResult.status==='fulfilled'?deskResult.value:{pinned:[],stories:[]};
   const live=liveResult.status==='fulfilled'?liveResult.value:{stories:[]};
-  const normalize=item=>({title:cleanTitle(item.title||'Untitled'),source:(item.source||'Regional source').trim(),link:item.link||'#',description:plainText(item.description||''),date:parseDate(item.date||item.updatedAt||''),priority:Number(item.priority||0),pinned:Boolean(item.pinned||item.isPinned)});
-  const items=[...(Array.isArray(desk.pinned)?desk.pinned:[]),...(Array.isArray(desk.stories)?desk.stories:[]),...(Array.isArray(live.stories)?live.stories:[])].map(normalize).filter(item=>item.title&&item.link&&isFresh(item.date,8));
+  const normalize=item=>({title:cleanTitle(item.title||'Untitled'),source:(item.source||item.source_name||'Regional source').trim(),link:item.link||item.url||'#',description:plainText(item.description||item.summary||''),date:parseDate(item.date||item.published_at||item.updatedAt||''),priority:Number(item.priority||item.priority_level||0),pinned:Boolean(item.pinned||item.isPinned||item.is_featured)});
+  const items=[...(Array.isArray(desk.pinned)?desk.pinned:[]),...(Array.isArray(desk.stories)?desk.stories:[]),...(Array.isArray(live.stories)?live.stories:[])].map(normalize).filter(item=>item.title&&item.link&&isFresh(item.date,5));
   const ranked=items.sort((a,b)=>(b.priority||0)-(a.priority||0)||scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));
   const seen=new Set();const picked=[];
-  for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<6&&!item.pinned)continue;picked.push(item);if(picked.length===3)break}
-  if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Desk note</div><div class="news-title">No fresh local stories are in the generated feed yet.</div><div class="news-snippet">That usually means the automation has not run yet or the outlets are quiet. Open the full news page to check the larger desk.</div></div>';status.textContent='Waiting on the generated local feed';return}
-  target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'â€¦':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story â†—</span></div></a></article>`).join('');
+  for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<4&&!item.pinned)continue;picked.push(item);if(picked.length===3)break}
+  if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Local read</div><div class="news-title">No fresh stories are showing right now.</div><div class="news-snippet">Open the full news page for the wider scanner, service links, and nearby-town updates.</div></div>';status.textContent='Waiting on fresh nearby coverage';return}
+  target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'...':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story -></span></div></a></article>`).join('');
   status.textContent='Updated from the local GitHub news feed';
 }
 
@@ -500,13 +496,13 @@ async function loadHomeDashboard(){
   const morning=rain&&rain.morningReport?rain.morningReport:null;
   const showTonight=now.getHours()>=12;
 
-  document.getElementById('mobileWeatherValue').textContent=current?`${current.condition==='Rain'?'🌧':'🌤'} ${current.temp}°F · ${current.condition}`:'🌤 Weather sync pending';
+  document.getElementById('mobileWeatherValue').textContent=current?`${conditionIcon(current.condition)} ${current.temp}°F · ${current.condition}`:'🌤️ Weather sync pending';
   document.getElementById('mobileWeatherCopy').textContent=current&&current.summary?current.summary:'Current sky and ground feel will settle in here when the station answers.';
   document.getElementById('mobileCreekValue').textContent=leadGauge&&Number.isFinite(leadStage)?`🌊 ${leadStage.toFixed(2)} ft at ${leadGauge.label}`:'🌊 Gauge sync pending';
   document.getElementById('mobileCreekCopy').textContent=leadGauge&&leadGauge.note?leadGauge.note:(rain?`${formatInches(Number(rain.today))} of rain has shown up since midnight.`:'Gauge, flow, and rain notes will settle in here.');
 
   document.getElementById('homeToday').innerHTML=[
-    `<div class="side-item"><div class="side-icon">${current?current.condition==='Rain'?'🌧':current.condition==='Sunny'?'☀️':current.condition==='Cold'?'🥶':'🌤':'📡'}</div><div><div class="side-val">${current?`${current.temp}°F and ${current.condition.toLowerCase()}`:'Station sync pending'}</div><div class="side-sub">${current&&current.summary?current.summary:'Weather summary will populate here when the station responds.'}</div></div></div>`,
+    `<div class="side-item"><div class="side-icon">${current?conditionIcon(current.condition):'📡'}</div><div><div class="side-val">${current?`${current.temp}°F and ${current.condition.toLowerCase()}`:'Station sync pending'}</div><div class="side-sub">${current&&current.summary?current.summary:'Weather summary will populate here when the station responds.'}</div></div></div>`,
     `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">Sunrise to sunset</div><div class="side-sub">${formatClock(sun.rise)} to ${formatClock(sun.set)}</div></div></div>`,
     `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">Night light and animal movement can feel different under this phase.</div></div></div>`,
     `<div class="side-item"><div class="side-icon">${ground.icon}</div><div><div class="side-val">${ground.title}</div><div class="side-sub">${ground.note}</div></div></div>`
@@ -531,7 +527,7 @@ async function loadHomeDashboard(){
           `<div class="mini-row"><div class="mini-label">🔭 Sky note</div><div class="mini-value">Best first look</div><div class="mini-copy">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div>`
         ].join('')
       : [
-          `<div class="mini-row"><div class="mini-label">${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
+          `<div class="mini-row"><div class="mini-label">🌧️ ${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
           `<div class="mini-row"><div class="mini-label">🥶 Low temperature</div><div class="mini-value">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="mini-copy">The coolest point the station logged overnight or so far today.</div></div>`,
           `<div class="mini-row"><div class="mini-label">🌬 Strongest gust</div><div class="mini-value">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="mini-copy">A quick check on whether the night stayed still or worked the trees a little.</div></div>`
         ].join('');
