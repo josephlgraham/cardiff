@@ -286,12 +286,14 @@
         return res.json();
       })
       .then(function (data) {
+        var shouldShowTicker = !!(data && (data.hasAlerts || data.showTicker));
+
         // Update ticker strip text
         var stripText = document.querySelector('.announce-strip-text');
         if (stripText) {
           var msg = (data.ticker || DEFAULT_TICKER).trim();
-          stripText.textContent = data.hasAlerts ? msg : '';
-          setTickerMotion(stripText, !!data.hasAlerts, msg);
+          stripText.textContent = shouldShowTicker ? msg : '';
+          setTickerMotion(stripText, shouldShowTicker, msg);
         }
 
         // Change strip color for active alerts
