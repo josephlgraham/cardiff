@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-03-30T15:03:53.176Z",
+  "updatedAt": "2026-03-30T16:56:28.588Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-30 10:03:00",
+  "sourceUpdatedAt": "2026-03-30 11:55:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-30T15:03:00Z",
-      "obsTimeLocal": "2026-03-30 10:03:00",
+      "obsTimeUtc": "2026-03-30T16:55:00Z",
+      "obsTimeLocal": "2026-03-30 11:55:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 175,
+      "solarRadiation": 304.3,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774882980,
+      "epoch": 1774889700,
       "lat": 33.647,
-      "uv": 1,
-      "winddir": 334,
-      "humidity": 76,
+      "uv": 2,
+      "winddir": 267,
+      "humidity": 73,
       "qcStatus": 1,
       "imperial": {
-        "temp": 68,
-        "heatIndex": 68,
-        "dewpt": 60,
-        "windChill": 68,
+        "temp": 70,
+        "heatIndex": 70,
+        "dewpt": 61,
+        "windChill": 70,
         "windSpeed": 1,
-        "windGust": 3,
-        "pressure": 30.03,
+        "windGust": 2,
+        "pressure": 30.01,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 68,
-    "feels": 68,
-    "humidity": 76,
+    "temp": 70,
+    "feels": 70,
+    "humidity": 73,
     "windSpeed": 1,
-    "windGust": 3,
-    "windDir": "NNW",
-    "windDirDegrees": 334,
+    "windGust": 2,
+    "windDir": "W",
+    "windDirDegrees": 267,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 30.03,
-    "uv": 1,
+    "pressureIn": 30.01,
+    "uv": 2,
     "condition": "Mild",
-    "obsTime": "2026-03-30 10:03:00",
-    "solarRadiation": 175,
-    "summary": "Right now around Cardiff it feels 68°F, mild, humid air in the bottoms."
+    "obsTime": "2026-03-30 11:55:00",
+    "solarRadiation": 304.3,
+    "summary": "Right now around Cardiff it feels 70°F, mild."
   },
   "rain": {
     "today": 0,
@@ -69,7 +69,7 @@
     {
       "number": 1,
       "name": "Today",
-      "startTime": "2026-03-30T10:00:00-05:00",
+      "startTime": "2026-03-30T11:00:00-05:00",
       "endTime": "2026-03-30T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 79,
@@ -77,13 +77,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 19
+        "value": 16
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/bkn/rain_showers,20?size=medium",
       "shortForecast": "Partly Sunny then Slight Chance Rain Showers",
-      "detailedForecast": "A slight chance of rain showers after 1pm. Partly sunny, with a high near 79. South wind 5 to 10 mph. Chance of precipitation is 20%."
+      "detailedForecast": "A slight chance of rain showers after 4pm. Partly sunny, with a high near 79. South wind 5 to 10 mph. Chance of precipitation is 20%."
     },
     {
       "number": 2,
@@ -96,7 +96,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 19
+        "value": 16
       },
       "windSpeed": "5 mph",
       "windDirection": "S",
@@ -115,13 +115,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 24
+        "value": 20
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
-      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
-      "detailedForecast": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 82. South wind 5 to 10 mph. Chance of precipitation is 20%."
+      "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_sct,20?size=medium",
+      "shortForecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
+      "detailedForecast": "A slight chance of showers and thunderstorms after 4pm. Partly sunny, with a high near 82. South wind 5 to 10 mph. Chance of precipitation is 20%."
     },
     {
       "number": 4,
@@ -134,13 +134,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 24
+        "value": 17
       },
       "windSpeed": "0 to 10 mph",
       "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20?size=medium",
-      "shortForecast": "Slight Chance Showers And Thunderstorms",
-      "detailedForecast": "A slight chance of showers and thunderstorms before 1am. Mostly cloudy, with a low around 62. South wind 0 to 10 mph. Chance of precipitation is 20%."
+      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20/sct?size=medium",
+      "shortForecast": "Slight Chance Showers And Thunderstorms then Partly Cloudy",
+      "detailedForecast": "A slight chance of showers and thunderstorms before 7pm. Partly cloudy, with a low around 62. South wind 0 to 10 mph. Chance of precipitation is 20%."
     },
     {
       "number": 5,
