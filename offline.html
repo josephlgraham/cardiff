@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiff offline</title>
+<meta name="theme-color" content="#3d2810">
+<style>
+  :root{
+    --paper:#f2e8d5;
+    --card:#faf6ee;
+    --ink:#1c1208;
+    --ink2:#4a3418;
+    --ink3:#7a5838;
+    --red:#C8102E;
+    --rule:rgba(80,44,8,0.15);
+    --shadow:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);
+    --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+    --mono:"DM Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:1.5rem;background:var(--paper);font-family:var(--sans);color:var(--ink)}
+  .shell{max-width:620px;width:100%;background:var(--card);border:1px solid var(--rule);border-radius:20px;box-shadow:var(--shadow);padding:1.5rem 1.4rem}
+  .kicker{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
+  h1{font-size:clamp(2rem,7vw,3rem);line-height:1;margin:0 0 .8rem}
+  p{font-size:.98rem;line-height:1.75;color:var(--ink2);margin:.7rem 0}
+  .note{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.84rem;color:var(--ink3)}
+</style>
+</head>
+<body>
+  <main class="shell">
+    <div class="kicker">Offline for the moment</div>
+    <h1>Cardiff can still open, but the live desk is out of reach.</h1>
+    <p>The app shell is here, but weather, creek, alerts, and news need a signal before they can refresh. If you were already on the site recently, some pages may still open from the local cache.</p>
+    <p>Try again once your connection settles. The town will still be here.</p>
+    <div class="note">This offline screen is part of the installable Cardiff shell, so a bad signal does not drop people into a generic browser error page.</div>
+  </main>
+</body>
+</html>

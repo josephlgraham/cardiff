@@ -1,0 +1,25 @@
+{
+  "name": "Cardiff, Alabama",
+  "short_name": "Cardiff",
+  "description": "A small-town record for Cardiff, Alabama with creek conditions, weather, civic context, and local knowledge.",
+  "start_url": "index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f2e8d5",
+  "theme_color": "#3d2810",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "cardiff-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

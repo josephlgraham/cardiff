@@ -132,6 +132,15 @@
     page.insertAdjacentHTML('beforeend', buildFooter());
   }
 
+  function loadAppLayer() {
+    if (document.querySelector('script[data-cardiff-app-layer]')) return;
+    var script = document.createElement('script');
+    script.src = 'cardiff-app.js';
+    script.defer = true;
+    script.setAttribute('data-cardiff-app-layer', 'true');
+    document.head.appendChild(script);
+  }
+
   function submitSiteForm(payload) {
     return new Promise(function (resolve, reject) {
       try {
@@ -422,6 +431,7 @@
   function boot() {
     injectMasthead();
     injectFooter();
+    loadAppLayer();
     centerActiveTab();
     window.CardiffSite = window.CardiffSite || {};
     window.CardiffSite.submitForm = submitSiteForm;
