@@ -381,21 +381,21 @@
     const values = points.map((point) => point.stage_ft);
     const rawMin = Math.min.apply(null, values);
     const rawMax = Math.max.apply(null, values);
-    const p05 = quantile(values, 0.05);
-    const p15 = quantile(values, 0.15);
-    const p85 = quantile(values, 0.85);
-    const p95 = quantile(values, 0.95);
-    const focusMin = Number.isFinite(p15) ? p15 : rawMin;
-    const focusMax = Number.isFinite(p85) ? p85 : rawMax;
-    const focusSpread = Math.max(focusMax - focusMin, 0.16);
+    const p02 = quantile(values, 0.02);
+    const p20 = quantile(values, 0.2);
+    const p80 = quantile(values, 0.8);
+    const p98 = quantile(values, 0.98);
+    const focusMin = Number.isFinite(p20) ? p20 : rawMin;
+    const focusMax = Number.isFinite(p80) ? p80 : rawMax;
+    const focusSpread = Math.max(focusMax - focusMin, 0.12);
     const rawSpread = Math.max(rawMax - rawMin, 0.16);
     const latestStage = Number.isFinite(stageNow) ? stageNow : values[values.length - 1];
-    let displayMin = Math.min(rawMin, latestStage) - rawSpread * 0.05;
-    let displayMax = Math.max(rawMax, latestStage) + rawSpread * 0.08;
+    let displayMin = Math.min(rawMin, latestStage) - rawSpread * 0.03;
+    let displayMax = Math.max(rawMax, latestStage) + rawSpread * 0.05;
 
-    if (rawSpread > focusSpread * 2.2) {
-      displayMin = Math.min(focusMin, latestStage, Number.isFinite(p05) ? p05 : focusMin) - Math.max(focusSpread * 0.18, 0.06);
-      displayMax = Math.max(focusMax, latestStage, Number.isFinite(p95) ? p95 : focusMax) + Math.max(focusSpread * 0.22, 0.08);
+    if (rawSpread > focusSpread * 1.55) {
+      displayMin = Math.min(focusMin, latestStage, Number.isFinite(p02) ? p02 : focusMin) - Math.max(focusSpread * 0.1, 0.04);
+      displayMax = Math.max(focusMax, latestStage, Number.isFinite(p98) ? p98 : focusMax) + Math.max(focusSpread * 0.12, 0.05);
     }
 
     if (!Number.isFinite(displayMin) || !Number.isFinite(displayMax) || displayMax <= displayMin) {
@@ -403,7 +403,7 @@
       displayMax = rawMax + 0.2;
     }
 
-    const padding = Math.max((displayMax - displayMin) * 0.04, 0.04);
+    const padding = Math.max((displayMax - displayMin) * 0.025, 0.03);
     displayMin -= padding;
     displayMax += padding;
 
@@ -567,11 +567,11 @@
     }
 
     const width = 760;
-    const height = 272;
+    const height = 336;
     const padLeft = 12;
     const padRight = 12;
-    const padTop = 10;
-    const padBottom = 22;
+    const padTop = 4;
+    const padBottom = 16;
     const stageRange = displayStageRange(points, stageNow);
     const min = stageRange.rawMin;
     const max = stageRange.rawMax;
@@ -821,7 +821,6 @@
     const summary = '<div class="hunt-summary"><strong>Cardiff season windows.</strong><div class="hunt-meta">A mix of legal hunting reminders, local foraging timing, and the frost dates people actually plan around.</div></div>';
     const activeEntry = entries.find((entry) => entry.open) || entries[0];
     setText("pillHunt", activeEntry.name);
-    setText("pillHuntIcon", activeEntry.icon);
     setHTML("huntBody", summary + entries.map((entry) => (
       '<div class="hunt-season">' +
         '<div class="hs-top">' +
@@ -850,7 +849,6 @@
     }
 
     setText("pillHunt", leadEntry.title);
-    setHTML("pillHuntIcon", seasonIcon(leadEntry));
 
     const rows = entries.map((entry) => (
       '<div class="hunt-season">' +
@@ -1110,11 +1108,11 @@
     setText("airUpdated", airQualityLabel(data));
     setHTML("airBody",
       '<div class="report-stack">' +
-        '<div class="report-row"><div class="report-label">Air quality index</div><div class="report-value">' + escapeHtml((current.category || "Air snapshot") + (Number.isFinite(aqi) ? " · AQI " + Math.round(aqi) : "")) + '</div><div class="report-note">' + escapeHtml(current.label || current.note || "Live air-quality snapshot for the Cardiff area.") + "</div></div>" +
-        '<div class="report-row"><div class="report-label">Fine particles</div><div class="report-value">' + escapeHtml(Number.isFinite(pm25) ? pm25.toFixed(1) + " " + (current.pm25Unit || "μg/m³") : "—") + '</div><div class="report-note">PM2.5 often shows up as the kind of extra haze you feel in your chest and notice in the night sky.</div></div>' +
-        '<div class="report-row"><div class="report-label">Ozone</div><div class="report-value">' + escapeHtml(Number.isFinite(ozone) ? ozone.toFixed(1) + " " + (current.ozoneUnit || "μg/m³") : "—") + '</div><div class="report-note">' + escapeHtml(current.note || "Outdoor air can feel different when ozone or particulates start creeping up.") + "</div></div>" +
+        '<div class="report-row"><div class="report-label">🌫️ Air quality index</div><div class="report-value">' + escapeHtml((current.category || "Air snapshot") + (Number.isFinite(aqi) ? " · AQI " + Math.round(aqi) : "")) + '</div><div class="report-note">' + escapeHtml(current.label || current.note || "Live air-quality snapshot for the Cardiff area.") + "</div></div>" +
+        '<div class="report-row"><div class="report-label">🫁 Fine particles</div><div class="report-value">' + escapeHtml(Number.isFinite(pm25) ? pm25.toFixed(1) + " " + (current.pm25Unit || "μg/m³") : "—") + '</div><div class="report-note">PM2.5 often shows up as the kind of extra haze you feel in your chest and notice in the night sky.</div></div>' +
+        '<div class="report-row"><div class="report-label">☀️ Ozone</div><div class="report-value">' + escapeHtml(Number.isFinite(ozone) ? ozone.toFixed(1) + " " + (current.ozoneUnit || "μg/m³") : "—") + '</div><div class="report-note">' + escapeHtml(current.note || "Outdoor air can feel different when ozone or particulates start creeping up.") + "</div></div>" +
       "</div>" +
-      '<div class="sci-box"><div class="sci-label">Sky desk crossover</div><p>Cleaner air usually means better transparency, while extra haze can flatten the faint-star contrast even when the clouds behave themselves.</p></div>'
+      '<div class="sci-box"><div class="sci-label">🔭 Sky desk crossover</div><p>Cleaner air usually means better transparency, while extra haze can flatten the faint-star contrast even when the clouds behave themselves.</p></div>'
     );
   }
 
@@ -1149,7 +1147,6 @@
     setText("moonMeta", "Tonight over Five Mile Creek");
     setText("moonLore", moon.lore);
     setText("moonSci", moon.science);
-    setText("pillMoonIcon", moon.icon);
     setText("pillMoon", moon.name);
   }
 

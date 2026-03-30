@@ -569,6 +569,36 @@
     return typeof limit === "number" ? items.slice(0, limit) : items;
   }
 
+  function markerTitle(entry, edge) {
+    if (edge === "start") return entry.title + " opens";
+    if (String(entry.title || "").toLowerCase().includes("season")) return entry.title + " closes";
+    return entry.title + " winds down";
+  }
+
+  function markerSummary(entry, edge) {
+    const lane = String(entry.lane || "").toLowerCase();
+    const category = String(entry.category || "").toLowerCase();
+    const title = String(entry.title || "");
+
+    if (edge === "start") {
+      if (title === "Easter season") return "This year's movable Easter window starts here, carrying older rebirth-season symbols into the Christian spring calendar.";
+      if (title === "Christmas tide") return "This Christmas window opens here, landing on a season that was already full of fire, evergreen, and return-of-light customs.";
+      if (lane === "hunting") return "This is the opening edge of the season window. Check current Alabama rules before treating it like a legal green light.";
+      if (lane === "nature") return "This is the opening edge of the window, when the signs usually start showing up in the bottoms, edges, or woods.";
+      if (lane === "tradition" || category === "christian calendar" || category === "tradition") return "This observance starts here on this year's calendar, even if the deeper seasonal roots run older than the printed dates.";
+      if (lane === "celestial") return "This sky window starts here, which is your cue to begin watching before it slips past.";
+      return "This is the opening edge of the window, when the season begins to show itself in a more readable way.";
+    }
+
+    if (title === "Easter season") return "This year's movable Easter window trails off here, but the older spring symbols and the season itself keep running past the printed date.";
+    if (title === "Christmas tide") return "This Christmas window closes here, even though the winter turning and its older customs always run deeper than the church calendar.";
+    if (lane === "hunting") return "This is the closing edge of the season window. After this point, it drops off the legal calendar even if the woods still feel the same.";
+    if (lane === "nature") return "This is usually the trailing edge of the window, when the season starts handing off to whatever comes next.";
+    if (lane === "tradition" || category === "christian calendar" || category === "tradition") return "This observance closes here on the printed calendar, but the seasonal meaning around it usually lingers longer.";
+    if (lane === "celestial") return "This sky window is tapering out here, so it is the last clean stretch to catch it without waiting another year.";
+    return "This is the trailing edge of the window, when the season starts letting go and giving way to the next marker.";
+  }
+
   function getCalendarMonths(referenceDate, monthCount) {
     const today = referenceDate ? new Date(referenceDate) : new Date();
     const start = new Date(today.getFullYear(), today.getMonth(), 1, 12, 0, 0, 0);
@@ -591,19 +621,19 @@
           if (startInMonth) {
             markers.push({
               ...entry,
-              title: entry.title + " begins",
+              title: markerTitle(entry, "start"),
               dateLabel: formatMonthDay(entry.start),
               longDateLabel: formatFullDate(entry.start),
-              summary: entry.summary
+              summary: markerSummary(entry, "start")
             });
           }
           if (endInMonth) {
             markers.push({
               ...entry,
-              title: entry.title + " ends",
+              title: markerTitle(entry, "end"),
               dateLabel: formatMonthDay(entry.end),
               longDateLabel: formatFullDate(entry.end),
-              summary: entry.summary
+              summary: markerSummary(entry, "end")
             });
           }
           return markers;

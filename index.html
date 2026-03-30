@@ -192,7 +192,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
             </div>
             <div class="photo-credit" id="photoCredit">Historical photograph</div>
           </div>
-          <div class="featured-note" id="photoHistoryNote"><strong>🏛️ History note:</strong> The homepage now treats this as a featured local image rather than a viewer, so the picture can carry a little context instead of just rotating past.</div>
         </div>
         <div class="hero-quick-grid">
           <article class="card site-card hero-quick-card reveal">
@@ -361,7 +360,7 @@ let gallery=[],galleryVersion='2026-03-28T22:05:00-05:00';
 function renderMarkers(markers){const shell=document.getElementById('photoMarkers');if(!shell)return;shell.innerHTML=(markers||[]).map(marker=>`<div class="marker" style="left:${marker.left};top:${marker.top};"><span class="marker-dot"></span><span class="marker-label">${marker.label}</span></div>`).join('')}
 function normalizeGalleryItem(item){const src=(item.src||'').includes('/')?item.src:`photos/${item.src||''}`;const hasQuery=src.includes('?');return {...item,src:hasQuery?src:`${src}?v=${encodeURIComponent(galleryVersion)}`}}
 function featuredPhoto(){return gallery.find(item=>item.featured)||gallery[0]||null}
-function renderPhoto(){const item=featuredPhoto();if(!item)return;document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent='Featured photo · Cardiff archive';document.getElementById('photoHistoryNote').innerHTML=`<strong>🏛️ History note:</strong> ${(item.historyNote||item.copy||'This featured image carries a little local context instead of rotating by like a generic viewer.')}`;renderMarkers(item.markers||[])}
+function renderPhoto(){const item=featuredPhoto();if(!item)return;document.getElementById('heroPhoto').src=item.src;document.getElementById('heroPhoto').alt=item.alt||item.title||'Historic Cardiff image';document.getElementById('photoTitle').textContent=item.title||'';document.getElementById('photoCopy').textContent=item.historyNote||item.copy||'';document.getElementById('photoCredit').textContent=item.credit||'';document.getElementById('photoMeta').textContent='Featured photo · Cardiff archive';renderMarkers(item.markers||[])}
 async function loadGallery(){try{const response=await fetch('cardiff-home-gallery.json',{cache:'no-store'});if(!response.ok)throw new Error('gallery file missing');const data=await response.json();if(data.updatedAt)galleryVersion=data.updatedAt;if(Array.isArray(data.items)&&data.items.length){gallery=data.items.map(normalizeGalleryItem);renderPhoto();return;}}catch(e){}gallery=FALLBACK_GALLERY.map(normalizeGalleryItem);renderPhoto();}
 loadGallery();
 

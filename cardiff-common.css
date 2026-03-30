@@ -153,7 +153,8 @@ html{scroll-behavior:smooth;}
 .donate-btn-ghost,
 .icon-btn,
 .notify-form button,
-.sub-form button{
+.sub-form button,
+.submit-form button{
   background:var(--red) !important;
   color:#fff !important;
   border:1px solid var(--red) !important;
@@ -185,7 +186,8 @@ html{scroll-behavior:smooth;}
 .donate-btn-ghost:hover,
 .icon-btn:hover,
 .notify-form button:hover,
-.sub-form button:hover{
+.sub-form button:hover,
+.submit-form button:hover{
   background:var(--red-mid) !important;
   color:#fff !important;
   border-color:var(--red-mid) !important;
@@ -199,14 +201,19 @@ html{scroll-behavior:smooth;}
 .donate-btn:focus-visible,
 .icon-btn:focus-visible,
 .notify-form button:focus-visible,
-.sub-form button:focus-visible{
+.sub-form button:focus-visible,
+.submit-form button:focus-visible{
   outline:2px solid rgba(200,16,46,0.24) !important;
   outline-offset:2px !important;
 }
 
 .sub-btn,
-.sub-form button{
+.sub-form button,
+.submit-form button{
   align-self:flex-start !important;
+  justify-self:flex-start !important;
+  width:fit-content !important;
+  max-width:max-content !important;
 }
 
 [hidden],
