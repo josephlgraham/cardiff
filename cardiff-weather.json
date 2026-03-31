@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-03-31T09:00:45.586Z",
+  "updatedAt": "2026-03-31T10:53:05.992Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-03-31 03:59:00",
+  "sourceUpdatedAt": "2026-03-31 05:52:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-03-31T08:59:00Z",
-      "obsTimeLocal": "2026-03-31 03:59:00",
+      "obsTimeUtc": "2026-03-31T10:52:00Z",
+      "obsTimeLocal": "2026-03-31 05:52:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1774947540,
+      "epoch": 1774954320,
       "lat": 33.647,
       "uv": 0,
       "winddir": 292,
       "humidity": 99,
       "qcStatus": 1,
       "imperial": {
-        "temp": 55,
-        "heatIndex": 55,
-        "dewpt": 55,
-        "windChill": 55,
+        "temp": 54,
+        "heatIndex": 54,
+        "dewpt": 54,
+        "windChill": 54,
         "windSpeed": 0,
         "windGust": 0,
-        "pressure": 29.87,
+        "pressure": 29.91,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,8 +34,8 @@
     }
   ],
   "current": {
-    "temp": 55,
-    "feels": 55,
+    "temp": 54,
+    "feels": 54,
     "humidity": 99,
     "windSpeed": 0,
     "windGust": 0,
@@ -43,12 +43,12 @@
     "windDirDegrees": 292,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.87,
+    "pressureIn": 29.91,
     "uv": 0,
     "condition": "Overcast",
-    "obsTime": "2026-03-31 03:59:00",
+    "obsTime": "2026-03-31 05:52:00",
     "solarRadiation": 0,
-    "summary": "Right now around Cardiff it feels 55°F, overcast, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 54°F, overcast, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -58,18 +58,18 @@
     "monthCoverageStart": "2026-03-01",
     "morningReport": {
       "amount": 0,
-      "lowTemp": 55,
-      "windGust": 7,
+      "lowTemp": 54,
+      "windGust": 0,
       "label": "So far today",
       "isMorning": false,
-      "coverageStart": "2026-03-30"
+      "coverageStart": "2026-03-31"
     }
   },
   "forecast": [
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-03-31T04:00:00-05:00",
+      "startTime": "2026-03-31T05:00:00-05:00",
       "endTime": "2026-03-31T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 59,
