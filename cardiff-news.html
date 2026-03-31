@@ -75,6 +75,30 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .resource-group a:hover{color:var(--red)}
 @media(max-width:980px){.hero-grid,.resource-grid{grid-template-columns:1fr 1fr}.hero-copy{grid-column:1/-1}}
 @media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.mini-grid,.resource-grid{grid-template-columns:1fr}.creek{border-radius:var(--r-lg);align-items:flex-start;flex-direction:column}.creek-meta{text-align:left}.title{font-size:clamp(2.2rem,10vw,3.4rem)}}
+.xing{margin:0 0 1.2rem;padding:1rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.xing-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.xing-left{display:flex;align-items:center;gap:.9rem}
+.xing-ring{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(80,44,8,.07);transition:background .3s}
+.xing-ring svg{display:block}
+.xing-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:.18rem}
+.xing-status{font-size:.98rem;font-weight:800;color:var(--ink);line-height:1.2}
+.xing-sub{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--ink3);margin-top:.14rem}
+.xing-right{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.xing-btn{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.55rem .9rem;border-radius:var(--r);font-size:.78rem;font-weight:700;cursor:pointer;transition:all var(--ease);font-family:var(--sans)}
+.xing-btn:hover{border-color:var(--amber);color:var(--amber);background:rgba(255,255,255,.7)}
+.xing-btn:disabled{opacity:.4;cursor:not-allowed}
+.xing-btn.xb{border-color:rgba(200,16,46,.35);color:var(--red)}
+.xing-btn.xb:hover{background:#fff6f7;border-color:var(--red)}
+.xing-btn.xc{border-color:rgba(74,124,89,.35);color:var(--green)}
+.xing-btn.xc:hover{background:#f4faf6;border-color:var(--green)}
+.xing-log{margin-top:.75rem;padding-top:.65rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:center}
+.xing-log-item{display:flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--ink3)}
+.xing-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.xing-dot.blocked{background:var(--red)}
+.xing-dot.clear{background:var(--green)}
+.xing-ns{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--ink3);margin-top:.6rem;padding-top:.55rem;border-top:1px solid var(--rule)}
+.xing-toast{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3);min-height:1rem;margin-top:.45rem}
+@media(max-width:600px){.xing-inner{flex-direction:column;align-items:flex-start}.xing-right{width:100%}}
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
 </head>
@@ -107,6 +131,28 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <section class="creek reveal" id="creekStrip" aria-live="polite">
   <div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">Checking the Republic gauge</span><span class="creek-badge">Loading</span></div>
   <div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL</div>
+</section>
+
+<section class="xing reveal" aria-label="Cardiff Lynn crossing status" aria-live="polite">
+  <div class="xing-inner">
+    <div class="xing-left">
+      <div class="xing-ring" id="xingRing">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="rgba(80,44,8,.3)" stroke-width="1.5"/><path d="M7 11h8" stroke="rgba(80,44,8,.3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="xing-label">Cardiff Lynn Crossing &middot; 726&nbsp;370L</div>
+        <div class="xing-status" id="xingStatus">Checking&hellip;</div>
+        <div class="xing-sub" id="xingSub">Community-reported status</div>
+      </div>
+    </div>
+    <div class="xing-right">
+      <button class="xing-btn xb" id="xingBtnBlocked" onclick="xingReport('blocked')" disabled>Mark Blocked</button>
+      <button class="xing-btn xc" id="xingBtnClear" onclick="xingReport('clear')" disabled>Mark Clear</button>
+    </div>
+  </div>
+  <div class="xing-log" id="xingLog"></div>
+  <div class="xing-ns">NS emergency line: <strong>1-800-946-4744</strong> &nbsp;&middot;&nbsp; Crossing ID: <strong>726 370L</strong></div>
+  <div class="xing-toast" id="xingToast"></div>
 </section>
 
 <section class="priority reveal" id="priorityNote" hidden aria-live="polite">
@@ -198,6 +244,57 @@ $("showOlderBtn").addEventListener("click",()=>{state.expanded=true;renderList(s
 $("refreshBtn").addEventListener("click",()=>{state.expanded=false;load();});
 load();
 window.setInterval(load,REFRESH_MS);
+
+// Crossing Watch
+(function(){
+  var SB_URL='https://eswwnlpjtfaiotqyajen.supabase.co';
+  var SB_KEY='sb_publishable_ZreZUDyUsWndYG2ChTcjqw_UhTvL5-Y';
+  var TABLE='crossing_reports';
+  function xfmt(ts){var d=new Date(ts),now=new Date(),diff=Math.floor((now-d)/60000);if(diff<1)return'just now';if(diff<60)return diff+'m ago';if(diff<1440)return Math.floor(diff/60)+'h ago';return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+  function xRenderState(reports){
+    var ring=document.getElementById('xingRing');
+    var stat=document.getElementById('xingStatus');
+    var sub=document.getElementById('xingSub');
+    var log=document.getElementById('xingLog');
+    if(!reports||!reports.length){
+      ring.style.background='rgba(80,44,8,.07)';
+      ring.innerHTML='<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="rgba(80,44,8,.3)" stroke-width="1.5"/><path d="M7 11h8" stroke="rgba(80,44,8,.3)" stroke-width="1.5" stroke-linecap="round"/></svg>';
+      stat.textContent='No reports yet';stat.style.color='';
+      sub.textContent='Be the first to report this crossing';
+      log.innerHTML='';return;
+    }
+    var latest=reports[0];
+    if(latest.status==='blocked'){
+      ring.style.background='#fff0f1';
+      ring.innerHTML='<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#C8102E" stroke-width="1.5"/><path d="M7 7l8 8M15 7l-8 8" stroke="#C8102E" stroke-width="1.5" stroke-linecap="round"/></svg>';
+      stat.textContent='Blocked';stat.style.color='var(--red)';
+    } else {
+      ring.style.background='#f2faf4';
+      ring.innerHTML='<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#4A7C59" stroke-width="1.5"/><path d="M7 11l3 3 5-6" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      stat.textContent='Clear';stat.style.color='var(--green)';
+    }
+    sub.textContent='Last reported '+xfmt(latest.created_at);
+    log.innerHTML=reports.slice(0,6).map(function(r){return'<span class="xing-log-item"><span class="xing-dot '+r.status+'"></span>'+(r.status==='blocked'?'Blocked':'Clear')+' &middot; '+xfmt(r.created_at)+'</span>';}).join('');
+  }
+  function xLoad(){
+    fetch(SB_URL+'/rest/v1/'+TABLE+'?order=created_at.desc&limit=8',{headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY}})
+      .then(function(r){return r.ok?r.json():[];})
+      .then(function(d){xRenderState(d);})
+      .catch(function(){xRenderState([]);})
+      .finally(function(){document.getElementById('xingBtnBlocked').disabled=false;document.getElementById('xingBtnClear').disabled=false;});
+  }
+  window.xingReport=function(status){
+    document.getElementById('xingBtnBlocked').disabled=true;
+    document.getElementById('xingBtnClear').disabled=true;
+    document.getElementById('xingToast').textContent='Submitting\u2026';
+    fetch(SB_URL+'/rest/v1/'+TABLE,{method:'POST',headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({status:status})})
+      .then(function(r){if(r.ok){document.getElementById('xingToast').textContent='Report received. Thank you.';xLoad();}else{throw new Error();}})
+      .catch(function(){document.getElementById('xingToast').textContent='Could not submit. Try again.';document.getElementById('xingBtnBlocked').disabled=false;document.getElementById('xingBtnClear').disabled=false;})
+      .finally(function(){setTimeout(function(){var t=document.getElementById('xingToast');if(t)t.textContent='';},3500);});
+  };
+  xLoad();
+  window.setInterval(xLoad,5*60*1000);
+})();
 </script>
 </body>
 </html>
