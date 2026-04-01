@@ -167,7 +167,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="hero reveal">
     <div class="pill-strip" aria-label="jump links">
       <a class="pill-link" href="#start-here"><span class="pill-emoji">🧭</span><div><div class="pill-text">Start Here</div><div class="pill-sub">New resident basics</div></div></a>
-      <a class="pill-link" href="#reboot"><span class="pill-emoji">🔧</span><div><div class="pill-text">90-Day Reboot</div><div class="pill-sub">First moves</div></div></a>
+      <a class="pill-link" href="#reboot"><span class="pill-emoji">🔧</span><div><div class="pill-text">First 3 Meetings</div><div class="pill-sub">How to get started</div></div></a>
       <a class="pill-link" href="#roles"><span class="pill-emoji">🪑</span><div><div class="pill-text">Who Does What</div><div class="pill-sub">Mayor · council · clerk</div></div></a>
       <a class="pill-link" href="#meeting-kit"><span class="pill-emoji">📝</span><div><div class="pill-text">Meeting Kit</div><div class="pill-sub">Before · during · after</div></div></a>
       <a class="pill-link" href="#projects"><span class="pill-emoji">🚧</span><div><div class="pill-text">Town Priorities</div><div class="pill-sub">Roads · safety · cleanup</div></div></a>
@@ -176,8 +176,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <div class="hero-grid">
       <article class="hero-card">
         <div class="hero-kicker">Get To Work</div>
-        <h1 class="hero-title">A town can wake up.<br>But it has to work in the open.</h1>
-        <p class="hero-sub">This page is for Cardiff residents old and new. It explains, in plain language, what a working town government looks like, what each role is supposed to do, and what it will take to restart public business and keep it running. The goal is simple: fewer rumors, more understanding, more people ready to help.</p>
+        <h1 class="hero-title">Cardiff can restart.<br>But only if a few people decide it will.</h1>
+        <p class="hero-sub">Restarting Cardiff does not require a crowd. It requires a small group willing to show up in public and keep showing up. One council member is ready to help get this started and hand it off right. The town needs a few more people willing to do the same.</p>
+        <p class="hero-sub" style="margin-top:.75rem;">This page explains, in plain language, what a working Cardiff town government actually looks like — the jobs, the meetings, and what it takes to keep things running. Simple and honest.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#start-here">Start the pathway</a>
           <a class="btn ghost" href="#meeting-kit">Open the meeting kit</a>
@@ -186,14 +187,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </article>
       <aside class="quick-card">
         <div class="section-kicker">Cardiff right now</div>
-        <div class="quick-title">What matters first</div>
-        <div class="quick-copy">A healthy town does not begin with a big dream. It begins with enough interest to rebuild a quorum, restart meetings, post clear notice, keep clean minutes, and give people a public room they can trust again.</div>
+        <div class="quick-title">What it actually takes</div>
+        <div class="quick-copy">Cardiff does not need a full civic machine. It needs a small group willing to keep things going. If the town has:</div>
         <ul class="quick-list">
-          <li>Fill seats and build enough interest to restart public business.</li>
-          <li>Choose a regular meeting rhythm once the room is ready to open again.</li>
-          <li>Keep minutes, notices, and money records clean from the first meeting forward.</li>
-          <li>Pick a few public priorities and finish them.</li>
+          <li>1 person willing to serve as mayor</li>
+          <li>3 to 5 people willing to serve on council</li>
+          <li>1 person willing to keep the records</li>
         </ul>
+        <div class="quick-copy" style="margin-top:.75rem;">Then the first meeting could happen on the second Tuesday of next month. No perfect plan. No full turnout. Just enough people to open the room.</div>
         <div class="code-strip">Plain language on purpose · built for neighbors, not insiders</div>
       </aside>
     </div>
@@ -218,7 +219,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <div data-cardiff-widget="reactions" data-page="civic"></div>
   </section>
 
-  <section class="tracker-card reveal" id="civicSnapshotCard" style="display:none;margin-top:1.25rem;">
+  <section class="tracker-card reveal" id="civicSnapshotCard" style="margin-top:1.25rem;">
     <div class="tracker-top">
       <div>
         <h2 class="tracker-title">Town snapshot</h2>
@@ -228,6 +229,28 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
     <div class="civic-snapshot-grid" id="civicSnapshotGrid"></div>
     <p class="small-note" id="civicSnapshotNote"></p>
+
+    <div style="margin-top:1.1rem;border-top:1px solid var(--rule);padding-top:1rem;">
+      <div class="meta-label" style="margin-bottom:.6rem;">Current seat status</div>
+      <div class="civic-snapshot-grid">
+        <div class="civic-snapshot-stat">
+          <div class="civic-snapshot-label">Mayor</div>
+          <div class="civic-snapshot-value" style="color:var(--green);">1 person willing</div>
+          <div class="civic-snapshot-copy">A longtime Cardiff council member is willing to serve long enough to get the town back on its feet and hand it off right.</div>
+        </div>
+        <div class="civic-snapshot-stat">
+          <div class="civic-snapshot-label">Council seats</div>
+          <div class="civic-snapshot-value" style="color:var(--amber);">0 of 5 filled</div>
+          <div class="civic-snapshot-copy">Cardiff needs 3 to 5 people willing to show up on the second Tuesday of the month.</div>
+        </div>
+        <div class="civic-snapshot-stat">
+          <div class="civic-snapshot-label">Clerk</div>
+          <div class="civic-snapshot-value" style="color:var(--green);">1 person willing</div>
+          <div class="civic-snapshot-copy">Someone is considering the role. Not official yet. The most important job nobody talks about — and it may already have a home.</div>
+        </div>
+      </div>
+      <p class="small-note" style="margin-top:.6rem;">These numbers change when people step up. If you are willing, the Get Involved page is the place to start.</p>
+    </div>
   </section>
 
   <section class="tracker-card reveal" aria-labelledby="tracker-title" style="margin-top:1.25rem;">
@@ -262,36 +285,39 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <article class="section-card reveal"><h3 class="card-title">Staying power</h3><p class="card-copy">The first success is showing up. The real success is still doing it six months later when the novelty is gone.</p></article>
   </section>
 
-  <div class="section-head reveal" id="reboot"><h2>90-day reboot</h2><hr></div>
+  <div class="section-head reveal" id="reboot"><h2>First 3 meetings</h2><hr></div>
   <section class="timeline-wrap">
     <article class="timeline-card reveal">
       <div class="timeline-num">01</div>
-      <h3 class="timeline-title">Stabilize the room</h3>
-      <p class="timeline-copy">The first phase is not glamorous. It is about getting enough people interested, choosing a realistic meeting rhythm, and making the room feel dependable again once public business restarts.</p>
+      <h3 class="timeline-title">Get the room open</h3>
+      <p class="timeline-copy">The first meeting does not have to be perfect. It has to happen. Find enough people, pick a date — second Tuesday of the month is Cardiff's tradition — post notice where anyone can see it, and open the door.</p>
       <ul class="timeline-list">
-        <li>Identify who can serve, who is ready to show up, and who can help document.</li>
-        <li>Choose one regular day, time, and place once there are enough people to begin meeting again.</li>
-        <li>Post basic contact information and a simple calendar.</li>
+        <li>Call to order. Confirm who is present and that there is a quorum.</li>
+        <li>Read the financial report. Even if the numbers are rough, put them on the table.</li>
+        <li>Identify one real problem to finish before the next meeting.</li>
+        <li>Set the next meeting date out loud before everyone leaves.</li>
       </ul>
     </article>
     <article class="timeline-card reveal">
       <div class="timeline-num">02</div>
-      <h3 class="timeline-title">Repair the paper trail</h3>
-      <p class="timeline-copy">Once the room exists, the town has to rebuild public memory. A town cannot govern well when its own files are scattered or unclear.</p>
+      <h3 class="timeline-title">Build the routine</h3>
+      <p class="timeline-copy">The second meeting proves the first one was not a fluke. Old business, new business, financial report, public comments. Same format every time. Boring is the goal.</p>
       <ul class="timeline-list">
-        <li>Gather minutes, ordinances, contracts, bank papers, bonds, and ledgers.</li>
-        <li>Start a clean minute book and a clean agenda file right away.</li>
-        <li>Build a simple records index so any resident can find the basics.</li>
+        <li>Report back on the one thing assigned at meeting one. Did it get done?</li>
+        <li>Start a clean minute book from meeting one forward. Do not let it slip.</li>
+        <li>Talk about what the town actually needs right now. Roads. Grass. Dumping. Pick the next right thing.</li>
+        <li>If the weather is right, set up a chair and a screen on the side of the town hall. Show a movie. Let people remember that Cardiff is a good place to be.</li>
       </ul>
     </article>
     <article class="timeline-card reveal">
       <div class="timeline-num">03</div>
-      <h3 class="timeline-title">Finish real work</h3>
-      <p class="timeline-copy">Trust grows when people see visible wins. Pick a few public jobs and complete them in order, out in the open.</p>
+      <h3 class="timeline-title">Finish something visible</h3>
+      <p class="timeline-copy">By the third meeting, there should be one thing Cardiff can point to and say it got done. A cleanup day. A road report sent to the county. A mowed lot. Visible work builds more trust than any announcement.</p>
       <ul class="timeline-list">
-        <li>Start with emergency access, road needs, and basic cleanup.</li>
-        <li>Assign owners, dates, and next actions in the meeting minutes.</li>
-        <li>Report back every month until each task is truly done.</li>
+        <li>Close out the first real task with a public record of what happened.</li>
+        <li>Open the next project in the same meeting. Keep the chain going.</li>
+        <li>Make sure the files from all three meetings are in one place, easy to inspect.</li>
+        <li>Ask who else wants to help. Not who wants to run for office — who wants to help.</li>
       </ul>
     </article>
   </section>
