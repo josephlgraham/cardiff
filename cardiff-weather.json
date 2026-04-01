@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-01T07:21:20.030Z",
+  "updatedAt": "2026-04-01T09:04:40.753Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-01 02:20:00",
+  "sourceUpdatedAt": "2026-04-01 04:03:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-01T07:20:00Z",
-      "obsTimeLocal": "2026-04-01 02:20:00",
+      "obsTimeUtc": "2026-04-01T09:03:00Z",
+      "obsTimeLocal": "2026-04-01 04:03:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775028000,
+      "epoch": 1775034180,
       "lat": 33.647,
       "uv": 0,
       "winddir": 320,
       "humidity": 99,
       "qcStatus": 0,
       "imperial": {
-        "temp": 60,
-        "heatIndex": 60,
-        "dewpt": 60,
-        "windChill": 60,
+        "temp": 59,
+        "heatIndex": 59,
+        "dewpt": 59,
+        "windChill": 59,
         "windSpeed": 0,
         "windGust": 0,
-        "pressure": 29.82,
+        "pressure": 29.8,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,8 +34,8 @@
     }
   ],
   "current": {
-    "temp": 60,
-    "feels": 60,
+    "temp": 59,
+    "feels": 59,
     "humidity": 99,
     "windSpeed": 0,
     "windGust": 0,
@@ -43,12 +43,12 @@
     "windDirDegrees": 320,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.82,
+    "pressureIn": 29.8,
     "uv": 0,
-    "condition": "Mild",
-    "obsTime": "2026-04-01 02:20:00",
+    "condition": "Overcast",
+    "obsTime": "2026-04-01 04:03:00",
     "solarRadiation": 0,
-    "summary": "Right now around Cardiff it feels 60°F, mild, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 59°F, overcast, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -69,7 +69,7 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-04-01T02:00:00-05:00",
+      "startTime": "2026-04-01T04:00:00-05:00",
       "endTime": "2026-04-01T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 63,
@@ -79,11 +79,11 @@
         "unitCode": "wmoUnit:percent",
         "value": 12
       },
-      "windSpeed": "0 to 5 mph",
-      "windDirection": "S",
+      "windSpeed": "0 mph",
+      "windDirection": "",
       "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
       "shortForecast": "Mostly Cloudy",
-      "detailedForecast": "Mostly cloudy, with a low around 63. South wind 0 to 5 mph."
+      "detailedForecast": "Mostly cloudy, with a low around 63. South wind around 0 mph."
     },
     {
       "number": 2,
