@@ -1424,14 +1424,49 @@
     const role = gauge && gauge.role ? gauge.role : "watch";
     const stage = numericOrNaN(gauge.stage_ft);
     const discharge = numericOrNaN(gauge.discharge_cfs);
+    const peak24h = numericOrNaN(gauge.peak_24h_ft);
+    const percentile = gauge && gauge.percentile_label ? gauge.percentile_label : null;
     const mood = creekMood(stage);
+    const isLead = role === "lead";
+
+    // Two-column stage + discharge row
+    const stageDischargeRow =
+      '<div class="watershed-readings">' +
+        '<div class="watershed-reading-cell">' +
+          '<div class="watershed-reading-label">Stage</div>' +
+          '<div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div>' +
+          '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trendEmoji(trend) + " " + trend) + '</div>' +
+        '</div>' +
+        '<div class="watershed-reading-cell">' +
+          '<div class="watershed-reading-label">Discharge</div>' +
+          '<div class="watershed-main">' + escapeHtml(formatCfs(discharge)) + '</div>' +
+          '<div class="watershed-boat">' + escapeHtml(mood.boat) + '</div>' +
+        '</div>' +
+      '</div>';
+
+    // 24h peak — only if data present
+    const peak24hRow = Number.isFinite(peak24h)
+      ? '<div class="watershed-sub">📈 24h peak: ' + escapeHtml(formatFeet(peak24h)) + '</div>'
+      : '';
+
+    // Historical percentile context — only if provided by JSON
+    const percentileRow = percentile
+      ? '<div class="watershed-sub">📊 ' + escapeHtml(percentile) + '</div>'
+      : '';
+
+    // Upstream warning — lead gauge only
+    const upstreamNote = isLead
+      ? '<div class="watershed-upstream">⬆️ Upstream watch · Republic sits above Cardiff on the creek. A fast rise here is an early signal — water is on its way before it arrives at Cardiff.</div>'
+      : '';
+
     return '<div class="watershed-stat">' +
       '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(mood.icon + " " + (gauge.label || gauge.name || "Gauge")) + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
-      '<div class="watershed-mainline"><div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div><div class="watershed-boat">' + escapeHtml(mood.boat) + "</div></div>" +
-      '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trendEmoji(trend) + " " + trend) + '</div>' +
-      '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + '</div>' +
+      stageDischargeRow +
+      peak24hRow +
+      percentileRow +
       '<div class="watershed-sub">' + escapeHtml(mood.label + ". " + mood.note) + '</div>' +
       '<div class="watershed-sub">' + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
+      upstreamNote +
       "</div>";
   }
 
@@ -1454,7 +1489,7 @@
       }));
       renderWatershedChartPanel();
       setText("watershedScience", primary && Number.isFinite(numericOrNaN(primary.stage_ft))
-        ? "Stage, discharge, and the little boat cue are a quick local shorthand for whether the creek is whispering, moving along, or worth giving extra respect."
+        ? "Republic is the only active upstream gauge on Five Mile Creek near Cardiff. Stage is water height, discharge is how much is actually moving. Both together tell you whether the creek is loafing or building."
         : "Live creek numbers will drop in here after the watershed file refreshes.");
       if (primary && Number.isFinite(numericOrNaN(primary.stage_ft))) {
         const mood = creekMood(numericOrNaN(primary.stage_ft));
