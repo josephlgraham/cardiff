@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-02T16:03:25.880Z",
+  "updatedAt": "2026-04-02T17:50:12.012Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-02 11:02:00",
+  "sourceUpdatedAt": "2026-04-02 12:48:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-02T16:02:00Z",
-      "obsTimeLocal": "2026-04-02 11:02:00",
+      "obsTimeUtc": "2026-04-02T17:48:00Z",
+      "obsTimeLocal": "2026-04-02 12:48:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 486.1,
+      "solarRadiation": 185.8,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775145720,
+      "epoch": 1775152080,
       "lat": 33.647,
-      "uv": 4,
-      "winddir": 307,
-      "humidity": 63,
+      "uv": 1,
+      "winddir": 336,
+      "humidity": 54,
       "qcStatus": 1,
       "imperial": {
-        "temp": 78,
-        "heatIndex": 79,
+        "temp": 83,
+        "heatIndex": 85,
         "dewpt": 65,
-        "windChill": 78,
-        "windSpeed": 3,
-        "windGust": 7,
-        "pressure": 29.84,
+        "windChill": 83,
+        "windSpeed": 2,
+        "windGust": 6,
+        "pressure": 29.81,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 78,
-    "feels": 79,
-    "humidity": 63,
-    "windSpeed": 3,
-    "windGust": 7,
-    "windDir": "NW",
-    "windDirDegrees": 307,
+    "temp": 83,
+    "feels": 85,
+    "humidity": 54,
+    "windSpeed": 2,
+    "windGust": 6,
+    "windDir": "NNW",
+    "windDirDegrees": 336,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.84,
-    "uv": 4,
-    "condition": "Partly cloudy",
-    "obsTime": "2026-04-02 11:02:00",
-    "solarRadiation": 486.1,
-    "summary": "Right now around Cardiff it feels 78°F, partly cloudy."
+    "pressureIn": 29.81,
+    "uv": 1,
+    "condition": "Warm",
+    "obsTime": "2026-04-02 12:48:00",
+    "solarRadiation": 185.8,
+    "summary": "Right now around Cardiff it feels 83°F, warm."
   },
   "rain": {
     "today": 0,
@@ -68,8 +68,8 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Today",
-      "startTime": "2026-04-02T11:00:00-05:00",
+      "name": "This Afternoon",
+      "startTime": "2026-04-02T12:00:00-05:00",
       "endTime": "2026-04-02T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 85,
@@ -77,13 +77,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 25
+        "value": 14
       },
       "windSpeed": "10 to 15 mph",
       "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,30?size=medium",
-      "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms after 4pm. Mostly sunny, with a high near 85. South wind 10 to 15 mph. Chance of precipitation is 30%."
+      "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+      "shortForecast": "Mostly Sunny",
+      "detailedForecast": "Mostly sunny, with a high near 85. South wind 10 to 15 mph."
     },
     {
       "number": 2,
@@ -96,13 +96,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 25
+        "value": 14
       },
       "windSpeed": "0 to 10 mph",
       "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/night/tsra_sct,30/bkn?size=medium",
-      "shortForecast": "Chance Showers And Thunderstorms then Mostly Cloudy",
-      "detailedForecast": "A chance of showers and thunderstorms before 7pm. Mostly cloudy, with a low around 65. South wind 0 to 10 mph. Chance of precipitation is 30%."
+      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+      "shortForecast": "Mostly Cloudy",
+      "detailedForecast": "Mostly cloudy, with a low around 65. South wind 0 to 10 mph."
     },
     {
       "number": 3,
@@ -115,13 +115,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 14
+        "value": 10
       },
       "windSpeed": "0 to 10 mph",
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-      "shortForecast": "Partly Sunny",
-      "detailedForecast": "Partly sunny, with a high near 84. South wind 0 to 10 mph."
+      "shortForecast": "Mostly Cloudy",
+      "detailedForecast": "Mostly cloudy, with a high near 84. South wind 0 to 10 mph."
     },
     {
       "number": 4,
@@ -134,13 +134,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 14
+        "value": 10
       },
       "windSpeed": "5 mph",
-      "windDirection": "SE",
+      "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
       "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 64. Southeast wind around 5 mph."
+      "detailedForecast": "Partly cloudy, with a low around 64. South wind around 5 mph."
     },
     {
       "number": 5,
@@ -148,18 +148,18 @@
       "startTime": "2026-04-04T06:00:00-05:00",
       "endTime": "2026-04-04T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 85,
+      "temperature": 84,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 47
+        "value": 52
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/bkn/tsra_hi,50?size=medium",
       "shortForecast": "Partly Sunny then Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms after 1pm. Partly sunny, with a high near 85. South wind 5 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 50%."
+      "detailedForecast": "A chance of showers and thunderstorms after 1pm. Partly sunny, with a high near 84. South wind 5 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 50%."
     },
     {
       "number": 6,
@@ -172,13 +172,13 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 92
+        "value": 90
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "SW",
       "icon": "https://api.weather.gov/icons/land/night/tsra,80/tsra,90?size=medium",
-      "shortForecast": "Showers And Thunderstorms",
-      "detailedForecast": "Showers and thunderstorms. Mostly cloudy, with a low around 56. Chance of precipitation is 90%."
+      "shortForecast": "Chance Showers And Thunderstorms then Showers And Thunderstorms",
+      "detailedForecast": "A chance of showers and thunderstorms before 7pm, then showers and thunderstorms. Some of the storms could produce heavy rain. Mostly cloudy, with a low around 56. Chance of precipitation is 90%."
     },
     {
       "number": 7,
@@ -186,18 +186,18 @@
       "startTime": "2026-04-05T06:00:00-05:00",
       "endTime": "2026-04-05T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 69,
+      "temperature": 68,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 92
+        "value": 90
       },
       "windSpeed": "10 mph",
-      "windDirection": "N",
-      "icon": "https://api.weather.gov/icons/land/day/tsra_sct,90/tsra_sct,50?size=medium",
+      "windDirection": "NW",
+      "icon": "https://api.weather.gov/icons/land/day/tsra,90/tsra,50?size=medium",
       "shortForecast": "Showers And Thunderstorms",
-      "detailedForecast": "Showers and thunderstorms before 1pm. Mostly cloudy, with a high near 69. Chance of precipitation is 90%."
+      "detailedForecast": "Showers and thunderstorms before 1pm. Mostly cloudy, with a high near 68. Chance of precipitation is 90%."
     },
     {
       "number": 8,
