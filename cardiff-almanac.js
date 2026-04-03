@@ -1444,7 +1444,8 @@
       const primary = preferredGauge(gauges);
       watershedLeadGauge = primary || null;
       setText("watershedUpdated", primary ? relativeGaugeTime(primary.updated_at) : "Gauge sync pending");
-      setHTML("watershedGrid", gauges.length ? gauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
+      const displayGauges = gauges.filter((g) => g.role !== "upstream_watch");
+      setHTML("watershedGrid", displayGauges.length ? displayGauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
         label: "Republic live gauge",
         role: "lead",
         stage_ft: null,
