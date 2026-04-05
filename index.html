@@ -231,7 +231,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="site-kicker">Creek and rain</div>
       <h3 class="card-title">🌊 Five Mile Creek at a glance.</h3>
       <div class="snapshot-list" id="homeWatershed">
-        <div class="mini-row"><div class="mini-label">Brookside lead gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Brookside remains the first watch point for Cardiff.</div></div>
+        <div class="mini-row"><div class="mini-label">Republic gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Republic gauge (USGS 02457595) is the primary creek gauge for Cardiff.</div></div>
       </div>
     </article>
     <article class="card reveal">
@@ -354,12 +354,12 @@ loadGallery();
 
 const APPROVED_SOURCES=['WBRC','WVTM 13','ABC 33/40','BirminghamWatch','AL.com','Bham Now','CBS 42'];
 const FEED_GROUPS={
-  nearby:'https://news.google.com/rss/search?q='+encodeURIComponent('(Cardiff OR Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR western Jefferson County) Alabama')+'&hl=en-US&gl=US&ceid=US:en',
+  nearby:'https://news.google.com/rss/search?q='+encodeURIComponent('(Cardiff OR Graysville OR Adamsville OR Gardendale OR Fultondale OR western Jefferson County) Alabama')+'&hl=en-US&gl=US&ceid=US:en',
   regional:'https://news.google.com/rss/search?q='+encodeURIComponent('(Jefferson County OR Birmingham) Alabama local government OR public safety OR development OR schools')+'&hl=en-US&gl=US&ceid=US:en'
 };
 const HOME_NEWS_URLS={desk:'cardiff-news-feed.json',live:'cardiff-news-live.json'};
 const HOME_DATA_URLS={weather:'cardiff-weather.json',watershed:'cardiff-watershed.json',alerts:'ticker.json'};
-const NEARBY_KEYWORDS=['cardiff','brookside','graysville','adamsville','gardendale','fultondale','minor','bayview','western jefferson','warrior road','five mile creek'];
+const NEARBY_KEYWORDS=['cardiff','graysville','adamsville','gardendale','fultondale','minor','bayview','western jefferson','warrior road','five mile creek'];
 const REGIONAL_KEYWORDS=['birmingham','jefferson county','public safety','weather','roads','school','city council','county commission','development','zoning'];
 function cleanTitle(title){return title.replace(/\s+-\s+[^-]+$/,'').trim()}
 function extractSource(item){if(item.author&&item.author.trim())return item.author.trim();const m=(item.title||'').match(/\s+-\s+([^-]+)$/);return m?m[1].trim():'Regional source'}

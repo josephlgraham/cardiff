@@ -41,19 +41,19 @@ const HOUR_FORMATTER = new Intl.DateTimeFormat('en-US', {
 });
 
 const NEWS_QUERIES = [
-  { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
+  { mode: 'nearby', query: '(Cardiff OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
   { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama' },
-  { mode: 'nearby', query: '("Five Mile Creek" OR Brookside OR Graysville OR Cardiff) Alabama' },
-  { mode: 'nearby', query: '(Brookside OR Graysville OR Adamsville OR Cardiff) Alabama police fire rescue school road' },
+  { mode: 'nearby', query: '("Five Mile Creek" OR Graysville OR Cardiff) Alabama' },
+  { mode: 'nearby', query: '(Graysville OR Adamsville OR Cardiff) Alabama police fire rescue school road' },
   { mode: 'weather', query: '(Jefferson County OR Birmingham) Alabama weather storm tornado flood outage emergency' },
-  { mode: 'weather', query: '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Brookside OR Graysville OR Adamsville OR Gardendale) Alabama' },
+  { mode: 'weather', query: '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Graysville OR Adamsville OR Gardendale) Alabama' },
   { mode: 'weather', query: '(Jefferson County EMA OR Alabama Power OR ALDOT) Jefferson County Alabama outage shelter severe weather' },
   { mode: 'civic', query: '(Jefferson County OR Birmingham) Alabama city council county commission school board zoning sewer water' },
-  { mode: 'civic', query: '(Brookside OR Graysville OR Adamsville OR Gardendale OR Fultondale OR Warrior) Alabama council commission mayor public works' },
-  { mode: 'civic', query: '(Brookside OR Graysville OR Cardiff) Alabama water sewer utility public works' },
+  { mode: 'civic', query: '(Graysville OR Adamsville OR Gardendale OR Fultondale OR Warrior) Alabama council commission mayor public works' },
+  { mode: 'civic', query: '(Graysville OR Cardiff) Alabama water sewer utility public works' },
   { mode: 'civic', query: '(Jefferson County OR western Jefferson County) Alabama brush pickup debris public works utility board' },
   { mode: 'regional', query: '(north Jefferson County OR western Jefferson County) Alabama development public safety schools' },
-  { mode: 'regional', query: '(Brookside OR Graysville OR Gardendale OR Fultondale) Alabama police fire rescue school' }
+  { mode: 'regional', query: '(Graysville OR Gardendale OR Fultondale) Alabama police fire rescue school' }
 ];
 
 const SOURCE_WEIGHTS = {
@@ -78,7 +78,7 @@ const SOURCE_WEIGHTS = {
 };
 
 const PLACE_WEIGHTS = [
-  ['cardiff', 20], ['brookside', 16], ['graysville', 15], ['adamsville', 15], ['minor', 14], ['bayview', 13],
+  ['cardiff', 20], ['graysville', 15], ['adamsville', 15], ['minor', 14], ['bayview', 13],
   ['gardendale', 11], ['fultondale', 11], ['warrior', 9], ['kimberly', 8], ['morris', 7], ['five mile creek', 10],
   ['western jefferson', 10], ['north jefferson', 8], ['jefferson county', 8], ['birmingham', 3]
 ];
@@ -93,14 +93,14 @@ const TOPIC_WEIGHTS = [
 const LOW_SIGNAL_TERMS = ['football', 'basketball', 'softball', 'baseball', 'lottery', 'horoscope', 'crossword', 'celebrity'];
 
 const MODE_KEYWORDS = {
-  nearby: ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris', 'five mile creek'],
+  nearby: ['cardiff', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris', 'five mile creek'],
   civic: ['council', 'commission', 'mayor', 'clerk', 'school', 'education', 'budget', 'zoning', 'hearing', 'ordinance', 'board', 'police', 'fire', 'utility', 'water', 'sewer'],
   weather: ['weather', 'storm', 'tornado', 'wind', 'rain', 'flood', 'outage', 'road', 'traffic', 'closure', 'detour', 'train', 'paving'],
   regional: ['jefferson county', 'birmingham', 'north jefferson', 'western jefferson', 'development', 'public safety', 'roads', 'schools']
 };
 
 const TAG_RULES = [
-  ['Nearby', ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris']],
+  ['Nearby', ['cardiff', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris']],
   ['Roads', ['road', 'traffic', 'closure', 'detour', 'paving', 'train']],
   ['Weather', ['weather', 'storm', 'tornado', 'rain', 'flood', 'outage', 'wind']],
   ['Civic', ['council', 'commission', 'mayor', 'clerk', 'zoning', 'budget', 'ordinance', 'hearing']],
@@ -123,7 +123,6 @@ const NORMALIZED_TOPIC_RULES = [
 const NORMALIZED_LOCATION_RULES = [
   'cardiff',
   'five_mile_creek',
-  'brookside',
   'graysville',
   'jefferson_county',
   'birmingham_metro'
@@ -132,19 +131,11 @@ const NORMALIZED_LOCATION_RULES = [
 const WATERSHED_GAUGES = [
   {
     id: '02457595',
-    label: 'Republic live gauge',
+    label: 'Republic gauge',
     name: 'Fivemile Creek near Republic, Ala',
     place: 'Republic',
     role: 'lead',
     locationTags: ['five_mile_creek', 'jefferson_county']
-  },
-  {
-    id: '02457620',
-    label: 'Brookside upstream',
-    name: 'Five Mile Creek nr Brookside, Ala',
-    place: 'Brookside',
-    role: 'upstream_watch',
-    locationTags: ['brookside', 'five_mile_creek']
   }
 ];
 

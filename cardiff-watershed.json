@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-04-05T18:44:20.966Z",
   "leadGaugeId": "02457595",
-  "summary": "Cardiff has picked up 0.19 inches today, and Republic live gauge is holding fairly steady. Lead stage is 1.67 ft with about 80.0 cfs moving through the channel. Month-to-date rain is 0.56 inches.",
+  "summary": "Cardiff has picked up 0.19 inches today, and Republic gauge is holding fairly steady. Lead stage is 1.67 ft with about 80.0 cfs moving through the channel. Month-to-date rain is 0.56 inches.",
   "rainContext": {
     "today": 0.19,
     "monthToDate": 0.56,
@@ -20,7 +20,7 @@
   "gauges": [
     {
       "id": "02457595",
-      "label": "Republic live gauge",
+      "label": "Republic gauge",
       "name": "Fivemile Creek near Republic, Ala",
       "place": "Republic",
       "role": "lead",
@@ -517,25 +517,6 @@
         }
       ],
       "note": "This reach looks fairly steady right now."
-    },
-    {
-      "id": "02457620",
-      "label": "Brookside upstream",
-      "name": "Five Mile Creek nr Brookside, Ala",
-      "place": "Brookside",
-      "role": "upstream_watch",
-      "location_tags": [
-        "brookside",
-        "five_mile_creek"
-      ],
-      "source_name": "USGS",
-      "source_type": "watershed_gauge",
-      "stage_ft": null,
-      "discharge_cfs": null,
-      "trend": "steady",
-      "updated_at": "",
-      "stage_history": [],
-      "note": "Gauge synced without a readable current value."
     }
   ]
 }
