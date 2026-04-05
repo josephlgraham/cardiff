@@ -1376,7 +1376,11 @@
     const hasFullMonthCoverage = !!(rain && rain.monthComplete);
 
     setText("rainToday", formatInches(todayAmount));
-    setText("rainTodayNote", "Measured by the station since midnight.");
+    if (rain && rain.source && rain.source !== "local-station" && rain.sourceNote) {
+      setHTML("rainTodayNote", "<em>" + escapeHtml(rain.sourceNote) + "</em>");
+    } else {
+      setText("rainTodayNote", "Measured by the station since midnight.");
+    }
     setText("rainMonthLabel", hasFullMonthCoverage ? "Rain this month" : "Rain tracked");
     setText("rainMonth", formatInches(monthAmount));
     if (hasFullMonthCoverage) {

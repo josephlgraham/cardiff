@@ -1881,6 +1881,31 @@
       "windGust": 3,
       "precipRate": 0,
       "humidity": 56
+    },
+    {
+      "obsTime": "2026-04-04T23:00:00.000Z",
+      "localDate": "2026-04-04",
+      "localMonth": "2026-04",
+      "hour": 18,
+      "dailyTotal": 0.17,
+      "temp": 0,
+      "windGust": 0,
+      "precipRate": 0,
+      "humidity": 0,
+      "source": "local-station"
+    },
+    {
+      "obsTime": "2026-04-05T23:00:00.000Z",
+      "localDate": "2026-04-05",
+      "localMonth": "2026-04",
+      "hour": 18,
+      "dailyTotal": 1.73,
+      "temp": 0,
+      "windGust": 0,
+      "precipRate": 0,
+      "humidity": 0,
+      "source": "neighbor-station",
+      "sourceNote": "Data from nearby station KALGARDE30 — local station was offline."
     }
   ],
   "monthSeeds": [

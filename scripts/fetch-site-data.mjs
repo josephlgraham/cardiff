@@ -14,6 +14,7 @@ const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
 const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json');
 
 const WEATHER_STATION_ID = process.env.WEATHER_STATION_ID || 'KALGRAYS4';
+const NEIGHBOR_STATION_IDS = (process.env.NEIGHBOR_STATION_IDS || 'KALDORA12,KALGARDE30').split(',').map(s => s.trim()).filter(Boolean);
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY || process.env.WUNDERGROUND_API_KEY || '';
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
 const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=33.640&longitude=-86.870&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
@@ -257,7 +258,9 @@ async function updateRainLog(current, obsDate) {
     temp: Number(current.temp || 0),
     windGust: Number(current.windGust || 0),
     precipRate: Number(current.precipRate || 0),
-    humidity: Number(current.humidity || 0)
+    humidity: Number(current.humidity || 0),
+    ...(current.source ? { source: current.source } : {}),
+    ...(current.sourceNote ? { sourceNote: current.sourceNote } : {})
   };
 
   const samples = Array.isArray(log.samples) ? log.samples.slice() : [];
@@ -307,12 +310,15 @@ async function updateRainLog(current, obsDate) {
   };
   await writeJson(RAIN_LOG_FILE, updatedLog);
 
+  const latestTodaySample = todaySamples.length ? todaySamples[todaySamples.length - 1] : sample;
   return {
     today: rainToday,
     monthToDate,
     monthLabel: localMonthLabel(obsDate),
     monthComplete,
     monthCoverageStart,
+    source: latestTodaySample.source || 'local-station',
+    sourceNote: latestTodaySample.sourceNote || null,
     morningReport: {
       amount: rainToday,
       lowTemp: overnightLow,
@@ -332,16 +338,61 @@ async function fetchForecast() {
   return Array.isArray(forecastData.properties?.periods) ? forecastData.properties.periods.slice(0, 8) : [];
 }
 
+async function fetchStationObs(stationId) {
+  const url = `https://api.weather.com/v2/pws/observations/current?stationId=${encodeURIComponent(stationId)}&format=json&units=e&apiKey=${encodeURIComponent(WEATHER_API_KEY)}`;
+  const data = await fetchJson(url, { cache: 'no-store' });
+  return data.observations?.[0] || null;
+}
+
 async function updateWeatherFile() {
   if (!WEATHER_API_KEY) {
     console.log('Skipping weather update because WEATHER_API_KEY is not set.');
     return null;
   }
 
-  const url = `https://api.weather.com/v2/pws/observations/current?stationId=${encodeURIComponent(WEATHER_STATION_ID)}&format=json&units=e&apiKey=${encodeURIComponent(WEATHER_API_KEY)}`;
-  const data = await fetchJson(url, { cache: 'no-store' });
-  const obs = data.observations?.[0];
-  if (!obs) throw new Error('Weather feed returned no observations');
+  // Try primary station first
+  let obs = null;
+  let precipSource = 'local-station';
+  let precipSourceNote = null;
+
+  try {
+    obs = await fetchStationObs(WEATHER_STATION_ID);
+    if (!obs) throw new Error('Weather feed returned no observations');
+  } catch (primaryError) {
+    console.log(`Primary station ${WEATHER_STATION_ID} unavailable: ${primaryError.message}. Trying neighbor stations.`);
+  }
+
+  // Fallback: use neighbor stations when primary is offline or has no precipitation data
+  const primaryImp = obs ? (obs.imperial || {}) : null;
+  const primaryHasPrecip = primaryImp && (primaryImp.precipTotal != null || primaryImp.precipRate != null);
+
+  if (!obs || !primaryHasPrecip) {
+    const neighborResults = await Promise.allSettled(
+      NEIGHBOR_STATION_IDS.map(id => fetchStationObs(id))
+    );
+    const neighborObs = neighborResults
+      .map((r, i) => (r.status === 'fulfilled' && r.value ? { id: NEIGHBOR_STATION_IDS[i], obs: r.value } : null))
+      .filter(Boolean);
+
+    if (neighborObs.length > 0) {
+      // Use first available neighbor obs for all non-precip fields if primary is down
+      if (!obs) obs = neighborObs[0].obs;
+
+      // Average precipitation across available neighbor stations
+      const precipValues = neighborObs.map(n => Number((n.obs.imperial || {}).precipTotal ?? null)).filter(v => v != null && Number.isFinite(v));
+      if (precipValues.length > 0) {
+        const avgPrecip = precipValues.reduce((sum, v) => sum + v, 0) / precipValues.length;
+        obs = { ...obs, imperial: { ...(obs.imperial || {}), precipTotal: avgPrecip, precipRate: 0 } };
+        precipSource = 'neighbor-station';
+        const usedNames = neighborObs.map(n => n.id).join(' and ');
+        precipSourceNote = precipValues.length === 1
+          ? `Estimated from nearby station ${usedNames} — local station offline.`
+          : `Estimated from nearby stations ${usedNames} — local station offline.`;
+      }
+    } else if (!obs) {
+      throw new Error('All weather stations offline');
+    }
+  }
 
   const imp = obs.imperial || {};
   const obsDate = new Date(obs.obsTimeLocal || obs.obsTimeUtc || Date.now());
@@ -359,7 +410,9 @@ async function updateWeatherFile() {
     uv: Number(obs.uv),
     condition: weatherCondition(obs),
     obsTime: obs.obsTimeLocal || obs.obsTimeUtc,
-    solarRadiation: Number(obs.solarRadiation || 0)
+    solarRadiation: Number(obs.solarRadiation || 0),
+    source: precipSource,
+    sourceNote: precipSourceNote
   };
   current.summary = summarizeWeather(current);
   const rain = await updateRainLog(current, obsDate);
