@@ -447,6 +447,8 @@
     if (lane === "celestial") return "🌠";
     if (lane === "nature") return "🍃";
     if (lane === "hunting") return "🏹";
+    if (title.includes("tornado siren")) return "🚨";
+    if (title.includes("city council")) return "🏛️";
     if (lane === "civic") return "🏛️";
     return "📆";
   }
