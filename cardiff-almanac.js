@@ -1261,7 +1261,7 @@
 
   function groundCondition(precipTotal, humidity) {
     if (precipTotal >= 0.3) return { title: "Soft and muddy", note: "The ground is taking on water right now.", icon: "🫧" };
-    if (precipTotal >= 0.05) return { title: "Freshly damp", note: "Good scent, soft tracks, and slick creek banks.", icon: "👣" };
+    if (precipTotal >= 0.05) return { title: "Freshly damp", note: "Good scent, soft tracks, and slick creek banks.", icon: "🥾" };
     if (humidity >= 80) return { title: "Holding moisture", note: "Shade and bottoms will stay damp longer than open ground.", icon: "🌿" };
     if (humidity >= 60) return { title: "Normal footing", note: "Neither baked out nor soupy in most spots.", icon: "🪵" };
     return { title: "Dry on top", note: "Open ground will crust faster than shaded creek edges.", icon: "☀️" };
@@ -1355,7 +1355,7 @@
       '<div class="side-item"><div class="side-icon">' + conditionIcon(wx.condition) + '</div><div><div class="side-val">' + wx.temp + '°F and ' + wx.condition.toLowerCase() + '</div><div class="side-sub">' + wx.summary + "</div></div></div>" +
       '<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">Sunrise to sunset</div><div class="side-sub">' + formatClock(sun.rise) + " to " + formatClock(sun.set) + "</div></div></div>" +
       '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">Night light and animal movement can feel different under this phase.</div></div></div>' +
-      '<div class="side-item"><div class="side-icon">👣</div><div><div class="side-val">' + ground.title + '</div><div class="side-sub">' + ground.note + "</div></div></div>"
+      '<div class="side-item"><div class="side-icon">' + ground.icon + '</div><div><div class="side-val">' + ground.title + '</div><div class="side-sub">' + ground.note + "</div></div></div>"
     );
   }
 
@@ -1369,12 +1369,12 @@
 
     const labels = document.querySelectorAll("#wx-card .wx-lbl");
     if (labels.length >= 6) {
-      labels[0].textContent = "🌡️ Temperature";
-      labels[1].textContent = "💧 Humidity";
-      labels[2].textContent = "🍃 Wind";
-      labels[3].textContent = "👣 Ground";
-      labels[4].textContent = "🧭 Pressure";
-      labels[5].textContent = "🕶️ UV Index";
+      labels[0].textContent = "Temperature";
+      labels[1].textContent = "Humidity";
+      labels[2].textContent = "Wind";
+      labels[3].textContent = "Ground";
+      labels[4].textContent = "Pressure";
+      labels[5].textContent = "UV Index";
     }
   }
 
@@ -1654,7 +1654,7 @@
       setText("pillWeather", "Offline");
       setHTML("heroCond", emojiText("📡", "Station offline"));
       setText("heroCondSub", "Live conditions will return when the station responds.");
-      setHTML("heroRain", emojiText("👣", "Use local ground check"));
+      setHTML("heroRain", emojiText("🥾", "Use local ground check"));
       setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
       setText("rainToday", "—");
       setText("rainMonthLabel", "Rain tracked");

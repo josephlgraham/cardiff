@@ -83,6 +83,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .wx-lbl{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-top:0.18rem;}
 .wx-note{font-size:0.7rem;color:var(--ink3);margin-top:0.2rem;line-height:1.35;}
 .wx-val .emoji,.fc-val .emoji,.hs-name .emoji,.side-icon,.moon-big,.plant-icon,.nature-icon,.pill-icon{font-family:var(--emoji);}
+.wx-val .emoji{font-size:1.5rem;line-height:1;vertical-align:middle;}
+.fc-val .emoji{font-size:1.5rem;line-height:1;vertical-align:middle;}
+.side-icon{font-size:1.5rem!important;line-height:1;flex-shrink:0;margin-top:0;}
+.plant-icon{font-size:1.5rem!important;}
+.nature-icon{font-size:1.5rem!important;}
+.week-item-icon{font-size:1.5rem!important;}
+.sky-event-icon{font-size:1.5rem!important;margin-top:0;}
+.fish-icon{font-size:1.5rem!important;}
 .wx-narrative{font-size:0.86rem;line-height:1.78;color:var(--ink2);padding:0.7rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);border-left:3px solid var(--amber);}
 .rain-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem;margin:0 0 0.85rem;}
 .rain-stat{padding:0.68rem 0.78rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);}
@@ -167,7 +175,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 /* SIDEBAR SNAP */
 .sidebar{position:sticky;top:110px;}
-.side-item{display:grid;grid-template-columns:1rem minmax(0,1fr);align-items:flex-start;gap:0.65rem;padding:0.55rem 0;border-bottom:1px solid var(--rule);width:100%;}
+.side-item{display:grid;grid-template-columns:1.5rem minmax(0,1fr);align-items:flex-start;gap:0.65rem;padding:0.55rem 0;border-bottom:1px solid var(--rule);width:100%;}
 .side-item:last-child{border-bottom:none;}
 .side-icon{font-size:1rem;line-height:1;flex-shrink:0;margin-top:0.1rem;}
 .side-item > div{min-width:0;}
@@ -288,7 +296,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="hero-box">
     <div class="hero-box-body">
       <div>
-        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;">🌅 Sunrise &nbsp;·&nbsp; 🌇 Sunset</div>
+        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;">Sunrise &nbsp;·&nbsp; Sunset</div>
         <div style="font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.2;" id="sunTimes">—</div>
         <div style="font-family:var(--mono);font-size:0.68rem;color:var(--ink3);margin-top:0.15rem;" id="dayLength">—</div>
       </div>
@@ -321,7 +329,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <div style="font-family:var(--mono);font-size:0.68rem;color:var(--ink3);margin-top:0.1rem;" id="heroCondSub">—</div>
       </div>
       <div style="border-top:1px solid var(--rule);padding-top:0.65rem;width:100%;">
-        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;">👣 Ground Condition</div>
+        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;">Ground Condition</div>
         <div style="font-family:var(--sans);font-size:0.98rem;font-weight:700;color:var(--ink);line-height:1.2;" id="heroRain">—</div>
         <div style="font-family:var(--mono);font-size:0.68rem;color:var(--ink3);margin-top:0.15rem;" id="heroRainSub">Right now around Cardiff</div>
       </div>
@@ -338,11 +346,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <div class="card-body">
       <div class="wx-grid">
         <div class="wx-cell"><div class="wx-val" id="wxTemp">—</div><div class="wx-lbl">Temperature</div><div class="wx-note" id="wxTempNote">—</div></div>
-        <div class="wx-cell"><div class="wx-val" id="wxHum">—</div><div class="wx-lbl">💧 Humidity</div><div class="wx-note" id="wxHumNote">—</div></div>
+        <div class="wx-cell"><div class="wx-val" id="wxHum">—</div><div class="wx-lbl">Humidity</div><div class="wx-note" id="wxHumNote">—</div></div>
         <div class="wx-cell"><div class="wx-val" id="wxWind">—</div><div class="wx-lbl">Wind</div><div class="wx-note" id="wxWindNote">—</div></div>
-        <div class="wx-cell"><div class="wx-val" id="wxRain">—</div><div class="wx-lbl">👣 Ground</div><div class="wx-note" id="wxRainNote">—</div></div>
-        <div class="wx-cell"><div class="wx-val" id="wxPressure">—</div><div class="wx-lbl">🔽 Pressure</div><div class="wx-note" id="wxPressureNote">—</div></div>
-        <div class="wx-cell"><div class="wx-val" id="wxUV">—</div><div class="wx-lbl">☀️ UV Index</div><div class="wx-note" id="wxUVNote">—</div></div>
+        <div class="wx-cell"><div class="wx-val" id="wxRain">—</div><div class="wx-lbl">Ground</div><div class="wx-note" id="wxRainNote">—</div></div>
+        <div class="wx-cell"><div class="wx-val" id="wxPressure">—</div><div class="wx-lbl">Pressure</div><div class="wx-note" id="wxPressureNote">—</div></div>
+        <div class="wx-cell"><div class="wx-val" id="wxUV">—</div><div class="wx-lbl">UV Index</div><div class="wx-note" id="wxUVNote">—</div></div>
       </div>
       <div class="rain-strip">
         <div class="rain-stat">
@@ -357,7 +365,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </div>
       </div>
       <div class="wx-narrative" id="wxNarrative">Reading conditions from Five Mile Creek…</div>
-      <div class="sci-box"><div class="sci-label">🔬 The Science</div><p id="wxScience">—</p></div>
+      <div class="sci-box"><div class="sci-label">The Science</div><p id="wxScience">—</p></div>
     </div>
   </div>
   <div class="alm-card" id="air-card" style="display:none;">
@@ -450,7 +458,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <div class="card-body">
       <div class="moon-wrap"><div class="moon-big" id="moonIcon">🌙</div><div><div class="moon-name" id="moonName">—</div><div class="moon-meta" id="moonMeta">—</div></div></div>
       <div class="moon-lore" id="moonLore">—</div>
-      <div class="sci-box" style="margin-top:0.6rem;"><div class="sci-label">🔬 Why It Matters</div><p id="moonSci">—</p></div>
+      <div class="sci-box" style="margin-top:0.6rem;"><div class="sci-label">Why It Matters</div><p id="moonSci">—</p></div>
     </div>
   </div>
   <div class="alm-card" id="sky-card">

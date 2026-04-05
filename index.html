@@ -132,16 +132,16 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .mini-value{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.45}
 .mini-copy{font-size:.78rem;line-height:1.62;color:var(--ink3);margin-top:.18rem}
 .today-list{display:grid;gap:0}
-.today-list .side-item{display:grid;grid-template-columns:1rem minmax(0,1fr);align-items:flex-start;gap:.65rem;padding:.75rem 0;border-bottom:1px solid var(--rule);width:100%}
+.today-list .side-item{display:grid;grid-template-columns:1.5rem minmax(0,1fr);align-items:flex-start;gap:.65rem;padding:.75rem 0;border-bottom:1px solid var(--rule);width:100%}
 .today-list .side-item:first-child{padding-top:.18rem}
 .today-list .side-item:last-child{border-bottom:none}
-.today-list .side-icon{font-size:1rem;line-height:1;flex-shrink:0;margin-top:.1rem}
+.today-list .side-icon{font-size:1.5rem;line-height:1;flex-shrink:0;margin-top:0}
 .today-list .side-item>div{min-width:0}
 .today-list .side-val{font-size:.83rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 .today-list .side-sub{font-size:.72rem;color:var(--ink3);line-height:1.5;margin-top:.1rem;overflow-wrap:anywhere}
 .alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
 .alert-band .mini-label{color:var(--red)}
-.accent-card{background:linear-gradient(180deg,rgba(250,246,238,.98),rgba(247,240,228,.92))}
+.accent-card{background:var(--card)}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 @media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}}
@@ -222,21 +222,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="dashboard-grid">
     <article class="card accent-card reveal">
       <div class="site-kicker">At a glance</div>
-      <h3 class="card-title">🌤️ Today in Cardiff</h3>
+      <h3 class="card-title">Today in Cardiff</h3>
       <div class="today-list" id="homeToday">
         <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Loading local conditions</div><div class="side-sub">Weather, daylight, moon, and ground read are syncing.</div></div></div>
       </div>
     </article>
     <article class="card reveal">
       <div class="site-kicker">Creek and rain</div>
-      <h3 class="card-title">🌊 Five Mile Creek at a glance.</h3>
+      <h3 class="card-title">Five Mile Creek at a glance.</h3>
       <div class="snapshot-list" id="homeWatershed">
         <div class="mini-row"><div class="mini-label">Republic gauge</div><div class="mini-value">Gauge sync pending</div><div class="mini-copy">Republic gauge (USGS 02457595) is the primary creek gauge for Cardiff.</div></div>
       </div>
     </article>
     <article class="card reveal">
       <div class="site-kicker">Morning report</div>
-      <h3 class="card-title">🌦️ Since midnight.</h3>
+      <h3 class="card-title">Since midnight.</h3>
       <div class="snapshot-list" id="homeMorning">
         <div class="mini-row"><div class="mini-label">Weather desk</div><div class="mini-value">Waiting on the station log.</div><div class="mini-copy">Rain, low temp, and gust read will settle in here when the station answers.</div></div>
       </div>
@@ -512,27 +512,27 @@ async function loadHomeDashboard(){
   ].join('');
 
   document.getElementById('homeWatershed').innerHTML=[
-    `<div class="mini-row"><div class="mini-label">🌊 Live gauge</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?`${leadGauge.label} at ${leadStage.toFixed(2)} ft`:'Gauge sync pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.note?leadGauge.note:'The live creek gauge will settle in here when the file responds.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">💧 Flow</div><div class="mini-value">${leadGauge&&Number.isFinite(leadFlow)?leadFlow.toFixed(leadFlow>=100?0:1)+' cfs':'Flow pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.trend?`Trend looks ${String(leadGauge.trend).toLowerCase()} right now.`:'Trend will populate with the live gauge sync.'}</div></div>`,
-    `<div class="mini-row"><div class="mini-label">🌧 Rain</div><div class="mini-value">${rain?formatInches(Number(rain.today)):formatInches(NaN)}</div><div class="mini-copy">${rain?`${formatInches(Number(rain.monthToDate))} for the month so far.`:'Rain totals will populate here with the station log.'}</div></div>`
+    `<div class="mini-row"><div class="mini-label">Live gauge</div><div class="mini-value">${leadGauge&&Number.isFinite(leadStage)?`${leadGauge.label} at ${leadStage.toFixed(2)} ft`:'Gauge sync pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.note?leadGauge.note:'The live creek gauge will settle in here when the file responds.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Flow</div><div class="mini-value">${leadGauge&&Number.isFinite(leadFlow)?leadFlow.toFixed(leadFlow>=100?0:1)+' cfs':'Flow pending'}</div><div class="mini-copy">${leadGauge&&leadGauge.trend?`Trend looks ${String(leadGauge.trend).toLowerCase()} right now.`:'Trend will populate with the live gauge sync.'}</div></div>`,
+    `<div class="mini-row"><div class="mini-label">Rain</div><div class="mini-value">${rain?formatInches(Number(rain.today)):formatInches(NaN)}</div><div class="mini-copy">${rain?`${formatInches(Number(rain.monthToDate))} for the month so far.`:'Rain totals will populate here with the station log.'}</div></div>`
   ].join('');
 
   const morningCard=document.getElementById('homeMorning');
   const morningKicker=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.site-kicker'):null;
   const morningTitle=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.card-title'):null;
   if(morningKicker) morningKicker.textContent=showTonight?'Tonight\'s sky':'Morning report';
-  if(morningTitle) morningTitle.textContent=showTonight?'🌙 After dark.':'🌦️ Since midnight.';
+  if(morningTitle) morningTitle.textContent=showTonight?'After dark.':'Since midnight.';
   if(morningCard){
     morningCard.innerHTML=showTonight
       ? [
-          `<div class="mini-row"><div class="mini-label">🌇 Sunset</div><div class="mini-value">${formatClock(sun.set)}</div><div class="mini-copy">Local sunset time for Cardiff this evening.</div></div>`,
-          `<div class="mini-row"><div class="mini-label">🌙 Moon</div><div class="mini-value">${moon.name}</div><div class="mini-copy">${buildSkyNote(moon)}</div></div>`,
-          `<div class="mini-row"><div class="mini-label">🔭 Sky note</div><div class="mini-value">Best first look</div><div class="mini-copy">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div>`
+          `<div class="mini-row"><div class="mini-label">Sunset</div><div class="mini-value">${formatClock(sun.set)}</div><div class="mini-copy">Local sunset time for Cardiff this evening.</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Moon</div><div class="mini-value">${moon.name}</div><div class="mini-copy">${buildSkyNote(moon)}</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Sky note</div><div class="mini-value">Best first look</div><div class="mini-copy">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div>`
         ].join('')
       : [
-          `<div class="mini-row"><div class="mini-label">🌧️ ${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
-          `<div class="mini-row"><div class="mini-label">🥶 Low temperature</div><div class="mini-value">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="mini-copy">The coolest point the station logged overnight or so far today.</div></div>`,
-          `<div class="mini-row"><div class="mini-label">🌬 Strongest gust</div><div class="mini-value">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="mini-copy">A quick check on whether the night stayed still or worked the trees a little.</div></div>`
+          `<div class="mini-row"><div class="mini-label">${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Low temperature</div><div class="mini-value">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="mini-copy">The coolest point the station logged overnight or so far today.</div></div>`,
+          `<div class="mini-row"><div class="mini-label">Strongest gust</div><div class="mini-value">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="mini-copy">A quick check on whether the night stayed still or worked the trees a little.</div></div>`
         ].join('');
   }
 }
