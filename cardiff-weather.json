@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-04-05T09:39:17.186Z",
+  "updatedAt": "2026-04-05T10:34:59.815Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-05 04:38:00",
+  "sourceUpdatedAt": "2026-04-05 05:34:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-05T09:38:00Z",
-      "obsTimeLocal": "2026-04-05 04:38:00",
+      "obsTimeUtc": "2026-04-05T10:34:00Z",
+      "obsTimeLocal": "2026-04-05 05:34:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775381880,
+      "epoch": 1775385240,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 328,
+      "winddir": 312,
       "humidity": 99,
       "qcStatus": 1,
       "imperial": {
@@ -24,11 +24,11 @@
         "heatIndex": 65,
         "dewpt": 65,
         "windChill": 65,
-        "windSpeed": 0,
-        "windGust": 0,
-        "pressure": 29.74,
+        "windSpeed": 3,
+        "windGust": 4,
+        "pressure": 29.76,
         "precipRate": 0,
-        "precipTotal": 0.15,
+        "precipTotal": 0.18,
         "elev": 433
       }
     }
@@ -37,39 +37,39 @@
     "temp": 65,
     "feels": 65,
     "humidity": 99,
-    "windSpeed": 0,
-    "windGust": 0,
-    "windDir": "NNW",
-    "windDirDegrees": 328,
+    "windSpeed": 3,
+    "windGust": 4,
+    "windDir": "NW",
+    "windDirDegrees": 312,
     "precipRate": 0,
-    "precipTotal": 0.15,
-    "pressureIn": 29.74,
+    "precipTotal": 0.18,
+    "pressureIn": 29.76,
     "uv": 0,
     "condition": "Overcast",
-    "obsTime": "2026-04-05 04:38:00",
+    "obsTime": "2026-04-05 05:34:00",
     "solarRadiation": 0,
     "summary": "Right now around Cardiff it feels 65°F, overcast, humid air in the bottoms."
   },
   "rain": {
-    "today": 0.31,
-    "monthToDate": 0.37,
+    "today": 0.18,
+    "monthToDate": 0.55,
     "monthLabel": "April 2026",
     "monthComplete": true,
     "monthCoverageStart": "2026-04-01",
     "morningReport": {
-      "amount": 0.31,
-      "lowTemp": 60,
-      "windGust": 9,
+      "amount": 0.18,
+      "lowTemp": 65,
+      "windGust": 4,
       "label": "So far today",
       "isMorning": false,
-      "coverageStart": "2026-04-04"
+      "coverageStart": "2026-04-05"
     }
   },
   "forecast": [
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-04-05T04:00:00-05:00",
+      "startTime": "2026-04-05T05:00:00-05:00",
       "endTime": "2026-04-05T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 54,
@@ -80,10 +80,10 @@
         "value": 79
       },
       "windSpeed": "5 mph",
-      "windDirection": "W",
+      "windDirection": "NW",
       "icon": "https://api.weather.gov/icons/land/night/rain_showers,80?size=medium",
       "shortForecast": "Rain Showers",
-      "detailedForecast": "Rain showers. Cloudy. Low around 54, with temperatures rising to around 61 overnight. West wind around 5 mph. Chance of precipitation is 80%. New rainfall amounts between a quarter and half of an inch possible."
+      "detailedForecast": "Rain showers. Cloudy. Low around 54, with temperatures rising to around 61 overnight. Northwest wind around 5 mph. Chance of precipitation is 80%. New rainfall amounts between a quarter and half of an inch possible."
     },
     {
       "number": 2,
