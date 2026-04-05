@@ -305,6 +305,35 @@
   let watershedChartRange = 7;
   let seasonWindowsExpanded = false;
 
+  // Seasonal pill priority: top-2 from [fish, plant, nature, hunt] by month (0=Jan).
+  // Always-shown: Weather, Watershed, Moon. Cap is 5 total.
+  const SEASONAL_PILL_PRIORITY = [
+    ["plant","fish"],  // Jan
+    ["plant","fish"],  // Feb
+    ["plant","fish"],  // Mar
+    ["plant","fish"],  // Apr
+    ["fish","plant"],  // May
+    ["fish","nature"], // Jun
+    ["fish","nature"], // Jul
+    ["fish","nature"], // Aug
+    ["fish","nature"], // Sep
+    ["hunt","fish"],   // Oct
+    ["hunt","fish"],   // Nov
+    ["hunt","plant"],  // Dec
+  ];
+
+  function applyPillCap() {
+    const month = new Date().getMonth();
+    const show = new Set(SEASONAL_PILL_PRIORITY[month]);
+    document.querySelectorAll(".today-pill[data-pill]").forEach(function(el) {
+      if (show.has(el.dataset.pill)) {
+        el.hidden = false;
+      } else {
+        el.hidden = true;
+      }
+    });
+  }
+
   function setText(id, value) {
     const el = document.getElementById(id);
     if (el) el.textContent = value;
@@ -1862,6 +1891,7 @@
     } catch (error) {
       seasonWindowsExpanded = false;
     }
+    applyPillCap();
     buildStaticSections();
     loadSkyGuide();
     initTopo();
