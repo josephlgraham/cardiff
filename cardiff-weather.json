@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-05T17:31:03.429Z",
+  "updatedAt": "2026-04-05T18:44:20.749Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-05 12:29:00",
+  "sourceUpdatedAt": "2026-04-05 13:43:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-05T17:29:00Z",
-      "obsTimeLocal": "2026-04-05 12:29:00",
+      "obsTimeUtc": "2026-04-05T18:43:00Z",
+      "obsTimeLocal": "2026-04-05 13:43:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 594.4,
+      "solarRadiation": 652.8,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775410140,
+      "epoch": 1775414580,
       "lat": 33.647,
-      "uv": 5,
-      "winddir": 341,
-      "humidity": 64,
+      "uv": 6,
+      "winddir": 322,
+      "humidity": 56,
       "qcStatus": 1,
       "imperial": {
-        "temp": 67,
-        "heatIndex": 67,
-        "dewpt": 55,
-        "windChill": 67,
-        "windSpeed": 1,
-        "windGust": 4,
-        "pressure": 29.87,
+        "temp": 69,
+        "heatIndex": 69,
+        "dewpt": 52,
+        "windChill": 69,
+        "windSpeed": 2,
+        "windGust": 3,
+        "pressure": 29.85,
         "precipRate": 0,
         "precipTotal": 0.19,
         "elev": 433
@@ -34,21 +34,21 @@
     }
   ],
   "current": {
-    "temp": 67,
-    "feels": 67,
-    "humidity": 64,
-    "windSpeed": 1,
-    "windGust": 4,
-    "windDir": "NNW",
-    "windDirDegrees": 341,
+    "temp": 69,
+    "feels": 69,
+    "humidity": 56,
+    "windSpeed": 2,
+    "windGust": 3,
+    "windDir": "NW",
+    "windDirDegrees": 322,
     "precipRate": 0,
     "precipTotal": 0.19,
-    "pressureIn": 29.87,
-    "uv": 5,
+    "pressureIn": 29.85,
+    "uv": 6,
     "condition": "Partly cloudy",
-    "obsTime": "2026-04-05 12:29:00",
-    "solarRadiation": 594.4,
-    "summary": "Right now around Cardiff it feels 67°F, partly cloudy."
+    "obsTime": "2026-04-05 13:43:00",
+    "solarRadiation": 652.8,
+    "summary": "Right now around Cardiff it feels 69°F, partly cloudy."
   },
   "rain": {
     "today": 0.19,
@@ -69,7 +69,7 @@
     {
       "number": 1,
       "name": "This Afternoon",
-      "startTime": "2026-04-05T12:00:00-05:00",
+      "startTime": "2026-04-05T13:00:00-05:00",
       "endTime": "2026-04-05T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 67,
@@ -205,18 +205,18 @@
       "startTime": "2026-04-08T18:00:00-05:00",
       "endTime": "2026-04-09T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 53,
+      "temperature": 52,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 12
+        "value": 8
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
       "shortForecast": "Mostly Cloudy",
-      "detailedForecast": "Mostly cloudy, with a low around 53."
+      "detailedForecast": "Mostly cloudy, with a low around 52."
     }
   ]
 }
