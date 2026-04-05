@@ -21,6 +21,39 @@
       summary: "An annual marker for the town itself. Incorporated January 1900."
     },
     {
+      id: "tornado-siren-test",
+      title: "Jefferson County tornado siren test",
+      category: "Civic",
+      lane: "civic",
+      kind: "recurring-weekday",
+      nth: 1,
+      weekday: 3,
+      hour: 10,
+      windowLabel: "First Wednesday of each month, 10:00 AM",
+      calendarLabel: "First Wednesday, 10:00 AM",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      summary: "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed — it is a scheduled test."
+    },
+    {
+      id: "cardiff-city-council",
+      title: "Cardiff City Council meeting",
+      category: "Civic",
+      lane: "civic",
+      kind: "recurring-weekday",
+      nth: 2,
+      weekday: 2,
+      timeTBD: true,
+      note: "Time to be confirmed",
+      windowLabel: "Second Tuesday of each month",
+      calendarLabel: "Second Tuesday, time TBD",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      summary: "Cardiff City Council meets on the second Tuesday of each month. Time to be confirmed — check local notices for the current meeting schedule."
+    },
+    {
       id: "ramps",
       title: "Ramps & wild onions",
       category: "Foraging",
@@ -483,6 +516,31 @@
     return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   }
 
+  function formatTime(hour) {
+    const period = hour >= 12 ? "PM" : "AM";
+    const h = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
+    return h + ":00\u202f" + period;
+  }
+
+  // Returns the day-of-month for the nth occurrence of weekday (0=Sun) in the given month,
+  // or null if that occurrence does not exist in the month.
+  function nthWeekdayOfMonth(year, month, weekday, nth) {
+    const firstDay = new Date(year, month - 1, 1);
+    const firstWeekday = firstDay.getDay();
+    const day = 1 + ((weekday - firstWeekday + 7) % 7) + (nth - 1) * 7;
+    const daysInMonth = new Date(year, month, 0).getDate();
+    return day <= daysInMonth ? day : null;
+  }
+
+  function buildRecurringOccurrenceForYearMonth(entry, year, month) {
+    const day = nthWeekdayOfMonth(year, month, entry.weekday, entry.nth);
+    if (day === null) return null;
+    const hour = entry.timeTBD ? 12 : (entry.hour || 12);
+    const start = new Date(year, month - 1, day, hour, 0, 0, 0);
+    const end = new Date(year, month - 1, day, hour, 0, 0, 0);
+    return { start, end };
+  }
+
   function buildOccurrence(entry, year) {
     if (entry.kind === "day") {
       const start = atNoon(year, entry.month, entry.day);
@@ -500,6 +558,21 @@
     const active = today >= occurrence.start && today <= addDays(occurrence.end, 1);
     const nextRelevant = active ? today : occurrence.start;
     const daysUntil = Math.round((occurrence.start - today) / DAY_MS);
+
+    let dateLabel;
+    let longDateLabel;
+    if (entry.kind === "day") {
+      dateLabel = formatMonthDay(occurrence.start);
+      longDateLabel = formatFullDate(occurrence.start);
+    } else if (entry.kind === "recurring-weekday") {
+      const timePart = entry.timeTBD ? "time TBD" : (entry.hour !== undefined ? formatTime(entry.hour) : null);
+      dateLabel = formatMonthDay(occurrence.start) + (timePart ? ", " + timePart : "");
+      longDateLabel = formatFullDate(occurrence.start) + (timePart ? " \u00b7 " + timePart : "");
+    } else {
+      dateLabel = entry.windowLabel;
+      longDateLabel = `${formatMonthDay(occurrence.start)} - ${formatMonthDay(occurrence.end)}`;
+    }
+
     return {
       ...entry,
       start: occurrence.start,
@@ -507,20 +580,34 @@
       active,
       daysUntil,
       nextRelevant,
-      dateLabel:
-        entry.kind === "day"
-          ? formatMonthDay(occurrence.start)
-          : entry.windowLabel,
-      longDateLabel:
-        entry.kind === "day"
-          ? formatFullDate(occurrence.start)
-          : `${formatMonthDay(occurrence.start)} - ${formatMonthDay(occurrence.end)}`,
+      dateLabel,
+      longDateLabel,
       badge: active ? entry.activeTag : entry.upcomingTag
     };
   }
 
   function resolveEntry(entry, referenceDate) {
     const today = atNoon(referenceDate.getFullYear(), referenceDate.getMonth() + 1, referenceDate.getDate());
+
+    if (entry.kind === "recurring-weekday") {
+      const refYear = today.getFullYear();
+      const refMonth = today.getMonth() + 1;
+      const occurrences = [];
+      for (let offset = -1; offset <= 13; offset++) {
+        const d = new Date(refYear, refMonth - 1 + offset, 1);
+        const occ = buildRecurringOccurrenceForYearMonth(entry, d.getFullYear(), d.getMonth() + 1);
+        if (occ) {
+          occurrences.push(describeOccurrence(entry, occ, today));
+        }
+      }
+      const active = occurrences.find((item) => item.active);
+      if (active) return active;
+      const upcoming = occurrences
+        .filter((item) => item.start >= today)
+        .sort((a, b) => a.start - b.start)[0];
+      return upcoming || occurrences.sort((a, b) => a.start - b.start).pop();
+    }
+
     const year = today.getFullYear();
     const candidateYears = [year - 1, year, year + 1];
     const occurrences = candidateYears
