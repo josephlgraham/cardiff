@@ -535,9 +535,8 @@
   function buildRecurringOccurrenceForYearMonth(entry, year, month) {
     const day = nthWeekdayOfMonth(year, month, entry.weekday, entry.nth);
     if (day === null) return null;
-    const hour = entry.timeTBD ? 12 : (entry.hour || 12);
-    const start = new Date(year, month - 1, day, hour, 0, 0, 0);
-    const end = new Date(year, month - 1, day, hour, 0, 0, 0);
+    const start = atNoon(year, month, day);
+    const end = atNoon(year, month, day);
     return { start, end };
   }
 
