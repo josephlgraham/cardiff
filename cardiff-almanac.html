@@ -237,16 +237,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   .cta-band{margin:0 1rem 3rem;}
   .site-footer{padding:0 1rem 2rem;}
 }
-/* ALMANAC SECTION TABS */
-.alm-section-tabs{background:var(--paper2);border-bottom:2px solid var(--border2);display:flex;overflow-x:auto;scrollbar-width:none;}
-.alm-section-tabs::-webkit-scrollbar{display:none;}
-.alm-section-tab{appearance:none;border:none;background:transparent;font-family:var(--sans);font-size:0.8rem;font-weight:600;color:var(--ink2);padding:0.75rem 1.35rem;cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color var(--ease),border-color var(--ease),background var(--ease);}
-.alm-section-tab:hover{color:var(--ink);background:rgba(80,44,8,0.04);}
-.alm-section-tab.active{color:var(--red);border-bottom-color:var(--red);font-weight:700;}
-.alm-hidden-by-tab{display:none!important;}
-.alm-grid.alm-tab-sky .main-col{display:none;}
-.alm-grid.alm-tab-sky .sidebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start;}
-@media(max-width:720px){.alm-grid.alm-tab-sky .sidebar{grid-template-columns:1fr;}}
 @media(max-width:700px){.mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}.watershed-chart-stats,.week-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}.side-item{grid-template-columns:1rem minmax(0,1fr);}.wx-grid,.watershed-chart-stats,.week-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.wx-cell{min-width:0;padding:0.58rem 0.5rem;display:grid;align-content:start;gap:0.16rem;}.wx-val{font-size:1rem;line-height:1.2;word-break:break-word;min-height:2.35em;display:flex;align-items:center;justify-content:center;text-align:center;}.wx-lbl{line-height:1.35;min-height:2.45em;display:flex;align-items:center;justify-content:center;text-align:center;}.wx-note{font-size:0.66rem;line-height:1.42;max-width:12ch;margin:0.12rem auto 0;text-align:center;}.rain-strip{grid-template-columns:1fr;}}
 </style>
@@ -279,12 +269,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 </header>
 
 <div class="page">
-<nav class="alm-section-tabs" id="almSectionTabs" aria-label="Almanac sections">
-  <button class="alm-section-tab active" type="button" data-alm-tab="weather">🌤 Weather</button>
-  <button class="alm-section-tab" type="button" data-alm-tab="watershed">🌊 Watershed</button>
-  <button class="alm-section-tab" type="button" data-alm-tab="sky">🌙 Sky &amp; Season</button>
-  <button class="alm-section-tab" type="button" data-alm-tab="nature">🍃 Nature &amp; Garden</button>
-</nav>
 <div class="today-strip">
   <div class="today-label">Jump to today</div>
   <div class="today-pills">
@@ -349,7 +333,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div class="alm-grid">
 <div class="main-col">
   <!-- WEATHER -->
-  <div class="alm-card" id="wx-card" data-alm-tab="weather">
+  <div class="alm-card" id="wx-card">
     <div class="card-head"><div><div class="card-kicker">Live · Five Mile Creek</div><div class="card-title">Weather</div></div><div class="card-tag" id="wxUpdated">—</div></div>
     <div class="card-body">
       <div class="wx-grid">
@@ -376,7 +360,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="sci-box"><div class="sci-label">🔬 The Science</div><p id="wxScience">—</p></div>
     </div>
   </div>
-  <div class="alm-card" id="air-card" data-alm-tab="weather" style="display:none;">
+  <div class="alm-card" id="air-card" style="display:none;">
     <div class="card-head"><div><div class="card-kicker">Open-Meteo Snapshot</div><div class="card-title">Air & Haze</div></div><div class="card-tag" id="airUpdated">Air desk</div></div>
     <div class="card-body" id="airBody">
       <div class="report-stack">
@@ -384,7 +368,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </div>
   </div>
-  <div class="alm-card" id="watershed-card" data-alm-tab="watershed">
+  <div class="alm-card" id="watershed-card">
     <div class="card-head"><div><div class="card-kicker">Republic</div><div class="card-title">Five Mile Creek Read</div></div><div class="card-tag" id="watershedUpdated">Gauge sync pending</div></div>
     <div class="card-body">
       <div class="watershed-grid" id="watershedGrid">
@@ -420,7 +404,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </div>
   <!-- FISHING -->
-  <div class="alm-card" id="fish-card" data-alm-tab="nature">
+  <div class="alm-card" id="fish-card">
     <div class="card-head"><div><div class="card-kicker">Five Mile Creek · Right Now</div><div class="card-title">Fishing Conditions</div></div></div>
     <div class="card-body">
       <div class="fish-conds">
@@ -433,20 +417,20 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </div>
   <!-- PLANTING -->
-  <div class="alm-card" id="plant-card" data-alm-tab="nature">
+  <div class="alm-card" id="plant-card">
     <div class="card-head"><div><div class="card-kicker">Zone 7b/8a · Five Mile Creek Bottomland</div><div class="card-title">Planting This Month</div></div><div class="card-tag" id="plantTag">—</div></div>
     <div class="card-body" id="plantBody">—</div>
   </div>
-  <div class="alm-card" id="fact-card" data-alm-tab="nature">
+  <div class="alm-card" id="fact-card">
     <div class="card-head"><div><div class="card-kicker" id="factKicker">Did You Know</div><div class="card-title" id="factTitle">—</div></div></div>
     <div class="card-body"><div style="font-size:0.88rem;line-height:1.8;color:var(--ink2);" id="factBody">—</div></div>
   </div>
   <!-- NATURE WATCH -->
-  <div class="alm-card" id="nature-card" data-alm-tab="nature">
+  <div class="alm-card" id="nature-card">
     <div class="card-head"><div><div class="card-kicker">What to watch for this week</div><div class="card-title">Nature Watch</div></div><div class="card-tag" id="natureTag">—</div></div>
     <div class="card-body" id="natureBody">—</div>
   </div>
-  <div class="alm-card" id="week-card" data-alm-tab="weather">
+  <div class="alm-card" id="week-card">
     <div class="card-head"><div><div class="card-kicker">7-Day Outlook</div><div class="card-title">Peek at Next Week</div></div></div>
     <div class="card-body" id="weekBody"><div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Loading forecast…</div></div>
   </div>
@@ -455,13 +439,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-  <div class="alm-card" id="alerts-card" data-alm-tab="watershed" style="display:none;">
+  <div class="alm-card" id="alerts-card" style="display:none;">
     <div class="card-head"><div><div class="card-kicker">Weather Desk</div><div class="card-title">Hydrologic Alerts</div></div></div>
     <div class="card-body" id="alertsBody">
       <div class="alert-banner"><strong>Active alert.</strong> The weather desk will post Jefferson County alerts here when one is active.</div>
     </div>
   </div>
-  <div class="alm-card" id="moon-card" data-alm-tab="sky">
+  <div class="alm-card" id="moon-card">
     <div class="card-head"><div><div class="card-kicker">Lunar Calendar</div><div class="card-title">Moon Phase</div></div></div>
     <div class="card-body">
       <div class="moon-wrap"><div class="moon-big" id="moonIcon">🌙</div><div><div class="moon-name" id="moonName">—</div><div class="moon-meta" id="moonMeta">—</div></div></div>
@@ -469,7 +453,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="sci-box" style="margin-top:0.6rem;"><div class="sci-label">🔬 Why It Matters</div><p id="moonSci">—</p></div>
     </div>
   </div>
-  <div class="alm-card" id="sky-card" data-alm-tab="sky">
+  <div class="alm-card" id="sky-card">
     <div class="card-head"><div><div class="card-kicker">Celestial Happenings</div><div class="card-title">Sky Almanac</div></div><div class="card-tag" id="skyWatchTag">—</div></div>
     <div class="card-body">
       <div class="sky-stack" id="skyWatchBody">
@@ -477,7 +461,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </div>
   </div>
-  <div class="alm-card" id="hunt-card" data-alm-tab="nature">
+  <div class="alm-card" id="hunt-card">
     <div class="card-head"><div><div class="card-kicker">Cardiff · Woods, Fields, and Garden</div><div class="card-title">Season Windows</div></div></div>
     <div class="card-body" id="huntBody">—</div>
   </div>
@@ -504,50 +488,5 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <script src="cardiff-community.js"></script>
 <script src="cardiff-app.js"></script>
 <script src="cardiff-almanac.js"></script>
-<script>
-(function(){
-  var TABS={
-    weather:['wx-card','air-card','week-card'],
-    watershed:['watershed-card','alerts-card'],
-    sky:['moon-card','sky-card'],
-    nature:['fish-card','plant-card','fact-card','nature-card','hunt-card']
-  };
-  var cardTabMap={};
-  Object.keys(TABS).forEach(function(t){TABS[t].forEach(function(id){cardTabMap[id]=t;});});
-  var allIds=Object.keys(TABS).reduce(function(a,k){return a.concat(TABS[k]);},[]);
-  var tabBtns=document.querySelectorAll('.alm-section-tab');
-  var grid=document.querySelector('.alm-grid');
-
-  function switchTab(tab){
-    if(!TABS[tab])tab='weather';
-    tabBtns.forEach(function(b){b.classList.toggle('active',b.dataset.almTab===tab);});
-    grid.className=grid.className.replace(/\balm-tab-\w+/g,'').trim()+' alm-tab-'+tab;
-    allIds.forEach(function(id){
-      var el=document.getElementById(id);
-      if(!el)return;
-      el.classList.toggle('alm-hidden-by-tab',TABS[tab].indexOf(id)<0);
-    });
-    var rx=document.querySelector('[data-cardiff-widget="reactions"]');
-    if(rx)rx.classList.toggle('alm-hidden-by-tab',tab!=='weather');
-    try{localStorage.setItem('almTab',tab);}catch(e){}
-  }
-
-  tabBtns.forEach(function(b){
-    b.addEventListener('click',function(){switchTab(b.dataset.almTab);});
-  });
-
-  document.querySelectorAll('.today-pill').forEach(function(p){
-    p.addEventListener('click',function(){
-      var id=(p.getAttribute('href')||'').replace('#','');
-      var tab=cardTabMap[id];
-      if(tab)switchTab(tab);
-    });
-  });
-
-  var init='weather';
-  try{var s=localStorage.getItem('almTab');if(s&&TABS[s])init=s;}catch(e){}
-  switchTab(init);
-})();
-</script>
 </body>
 </html>
