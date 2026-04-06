@@ -99,6 +99,26 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .xing-ns{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--ink3);margin-top:.6rem;padding-top:.55rem;border-top:1px solid var(--rule)}
 .xing-toast{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3);min-height:1rem;margin-top:.45rem}
 @media(max-width:600px){.xing-inner{flex-direction:column;align-items:flex-start}.xing-right{width:100%}}
+.cn-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 1.2rem}
+.cn-card{background:#FAF6EE;border:1px solid var(--border);border-top:3px solid var(--red);border-radius:14px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
+.cn-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
+.cn-title{font-size:.94rem;font-weight:800;color:var(--ink);margin-bottom:.6rem;padding-bottom:.42rem;border-bottom:1px solid var(--rule)}
+.cn-stat{display:flex;justify-content:space-between;align-items:baseline;margin:.22rem 0}
+.cn-stat-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.cn-stat-val{font-size:.86rem;font-weight:700;color:var(--ink)}
+.cn-hero{display:flex;align-items:baseline;gap:.45rem;margin-bottom:.35rem}
+.cn-emoji{font-size:1.8rem;line-height:1}
+.cn-temp{font-size:1.65rem;font-weight:800;color:var(--ink)}
+.cn-cond{font-size:.82rem;color:var(--ink2);margin-bottom:.6rem}
+.cn-bar{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none;margin-top:.1rem}
+.cn-bar::-webkit-scrollbar{display:none}
+.cn-day{display:flex;flex-direction:column;align-items:center;gap:.15rem;min-width:38px;flex-shrink:0}
+.cn-day-name{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.cn-day-icon{font-size:1.05rem;line-height:1}
+.cn-day-hi{font-size:.74rem;font-weight:700;color:var(--ink)}
+.cn-day-lo{font-size:.7rem;color:var(--ink3)}
+.cn-sub{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.72rem}
+@media(max-width:760px){.cn-row{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
 </head>
@@ -125,6 +145,25 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <p class="card-body">Cardiff does not need filler. It needs a clean read on creek conditions, weather, county business, utilities, roads, public safety, and the nearby stories that can change ordinary life.</p>
       <p class="tiny" style="margin-top:.8rem;">If it matters to Cardiff, it belongs here. If it does not, it can stay off the page.</p>
     </aside>
+  </div>
+</section>
+
+<section class="cn-row reveal" aria-label="Conditions now">
+  <div class="cn-card">
+    <div class="cn-kicker">Weather Now</div>
+    <div class="cn-title">Cardiff · KALGRAYS4</div>
+    <div id="cnWeatherBody"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
+  </div>
+  <div class="cn-card">
+    <div class="cn-kicker">Creek at a Glance</div>
+    <div class="cn-title">Five Mile Creek</div>
+    <div id="cnCreekBody"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
+    <div class="cn-sub">Republic &middot; Upstream Watch</div>
+  </div>
+  <div class="cn-card">
+    <div class="cn-kicker">7-Day Forecast</div>
+    <div class="cn-title">Cardiff Area</div>
+    <div class="cn-bar" id="cnForecastBar"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
   </div>
 </section>
 
@@ -240,7 +279,13 @@ function sirenTestWindow(){const now=new Date(),day=now.getDay(),date=now.getDat
 function renderPriority(t,d){const box=$("priorityNote"),title=$("priorityTitle"),copy=$("priorityCopy");if(!box)return;if(sirenTestWindow()){box.hidden=false;title.textContent="Siren test in progress — this is not an emergency";copy.textContent="Jefferson County tests outdoor warning sirens on the first Wednesday of every month at 10:00 AM for three minutes. No action is needed. For more information visit jeffcoema.org/sirens";return;}if(t&&Array.isArray(t.alerts)&&t.alerts.length){const a=t.alerts[0];box.hidden=false;title.textContent=plain(a.headline||a.event||"Active alert");copy.textContent=[plain(a.description||""),a.endsShort?"Through "+plain(a.endsShort)+".":""].filter(Boolean).join(" ");return;}if(d&&plain(d.bulletin)){box.hidden=false;title.textContent="Desk bulletin";copy.textContent=plain(d.bulletin);return;}box.hidden=true;}
 function renderList(items){const el=$("scannerList"),btn=$("showOlderBtn");if(!el||!btn)return;if(!items.length){el.innerHTML='<div class="empty">The scanner is quiet right now. Creek conditions, weather, and the standing links below are still available while the outside story line thins out.</div>';btn.hidden=true;return;}const list=state.expanded?items:items.slice(0,SHOW_COUNT);el.innerHTML=list.map(x=>'<article class="item" style="--accent:'+color(x.tag)+';"><div class="item-top"><span class="tag">'+esc(tag(x.tag))+'</span><span class="date">'+esc(dateText(x.date))+'</span></div><h3>'+esc(x.title)+'</h3><div class="body-copy">'+(x.manual?x.body:esc(plain(x.body||"")))+'</div>'+sourceLine(x)+'</article>').join("");btn.hidden=state.expanded||items.length<=SHOW_COUNT;}
 function renderMeta(items,updated){const el=$("scannerMeta");if(!el)return;const manual=items.filter(x=>x.manual||x.priority>=60&&x.source==="Cardiff Desk").length,signal=items.filter(x=>["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))&&x.source!=="Regional source").length,live=items.filter(x=>x.link&&/^https?:/i.test(x.link)&&!x.manual&&!["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))).length;el.textContent=items.length+" items - "+manual+" desk notes - "+signal+" local signals - "+live+" nearby reports - refreshed "+stamp(updated);}
-async function load(){const [t,w,y,a,d,l]=await Promise.allSettled([json(URLS.ticker),json(URLS.watershed),json(URLS.weather),json(URLS.air),json(URLS.desk),json(URLS.live)]);const ticker=t.status==="fulfilled"?t.value:null,watershed=w.status==="fulfilled"?w.value:null,weather=y.status==="fulfilled"?y.value:null,air=a.status==="fulfilled"?a.value:null,desk=d.status==="fulfilled"?d.value:null,live=l.status==="fulfilled"?l.value:null;renderCreek(watershed);renderPriority(ticker,desk);state.items=sortItems(dedupe([bulletinItem(desk),creekItem(watershed),weatherItem(weather),rainItem(watershed,weather),airItem(air),...alertItems(ticker),...manualItems(),...deskItems(desk&&desk.pinned,true),...deskItems(desk&&desk.stories,false),...liveItems(live&&live.stories)].filter(Boolean)));renderList(state.items);renderMeta(state.items,(live&&live.updatedAt)||(desk&&desk.updatedAt)||(watershed&&watershed.updatedAt)||(weather&&weather.updatedAt)||new Date().toISOString());}
+function wmoEmoji(code){if(code===0)return'☀️';if(code<=2)return'🌤️';if(code===3)return'☁️';if(code<=48)return'🌫️';if(code<=55)return'🌦️';if(code<=65)return'🌧️';if(code<=77)return'❄️';if(code<=82)return'🌧️';return'⛈️';}
+function condEmoji(cond,temp){const c=String(cond||'').toLowerCase();if(/thunder|storm/.test(c))return'⛈️';if(/snow|sleet|ice/.test(c))return'❄️';if(/rain|shower|drizzle/.test(c))return'🌧️';if(/fog|mist/.test(c))return'🌫️';if(/overcast|cloud/.test(c))return'☁️';if(/partly|mostly/.test(c))return'🌤️';return(temp>=80)?'☀️':'🌤️';}
+function uvLabel(u){return u<=2?'Low':u<=5?'Moderate':u<=7?'High':'Very High';}
+function renderConditionsWeather(w){const el=document.getElementById('cnWeatherBody');if(!el)return;const c=w&&w.current;if(!c){el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Unavailable</span>';return;}const em=condEmoji(c.condition,c.temp);el.innerHTML='<div class="cn-hero"><span class="cn-emoji">'+em+'</span><span class="cn-temp">'+c.temp+'°F</span></div><div class="cn-cond">'+esc(c.condition||'')+'</div><div class="cn-stat"><span class="cn-stat-label">Humidity</span><span class="cn-stat-val">'+c.humidity+'%</span></div><div class="cn-stat"><span class="cn-stat-label">Wind</span><span class="cn-stat-val">'+c.windSpeed+' mph '+esc(c.windDir||'')+'</span></div><div class="cn-stat"><span class="cn-stat-label">UV Index</span><span class="cn-stat-val">'+c.uv+' · '+uvLabel(Number(c.uv))+'</span></div>';}
+function renderConditionsCreek(w){const el=document.getElementById('cnCreekBody');if(!el)return;const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==='lead'||x.id==='02457595'))||null;if(!g||!Number.isFinite(Number(g.stage_ft))){el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Unavailable</span>';return;}const ft=Number(g.stage_ft),cfs=Number(g.discharge_cfs),s=status(ft);let change24=null;if(Array.isArray(g.stage_history)&&g.stage_history.length){const ref=new Date(g.updated_at||w.updatedAt).getTime()-24*3600*1e3;let best=null,bestDiff=Infinity;g.stage_history.forEach(h=>{const d=Math.abs(new Date(h.at).getTime()-ref);if(d<bestDiff){bestDiff=d;best=h;}});if(best)change24=ft-Number(best.stage_ft);}const chStr=change24!==null?(change24>=0?'+':'')+change24.toFixed(2)+' ft':'—';const chCol=change24===null?'':change24>0.05?'color:var(--amber)':change24<-0.05?'color:var(--green)':'';el.innerHTML='<div class="cn-stat"><span class="cn-stat-label">Stage</span><span class="cn-stat-val">'+ft.toFixed(2)+' ft</span></div><div class="cn-stat"><span class="cn-stat-label">Discharge</span><span class="cn-stat-val">'+(Number.isFinite(cfs)?cfs.toFixed(1)+' cfs':'—')+'</span></div><div class="cn-stat"><span class="cn-stat-label">24h Change</span><span class="cn-stat-val" style="'+chCol+'">'+chStr+'</span></div><div class="cn-stat"><span class="cn-stat-label">Read</span><span class="cn-stat-val" style="color:'+s[1]+'">'+s[0]+'</span></div>';}
+function renderConditionsForecast(){const el=document.getElementById('cnForecastBar');if(!el)return;const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];fetch('https://api.open-meteo.com/v1/forecast?latitude=33.65&longitude=-86.97&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=America%2FChicago&forecast_days=7',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(data=>{el.innerHTML=data.daily.time.map((date,i)=>{const d=new Date(date+'T12:00:00');const hi=Math.round(data.daily.temperature_2m_max[i]*9/5+32);const lo=Math.round(data.daily.temperature_2m_min[i]*9/5+32);return'<div class="cn-day"><span class="cn-day-name">'+days[d.getDay()]+'</span><span class="cn-day-icon">'+wmoEmoji(data.daily.weathercode[i])+'</span><span class="cn-day-hi">'+hi+'°</span><span class="cn-day-lo">'+lo+'°</span></div>';}).join('');}).catch(()=>{el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Unavailable</span>';});}
+async function load(){const [t,w,y,a,d,l]=await Promise.allSettled([json(URLS.ticker),json(URLS.watershed),json(URLS.weather),json(URLS.air),json(URLS.desk),json(URLS.live)]);const ticker=t.status==="fulfilled"?t.value:null,watershed=w.status==="fulfilled"?w.value:null,weather=y.status==="fulfilled"?y.value:null,air=a.status==="fulfilled"?a.value:null,desk=d.status==="fulfilled"?d.value:null,live=l.status==="fulfilled"?l.value:null;renderCreek(watershed);renderConditionsWeather(weather);renderConditionsCreek(watershed);renderConditionsForecast();renderPriority(ticker,desk);state.items=sortItems(dedupe([bulletinItem(desk),creekItem(watershed),weatherItem(weather),rainItem(watershed,weather),airItem(air),...alertItems(ticker),...manualItems(),...deskItems(desk&&desk.pinned,true),...deskItems(desk&&desk.stories,false),...liveItems(live&&live.stories)].filter(Boolean)));renderList(state.items);renderMeta(state.items,(live&&live.updatedAt)||(desk&&desk.updatedAt)||(watershed&&watershed.updatedAt)||(weather&&weather.updatedAt)||new Date().toISOString());}
 $("showOlderBtn").addEventListener("click",()=>{state.expanded=true;renderList(state.items);});
 $("refreshBtn").addEventListener("click",()=>{state.expanded=false;load();});
 load();
