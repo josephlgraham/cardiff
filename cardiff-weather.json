@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-04-06T05:24:52.094Z",
+  "updatedAt": "2026-04-06T07:43:53.362Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-06 00:24:00",
+  "sourceUpdatedAt": "2026-04-06 02:43:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-06T05:24:00Z",
-      "obsTimeLocal": "2026-04-06 00:24:00",
+      "obsTimeUtc": "2026-04-06T07:43:00Z",
+      "obsTimeLocal": "2026-04-06 02:43:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775453040,
+      "epoch": 1775461380,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 282,
+      "winddir": 298,
       "humidity": 99,
       "qcStatus": 1,
       "imperial": {
@@ -26,7 +26,7 @@
         "windChill": 45,
         "windSpeed": 0,
         "windGust": 0,
-        "pressure": 29.89,
+        "pressure": 29.88,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -40,13 +40,13 @@
     "windSpeed": 0,
     "windGust": 0,
     "windDir": "WNW",
-    "windDirDegrees": 282,
+    "windDirDegrees": 298,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.89,
+    "pressureIn": 29.88,
     "uv": 0,
     "condition": "Cold",
-    "obsTime": "2026-04-06 00:24:00",
+    "obsTime": "2026-04-06 02:43:00",
     "solarRadiation": 0,
     "source": "local-station",
     "sourceNote": null,
@@ -73,10 +73,10 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-04-06T00:00:00-05:00",
+      "startTime": "2026-04-06T02:00:00-05:00",
       "endTime": "2026-04-06T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 45,
+      "temperature": 46,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -87,7 +87,7 @@
       "windDirection": "N",
       "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
       "shortForecast": "Mostly Cloudy",
-      "detailedForecast": "Mostly cloudy, with a low around 45. North wind around 5 mph."
+      "detailedForecast": "Mostly cloudy, with a low around 46. North wind around 5 mph."
     },
     {
       "number": 2,
@@ -103,10 +103,10 @@
         "value": 0
       },
       "windSpeed": "5 to 10 mph",
-      "windDirection": "N",
+      "windDirection": "NE",
       "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
       "shortForecast": "Partly Sunny",
-      "detailedForecast": "Partly sunny, with a high near 69. North wind 5 to 10 mph."
+      "detailedForecast": "Partly sunny, with a high near 69. Northeast wind 5 to 10 mph."
     },
     {
       "number": 3,
@@ -190,18 +190,18 @@
       "startTime": "2026-04-08T18:00:00-05:00",
       "endTime": "2026-04-09T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 52,
+      "temperature": 51,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 8
+        "value": 11
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-      "shortForecast": "Mostly Cloudy",
-      "detailedForecast": "Mostly cloudy, with a low around 52."
+      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+      "shortForecast": "Partly Cloudy",
+      "detailedForecast": "Partly cloudy, with a low around 51."
     },
     {
       "number": 8,
@@ -209,18 +209,18 @@
       "startTime": "2026-04-09T06:00:00-05:00",
       "endTime": "2026-04-09T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 75,
+      "temperature": 73,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 8
+        "value": 11
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 75."
+      "detailedForecast": "Mostly sunny, with a high near 73."
     }
   ]
 }
