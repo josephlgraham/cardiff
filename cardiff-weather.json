@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-04-06T15:47:37.095Z",
+  "updatedAt": "2026-04-06T16:48:35.806Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-06 10:46:00",
+  "sourceUpdatedAt": "2026-04-06 11:47:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-06T15:46:00Z",
-      "obsTimeLocal": "2026-04-06 10:46:00",
+      "obsTimeUtc": "2026-04-06T16:47:00Z",
+      "obsTimeLocal": "2026-04-06 11:47:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 320.4,
+      "solarRadiation": 518.4,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775490360,
+      "epoch": 1775494020,
       "lat": 33.647,
-      "uv": 3,
-      "winddir": 334,
-      "humidity": 49,
+      "uv": 5,
+      "winddir": 325,
+      "humidity": 44,
       "qcStatus": 1,
       "imperial": {
-        "temp": 61,
-        "heatIndex": 61,
-        "dewpt": 42,
-        "windChill": 61,
-        "windSpeed": 3,
-        "windGust": 4,
+        "temp": 65,
+        "heatIndex": 65,
+        "dewpt": 43,
+        "windChill": 65,
+        "windSpeed": 2,
+        "windGust": 3,
         "pressure": 29.95,
         "precipRate": 0,
         "precipTotal": 0,
@@ -34,23 +34,23 @@
     }
   ],
   "current": {
-    "temp": 61,
-    "feels": 61,
-    "humidity": 49,
-    "windSpeed": 3,
-    "windGust": 4,
-    "windDir": "NNW",
-    "windDirDegrees": 334,
+    "temp": 65,
+    "feels": 65,
+    "humidity": 44,
+    "windSpeed": 2,
+    "windGust": 3,
+    "windDir": "NW",
+    "windDirDegrees": 325,
     "precipRate": 0,
     "precipTotal": 0,
     "pressureIn": 29.95,
-    "uv": 3,
-    "condition": "Mild",
-    "obsTime": "2026-04-06 10:46:00",
-    "solarRadiation": 320.4,
+    "uv": 5,
+    "condition": "Partly cloudy",
+    "obsTime": "2026-04-06 11:47:00",
+    "solarRadiation": 518.4,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 61°F, mild."
+    "summary": "Right now around Cardiff it feels 65°F, partly cloudy."
   },
   "rain": {
     "today": 0,
@@ -73,10 +73,29 @@
     {
       "number": 1,
       "name": "Today",
-      "startTime": "2026-04-06T10:00:00-05:00",
+      "startTime": "2026-04-06T11:00:00-05:00",
       "endTime": "2026-04-06T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 69,
+      "temperature": 70,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 0
+      },
+      "windSpeed": "10 mph",
+      "windDirection": "NE",
+      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+      "shortForecast": "Partly Sunny",
+      "detailedForecast": "Partly sunny, with a high near 70. Northeast wind around 10 mph."
+    },
+    {
+      "number": 2,
+      "name": "Tonight",
+      "startTime": "2026-04-06T18:00:00-05:00",
+      "endTime": "2026-04-07T06:00:00-05:00",
+      "isDaytime": false,
+      "temperature": 47,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -85,28 +104,9 @@
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-      "shortForecast": "Partly Sunny",
-      "detailedForecast": "Partly sunny, with a high near 69. Northeast wind 5 to 10 mph."
-    },
-    {
-      "number": 2,
-      "name": "Tonight",
-      "startTime": "2026-04-06T18:00:00-05:00",
-      "endTime": "2026-04-07T06:00:00-05:00",
-      "isDaytime": false,
-      "temperature": 46,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 0
-      },
-      "windSpeed": "5 mph",
-      "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-      "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 46. Northeast wind around 5 mph."
+      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+      "shortForecast": "Partly Cloudy",
+      "detailedForecast": "Partly cloudy, with a low around 47. Northeast wind 5 to 10 mph."
     },
     {
       "number": 3,
@@ -121,11 +121,11 @@
         "unitCode": "wmoUnit:percent",
         "value": 0
       },
-      "windSpeed": "5 to 10 mph",
+      "windSpeed": "5 to 15 mph",
       "windDirection": "NE",
       "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
       "shortForecast": "Sunny",
-      "detailedForecast": "Sunny, with a high near 75. Northeast wind 5 to 10 mph."
+      "detailedForecast": "Sunny, with a high near 75. Northeast wind 5 to 15 mph."
     },
     {
       "number": 4,
@@ -133,18 +133,18 @@
       "startTime": "2026-04-07T18:00:00-05:00",
       "endTime": "2026-04-08T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 50,
+      "temperature": 51,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 2
+        "value": 0
       },
-      "windSpeed": "5 mph",
-      "windDirection": "E",
+      "windSpeed": "5 to 10 mph",
+      "windDirection": "NE",
       "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
       "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 50. East wind around 5 mph."
+      "detailedForecast": "Partly cloudy, with a low around 51. Northeast wind 5 to 10 mph."
     },
     {
       "number": 5,
@@ -157,7 +157,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 4
+        "value": 3
       },
       "windSpeed": "5 to 15 mph",
       "windDirection": "E",
@@ -171,18 +171,18 @@
       "startTime": "2026-04-08T18:00:00-05:00",
       "endTime": "2026-04-09T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 51,
+      "temperature": 50,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
         "value": 11
       },
-      "windSpeed": "10 mph",
+      "windSpeed": "5 to 10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-      "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 51."
+      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+      "shortForecast": "Mostly Cloudy",
+      "detailedForecast": "Mostly cloudy, with a low around 50."
     },
     {
       "number": 7,
@@ -190,18 +190,18 @@
       "startTime": "2026-04-09T06:00:00-05:00",
       "endTime": "2026-04-09T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 73,
+      "temperature": 74,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
         "value": 11
       },
-      "windSpeed": "10 mph",
+      "windSpeed": "5 to 10 mph",
       "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 73."
+      "detailedForecast": "Mostly sunny, with a high near 74."
     },
     {
       "number": 8,
@@ -209,18 +209,18 @@
       "startTime": "2026-04-09T18:00:00-05:00",
       "endTime": "2026-04-10T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 55,
+      "temperature": 52,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 7
+        "value": 3
       },
       "windSpeed": "5 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-      "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 55."
+      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+      "shortForecast": "Mostly Clear",
+      "detailedForecast": "Mostly clear, with a low around 52."
     }
   ]
 }
