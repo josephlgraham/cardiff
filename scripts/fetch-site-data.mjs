@@ -643,13 +643,66 @@ async function fetchNewsStories() {
     });
 }
 
-async function updateNewsFile() {
-  const stories = await fetchNewsStories();
+async function buildMonthlyRainStory(rain, now) {
+  // Gate 1 — is today the last day of the month?
+  const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
+  const isLastDay = tomorrow.getMonth() !== now.getMonth();
+  if (!isLastDay) return null;
+
+  // Gate 2 — does the story log already contain a fingerprint for this month?
+  const monthKey = localMonthKey(now); // "YYYY-MM"
+  const fingerprint = `monthly-rain-${monthKey}`;
+  const existing = await readJson(NEWS_FILE, { stories: [] });
+  const alreadyFiled = Array.isArray(existing.stories) &&
+    existing.stories.some((s) => s.id === fingerprint);
+  if (alreadyFiled) return null;
+
+  const monthToDate = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
+  const monthLabel = rain && rain.monthLabel ? rain.monthLabel : localMonthLabel(now);
+  const totalText = monthToDate !== null ? `${monthToDate.toFixed(2)} in` : 'totals still compiling';
+  const isoDate = now.toISOString();
+
+  return {
+    id: fingerprint,
+    source_type: 'local_station',
+    source_name: 'Cardiff Desk',
+    title: `${monthLabel} rain: ${totalText} recorded at Cardiff`,
+    summary: `The Cardiff station wrapped ${monthLabel} with ${totalText} of measured precipitation.`,
+    url: '',
+    published_at: isoDate,
+    location_tags: ['cardiff'],
+    topic_tags: ['weather'],
+    priority_level: 3,
+    section_target: 'news',
+    module_target: 'regional_news_tracker',
+    is_alert: false,
+    is_featured: false,
+    image_url: '',
+    raw_payload: { modes: ['weather'], tags: ['Weather'] },
+    last_synced_at: isoDate,
+    source: 'Cardiff Desk',
+    link: '',
+    description: `The Cardiff station wrapped ${monthLabel} with ${totalText} of measured precipitation.`,
+    date: isoDate,
+    modes: ['weather'],
+    tags: ['Weather'],
+    priority: 3
+  };
+}
+
+async function updateNewsFile(weatherPayload = null) {
+  const now = new Date();
+  const weather = weatherPayload || await readJson(WEATHER_FILE, { rain: null });
+  const [stories, monthlyRainStory] = await Promise.all([
+    fetchNewsStories(),
+    buildMonthlyRainStory(weather?.rain || null, now)
+  ]);
+  const allStories = monthlyRainStory ? [monthlyRainStory, ...stories] : stories;
   await writeJson(NEWS_FILE, {
-    updatedAt: new Date().toISOString(),
-    stories
+    updatedAt: now.toISOString(),
+    stories: allStories
   });
-  console.log(`Updated ${path.basename(NEWS_FILE)} with ${stories.length} stor${stories.length === 1 ? 'y' : 'ies'}`);
+  console.log(`Updated ${path.basename(NEWS_FILE)} with ${allStories.length} stor${allStories.length === 1 ? 'y' : 'ies'}${monthlyRainStory ? ' (+ monthly rain summary)' : ''}`);
 }
 
 function findSeries(data, parameterCode) {
@@ -997,7 +1050,7 @@ async function main() {
   await updateWatershedFile(weather);
   await updateAirQualityFile();
   await updateCommunitySnapshotFile();
-  await updateNewsFile();
+  await updateNewsFile(weather);
 }
 
 main().catch((error) => {
