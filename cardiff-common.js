@@ -53,6 +53,7 @@
 
   // ─── WEATHER ───────────────────────────────────────────────────
   var WEATHER_URL = 'cardiff-weather.json';
+  var WATERSHED_URL = 'cardiff-watershed.json';
   var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx90oZdqT77vIQvI_YzCcFX1qLOgqdroVqa_-Jo05SiztJasMgrNMTJ4FdrOWsdzEPHTw/exec';
 
   // ─── TICKER ────────────────────────────────────────────────────
@@ -100,6 +101,10 @@
       '    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>\n' +
       '    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
       '    <div class="mh-right-info"><a href="cardiff-almanac.html#wx-card" class="mh-wx-link"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span></a><br><span id="mhWind">&mdash;</span></div>\n' +
+      '    <div class="mh-mobile-pills">\n' +
+      '      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>\n' +
+      '      <a href="cardiff-almanac.html" class="mh-pill" id="mhWxPill">🌤\uFE0F &mdash;&deg;F</a>\n' +
+      '    </div>\n' +
       '  </div>\n' +
       '  <nav class="mh-tabs">\n' +
       '    ' + tabsHtml + '\n' +
@@ -247,10 +252,45 @@
         setEl('mhTemp', wxE + ' ' + temp + '°F');
         setEl('mhCond', cond);
         setEl('mhWind', wE + ' ' + wind);
+        var wxPill = document.getElementById('mhWxPill');
+        if (wxPill) wxPill.textContent = wxE + ' ' + temp + '°F · ' + cond;
       })
       .catch(function () {
         setEl('mhTemp', '—');
         setEl('mhCond', 'Offline');
+      });
+  }
+
+
+  function creekMoodPill(stage) {
+    if (!isFinite(stage)) return { icon: '📡', label: 'Creek' };
+    if (stage < 1.5)  return { icon: '🥾', label: 'Low & wadable' };
+    if (stage < 2.25) return { icon: '🛶', label: 'Creek level' };
+    if (stage < 3.5)  return { icon: '🚣', label: 'Moving fast' };
+    return { icon: '🛟', label: 'High water' };
+  }
+
+  function loadWatershed() {
+    fetch(WATERSHED_URL, { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var gauges = Array.isArray(d.gauges) ? d.gauges : [];
+        var lead = null;
+        for (var i = 0; i < gauges.length; i++) {
+          if (gauges[i].role === 'lead') { lead = gauges[i]; break; }
+        }
+        if (!lead && gauges.length) lead = gauges[0];
+        var stage = lead ? parseFloat(lead.stage_ft) : NaN;
+        var mood = creekMoodPill(isFinite(stage) ? stage : NaN);
+        var text = isFinite(stage)
+          ? mood.icon + ' ' + stage.toFixed(2) + ' ft · ' + mood.label
+          : mood.icon + ' ' + mood.label;
+        var el = document.getElementById('mhCreekPill');
+        if (el) el.textContent = text;
+      })
+      .catch(function () {
+        var el = document.getElementById('mhCreekPill');
+        if (el) el.textContent = '🌊 Creek';
       });
   }
 
@@ -446,6 +486,8 @@
     initTopo();
     loadWeather();
     setInterval(loadWeather, 5 * 60 * 1000);
+    loadWatershed();
+    setInterval(loadWatershed, 10 * 60 * 1000);
     loadTicker();
     setInterval(loadTicker, TICKER_REFRESH_MS);
     initReveals();
