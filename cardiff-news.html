@@ -100,7 +100,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .xing-toast{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3);min-height:1rem;margin-top:.45rem}
 @media(max-width:600px){.xing-inner{flex-direction:column;align-items:flex-start}.xing-right{width:100%}}
 .cn-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 1.2rem}
-.cn-card{background:#FAF6EE;border:1px solid var(--border);border-top:3px solid var(--red);border-radius:14px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
+.cn-card{background:#FAF6EE;border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
 .cn-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
 .cn-title{font-size:.94rem;font-weight:800;color:var(--ink);margin-bottom:.6rem;padding-bottom:.42rem;border-bottom:1px solid var(--rule)}
 .cn-stat{display:flex;justify-content:space-between;align-items:baseline;margin:.22rem 0}
@@ -128,24 +128,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <div id="cardiff-masthead"></div>
 <main class="wrap">
 <section class="hero reveal">
-  <div class="hero-grid">
-    <article class="hero-copy">
-      <div class="section-kicker">Scanner log</div>
-      <h1 class="title">Useful news, closer to home.</h1>
-      <p class="sub">The scanner keeps one eye on Cardiff, one on Five Mile Creek, and the rest on the nearby decisions that can change life on the ground. It blends hand-written notes, local live signals, and a short list of outside stories worth the click.</p>
-      <div class="mini-grid">
-        <div class="mini"><strong>Creek and weather stay visible</strong><p>Gauge stage, rainfall, forecast, and air can keep the page useful even when outside coverage is thin.</p></div>
-        <div class="mini"><strong>Nearby towns still matter</strong><p>Brookside, Graysville, Adamsville, and county decisions all reach Cardiff sooner or later.</p></div>
-        <div class="mini"><strong>Standing links stay parked below</strong><p>Sheriff, roads, water, power, and waste pickup should not be buried inside a feed.</p></div>
-      </div>
-    </article>
-    <aside class="side">
-      <div class="section-kicker">What This Covers</div>
-      <h2 class="card-title">The nearby picture, kept tight.</h2>
-      <p class="card-body">Cardiff does not need filler. It needs a clean read on creek conditions, weather, county business, utilities, roads, public safety, and the nearby stories that can change ordinary life.</p>
-      <p class="tiny" style="margin-top:.8rem;">If it matters to Cardiff, it belongs here. If it does not, it can stay off the page.</p>
-    </aside>
-  </div>
+  <article class="hero-copy">
+    <div class="section-kicker">Scanner log</div>
+    <h1 class="title">Useful news, closer to home.</h1>
+  </article>
 </section>
 
 <section class="cn-row reveal" aria-label="Conditions now">
@@ -167,10 +153,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   </div>
 </section>
 
-<section class="creek reveal" id="creekStrip" aria-live="polite">
-  <div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">Checking the Republic gauge</span><span class="creek-badge">Loading</span></div>
-  <div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL</div>
-</section>
 
 <section class="xing reveal" aria-label="Cardiff Lynn crossing status" aria-live="polite">
   <div class="xing-inner">
@@ -196,8 +178,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 <section class="priority reveal" id="priorityNote" hidden aria-live="polite">
   <div class="priority-label">Priority note</div>
-  <div class="priority-title" id="priorityTitle">Desk note</div>
-  <div class="priority-copy" id="priorityCopy">Reading the latest note.</div>
+  <div class="priority-title" id="priorityTitle">—</div>
+  <div class="priority-copy" id="priorityCopy">—</div>
 </section>
 
 <div class="rule reveal"><h2>The Scanner</h2><hr></div>
