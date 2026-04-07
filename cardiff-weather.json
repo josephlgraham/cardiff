@@ -1,29 +1,29 @@
 {
-  "updatedAt": "2026-04-07T09:02:50.928Z",
+  "updatedAt": "2026-04-07T10:55:45.027Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-07 04:02:00",
+  "sourceUpdatedAt": "2026-04-07 05:54:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-07T09:02:00Z",
-      "obsTimeLocal": "2026-04-07 04:02:00",
+      "obsTimeUtc": "2026-04-07T10:54:00Z",
+      "obsTimeLocal": "2026-04-07 05:54:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775552520,
+      "epoch": 1775559240,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 289,
+      "winddir": 288,
       "humidity": 99,
       "qcStatus": 1,
       "imperial": {
-        "temp": 40,
-        "heatIndex": 40,
-        "dewpt": 39,
-        "windChill": 40,
+        "temp": 38,
+        "heatIndex": 38,
+        "dewpt": 38,
+        "windChill": 38,
         "windSpeed": 0,
         "windGust": 0,
         "pressure": 29.86,
@@ -34,23 +34,23 @@
     }
   ],
   "current": {
-    "temp": 40,
-    "feels": 40,
+    "temp": 38,
+    "feels": 38,
     "humidity": 99,
     "windSpeed": 0,
     "windGust": 0,
     "windDir": "WNW",
-    "windDirDegrees": 289,
+    "windDirDegrees": 288,
     "precipRate": 0,
     "precipTotal": 0,
     "pressureIn": 29.86,
     "uv": 0,
     "condition": "Overcast",
-    "obsTime": "2026-04-07 04:02:00",
+    "obsTime": "2026-04-07 05:54:00",
     "solarRadiation": 0,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 40°F, overcast, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 38°F, overcast, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -62,11 +62,11 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 40,
-      "windGust": 4,
+      "lowTemp": 38,
+      "windGust": 0,
       "label": "So far today",
       "isMorning": false,
-      "coverageStart": "2026-04-06"
+      "coverageStart": "2026-04-07"
     }
   },
   "forecast": [
