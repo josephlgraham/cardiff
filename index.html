@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--amber-soft:#d1a038;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--paper3:#e5d5b5;--card:#faf6ee;--card2:#f7f0e4;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:16px;--ease:220ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82)}
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--amber-soft:#d1a038;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--paper3:#e5d5b5;--card:#faf6ee;--card2:#f7f0e4;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -51,12 +51,12 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .pill-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
 .pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border2);border-radius:999px;padding:.38rem .72rem;background:rgba(255,255,255,.4);font-size:.72rem;font-weight:700;color:var(--ink2)}
 .pill-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
-.section-rule{display:flex;align-items:center;gap:.75rem;margin:2rem 0 1.25rem}
-.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}.section-rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
+.section-rule{display:flex;align-items:center;gap:.75rem;margin:40px 0;box-shadow:none}
+.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}.section-rule hr{flex:1;border:none;border-top:1px solid #DDCFB8;box-shadow:none}
 .card,.band,.photo-shell,.news-shell,.quote-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative}
 .band{padding:1.5rem}
 .card{padding:1.2rem}
-.card-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.5rem}.card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
+.card-title{font-family:var(--sans);font-size:1rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);margin-bottom:.5rem}.card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
 .photo-shell{padding:1rem;box-shadow:var(--shadow-lg);--ibox-pad-x:1rem}
 .photo-shell{box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09)}
 .photo-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
@@ -224,7 +224,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <div class="site-kicker">At a glance</div>
       <h3 class="card-title">Today in Cardiff</h3>
       <div class="today-list" id="homeToday">
-        <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Loading local conditions</div><div class="side-sub">Weather, daylight, moon, and ground read are syncing.</div></div></div>
+        <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">—</div><div class="side-sub">Weather, daylight, moon, and ground read are syncing.</div></div></div>
       </div>
     </article>
     <article class="card reveal">
@@ -332,7 +332,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </div>
     <div class="news-grid" id="homeNewsGrid">
-      <div class="news-card loading">Loading live stories…</div>
+      <div class="news-card loading">—</div>
     </div>
   </section>
 </div>
@@ -453,13 +453,13 @@ function buildSkyNote(moon){
       : 'Moonlight will be moderate tonight, enough to shape the woods without washing everything out.';
 }
 async function fetchFeed(url){const rss2json='https://api.rss2json.com/v1/api.json?count=24&rss_url='+encodeURIComponent(url);try{const res=await fetch(rss2json);const data=await res.json();if(data.status==='ok'&&Array.isArray(data.items)){return data.items.map(item=>({title:cleanTitle(item.title||'Untitled'),source:extractSource(item),link:item.link||'#',description:plainText(item.description||item.content||''),date:parseDate(item.pubDate||item.published||''),raw:item}))}}catch(e){}try{const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);const res=await fetch(proxy);const text=await res.text();const xml=new DOMParser().parseFromString(text,'text/xml');return [...xml.querySelectorAll('item')].map(node=>({title:cleanTitle(node.querySelector('title')?.textContent||'Untitled'),source:node.querySelector('source')?.textContent?.trim()||extractSource({title:node.querySelector('title')?.textContent||''}),link:node.querySelector('link')?.textContent||'#',description:plainText(node.querySelector('description')?.textContent||''),date:parseDate(node.querySelector('pubDate')?.textContent||''),raw:node}))}catch(e){return []}}
-async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">Loading live stories...</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,5));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<4)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live read</div><div class="news-title">No fresh nearby stories are showing right now.</div><div class="news-snippet">The creek, weather, and wider scanner are still updating while the outside feed thins out.</div></div>';status.textContent='Waiting on fresh nearby coverage';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'...':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story -></span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
+async function loadHomeNews(){const target=document.getElementById('homeNewsGrid');const status=document.getElementById('homeNewsStatus');target.innerHTML='<div class="news-card loading">—</div>';status.textContent='Checking current local and regional stories';const groups=await Promise.all([fetchFeed(FEED_GROUPS.nearby),fetchFeed(FEED_GROUPS.regional)]);const items=[...groups[0],...groups[1]].filter(item=>item.title&&item.link&&isFresh(item.date,5));const ranked=items.sort((a,b)=>scoreItem(b)-scoreItem(a)||((b.date||0)-(a.date||0)));const seen=new Set();const picked=[];for(const item of ranked){const key=(item.title+'|'+item.source).toLowerCase();if(seen.has(key))continue;seen.add(key);if(scoreItem(item)<4)continue;picked.push(item);if(picked.length===3)break}if(!picked.length){target.innerHTML='<div class="news-card"><div class="news-source">Live read</div><div class="news-title">No fresh nearby stories are showing right now.</div><div class="news-snippet">The creek, weather, and wider scanner are still updating while the outside feed thins out.</div></div>';status.textContent='Waiting on fresh nearby coverage';return}target.innerHTML=picked.map(item=>`<article class="news-card"><a href="${item.link}" target="_blank" rel="noreferrer"><div class="news-source">${item.source}</div><h3 class="news-title">${item.title}</h3><p class="news-snippet">${(item.description||'Open the story for the latest details.').slice(0,170)}${(item.description||'').length>170?'...':''}</p><div class="news-meta"><span>${relativeTime(item.date)}</span><span>Open story -></span></div></a></article>`).join('');status.textContent='Updated from current Birmingham and Jefferson County coverage'}
 document.getElementById('refreshHomeNews').addEventListener('click',loadHomeNews);
 
 async function loadHomeNewsLocal(){
   const target=document.getElementById('homeNewsGrid');
   const status=document.getElementById('homeNewsStatus');
-  target.innerHTML='<div class="news-card loading">Loading live stories...</div>';
+  target.innerHTML='<div class="news-card loading">—</div>';
   status.textContent='Checking current local and regional stories';
   const loadJson=async url=>{const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error(url);return res.json()};
   const [deskResult,liveResult]=await Promise.allSettled([loadJson(HOME_NEWS_URLS.desk),loadJson(HOME_NEWS_URLS.live)]);

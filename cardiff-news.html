@@ -32,7 +32,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .mini strong{display:block;font-size:.82rem;color:var(--ink);margin-bottom:.22rem}
 .mini p{font-size:.76rem;line-height:1.6;color:var(--ink3)}
 .side{padding:1.08rem 1.12rem}
-.card-title{display:block;font-size:1.03rem;font-weight:800;color:var(--ink);padding-bottom:.5rem;margin-bottom:.45rem;border-bottom:1px solid var(--rule)}
+.card-title{display:block;font-family:var(--sans);font-size:1rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);padding-bottom:.5rem;margin-bottom:.45rem;border-bottom:1px solid var(--rule)}
 .card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 .creek{margin:0 0 1.2rem;padding:.95rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:999px;background:rgba(250,246,238,.92);border:1px solid rgba(80,44,8,.14);box-shadow:var(--shadow)}
@@ -45,9 +45,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .priority-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.36rem}
 .priority-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.28rem}
 .priority-copy{font-size:.9rem;line-height:1.68;color:var(--ink2)}
-.rule{display:flex;align-items:center;gap:.75rem;margin:1.7rem 0 1rem}
+.rule{display:flex;align-items:center;gap:.75rem;margin:40px 0;box-shadow:none}
 .rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.rule hr{flex:1;border:none;border-top:1px solid var(--rule)}
+.rule hr{flex:1;border:none;border-top:1px solid #DDCFB8;box-shadow:none}
 .scanner{padding:1.2rem 1.2rem 1.3rem}
 .scanner-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem}
 .meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
@@ -138,18 +138,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="cn-card">
     <div class="cn-kicker">Weather Now</div>
     <div class="cn-title">Cardiff · KALGRAYS4</div>
-    <div id="cnWeatherBody"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
+    <div id="cnWeatherBody">—</div>
   </div>
   <div class="cn-card">
     <div class="cn-kicker">Creek at a Glance</div>
     <div class="cn-title">Five Mile Creek</div>
-    <div id="cnCreekBody"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
+    <div id="cnCreekBody">—</div>
     <div class="cn-sub">Republic &middot; Upstream Watch</div>
   </div>
   <div class="cn-card">
     <div class="cn-kicker">7-Day Forecast</div>
     <div class="cn-title">Cardiff Area</div>
-    <div class="cn-bar" id="cnForecastBar"><span style="color:var(--ink3);font-size:.82rem">Loading&hellip;</span></div>
+    <div class="cn-bar" id="cnForecastBar">—</div>
   </div>
 </section>
 
@@ -195,7 +195,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </div>
   <div class="list" id="scannerList" aria-live="polite">
-    <div class="item"><div class="item-top"><span class="tag">Loading</span><span class="date">Stand by</span></div><h3>Building the scanner log.</h3><div class="body-copy">Pulling local signals, desk notes, and nearby reporting.</div></div>
+    <div class="item">—</div>
   </div>
   <div class="actions"><button class="btn-lite" type="button" id="showOlderBtn" hidden>Show older</button></div>
 </section>

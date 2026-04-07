@@ -9,6 +9,7 @@
   --hdr-nav:rgba(245,234,216,0.82);
 }
 html{scroll-behavior:smooth;}
+a:hover{text-decoration:underline;}
 [hidden]{display:none !important;}
 [id]{scroll-margin-top:var(--masthead-offset,150px);}
 .cardiff-masthead{background:var(--hdr-bg)!important;border-bottom:3px solid var(--red)!important;position:sticky!important;top:0!important;z-index:100!important;}
@@ -29,7 +30,7 @@ html{scroll-behavior:smooth;}
 .mh-tabs a:hover{color:var(--hdr-text)!important;background:rgba(255,215,140,0.05)!important;}
 .mh-tabs a.active{color:var(--red)!important;}
 .mh-tabs a.active::after{content:""!important;position:absolute!important;bottom:0!important;left:0!important;right:0!important;height:2px!important;background:var(--red)!important;}
-.announce-strip{background:var(--red)!important;color:#fff!important;height:26px!important;display:flex!important;align-items:center!important;overflow:hidden!important;flex-shrink:0!important;}
+.announce-strip{background:var(--red)!important;color:#fff!important;height:26px!important;min-height:26px!important;display:flex!important;align-items:center!important;overflow:hidden!important;flex-shrink:0!important;}
 .announce-strip-scroll{flex:1!important;overflow:hidden!important;position:relative!important;padding:0 1rem!important;}
 .announce-strip-text{display:inline-block!important;white-space:nowrap!important;font-family:var(--mono)!important;font-size:0.63rem!important;letter-spacing:0.05em!important;animation:none!important;padding-left:0!important;transform:none!important;}
 @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
@@ -144,6 +145,16 @@ html{scroll-behavior:smooth;}
   margin-bottom:0.5rem !important;
   border-bottom:none;
 }
+.card-title{
+  font-family:var(--sans) !important;
+  font-size:1rem !important;
+  font-weight:800 !important;
+  color:var(--ink,#1c1208) !important;
+  letter-spacing:-0.01em !important;
+}
+.section-rule,.rule{display:flex;align-items:center;gap:.75rem;margin:40px 0;box-shadow:none;}
+.section-rule h2,.rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.section-rule hr,.rule hr{flex:1;border:none;border-top:1px solid #DDCFB8;box-shadow:none;}
 
 /* Shared inline link treatment for body copy */
 :where(
@@ -347,7 +358,7 @@ a[hidden]{
   padding:1.15rem 1.2rem;
   background:var(--card,#faf6ee);
   border:1px solid var(--border,rgba(80,44,8,0.13));
-  border-radius:16px;
+  border-radius:14px;
   box-shadow:var(--shadow,0 2px 10px rgba(80,44,8,0.09)),inset 0 0 0 1px rgba(200,16,46,0.09);
   position:relative;
 }
