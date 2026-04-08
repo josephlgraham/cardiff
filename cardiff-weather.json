@@ -1,29 +1,29 @@
 {
-  "updatedAt": "2026-04-08T07:20:58.646Z",
+  "updatedAt": "2026-04-08T09:01:45.751Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-08 02:19:00",
+  "sourceUpdatedAt": "2026-04-08 03:59:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-08T07:19:00Z",
-      "obsTimeLocal": "2026-04-08 02:19:00",
+      "obsTimeUtc": "2026-04-08T08:59:00Z",
+      "obsTimeLocal": "2026-04-08 03:59:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775632740,
+      "epoch": 1775638740,
       "lat": 33.647,
       "uv": 0,
       "winddir": 267,
       "humidity": 99,
-      "qcStatus": 0,
+      "qcStatus": 1,
       "imperial": {
-        "temp": 46,
-        "heatIndex": 46,
-        "dewpt": 46,
-        "windChill": 46,
+        "temp": 45,
+        "heatIndex": 45,
+        "dewpt": 45,
+        "windChill": 45,
         "windSpeed": 0,
         "windGust": 0,
         "pressure": 29.88,
@@ -34,8 +34,8 @@
     }
   ],
   "current": {
-    "temp": 46,
-    "feels": 46,
+    "temp": 45,
+    "feels": 45,
     "humidity": 99,
     "windSpeed": 0,
     "windGust": 0,
@@ -45,12 +45,12 @@
     "precipTotal": 0,
     "pressureIn": 29.88,
     "uv": 0,
-    "condition": "Cold",
-    "obsTime": "2026-04-08 02:19:00",
+    "condition": "Overcast",
+    "obsTime": "2026-04-08 03:59:00",
     "solarRadiation": 0,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 46°F, cold, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 45°F, overcast, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -73,7 +73,7 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-04-08T02:00:00-05:00",
+      "startTime": "2026-04-08T04:00:00-05:00",
       "endTime": "2026-04-08T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 51,
@@ -84,10 +84,10 @@
         "value": 0
       },
       "windSpeed": "5 mph",
-      "windDirection": "NE",
+      "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
       "shortForecast": "Mostly Cloudy",
-      "detailedForecast": "Mostly cloudy, with a low around 51. Northeast wind around 5 mph."
+      "detailedForecast": "Mostly cloudy, with a low around 51. East wind around 5 mph."
     },
     {
       "number": 2,
