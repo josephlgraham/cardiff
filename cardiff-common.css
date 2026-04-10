@@ -32,7 +32,7 @@ a:hover{text-decoration:underline;}
 .mh-tabs a.active::after{content:""!important;position:absolute!important;bottom:0!important;left:0!important;right:0!important;height:2px!important;background:var(--red)!important;}
 .announce-strip{background:var(--red)!important;color:#fff!important;height:26px!important;min-height:26px!important;display:flex!important;align-items:center!important;overflow:hidden!important;flex-shrink:0!important;}
 .announce-strip-scroll{flex:1!important;overflow:hidden!important;position:relative!important;padding:0 1rem!important;}
-.announce-strip-text{display:inline-block!important;white-space:nowrap!important;font-family:var(--mono)!important;font-size:0.63rem!important;letter-spacing:0.05em!important;animation:none!important;padding-left:0!important;transform:none!important;}
+.announce-strip-text{display:inline-block!important;white-space:nowrap!important;font-family:var(--mono)!important;font-size:0.63rem!important;letter-spacing:0.05em!important;animation:none!important;padding-left:0!important;}
 @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
 @media(max-width:600px){
   .mh-identity{grid-template-columns:1fr!important;justify-items:center!important;gap:0.25rem!important;padding:0.6rem 1rem 0!important;min-height:unset!important;}
