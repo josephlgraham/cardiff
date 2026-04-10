@@ -477,7 +477,7 @@
     if (lane === "nature") return "🍃";
     if (lane === "hunting") return "🏹";
     if (title.includes("tornado siren")) return "🚨";
-    if (title.includes("city council")) return "🏛️";
+    if (title.includes("city council") || title.includes("town council")) return "🏛️";
     if (lane === "civic") return "🏛️";
     return "📆";
   }

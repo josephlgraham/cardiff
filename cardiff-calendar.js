@@ -46,7 +46,7 @@
     if (title.includes("winter solstice")) return "❄️";
     if (title.includes("incorporation")) return "🏛️";
     if (title.includes("tornado siren")) return "🚨";
-    if (title.includes("city council")) return "🏛️";
+    if (title.includes("city council") || title.includes("town council")) return "🏛️";
     if ((entry && entry.lane) === "tradition") return "🕯️";
     if ((entry && entry.lane) === "celestial") return "🔭";
     if ((entry && entry.lane) === "nature") return "🍃";
