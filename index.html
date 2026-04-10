@@ -139,6 +139,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .today-list .side-item>div{min-width:0}
 .today-list .side-val{font-size:.83rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 .today-list .side-sub{font-size:.72rem;color:var(--ink3);line-height:1.5;margin-top:.1rem;overflow-wrap:anywhere}
+.cardiff-masthead .announce-strip{display:none}
 .alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
 .alert-band .mini-label{color:var(--red)}
 .accent-card{background:var(--card)}
@@ -153,6 +154,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <div id="cardiff-masthead"></div>
+<div class="announce-strip">
+  <div class="announce-strip-scroll">
+    <span class="announce-strip-text">📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome</span>
+  </div>
+</div>
 
 <div class="wrap">
   <section class="hero reveal">
@@ -166,9 +172,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         </div>
       </div>
       <div class="hero-side">
-        <div class="photo-shell info-box reveal" data-kicker="Featured photo">
+        <div class="photo-shell info-box reveal" data-kicker="FEATURED PHOTO FROM OUR ARCHIVE">
           <div class="photo-toolbar">
-            <div class="photo-meta" id="photoMeta">Cardiff Archive</div>
           </div>
           <div class="photo-stage">
             <img id="heroPhoto" src="photos/1951 From the Sky.jpg?v=2026-03-28d" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
@@ -237,8 +242,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <article class="card reveal">
       <div class="site-kicker">Morning report</div>
       <h3 class="card-title">Since midnight</h3>
-      <div class="snapshot-list" id="homeMorning">
-        <div class="mini-row"><div class="mini-label">Weather desk</div><div class="mini-value">Waiting on the station log.</div></div>
+      <div class="today-list" id="homeMorning">
+        <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Waiting on the station log.</div><div class="side-sub">Morning report</div></div></div>
       </div>
     </article>
   </section>
@@ -542,14 +547,14 @@ async function loadHomeDashboard(){
   if(morningCard){
     morningCard.innerHTML=showTonight
       ? [
-          `<div class="mini-row"><div class="mini-label">Sunset</div><div class="mini-value">${formatClock(sun.set)}</div><div class="mini-copy">Local sunset time for Cardiff this evening.</div></div>`,
-          `<div class="mini-row"><div class="mini-label">Moon</div><div class="mini-value">${moon.name}</div><div class="mini-copy">${buildSkyNote(moon)}</div></div>`,
-          `<div class="mini-row"><div class="mini-label">Sky note</div><div class="mini-value">Best first look</div><div class="mini-copy">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div>`
+          `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">${formatClock(sun.set)}</div><div class="side-sub">Sunset</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">🌙</div><div><div class="side-val">${moon.name}</div><div class="side-sub">${buildSkyNote(moon)}</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">⭐</div><div><div class="side-val">Best first look</div><div class="side-sub">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div></div>`
         ].join('')
       : [
-          `<div class="mini-row"><div class="mini-label">${morning&&morning.label?morning.label:'Since midnight'}</div><div class="mini-value">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="mini-copy">${morning&&Number(morning.amount||0)>=0.01?'Enough rain fell to leave a real ground read this morning.':'No measurable rain has shown in the station log for this period.'}</div></div>`,
-          `<div class="mini-row"><div class="mini-label">Low temperature</div><div class="mini-value">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="mini-copy">The coolest point the station logged overnight or so far today.</div></div>`,
-          `<div class="mini-row"><div class="mini-label">Strongest gust</div><div class="mini-value">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="mini-copy">A quick check on whether the night stayed still or worked the trees a little.</div></div>`
+          `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="side-sub">${morning&&morning.label?morning.label:'Since midnight rain'}</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">🌡️</div><div><div class="side-val">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="side-sub">Low temperature</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">🌬️</div><div><div class="side-val">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="side-sub">Strongest gust</div></div></div>`
         ].join('');
   }
 }
