@@ -326,12 +326,20 @@
         return res.json();
       })
       .then(function (data) {
-        var shouldShowTicker = !!(data && (data.hasAlerts || data.showTicker));
+        var pinnedMsg = (data && data.pinnedMessage) ? data.pinnedMessage.trim() : '';
+        var shouldShowTicker = !!(data && (data.hasAlerts || data.showTicker || pinnedMsg));
 
         // Update ticker strip text
         var stripText = document.querySelector('.announce-strip-text');
         if (stripText) {
-          var msg = (data.ticker || DEFAULT_TICKER).trim();
+          var msg;
+          if (pinnedMsg && data.hasAlerts) {
+            msg = pinnedMsg + '    ·    ' + (data.ticker || '').trim();
+          } else if (pinnedMsg) {
+            msg = pinnedMsg;
+          } else {
+            msg = (data.ticker || DEFAULT_TICKER).trim();
+          }
           stripText.textContent = shouldShowTicker ? msg : '';
           setTickerMotion(stripText, shouldShowTicker, msg);
         }

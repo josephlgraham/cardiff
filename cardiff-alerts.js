@@ -324,6 +324,13 @@ async function main() {
   const now = new Date();
   console.log(`\n⚡ Cardiff Alerts — ${now.toLocaleString()}`);
 
+  // Preserve any manually pinned message from the existing ticker file
+  let pinnedMessage = '';
+  try {
+    const existing = JSON.parse(fs.readFileSync(CONFIG.outputFile, 'utf8'));
+    pinnedMessage = existing.pinnedMessage || '';
+  } catch (e) { /* file missing or unreadable — start fresh */ }
+
   let alerts = [];
 
   try {
@@ -405,6 +412,7 @@ async function main() {
     hasAlerts: hasAlerts,
     alertCount: alerts.length,
     ticker: tickerMessage,
+    pinnedMessage: pinnedMessage,
     // Individual alerts for pages that want more detail (like the news page bulletin)
     alerts: alerts.map(a => ({
       event: a.event || '',

@@ -139,7 +139,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .today-list .side-item>div{min-width:0}
 .today-list .side-val{font-size:.83rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 .today-list .side-sub{font-size:.72rem;color:var(--ink3);line-height:1.5;margin-top:.1rem;overflow-wrap:anywhere}
-.meeting-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em;animation:marquee 34s linear infinite;padding-left:100%}
 .alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
 .alert-band .mini-label{color:var(--red)}
 .accent-card{background:var(--card)}
@@ -154,11 +153,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <div id="cardiff-masthead"></div>
-<div id="meeting-strip" class="announce-strip" style="visibility:hidden">
-  <div class="announce-strip-scroll">
-    <span class="meeting-strip-text">📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome</span>
-  </div>
-</div>
 
 <div class="wrap">
   <section class="hero reveal">
@@ -569,15 +563,5 @@ loadHomeDashboard().catch(()=>{});
 loadHomeNewsLocal();
 </script>
 <script src="cardiff-common.js"></script>
-<script>
-(function(){
-  var strip=document.getElementById('meeting-strip');
-  var masthead=document.querySelector('.cardiff-masthead');
-  if(!strip||!masthead)return;
-  var builtin=masthead.querySelector('.announce-strip');
-  if(builtin)builtin.replaceWith(strip);
-  strip.style.visibility='visible';
-})();
-</script>
 </body>
 </html>
