@@ -154,9 +154,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <div id="cardiff-masthead"></div>
-<div id="meeting-strip" class="announce-strip">
+<div id="meeting-strip" class="announce-strip" style="visibility:hidden">
   <div class="announce-strip-scroll">
-    <span class="meeting-strip-text">📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome</span>
+    <span class="meeting-strip-text">📣 Town Meeting — Monday, April 13 · 6:00 PM · Cardiff Town Hall · All residents welcome</span>
   </div>
 </div>
 
@@ -576,6 +576,7 @@ loadHomeNewsLocal();
   if(!strip||!masthead)return;
   var builtin=masthead.querySelector('.announce-strip');
   if(builtin)builtin.replaceWith(strip);
+  strip.style.visibility='visible';
 })();
 </script>
 </body>
