@@ -107,7 +107,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="hero reveal">
     <div class="pill-strip" aria-label="jump links">
       <a class="pill-link" href="#next-up"><span class="pill-emoji">📅</span><div><div class="pill-text">Next dates</div><div class="pill-sub">What is coming up</div></div></a>
-      <a class="pill-link" href="#calendar-lanes"><span class="pill-emoji">🗂️</span><div><div class="pill-text">Calendar lanes</div><div class="pill-sub">Kinds of dates</div></div></a>
       <a class="pill-link" href="#seasonal-view"><span class="pill-emoji">🌿</span><div><div class="pill-text">Year ahead</div><div class="pill-sub">Shared season list</div></div></a>
       <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Desk notes</div><div class="pill-sub">How this page works</div></div></a>
     </div>
@@ -121,87 +120,40 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <a class="btn ghost" href="#send-date">📬 Send a date in</a>
         </div>
       </div>
-      <aside class="quick-card reveal">
-        <div class="section-kicker">What belongs here</div>
-        <div class="quick-title">One calendar, shared across the site.</div>
-        <div class="quick-copy">The Almanac and this page now read from the same seasonal list. That means new foraging windows, meteor dates, and civic markers only need to be added once to stay in sync.</div>
-        <ul class="quick-list">
-          <li>Nature windows belong here when they help people plan a walk, a harvest, or a creek visit.</li>
-          <li>Sky dates belong here when they are worth stepping outside for.</li>
-          <li>Meetings belong here when they have a real posted date, not before.</li>
-          <li>Town updates can still hit the alert strip while bigger dates live here for the longer view.</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <div class="section-rule reveal" id="next-up"><h2>Next Up</h2><hr></div>
-  <section class="feature-grid">
-    <article class="feature-card reveal">
-      <div class="section-kicker">Featured date</div>
-      <div class="feature-row">
-        <div class="date-chip">Monday, April 13, 2026</div>
-        <div class="date-chip">Civic</div>
-      </div>
-      <h2 class="holiday-title">Town Council Meeting</h2>
-      <p class="holiday-copy">Cardiff is holding a town council meeting — the first step toward restarting active local government. All residents are welcome to attend.</p>
-      <div class="event-meta">
-        <div class="meta-row">
-          <div class="meta-icon">🕕</div>
-          <div><div class="meta-label">Time</div><div class="meta-copy">6:00 PM</div></div>
+      <article class="feature-card reveal">
+        <div class="section-kicker">Featured date</div>
+        <div class="feature-row">
+          <div class="date-chip">Monday, April 13, 2026</div>
+          <div class="date-chip">Civic</div>
         </div>
-        <div class="meta-row">
-          <div class="meta-icon">📍</div>
-          <div><div class="meta-label">Location</div><div class="meta-copy">Cardiff Town Hall</div></div>
+        <h2 class="holiday-title">Town Council Meeting</h2>
+        <p class="holiday-copy">Cardiff is holding a town council meeting — the first step toward restarting active local government. All residents are welcome to attend.</p>
+        <div class="event-meta">
+          <div class="meta-row">
+            <div class="meta-icon">🕕</div>
+            <div><div class="meta-label">Time</div><div class="meta-copy">6:00 PM</div></div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-icon">📍</div>
+            <div><div class="meta-label">Location</div><div class="meta-copy">Cardiff Town Hall</div></div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-icon">🏛️</div>
+            <div><div class="meta-label">Note</div><div class="meta-copy">No agenda required to attend. Show up if you care about the town's future.</div></div>
+          </div>
         </div>
-        <div class="meta-row">
-          <div class="meta-icon">🏛️</div>
-          <div><div class="meta-label">Note</div><div class="meta-copy">No agenda required to attend. Show up if you care about the town's future.</div></div>
-        </div>
-      </div>
-    </article>
-    <div class="stack" id="upcomingMiniShell">
-      <article class="card mini-card reveal">
-        <div class="mini-date">Stand by</div>
-        <div class="mini-title">Upcoming entries are loading.</div>
-        <div class="mini-copy">The next few dates will settle in here once the shared season file responds.</div>
       </article>
     </div>
   </section>
 
-  <div class="section-rule reveal" id="calendar-lanes"><h2>Calendar Lanes</h2><hr></div>
-  <section class="lane-grid">
-    <article class="lane-card reveal">
-      <div class="section-kicker">Nature</div>
-      <div class="lane-title">🍃 Foraging and field windows</div>
-      <div class="lane-copy">Ramps, morels, fireflies, blackberries, muscadines, persimmons, and the other local markers people still plan around.</div>
-      <div class="lane-note">Creek bottoms usually speak first.</div>
+  <div class="section-rule reveal" id="next-up"><h2>Next Up</h2><hr></div>
+  <div class="stack" id="upcomingMiniShell">
+    <article class="card mini-card reveal">
+      <div class="mini-date">Stand by</div>
+      <div class="mini-title">Upcoming entries are loading.</div>
+      <div class="mini-copy">The next few dates will settle in here once the shared season file responds.</div>
     </article>
-    <article class="lane-card reveal">
-      <div class="section-kicker">Hunting</div>
-      <div class="lane-title">🦌 Season windows worth tracking</div>
-      <div class="lane-copy">Turkey, catfish noodling, dove, squirrel, and deer all belong here when they help people think ahead.</div>
-      <div class="lane-note">Approximate where needed, confirmed when official dates are posted.</div>
-    </article>
-    <article class="lane-card reveal">
-      <div class="section-kicker">Sky</div>
-      <div class="lane-title">🔭 Celestial markers</div>
-      <div class="lane-copy">Equinoxes, solstices, and the meteor showers that are actually worth stepping outside for around Cardiff.</div>
-      <div class="lane-note">The Almanac keeps the mood. This page keeps the date spine.</div>
-    </article>
-    <article class="lane-card reveal">
-      <div class="section-kicker">Civic</div>
-      <div class="lane-title">🏛️ Town and community dates</div>
-      <div class="lane-copy">The incorporation anniversary lives here now. Town council meetings can join it as soon as they have real dates again.</div>
-      <div class="lane-note">No guessing, no ghost meetings, no buried notices.</div>
-    </article>
-    <article class="lane-card reveal">
-      <div class="section-kicker">Traditions</div>
-      <div class="lane-title">🕯️ Older turning customs</div>
-      <div class="lane-copy">Solstice, harvest, spring-fire, and seasonal customs help show the older layers that still shape how people talk about the year.</div>
-      <div class="lane-note">Careful with claims, generous with context.</div>
-    </article>
-  </section>
+  </div>
 
   <div class="section-rule reveal" id="seasonal-view"><h2>Year Ahead</h2><hr></div>
   <div class="stack" id="seasonalMonthShell">
