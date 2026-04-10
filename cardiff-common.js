@@ -327,6 +327,9 @@
       })
       .then(function (data) {
         var pinnedMsg = (data && data.pinnedMessage) ? data.pinnedMessage.trim() : '';
+        if (pinnedMsg && data.pinnedMessageExpires && new Date(data.pinnedMessageExpires) <= new Date()) {
+          pinnedMsg = '';
+        }
         var shouldShowTicker = !!(data && (data.hasAlerts || data.showTicker || pinnedMsg));
 
         // Update ticker strip text

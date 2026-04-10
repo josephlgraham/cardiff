@@ -326,9 +326,17 @@ async function main() {
 
   // Preserve any manually pinned message from the existing ticker file
   let pinnedMessage = '';
+  let pinnedMessageExpires = '';
   try {
     const existing = JSON.parse(fs.readFileSync(CONFIG.outputFile, 'utf8'));
     pinnedMessage = existing.pinnedMessage || '';
+    pinnedMessageExpires = existing.pinnedMessageExpires || '';
+    // Auto-clear if the expiry has passed
+    if (pinnedMessage && pinnedMessageExpires && new Date(pinnedMessageExpires) <= now) {
+      console.log('   Pinned message expired — clearing.');
+      pinnedMessage = '';
+      pinnedMessageExpires = '';
+    }
   } catch (e) { /* file missing or unreadable — start fresh */ }
 
   let alerts = [];
@@ -413,6 +421,7 @@ async function main() {
     alertCount: alerts.length,
     ticker: tickerMessage,
     pinnedMessage: pinnedMessage,
+    pinnedMessageExpires: pinnedMessageExpires,
     // Individual alerts for pages that want more detail (like the news page bulletin)
     alerts: alerts.map(a => ({
       event: a.event || '',
