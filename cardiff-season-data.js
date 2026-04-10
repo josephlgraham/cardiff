@@ -54,23 +54,6 @@
       summary: "Cardiff City Council meets on the second Tuesday of each month. Time to be confirmed — check local notices for the current meeting schedule."
     },
     {
-      id: "town-council-meeting-apr-2026",
-      title: "Town Council Meeting",
-      category: "Civic",
-      lane: "civic",
-      kind: "day",
-      year: 2026,
-      month: 4,
-      day: 13,
-      hour: 18,
-      windowLabel: "Monday, April 13, 2026 · 6:00 PM",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
-      badge: "Cardiff Town Hall",
-      summary: "First meeting of the restarted council. Cardiff Town Hall · 6:00 PM. All residents welcome."
-    },
-    {
       id: "ramps",
       title: "Ramps & wild onions",
       category: "Foraging",
