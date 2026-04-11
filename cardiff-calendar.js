@@ -47,6 +47,8 @@
     if (title.includes("incorporation")) return "🏛️";
     if (title.includes("tornado siren")) return "🚨";
     if (title.includes("city council") || title.includes("town council")) return "🏛️";
+    if (title.includes("hazardous waste")) return "☣️";
+    if (title.includes("electronics") || title.includes("shredding")) return "♻️";
     if ((entry && entry.lane) === "tradition") return "🕯️";
     if ((entry && entry.lane) === "celestial") return "🔭";
     if ((entry && entry.lane) === "nature") return "🍃";
@@ -63,35 +65,6 @@
     return parts.join(" · ");
   }
 
-  function renderFeatured(entries) {
-    const featureTarget = document.getElementById("featuredDateShell");
-    const sideTarget = document.getElementById("upcomingMiniShell");
-    if (!featureTarget || !sideTarget || !entries.length) return;
-
-    const [feature, ...rest] = entries;
-    featureTarget.innerHTML =
-      '<div class="section-kicker">Featured date</div>' +
-      '<div class="feature-row">' +
-        '<div class="date-chip">' + escapeHtml(entryTone(feature)) + '</div>' +
-        '<div class="date-chip">' + escapeHtml(feature.longDateLabel || feature.dateLabel || feature.windowLabel || "") + "</div>" +
-      "</div>" +
-      '<h2 class="holiday-title">' + escapeHtml(entryIcon(feature) + " " + feature.title) + "</h2>" +
-      '<p class="holiday-copy">' + escapeHtml(feature.summary) + "</p>" +
-      '<div class="event-meta">' +
-        '<div class="meta-row"><div class="meta-icon">📍</div><div><div class="meta-label">Calendar lane</div><div class="meta-copy">' + escapeHtml((feature.lane || "season").replace(/_/g, " ")) + "</div></div></div>" +
-        '<div class="meta-row"><div class="meta-icon">🏷️</div><div><div class="meta-label">Type</div><div class="meta-copy">' + escapeHtml(entryMeta(feature) || "Season marker") + "</div></div></div>" +
-        '<div class="meta-row"><div class="meta-icon">📝</div><div><div class="meta-label">Why it is here</div><div class="meta-copy">This calendar keeps the town&rsquo;s seasonal cues, sky dates, and practical public dates in one place instead of scattering them across the site.</div></div></div>' +
-      "</div>";
-
-    sideTarget.innerHTML = rest.slice(0, 3).map((entry) => (
-      '<article class="card mini-card reveal">' +
-        '<div class="mini-date">' + escapeHtml(entry.longDateLabel || entry.dateLabel || entry.windowLabel || "") + "</div>" +
-        '<div class="mini-title">' + escapeHtml(entryIcon(entry) + " " + entry.title) + "</div>" +
-        '<div class="mini-copy">' + escapeHtml(entry.summary) + "</div>" +
-      "</article>"
-    )).join("");
-  }
-
   function renderMonths(months) {
     const target = document.getElementById("seasonalMonthShell");
     if (!target) return;
@@ -103,7 +76,7 @@
             '<div class="month-item">' +
               '<div class="month-date">' + escapeHtml(entry.dateLabel || entry.windowLabel || "") + "</div>" +
               '<div class="month-icon">' + escapeHtml(entryIcon(entry)) + '</div>' +
-              '<div class="month-main"><div class="month-title">' + escapeHtml(entry.title) + '</div><div class="month-copy">' + escapeHtml(entry.summary) + "</div></div>" +
+              '<div class="month-main"><div class="month-title">' + escapeHtml(entry.title) + '</div><div class="month-copy">' + escapeHtml(entry.summary) + (entry.link ? ' <a href="' + escapeHtml(entry.link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:700;white-space:nowrap">More info ↗</a>' : '') + "</div></div>" +
             "</div>"
           )).join("") +
         "</div>" +
@@ -126,7 +99,6 @@
     if (!sharedSeasonData) return;
     const nextEntries = sharedSeasonData.getUpcomingCalendar(new Date(), 4);
     const months = sharedSeasonData.getCalendarMonths(new Date(), 8).filter((month) => month.items && month.items.length);
-    renderFeatured(nextEntries);
     renderMonths(months);
     renderNotes(nextEntries);
   }

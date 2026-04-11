@@ -46,12 +46,30 @@
       weekday: 2,
       timeTBD: true,
       note: "Time to be confirmed",
+      exceptMonths: [{year: 2026, month: 4}],
       windowLabel: "Second Tuesday of each month",
       calendarLabel: "Second Tuesday, time TBD",
       seasonTag: "civic",
       activeTag: "today",
       upcomingTag: "coming up",
       summary: "Cardiff City Council meets on the second Tuesday of each month. Time to be confirmed — check local notices for the current meeting schedule."
+    },
+    {
+      id: "cardiff-town-council-april-2026",
+      title: "Cardiff Town Council Meeting",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 4,
+      day: 13,
+      hour: 18,
+      windowLabel: "Apr 13, 2026 · 6:00 PM",
+      calendarLabel: "Apr 13, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      summary: "Cardiff Town Council meeting — the first step toward restarting active local government. All residents welcome. Cardiff Town Hall, 6:00 PM. No agenda required to attend."
     },
     {
       id: "ramps",
@@ -493,6 +511,91 @@
       activeTag: "watch for",
       upcomingTag: "watch for",
       summary: "The shortest day of the year. Long before modern Christmas calendars, people marked this dark turn with sky watching, fire, evergreens, and return-of-light traditions."
+    },
+    {
+      id: "hhw-collection-spring-2026",
+      title: "Household Hazardous Waste Collection",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 4,
+      day: 25,
+      windowLabel: "Apr 25, 2026 · 8:00 AM – 11:30 AM",
+      calendarLabel: "Apr 25, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+      summary: "Jefferson County HHW drop-off — Cardiff area site is First Baptist Church, Gardendale (940 Main St.). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
+    },
+    {
+      id: "electronics-dropoff-may-2026",
+      title: "Electronics & Paper Shredding Drop-Off",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 5,
+      day: 9,
+      windowLabel: "May 9, 2026 · 9:00 AM – 11:30 AM",
+      calendarLabel: "May 9, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+      summary: "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
+    },
+    {
+      id: "electronics-dropoff-june-2026",
+      title: "Electronics & Paper Shredding Drop-Off",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 6,
+      day: 13,
+      windowLabel: "Jun 13, 2026 · 9:00 AM – 11:30 AM",
+      calendarLabel: "Jun 13, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+      summary: "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
+    },
+    {
+      id: "hhw-collection-fall-2026",
+      title: "Household Hazardous Waste Collection",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 10,
+      day: 17,
+      windowLabel: "Oct 17, 2026 · 8:00 AM – 11:30 AM",
+      calendarLabel: "Oct 17, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+      summary: "Jefferson County HHW drop-off — Cardiff area site is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
+    },
+    {
+      id: "electronics-dropoff-sep-2026",
+      title: "Electronics & Paper Shredding Drop-Off",
+      category: "Civic",
+      lane: "civic",
+      kind: "day",
+      year: 2026,
+      month: 9,
+      day: 12,
+      windowLabel: "Sep 12, 2026 · 9:00 AM – 11:30 AM",
+      calendarLabel: "Sep 12, 2026",
+      seasonTag: "civic",
+      activeTag: "today",
+      upcomingTag: "coming up",
+      link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+      summary: "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
     }
   ];
 
@@ -533,6 +636,7 @@
   }
 
   function buildRecurringOccurrenceForYearMonth(entry, year, month) {
+    if (entry.exceptMonths && entry.exceptMonths.some(function(e) { return e.year === year && e.month === month; })) return null;
     const day = nthWeekdayOfMonth(year, month, entry.weekday, entry.nth);
     if (day === null) return null;
     const start = atNoon(year, month, day);
@@ -711,7 +815,8 @@
               title: markerTitle(entry, "start"),
               dateLabel: formatMonthDay(entry.start),
               longDateLabel: formatFullDate(entry.start),
-              summary: markerSummary(entry, "start")
+              summary: markerSummary(entry, "start"),
+              sortDate: entry.start
             });
           }
           if (endInMonth) {
@@ -720,14 +825,15 @@
               title: markerTitle(entry, "end"),
               dateLabel: formatMonthDay(entry.end),
               longDateLabel: formatFullDate(entry.end),
-              summary: markerSummary(entry, "end")
+              summary: markerSummary(entry, "end"),
+              sortDate: entry.end
             });
           }
           return markers;
         })
         .sort((a, b) => {
-          const aDate = a.kind === "range" && / ends$/.test(a.title) ? a.end : a.start;
-          const bDate = b.kind === "range" && / ends$/.test(b.title) ? b.end : b.start;
+          const aDate = a.sortDate || a.start;
+          const bDate = b.sortDate || b.start;
           return aDate - bDate;
         });
       months.push({
