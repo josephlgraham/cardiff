@@ -201,6 +201,23 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
           <div class="feedback-status" id="hollerFeedbackStatus">Tap one reaction. Only the neighborly ones live here.</div>
         </div>
       </article>
+      <article class="aside-card" id="hollerRecipeCard">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.1rem;">
+          <div class="site-kicker" style="margin:0;">Cardiff Kitchen</div>
+          <span style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);" id="recipeCardCount">1 of 3</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.55rem;margin:0.45rem 0 0.25rem;">
+          <span style="font-size:1.4rem;line-height:1;" id="recipeCardEmoji">🌿</span>
+          <div class="aside-title" style="margin:0;" id="recipeCardTitle">Polk Salad</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:0.45rem;" id="recipeCardLabel">Foraged · Spring</div>
+        <div class="aside-copy" id="recipeCardIntro">A spring greens dish with real safety rules. The preparation matters as much as the flavor.</div>
+        <div class="aside-actions">
+          <button class="btn ghost" type="button" style="font-size:0.78rem;" id="recipePrevBtn">← Prev</button>
+          <button class="btn ghost" type="button" style="font-size:0.78rem;" id="recipeNextBtn">Next →</button>
+          <a href="cardiff-kitchen.html" class="btn ghost" style="font-size:0.78rem;" id="recipeCardLink">Full recipe ↗</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -358,6 +375,27 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <script>
 // SHARED JS
 
+// Recipe card
+(function(){
+  const RECIPES=[
+    {id:'polk-salad',title:'Polk Salad',label:'Foraged · Spring',emoji:'🌿',intro:'A spring greens dish with real safety rules. The preparation matters as much as the flavor.'},
+    {id:'fried-bream',title:'Fried Bream',label:'Creek Fish · Year-Round',emoji:'🐟',intro:'A creek-side fish supper built for a hot skillet and a short distance between catch and table.'},
+    {id:'squirrel-stew',title:'Squirrel Stew',label:'Wild Game · Fall',emoji:'🐿️',intro:'A long, steady pot meant for cool weather and a patient simmer.'}
+  ];
+  let idx=Math.floor(Math.random()*RECIPES.length);
+  function render(){
+    const r=RECIPES[idx];
+    document.getElementById('recipeCardEmoji').textContent=r.emoji;
+    document.getElementById('recipeCardTitle').textContent=r.title;
+    document.getElementById('recipeCardLabel').textContent=r.label;
+    document.getElementById('recipeCardIntro').textContent=r.intro;
+    document.getElementById('recipeCardLink').href='cardiff-kitchen.html#'+r.id;
+    document.getElementById('recipeCardCount').textContent=(idx+1)+' of '+RECIPES.length;
+  }
+  render();
+  document.getElementById('recipeNextBtn').addEventListener('click',()=>{idx=(idx+1)%RECIPES.length;render();});
+  document.getElementById('recipePrevBtn').addEventListener('click',()=>{idx=(idx-1+RECIPES.length)%RECIPES.length;render();});
+})();
 
 // Slide-in
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
@@ -375,14 +413,29 @@ const REACTION_META={
 };
 const FALLBACK_ROTATOR={
   jokes:[
-    {id:'joke-taking-the-scenic-route',title:'Taking the scenic route',body:"\"I ain't lost. I'm just taking the scenic way back.\"",feedback:{laugh:0,grin:0,helpful:0}},
-    {id:'joke-creek-level-forecasting',title:'Creek-level forecasting',body:'"Around here, if three people mention the creek before breakfast, somebody better check the gauge."',feedback:{laugh:0,grin:0,helpful:0}},
-    {id:'joke-cardiff-traffic-report',title:'Cardiff traffic report',body:'"Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk."',feedback:{laugh:0,grin:0,helpful:0}}
+    {id:'joke-atoms',title:'Trust issues',body:'Why don\'t scientists trust atoms? Because they make up everything.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-eyebrows',title:'High expectations',body:'I told my wife she was drawing her eyebrows too high. She looked surprised.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-two-tired',title:'Road trouble',body:'Why did the bicycle fall over? It was two-tired.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-anti-gravity',title:'Good read',body:'I\'m reading a book about anti-gravity. It\'s impossible to put down.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-scarecrow',title:'Employee of the month',body:'Why did the scarecrow win an award? Because he was outstanding in his field.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-facial-hair',title:'Grew on me',body:'I used to hate facial hair. But it grew on me.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-astronaut',title:'Just a little space',body:'Did you hear about the claustrophobic astronaut? He just needed a little space.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-coffee-mugged',title:'Rough morning',body:'Why did the coffee file a police report? It got mugged.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-25-letters',title:'Missing one',body:'I only know 25 letters of the alphabet. I don\'t know y.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-construction',title:'Work in progress',body:'I have a joke about construction. I\'m still working on it.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-mood-ring',title:'Hard to say',body:'Someone stole my mood ring. I don\'t know how I feel about that.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-baseball-hit-me',title:'Late realization',body:'I couldn\'t figure out why the baseball kept getting bigger. Then it hit me.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-flamingo',title:'Firm stance',body:'My wife told me to stop acting like a flamingo. I had to put my foot down.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-gym-closed',title:'Out of business',body:'Why did the gym close down? It just didn\'t work out.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-cardiff-traffic-report',title:'Cardiff traffic report',body:'Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk.',feedback:{laugh:0,grin:0,helpful:0}}
   ],
   riddles:[
     {id:'riddle-runs-all-through-cardiff',question:'What runs all through Cardiff but never wears a shoe?',answer:'Five Mile Creek.',feedback:{laugh:0,grin:0,helpful:0}},
     {id:'riddle-shows-up-after-a-rain',question:'What shows up after a rain, tells the truth, and never says a word?',answer:'Tracks in the mud.',feedback:{laugh:0,grin:0,helpful:0}},
-    {id:'riddle-belongs-to-the-whole-town',question:'What belongs to the whole town, but gets used one porch at a time?',answer:'Good neighbor advice.',feedback:{laugh:0,grin:0,helpful:0}}
+    {id:'riddle-belongs-to-the-whole-town',question:'What belongs to the whole town but gets used one porch at a time?',answer:'Good neighbor advice.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-gets-louder-the-stiller-it-gets',question:'What gets louder the stiller the woods get?',answer:'A barred owl after dark.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-more-you-take',question:'The more you take, the more you leave behind. What am I?',answer:'Footsteps.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-full-of-holes',question:'I\'m full of holes but still hold water. What am I?',answer:'A sponge.',feedback:{laugh:0,grin:0,helpful:0}}
   ]
 };
 let hollerRotator={
@@ -620,9 +673,9 @@ async function loadHollerRotator(){
     };
   }
   if(!hasPlayInteraction){
-    jokeIndex=pickDailyIndex(hollerRotator.jokes.length,0);
-    riddleIndex=pickDailyIndex(hollerRotator.riddles.length,7);
-    setPlayMode(pickDailyIndex(2,21)===0?'joke':'riddle');
+    jokeIndex=Math.floor(Math.random()*hollerRotator.jokes.length);
+    riddleIndex=Math.floor(Math.random()*hollerRotator.riddles.length);
+    setPlayMode('joke');
   }else{
     setPlayMode(playMode);
   }

@@ -45,7 +45,6 @@
     { id: 'calendar', href: 'cardiff-calendar.html', label: 'Calendar' },
     { id: 'guide',    href: 'cardiff-guide.html',    label: 'Field Guide' },
     { id: 'hollers',  href: 'cardiff-hollers.html',  label: 'Hills & Hollers' },
-    { id: 'kitchen',  href: 'cardiff-kitchen.html',  label: 'Recipes' },
     { id: 'cemetery', href: 'cardiff-cemetery.html',  label: 'Cemetery' },
     { id: 'civic',    href: 'cardiff-civic.html',     label: 'Civic Pathway' },
     { id: 'involved', href: 'cardiff-involved.html',  label: 'Get Involved' }
