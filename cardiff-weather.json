@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-11T14:47:03.024Z",
+  "updatedAt": "2026-04-11T15:33:57.279Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-11 09:46:00",
+  "sourceUpdatedAt": "2026-04-11 10:33:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-11T14:46:00Z",
-      "obsTimeLocal": "2026-04-11 09:46:00",
+      "obsTimeUtc": "2026-04-11T15:33:00Z",
+      "obsTimeLocal": "2026-04-11 10:33:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 292.4,
+      "solarRadiation": 435.5,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775918760,
+      "epoch": 1775921580,
       "lat": 33.647,
-      "uv": 2,
-      "winddir": 288,
-      "humidity": 67,
+      "uv": 4,
+      "winddir": 312,
+      "humidity": 58,
       "qcStatus": 1,
       "imperial": {
-        "temp": 72,
-        "heatIndex": 72,
-        "dewpt": 60,
-        "windChill": 72,
+        "temp": 78,
+        "heatIndex": 78,
+        "dewpt": 62,
+        "windChill": 78,
         "windSpeed": 0,
-        "windGust": 2,
-        "pressure": 30,
+        "windGust": 1,
+        "pressure": 30.01,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,23 +34,23 @@
     }
   ],
   "current": {
-    "temp": 72,
-    "feels": 72,
-    "humidity": 67,
+    "temp": 78,
+    "feels": 78,
+    "humidity": 58,
     "windSpeed": 0,
-    "windGust": 2,
-    "windDir": "WNW",
-    "windDirDegrees": 288,
+    "windGust": 1,
+    "windDir": "NW",
+    "windDirDegrees": 312,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 30,
-    "uv": 2,
-    "condition": "Mild",
-    "obsTime": "2026-04-11 09:46:00",
-    "solarRadiation": 292.4,
+    "pressureIn": 30.01,
+    "uv": 4,
+    "condition": "Partly cloudy",
+    "obsTime": "2026-04-11 10:33:00",
+    "solarRadiation": 435.5,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 72°F, mild."
+    "summary": "Right now around Cardiff it feels 78°F, partly cloudy."
   },
   "rain": {
     "today": 0,
@@ -73,10 +73,10 @@
     {
       "number": 1,
       "name": "Today",
-      "startTime": "2026-04-11T08:00:00-05:00",
+      "startTime": "2026-04-11T10:00:00-05:00",
       "endTime": "2026-04-11T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 85,
+      "temperature": 86,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -87,7 +87,7 @@
       "windDirection": "",
       "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
       "shortForecast": "Sunny",
-      "detailedForecast": "Sunny, with a high near 85. North wind around 0 mph."
+      "detailedForecast": "Sunny, with a high near 86. North wind around 0 mph."
     },
     {
       "number": 2,
@@ -95,7 +95,7 @@
       "startTime": "2026-04-11T18:00:00-05:00",
       "endTime": "2026-04-12T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 57,
+      "temperature": 56,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -106,7 +106,7 @@
       "windDirection": "",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 57. East wind around 0 mph."
+      "detailedForecast": "Mostly clear, with a low around 56. East wind around 0 mph."
     },
     {
       "number": 3,
@@ -152,7 +152,7 @@
       "startTime": "2026-04-13T06:00:00-05:00",
       "endTime": "2026-04-13T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 83,
+      "temperature": 84,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -163,7 +163,7 @@
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
       "shortForecast": "Partly Sunny",
-      "detailedForecast": "Partly sunny, with a high near 83. South wind 5 to 10 mph."
+      "detailedForecast": "Partly sunny, with a high near 84. South wind 5 to 10 mph."
     },
     {
       "number": 6,
