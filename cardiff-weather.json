@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-04-11T04:55:08.557Z",
+  "updatedAt": "2026-04-11T05:12:23.822Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-10 23:53:00",
+  "sourceUpdatedAt": "2026-04-11 00:11:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-11T04:53:00Z",
-      "obsTimeLocal": "2026-04-10 23:53:00",
+      "obsTimeUtc": "2026-04-11T05:11:00Z",
+      "obsTimeLocal": "2026-04-11 00:11:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
       "solarRadiation": 0,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775883180,
+      "epoch": 1775884260,
       "lat": 33.647,
       "uv": 0,
       "winddir": 267,
@@ -22,7 +22,7 @@
       "imperial": {
         "temp": 51,
         "heatIndex": 51,
-        "dewpt": 50,
+        "dewpt": 51,
         "windChill": 51,
         "windSpeed": 0,
         "windGust": 0,
@@ -46,7 +46,7 @@
     "pressureIn": 29.97,
     "uv": 0,
     "condition": "Cold",
-    "obsTime": "2026-04-10 23:53:00",
+    "obsTime": "2026-04-11 00:11:00",
     "solarRadiation": 0,
     "source": "local-station",
     "sourceNote": null,
@@ -72,8 +72,8 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Tonight",
-      "startTime": "2026-04-10T21:00:00-05:00",
+      "name": "Overnight",
+      "startTime": "2026-04-11T00:00:00-05:00",
       "endTime": "2026-04-11T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 54,
