@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-12T11:34:20.225Z",
+  "updatedAt": "2026-04-12T13:02:49.183Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-12 06:33:00",
+  "sourceUpdatedAt": "2026-04-12 08:01:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-12T11:33:00Z",
-      "obsTimeLocal": "2026-04-12 06:33:00",
+      "obsTimeUtc": "2026-04-12T13:01:00Z",
+      "obsTimeLocal": "2026-04-12 08:01:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 6.1,
+      "solarRadiation": 52.6,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1775993580,
+      "epoch": 1775998860,
       "lat": 33.647,
       "uv": 0,
       "winddir": 305,
       "humidity": 99,
       "qcStatus": 1,
       "imperial": {
-        "temp": 47,
-        "heatIndex": 47,
-        "dewpt": 47,
-        "windChill": 47,
+        "temp": 52,
+        "heatIndex": 52,
+        "dewpt": 52,
+        "windChill": 52,
         "windSpeed": 0,
         "windGust": 0,
-        "pressure": 29.94,
+        "pressure": 29.96,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,8 +34,8 @@
     }
   ],
   "current": {
-    "temp": 47,
-    "feels": 47,
+    "temp": 52,
+    "feels": 52,
     "humidity": 99,
     "windSpeed": 0,
     "windGust": 0,
@@ -43,14 +43,14 @@
     "windDirDegrees": 305,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.94,
+    "pressureIn": 29.96,
     "uv": 0,
-    "condition": "Overcast",
-    "obsTime": "2026-04-12 06:33:00",
-    "solarRadiation": 6.1,
+    "condition": "Cold",
+    "obsTime": "2026-04-12 08:01:00",
+    "solarRadiation": 52.6,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 47°F, overcast, humid air in the bottoms."
+    "summary": "Right now around Cardiff it feels 52°F, cold, humid air in the bottoms."
   },
   "rain": {
     "today": 0,
@@ -73,7 +73,7 @@
     {
       "number": 1,
       "name": "Today",
-      "startTime": "2026-04-12T06:00:00-05:00",
+      "startTime": "2026-04-12T08:00:00-05:00",
       "endTime": "2026-04-12T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 86,
@@ -84,10 +84,10 @@
         "value": 0
       },
       "windSpeed": "0 to 10 mph",
-      "windDirection": "SE",
+      "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
       "shortForecast": "Sunny",
-      "detailedForecast": "Sunny, with a high near 86. Southeast wind 0 to 10 mph."
+      "detailedForecast": "Sunny, with a high near 86. South wind 0 to 10 mph."
     },
     {
       "number": 2,
