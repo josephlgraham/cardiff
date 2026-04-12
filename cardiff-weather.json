@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-04-12T22:34:36.960Z",
+  "updatedAt": "2026-04-12T23:35:24.944Z",
   "stationId": "KALGRAYS4",
-  "sourceUpdatedAt": "2026-04-12 17:33:00",
+  "sourceUpdatedAt": "2026-04-12 18:34:00",
   "observations": [
     {
       "stationID": "KALGRAYS4",
-      "obsTimeUtc": "2026-04-12T22:33:00Z",
-      "obsTimeLocal": "2026-04-12 17:33:00",
+      "obsTimeUtc": "2026-04-12T23:34:00Z",
+      "obsTimeLocal": "2026-04-12 18:34:00",
       "neighborhood": "Cardiff",
       "softwareType": null,
       "country": "US",
-      "solarRadiation": 67.1,
+      "solarRadiation": 14.2,
       "lon": -86.934,
       "realtimeFrequency": null,
-      "epoch": 1776033180,
+      "epoch": 1776036840,
       "lat": 33.647,
       "uv": 0,
-      "winddir": 312,
-      "humidity": 42,
+      "winddir": 340,
+      "humidity": 51,
       "qcStatus": 1,
       "imperial": {
-        "temp": 81,
-        "heatIndex": 81,
-        "dewpt": 56,
-        "windChill": 81,
+        "temp": 79,
+        "heatIndex": 79,
+        "dewpt": 59,
+        "windChill": 79,
         "windSpeed": 1,
-        "windGust": 3,
-        "pressure": 29.88,
+        "windGust": 1,
+        "pressure": 29.87,
         "precipRate": 0,
         "precipTotal": 0,
         "elev": 433
@@ -34,23 +34,23 @@
     }
   ],
   "current": {
-    "temp": 81,
-    "feels": 81,
-    "humidity": 42,
+    "temp": 79,
+    "feels": 79,
+    "humidity": 51,
     "windSpeed": 1,
-    "windGust": 3,
-    "windDir": "NW",
-    "windDirDegrees": 312,
+    "windGust": 1,
+    "windDir": "NNW",
+    "windDirDegrees": 340,
     "precipRate": 0,
     "precipTotal": 0,
-    "pressureIn": 29.88,
+    "pressureIn": 29.87,
     "uv": 0,
     "condition": "Warm",
-    "obsTime": "2026-04-12 17:33:00",
-    "solarRadiation": 67.1,
+    "obsTime": "2026-04-12 18:34:00",
+    "solarRadiation": 14.2,
     "source": "local-station",
     "sourceNote": null,
-    "summary": "Right now around Cardiff it feels 81°F, warm."
+    "summary": "Right now around Cardiff it feels 79°F, warm."
   },
   "rain": {
     "today": 0,
@@ -72,25 +72,6 @@
   "forecast": [
     {
       "number": 1,
-      "name": "This Afternoon",
-      "startTime": "2026-04-12T16:00:00-05:00",
-      "endTime": "2026-04-12T18:00:00-05:00",
-      "isDaytime": true,
-      "temperature": 86,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 0
-      },
-      "windSpeed": "10 mph",
-      "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-      "shortForecast": "Sunny",
-      "detailedForecast": "Sunny, with a high near 86. South wind around 10 mph."
-    },
-    {
-      "number": 2,
       "name": "Tonight",
       "startTime": "2026-04-12T18:00:00-05:00",
       "endTime": "2026-04-13T06:00:00-05:00",
@@ -109,7 +90,7 @@
       "detailedForecast": "Partly cloudy, with a low around 59. South wind around 5 mph."
     },
     {
-      "number": 3,
+      "number": 2,
       "name": "Monday",
       "startTime": "2026-04-13T06:00:00-05:00",
       "endTime": "2026-04-13T18:00:00-05:00",
@@ -128,7 +109,7 @@
       "detailedForecast": "Mostly sunny, with a high near 84. South wind 5 to 10 mph."
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Monday Night",
       "startTime": "2026-04-13T18:00:00-05:00",
       "endTime": "2026-04-14T06:00:00-05:00",
@@ -147,7 +128,7 @@
       "detailedForecast": "Mostly clear, with a low around 59. South wind 0 to 5 mph."
     },
     {
-      "number": 5,
+      "number": 4,
       "name": "Tuesday",
       "startTime": "2026-04-14T06:00:00-05:00",
       "endTime": "2026-04-14T18:00:00-05:00",
@@ -166,7 +147,7 @@
       "detailedForecast": "Sunny, with a high near 85. South wind 0 to 10 mph."
     },
     {
-      "number": 6,
+      "number": 5,
       "name": "Tuesday Night",
       "startTime": "2026-04-14T18:00:00-05:00",
       "endTime": "2026-04-15T06:00:00-05:00",
@@ -182,10 +163,10 @@
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 59."
+      "detailedForecast": "Mostly clear, with a low around 59. South wind 0 to 5 mph."
     },
     {
-      "number": 7,
+      "number": 6,
       "name": "Wednesday",
       "startTime": "2026-04-15T06:00:00-05:00",
       "endTime": "2026-04-15T18:00:00-05:00",
@@ -204,7 +185,7 @@
       "detailedForecast": "Sunny, with a high near 86."
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Wednesday Night",
       "startTime": "2026-04-15T18:00:00-05:00",
       "endTime": "2026-04-16T06:00:00-05:00",
@@ -221,6 +202,25 @@
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
       "detailedForecast": "Mostly clear, with a low around 62."
+    },
+    {
+      "number": 8,
+      "name": "Thursday",
+      "startTime": "2026-04-16T06:00:00-05:00",
+      "endTime": "2026-04-16T18:00:00-05:00",
+      "isDaytime": true,
+      "temperature": 85,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 17
+      },
+      "windSpeed": "5 to 10 mph",
+      "windDirection": "SW",
+      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
+      "detailedForecast": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 85. Chance of precipitation is 20%."
     }
   ]
 }
