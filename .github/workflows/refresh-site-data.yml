@@ -38,7 +38,9 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add cardiff-news-live.json ticker.json
             git commit -m "Refresh news and ticker"
+            git stash
             git pull --rebase origin main
+            git stash pop
             git push
           else
             echo "No data changes to commit."
