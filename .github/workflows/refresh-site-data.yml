@@ -31,15 +31,17 @@ jobs:
       - name: Refresh alert ticker
         run: node cardiff-alerts.js
 
-      - name: Commit refreshed data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add cardiff-news-live.json ticker.json
-            git commit -m "Refresh news and ticker"
-            git pull --rebase origin main
-            git push
-          else
-            echo "No data changes to commit."
-          fi
+    - name: Commit refreshed data
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    if [[ -n "$(git status --porcelain)" ]]; then
+      git add cardiff-news-live.json ticker.json
+      git commit -m "Refresh news and ticker"
+      git stash
+      git pull --rebase origin main
+      git stash pop
+      git push
+    else
+      echo "No data changes to commit."
+    fi
