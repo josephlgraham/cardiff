@@ -16,12 +16,12 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Read reactions table to keep database alive
+      - name: Read crossing_reports table to keep database alive
         run: |
           response=$(curl -s -o /dev/null -w "%{http_code}" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/reactions?select=id&limit=1")
+            "${{ secrets.SUPABASE_URL }}/rest/v1/crossing_reports?select=id&limit=1")
           echo "HTTP status: $response"
           if [ "$response" -lt 200 ] || [ "$response" -ge 300 ]; then
             echo "Unexpected response: $response — check SUPABASE_ANON_KEY secret matches Supabase dashboard"
