@@ -165,6 +165,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 </section>
 
 
+<!-- SHELVED 2026-04-19: Cardiff Lynn crossing widget. Uses Supabase table
+     crossing_reports. JS block below is also commented out. Restore both to
+     re-enable. CSS (.xing*) left in place, harmless unused.
 <section class="xing reveal" aria-label="Cardiff Lynn crossing status" aria-live="polite">
   <div class="xing-inner">
     <div class="xing-left">
@@ -186,6 +189,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="xing-ns">NS emergency line: <strong>1-800-946-4744</strong> &nbsp;&middot;&nbsp; Crossing ID: <strong>726 370L</strong></div>
   <div class="xing-toast" id="xingToast"></div>
 </section>
+-->
+
 
 <section class="priority reveal" id="priorityNote" hidden aria-live="polite">
   <div class="priority-label">Priority note</div>
@@ -284,7 +289,8 @@ $("refreshBtn").addEventListener("click",()=>{state.expanded=false;load();});
 load();
 window.setInterval(load,REFRESH_MS);
 
-// Crossing Watch
+// Crossing Watch — SHELVED 2026-04-19. Restore by removing the /* and */ below.
+/*
 (function(){
   var SB_URL='https://eswwnlpjtfaiotqyajen.supabase.co';
   var SB_KEY='sb_publishable_ZreZUDyUsWndYG2ChTcjqw_UhTvL5-Y';
@@ -334,6 +340,7 @@ window.setInterval(load,REFRESH_MS);
   xLoad();
   window.setInterval(xLoad,5*60*1000);
 })();
+*/
 </script>
 <script src="/cardiff/cardiff-pwa.js"></script>
 </body>

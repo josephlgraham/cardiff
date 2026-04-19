@@ -38,9 +38,7 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add cardiff-news-live.json ticker.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-community-snapshot.json
             git commit -m "Refresh site data"
-            git stash
             git pull --rebase origin main
-            git stash pop
             git push
           else
             echo "No data changes to commit."
