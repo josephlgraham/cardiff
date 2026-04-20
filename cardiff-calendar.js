@@ -98,6 +98,93 @@
     }
   }
 
+  // ── Entry emoji ─────────────────────────────────────────────────────────────
+
+  function entryEmoji(name) {
+    const n = (name || "").toLowerCase();
+    // Fixed holidays & feast days
+    if (n.includes("brigid") || n.includes("imbolc"))                return "🕯️";
+    if (n.includes("candlemas"))                                      return "🕯️";
+    if (n.includes("valentine"))                                      return "💝";
+    if (n.includes("mardi gras") || n.includes("shrove"))            return "🎭";
+    if (n.includes("ash wednesday"))                                  return "✝️";
+    if (n.includes("peeper"))                                         return "🐸";
+    if (n.includes("daffodil"))                                       return "🌼";
+    if (n.includes("david") || n.includes("dewi"))                   return "🌼";
+    if (n.includes("giuseppe") || (n.includes("joseph") && n.includes("day"))) return "⚜️";
+    if (n.includes("equinox") || n.includes("solstice"))             return n.includes("spring") || n.includes("autumn") || n.includes("fall") ? "⚖️" : (n.includes("summer") ? "☀️" : "❄️");
+    if (n.includes("lady day") || n.includes("annunciation"))        return "🌸";
+    if (n.includes("easter"))                                        return "🐣";
+    if (n.includes("dogwood"))                                       return "🌸";
+    if (n.includes("earth day"))                                     return "🌍";
+    if (n.includes("george"))                                        return "🐉";
+    if (n.includes("arbor day"))                                     return "🌳";
+    if (n.includes("beltane") || n.includes("calan mai"))            return "🔥";
+    if (n.includes("may day"))                                       return "🌸";
+    if (n.includes("mother"))                                        return "💐";
+    if (n.includes("memorial day"))                                  return "🎖️";
+    if (n.includes("decoration day"))                                return "🌺";
+    if (n.includes("firefl"))                                        return "✨";
+    if (n.includes("mulberr"))                                       return "🍇";
+    if (n.includes("juneteenth"))                                    return "✊";
+    if (n.includes("john") && n.includes("midsummer"))              return "🔥";
+    if (n.includes("dog days"))                                      return "🌡️";
+    if (n.includes("independence day"))                              return "🎆";
+    if (n.includes("rosalia"))                                       return "🌹";
+    if (n.includes("fig"))                                           return "🍃";
+    if (n.includes("perseid"))                                       return "☄️";
+    if (n.includes("lammas") || n.includes("loaf"))                  return "🌾";
+    if (n.includes("lawrence") || n.includes("san lorenzo"))        return "☄️";
+    if (n.includes("ferragosto") || n.includes("assumption"))       return "⛱️";
+    if (n.includes("katydid"))                                       return "🦗";
+    if (n.includes("labor day"))                                     return "⚒️";
+    if (n.includes("muscadine"))                                     return "🍇";
+    if (n.includes("harvest moon"))                                  return "🌕";
+    if (n.includes("hunter"))                                        return "🌕";
+    if (n.includes("michaelmas daisi"))                              return "💜";
+    if (n.includes("michaelmas") || n.includes("st. michael"))      return "⚔️";
+    if (n.includes("francis"))                                       return "🐾";
+    if (n.includes("frost window"))                                  return "❄️";
+    if (n.includes("persimmon"))                                     return "🧡";
+    if (n.includes("halloween") || n.includes("all hallows"))       return "🎃";
+    if (n.includes("all saints") || n.includes("calan gaeaf"))      return "🕯️";
+    if (n.includes("all souls") || n.includes("giorno dei morti"))  return "🕯️";
+    if (n.includes("veterans") || n.includes("armistice"))          return "🎖️";
+    if (n.includes("leonid"))                                        return "☄️";
+    if (n.includes("thanksgiving"))                                  return "🦃";
+    if (n.includes("nicholas"))                                      return "🎁";
+    if (n.includes("earliest sunset"))                              return "🌅";
+    if (n.includes("santa lucia") || n.includes("saint lucy"))      return "🕯️";
+    if (n.includes("yule") || n.includes("winter solstice"))        return "❄️";
+    if (n.includes("vigilia") || n.includes("christmas eve"))       return "🐟";
+    if (n.includes("christmas day"))                                 return "🎄";
+    if (n.includes("new year's eve"))                                return "🥂";
+    if (n.includes("new year's day"))                                return "🎊";
+    if (n.includes("twelfth night"))                                 return "🌿";
+    if (n.includes("epiphany") || n.includes("befana"))             return "🧙";
+    if (n.includes("martin luther king") || n.includes("mlk"))      return "✊";
+    if (n.includes("dwynwen") || n.includes("santes"))              return "💕";
+    if (n.includes("groundhog"))                                     return "🦔";
+    // Nature / foraging
+    if (n.includes("ramp") || n.includes("wild onion"))             return "🧅";
+    if (n.includes("morel"))                                         return "🍄";
+    if (n.includes("turkey season"))                                 return "🦃";
+    if (n.includes("catfish"))                                       return "🐟";
+    if (n.includes("blackberr"))                                     return "🫐";
+    if (n.includes("green corn"))                                    return "🌽";
+    if (n.includes("dove"))                                          return "🕊️";
+    if (n.includes("squirrel"))                                      return "🐿️";
+    if (n.includes("deer"))                                          return "🦌";
+    if (n.includes("frost") || n.includes("freeze"))                return "🌨️";
+    // Civic
+    if (n.includes("tornado siren"))                                 return "🚨";
+    if (n.includes("council") || n.includes("town hall"))           return "🏛️";
+    if (n.includes("incorporation"))                                 return "🏛️";
+    if (n.includes("hazardous") || n.includes("hhw"))               return "♻️";
+    if (n.includes("electronics") || n.includes("shredding"))       return "♻️";
+    return "📅";
+  }
+
   // ── Turning year-boundary logic ──────────────────────────────────────────────
 
   function turningSpansYearBoundary(turning) {
