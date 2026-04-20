@@ -91,6 +91,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .month-main{min-width:0}
 .month-title{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:.12rem}
 .month-copy{font-size:.8rem;line-height:1.6;color:var(--ink2)}
+.turning-card{padding:1.5rem 1.4rem 1.3rem}
+.turning-head{display:flex;align-items:center;gap:.9rem;padding-bottom:1rem;margin-bottom:.85rem;border-bottom:2px solid var(--rule)}
+.turning-emoji{font-size:2.1rem;line-height:1;flex-shrink:0}
+.turning-meta{min-width:0}
+.turning-name{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.1}
+.turning-range{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);display:block;margin-top:.22rem}
+.te-list{list-style:none;display:grid;gap:0;margin:0;padding:0}
+.te-item{display:grid;grid-template-columns:minmax(80px,104px) minmax(0,1fr);gap:.85rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:start}
+.te-item:first-child{border-top:none;padding-top:0}
+.te-date{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding-top:.1rem}
+.te-body{min-width:0}
+.te-name{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.1rem;line-height:1.35}
+.te-desc{font-size:.8rem;line-height:1.58;color:var(--ink2);margin-bottom:.22rem}
+.te-link{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none;font-weight:500}
+.te-link:hover{text-decoration:underline}
 .footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
 .footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
 .footer-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
@@ -117,26 +132,26 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <main class="wrap">
   <section class="hero reveal">
     <div class="pill-strip" aria-label="jump links">
-      <a class="pill-link" href="#seasonal-view"><span class="pill-emoji">🌿</span><div><div class="pill-text">Year ahead</div><div class="pill-sub">Shared season list</div></div></a>
+      <a class="pill-link" href="#turnings-view"><span class="pill-emoji">🌿</span><div><div class="pill-text">Eight turnings</div><div class="pill-sub">Starting from today</div></div></a>
       <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Desk notes</div><div class="pill-sub">How this page works</div></div></a>
     </div>
     <div class="kicker">📅 Community Calendar</div>
     <h1 class="title">A place for Cardiff dates that matter.</h1>
     <p class="sub">This page is the public date spine for the site: season windows, frost timing, sky markers, workdays, and civic dates once they are truly set. It is meant to help people plan, not just fill space.</p>
     <div class="btn-row">
-      <a class="btn primary" href="#seasonal-view">📌 See what is next</a>
+      <a class="btn primary" href="#turnings-view">📌 See what is next</a>
       <a class="btn ghost" href="#send-date">📬 Send a date in</a>
     </div>
   </section>
 
-  <div class="section-rule reveal" id="seasonal-view"><h2>Year Ahead</h2><hr></div>
-  <div class="stack" id="seasonalMonthShell">
-    <section class="card month-shell reveal">
-      <div class="section-kicker">—</div>
-      <div class="month-list">
-        <div class="month-item">
-          <div class="month-date">Syncing</div>
-          <div><div class="month-title">Shared season entries are loading.</div><div class="month-copy">This section groups the next several months from the same list used by Season Windows in the Almanac.</div></div>
+  <div class="section-rule reveal" id="turnings-view"><h2>Eight Turnings</h2><hr></div>
+  <div class="stack" id="turnings-shell">
+    <section class="card turning-card reveal">
+      <div class="turning-head">
+        <span class="turning-emoji" aria-hidden="true">🌿</span>
+        <div class="turning-meta">
+          <h2 class="turning-name">Loading calendar…</h2>
+          <span class="turning-range">One moment</span>
         </div>
       </div>
     </section>
@@ -144,8 +159,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
   <section class="footer-band reveal" id="calendar-notes">
     <div class="section-kicker">Desk notes</div>
-    <h2 class="footer-title">This page now follows the same source list as the Almanac.</h2>
-    <p class="footer-copy" id="calendarStatusNote">Checking the shared season and calendar list now.</p>
+    <h2 class="footer-title">The calendar runs on eight turnings, not months.</h2>
+    <p class="footer-copy" id="calendarStatusNote">The year is divided into eight seasonal periods — Candlemas, Quickening, Beltane, Midsummer, Lammas, Michaelmas, Hallowtide, and Yuletide. The calendar above opens on the turning that contains today and runs through all eight. Dates include fixed holidays, movable feasts, natural markers, and local Cardiff civic events.</p>
   </section>
 
   <section class="card submit-card reveal" id="send-date">
