@@ -413,6 +413,7 @@
         let html =
           '<li class="te-item">' +
           '<div class="te-date">' + escapeHtml(e.dateLabel) + "</div>" +
+          '<div class="te-icon" aria-hidden="true">' + entryEmoji(e.name) + "</div>" +
           '<div class="te-body">' +
           '<div class="te-name">' + escapeHtml(e.name) + "</div>";
         if (e.desc) {
