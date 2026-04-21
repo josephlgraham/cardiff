@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-04-21T08:04:47.839Z",
+  "updatedAt": "2026-04-21T19:23:03.223Z",
   "source_name": "Open-Meteo Air Quality",
   "source_type": "air_quality",
   "latitude": 33.6,
   "longitude": -86.9,
   "timezone": "America/Chicago",
   "current": {
-    "observedLocalTime": "2026-04-21T03:00",
-    "usAqi": 31,
-    "category": "Good",
-    "label": "A fairly clean-air day for most people.",
-    "note": "Outdoor work, porch time, and sky watching should not be fighting much haze from the air-quality side.",
-    "pm25": 5.8,
+    "observedLocalTime": "2026-04-21T14:00",
+    "usAqi": 59,
+    "category": "Moderate",
+    "label": "Air is generally manageable, but sensitive lungs may notice it.",
+    "note": "Most folks can stay outside normally, though haze or breathing irritation can start to matter for sensitive groups.",
+    "pm25": 4.8,
     "pm25Unit": "μg/m³",
-    "ozone": 64,
+    "ozone": 160,
     "ozoneUnit": "μg/m³"
   }
 }
