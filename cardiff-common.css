@@ -39,7 +39,7 @@ a:hover{text-decoration:underline;}
   .mh-left-info,.mh-right-info{display:none!important;}
   .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)!important;}
   .mh-mobile-pills{display:flex!important;gap:8px!important;width:100%!important;padding:8px 0 10px!important;}
-  .mh-pill{flex:1!important;min-height:44px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(255,255,255,0.12)!important;color:#fff!important;padding:10px 16px!important;border-radius:8px!important;font-size:14px!important;font-weight:600!important;text-decoration:none!important;text-align:center!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+  .mh-pill{flex:1!important;min-height:44px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(255,255,255,0.12)!important;color:#fff!important;padding:8px 10px!important;border-radius:8px!important;font-size:12px!important;font-weight:600!important;text-decoration:none!important;text-align:center!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
   .mh-pill:hover{background:rgba(255,255,255,0.2)!important;}
   .mh-tabs a{padding:0.48rem 0.75rem!important;font-size:0.62rem!important;}
   .mh-tabs{scroll-snap-type:x proximity!important;padding-inline:max(0px, calc(50vw - 84px))!important;}
