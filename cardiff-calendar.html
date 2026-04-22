@@ -17,7 +17,10 @@
 <link rel="apple-touch-icon" href="/cardiff/icons/apple-touch-icon.svg">
 <meta name="theme-color" content="#3d2810">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="fetch" href="turnings.json" crossorigin>
 <style>
 :root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,7 +87,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .lane-note{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--ink3)}
 .month-shell{padding:1.25rem 1.2rem 1.15rem}
 .month-list{display:grid;gap:.75rem}
-.month-item{display:grid;grid-template-columns:minmax(108px,128px) 2.1rem minmax(0,1fr);gap:.85rem;padding:.8rem 0;border-top:1px solid var(--rule);align-items:start}
+.month-item{display:grid;grid-template-columns:minmax(108px,128px) 2.4rem minmax(0,1fr);gap:.85rem;padding:.8rem 0;border-top:1px solid var(--rule);align-items:start}
 .month-item:first-child{border-top:none;padding-top:0}
 .month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red)}
 .month-icon{font-size:1.35rem;line-height:1;display:flex;align-items:flex-start;justify-content:center;padding-top:.05rem}
@@ -98,7 +101,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .turning-name{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.1}
 .turning-range{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);display:block;margin-top:.22rem}
 .te-list{list-style:none;display:grid;gap:0;margin:0;padding:0}
-.te-item{display:grid;grid-template-columns:minmax(80px,104px) 1.7rem minmax(0,1fr);gap:.85rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:start}
+.te-item{display:grid;grid-template-columns:minmax(80px,104px) 2.2rem minmax(0,1fr);gap:.85rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:start}
 .te-icon{font-size:1.15rem;line-height:1;display:flex;align-items:flex-start;justify-content:center;padding-top:.08rem}
 .te-item:first-child{border-top:none;padding-top:0}
 .te-date{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding-top:.1rem}
@@ -110,7 +113,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
 .footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
 .footer-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
-.submit-card{padding:1.2rem 1.15rem 1.15rem}
+.submit-card{padding:1.2rem 1.15rem 1.15rem;margin-top:2rem}
 .submit-card .section-kicker{margin-bottom:.6rem}
 .submit-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.4rem}
 .submit-copy{font-size:.84rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem}
@@ -226,9 +229,9 @@ async function submitCalendarDate(){
   }
 }
 </script>
-<script src="cardiff-season-data.js"></script>
-<script src="cardiff-calendar.js"></script>
-<script src="cardiff-common.js"></script>
-<script src="/cardiff/cardiff-pwa.js"></script>
+<script defer src="cardiff-season-data.js"></script>
+<script defer src="cardiff-calendar.js"></script>
+<script defer src="cardiff-common.js"></script>
+<script defer src="/cardiff/cardiff-pwa.js"></script>
 </body>
 </html>
