@@ -120,6 +120,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .submit-form textarea{min-height:150px;resize:vertical}
 .submit-form input:focus,.submit-form select:focus,.submit-form textarea:focus{border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
 .submit-status{margin-top:.1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink3)}
+.hero .sub+.sub{margin-top:.9rem}
+.infopill-strip{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;padding:8px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.infopill-strip::-webkit-scrollbar{display:none}
+.infopill{flex-shrink:0;white-space:nowrap;min-height:44px;padding:10px 14px;border-radius:999px;font-size:13px;border:1px solid var(--border);background:var(--card);color:var(--ink2);cursor:pointer;font-family:var(--sans);display:flex;flex-direction:column;justify-content:center;line-height:1.25;text-align:left}
+.infopill.current{background:var(--red);color:#fff;border-color:var(--red)}
+.infopill-name{font-weight:700}
+.infopill-range{font-size:11px;opacity:.75}
+summary::-webkit-details-marker{display:none}
+summary{list-style:none;cursor:pointer}
+.chevron{transition:transform .2s ease;margin-left:auto;flex-shrink:0;font-size:1.2rem;color:var(--ink3);line-height:1;align-self:center}
+details[open] .chevron{transform:rotate(90deg)}
+details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom:none}
 @media(max-width:980px){.hero-grid,.feature-grid,.lane-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.feature-grid,.lane-grid,.submit-row{grid-template-columns:1fr}.title{font-size:clamp(2.2rem,10vw,3.5rem)}}
 </style>
@@ -132,20 +144,15 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
 <main class="wrap">
   <section class="hero reveal">
-    <div class="pill-strip" aria-label="jump links">
-      <a class="pill-link" href="#turnings-view"><span class="pill-emoji">🌿</span><div><div class="pill-text">Eight turnings</div><div class="pill-sub">Starting from today</div></div></a>
-      <a class="pill-link" href="#calendar-notes"><span class="pill-emoji">🧭</span><div><div class="pill-text">Desk notes</div><div class="pill-sub">How this page works</div></div></a>
-    </div>
-    <div class="kicker">📅 Community Calendar</div>
-    <h1 class="title">A place for Cardiff dates that matter.</h1>
-    <p class="sub">This page is the public date spine for the site: season windows, frost timing, sky markers, workdays, and civic dates once they are truly set. It is meant to help people plan, not just fill space.</p>
-    <div class="btn-row">
-      <a class="btn primary" href="#turnings-view">📌 See what is next</a>
-      <a class="btn ghost" href="#send-date">📬 Send a date in</a>
-    </div>
+    <h1 class="title">The old year had eight seasons, not four.</h1>
+    <p class="sub">Before calendars got flattened into twelve numbered months, country people across Britain, Ireland, and southern Europe tracked the year by eight turnings — moments when the light, the weather, or the work on the land actually changed. Four of them are the sun's big markers: the two solstices and the two equinoxes. The other four fall roughly halfway between — the cross-quarter days that gave us Groundhog Day, May Day, Lammas, and Halloween.</p>
+    <p class="sub">The families who built Cardiff brought these rhythms with them — the <strong>Stewarts</strong> from Scotland, the <strong>Woodfords</strong> from Wales, the <strong>Tombrellos</strong> from Sicily, the <strong>Negrons</strong> from France. Whatever language the old names were said in, the days themselves were the same. Candlemas and Candelora. Beltane and May Day. Lammas and the harvest feast. Hallowtide and All Saints'. Different tongues, the same sun.</p>
+    <p class="sub">We kept the old names here because they're older than the country, older than the state, and they still line up with what's happening outside. Candlemas is when the light starts coming back. Beltane is when the woods go green. Lammas is when the first things ripen. Hallowtide is when the killing frost comes.</p>
+    <p class="sub">The calendar below opens on whichever turning contains today. Tap any other turning to open it.</p>
   </section>
 
-  <div class="section-rule reveal" id="turnings-view"><h2>Eight Turnings</h2><hr></div>
+  <div id="infopill-strip-container" class="reveal"></div>
+
   <div class="stack" id="turnings-shell">
     <section class="card turning-card reveal">
       <div class="turning-head">
@@ -157,12 +164,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </section>
   </div>
-
-  <section class="footer-band reveal" id="calendar-notes">
-    <div class="section-kicker">Desk notes</div>
-    <h2 class="footer-title">The calendar runs on eight turnings, not months.</h2>
-    <p class="footer-copy" id="calendarStatusNote">The year is divided into eight seasonal periods — Candlemas, Quickening, Beltane, Midsummer, Lammas, Michaelmas, Hallowtide, and Yuletide. The calendar above opens on the turning that contains today and runs through all eight. Dates include fixed holidays, movable feasts, natural markers, and local Cardiff civic events.</p>
-  </section>
 
   <section class="card submit-card reveal" id="send-date">
     <div class="section-kicker">Send a date in</div>

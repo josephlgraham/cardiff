@@ -405,7 +405,18 @@
     return p(turning.start) + " \u2013 " + p(turning.end);
   }
 
-  function renderAllTurnings(orderedTurnings, baseYears) {
+  function renderPillStrip(turnings, currentId) {
+    const pills = turnings.map(function(t) {
+      var cls = "infopill" + (t.id === currentId ? " current" : "");
+      return '<button class="' + cls + '" data-slug="' + escapeHtml(t.id) + '">' +
+             '<span class="infopill-name">' + escapeHtml(t.name) + "</span>" +
+             '<span class="infopill-range">' + escapeHtml(fmtTurningRange(t)) + "</span>" +
+             "</button>";
+    }).join("");
+    return '<div class="infopill-strip">' + pills + "</div>";
+  }
+
+  function renderAllTurnings(orderedTurnings, baseYears, currentId) {
     return orderedTurnings.map((turning, i) => {
       const entries = buildEntries(turning, baseYears[i]);
 
@@ -428,17 +439,19 @@
         return html;
       }).join("");
 
+      const isCurrent = turning.id === currentId;
       return (
-        '<section class="card turning-card reveal">' +
-        '<div class="turning-head">' +
+        '<details id="turning-' + escapeHtml(turning.id) + '" class="card turning-card reveal"' + (isCurrent ? " open" : "") + ">" +
+        '<summary class="turning-head">' +
         '<span class="turning-emoji" aria-hidden="true">' + escapeHtml(turning.emoji) + "</span>" +
         '<div class="turning-meta">' +
         '<h2 class="turning-name">' + escapeHtml(turning.name) + "</h2>" +
         '<span class="turning-range">' + escapeHtml(fmtTurningRange(turning)) + "</span>" +
         "</div>" +
-        "</div>" +
+        '<span class="chevron" aria-hidden="true">\u203a</span>' +
+        "</summary>" +
         '<ul class="te-list">' + itemsHtml + "</ul>" +
-        "</section>"
+        "</details>"
       );
     }).join("");
   }
@@ -459,6 +472,20 @@
 
     const turnings = data.turnings;
     const startIdx = findCurrentTurningIdx(turnings, today);
+    const currentId = turnings[startIdx].id;
+
+    // Render infopill strip in calendar order
+    const pillShell = document.getElementById("infopill-strip-container");
+    if (pillShell) {
+      pillShell.innerHTML = renderPillStrip(turnings, currentId);
+      pillShell.querySelectorAll(".infopill").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          var det = document.getElementById("turning-" + btn.dataset.slug);
+          if (det) { det.open = true; det.scrollIntoView({behavior: "smooth", block: "start"}); }
+        });
+      });
+      requestAnimationFrame(function() { pillShell.classList.add("visible"); });
+    }
 
     // Build ordered 8-turning list beginning with today's turning
     const ordered = [];
@@ -467,7 +494,7 @@
     const fYear    = firstTurningBaseYear(ordered[0], today);
     const baseYears = computeBaseYears(ordered, fYear);
 
-    const html = renderAllTurnings(ordered, baseYears);
+    const html = renderAllTurnings(ordered, baseYears, currentId);
 
     const target = document.getElementById("turnings-shell");
     if (!target) return;
