@@ -484,7 +484,11 @@
           if (det) { det.open = true; det.scrollIntoView({behavior: "smooth", block: "start"}); }
         });
       });
-      requestAnimationFrame(function() { pillShell.classList.add("visible"); });
+      requestAnimationFrame(function() {
+        pillShell.classList.add("visible");
+        var active = pillShell.querySelector(".infopill.current");
+        if (active) active.scrollIntoView({behavior: "auto", block: "nearest", inline: "center"});
+      });
     }
 
     // Build ordered 8-turning list beginning with today's turning

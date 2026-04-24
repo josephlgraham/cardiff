@@ -52,7 +52,7 @@
         '<div class="mh-right-info"><a href="cardiff-almanac.html#wx-card" class="mh-wx-link"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span></a><br><span id="mhWind">&mdash;</span></div>' +
         '<div class="mh-mobile-pills">' +
           '<a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">\uD83C\uDF0A Creek</a>' +
-          '<a href="cardiff-almanac.html" class="mh-pill" id="mhWxPill">\uD83C\uDF24\uFE0F &mdash;&deg;F</a>' +
+          '<a href="cardiff-almanac.html#wx-card" class="mh-pill" id="mhWxPill">\uD83C\uDF24\uFE0F &mdash;&deg;F</a>' +
         '</div>' +
       '</div>' +
       '<nav class="mh-tabs">' +

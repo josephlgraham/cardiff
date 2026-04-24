@@ -1495,6 +1495,8 @@
       if (primary && Number.isFinite(numericOrNaN(primary.stage_ft))) {
         const mood = creekMood(numericOrNaN(primary.stage_ft));
         setText("pillWatershed", mood.label);
+        const creekPill = document.getElementById("mhCreekPill");
+        if (creekPill) creekPill.textContent = mood.icon + " " + numericOrNaN(primary.stage_ft).toFixed(2) + " ft";
       } else {
         setText("pillWatershed", "Gauge sync");
       }
@@ -1641,6 +1643,8 @@
       setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
       setText("mhCond", wx.condition);
       setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
+      const wxPill = document.getElementById("mhWxPill");
+      if (wxPill) wxPill.textContent = conditionIcon(wx.condition) + " " + wx.temp + "°F";
       buildWeather(wx, data.rain || null);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
