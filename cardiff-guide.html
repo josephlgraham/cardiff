@@ -2742,34 +2742,24 @@ function initTopo(){
 
 // ── WEATHER ──────────────────────────────────────────────
 const WX_URL='cardiff-weather.json';
-const WDIRS=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
-function wdir(d){return Number.isFinite(d)?WDIRS[Math.round((((d%360)+360)%360)/22.5)%16]:'';}
-
-function wxCondition(o){
-  const t=o.imperial.temp,h=o.humidity,pr=o.imperial.precipRate||0,sr=o.solarRadiation||0,w=o.imperial.windSpeed,hr=new Date().getHours();
-  if(pr>.05)return'Rain';if(sr>700)return'Sunny';if(sr>350)return'Partly cloudy';
-  if(sr<30&&hr>7&&hr<19)return'Overcast';if(t>90)return'Hot';
-  if(t>76)return h>72?'Warm & humid':'Warm';if(t>58)return w>12?'Breezy':'Mild';return'Cold';
-}
 
 function setEl(id,val){const e=document.getElementById(id);if(e)e.textContent=val;}
 
 async function loadWeather(callback){
   try{
     const r=await fetch(WX_URL,{cache:'no-store'});const d=await r.json();const current=d&&d.current?d.current:null;if(!current)throw new Error('weather');
-    const temp=Math.round(Number(current.temp)),feels=Math.round(Number(current.feels||current.temp));
+    const temp=Math.round(Number(current.temp)),feels=Math.round(Number(current.feelsLike||current.feels||current.temp));
     const dir=current.windDir||'';
     const wind=Math.round(Number(current.windSpeed||0))+' mph'+(dir?' '+dir:'');
-    const rain=(Number(current.precipTotal||0)).toFixed(2)+'"';const cond=current.condition||'Offline';
+    const rain=(Number(current.dailyRain||current.precipTotal||0)).toFixed(2)+'"';const cond=current.condition||'Offline';
     const o={humidity:Math.round(Number(current.humidity||0)),uv:current.uv};
-    const imp={temp:Number(current.temp),heatIndex:Number(current.feels||current.temp),windChill:Number(current.feels||current.temp),windSpeed:Number(current.windSpeed||0),precipTotal:Number(current.precipTotal||0)};
     const wxEmoji=cond==='Rain'?'🌧️':cond==='Sunny'?'☀️':cond==='Hot'?'🌡️':cond==='Overcast'?'☁️':cond==='Breezy'?'🌬️':cond==='Cold'?'🥶':'🌤️';
     const windSpd=Math.round(Number(current.windSpeed||0));
     const windEmoji=windSpd<5?'🍃':windSpd<15?'💨':'🌬️';
     setEl('mhTemp',wxEmoji+' '+temp+'°F');setEl('mhCond',cond);setEl('mhWind',windEmoji+' '+wind);
     setEl('tkTemp',wxEmoji+' '+temp+'°F');setEl('tkFeels',feels+'°F');setEl('tkHum',o.humidity+'%');
     setEl('tkWind',windEmoji+' '+wind);setEl('tkRain',rain);setEl('tkUV',o.uv??'—');
-    window._wx={...o,temp,feels,wind,rain,cond,imp};
+    window._wx={...o,temp,feels,wind,rain,cond};
     if(callback)callback(window._wx);
   }catch(e){setEl('mhTemp','—');setEl('mhCond','Offline');if(callback)callback(null);}
 }
