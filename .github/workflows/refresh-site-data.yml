@@ -3,7 +3,7 @@ name: Refresh Site Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
@@ -24,9 +24,8 @@ jobs:
       - name: Refresh weather, watershed, civic snapshot, and news files
         run: node scripts/fetch-site-data.mjs
         env:
-          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
-          WEATHER_STATION_ID: KALGRAYS4
-          NEIGHBOR_STATION_IDS: KALDORA12,KALGARDE30
+          AW_API_KEY: ${{ secrets.AW_API_KEY }}
+          AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
 
       - name: Refresh alert ticker
         run: node cardiff-alerts.js
@@ -37,7 +36,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain)" ]]; then
             git add cardiff-news-live.json ticker.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-community-snapshot.json
-            git commit -m "Refresh site data"
+            git commit -m "data: weather refresh"
             git pull --rebase origin main
             git push
           else
