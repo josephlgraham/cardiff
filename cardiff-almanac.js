@@ -1193,16 +1193,15 @@
     buildSky(now, sun, moon);
   }
 
-  function weatherCondition(obs) {
-    const imp = obs.imperial || {};
-    const temp = Number(imp.temp);
-    const humidity = Number(obs.humidity);
-    const precipRate = Number(imp.precipRate || 0);
-    const solar = Number(obs.solarRadiation || 0);
-    const wind = Number(imp.windSpeed || 0);
+  function weatherCondition(cur) {
+    const temp = Number(cur.temp);
+    const humidity = Number(cur.humidity);
+    const hourlyRain = Number(cur.hourlyRain || cur.precipRate || 0);
+    const solar = Number(cur.solarRadiation || 0);
+    const wind = Number(cur.windSpeed || 0);
     const hour = new Date().getHours();
 
-    if (precipRate > 0.05) return "Rain";
+    if (hourlyRain > 0.05) return "Rain";
     if (solar > 700) return "Sunny";
     if (solar > 350) return "Partly cloudy";
     if (solar < 30 && hour > 7 && hour < 19) return "Overcast";
@@ -1622,21 +1621,20 @@
       const response = await fetch(WX_URL, { cache: "no-store" });
       if (!response.ok) throw new Error("weather");
       const data = await response.json();
-      if (!data.observations || !data.observations.length) throw new Error("weather");
-      const obs = data.observations[0];
-      const imp = obs.imperial || {};
+      const cur = data.current;
+      if (!cur) throw new Error("weather");
       const wx = {
-        temp: Math.round(Number(imp.temp)),
-        feels: Math.round(Number(imp.heatIndex || imp.windChill || imp.temp)),
-        humidity: Math.round(Number(obs.humidity || 0)),
-        windSpeed: Number(imp.windSpeed || 0),
-        windDir: directionFromDegrees(Number(obs.winddir)),
-        precipRate: Number(imp.precipRate || 0),
-        precipTotal: Number(imp.precipTotal || 0),
-        pressureIn: Number((obs.imperial && obs.imperial.pressure) || imp.pressure || 0),
-        uv: Number(obs.uv),
-        obsTime: obs.obsTimeLocal || obs.obsTimeUtc,
-        condition: weatherCondition(obs)
+        temp: Math.round(Number(cur.temp)),
+        feels: Math.round(Number(cur.feelsLike || cur.feels || cur.temp)),
+        humidity: Math.round(Number(cur.humidity || 0)),
+        windSpeed: Number(cur.windSpeed || 0),
+        windDir: cur.windDir || 'Calm',
+        precipRate: Number(cur.hourlyRain || cur.precipRate || 0),
+        precipTotal: Number(cur.dailyRain || cur.precipTotal || 0),
+        pressureIn: Number(cur.pressure || cur.pressureIn || 0),
+        uv: Number(cur.uv),
+        obsTime: cur.lastUpdated || cur.obsTime,
+        condition: cur.condition || weatherCondition(cur)
       };
       wx.summary = summarizeWeather(wx);
       latestWeatherPayload = data;

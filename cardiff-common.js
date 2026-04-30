@@ -99,7 +99,7 @@
       '  <div class="mh-identity">\n' +
       '    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>\n' +
       '    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
-      '    <div class="mh-right-info"><a href="cardiff-almanac.html#wx-card" class="mh-wx-link"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span></a><br><span id="mhWind">&mdash;</span></div>\n' +
+      '    <div class="mh-right-info"><a href="cardiff-almanac.html#wx-card" class="mh-wx-link"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span></a><br><span id="mhWind">&mdash;</span><br><span id="mhUpdated" class="mh-updated"></span></div>\n' +
       '    <div class="mh-mobile-pills">\n' +
       '      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>\n' +
       '      <a href="cardiff-almanac.html#wx-card" class="mh-pill" id="mhWxPill">🌤\uFE0F &mdash;&deg;F</a>\n' +
@@ -251,6 +251,14 @@
         setEl('mhTemp', wxE + ' ' + temp + '°F');
         setEl('mhCond', cond);
         setEl('mhWind', wE + ' ' + wind);
+        var obsTime = current.lastUpdated || current.obsTime;
+        if (obsTime) {
+          var t = new Date(String(obsTime).replace(' ', 'T'));
+          var h = t.getHours(), m = t.getMinutes();
+          var ap = h >= 12 ? 'PM' : 'AM';
+          h = h % 12 || 12;
+          setEl('mhUpdated', 'Updated ' + h + ':' + (m < 10 ? '0' : '') + m + ' ' + ap);
+        }
         var wxPill = document.getElementById('mhWxPill');
         if (wxPill) wxPill.textContent = wxE + ' ' + temp + '°F · ' + cond;
       })
