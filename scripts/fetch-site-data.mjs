@@ -203,6 +203,19 @@ function localShortDate(value) {
   }).format(new Date(value));
 }
 
+function windDegToCompass(deg) {
+  const dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+  return dirs[Math.round(Number(deg) / 22.5) % 16] || 'N';
+}
+
+function deriveCondition(hourlyRain, solarRadiation) {
+  if (hourlyRain > 0) return 'Rain';
+  if (solarRadiation > 600) return 'Sunny';
+  if (solarRadiation > 200) return 'Partly cloudy';
+  if (solarRadiation > 20) return 'Mostly cloudy';
+  return 'Clear';
+}
+
 async function updateRainLog(current, obsDate) {
   const log = await readJson(RAIN_LOG_FILE, { updatedAt: '', samples: [], monthSeeds: [] });
   const sample = {
@@ -353,6 +366,29 @@ async function updateWeatherFile() {
   const payload = {
     updatedAt: new Date().toISOString(),
     ...current,
+    current: {
+      temp: current.temp,
+      feelsLike: current.feelsLike,
+      feels: current.feelsLike,
+      humidity: current.humidity,
+      windSpeed: current.windSpeed,
+      windDir: windDegToCompass(d.winddir),
+      windGust: current.windGust,
+      hourlyRain: current.hourlyRain,
+      precipRate: current.hourlyRain,
+      dailyRain: current.dailyRain,
+      precipTotal: current.dailyRain,
+      pressure: current.pressure,
+      pressureIn: current.pressure,
+      uv: current.uv,
+      solarRadiation: current.solarRadiation,
+      dewPoint: current.dewPoint,
+      obsTime: current.lastUpdated,
+      lastUpdated: current.lastUpdated,
+      condition: deriveCondition(current.hourlyRain, current.solarRadiation),
+      source: current.source,
+      sourceNote: null
+    },
     rain,
     forecast
   };
