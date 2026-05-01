@@ -984,7 +984,12 @@ async function updateCommunitySnapshotFile() {
 }
 
 async function main() {
-  const weather = await updateWeatherFile();
+  let weather = null;
+  try {
+    weather = await updateWeatherFile();
+  } catch (error) {
+    console.error('Weather update failed (continuing):', error.message);
+  }
   await updateWatershedFile(weather);
   await updateAirQualityFile();
   await updateCommunitySnapshotFile();

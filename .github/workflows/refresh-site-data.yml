@@ -25,7 +25,7 @@ jobs:
         run: node scripts/fetch-site-data.mjs
         env:
           AW_API_KEY: ${{ secrets.AW_API_KEY }}
-          AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
+          AW_APP_KEY: ${{ secrets.AW_APP_SECRET }}
 
       - name: Refresh alert ticker
         run: node cardiff-alerts.js
