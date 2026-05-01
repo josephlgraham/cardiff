@@ -1495,7 +1495,7 @@
         const mood = creekMood(numericOrNaN(primary.stage_ft));
         setText("pillWatershed", mood.label);
         const creekPill = document.getElementById("mhCreekPill");
-        if (creekPill) creekPill.textContent = mood.icon + " " + numericOrNaN(primary.stage_ft).toFixed(2) + " ft";
+        if (creekPill) creekPill.textContent = mood.icon + " " + numericOrNaN(primary.stage_ft).toFixed(2) + " ft · " + mood.label;
       } else {
         setText("pillWatershed", "Gauge sync");
       }
@@ -1642,7 +1642,7 @@
       setText("mhCond", wx.condition);
       setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
       const wxPill = document.getElementById("mhWxPill");
-      if (wxPill) wxPill.textContent = conditionIcon(wx.condition) + " " + wx.temp + "°F";
+      if (wxPill) wxPill.textContent = conditionIcon(wx.condition) + " " + wx.temp + "°F · " + wx.condition;
       buildWeather(wx, data.rain || null);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
