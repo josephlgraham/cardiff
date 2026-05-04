@@ -1,41 +1,41 @@
 {
-  "updatedAt": "2026-05-04T16:58:24.075Z",
-  "temp": 76,
-  "humidity": 50,
+  "updatedAt": "2026-05-04T18:13:25.141Z",
+  "temp": 78,
+  "humidity": 48,
   "windSpeed": 1,
-  "windDir": 229,
-  "windGust": 6,
-  "pressure": 29.701,
+  "windDir": 45,
+  "windGust": 3,
+  "pressure": 29.669,
   "pressureTrend": "falling",
   "uv": 7,
-  "solarRadiation": 740.74,
+  "solarRadiation": 764.59,
   "dailyRain": 0,
   "hourlyRain": 0,
   "monthlyRain": 0,
   "yearlyRain": 25.21,
-  "feelsLike": 76,
-  "dewPoint": 56,
-  "lastUpdated": "2026-05-04T16:57:00.000Z",
+  "feelsLike": 78,
+  "dewPoint": 57,
+  "lastUpdated": "2026-05-04T18:13:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 76,
-    "feelsLike": 76,
-    "feels": 76,
-    "humidity": 50,
+    "temp": 78,
+    "feelsLike": 78,
+    "feels": 78,
+    "humidity": 48,
     "windSpeed": 1,
-    "windDir": "SW",
-    "windGust": 6,
+    "windDir": "NE",
+    "windGust": 3,
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0,
     "precipTotal": 0,
-    "pressure": 29.701,
-    "pressureIn": 29.701,
+    "pressure": 29.669,
+    "pressureIn": 29.669,
     "uv": 7,
-    "solarRadiation": 740.74,
-    "dewPoint": 56,
-    "obsTime": "2026-05-04T16:57:00.000Z",
-    "lastUpdated": "2026-05-04T16:57:00.000Z",
+    "solarRadiation": 764.59,
+    "dewPoint": 57,
+    "obsTime": "2026-05-04T18:13:00.000Z",
+    "lastUpdated": "2026-05-04T18:13:00.000Z",
     "condition": "Sunny",
     "source": "Ambient Weather",
     "sourceNote": null
@@ -60,11 +60,11 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Today",
-      "startTime": "2026-05-04T11:00:00-05:00",
+      "name": "This Afternoon",
+      "startTime": "2026-05-04T13:00:00-05:00",
       "endTime": "2026-05-04T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 78,
+      "temperature": 79,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -75,7 +75,7 @@
       "windDirection": "SW",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 78. Southwest wind 5 to 10 mph."
+      "detailedForecast": "Mostly sunny, with a high near 79. Southwest wind 5 to 10 mph."
     },
     {
       "number": 2,
@@ -83,7 +83,7 @@
       "startTime": "2026-05-04T18:00:00-05:00",
       "endTime": "2026-05-05T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 55,
+      "temperature": 54,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -94,7 +94,7 @@
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 55. South wind around 5 mph."
+      "detailedForecast": "Mostly clear, with a low around 54. South wind around 5 mph."
     },
     {
       "number": 3,
@@ -102,18 +102,18 @@
       "startTime": "2026-05-05T06:00:00-05:00",
       "endTime": "2026-05-05T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 79,
+      "temperature": 78,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 4
+        "value": 7
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "S",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 79. South wind 5 to 10 mph."
+      "detailedForecast": "Mostly sunny, with a high near 78. South wind 5 to 10 mph."
     },
     {
       "number": 4,
@@ -126,7 +126,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 21
+        "value": 17
       },
       "windSpeed": "10 mph",
       "windDirection": "S",
