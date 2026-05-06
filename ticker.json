@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-05-06T09:10:30.065Z",
-  "hasAlerts": false,
-  "alertCount": 0,
-  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
+  "updatedAt": "2026-05-06T11:18:42.479Z",
+  "hasAlerts": true,
+  "alertCount": 1,
+  "ticker": "🌊 Flood Watch · Through tomorrow 12 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": []
+  "alerts": [
+    {
+      "event": "Flood Watch",
+      "severity": "Severe",
+      "urgency": "Future",
+      "emoji": "🌊",
+      "ends": "2026-05-07T07:00:00-05:00",
+      "endsShort": "tomorrow 12 PM",
+      "headline": "Flood Watch",
+      "description": "Heavy thunderstorms are forecast from this afternoon to early",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.84107cc6b49ab6f1678ad0f61de29d4a521f17e1.001.1"
+    }
+  ]
 }
