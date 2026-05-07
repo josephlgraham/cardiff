@@ -307,6 +307,49 @@ async function fetchForecast() {
   return Array.isArray(forecastData.properties?.periods) ? forecastData.properties.periods.slice(0, 8) : [];
 }
 
+async function backfillRainGap(mac, currentObsDate) {
+  const log = await readJson(RAIN_LOG_FILE, { updatedAt: '', samples: [], monthSeeds: [] });
+  const samples = Array.isArray(log.samples) ? log.samples : [];
+  if (!samples.length) return;
+
+  const lastTime = new Date(samples[samples.length - 1].obsTime);
+  const gapMinutes = (currentObsDate - lastTime) / 60000;
+  if (gapMinutes < 25) return;
+
+  console.log(`Rain log gap: ${Math.round(gapMinutes)} min. Fetching backfill from Ambient Weather...`);
+  const limit = Math.min(288, Math.ceil(gapMinutes / 5) + 5);
+  const histUrl = `https://rt.ambientweather.net/v1/devices/${mac}?apiKey=${encodeURIComponent(AW_API_KEY)}&applicationKey=${encodeURIComponent(AW_APP_KEY)}&endDate=${encodeURIComponent(currentObsDate.toISOString())}&limit=${limit}`;
+
+  let history;
+  try {
+    history = await fetchJson(histUrl, { cache: 'no-store' });
+  } catch (error) {
+    console.warn(`Backfill fetch failed: ${error.message}`);
+    return;
+  }
+  if (!Array.isArray(history)) return;
+
+  const missing = history
+    .filter((d) => { const t = new Date(d.date); return t > lastTime && t < currentObsDate; })
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  if (!missing.length) { console.log('No backfill data available from Ambient Weather.'); return; }
+
+  console.log(`Backfilling ${missing.length} missing sample(s)...`);
+  for (const d of missing) {
+    await updateRainLog({
+      temp: Math.round(d.tempf || 0),
+      windGust: Math.round(d.windgustmph || 0),
+      humidity: d.humidity || 0,
+      precipRate: d.hourlyrainin || 0,
+      precipTotal: d.dailyrainin || 0,
+      source: 'ambient-station',
+      sourceNote: 'backfilled'
+    }, new Date(d.date));
+  }
+  console.log('Backfill complete.');
+}
+
 async function updateWeatherFile() {
   if (!AW_API_KEY || !AW_APP_KEY) {
     console.log('Skipping weather update because AW_API_KEY or AW_APP_KEY is not set.');
@@ -318,8 +361,11 @@ async function updateWeatherFile() {
   if (!Array.isArray(devices) || !devices[0]?.lastData) {
     throw new Error('Ambient Weather returned no device data');
   }
+  const mac = devices[0].macAddress;
   const d = devices[0].lastData;
   const obsDate = new Date(d.date || Date.now());
+
+  if (mac) await backfillRainGap(mac, obsDate);
 
   const prev = await readJson(WEATHER_FILE, {});
   const prevPressure = typeof prev.pressure === 'number' ? prev.pressure : null;
