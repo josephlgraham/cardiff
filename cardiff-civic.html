@@ -225,11 +225,6 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
   </section>
 
-  <section class="grid-2 reveal" style="margin-top:1rem;">
-    <div data-cardiff-widget="poll" data-poll-id="spring-2026"></div>
-    <div data-cardiff-widget="reactions" data-page="civic"></div>
-  </section>
-
   <section class="tracker-card reveal" id="civicSnapshotCard" style="margin-top:1.25rem;">
     <div class="tracker-top">
       <div>
@@ -520,7 +515,6 @@ renderRoles('mayor');
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.08});
 </script>
 <script src="cardiff-civic-data.js"></script>
-<script src="cardiff-community.js"></script>
 <script src="cardiff-common.js"></script>
 <script src="/cardiff/cardiff-pwa.js"></script>
 </body>

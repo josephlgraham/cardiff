@@ -35,7 +35,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain)" ]]; then
-            git add cardiff-news-live.json ticker.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-community-snapshot.json
+            git add cardiff-news-live.json ticker.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json
             git commit -m "data: weather refresh"
             git pull --rebase origin main
             git push
