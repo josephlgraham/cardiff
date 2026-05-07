@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-05-06T23:12:29.926Z",
+  "updatedAt": "2026-05-07T00:06:35.468Z",
   "hasAlerts": true,
   "alertCount": 2,
-  "ticker": "🌪️ Tornado Watch · Through tomorrow 4 AM    ·    🌊 Flood Watch · Through tomorrow 12 PM",
+  "ticker": "🌪️ Tornado Watch · Through today 4 AM    ·    🌊 Flood Watch · Through today 12 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -12,10 +12,10 @@
       "urgency": "Future",
       "emoji": "🌪️",
       "ends": "2026-05-06T23:00:00-05:00",
-      "endsShort": "tomorrow 4 AM",
+      "endsShort": "today 4 AM",
       "headline": "Tornado Watch",
       "description": "TORNADO WATCH 187 REMAINS VALID UNTIL 11 PM CDT THIS EVENING FOR",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.4bb396ba89e7605e838b864fad547f0b4107b061.002.1"
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1748bc293ea52653bb06567b38e40e70c9581d28.002.1"
     },
     {
       "event": "Flood Watch",
@@ -23,7 +23,7 @@
       "urgency": "Future",
       "emoji": "🌊",
       "ends": "2026-05-07T07:00:00-05:00",
-      "endsShort": "tomorrow 12 PM",
+      "endsShort": "today 12 PM",
       "headline": "Flood Watch",
       "description": "Heavy thunderstorms are forecast through early Thursday morning.",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9b5a47c98df39e287c17f7dc0287cce95b78bc5e.001.1"
