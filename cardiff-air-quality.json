@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-05-10T21:58:52.508Z",
+  "updatedAt": "2026-05-10T22:48:37.504Z",
   "source_name": "Open-Meteo Air Quality",
   "source_type": "air_quality",
   "latitude": 33.6,
   "longitude": -86.9,
   "timezone": "America/Chicago",
   "current": {
-    "observedLocalTime": "2026-05-10T16:00",
-    "usAqi": 85,
-    "category": "Moderate",
-    "label": "Air is generally manageable, but sensitive lungs may notice it.",
-    "note": "Most folks can stay outside normally, though haze or breathing irritation can start to matter for sensitive groups.",
-    "pm25": 8.9,
+    "observedLocalTime": "2026-05-10T17:00",
+    "usAqi": 105,
+    "category": "Unhealthy for sensitive groups",
+    "label": "Sensitive groups should take the air seriously today.",
+    "note": "Children, older adults, and anyone with asthma or heart and lung concerns may want lighter outdoor effort.",
+    "pm25": 9.5,
     "pm25Unit": "μg/m³",
-    "ozone": 154,
+    "ozone": 146,
     "ozoneUnit": "μg/m³"
   }
 }
