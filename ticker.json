@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-05-10T00:05:42.532Z",
-  "hasAlerts": false,
-  "alertCount": 0,
-  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
+  "updatedAt": "2026-05-10T04:08:54.637Z",
+  "hasAlerts": true,
+  "alertCount": 1,
+  "ticker": "🌫️ Dense Fog Advisory · Through today 2 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": []
+  "alerts": [
+    {
+      "event": "Dense Fog Advisory",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "🌫️",
+      "ends": "2026-05-10T09:00:00-05:00",
+      "endsShort": "today 2 PM",
+      "headline": "Dense Fog Advisory",
+      "description": "* WHAT...Visibility one quarter mile or less at times in dense fog.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6ac4b9e0ceaf71aff9f56a5ee7bfd1e1c542247e.001.1"
+    }
+  ]
 }
