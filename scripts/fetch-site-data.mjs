@@ -1091,10 +1091,26 @@ async function main() {
   } catch (error) {
     console.error('Weather archive update failed (continuing):', error.message);
   }
-  await updateWatershedFile(weather);
-  await updateAirQualityFile();
-  await updateCommunitySnapshotFile();
-  await updateNewsFile(weather);
+  try {
+    await updateWatershedFile(weather);
+  } catch (error) {
+    console.error('Watershed update failed (continuing):', error.message);
+  }
+  try {
+    await updateAirQualityFile();
+  } catch (error) {
+    console.error('Air quality update failed (continuing):', error.message);
+  }
+  try {
+    await updateCommunitySnapshotFile();
+  } catch (error) {
+    console.error('Community snapshot update failed (continuing):', error.message);
+  }
+  try {
+    await updateNewsFile(weather);
+  } catch (error) {
+    console.error('News update failed (continuing):', error.message);
+  }
 }
 
 main().catch((error) => {
