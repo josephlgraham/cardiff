@@ -1569,39 +1569,75 @@
     );
   }
 
-  function buildWeather(wx, rain) {
+  function buildYesterdayNarrative(ds) {
+    if (!ds || !Number.isFinite(ds.yesterdayHigh) || !Number.isFinite(ds.yesterdayLow)) {
+      return "Yesterday's weather summary will appear here after the daily station log compiles.";
+    }
+    const rain = Number.isFinite(ds.yesterdayRain) ? ds.yesterdayRain : 0;
+    let text = "Yesterday around Cardiff, temperatures ranged from " + ds.yesterdayLow + "° to " + ds.yesterdayHigh + "°";
+    if (rain >= 0.01) {
+      text += " with " + formatInches(rain) + " of rain recorded at the station.";
+    } else {
+      text += " with no measurable rain.";
+    }
+    text += " The watershed log keeps a running record—each day’s high, low, and rainfall are preserved in the climate archive.";
+    return text;
+  }
+
+  function buildWeather(wx, rain, dailySummary) {
     const moon = getMoonPhase(new Date());
     const sun = getSunTimes(new Date());
     const ground = groundCondition(wx.precipTotal, wx.humidity);
-    const pressure = pressureNote(wx.pressureIn);
-    const updatedLabel = "Updated " + formatClock(new Date(wx.obsTime || Date.now()));
+    const ds = dailySummary || null;
+    const hasYesterday = ds && Number.isFinite(ds.yesterdayHigh) && Number.isFinite(ds.yesterdayLow);
 
-    setText("wxUpdated", updatedLabel);
-    setEmojiText("wxTemp", conditionIcon(wx.condition), wx.temp + "°F");
-    setText("wxTempNote", tempNote(wx.temp));
-    setEmojiText("wxHum", "💧", wx.humidity + "%");
-    setText("wxHumNote", humidityNote(wx.humidity));
-    setEmojiText("wxWind", windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph");
-    setText("wxWindNote", windNote(wx.windSpeed));
-    setEmojiText("wxRain", ground.icon, ground.title);
-    setText("wxRainNote", ground.note);
-    setEmojiText("wxPressure", pressure.icon, Number.isFinite(wx.pressureIn) ? wx.pressureIn.toFixed(2) + '"' : "—");
-    setText("wxPressureNote", pressure.note);
-    setEmojiText("wxUV", "☀️", Number.isFinite(wx.uv) ? String(Math.round(wx.uv)) : "—");
-    setText("wxUVNote", uvNote(wx.uv));
-    setText("wxNarrative", wx.summary);
-    setText("wxScience", "Air temperature, humidity, pressure, wind, and recent precipitation together explain why the creek bottoms feel different from the open ridge even on the same day.");
-    setHTML("heroCond", emojiText(conditionIcon(wx.condition), wx.condition));
-    setText("heroCondSub", "Feels like " + wx.feels + "°F · Wind " + Math.round(wx.windSpeed) + " mph " + wx.windDir);
+    // Card date tag — show yesterday's date
+    const obsDate = new Date(wx.obsTime || Date.now());
+    const yesterday = new Date(obsDate);
+    yesterday.setDate(yesterday.getDate() - 1);
+    setText("wxUpdated", yesterday.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }));
+
+    // wx-grid: 3 yesterday cells
+    if (hasYesterday) {
+      setText("wxYestHigh", ds.yesterdayHigh + "°F");
+      setText("wxYestHighNote", "Peak temperature yesterday");
+      setText("wxYestLow", ds.yesterdayLow + "°F");
+      setText("wxYestLowNote", "Overnight low around Cardiff");
+      setText("wxYestRain", formatInches(Number.isFinite(ds.yesterdayRain) ? ds.yesterdayRain : null));
+      setText("wxYestRainNote", "Total rainfall yesterday");
+    } else {
+      setText("wxYestHigh", "—");
+      setText("wxYestHighNote", "No summary yet");
+      setText("wxYestLow", "—");
+      setText("wxYestLowNote", "First daily run compiles tonight");
+      setText("wxYestRain", "—");
+      setText("wxYestRainNote", "—");
+    }
+
+    // hero conditions box: yesterday range
+    if (hasYesterday) {
+      setText("heroCond", ds.yesterdayHigh + "°–" + ds.yesterdayLow + "°F");
+      setText("heroCondSub", "Yesterday’s temperature range");
+    } else {
+      setText("heroCond", "—");
+      setText("heroCondSub", "Daily summary pending first run");
+    }
+
+    // hero ground condition: derived from morning snapshot moisture
     setHTML("heroRain", emojiText(ground.icon, ground.title));
     setText("heroRainSub", ground.note);
-    setText("pillWeather", wx.temp + "°F · " + wx.condition);
+
+    // pill
+    setText("pillWeather", hasYesterday ? ds.yesterdayHigh + "°–" + ds.yesterdayLow + "°" : "Yesterday");
+
+    // narrative and science
+    setText("wxNarrative", buildYesterdayNarrative(ds));
+    setText("wxScience", "Daily high, low, and total rainfall give a clear picture of what yesterday brought to the Five Mile Creek watershed.");
 
     buildRainSummary(rain);
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
     buildFishing(wx, moon);
     buildSideSnapshot(wx, sun, moon, ground);
-    refreshWeatherEmojiLayer(wx, ground, pressure);
     refreshFishingEmojiLayer(wx);
     refreshRainEmojiLayer(rain);
   }
@@ -1638,16 +1674,26 @@
       };
       wx.summary = summarizeWeather(wx);
       latestWeatherPayload = data;
-      setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
-      setText("mhCond", wx.condition);
-      setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
-      const wxPill = document.getElementById("mhWxPill");
-      if (wxPill) wxPill.textContent = conditionIcon(wx.condition) + " " + wx.temp + "°F · " + wx.condition;
-      buildWeather(wx, data.rain || null);
       const summary = data.dailySummary || null;
-      if (summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow)) {
-        setText("wxTempNote", "Yesterday " + summary.yesterdayHigh + "°/" + summary.yesterdayLow + "°");
+      const rain = data.rain || null;
+      const hasYest = summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow);
+
+      // masthead: yesterday range + monthly rain
+      if (hasYest) {
+        setHTML("mhTemp", emojiText("🌡️", summary.yesterdayHigh + "°F"));
+        setText("mhCond", summary.yesterdayHigh + "°–" + summary.yesterdayLow + "° yesterday");
+      } else {
+        setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
+        setText("mhCond", "Station data");
       }
+      if (rain && Number.isFinite(rain.monthToDate)) {
+        setHTML("mhWind", emojiText("🌧️", "Month: " + formatInches(rain.monthToDate)));
+      } else {
+        setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
+      }
+      const wxPill = document.getElementById("mhWxPill");
+      if (wxPill) wxPill.textContent = hasYest ? "🌡️ " + summary.yesterdayHigh + "°–" + summary.yesterdayLow + "°" : "🌤️ Station";
+      buildWeather(wx, rain, summary);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {
@@ -1656,23 +1702,30 @@
       setText("mhCond", "Offline");
       setText("mhWind", "Trying again soon");
       setText("wxUpdated", "Weather offline");
-      setText("wxNarrative", "The weather station data did not load just now. The rest of the almanac is still available.");
+      setText("wxUpdated", "Offline");
+      setText("wxNarrative", "The weather station data did not load. The rest of the almanac is still available.");
       setText("pillWeather", "Offline");
+      setText("wxYestHigh", "—");
+      setText("wxYestLow", "—");
+      setText("wxYestRain", "—");
+      setText("wxYestHighNote", "Station offline");
+      setText("wxYestLowNote", "—");
+      setText("wxYestRainNote", "Yesterday's data will return when the station file loads.");
       setHTML("heroCond", emojiText("📡", "Station offline"));
-      setText("heroCondSub", "Conditions will return when the station data loads.");
-      setHTML("heroRain", emojiText("🥾", "Use local ground check"));
-      setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
+      setText("heroCondSub", "Yesterday's range will return when the station data loads.");
+      setHTML("heroRain", emojiText("🥾", "Check the ground"));
+      setText("heroRainSub", "Walk the yard or creek edge for the real footing report.");
       setText("rainToday", "—");
       setText("rainMonthLabel", "Rain tracked");
       setText("rainMonth", "—");
-      setText("rainTodayNote", "Rain totals will return with the station feed.");
-      setText("rainMonthNote", "Tracked month-to-date rain will return with the station feed.");
+      setText("rainTodayNote", "Rain totals will return with the station file.");
+      setText("rainMonthNote", "Month-to-date rain will return with the station file.");
       buildMorningReport(null);
       setHTML("sideSnap",
-        '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Weather station offline</div><div class="side-sub">The page is working, but the live weather source did not respond right now.</div></div></div>'
+        '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Station data offline</div><div class="side-sub">The page is working, but the weather station file did not respond right now.</div></div></div>'
       );
       setHTML("fishBody",
-        '<div class="fish-row"><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name-line"><div class="fish-stars f-low">—</div><div class="fish-name">Live conditions unavailable</div></div><div class="fish-note">Fishing notes will repopulate automatically when the weather feed is back.</div></div></div>'
+        '<div class="fish-row"><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name-line"><div class="fish-stars f-low">—</div><div class="fish-name">Station data unavailable</div></div><div class="fish-note">Fishing notes will repopulate when the weather file is back.</div></div></div>'
       );
       return null;
     }

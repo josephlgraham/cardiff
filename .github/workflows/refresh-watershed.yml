@@ -1,0 +1,38 @@
+name: Refresh Watershed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Refresh watershed gauge data
+        run: node scripts/fetch-site-data.mjs --watershed-only
+
+      - name: Commit refreshed watershed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add cardiff-watershed.json
+            git commit -m "data: watershed refresh"
+            git push
+          else
+            echo "No watershed changes to commit."
+          fi

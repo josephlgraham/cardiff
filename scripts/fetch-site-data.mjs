@@ -1079,6 +1079,11 @@ async function updateWeatherArchive(samples) {
 }
 
 async function main() {
+  if (process.argv.includes('--watershed-only')) {
+    await updateWatershedFile();
+    return;
+  }
+
   let weather = null;
   try {
     weather = await updateWeatherFile();
