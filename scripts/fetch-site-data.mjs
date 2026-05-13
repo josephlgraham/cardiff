@@ -308,20 +308,25 @@ async function fetchForecast() {
   return Array.isArray(forecastData.properties?.periods) ? forecastData.properties.periods.slice(0, 8) : [];
 }
 
-function buildDailySummary(samples, obsDate) {
-  const todayKey = localDateKey(obsDate);
+async function fetchYesterdaySummary(obsDate) {
   const yesterday = new Date(obsDate);
   yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdayKey = localDateKey(yesterday);
-  const todaySamples = samples.filter((s) => s.localDate === todayKey);
-  const yestSamples = samples.filter((s) => s.localDate === yesterdayKey);
-  const todayHigh = todaySamples.length ? Math.max(...todaySamples.map((s) => Number(s.temp || 0))) : null;
-  const todayLow = todaySamples.length ? Math.min(...todaySamples.map((s) => Number(s.temp || 0))) : null;
-  const todayRain = todaySamples.length ? Math.max(...todaySamples.map((s) => Number(s.dailyTotal || 0))) : 0;
-  const yestHigh = yestSamples.length ? Math.max(...yestSamples.map((s) => Number(s.temp || 0))) : null;
-  const yestLow = yestSamples.length ? Math.min(...yestSamples.map((s) => Number(s.temp || 0))) : null;
-  const yestRain = yestSamples.length ? Math.max(...yestSamples.map((s) => Number(s.dailyTotal || 0))) : null;
-  return { todayHigh, todayLow, todayRain, yesterdayHigh: yestHigh, yesterdayLow: yestLow, yesterdayRain: yestRain };
+  const dateStr = localDateKey(yesterday);
+  const url = `https://archive-api.open-meteo.com/v1/archive?latitude=33.640&longitude=-86.870&start_date=${dateStr}&end_date=${dateStr}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=America%2FChicago&temperature_unit=fahrenheit&precipitation_unit=inch`;
+  const data = await fetchJson(url);
+  const daily = data && data.daily;
+  if (!daily || !Array.isArray(daily.time) || !daily.time.length) return null;
+  const high = daily.temperature_2m_max?.[0];
+  const low = daily.temperature_2m_min?.[0];
+  const rain = daily.precipitation_sum?.[0];
+  return {
+    yesterdayHigh: high != null ? Math.round(high) : null,
+    yesterdayLow: low != null ? Math.round(low) : null,
+    yesterdayRain: rain != null ? Number(Number(rain).toFixed(2)) : null,
+    todayHigh: null,
+    todayLow: null,
+    todayRain: null
+  };
 }
 
 async function updateWeatherFile() {
@@ -377,8 +382,12 @@ async function updateWeatherFile() {
     source: 'ambient-station'
   };
   const rain = await updateRainLog(rainLogCurrent, obsDate);
-  const updatedLog = await readJson(RAIN_LOG_FILE, { samples: [] });
-  const dailySummary = buildDailySummary(Array.isArray(updatedLog.samples) ? updatedLog.samples : [], obsDate);
+  let dailySummary = null;
+  try {
+    dailySummary = await fetchYesterdaySummary(obsDate);
+  } catch (e) {
+    console.warn('Open-Meteo archive fetch failed, dailySummary will be null:', e.message);
+  }
 
   const forecast = await fetchForecast();
 
