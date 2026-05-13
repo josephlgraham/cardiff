@@ -12,6 +12,7 @@ const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
 const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
 const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
 const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json');
+const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
 
 const AW_API_KEY = process.env.AW_API_KEY || '';
 const AW_APP_KEY = process.env.AW_APP_KEY || '';
@@ -1038,12 +1039,57 @@ async function updateCommunitySnapshotFile() {
   return payload;
 }
 
+async function updateWeatherArchive(samples) {
+  const archive = await readJson(WEATHER_ARCHIVE_FILE, { updatedAt: '', days: [] });
+  const days = Array.isArray(archive.days) ? archive.days.slice() : [];
+  const existingDates = new Set(days.map((d) => d.date));
+
+  const byDate = new Map();
+  for (const s of samples) {
+    if (!s.localDate) continue;
+    if (!byDate.has(s.localDate)) byDate.set(s.localDate, []);
+    byDate.get(s.localDate).push(s);
+  }
+
+  let added = 0;
+  for (const [date, dateSamples] of [...byDate.entries()].sort()) {
+    if (existingDates.has(date)) continue;
+    const temps = dateSamples.map((s) => Number(s.temp || 0)).filter(Number.isFinite);
+    const gusts = dateSamples.map((s) => Number(s.windGust || 0)).filter(Number.isFinite);
+    const humidities = dateSamples.map((s) => Number(s.humidity || 0)).filter(Number.isFinite);
+    const rain = Math.max(...dateSamples.map((s) => Number(s.dailyTotal || 0)).filter(Number.isFinite), 0);
+    days.push({
+      date,
+      high: temps.length ? Math.max(...temps) : null,
+      low: temps.length ? Math.min(...temps) : null,
+      rain: Number(rain.toFixed(2)),
+      maxGust: gusts.length ? Math.max(...gusts) : null,
+      avgHumidity: humidities.length ? Math.round(humidities.reduce((a, b) => a + b, 0) / humidities.length) : null
+    });
+    existingDates.add(date);
+    added++;
+  }
+
+  days.sort((a, b) => a.date.localeCompare(b.date));
+
+  const payload = { updatedAt: new Date().toISOString(), days };
+  await writeJson(WEATHER_ARCHIVE_FILE, payload);
+  console.log(`Updated ${path.basename(WEATHER_ARCHIVE_FILE)}: ${added} new day(s), ${days.length} total`);
+  return payload;
+}
+
 async function main() {
   let weather = null;
   try {
     weather = await updateWeatherFile();
   } catch (error) {
     console.error('Weather update failed (continuing):', error.message);
+  }
+  try {
+    const rainLog = await readJson(RAIN_LOG_FILE, { samples: [] });
+    await updateWeatherArchive(Array.isArray(rainLog.samples) ? rainLog.samples : []);
+  } catch (error) {
+    console.error('Weather archive update failed (continuing):', error.message);
   }
   await updateWatershedFile(weather);
   await updateAirQualityFile();

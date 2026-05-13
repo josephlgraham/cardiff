@@ -33,7 +33,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin main
           if [[ -n "$(git status --porcelain)" ]]; then
-            git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json
+            git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-weather-archive.json
             git commit -m "data: daily refresh"
             git push
           else
