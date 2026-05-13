@@ -1,9 +1,9 @@
-name: Refresh Site Data
+name: Refresh Alerts
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11 * * *'
+    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
@@ -21,21 +21,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Refresh weather, watershed, civic snapshot, and news files
-        run: node scripts/fetch-site-data.mjs
-        env:
-          AW_API_KEY: ${{ secrets.AW_API_KEY }}
-          AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
+      - name: Refresh alert ticker
+        run: node cardiff-alerts.js
 
-      - name: Commit refreshed data
+      - name: Commit alert data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin main
           if [[ -n "$(git status --porcelain)" ]]; then
-            git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json
-            git commit -m "data: daily refresh"
+            git add ticker.json
+            git commit -m "data: alerts refresh"
             git push
           else
-            echo "No data changes to commit."
+            echo "No alert changes to commit."
           fi

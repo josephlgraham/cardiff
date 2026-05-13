@@ -249,8 +249,14 @@
         var wE = windSpeed < 5 ? '🍃' : windSpeed < 15 ? '💨' : '🌬️';
 
         setEl('mhTemp', wxE + ' ' + temp + '°F');
-        setEl('mhCond', cond);
-        setEl('mhWind', wE + ' ' + wind);
+        var summary = d && d.dailySummary ? d.dailySummary : null;
+        var yestText = (summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow))
+          ? summary.yesterdayHigh + '°/' + summary.yesterdayLow + '° yesterday'
+          : cond;
+        setEl('mhCond', yestText);
+        var rain = d && d.rain ? d.rain : null;
+        var monthTotal = rain ? Number(rain.monthToDate) : NaN;
+        setEl('mhWind', isFinite(monthTotal) ? 'Month: ' + monthTotal.toFixed(2) + ' in' : wE + ' ' + wind);
         var obsTime = current.lastUpdated || current.obsTime;
         if (obsTime) {
           var t = new Date(String(obsTime).replace(' ', 'T'));

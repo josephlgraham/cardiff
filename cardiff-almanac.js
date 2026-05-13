@@ -1644,6 +1644,10 @@
       const wxPill = document.getElementById("mhWxPill");
       if (wxPill) wxPill.textContent = conditionIcon(wx.condition) + " " + wx.temp + "°F · " + wx.condition;
       buildWeather(wx, data.rain || null);
+      const summary = data.dailySummary || null;
+      if (summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow)) {
+        setText("wxTempNote", "Yesterday " + summary.yesterdayHigh + "°/" + summary.yesterdayLow + "°");
+      }
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {
@@ -1652,10 +1656,10 @@
       setText("mhCond", "Offline");
       setText("mhWind", "Trying again soon");
       setText("wxUpdated", "Weather offline");
-      setText("wxNarrative", "The live weather station did not answer just now. The rest of the almanac is still available.");
+      setText("wxNarrative", "The weather station data did not load just now. The rest of the almanac is still available.");
       setText("pillWeather", "Offline");
       setHTML("heroCond", emojiText("📡", "Station offline"));
-      setText("heroCondSub", "Live conditions will return when the station responds.");
+      setText("heroCondSub", "Conditions will return when the station data loads.");
       setHTML("heroRain", emojiText("🥾", "Use local ground check"));
       setText("heroRainSub", "Walk the yard, creek edge, or drive for the real footing report.");
       setText("rainToday", "—");
