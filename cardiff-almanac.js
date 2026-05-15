@@ -1678,29 +1678,11 @@
       const rain = data.rain || null;
       const hasYest = summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow);
 
-      // masthead: yesterday range + monthly rain
-      if (hasYest) {
-        setHTML("mhTemp", emojiText("🌡️", summary.yesterdayHigh + "°F"));
-        setText("mhCond", summary.yesterdayHigh + "°–" + summary.yesterdayLow + "° yesterday");
-      } else {
-        setHTML("mhTemp", emojiText(conditionIcon(wx.condition), wx.temp + "°F"));
-        setText("mhCond", "Station data");
-      }
-      if (rain && Number.isFinite(rain.monthToDate)) {
-        setHTML("mhWind", emojiText("🌧️", "Month: " + formatInches(rain.monthToDate)));
-      } else {
-        setHTML("mhWind", emojiText(windIcon(wx.windSpeed), Math.round(wx.windSpeed) + " mph " + wx.windDir));
-      }
-      const wxPill = document.getElementById("mhWxPill");
-      if (wxPill) wxPill.textContent = hasYest ? "🌡️ " + summary.yesterdayHigh + "°–" + summary.yesterdayLow + "°" : "🌤️ Station";
       buildWeather(wx, rain, summary);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {
       latestWeatherPayload = null;
-      setHTML("mhTemp", "&mdash;");
-      setText("mhCond", "Offline");
-      setText("mhWind", "Trying again soon");
       setText("wxUpdated", "Weather offline");
       setText("wxUpdated", "Offline");
       setText("wxNarrative", "The weather station data did not load. The rest of the almanac is still available.");

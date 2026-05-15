@@ -99,10 +99,9 @@
       '  <div class="mh-identity">\n' +
       '    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>\n' +
       '    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
-      '    <div class="mh-right-info"><a href="cardiff-almanac.html#wx-card" class="mh-wx-link"><span class="wx-hi" id="mhTemp">&mdash;&deg;F</span> &nbsp;&middot;&nbsp; <span id="mhCond">&mdash;</span></a><br><span id="mhWind">&mdash;</span><br><span id="mhUpdated" class="mh-updated"></span></div>\n' +
+      '    <div class="mh-right-info"><a href="cardiff-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>\n' +
       '    <div class="mh-mobile-pills">\n' +
       '      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>\n' +
-      '      <a href="cardiff-almanac.html#wx-card" class="mh-pill" id="mhWxPill">🌤\uFE0F &mdash;&deg;F</a>\n' +
       '    </div>\n' +
       '  </div>\n' +
       '  <nav class="mh-tabs">\n' +
@@ -211,68 +210,6 @@
     if (e) e.textContent = val;
   }
 
-  function loadWeather() {
-    fetch(WEATHER_URL, { cache: 'no-store' })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        var current = d && d.current ? d.current : null;
-        if (!current) throw new Error('missing current weather');
-        var temp = Math.round(Number(current.temp));
-        var windSpeed = Math.round(Number(current.windSpeed || 0));
-        var windDir = current.windDir || 'Calm';
-        var wind = windSpeed + ' mph ' + windDir;
-        var cond = current.condition || 'Offline';
-
-        // Seasonal & condition emoji
-        var now = new Date(), md = now.getMonth() + 1, dd = now.getDate();
-        var wxE;
-        if (md === 12 && dd >= 24 && dd <= 26) wxE = '🎄';
-        else if (md === 12 && dd === 31) wxE = '🎆';
-        else if (md === 1 && dd === 1) wxE = '🥳';
-        else if (md === 7 && dd === 4) wxE = '🦅';
-        else if (md === 10 && dd === 31) wxE = '🎃';
-        else if (md === 11 && dd >= 25 && dd <= 28) wxE = '🦃';
-        else if (md === 2 && dd === 14) wxE = '❤️';
-        else if (cond === 'Rain') wxE = '🌧️';
-        else if (cond === 'Sunny' && temp >= 85) wxE = '🍹';
-        else if (cond === 'Sunny' && temp >= 70) wxE = '😎';
-        else if (cond === 'Sunny') wxE = '☀️';
-        else if (cond === 'Hot') wxE = '🌡️';
-        else if (cond === 'Overcast' && temp < 40) wxE = '🧥';
-        else if (cond === 'Overcast') wxE = '☁️';
-        else if (cond === 'Breezy') wxE = '🌬️';
-        else if (cond === 'Cold' && temp < 25) wxE = '🥶';
-        else if (cond === 'Cold') wxE = '🧤';
-        else if (cond === 'Warm & humid') wxE = '💦';
-        else wxE = '🌤️';
-
-        var wE = windSpeed < 5 ? '🍃' : windSpeed < 15 ? '💨' : '🌬️';
-
-        setEl('mhTemp', wxE + ' ' + temp + '°F');
-        var summary = d && d.dailySummary ? d.dailySummary : null;
-        var yestText = (summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow))
-          ? summary.yesterdayHigh + '°/' + summary.yesterdayLow + '° yesterday'
-          : cond;
-        setEl('mhCond', yestText);
-        var rain = d && d.rain ? d.rain : null;
-        var monthTotal = rain ? Number(rain.monthToDate) : NaN;
-        setEl('mhWind', isFinite(monthTotal) ? 'Month: ' + monthTotal.toFixed(2) + ' in' : wE + ' ' + wind);
-        var obsTime = current.lastUpdated || current.obsTime;
-        if (obsTime) {
-          var t = new Date(String(obsTime).replace(' ', 'T'));
-          var h = t.getHours(), m = t.getMinutes();
-          var ap = h >= 12 ? 'PM' : 'AM';
-          h = h % 12 || 12;
-          setEl('mhUpdated', 'Updated ' + h + ':' + (m < 10 ? '0' : '') + m + ' ' + ap);
-        }
-        var wxPill = document.getElementById('mhWxPill');
-        if (wxPill) wxPill.textContent = wxE + ' ' + temp + '°F · ' + cond;
-      })
-      .catch(function () {
-        setEl('mhTemp', '—');
-        setEl('mhCond', 'Offline');
-      });
-  }
 
 
   function creekMoodPill(stage) {
@@ -294,16 +231,26 @@
         }
         if (!lead && gauges.length) lead = gauges[0];
         var stage = lead ? parseFloat(lead.stage_ft) : NaN;
+        var trend = lead ? (lead.trend || '') : '';
         var mood = creekMoodPill(isFinite(stage) ? stage : NaN);
-        var text = isFinite(stage)
+        var pillText = isFinite(stage)
           ? mood.icon + ' ' + stage.toFixed(2) + ' ft · ' + mood.label
           : mood.icon + ' ' + mood.label;
         var el = document.getElementById('mhCreekPill');
-        if (el) el.textContent = text;
+        if (el) el.textContent = pillText;
+        // Masthead right panel
+        var stageEl = document.getElementById('mhCreekStage');
+        if (stageEl) stageEl.textContent = isFinite(stage) ? '🌊 ' + stage.toFixed(2) + ' ft' : '🌊 Creek';
+        var condEl = document.getElementById('mhCreekCond');
+        if (condEl) condEl.textContent = trend ? (trend.charAt(0).toUpperCase() + trend.slice(1)) : mood.label;
+        var srcEl = document.getElementById('mhCreekSrc');
+        if (srcEl) srcEl.textContent = lead ? (lead.label || 'Five Mile Creek') : 'Five Mile Creek';
       })
       .catch(function () {
         var el = document.getElementById('mhCreekPill');
         if (el) el.textContent = '🌊 Creek';
+        var stageEl = document.getElementById('mhCreekStage');
+        if (stageEl) stageEl.textContent = '🌊 Creek';
       });
   }
 
@@ -508,8 +455,6 @@
     window.CardiffSite = window.CardiffSite || {};
     window.CardiffSite.submitForm = submitSiteForm;
     initTopo();
-    loadWeather();
-    setInterval(loadWeather, 5 * 60 * 1000);
     loadWatershed();
     setInterval(loadWatershed, 10 * 60 * 1000);
     loadTicker();
