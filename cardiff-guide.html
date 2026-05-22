@@ -312,7 +312,29 @@ body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;back
 <body>
 <canvas id="topo-canvas"></canvas>
 
-<div id="cardiff-masthead"></div>
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>
+    <div class="mh-right-info"><a href="cardiff-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="cardiff-news.html" id="tab-news">News</a>
+    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="cardiff-guide.html" id="tab-guide" class="active">Field Guide</a>
+    <a href="cardiff-cemetery.html" id="tab-cemetery">Cemetery</a>
+    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
+    <a href="cardiff-involved.html" id="tab-involved">Get Involved</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
 
 <!-- Progress pill -->
 <div id="progPill" style="display:none;position:sticky;top:0;z-index:99;background:var(--paper);border-bottom:1px solid var(--border);padding:0.3rem 1.5rem;align-items:center;justify-content:center;gap:0.5rem;">

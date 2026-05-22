@@ -1,54 +1,28 @@
 // ─────────────────────────────────────────────────────────────────────
 //  Cardiff Common — Shared across all pages
 //
-//  This file handles everything that appears on every page:
-//    • Masthead (brand, nav tabs, weather readout)
+//  This file handles the live elements that appear on every page:
+//    • Creek/watershed reading in the masthead
 //    • Ticker strip (with live alert support via ticker.json)
 //    • Topo canvas background
 //    • Scroll-reveal animations
-//    • Active tab highlighting
+//    • Active tab centering on mobile
 //
 //  SETUP FOR EACH PAGE:
-//  1. In <head>, include the common CSS:
-//       <link rel="stylesheet" href="cardiff-common.css">
+//  1. Put the static masthead HTML directly in the page body.
+//     Mark the current page's tab with class="active".
 //
-//  2. Right after <body>, put these two elements:
-//       <canvas id="topo-canvas"></canvas>
-//       <div class="page">
-//         <div id="cardiff-masthead"></div>
-//         <!-- rest of page content -->
-//       </div>
-//
-//  3. Before </body>, include this script:
+//  2. Before </body>, include this script:
 //       <script src="cardiff-common.js"></script>
 //
-//  That's it. The masthead, weather, ticker, topo background, and
-//  reveal animations are all handled automatically.
+//  Weather, ticker, topo, and reveal animations are handled
+//  automatically. The masthead HTML lives statically in each page.
 //
-//  To change the nav links, edit the TABS array below.
 //  To change the weather station, edit WX_URL below.
 // ─────────────────────────────────────────────────────────────────────
 
 (function () {
   'use strict';
-
-  // ─── NAV TABS ──────────────────────────────────────────────────
-  // Edit this list to add, remove, or rename pages.
-  // id: used for active-tab detection (matches against the filename)
-  // href: the page URL
-  // label: what shows in the nav bar
-
-  var TABS = [
-    { id: 'home',     href: 'index.html',            label: 'Home' },
-    { id: 'news',     href: 'cardiff-news.html',     label: 'News' },
-    { id: 'almanac',  href: 'cardiff-almanac.html',  label: 'Almanac' },
-    { id: 'calendar', href: 'cardiff-calendar.html', label: 'Calendar' },
-    { id: 'guide',    href: 'cardiff-guide.html',    label: 'Field Guide' },
-    { id: 'hollers',  href: 'cardiff-hollers.html',  label: 'Hills & Hollers' },
-    { id: 'cemetery', href: 'cardiff-cemetery.html',  label: 'Cemetery' },
-    { id: 'civic',    href: 'cardiff-civic.html',     label: 'Civic Pathway' },
-    { id: 'involved', href: 'cardiff-involved.html',  label: 'Get Involved' }
-  ];
 
   // ─── WEATHER ───────────────────────────────────────────────────
   var WEATHER_URL = 'cardiff-weather.json';
@@ -68,56 +42,6 @@
     minor:    '#446b52'
   };
 
-
-  // ─────────────────────────────────────────────────────────────────
-  //  MASTHEAD INJECTION
-  // ─────────────────────────────────────────────────────────────────
-
-  function detectActiveTab() {
-    var page = window.location.pathname.split('/').pop().toLowerCase();
-    if (!page || page === 'index.html') return 'home';
-    for (var i = 0; i < TABS.length; i++) {
-      if (page === TABS[i].href.toLowerCase()) return TABS[i].id;
-    }
-    // Fallback: check if filename contains a tab id
-    for (var j = 0; j < TABS.length; j++) {
-      if (page.indexOf(TABS[j].id) !== -1) return TABS[j].id;
-    }
-    return 'home';
-  }
-
-  function buildMasthead() {
-    var activeId = detectActiveTab();
-
-    var tabsHtml = TABS.map(function (tab) {
-      var cls = tab.id === activeId ? ' class="active"' : '';
-      var label = tab.label.replace(/&/g, '&amp;');
-      return '<a href="' + tab.href + '" id="tab-' + tab.id + '"' + cls + '>' + label + '</a>';
-    }).join('\n    ');
-
-    return '<header class="cardiff-masthead">\n' +
-      '  <div class="mh-identity">\n' +
-      '    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>\n' +
-      '    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>\n' +
-      '    <div class="mh-right-info"><a href="cardiff-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>\n' +
-      '    <div class="mh-mobile-pills">\n' +
-      '      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>\n' +
-      '    </div>\n' +
-      '  </div>\n' +
-      '  <nav class="mh-tabs">\n' +
-      '    ' + tabsHtml + '\n' +
-      '  </nav>\n' +
-      '  <div class="announce-strip">\n' +
-      '    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>\n' +
-      '  </div>\n' +
-      '</header>';
-  }
-
-  function injectMasthead() {
-    var target = document.getElementById('cardiff-masthead');
-    if (!target) return;
-    target.outerHTML = buildMasthead();
-  }
 
   function buildFooter() {
     return '<footer class="cardiff-site-footer" id="cardiff-site-footer">' +
@@ -448,7 +372,6 @@
   // ─────────────────────────────────────────────────────────────────
 
   function boot() {
-    injectMasthead();
     injectFooter();
     loadAppLayer();
     centerActiveTab();
