@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "generate-assets": "node generate-assets.js"
+  },
   "dependencies": {
     "qrcode": "^1.5.4"
   },

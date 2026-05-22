@@ -2226,6 +2226,8 @@ const RECIPE_LINKS={
 };
 
 function buildGuideAssetPath(file){ return file ? GUIDE_ASSET_BASE + file : ''; }
+function buildGuideThumbPath(file){ return file ? 'assets/thumbs/'+file.replace(/\.png$/i,'.webp') : ''; }
+function buildGuideWebpPath(file){  return file ? 'assets/webp/'+file.replace(/\.png$/i,'.webp') : ''; }
 function getGuideAsset(it){
   const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
   return buildGuideAssetPath(file);
@@ -2236,6 +2238,17 @@ function getGuideEeAsset(it){
   const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
   if(!file || !/\.png$/i.test(file)) return '';
   return buildGuideAssetPath(file.replace(/\.png$/i,'_ee.png'));
+}
+function _guideWebpAsset(it,isEe,builder){
+  if(isEe){
+    const direct=(it && it.eeAsset) ? builder(it.eeAsset) : '';
+    if(direct) return direct;
+    const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
+    if(!file || !/\.png$/i.test(file)) return '';
+    return builder(file.replace(/\.png$/i,'_ee.png'));
+  }
+  const file=(it && (it.asset || GUIDE_ASSETS[it.id])) || '';
+  return builder(file);
 }
 const _assetCheckCache={};
 function assetExists(src){
@@ -2249,11 +2262,17 @@ function assetExists(src){
   });
 }
 function getGuideVisualHtml(it,cls='',variant='main'){
-  const src=variant==='ee' ? getGuideEeAsset(it) : getGuideAsset(it);
+  const isEe=variant==='ee';
+  const isThumb=cls==='browse-asset';
+  const pngSrc=isEe ? getGuideEeAsset(it) : getGuideAsset(it);
+  const webpSrc=_guideWebpAsset(it,isEe,isThumb ? buildGuideThumbPath : buildGuideWebpPath);
+  const src=webpSrc||pngSrc;
   if(!src){
     return `<span class="guide-figure ${cls||''} is-fallback"><span class="guide-fallback">${it.icon}</span></span>`;
   }
-  return `<span class="guide-figure ${cls||''}"><img src="${src}" alt="${it.name}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false;this.closest('.guide-figure').classList.add('is-fallback');"><span class="guide-fallback" hidden>${it.icon}</span></span>`;
+  const fbAttr=(webpSrc&&pngSrc) ? ` data-fb="${pngSrc}"` : '';
+  const onerr=`if(this.dataset.fb&&this.src!==this.dataset.fb){this.src=this.dataset.fb}else{this.hidden=true;this.nextElementSibling.hidden=false;this.closest('.guide-figure').classList.add('is-fallback');}`;
+  return `<span class="guide-figure ${cls||''}"><img src="${src}"${fbAttr} alt="${it.name}" loading="lazy" decoding="async" onerror="${onerr}"><span class="guide-fallback" hidden>${it.icon}</span></span>`;
 }
 function renderGuideVisual(el,it,cls,variant='main'){
   el.innerHTML=getGuideVisualHtml(it,cls,variant);
