@@ -311,22 +311,31 @@ async function fetchForecast() {
 async function fetchYesterdaySummary(obsDate) {
   const yesterday = new Date(obsDate);
   yesterday.setDate(yesterday.getDate() - 1);
-  const dateStr = localDateKey(yesterday);
-  const url = `https://archive-api.open-meteo.com/v1/archive?latitude=33.640&longitude=-86.870&start_date=${dateStr}&end_date=${dateStr}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=America%2FChicago&temperature_unit=fahrenheit&precipitation_unit=inch`;
+  const endStr = localDateKey(yesterday);
+  const startDate = new Date(yesterday);
+  startDate.setDate(startDate.getDate() - 6);
+  const startStr = localDateKey(startDate);
+  // Open-Meteo archive has a 2-5 day lag, so query a 7-day window and use the most recent complete day.
+  const url = `https://archive-api.open-meteo.com/v1/archive?latitude=33.640&longitude=-86.870&start_date=${startStr}&end_date=${endStr}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=America%2FChicago&temperature_unit=fahrenheit&precipitation_unit=inch`;
   const data = await fetchJson(url);
   const daily = data && data.daily;
   if (!daily || !Array.isArray(daily.time) || !daily.time.length) return null;
-  const high = daily.temperature_2m_max?.[0];
-  const low = daily.temperature_2m_min?.[0];
-  const rain = daily.precipitation_sum?.[0];
-  return {
-    yesterdayHigh: high != null ? Math.round(high) : null,
-    yesterdayLow: low != null ? Math.round(low) : null,
-    yesterdayRain: rain != null ? Number(Number(rain).toFixed(2)) : null,
-    todayHigh: null,
-    todayLow: null,
-    todayRain: null
-  };
+  for (let i = daily.time.length - 1; i >= 0; i--) {
+    const high = daily.temperature_2m_max?.[i];
+    const low = daily.temperature_2m_min?.[i];
+    const rain = daily.precipitation_sum?.[i];
+    if (high != null && low != null) {
+      return {
+        yesterdayHigh: Math.round(high),
+        yesterdayLow: Math.round(low),
+        yesterdayRain: rain != null ? Number(Number(rain).toFixed(2)) : null,
+        todayHigh: null,
+        todayLow: null,
+        todayRain: null
+      };
+    }
+  }
+  return null;
 }
 
 async function updateWeatherFile() {
