@@ -309,18 +309,15 @@ async function fetchForecast() {
 }
 
 async function fetchYesterdaySummary(obsDate) {
-  const yesterday = new Date(obsDate);
-  yesterday.setDate(yesterday.getDate() - 1);
-  const endStr = localDateKey(yesterday);
-  const startDate = new Date(yesterday);
-  startDate.setDate(startDate.getDate() - 6);
-  const startStr = localDateKey(startDate);
-  // Open-Meteo archive has a 2-5 day lag, so query a 7-day window and use the most recent complete day.
-  const url = `https://archive-api.open-meteo.com/v1/archive?latitude=33.640&longitude=-86.870&start_date=${startStr}&end_date=${endStr}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=America%2FChicago&temperature_unit=fahrenheit&precipitation_unit=inch`;
+  // Use the forecast endpoint with past_days — more reliable than the archive subdomain.
+  // Query 7 past days and walk back to the most recent complete day (archive lag can be 2-5 days).
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=33.640&longitude=-86.870&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=America%2FChicago&past_days=7&forecast_days=1`;
   const data = await fetchJson(url);
   const daily = data && data.daily;
   if (!daily || !Array.isArray(daily.time) || !daily.time.length) return null;
+  const todayKey = localDateKey(obsDate);
   for (let i = daily.time.length - 1; i >= 0; i--) {
+    if (daily.time[i] >= todayKey) continue; // skip today and future
     const high = daily.temperature_2m_max?.[i];
     const low = daily.temperature_2m_min?.[i];
     const rain = daily.precipitation_sum?.[i];
