@@ -365,6 +365,7 @@ async function updateWeatherFile() {
     solarRadiation: d.solarradiation || 0,
     dailyRain: d.dailyrainin || 0,
     hourlyRain: d.hourlyrainin || 0,
+    weeklyRain: d.weeklyrainin || 0,
     monthlyRain: d.monthlyrainin || 0,
     yearlyRain: d.yearlyrainin || 0,
     feelsLike: Math.round(d.feelsLike || d.tempf),

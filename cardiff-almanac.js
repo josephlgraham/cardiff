@@ -1388,38 +1388,26 @@
     }
   }
 
-  function refreshRainEmojiLayer(rain) {
-    const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
-    const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
-    setHTML("rainToday", emojiText("📏", formatInches(todayAmount)));
-    setHTML("rainMonth", emojiText("🗂️", formatInches(monthAmount)));
-    setText("rainMonthLabel", (rain && rain.monthComplete) ? "🗓️ Rain this month" : "🗓️ Rain tracked");
-    const labels = document.querySelectorAll("#wx-card .rain-label");
-    if (labels.length >= 1) labels[0].textContent = "🌧 Today's rain";
+  function refreshRainEmojiLayer(dailySummary, rawData) {
+    const yest = dailySummary && Number.isFinite(dailySummary.yesterdayRain) ? dailySummary.yesterdayRain : null;
+    const weekly = rawData && Number.isFinite(rawData.weeklyRain) ? rawData.weeklyRain : null;
+    const monthly = rawData && Number.isFinite(rawData.monthlyRain) ? rawData.monthlyRain : null;
+    const yearly = rawData && Number.isFinite(rawData.yearlyRain) ? rawData.yearlyRain : null;
+    setHTML("rainYesterday", emojiText("📅", formatInches(yest)));
+    setHTML("rainWeekly", emojiText("📆", formatInches(weekly)));
+    setHTML("rainMonthly", emojiText("🗂️", formatInches(monthly)));
+    setHTML("rainYearly", emojiText("📏", formatInches(yearly)));
   }
 
-  function buildRainSummary(rain) {
-    const todayAmount = rain && Number.isFinite(rain.today) ? Number(rain.today) : null;
-    const monthAmount = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
-    const monthLabel = rain && rain.monthLabel ? rain.monthLabel : "This month";
-    const monthCoverage = rain && rain.monthCoverageStart ? new Date(rain.monthCoverageStart + "T12:00:00") : null;
-    const hasFullMonthCoverage = !!(rain && rain.monthComplete);
-
-    setText("rainToday", formatInches(todayAmount));
-    if (rain && rain.source && rain.source !== "local-station" && rain.sourceNote) {
-      setHTML("rainTodayNote", "<em>" + escapeHtml(rain.sourceNote) + "</em>");
-    } else {
-      setText("rainTodayNote", "Measured by the station since midnight.");
-    }
-    setText("rainMonthLabel", hasFullMonthCoverage ? "Rain this month" : "Rain tracked");
-    setText("rainMonth", formatInches(monthAmount));
-    if (hasFullMonthCoverage) {
-      setText("rainMonthNote", monthLabel + " total so far.");
-    } else if (monthCoverage && !Number.isNaN(monthCoverage.getTime())) {
-      setText("rainMonthNote", "Tracking from " + monthCoverage.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ", not a full month total.");
-    } else {
-      setText("rainMonthNote", "Tracking from the site log, not a full month total.");
-    }
+  function buildRainSummary(dailySummary, rawData) {
+    const yest = dailySummary && Number.isFinite(dailySummary.yesterdayRain) ? dailySummary.yesterdayRain : null;
+    const weekly = rawData && Number.isFinite(rawData.weeklyRain) ? rawData.weeklyRain : null;
+    const monthly = rawData && Number.isFinite(rawData.monthlyRain) ? rawData.monthlyRain : null;
+    const yearly = rawData && Number.isFinite(rawData.yearlyRain) ? rawData.yearlyRain : null;
+    setText("rainYesterday", formatInches(yest));
+    setText("rainWeekly", formatInches(weekly));
+    setText("rainMonthly", formatInches(monthly));
+    setText("rainYearly", formatInches(yearly));
   }
 
   function buildMorningReport(report) {
@@ -1584,7 +1572,7 @@
     return text;
   }
 
-  function buildWeather(wx, rain, dailySummary) {
+  function buildWeather(wx, rain, dailySummary, rawData) {
     const moon = getMoonPhase(new Date());
     const sun = getSunTimes(new Date());
     const ground = groundCondition(wx.precipTotal, wx.humidity);
@@ -1634,12 +1622,12 @@
     setText("wxNarrative", buildYesterdayNarrative(ds));
     setText("wxScience", "Daily high, low, and total rainfall give a clear picture of what yesterday brought to the Five Mile Creek watershed.");
 
-    buildRainSummary(rain);
+    buildRainSummary(dailySummary, rawData);
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
     buildFishing(wx, moon);
     buildSideSnapshot(wx, sun, moon, ground);
     refreshFishingEmojiLayer(wx);
-    refreshRainEmojiLayer(rain);
+    refreshRainEmojiLayer(dailySummary, rawData);
   }
 
   function summarizeWeather(wx) {
@@ -1678,7 +1666,7 @@
       const rain = data.rain || null;
       const hasYest = summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow);
 
-      buildWeather(wx, rain, summary);
+      buildWeather(wx, rain, summary, data);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {
@@ -1697,11 +1685,10 @@
       setText("heroCondSub", "Yesterday's range will return when the station data loads.");
       setHTML("heroRain", emojiText("🥾", "Check the ground"));
       setText("heroRainSub", "Walk the yard or creek edge for the real footing report.");
-      setText("rainToday", "—");
-      setText("rainMonthLabel", "Rain tracked");
-      setText("rainMonth", "—");
-      setText("rainTodayNote", "Rain totals will return with the station file.");
-      setText("rainMonthNote", "Month-to-date rain will return with the station file.");
+      setText("rainYesterday", "—");
+      setText("rainWeekly", "—");
+      setText("rainMonthly", "—");
+      setText("rainYearly", "—");
       buildMorningReport(null);
       setHTML("sideSnap",
         '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Station data offline</div><div class="side-sub">The page is working, but the weather station file did not respond right now.</div></div></div>'
