@@ -193,11 +193,13 @@
     if (!stripText) return;
     if (shouldScroll) {
       var speed = Math.max(20, Math.round(32 * (message.length / 100)));
+      stripText.style.setProperty('will-change', 'transform');
       stripText.style.setProperty('animation', 'marquee ' + speed + 's linear infinite', 'important');
       stripText.style.setProperty('padding-left', '100%', 'important');
       stripText.style.setProperty('transform', '', 'important');
       return;
     }
+    stripText.style.setProperty('will-change', 'auto');
     stripText.style.setProperty('animation', 'none', 'important');
     stripText.style.setProperty('padding-left', '0', 'important');
     stripText.style.setProperty('transform', 'none', 'important');
@@ -368,6 +370,27 @@
 
 
   // ─────────────────────────────────────────────────────────────────
+  //  SMOOTH MARQUEE
+  // ─────────────────────────────────────────────────────────────────
+
+  function initSmoothMarquee() {
+    // Promote the strip to its own compositor layer so the topo canvas
+    // repainting at 60fps doesn't interrupt the scrolling text.
+    var strip = document.querySelector('.announce-strip');
+    if (strip) strip.style.setProperty('transform', 'translateZ(0)');
+
+    // Override the keyframes with translate3d, which forces GPU compositing
+    // more reliably than translateX across all browsers.
+    if (!document.getElementById('cardiff-marquee-smooth')) {
+      var s = document.createElement('style');
+      s.id = 'cardiff-marquee-smooth';
+      s.textContent = '@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-100%,0,0)}}';
+      document.head.appendChild(s);
+    }
+  }
+
+
+  // ─────────────────────────────────────────────────────────────────
   //  BOOT
   // ─────────────────────────────────────────────────────────────────
 
@@ -375,6 +398,7 @@
     injectFooter();
     loadAppLayer();
     centerActiveTab();
+    initSmoothMarquee();
     window.CardiffSite = window.CardiffSite || {};
     window.CardiffSite.submitForm = submitSiteForm;
     initTopo();
