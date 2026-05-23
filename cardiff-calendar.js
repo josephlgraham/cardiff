@@ -14,6 +14,7 @@
 
   const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   const MONTH_FULL  = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const MONTH_EMOJI = ["❄️","🕯️","🌱","🌸","🌿","☀️","🌡️","🌾","🍂","🎃","🍁","⭐"];
 
   function fmtDate(d) {
     return MONTH_SHORT[d.getMonth()] + " " + d.getDate();
@@ -61,7 +62,6 @@
   }
 
   // Harvest Moon / Hunter's Moon hardcoded 2025–2030
-  // (full moon nearest Sep 22 for Harvest; first full moon after for Hunter's)
   const MOON_TABLE = {
     2025: { "harvest-moon": [9, 17], "hunters-moon": [10, 17] },
     2026: { "harvest-moon": [9, 26], "hunters-moon": [10, 26] },
@@ -80,11 +80,7 @@
       case "arbor-day":      return lastWeekday(year, 4, 5);      // last Fri in Apr
       case "mothers-day":    return nthWeekday(year, 5, 2, 0);    // 2nd Sun in May
       case "memorial-day":   return lastWeekday(year, 5, 1);      // last Mon in May
-      case "decoration-day": {
-        const mem = lastWeekday(year, 5, 1);
-        // Sunday nearest Memorial Day; Memorial Day is Monday so Sunday before is 1 day away
-        return addDays(mem, -1);
-      }
+      case "decoration-day": return addDays(lastWeekday(year, 5, 1), -1);
       case "labor-day":      return nthWeekday(year, 9, 1, 1);    // 1st Mon in Sep
       case "mlk-day":        return nthWeekday(year, 1, 3, 1);    // 3rd Mon in Jan
       case "thanksgiving":   return nthWeekday(year, 11, 4, 4);   // 4th Thu in Nov
@@ -102,7 +98,6 @@
 
   function entryEmoji(name) {
     const n = (name || "").toLowerCase();
-    // Fixed holidays & feast days
     if (n.includes("brigid") || n.includes("imbolc"))                return "🕯️";
     if (n.includes("candlemas"))                                      return "🕯️";
     if (n.includes("valentine"))                                      return "💝";
@@ -165,7 +160,6 @@
     if (n.includes("martin luther king") || n.includes("mlk"))      return "✊";
     if (n.includes("dwynwen") || n.includes("santes"))              return "💕";
     if (n.includes("groundhog"))                                     return "🦔";
-    // Nature / foraging
     if (n.includes("ramp") || n.includes("wild onion"))             return "🧅";
     if (n.includes("morel"))                                         return "🍄";
     if (n.includes("turkey season"))                                 return "🦃";
@@ -176,7 +170,6 @@
     if (n.includes("squirrel"))                                      return "🐿️";
     if (n.includes("deer"))                                          return "🦌";
     if (n.includes("frost") || n.includes("freeze"))                return "🌨️";
-    // Civic
     if (n.includes("tornado siren"))                                 return "🚨";
     if (n.includes("council") || n.includes("town hall"))           return "🏛️";
     if (n.includes("incorporation"))                                 return "🏛️";
@@ -185,242 +178,132 @@
     return "📅";
   }
 
-  // ── Turning year-boundary logic ──────────────────────────────────────────────
+  // ── Recurring civic dates ────────────────────────────────────────────────────
 
-  function turningSpansYearBoundary(turning) {
-    const startM = parseInt(turning.start.split("-")[0], 10);
-    const endM   = parseInt(turning.end.split("-")[0], 10);
-    return endM < startM;
-  }
-
-  // Resolve one entry's date to a JS Date, accounting for a turning that
-  // spans the year boundary (Yuletide: Dec 21 – Feb 1).
-  function resolveEntryDate(dateStr, turning, baseYear) {
-    if (!dateStr) return null;
-    const spans   = turningSpansYearBoundary(turning);
-    const startM  = parseInt(turning.start.split("-")[0], 10);
-
-    if (dateStr.startsWith("movable:")) {
-      const slug = dateStr.slice(8);
-      if (spans) {
-        // Try baseYear; if the result's month is before the turning's start month
-        // (i.e., Jan/Feb side of Yuletide), use baseYear+1 instead.
-        const d1 = resolveMovable(slug, baseYear);
-        if (d1 && d1.getMonth() + 1 >= startM) return d1;
-        return resolveMovable(slug, baseYear + 1);
-      }
-      return resolveMovable(slug, baseYear);
-    }
-
-    if (dateStr.startsWith("month:")) {
-      const m = parseInt(dateStr.slice(6), 10);
-      const y = (spans && m < startM) ? baseYear + 1 : baseYear;
-      return new Date(y, m - 1, 1);
-    }
-
-    // MM-DD
-    const parts = dateStr.split("-").map(Number);
-    const m = parts[0], day = parts[1];
-    const y = (spans && m < startM) ? baseYear + 1 : baseYear;
-    return new Date(y, m - 1, day);
-  }
-
-  function formatEntryDateLabel(dateStr, turning, baseYear) {
-    if (!dateStr) return "";
-    if (dateStr.startsWith("month:")) {
-      const m = parseInt(dateStr.slice(6), 10);
-      return MONTH_FULL[m - 1];
-    }
-    const d = resolveEntryDate(dateStr, turning, baseYear);
-    return d ? fmtDate(d) : "";
-  }
-
-  // ── Finding which turning contains today ─────────────────────────────────────
-
-  function findCurrentTurningIdx(turnings, today) {
-    const mm = today.getMonth() + 1;
-    const dd = today.getDate();
-    const ord = mm * 100 + dd;
-
-    for (let i = 0; i < turnings.length; i++) {
-      const t = turnings[i];
-      const [startM, startD] = t.start.split("-").map(Number);
-      const [endM,   endD]   = t.end.split("-").map(Number);
-      const startOrd = startM * 100 + startD;
-      const endOrd   = endM   * 100 + endD;
-
-      if (endM < startM) {
-        // Spans year boundary (Yuletide)
-        if (ord >= startOrd || ord <= endOrd) return i;
-      } else {
-        if (ord >= startOrd && ord <= endOrd) return i;
-      }
-    }
-    return 0;
-  }
-
-  // For the first turning in the ordered list, determine what calendar year
-  // the turning started in (relevant when today is in Yuletide's Jan/Feb portion).
-  function firstTurningBaseYear(turning, today) {
-    const year   = today.getFullYear();
-    const todayM = today.getMonth() + 1;
-    if (turningSpansYearBoundary(turning)) {
-      const startM = parseInt(turning.start.split("-")[0], 10);
-      if (todayM < startM) return year - 1; // we're in the wrap-around portion
-    }
-    return year;
-  }
-
-  // Compute the base year (year the turning's start date falls in) for each
-  // turning in the ordered 8-turning sequence.
-  function computeBaseYears(orderedTurnings, firstBaseYear) {
-    const years = [firstBaseYear];
-    for (let i = 1; i < orderedTurnings.length; i++) {
-      const prevStartM = parseInt(orderedTurnings[i - 1].start.split("-")[0], 10);
-      const currStartM = parseInt(orderedTurnings[i].start.split("-")[0], 10);
-      if (currStartM < prevStartM) {
-        years.push(years[i - 1] + 1);
-      } else {
-        years.push(years[i - 1]);
-      }
-    }
-    return years;
-  }
-
-  // ── Local civic events ───────────────────────────────────────────────────────
-
-  // Enumerate every date that a recurring-weekday entry lands on
-  // within [rangeStart, rangeEnd].
   function recurringDates(entry, rangeStart, rangeEnd) {
     const results = [];
-    // Iterate month-by-month across the range
     let y = rangeStart.getFullYear();
     let m = rangeStart.getMonth() + 1;
     const endY = rangeEnd.getFullYear();
     const endM = rangeEnd.getMonth() + 1;
 
     while (y < endY || (y === endY && m <= endM)) {
-      // Skip excepted months
       const isExcepted = entry.exceptMonths &&
         entry.exceptMonths.some(ex => ex.year === y && ex.month === m);
-
       if (!isExcepted) {
         const d = nthWeekday(y, m, entry.nth, entry.weekday);
         if (d >= rangeStart && d <= rangeEnd) results.push(d);
       }
-
       m++;
       if (m > 12) { m = 1; y++; }
     }
     return results;
   }
 
-  function getCivicEntries(turning, baseYear) {
-    const shared = window.CardiffSeasonData;
-    if (!shared || !shared.entries) return [];
+  // ── Build all entries for one calendar month ─────────────────────────────────
 
-    const civic = shared.entries.filter(e => e.lane === "civic");
-    const results = [];
+  function buildMonthEntries(month, year, turnings) {
+    const entries = [];
 
-    const [startM, startD] = turning.start.split("-").map(Number);
-    const [endM,   endD]   = turning.end.split("-").map(Number);
-    const spans = turningSpansYearBoundary(turning);
-    const rangeStart = new Date(baseYear, startM - 1, startD);
-    const rangeEnd   = spans
-      ? new Date(baseYear + 1, endM - 1, endD)
-      : new Date(baseYear,     endM - 1, endD);
+    for (const turning of turnings) {
+      for (let idx = 0; idx < turning.entries.length; idx++) {
+        const e = turning.entries[idx];
+        let date = null;
+        let dateLabel = "";
 
-    function inRange(d) { return d && d >= rangeStart && d <= rangeEnd; }
-
-    for (const entry of civic) {
-      if (entry.kind === "day") {
-        let d;
-        if (entry.year) {
-          d = new Date(entry.year, entry.month - 1, entry.day);
+        if (e.date.startsWith("month:")) {
+          const m = parseInt(e.date.slice(6), 10);
+          if (m === month) {
+            // Sort before any specific-dated entries in this month
+            date = new Date(year, month - 1, 0); // last day of prev month as sentinel
+            dateLabel = MONTH_FULL[month - 1];
+          }
+        } else if (e.date.startsWith("movable:")) {
+          const slug = e.date.slice(8);
+          const d = resolveMovable(slug, year);
+          if (d && d.getMonth() + 1 === month) {
+            date = d;
+            dateLabel = fmtDate(d);
+          }
         } else {
-          // Annual event — try baseYear, then baseYear+1 for spanning turnings
-          d = new Date(baseYear, entry.month - 1, entry.day);
-          if (spans && !inRange(d)) d = new Date(baseYear + 1, entry.month - 1, entry.day);
+          const parts = e.date.split("-").map(Number);
+          const [mm, day] = parts;
+          if (mm === month) {
+            date = new Date(year, month - 1, day);
+            dateLabel = fmtDate(date);
+          }
         }
-        if (inRange(d)) {
-          results.push({
-            date: d,
-            dateLabel: fmtDate(d),
-            name: entry.title,
-            desc: entry.summary || "",
-            url: "",
-            sortKey: d.getTime(),
-          });
-        }
-      } else if (entry.kind === "recurring-weekday") {
-        for (const d of recurringDates(entry, rangeStart, rangeEnd)) {
-          let timeNote = "";
-          if (entry.hour) timeNote = " · " + (entry.hour === 10 ? "10 AM" : entry.hour + ":00");
-          if (entry.timeTBD) timeNote = " · time TBD";
-          results.push({
-            date: d,
-            dateLabel: fmtDate(d),
-            name: entry.title,
-            desc: entry.summary || "",
-            url: "",
-            sortKey: d.getTime(),
+
+        if (date) {
+          entries.push({
+            date,
+            dateLabel,
+            name: e.name,
+            desc: e.desc || "",
+            url:  e.url  || "",
+            sortKey: date.getTime() + idx * 0.001,
           });
         }
       }
     }
 
-    return results;
-  }
+    // Civic entries
+    const shared = window.CardiffSeasonData;
+    if (shared && shared.entries) {
+      const rangeStart = new Date(year, month - 1, 1);
+      const rangeEnd   = new Date(year, month, 0);
 
-  // ── Build sorted entry list for one turning ──────────────────────────────────
+      for (const entry of shared.entries.filter(e => e.lane === "civic")) {
+        if (entry.kind === "day") {
+          let d;
+          if (entry.year) {
+            if (entry.year !== year) continue;
+            d = new Date(entry.year, entry.month - 1, entry.day);
+          } else {
+            d = new Date(year, entry.month - 1, entry.day);
+          }
+          if (d >= rangeStart && d <= rangeEnd) {
+            entries.push({
+              date: d, dateLabel: fmtDate(d),
+              name: entry.title, desc: entry.summary || "", url: "",
+              sortKey: d.getTime(),
+            });
+          }
+        } else if (entry.kind === "recurring-weekday") {
+          for (const d of recurringDates(entry, rangeStart, rangeEnd)) {
+            entries.push({
+              date: d, dateLabel: fmtDate(d),
+              name: entry.title, desc: entry.summary || "", url: "",
+              sortKey: d.getTime(),
+            });
+          }
+        }
+      }
+    }
 
-  function buildEntries(turning, baseYear) {
-    const fromJson = turning.entries.map((e, idx) => {
-      const d = resolveEntryDate(e.date, turning, baseYear);
-      return {
-        date: d,
-        dateLabel: formatEntryDateLabel(e.date, turning, baseYear),
-        name: e.name,
-        desc: e.desc || "",
-        url:  e.url  || "",
-        // Use original index as tiebreaker so equal dates keep JSON order
-        sortKey: (d ? d.getTime() : Infinity) + idx,
-      };
-    });
-
-    const civic = getCivicEntries(turning, baseYear);
-    const all   = fromJson.concat(civic);
-
-    all.sort((a, b) => a.sortKey - b.sortKey);
-    return all;
+    entries.sort((a, b) => a.sortKey - b.sortKey);
+    return entries;
   }
 
   // ── Rendering ────────────────────────────────────────────────────────────────
 
-  function fmtTurningRange(turning) {
-    function p(mmdd) {
-      const [mm, dd] = mmdd.split("-").map(Number);
-      return MONTH_SHORT[mm - 1] + " " + dd;
-    }
-    return p(turning.start) + " \u2013 " + p(turning.end);
-  }
-
-  function renderPillStrip(turnings, currentId) {
-    const pills = turnings.map(function(t) {
-      var cls = "infopill" + (t.id === currentId ? " current" : "");
-      return '<button class="' + cls + '" data-slug="' + escapeHtml(t.id) + '">' +
-             '<span class="infopill-name">' + escapeHtml(t.name) + "</span>" +
-             '<span class="infopill-range">' + escapeHtml(fmtTurningRange(t)) + "</span>" +
+  function renderMonthPillStrip(currentMonth) {
+    const pills = MONTH_FULL.map(function (name, idx) {
+      const m = idx + 1;
+      const cls = "infopill" + (m === currentMonth ? " current" : "");
+      return '<button class="' + cls + '" data-month="' + m + '">' +
+             '<span class="infopill-name">' + MONTH_EMOJI[idx] + " " + name + "</span>" +
              "</button>";
     }).join("");
     return '<div class="infopill-strip">' + pills + "</div>";
   }
 
-  function renderAllTurnings(orderedTurnings, baseYears, currentId) {
-    return orderedTurnings.map((turning, i) => {
-      const entries = buildEntries(turning, baseYears[i]);
+  function renderAllMonths(currentMonth, year, turnings) {
+    return Array.from({length: 12}, function (_, idx) {
+      const month  = idx + 1;
+      const entries = buildMonthEntries(month, year, turnings);
 
-      const itemsHtml = entries.map(e => {
+      const itemsHtml = entries.map(function (e) {
         let html =
           '<li class="te-item">' +
           '<div class="te-date">' + escapeHtml(e.dateLabel) + "</div>" +
@@ -433,24 +316,27 @@
         if (e.url) {
           html +=
             '<a class="te-link" href="' + escapeHtml(e.url) + '"' +
-            ' target="_blank" rel="noopener noreferrer">Learn more \u2197</a>';
+            ' target="_blank" rel="noopener noreferrer">Learn more ↗</a>';
         }
         html += "</div></li>";
         return html;
       }).join("");
 
-      const isCurrent = turning.id === currentId;
+      const isCurrent = month === currentMonth;
       return (
-        '<details id="turning-' + escapeHtml(turning.id) + '" class="card turning-card reveal"' + (isCurrent ? " open" : "") + ">" +
+        '<details id="month-' + month + '" class="card turning-card reveal"' +
+        (isCurrent ? " open" : "") + ">" +
         '<summary class="turning-head">' +
-        '<span class="turning-emoji" aria-hidden="true">' + escapeHtml(turning.emoji) + "</span>" +
+        '<span class="turning-emoji" aria-hidden="true">' + MONTH_EMOJI[idx] + "</span>" +
         '<div class="turning-meta">' +
-        '<h2 class="turning-name">' + escapeHtml(turning.name) + "</h2>" +
-        '<span class="turning-range">' + escapeHtml(fmtTurningRange(turning)) + "</span>" +
+        '<h2 class="turning-name">' + MONTH_FULL[idx] + "</h2>" +
+        '<span class="turning-range">' + year + "</span>" +
         "</div>" +
-        '<span class="chevron" aria-hidden="true">\u203a</span>' +
+        '<span class="chevron" aria-hidden="true">›</span>' +
         "</summary>" +
-        '<ul class="te-list">' + itemsHtml + "</ul>" +
+        (entries.length
+          ? '<ul class="te-list">' + itemsHtml + "</ul>"
+          : '<p style="padding:.8rem 0;font-size:.85rem;color:var(--ink3)">No dates recorded for this month.</p>') +
         "</details>"
       );
     }).join("");
@@ -459,7 +345,9 @@
   // ── Boot ─────────────────────────────────────────────────────────────────────
 
   async function boot() {
-    const today = new Date();
+    const today        = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentYear  = today.getFullYear();
 
     let data;
     try {
@@ -471,40 +359,45 @@
     }
 
     const turnings = data.turnings;
-    const startIdx = findCurrentTurningIdx(turnings, today);
-    const currentId = turnings[startIdx].id;
 
-    // Render infopill strip in calendar order
+    // Pill strip
     const pillShell = document.getElementById("infopill-strip-container");
     if (pillShell) {
-      pillShell.innerHTML = renderPillStrip(turnings, currentId);
-      pillShell.querySelectorAll(".infopill").forEach(function(btn) {
-        btn.addEventListener("click", function() {
-          var det = document.getElementById("turning-" + btn.dataset.slug);
-          if (det) { det.open = true; det.scrollIntoView({behavior: "smooth", block: "start"}); }
+      pillShell.innerHTML = renderMonthPillStrip(currentMonth);
+      pillShell.querySelectorAll(".infopill").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const m   = parseInt(btn.dataset.month, 10);
+          const det = document.getElementById("month-" + m);
+          if (det) {
+            det.open = true;
+            det.scrollIntoView({behavior: "smooth", block: "start"});
+          }
         });
       });
-      requestAnimationFrame(function() {
+      requestAnimationFrame(function () {
         pillShell.classList.add("visible");
-        var active = pillShell.querySelector(".infopill.current");
+        const active = pillShell.querySelector(".infopill.current");
         if (active) active.scrollIntoView({behavior: "auto", block: "nearest", inline: "center"});
       });
     }
 
-    // Build ordered 8-turning list beginning with today's turning
-    const ordered = [];
-    for (let i = 0; i < 8; i++) ordered.push(turnings[(startIdx + i) % 8]);
-
-    const fYear    = firstTurningBaseYear(ordered[0], today);
-    const baseYears = computeBaseYears(ordered, fYear);
-
-    const html = renderAllTurnings(ordered, baseYears, currentId);
-
+    // Month cards
     const target = document.getElementById("turnings-shell");
     if (!target) return;
-    target.innerHTML = html;
+    target.innerHTML = renderAllMonths(currentMonth, currentYear, turnings);
 
-    // Trigger reveal animations
+    // Accordion: opening one month closes the others
+    target.querySelectorAll("details").forEach(function (det) {
+      det.addEventListener("toggle", function () {
+        if (det.open) {
+          target.querySelectorAll("details").forEach(function (other) {
+            if (other !== det) other.open = false;
+          });
+        }
+      });
+    });
+
+    // Reveal animations
     requestAnimationFrame(function () {
       target.querySelectorAll(".reveal").forEach(function (el) {
         el.classList.add("visible");

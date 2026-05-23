@@ -44,15 +44,14 @@
       kind: "recurring-weekday",
       nth: 2,
       weekday: 2,
-      timeTBD: true,
-      note: "Time to be confirmed",
+      hour: 18,
       exceptMonths: [{year: 2026, month: 4}],
-      windowLabel: "Second Tuesday of each month",
-      calendarLabel: "Second Tuesday, time TBD",
+      windowLabel: "Second Tuesday of each month, 6:00 PM",
+      calendarLabel: "Second Tuesday, 6:00 PM",
       seasonTag: "civic",
       activeTag: "today",
       upcomingTag: "coming up",
-      summary: "Cardiff City Council meets on the second Tuesday of each month. Time to be confirmed — check local notices for the current meeting schedule."
+      summary: "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM."
     },
     {
       id: "cardiff-town-council-april-2026",

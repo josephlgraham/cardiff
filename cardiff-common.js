@@ -27,7 +27,6 @@
   // ─── WEATHER ───────────────────────────────────────────────────
   var WEATHER_URL = 'cardiff-weather.json';
   var WATERSHED_URL = 'cardiff-watershed.json';
-  var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx90oZdqT77vIQvI_YzCcFX1qLOgqdroVqa_-Jo05SiztJasMgrNMTJ4FdrOWsdzEPHTw/exec';
 
   // ─── TICKER ────────────────────────────────────────────────────
   var TICKER_URL = 'ticker.json';
@@ -68,54 +67,6 @@
     document.head.appendChild(script);
   }
 
-  function submitSiteForm(payload) {
-    return new Promise(function (resolve, reject) {
-      try {
-        var enrichedPayload = Object.assign({
-          submissionId: 'msg-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8),
-          pageTitle: document.title || '',
-          url: window.location.href || '',
-          referrer: document.referrer || ''
-        }, payload || {});
-        var iframeName = 'cardiff-site-inbox-frame';
-        var iframe = document.querySelector('iframe[name="' + iframeName + '"]');
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.name = iframeName;
-          iframe.title = 'Cardiff site inbox';
-          iframe.hidden = true;
-          iframe.style.display = 'none';
-          document.body.appendChild(iframe);
-        }
-
-        // Apps Script web apps are more reliable with a regular form POST
-        // than a cross-origin fetch from a static site.
-        var form = document.createElement('form');
-        form.method = 'POST';
-        form.action = FORM_ENDPOINT;
-        form.target = iframeName;
-        form.acceptCharset = 'UTF-8';
-        form.style.display = 'none';
-
-        Object.keys(enrichedPayload).forEach(function (key) {
-          var input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = enrichedPayload[key] == null ? '' : String(enrichedPayload[key]);
-          form.appendChild(input);
-        });
-
-        document.body.appendChild(form);
-        form.submit();
-        window.setTimeout(function () {
-          form.remove();
-          resolve();
-        }, 900);
-      } catch (err) {
-        reject(err);
-      }
-    });
-  }
 
   function centerActiveTab() {
     var tabs = document.querySelector('.mh-tabs');
@@ -399,8 +350,6 @@
     loadAppLayer();
     centerActiveTab();
     initSmoothMarquee();
-    window.CardiffSite = window.CardiffSite || {};
-    window.CardiffSite.submitForm = submitSiteForm;
     initTopo();
     loadWatershed();
     setInterval(loadWatershed, 10 * 60 * 1000);

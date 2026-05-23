@@ -370,8 +370,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <p class="post-copy">Use this form to send a new listing, answer an existing one, pass along a watershed note, or drop off a porch joke, riddle, ask, or memory. Nothing posts automatically. It comes into the site inbox first so the board can stay neighborly and readable.</p>
     <div class="post-form" id="hollerForm">
       <div class="post-row">
-        <input type="text" id="hollerName" placeholder="Your name">
-        <input type="email" id="hollerEmail" placeholder="Email address">
+        <input type="text" id="hollerName" placeholder="Your Name">
+        <input type="email" id="hollerEmail" placeholder="Your Email">
       </div>
       <div class="post-row">
         <select id="hollerMode">
@@ -760,33 +760,20 @@ function prefillHollerReply(topic){
   if(field) field.focus();
 }
 
-async function submitHoller(){
+function submitHoller(){
   const name=document.getElementById('hollerName').value.trim();
   const email=document.getElementById('hollerEmail').value.trim();
   const mode=document.getElementById('hollerMode').value.trim()||'Board note';
   const topic=document.getElementById('hollerTopic').value.trim();
   const message=document.getElementById('hollerMessage').value.trim();
-  const btn=document.getElementById('hollerSubmitBtn');
   const status=document.getElementById('hollerStatus');
   status.textContent='';
   if(!email||!email.includes('@')){document.getElementById('hollerEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('hollerEmail').style.borderColor='',2000);return;}
   if(!topic||!message){if(!topic)document.getElementById('hollerTopic').style.borderColor='var(--red)';if(!message)document.getElementById('hollerMessage').style.borderColor='var(--red)';status.textContent='Please add a title and a short message.';setTimeout(()=>{document.getElementById('hollerTopic').style.borderColor='';document.getElementById('hollerMessage').style.borderColor='';},2000);return;}
-  try{
-    btn.disabled=true;
-    btn.textContent='Sending...';
-    status.textContent='Sending this to the site inbox...';
-    await window.CardiffSite.submitForm({
-      form:'Hills and Hollers',
-      name:name||'',
-      email:email,
-      topic:mode+' · '+topic,
-      message:message,
-      page:'cardiff-hollers.html'
-    });
-    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your board note has been added to the site inbox for review.</div>';
-  }catch(err){
-    document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Please use the contact path on Get Involved and try again.</div>';
-  }
+  const subject=encodeURIComponent('Hills and Hollers: '+mode+' · '+topic);
+  const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nType: '+mode+'\nTitle: '+topic+'\n\n'+message);
+  window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;
+  document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';
 }
 
 </script>

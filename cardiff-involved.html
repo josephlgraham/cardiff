@@ -259,8 +259,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <p class="sub-desc">Tell us who you are, what you are interested in, and how to reach you. Messages from this form go into the site inbox.</p>
     <div class="sub-form" id="subForm">
       <div class="sub-row">
-        <input type="text" id="subName" placeholder="Your name">
-        <input type="email" id="subEmail" placeholder="Email address">
+        <input type="text" id="subName" placeholder="Your Name">
+        <input type="email" id="subEmail" placeholder="Your Email">
       </div>
       <select id="subType">
         <option value="">What are you interested in?</option>
@@ -283,35 +283,19 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 </div>
 
 <script>
-async function submitForm(){
+function submitForm(){
   const name=document.getElementById('subName').value.trim();
   const email=document.getElementById('subEmail').value.trim();
   const typeSelect=document.getElementById('subType');
   const type=typeSelect.options[typeSelect.selectedIndex]?.text||'Site message';
   const msg=document.getElementById('subMessage').value.trim();
   const status=document.getElementById('subStatus');
-  const btn=document.getElementById('subSubmitBtn');
   status.textContent='';
   if(!email||!email.includes('@')){document.getElementById('subEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('subEmail').style.borderColor='',2000);return;}
-  try{
-    btn.disabled=true;
-    btn.textContent='Sending...';
-    status.textContent='Sending this to the site inbox...';
-    await window.CardiffSite.submitForm({
-      form:'Get Involved',
-      name:name||'',
-      email:email,
-      topic:type,
-      message:msg||'',
-      page:'cardiff-involved.html'
-    });
-    document.getElementById('subForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your message has been added to the site inbox.</div>';
-  }catch(err){
-    const subject=encodeURIComponent('Cardiff website: '+type);
-    const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nInterest: '+type+'\n\n'+msg);
-    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.getElementById('subForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, use the Email Joe button above.</div>';
-  }
+  const subject=encodeURIComponent('Cardiff website: '+type);
+  const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nInterest: '+type+'\n\n'+msg);
+  window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;
+  document.getElementById('subForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';
 }
 
 // SHARED JS

@@ -110,6 +110,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .te-desc{font-size:.8rem;line-height:1.58;color:var(--ink2);margin-bottom:.22rem}
 .te-link{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none;font-weight:500}
 .te-link:hover{text-decoration:underline}
+.cal-context{font-size:.92rem;line-height:1.78;color:var(--ink2);margin:.55rem 0 1.1rem;max-width:72ch}
 .footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
 .footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
 .footer-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
@@ -161,12 +162,12 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
   <nav class="mh-tabs">
     <a href="index.html" id="tab-home">Home</a>
     <a href="cardiff-news.html" id="tab-news">News</a>
-    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
     <a href="cardiff-calendar.html" id="tab-calendar" class="active">Calendar</a>
+    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
     <a href="cardiff-guide.html" id="tab-guide">Field Guide</a>
     <a href="cardiff-cemetery.html" id="tab-cemetery">Cemetery</a>
-    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
-    <a href="cardiff-involved.html" id="tab-involved">Get Involved</a>
+    <a href="cardiff-involved.html" id="tab-involved">Contact</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -174,17 +175,9 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
 </header>
 
 <main class="wrap">
-  <section class="hero reveal">
-    <div class="card" style="padding:1.4rem 1.5rem;margin-bottom:.5rem">
-      <h1 class="title">The old year had eight seasons, not four.</h1>
-      <p class="sub">Before calendars got flattened into twelve numbered months, country people across Britain, Ireland, and southern Europe tracked the year by eight turnings — moments when the light, the weather, or the work on the land actually changed. Four of them are the sun's big markers: the two solstices and the two equinoxes. The other four fall roughly halfway between — the cross-quarter days that gave us Groundhog Day, May Day, Lammas, and Halloween.</p>
-      <p class="sub">The families who built Cardiff brought these rhythms with them — the <strong>Stewarts</strong> from Scotland, the <strong>Woodfords</strong> from Wales, the <strong>Tombrellos</strong> from Sicily, the <strong>Negrons</strong> from France. Whatever language the old names were said in, the days themselves were the same. Candlemas and Candelora. Beltane and May Day. Lammas and the harvest feast. Hallowtide and All Saints'. Different tongues, the same sun.</p>
-      <p class="sub">We kept the old names here because they're older than the country, older than the state, and they still line up with what's happening outside. Candlemas is when the light starts coming back. Beltane is when the woods go green. Lammas is when the first things ripen. Hallowtide is when the killing frost comes.</p>
-      <p class="sub">The calendar below opens on whichever turning contains today. Tap any other turning to open it.</p>
-    </div>
-  </section>
+  <div id="infopill-strip-container" class="reveal" style="padding-top:1.5rem"></div>
 
-  <div id="infopill-strip-container" class="reveal"></div>
+  <p class="cal-context reveal">Some of these dates will look unfamiliar — Candlemas, Beltane, Lammas, Hallowtide. They were carried here by the families who built Cardiff: the <strong>Stewarts</strong> from Scotland, the <strong>Woodfords</strong> from Wales, the <strong>Tombrellos</strong> from Sicily, the <strong>Negrons</strong> from France. A lot of those names have been lost over the generations. The days themselves haven't.</p>
 
   <div class="stack" id="turnings-shell">
     <section class="card turning-card reveal">
@@ -204,8 +197,8 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
     <p class="submit-copy">Use this to send holidays, meetings, workdays, deadline reminders, or community dates. Submissions go into the site inbox for review before anything is posted.</p>
     <div class="submit-form" id="calendarForm">
       <div class="submit-row">
-        <input type="text" id="calName" placeholder="Your name">
-        <input type="email" id="calEmail" placeholder="Email address">
+        <input type="text" id="calName" placeholder="Your Name">
+        <input type="email" id="calEmail" placeholder="Your Email">
       </div>
       <div class="submit-row">
         <input type="text" id="calDate" placeholder="Date or date range">
@@ -227,36 +220,20 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
 </div>
 
 <script>
-async function submitCalendarDate(){
+function submitCalendarDate(){
   const name=document.getElementById('calName').value.trim();
   const email=document.getElementById('calEmail').value.trim();
   const date=document.getElementById('calDate').value.trim();
   const type=document.getElementById('calType').value.trim()||'Calendar date';
   const details=document.getElementById('calDetails').value.trim();
-  const btn=document.getElementById('calendarSubmitBtn');
   const status=document.getElementById('calendarStatus');
   status.textContent='';
   if(!email||!email.includes('@')){document.getElementById('calEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('calEmail').style.borderColor='',2000);return;}
   if(!date||!details){if(!date)document.getElementById('calDate').style.borderColor='var(--red)';if(!details)document.getElementById('calDetails').style.borderColor='var(--red)';status.textContent='Please add the date and a short description.';setTimeout(()=>{document.getElementById('calDate').style.borderColor='';document.getElementById('calDetails').style.borderColor='';},2000);return;}
-  try{
-    btn.disabled=true;
-    btn.textContent='Sending...';
-    status.textContent='Sending this to the site inbox...';
-    await window.CardiffSite.submitForm({
-      form:'Calendar Submission',
-      name:name||'',
-      email:email,
-      topic:type+' · '+date,
-      message:details,
-      page:'cardiff-calendar.html'
-    });
-    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Thank you. Your date has been added to the site inbox for review.</div>';
-  }catch(err){
-    const subject=encodeURIComponent('Cardiff calendar date: '+type+' · '+date);
-    const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
-    window.location.href='mailto:josephlgraham@gmail.com?subject='+subject+'&body='+body;
-    document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">The inbox connection missed. Your email app should open instead. If it does not, use the Email Joe button.</div>';
-  }
+  const subject=encodeURIComponent('Cardiff calendar date: '+type+' · '+date);
+  const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
+  window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;
+  document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';
 }
 </script>
 <script defer src="cardiff-season-data.js"></script>

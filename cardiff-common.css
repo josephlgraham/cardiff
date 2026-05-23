@@ -448,3 +448,5 @@ a[hidden]{
     grid-template-columns:1fr;
   }
 }
+
+::placeholder{font-style:italic;opacity:.75;}
