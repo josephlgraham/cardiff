@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "updatedAt": "2026-05-23T13:40:17.447Z",
   "temp": 74,
   "humidity": 90,
@@ -9,11 +10,24 @@
   "pressureTrend": "rising",
   "uv": 1,
   "solarRadiation": 153.64,
+=======
+  "updatedAt": "2026-05-23T13:44:39.177Z",
+  "temp": 74,
+  "humidity": 91,
+  "windSpeed": 0,
+  "windDir": 15,
+  "windGust": 1,
+  "pressure": 29.754,
+  "pressureTrend": "rising",
+  "uv": 1,
+  "solarRadiation": 131.94,
+>>>>>>> Stashed changes
   "dailyRain": 0,
   "hourlyRain": 0,
   "weeklyRain": 2.27,
   "monthlyRain": 3.3,
   "yearlyRain": 28.52,
+<<<<<<< Updated upstream
   "feelsLike": 76,
   "dewPoint": 71,
   "lastUpdated": "2026-05-23T13:39:00.000Z",
@@ -26,6 +40,20 @@
     "windSpeed": 3,
     "windDir": "ESE",
     "windGust": 4,
+=======
+  "feelsLike": 75,
+  "dewPoint": 71,
+  "lastUpdated": "2026-05-23T13:43:00.000Z",
+  "source": "Ambient Weather",
+  "current": {
+    "temp": 74,
+    "feelsLike": 75,
+    "feels": 75,
+    "humidity": 91,
+    "windSpeed": 0,
+    "windDir": "NNE",
+    "windGust": 1,
+>>>>>>> Stashed changes
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0,
@@ -33,10 +61,17 @@
     "pressure": 29.754,
     "pressureIn": 29.754,
     "uv": 1,
+<<<<<<< Updated upstream
     "solarRadiation": 153.64,
     "dewPoint": 71,
     "obsTime": "2026-05-23T13:39:00.000Z",
     "lastUpdated": "2026-05-23T13:39:00.000Z",
+=======
+    "solarRadiation": 131.94,
+    "dewPoint": 71,
+    "obsTime": "2026-05-23T13:43:00.000Z",
+    "lastUpdated": "2026-05-23T13:43:00.000Z",
+>>>>>>> Stashed changes
     "condition": "Mostly cloudy",
     "source": "Ambient Weather",
     "sourceNote": null
@@ -52,7 +87,11 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 66,
+<<<<<<< Updated upstream
       "windGust": 4,
+=======
+      "windGust": 1,
+>>>>>>> Stashed changes
       "label": "Since midnight",
       "isMorning": true,
       "coverageStart": "2026-05-23"
