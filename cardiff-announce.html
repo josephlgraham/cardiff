@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Announcements · Cardiff, Alabama</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="/cardiff/manifest.json">
+<link rel="apple-touch-icon" href="/cardiff/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:200ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+
+/* MASTHEAD */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px;}
+.mh-left-info{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--hdr-dimmer);font-weight:300;}
+.mh-brand-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.22rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.88rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem;}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;animation:marquee 30s linear infinite;padding-left:100%;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+@media(max-width:600px){
+  .mh-identity{grid-template-columns:1fr;justify-items:center;gap:0.25rem;padding:0.6rem 1rem;min-height:unset;}
+  .mh-left-info{display:none;}
+  .mh-right-info{display:none;}
+  .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem);}
+  .mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}
+}
+
+/* PAGE */
+.wrap{max-width:760px;margin:0 auto;padding:0 2rem 5rem;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hero */
+.an-hero{padding:3rem 0 2rem;}
+.an-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.an-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
+.an-title{font-family:var(--sans);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
+.an-sub{font-size:0.96rem;line-height:1.78;color:var(--ink2);max-width:560px;}
+
+/* Section rule */
+.s-rule{display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1.5rem;}
+.s-rule h2{font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.s-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+
+/* Notice card (flyer style) */
+.notice-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r-lg);box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.07);overflow:hidden;margin-bottom:1.75rem;}
+.notice-head{background:var(--ink);padding:1.75rem 2rem;display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:center;}
+.notice-datebox{text-align:center;background:var(--red);border-radius:var(--r);padding:0.6rem 1rem;min-width:72px;}
+.notice-datebox-month{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.82);display:block;}
+.notice-datebox-day{font-family:var(--sans);font-size:2.6rem;font-weight:800;line-height:1;color:#fff;display:block;}
+.notice-datebox-year{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;color:rgba(255,255,255,0.65);display:block;margin-top:0.15rem;}
+.notice-head-text{}
+.notice-tag{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,234,216,0.55);margin-bottom:0.35rem;}
+.notice-headline{font-family:var(--sans);font-size:1.55rem;font-weight:800;letter-spacing:-0.01em;color:var(--hdr-text);line-height:1.15;}
+.notice-body{padding:1.75rem 2rem;}
+.notice-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem;}
+.notice-meta-item{display:flex;gap:0.65rem;align-items:flex-start;}
+.notice-meta-icon{font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:0.1rem;}
+.notice-meta-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;}
+.notice-meta-val{font-family:var(--sans);font-size:0.96rem;font-weight:700;color:var(--ink);}
+.notice-desc{font-size:0.92rem;line-height:1.8;color:var(--ink2);border-top:1px solid var(--rule);padding-top:1.25rem;}
+.notice-desc p+p{margin-top:0.85rem;}
+.notice-footer{padding:1rem 2rem;background:var(--paper2);border-top:1px solid var(--border);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.07em;color:var(--ink3);display:flex;align-items:center;gap:0.5rem;}
+.notice-footer::before{content:"";width:10px;height:2px;background:var(--ink3);display:inline-block;flex-shrink:0;}
+
+/* Archive placeholder */
+.archive-note{text-align:center;padding:2.5rem 1.5rem;background:var(--card);border:1px dashed var(--border2);border-radius:var(--r-lg);color:var(--ink3);font-family:var(--mono);font-size:0.75rem;letter-spacing:0.08em;}
+
+@media(max-width:600px){
+  .wrap{padding:0 1rem 4rem;}
+  .notice-head{grid-template-columns:1fr;gap:0.85rem;}
+  .notice-meta{grid-template-columns:1fr;}
+  .notice-body{padding:1.25rem 1.25rem;}
+  .notice-head{padding:1.25rem;}
+}
+</style>
+<link rel="stylesheet" href="cardiff-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info">Five Mile Creek Watershed<br>Jefferson County, Alabama</div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>
+    <div class="mh-right-info"><a href="cardiff-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="cardiff-news.html" id="tab-news">News</a>
+    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="cardiff-guide.html" id="tab-guide">Field Guide</a>
+    <a href="cardiff-cemetery.html" id="tab-cemetery">Cemetery</a>
+    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
+    <a href="cardiff-involved.html" id="tab-involved">Get Involved</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="an-hero reveal">
+    <div class="an-kicker">Cardiff, Alabama</div>
+    <h1 class="an-title">Announcements</h1>
+    <p class="an-sub">Community notices, meeting dates, and anything else the neighborhood needs to know. This page is unlisted — share the link directly with folks who need it.</p>
+  </div>
+
+  <div class="s-rule reveal"><h2>Current notices</h2><hr></div>
+
+  <!-- ── NOTICE: June 9 Community Meeting ─────────────────────────── -->
+  <article class="notice-card reveal">
+    <div class="notice-head">
+      <div class="notice-datebox">
+        <span class="notice-datebox-month">June</span>
+        <span class="notice-datebox-day">9</span>
+        <span class="notice-datebox-year">2026</span>
+      </div>
+      <div class="notice-head-text">
+        <div class="notice-tag">Community Meeting</div>
+        <div class="notice-headline">Cardiff Community Meeting</div>
+      </div>
+    </div>
+    <div class="notice-body">
+      <div class="notice-meta">
+        <div class="notice-meta-item">
+          <div class="notice-meta-icon">🕕</div>
+          <div>
+            <div class="notice-meta-label">Time</div>
+            <div class="notice-meta-val">6:00 PM</div>
+          </div>
+        </div>
+        <div class="notice-meta-item">
+          <div class="notice-meta-icon">📍</div>
+          <div>
+            <div class="notice-meta-label">Location</div>
+            <div class="notice-meta-val">Town Hall</div>
+          </div>
+        </div>
+      </div>
+      <div class="notice-desc">
+        <p>All Cardiff residents and neighbors are welcome. This is an open community meeting — bring your questions, concerns, and ideas. There is no formal agenda; the floor belongs to the people who show up.</p>
+        <p>If you have something specific you would like discussed, come prepared to raise it. Cardiff works best when neighbors talk to each other directly.</p>
+      </div>
+    </div>
+    <div class="notice-footer">Posted by the Cardiff desk &nbsp;·&nbsp; Monday, June 9, 2026 at 6:00 PM &nbsp;·&nbsp; Town Hall</div>
+  </article>
+  <!-- ── END NOTICE ─────────────────────────────────────────────────── -->
+
+  <div class="s-rule reveal"><h2>Past notices</h2><hr></div>
+  <div class="archive-note reveal">No archived notices yet. Past announcements will appear here.</div>
+
+</div><!-- /.wrap -->
+</div><!-- /.page -->
+
+<script src="cardiff-common.js"></script>
+<script src="/cardiff/cardiff-pwa.js"></script>
+</body>
+</html>

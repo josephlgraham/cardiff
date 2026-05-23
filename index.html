@@ -285,8 +285,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
     </article>
     <article class="card reveal">
-      <div class="site-kicker">Morning report</div>
-      <h3 class="card-title">Since midnight</h3>
+      <div class="site-kicker">Morning read</div>
+      <h3 class="card-title">Yesterday &amp; sky</h3>
       <div class="today-list" id="homeMorning">
         <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Waiting on the station log.</div><div class="side-sub">Morning report</div></div></div>
       </div>
@@ -551,7 +551,7 @@ async function loadHomeDashboard(){
   document.getElementById('mobileWeatherValue').textContent=hasYestMobile?`🌡️ ${dsMobile.yesterdayHigh}°–${dsMobile.yesterdayLow}°F yesterday`:'🌤️ Weather sync pending';
   document.getElementById('mobileWeatherCopy').textContent=hasYestMobile&&Number.isFinite(dsMobile.yesterdayRain)&&dsMobile.yesterdayRain>=0.01?`${formatInches(dsMobile.yesterdayRain)} of rain fell yesterday.`:hasYestMobile?'No measurable rain yesterday.':'Yesterday\'s summary will appear here after the daily station log compiles.';
   document.getElementById('mobileCreekValue').textContent=leadGauge&&Number.isFinite(leadStage)?`🌊 ${leadStage.toFixed(2)} ft at ${leadGauge.label}`:'🌊 Gauge sync pending';
-  document.getElementById('mobileCreekCopy').textContent=leadGauge&&leadGauge.note?leadGauge.note:(rain?`${formatInches(Number(rain.today))} of rain has shown up since midnight.`:'Gauge, flow, and rain notes will settle in here.');
+  document.getElementById('mobileCreekCopy').textContent=leadGauge&&leadGauge.note?leadGauge.note:'Gauge, flow, and rain notes will settle in here.';
 
   const ds=weather&&weather.dailySummary?weather.dailySummary:null;
   const hasYest=ds&&Number.isFinite(ds.yesterdayHigh)&&Number.isFinite(ds.yesterdayLow);
@@ -562,8 +562,7 @@ async function loadHomeDashboard(){
   document.getElementById('homeToday').innerHTML=[
     `<div class="side-item"><div class="side-icon">🌡️</div><div><div class="side-val">${hasYest?ds.yesterdayHigh+'°–'+ds.yesterdayLow+'°F':'—'}</div><div class="side-sub">Yesterday high / low</div></div></div>`,
     `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${hasYest&&Number.isFinite(ds.yesterdayRain)?formatInches(ds.yesterdayRain):'—'}</div><div class="side-sub">Yesterday rain</div></div></div>`,
-    `<div class="side-item"><div class="side-icon">🌤️</div><div><div class="side-val">${fcHigh}</div><div class="side-sub">${fcLabel} forecast</div></div></div>`,
-    `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${rain?formatInches(Number(rain.today)):'—'}</div><div class="side-sub">Rain since midnight</div></div></div>`
+    `<div class="side-item"><div class="side-icon">🌤️</div><div><div class="side-val">${fcHigh}</div><div class="side-sub">${fcLabel} forecast</div></div></div>`
   ].join('');
 
   const change24h=stageChange24h(leadGauge);
@@ -579,8 +578,8 @@ async function loadHomeDashboard(){
   const morningCard=document.getElementById('homeMorning');
   const morningKicker=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.site-kicker'):null;
   const morningTitle=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.card-title'):null;
-  if(morningKicker) morningKicker.textContent=showTonight?'Tonight\'s sky':'Morning report';
-  if(morningTitle) morningTitle.textContent=showTonight?'After dark':'Since midnight';
+  if(morningKicker) morningKicker.textContent=showTonight?'Tonight\'s sky':'Morning read';
+  if(morningTitle) morningTitle.textContent=showTonight?'After dark':'Yesterday & sky';
   if(morningCard){
     morningCard.innerHTML=showTonight
       ? [
@@ -589,9 +588,9 @@ async function loadHomeDashboard(){
           `<div class="side-item"><div class="side-icon">⭐</div><div><div class="side-val">Best first look</div><div class="side-sub">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div></div>`
         ].join('')
       : [
-          `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${morning?formatInches(Number(morning.amount||0)):'—'}</div><div class="side-sub">${morning&&morning.label?morning.label:'Since midnight rain'}</div></div></div>`,
-          `<div class="side-item"><div class="side-icon">🌡️</div><div><div class="side-val">${morning&&Number.isFinite(Number(morning.lowTemp))?Math.round(Number(morning.lowTemp))+'°F':'—'}</div><div class="side-sub">Low temperature</div></div></div>`,
-          `<div class="side-item"><div class="side-icon">🌬️</div><div><div class="side-val">${morning&&Number(morning.windGust||0)>0?Math.round(Number(morning.windGust))+' mph':'Light air'}</div><div class="side-sub">Strongest gust</div></div></div>`
+          `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${hasYest&&Number.isFinite(ds.yesterdayRain)?formatInches(ds.yesterdayRain):'—'}</div><div class="side-sub">Yesterday's rain</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">${formatClock(sun.rise)}</div><div class="side-sub">Sunrise</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">${buildSkyNote(moon)}</div></div></div>`
         ].join('');
   }
 }
