@@ -1,437 +1,1292 @@
 {
-  "updatedAt": "2026-05-24T18:00:31.579Z",
+  "updatedAt": "2026-05-24T18:33:44.406Z",
   "days": [
     {
-      "date": "2026-03-28",
-      "high": 48,
-      "low": 39,
+      "date": "2026-01-01",
+      "high": 65,
+      "low": 24,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 91
+      "maxGust": 10,
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-02",
+      "high": 59,
+      "low": 33,
+      "rain": 1.21,
+      "maxGust": 7,
+      "avgHumidity": 95,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-03",
+      "high": 58,
+      "low": 41,
+      "rain": 0.03,
+      "maxGust": 3,
+      "avgHumidity": 98,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-04",
+      "high": 60,
+      "low": 35,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 90,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-05",
+      "high": 63,
+      "low": 33,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 93,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-06",
+      "high": 62,
+      "low": 40,
+      "rain": 0.01,
+      "maxGust": 5,
+      "avgHumidity": 99,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-07",
+      "high": 66,
+      "low": 49,
+      "rain": 0.01,
+      "maxGust": 2,
+      "avgHumidity": 99,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-08",
+      "high": 67,
+      "low": 45,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 98,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-09",
+      "high": 66,
+      "low": 61,
+      "rain": 1.9,
+      "maxGust": 13,
+      "avgHumidity": 98,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-10",
+      "high": 65,
+      "low": 48,
+      "rain": 1.82,
+      "maxGust": 13,
+      "avgHumidity": 97,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-11",
+      "high": 53,
+      "low": 27,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 77,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-12",
+      "high": 52,
+      "low": 23,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 80,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-13",
+      "high": 61,
+      "low": 24,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 78,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-14",
+      "high": 56,
+      "low": 33,
+      "rain": 0.04,
+      "maxGust": 10,
+      "avgHumidity": 87,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-15",
+      "high": 43,
+      "low": 21,
+      "rain": 0.04,
+      "maxGust": 13,
+      "avgHumidity": 69,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-16",
+      "high": 59,
+      "low": 20,
+      "rain": 0.28,
+      "maxGust": 17,
+      "avgHumidity": 70,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-17",
+      "high": 53,
+      "low": 29,
+      "rain": 0.19,
+      "maxGust": 6,
+      "avgHumidity": 85,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-18",
+      "high": 45,
+      "low": 23,
+      "rain": 0.19,
+      "maxGust": 9,
+      "avgHumidity": 67,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-19",
+      "high": 51,
+      "low": 19,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 76,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-20",
+      "high": 49,
+      "low": 20,
+      "rain": 0,
+      "maxGust": 7,
+      "avgHumidity": 68,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-21",
+      "high": 61,
+      "low": 22,
+      "rain": 0.14,
+      "maxGust": 13,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-22",
+      "high": 51,
+      "low": 41,
+      "rain": 0.31,
+      "maxGust": 5,
+      "avgHumidity": 97,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-23",
+      "high": 55,
+      "low": 32,
+      "rain": 0.31,
+      "maxGust": 8,
+      "avgHumidity": 83,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-24",
+      "high": 49,
+      "low": 32,
+      "rain": 0.34,
+      "maxGust": 10,
+      "avgHumidity": 80,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-25",
+      "high": 56,
+      "low": 24,
+      "rain": 1.9,
+      "maxGust": 15,
+      "avgHumidity": 98,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-26",
+      "high": 35,
+      "low": 17,
+      "rain": 1.9,
+      "maxGust": 13,
+      "avgHumidity": 74,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-27",
+      "high": 44,
+      "low": 12,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 77,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-28",
+      "high": 51,
+      "low": 23,
+      "rain": 0,
+      "maxGust": 7,
+      "avgHumidity": 80,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-29",
+      "high": 50,
+      "low": 21,
+      "rain": 0,
+      "maxGust": 5,
+      "avgHumidity": 82,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-30",
+      "high": 54,
+      "low": 23,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 77,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-01-31",
+      "high": 31,
+      "low": 19,
+      "rain": 0,
+      "maxGust": 14,
+      "avgHumidity": 61,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-01",
+      "high": 40,
+      "low": 14,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 66,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-02",
+      "high": 57,
+      "low": 19,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 71,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-03",
+      "high": 62,
+      "low": 27,
+      "rain": 0.73,
+      "maxGust": 11,
+      "avgHumidity": 91,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-04",
+      "high": 51,
+      "low": 33,
+      "rain": 0.05,
+      "maxGust": 7,
+      "avgHumidity": 96,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-05",
+      "high": 47,
+      "low": 27,
+      "rain": 0,
+      "maxGust": 11,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-06",
+      "high": 69,
+      "low": 24,
+      "rain": 0,
+      "maxGust": 13,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-07",
+      "high": 59,
+      "low": 28,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 76,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-08",
+      "high": 66,
+      "low": 25,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 70,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-09",
+      "high": 76,
+      "low": 41,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-10",
+      "high": 67,
+      "low": 41,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 94,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-11",
+      "high": 64,
+      "low": 35,
+      "rain": 0.08,
+      "maxGust": 6,
+      "avgHumidity": 98,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-12",
+      "high": 66,
+      "low": 29,
+      "rain": 0.08,
+      "maxGust": 6,
+      "avgHumidity": 76,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-13",
+      "high": 69,
+      "low": 31,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 68,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-14",
+      "high": 71,
+      "low": 32,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 64,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-15",
+      "high": 65,
+      "low": 53,
+      "rain": 0.32,
+      "maxGust": 9,
+      "avgHumidity": 93,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-16",
+      "high": 73,
+      "low": 42,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 84,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-17",
+      "high": 69,
+      "low": 37,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 88,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-18",
+      "high": 72,
+      "low": 54,
+      "rain": 0,
+      "maxGust": 2,
+      "avgHumidity": 92,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-19",
+      "high": 82,
+      "low": 59,
+      "rain": 0,
+      "maxGust": 14,
+      "avgHumidity": 83,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-20",
+      "high": 79,
+      "low": 58,
+      "rain": 0.03,
+      "maxGust": 9,
+      "avgHumidity": 67,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-21",
+      "high": 73,
+      "low": 48,
+      "rain": 0.14,
+      "maxGust": 10,
+      "avgHumidity": 72,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-22",
+      "high": 53,
+      "low": 34,
+      "rain": 0,
+      "maxGust": 11,
+      "avgHumidity": 53,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-23",
+      "high": 45,
+      "low": 23,
+      "rain": 0,
+      "maxGust": 14,
+      "avgHumidity": 54,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-24",
+      "high": 55,
+      "low": 19,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 62,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-25",
+      "high": 67,
+      "low": 42,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-26",
+      "high": 74,
+      "low": 57,
+      "rain": 2.83,
+      "maxGust": 8,
+      "avgHumidity": 94,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-27",
+      "high": 70,
+      "low": 41,
+      "rain": 0.26,
+      "maxGust": 6,
+      "avgHumidity": 95,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-02-28",
+      "high": 78,
+      "low": 36,
+      "rain": 0,
+      "maxGust": 7,
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-01",
+      "high": 80,
+      "low": 38,
+      "rain": 0,
+      "maxGust": 6,
+      "avgHumidity": 76,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-02",
+      "high": 79,
+      "low": 47,
+      "rain": 0,
+      "maxGust": 7,
+      "avgHumidity": 72,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-03",
+      "high": 76,
+      "low": 49,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 82,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-04",
+      "high": 82,
+      "low": 51,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 83,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-05",
+      "high": 84,
+      "low": 51,
+      "rain": 0,
+      "maxGust": 11,
+      "avgHumidity": 81,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-06",
+      "high": 80,
+      "low": 53,
+      "rain": 0,
+      "maxGust": 14,
+      "avgHumidity": 91,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-07",
+      "high": 83,
+      "low": 60,
+      "rain": 0.78,
+      "maxGust": 11,
+      "avgHumidity": 89,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-08",
+      "high": 72,
+      "low": 59,
+      "rain": 0.1,
+      "maxGust": 3,
+      "avgHumidity": 97,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-09",
+      "high": 81,
+      "low": 57,
+      "rain": 1.19,
+      "maxGust": 9,
+      "avgHumidity": 95,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-10",
+      "high": 83,
+      "low": 61,
+      "rain": 1.2,
+      "maxGust": 9,
+      "avgHumidity": 92,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-11",
+      "high": 84,
+      "low": 62,
+      "rain": 2,
+      "maxGust": 21,
+      "avgHumidity": 88,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-12",
+      "high": 62,
+      "low": 36,
+      "rain": 0.65,
+      "maxGust": 14,
+      "avgHumidity": 80,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-13",
+      "high": 73,
+      "low": 32,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 72,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-14",
+      "high": 81,
+      "low": 38,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 72,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-15",
+      "high": 79,
+      "low": 48,
+      "rain": 0,
+      "maxGust": 17,
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-16",
+      "high": 72,
+      "low": 29,
+      "rain": 0.9,
+      "maxGust": 14,
+      "avgHumidity": 86,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-17",
+      "high": 50,
+      "low": 24,
+      "rain": 0,
+      "maxGust": 11,
+      "avgHumidity": 66,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-18",
+      "high": 64,
+      "low": 29,
+      "rain": 0,
+      "maxGust": 11,
+      "avgHumidity": 67,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-19",
+      "high": 76,
+      "low": 33,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-20",
+      "high": 82,
+      "low": 41,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 75,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-21",
+      "high": 86,
+      "low": 48,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 80,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-22",
+      "high": 87,
+      "low": 52,
+      "rain": 0,
+      "maxGust": 13,
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-23",
+      "high": 73,
+      "low": 44,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 78,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-24",
+      "high": 76,
+      "low": 40,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 66,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-25",
+      "high": 78,
+      "low": 50,
+      "rain": 0,
+      "maxGust": 8,
+      "avgHumidity": 78,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-26",
+      "high": 84,
+      "low": 52,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 81,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-27",
+      "high": 85,
+      "low": 56,
+      "rain": 0,
+      "maxGust": 13,
+      "avgHumidity": 81,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-03-28",
+      "high": 69,
+      "low": 41,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 61,
+      "source": "awn-csv"
     },
     {
       "date": "2026-03-29",
       "high": 72,
-      "low": 42,
+      "low": 39,
       "rain": 0,
-      "maxGust": 7,
-      "avgHumidity": 65
+      "maxGust": 13,
+      "avgHumidity": 71,
+      "source": "awn-csv"
     },
     {
       "date": "2026-03-30",
       "high": 80,
-      "low": 55,
+      "low": 58,
       "rain": 0,
-      "maxGust": 7,
-      "avgHumidity": 77
+      "maxGust": 8,
+      "avgHumidity": 80,
+      "source": "awn-csv"
     },
     {
       "date": "2026-03-31",
-      "high": 80,
-      "low": 54,
+      "high": 81,
+      "low": 53,
       "rain": 0,
-      "maxGust": 8,
-      "avgHumidity": 90
+      "maxGust": 11,
+      "avgHumidity": 88,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-01",
-      "high": 82,
-      "low": 56,
+      "high": 84,
+      "low": 59,
       "rain": 0,
       "maxGust": 8,
-      "avgHumidity": 82
+      "avgHumidity": 82,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-02",
-      "high": 85,
+      "high": 86,
       "low": 54,
       "rain": 0,
-      "maxGust": 8,
-      "avgHumidity": 76
+      "maxGust": 13,
+      "avgHumidity": 79,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-03",
-      "high": 85,
-      "low": 60,
+      "high": 86,
+      "low": 61,
       "rain": 0.06,
-      "maxGust": 6,
-      "avgHumidity": 82
+      "maxGust": 10,
+      "avgHumidity": 85,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-04",
-      "high": 82,
-      "low": 0,
-      "rain": 0.31,
-      "maxGust": 9,
-      "avgHumidity": 79
+      "high": 83,
+      "low": 59,
+      "rain": 1.59,
+      "maxGust": 13,
+      "avgHumidity": 86,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-05",
-      "high": 70,
-      "low": 0,
-      "rain": 1.73,
-      "maxGust": 6,
-      "avgHumidity": 72
+      "high": 71,
+      "low": 46,
+      "rain": 0.19,
+      "maxGust": 10,
+      "avgHumidity": 85,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-06",
       "high": 68,
-      "low": 40,
+      "low": 42,
       "rain": 0,
-      "maxGust": 4,
-      "avgHumidity": 68
+      "maxGust": 8,
+      "avgHumidity": 76,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-07",
-      "high": 78,
+      "high": 79,
       "low": 38,
       "rain": 0,
-      "maxGust": 11,
-      "avgHumidity": 66
+      "maxGust": 17,
+      "avgHumidity": 71,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-08",
       "high": 78,
       "low": 43,
       "rain": 0,
-      "maxGust": 6,
-      "avgHumidity": 67
+      "maxGust": 9,
+      "avgHumidity": 72,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-09",
-      "high": 77,
+      "high": 78,
       "low": 43,
       "rain": 0,
-      "maxGust": 8,
-      "avgHumidity": 72
+      "maxGust": 9,
+      "avgHumidity": 69,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-10",
-      "high": 79,
-      "low": 42,
+      "high": 81,
+      "low": 41,
       "rain": 0,
-      "maxGust": 9,
-      "avgHumidity": 74
+      "maxGust": 8,
+      "avgHumidity": 76,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-11",
-      "high": 84,
+      "high": 86,
       "low": 46,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 71
+      "maxGust": 6,
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-12",
-      "high": 86,
+      "high": 89,
       "low": 47,
       "rain": 0,
       "maxGust": 9,
-      "avgHumidity": 64
+      "avgHumidity": 73,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-13",
-      "high": 82,
+      "high": 84,
       "low": 52,
       "rain": 0,
-      "maxGust": 4,
-      "avgHumidity": 76
+      "maxGust": 10,
+      "avgHumidity": 79,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-14",
-      "high": 84,
-      "low": 52,
+      "high": 86,
+      "low": 51,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 72,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-04-15",
+      "high": 86,
+      "low": 50,
+      "rain": 0,
+      "maxGust": 9,
+      "avgHumidity": 76,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-04-16",
+      "high": 87,
+      "low": 54,
+      "rain": 0,
+      "maxGust": 10,
+      "avgHumidity": 82,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-04-17",
+      "high": 89,
+      "low": 54,
       "rain": 0,
       "maxGust": 7,
-      "avgHumidity": 59
+      "avgHumidity": 79,
+      "source": "awn-csv"
+    },
+    {
+      "date": "2026-04-18",
+      "high": 83,
+      "low": 56,
+      "rain": 0.42,
+      "maxGust": 9,
+      "avgHumidity": 87,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-19",
-      "high": 57,
-      "low": 39,
+      "high": 68,
+      "low": 42,
       "rain": 0.11,
-      "maxGust": 1,
-      "avgHumidity": 91
+      "maxGust": 9,
+      "avgHumidity": 82,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-20",
-      "high": 76,
-      "low": 45,
+      "high": 77,
+      "low": 36,
       "rain": 0,
-      "maxGust": 2,
-      "avgHumidity": 80
+      "maxGust": 7,
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-21",
-      "high": 80,
-      "low": 51,
+      "high": 83,
+      "low": 42,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 74
+      "maxGust": 6,
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-22",
-      "high": 84,
-      "low": 50,
+      "high": 85,
+      "low": 47,
       "rain": 0,
       "maxGust": 6,
-      "avgHumidity": 61
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-23",
-      "high": 80,
-      "low": 53,
+      "high": 84,
+      "low": 48,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 81
+      "maxGust": 7,
+      "avgHumidity": 78,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-24",
-      "high": 82,
-      "low": 65,
-      "rain": 0.12,
-      "maxGust": 2,
-      "avgHumidity": 85
+      "high": 84,
+      "low": 52,
+      "rain": 0.13,
+      "maxGust": 8,
+      "avgHumidity": 83,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-25",
-      "high": 80,
-      "low": 60,
+      "high": 81,
+      "low": 63,
       "rain": 0.09,
-      "maxGust": 4,
-      "avgHumidity": 91
+      "maxGust": 6,
+      "avgHumidity": 91,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-26",
-      "high": 82,
-      "low": 57,
+      "high": 84,
+      "low": 59,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 91
+      "maxGust": 5,
+      "avgHumidity": 87,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-27",
-      "high": 81,
-      "low": 72,
+      "high": 83,
+      "low": 56,
       "rain": 0,
-      "maxGust": 7,
-      "avgHumidity": 79
+      "maxGust": 15,
+      "avgHumidity": 84,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-28",
-      "high": 68,
+      "high": 75,
       "low": 63,
-      "rain": 1.46,
-      "maxGust": 2,
-      "avgHumidity": 99
+      "rain": 1.48,
+      "maxGust": 10,
+      "avgHumidity": 94,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-29",
       "high": 81,
-      "low": 59,
+      "low": 63,
       "rain": 2.45,
-      "maxGust": 3,
-      "avgHumidity": 94
+      "maxGust": 11,
+      "avgHumidity": 95,
+      "source": "awn-csv"
     },
     {
       "date": "2026-04-30",
-      "high": 72,
-      "low": 55,
+      "high": 73,
+      "low": 54,
       "rain": 0.38,
-      "maxGust": 3,
-      "avgHumidity": 87
+      "maxGust": 8,
+      "avgHumidity": 88,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-01",
-      "high": 66,
+      "high": 67,
       "low": 50,
       "rain": 0,
-      "maxGust": 2,
-      "avgHumidity": 90
+      "maxGust": 3,
+      "avgHumidity": 91,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-02",
-      "high": 72,
-      "low": 46,
+      "high": 73,
+      "low": 45,
       "rain": 0,
       "maxGust": 9,
-      "avgHumidity": 68
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-03",
       "high": 73,
       "low": 39,
       "rain": 0,
-      "maxGust": 6,
-      "avgHumidity": 68
+      "maxGust": 10,
+      "avgHumidity": 77,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-04",
-      "high": 80,
-      "low": 42,
+      "high": 81,
+      "low": 41,
       "rain": 0,
-      "maxGust": 6,
-      "avgHumidity": 69
+      "maxGust": 9,
+      "avgHumidity": 76,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-05",
-      "high": 78,
+      "high": 79,
       "low": 48,
       "rain": 0,
-      "maxGust": 7,
-      "avgHumidity": 77
+      "maxGust": 9,
+      "avgHumidity": 81,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-06",
-      "high": 80,
-      "low": 68,
-      "rain": 0,
-      "maxGust": 6,
-      "avgHumidity": 87
+      "high": 81,
+      "low": 65,
+      "rain": 0.82,
+      "maxGust": 9,
+      "avgHumidity": 89,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-07",
-      "high": 72,
+      "high": 74,
       "low": 53,
       "rain": 0.21,
-      "maxGust": 4,
-      "avgHumidity": 91
+      "maxGust": 7,
+      "avgHumidity": 93,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-08",
-      "high": 69,
+      "high": 70,
       "low": 49,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 86
+      "maxGust": 6,
+      "avgHumidity": 88,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-09",
-      "high": 77,
+      "high": 78,
       "low": 53,
       "rain": 0,
-      "maxGust": 4,
-      "avgHumidity": 91
+      "maxGust": 6,
+      "avgHumidity": 93,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-10",
-      "high": 82,
-      "low": 60,
+      "high": 83,
+      "low": 59,
       "rain": 0,
-      "maxGust": 4,
-      "avgHumidity": 83
+      "maxGust": 5,
+      "avgHumidity": 88,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-11",
-      "high": 78,
+      "high": 80,
       "low": 59,
       "rain": 0,
-      "maxGust": 3,
-      "avgHumidity": 88
+      "maxGust": 7,
+      "avgHumidity": 90,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-12",
-      "high": 56,
-      "low": 55,
+      "high": 81,
+      "low": 54,
       "rain": 0,
-      "maxGust": 1,
-      "avgHumidity": 99
+      "maxGust": 9,
+      "avgHumidity": 82,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-13",
-      "high": 81,
-      "low": 56,
+      "high": 83,
+      "low": 51,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 96
+      "maxGust": 7,
+      "avgHumidity": 83,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-14",
-      "high": 76,
-      "low": 55,
+      "high": 78,
+      "low": 49,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "maxGust": 9,
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-15",
-      "high": 82,
-      "low": 48,
+      "high": 84,
+      "low": 44,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "maxGust": 7,
+      "avgHumidity": 75,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-16",
-      "high": 85,
-      "low": 57,
+      "high": 87,
+      "low": 50,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "maxGust": 7,
+      "avgHumidity": 81,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-17",
-      "high": 89,
-      "low": 62,
+      "high": 91,
+      "low": 56,
       "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "maxGust": 8,
+      "avgHumidity": 80,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-18",
-      "high": 89,
-      "low": 65,
+      "high": 91,
+      "low": 60,
       "rain": 0,
-      "maxGust": 2,
-      "avgHumidity": 75
+      "maxGust": 9,
+      "avgHumidity": 84,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-19",
-      "high": 89,
-      "low": 73,
+      "high": 91,
+      "low": 67,
       "rain": 0,
-      "maxGust": 1,
-      "avgHumidity": 85
+      "maxGust": 7,
+      "avgHumidity": 82,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-20",
-      "high": 88,
-      "low": 71,
-      "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 95
+      "high": 91,
+      "low": 65,
+      "rain": 0.21,
+      "maxGust": 7,
+      "avgHumidity": 83,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-21",
-      "high": 83,
-      "low": 71,
-      "rain": 0.02,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "high": 87,
+      "low": 69,
+      "rain": 0.29,
+      "maxGust": 6,
+      "avgHumidity": 94,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-22",
-      "high": 77,
-      "low": 69,
-      "rain": 0.51,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "high": 74,
+      "low": 66,
+      "rain": 1.77,
+      "maxGust": 11,
+      "avgHumidity": 99,
+      "source": "awn-csv"
     },
     {
       "date": "2026-05-23",
-      "high": 66,
-      "low": 66,
-      "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
-    },
-    {
-      "date": "2026-05-24",
-      "high": 67,
-      "low": 67,
-      "rain": 0,
-      "maxGust": 0,
-      "avgHumidity": 99
+      "high": 86,
+      "low": 65,
+      "rain": 0.33,
+      "maxGust": 7,
+      "avgHumidity": 91,
+      "source": "awn-csv"
     }
   ]
 }

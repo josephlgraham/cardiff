@@ -4,6 +4,7 @@
   const LAT = 33.640;
   const LON = -86.870;
   const WX_URL = "cardiff-weather.json";
+  const ARCHIVE_URL = "cardiff-weather-archive.json";
   const AIR_QUALITY_URL = "cardiff-air-quality.json";
   const WATERSHED_URL = "cardiff-watershed.json";
   const SKY_WATCH_URL = "cardiff-skywatch.json";
@@ -1388,8 +1389,8 @@
     }
   }
 
-  function refreshRainEmojiLayer(dailySummary, rawData) {
-    const yest = dailySummary && Number.isFinite(dailySummary.yesterdayRain) ? dailySummary.yesterdayRain : null;
+  function refreshRainEmojiLayer(yesterdayRain, rawData) {
+    const yest = Number.isFinite(yesterdayRain) ? yesterdayRain : null;
     const weekly = rawData && Number.isFinite(rawData.weeklyRain) ? rawData.weeklyRain : null;
     const monthly = rawData && Number.isFinite(rawData.monthlyRain) ? rawData.monthlyRain : null;
     const yearly = rawData && Number.isFinite(rawData.yearlyRain) ? rawData.yearlyRain : null;
@@ -1399,8 +1400,8 @@
     setHTML("rainYearly", emojiText("📏", formatInches(yearly)));
   }
 
-  function buildRainSummary(dailySummary, rawData) {
-    const yest = dailySummary && Number.isFinite(dailySummary.yesterdayRain) ? dailySummary.yesterdayRain : null;
+  function buildRainSummary(yesterdayRain, rawData) {
+    const yest = Number.isFinite(yesterdayRain) ? yesterdayRain : null;
     const weekly = rawData && Number.isFinite(rawData.weeklyRain) ? rawData.weeklyRain : null;
     const monthly = rawData && Number.isFinite(rawData.monthlyRain) ? rawData.monthlyRain : null;
     const yearly = rawData && Number.isFinite(rawData.yearlyRain) ? rawData.yearlyRain : null;
@@ -1557,12 +1558,12 @@
     );
   }
 
-  function buildYesterdayNarrative(ds) {
-    if (!ds || !Number.isFinite(ds.yesterdayHigh) || !Number.isFinite(ds.yesterdayLow)) {
+  function buildYesterdayNarrative(y) {
+    if (!y || !Number.isFinite(y.high) || !Number.isFinite(y.low)) {
       return "Yesterday's weather summary will appear here after the daily station log compiles.";
     }
-    const rain = Number.isFinite(ds.yesterdayRain) ? ds.yesterdayRain : 0;
-    let text = "Yesterday around Cardiff, temperatures ranged from " + ds.yesterdayLow + "° to " + ds.yesterdayHigh + "°";
+    const rain = Number.isFinite(y.rain) ? y.rain : 0;
+    let text = "Yesterday around Cardiff, temperatures ranged from " + y.low + "° to " + y.high + "°";
     if (rain >= 0.01) {
       text += " with " + formatInches(rain) + " of rain recorded at the station.";
     } else {
@@ -1572,26 +1573,47 @@
     return text;
   }
 
-  function buildWeather(wx, rain, dailySummary, rawData) {
+  function formatArchiveDate(dateKey) {
+    const parts = String(dateKey).split("-").map(Number);
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return "";
+    return new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+  }
+
+  function buildWeather(wx, rain, dailySummary, rawData, prevDay) {
     const moon = getMoonPhase(new Date());
     const sun = getSunTimes(new Date());
     const ground = groundCondition(wx.precipTotal, wx.humidity);
     const ds = dailySummary || null;
-    const hasYesterday = ds && Number.isFinite(ds.yesterdayHigh) && Number.isFinite(ds.yesterdayLow);
 
-    // Card date tag — show yesterday's date
-    const obsDate = new Date(wx.obsTime || Date.now());
-    const yesterday = new Date(obsDate);
-    yesterday.setDate(yesterday.getDate() - 1);
-    setText("wxUpdated", yesterday.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }));
+    // Prefer the station's own previous-day record from the climate archive.
+    // The regional model (dailySummary) is only a fallback if the archive is unavailable.
+    const station = prevDay && Number.isFinite(prevDay.high) && Number.isFinite(prevDay.low);
+    const yHigh = station ? prevDay.high : (ds && Number.isFinite(ds.yesterdayHigh) ? ds.yesterdayHigh : null);
+    const yLow = station ? prevDay.low : (ds && Number.isFinite(ds.yesterdayLow) ? ds.yesterdayLow : null);
+    const yRain = station
+      ? (Number.isFinite(prevDay.rain) ? prevDay.rain : null)
+      : (ds && Number.isFinite(ds.yesterdayRain) ? ds.yesterdayRain : null);
+    const hasYesterday = Number.isFinite(yHigh) && Number.isFinite(yLow);
+
+    // Card date tag — the actual date of the day being shown
+    let dateLabel = "";
+    if (station && prevDay.date) {
+      dateLabel = formatArchiveDate(prevDay.date);
+    } else {
+      const obsDate = new Date(wx.obsTime || Date.now());
+      const yesterday = new Date(obsDate);
+      yesterday.setDate(yesterday.getDate() - 1);
+      dateLabel = yesterday.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+    }
+    setText("wxUpdated", dateLabel);
 
     // wx-grid: 3 yesterday cells
     if (hasYesterday) {
-      setText("wxYestHigh", ds.yesterdayHigh + "°F");
+      setText("wxYestHigh", yHigh + "°F");
       setText("wxYestHighNote", "Peak temperature yesterday");
-      setText("wxYestLow", ds.yesterdayLow + "°F");
+      setText("wxYestLow", yLow + "°F");
       setText("wxYestLowNote", "Overnight low around Cardiff");
-      setText("wxYestRain", formatInches(Number.isFinite(ds.yesterdayRain) ? ds.yesterdayRain : null));
+      setText("wxYestRain", formatInches(yRain));
       setText("wxYestRainNote", "Total rainfall yesterday");
     } else {
       setText("wxYestHigh", "—");
@@ -1604,7 +1626,7 @@
 
     // hero conditions box: yesterday range
     if (hasYesterday) {
-      setText("heroCond", ds.yesterdayHigh + "°–" + ds.yesterdayLow + "°F");
+      setText("heroCond", yHigh + "°–" + yLow + "°F");
       setText("heroCondSub", "Yesterday’s temperature range");
     } else {
       setText("heroCond", "—");
@@ -1616,18 +1638,18 @@
     setText("heroRainSub", ground.note);
 
     // pill
-    setText("pillWeather", hasYesterday ? ds.yesterdayHigh + "°–" + ds.yesterdayLow + "°" : "Yesterday");
+    setText("pillWeather", hasYesterday ? yHigh + "°–" + yLow + "°" : "Yesterday");
 
     // narrative and science
-    setText("wxNarrative", buildYesterdayNarrative(ds));
+    setText("wxNarrative", buildYesterdayNarrative({ high: yHigh, low: yLow, rain: yRain }));
     setText("wxScience", "Daily high, low, and total rainfall give a clear picture of what yesterday brought to the Five Mile Creek watershed.");
 
-    buildRainSummary(dailySummary, rawData);
+    buildRainSummary(yRain, rawData);
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
     buildFishing(wx, moon);
     buildSideSnapshot(wx, sun, moon, ground);
     refreshFishingEmojiLayer(wx);
-    refreshRainEmojiLayer(dailySummary, rawData);
+    refreshRainEmojiLayer(yRain, rawData);
   }
 
   function summarizeWeather(wx) {
@@ -1638,6 +1660,21 @@
     if (wx.humidity >= 75) pieces.push("humid air in the bottoms");
     if (wx.precipRate > 0.05) pieces.push("active precipitation");
     return "Right now around Cardiff it feels " + pieces.join(", ") + ".";
+  }
+
+  async function loadPrevDayFromArchive() {
+    try {
+      const response = await fetch(ARCHIVE_URL, { cache: "no-store" });
+      if (!response.ok) return null;
+      const data = await response.json();
+      const days = Array.isArray(data.days) ? data.days : [];
+      if (!days.length) return null;
+      const todayKey = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date());
+      const past = days.filter((d) => d && d.date && d.date < todayKey);
+      return past.length ? past[past.length - 1] : null;
+    } catch (error) {
+      return null;
+    }
   }
 
   async function loadWeather() {
@@ -1664,9 +1701,9 @@
       latestWeatherPayload = data;
       const summary = data.dailySummary || null;
       const rain = data.rain || null;
-      const hasYest = summary && Number.isFinite(summary.yesterdayHigh) && Number.isFinite(summary.yesterdayLow);
+      const prevDay = await loadPrevDayFromArchive();
 
-      buildWeather(wx, rain, summary, data);
+      buildWeather(wx, rain, summary, data, prevDay);
       buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
       return wx;
     } catch (error) {

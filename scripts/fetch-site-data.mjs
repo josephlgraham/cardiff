@@ -16,6 +16,8 @@ const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
 
 const AW_API_KEY = process.env.AW_API_KEY || '';
 const AW_APP_KEY = process.env.AW_APP_KEY || '';
+let stationMac = null;
+let stationObs = null;
 const FORECAST_POINTS_URL = 'https://api.weather.gov/points/33.640,-86.870';
 const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=33.640&longitude=-86.870&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
 const CARDIFF_CENSUS_URL = 'https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E,B01002_001E,B19013_001E,B19301_001E,B25003_001E,B25003_002E,B25003_003E&for=place:12040&in=state:01';
@@ -23,6 +25,8 @@ const CARDIFF_CENSUS_MEDIAN_INCOME_FALLBACK_URL = 'https://api.census.gov/data/2
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
 const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
+const AW_HISTORY_BASE = 'https://rt.ambientweather.net/v1/devices';
+const ARCHIVE_HISTORY_DAYS = 3;
 const DATE_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
   timeZone: LOCAL_TIME_ZONE,
   year: 'numeric',
@@ -38,6 +42,16 @@ const HOUR_FORMATTER = new Intl.DateTimeFormat('en-US', {
   timeZone: LOCAL_TIME_ZONE,
   hour: 'numeric',
   hour12: false
+});
+const TZ_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  timeZone: LOCAL_TIME_ZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hourCycle: 'h23'
 });
 
 const NEWS_QUERIES = [
@@ -348,6 +362,8 @@ async function updateWeatherFile() {
   }
   const d = devices[0].lastData;
   const obsDate = new Date(d.date || Date.now());
+  stationMac = devices[0].macAddress || null;
+  stationObs = obsDate;
 
   const prev = await readJson(WEATHER_FILE, {});
   const prevPressure = typeof prev.pressure === 'number' ? prev.pressure : null;
@@ -1055,42 +1071,124 @@ async function updateCommunitySnapshotFile() {
   return payload;
 }
 
-async function updateWeatherArchive(samples) {
-  const archive = await readJson(WEATHER_ARCHIVE_FILE, { updatedAt: '', days: [] });
-  const days = Array.isArray(archive.days) ? archive.days.slice() : [];
-  const existingDates = new Set(days.map((d) => d.date));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function shiftDayKey(dateKey, delta) {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  const dt = new Date(Date.UTC(year, month - 1, day));
+  dt.setUTCDate(dt.getUTCDate() + delta);
+  const yy = dt.getUTCFullYear();
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(dt.getUTCDate()).padStart(2, '0');
+  return `${yy}-${mm}-${dd}`;
+}
+
+function tzOffsetMs(date) {
+  const parts = zonedParts(date, TZ_PARTS_FORMATTER);
+  const asLocalUtc = Date.UTC(
+    Number(parts.year), Number(parts.month) - 1, Number(parts.day),
+    Number(parts.hour), Number(parts.minute), Number(parts.second)
+  );
+  return asLocalUtc - date.getTime();
+}
+
+// UTC instant of local midnight for a Central-time date key. Used as the AW
+// history endDate so a 288-record (24h) pull lines up with one local day.
+function localMidnightUtcMs(dateKey) {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  const noonGuess = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+  const offset = tzOffsetMs(noonGuess);
+  return Date.UTC(year, month - 1, day, 0, 0, 0) - offset;
+}
+
+function aggregateStationRecords(records) {
   const byDate = new Map();
-  for (const s of samples) {
-    if (!s.localDate) continue;
-    if (!byDate.has(s.localDate)) byDate.set(s.localDate, []);
-    byDate.get(s.localDate).push(s);
+  for (const rec of records) {
+    const when = rec.date || (rec.dateutc ? new Date(rec.dateutc).toISOString() : null);
+    if (!when) continue;
+    const key = localDateKey(when);
+    let day = byDate.get(key);
+    if (!day) {
+      day = { high: -Infinity, low: Infinity, rain: 0, gust: 0, humSum: 0, humCount: 0 };
+      byDate.set(key, day);
+    }
+    const temp = Number(rec.tempf);
+    const gust = Number(rec.windgustmph);
+    const rain = Number(rec.dailyrainin);
+    const humidity = Number(rec.humidity);
+    // A reading of exactly 0 for temp/humidity is a sensor dropout, not real.
+    if (Number.isFinite(temp) && temp !== 0) {
+      day.high = Math.max(day.high, temp);
+      day.low = Math.min(day.low, temp);
+    }
+    if (Number.isFinite(rain)) day.rain = Math.max(day.rain, rain);
+    if (Number.isFinite(gust)) day.gust = Math.max(day.gust, gust);
+    if (Number.isFinite(humidity) && humidity !== 0) { day.humSum += humidity; day.humCount += 1; }
+  }
+  return byDate;
+}
+
+function dayEntryFromAgg(date, agg) {
+  const hasTemp = Number.isFinite(agg.high) && agg.high > -Infinity;
+  return {
+    date,
+    high: hasTemp ? Math.round(agg.high) : null,
+    low: hasTemp ? Math.round(agg.low) : null,
+    rain: Number(agg.rain.toFixed(2)),
+    maxGust: Math.round(agg.gust),
+    avgHumidity: agg.humCount ? Math.round(agg.humSum / agg.humCount) : null,
+    source: 'awn-history'
+  };
+}
+
+async function fetchStationDayRecords(mac, endUtcMs) {
+  const url = `${AW_HISTORY_BASE}/${encodeURIComponent(mac)}` +
+    `?apiKey=${encodeURIComponent(AW_API_KEY)}` +
+    `&applicationKey=${encodeURIComponent(AW_APP_KEY)}` +
+    `&endDate=${encodeURIComponent(new Date(endUtcMs).toISOString())}` +
+    `&limit=288`;
+  const data = await fetchJson(url, { cache: 'no-store' });
+  return Array.isArray(data) ? data : [];
+}
+
+// Pull each recently completed day's full 5-minute record from the station and
+// write an accurate daily aggregate. Skips days already owned by an authoritative
+// source (CSV backfill or a prior history pull) so it self-heals missed runs.
+async function updateWeatherArchiveFromHistory(obsDate) {
+  if (!stationMac || !AW_API_KEY || !AW_APP_KEY) {
+    console.log('Skipping archive history pull because station mac or API keys are unavailable.');
+    return;
   }
 
-  let added = 0;
-  for (const [date, dateSamples] of [...byDate.entries()].sort()) {
-    if (existingDates.has(date)) continue;
-    const temps = dateSamples.map((s) => Number(s.temp || 0)).filter(Number.isFinite);
-    const gusts = dateSamples.map((s) => Number(s.windGust || 0)).filter(Number.isFinite);
-    const humidities = dateSamples.map((s) => Number(s.humidity || 0)).filter(Number.isFinite);
-    const rain = Math.max(...dateSamples.map((s) => Number(s.dailyTotal || 0)).filter(Number.isFinite), 0);
-    days.push({
-      date,
-      high: temps.length ? Math.max(...temps) : null,
-      low: temps.length ? Math.min(...temps) : null,
-      rain: Number(rain.toFixed(2)),
-      maxGust: gusts.length ? Math.max(...gusts) : null,
-      avgHumidity: humidities.length ? Math.round(humidities.reduce((a, b) => a + b, 0) / humidities.length) : null
-    });
-    existingDates.add(date);
-    added++;
+  const archive = await readJson(WEATHER_ARCHIVE_FILE, { updatedAt: '', days: [] });
+  const days = new Map((archive.days || []).map((d) => [d.date, d]));
+  const todayKey = localDateKey(obsDate);
+
+  let written = 0;
+  for (let i = 1; i <= ARCHIVE_HISTORY_DAYS; i += 1) {
+    const dateKey = shiftDayKey(todayKey, -i);
+    const existing = days.get(dateKey);
+    if (existing && (existing.source === 'awn-csv' || existing.source === 'awn-history')) continue;
+    try {
+      const endMs = localMidnightUtcMs(shiftDayKey(dateKey, 1));
+      const records = await fetchStationDayRecords(stationMac, endMs);
+      const agg = aggregateStationRecords(records).get(dateKey);
+      if (!agg) {
+        console.warn(`No station records returned for ${dateKey}.`);
+        continue;
+      }
+      days.set(dateKey, dayEntryFromAgg(dateKey, agg));
+      written += 1;
+      await sleep(1200);
+    } catch (error) {
+      console.warn(`Archive history pull failed for ${dateKey}: ${error.message}`);
+    }
   }
 
-  days.sort((a, b) => a.date.localeCompare(b.date));
-
-  const payload = { updatedAt: new Date().toISOString(), days };
+  const merged = [...days.values()].sort((a, b) => a.date.localeCompare(b.date));
+  const payload = { updatedAt: new Date().toISOString(), days: merged };
   await writeJson(WEATHER_ARCHIVE_FILE, payload);
-  console.log(`Updated ${path.basename(WEATHER_ARCHIVE_FILE)}: ${added} new day(s), ${days.length} total`);
+  console.log(`Updated ${path.basename(WEATHER_ARCHIVE_FILE)}: ${written} day(s) refreshed, ${merged.length} total`);
   return payload;
 }
 
@@ -1107,8 +1205,7 @@ async function main() {
     console.error('Weather update failed (continuing):', error.message);
   }
   try {
-    const rainLog = await readJson(RAIN_LOG_FILE, { samples: [] });
-    await updateWeatherArchive(Array.isArray(rainLog.samples) ? rainLog.samples : []);
+    await updateWeatherArchiveFromHistory(stationObs || new Date());
   } catch (error) {
     console.error('Weather archive update failed (continuing):', error.message);
   }
