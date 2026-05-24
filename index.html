@@ -156,18 +156,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 .hero-body{display:grid;gap:.95rem}
 .hero-body p{font-size:.96rem;line-height:1.82;color:var(--ink2)}
-.dormant-line{font-size:1rem;font-weight:700;color:var(--ink);border-left:3px solid var(--red);padding-left:.85rem;line-height:1.7;margin:.1rem 0}
-.manifesto{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.manifesto-block{padding:1.4rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);display:flex;flex-direction:column;gap:.8rem}
-.manifesto-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
-.manifesto-head{font-size:1rem;font-weight:800;color:var(--ink);padding-bottom:.6rem;border-bottom:1px solid var(--rule);line-height:1.35}
-.manifesto-body{display:grid;gap:.75rem}
-.manifesto-body p{font-size:.875rem;line-height:1.78;color:var(--ink2)}
-.manifesto-list{display:grid;gap:.5rem;margin-top:.1rem}
-.manifesto-item{display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;line-height:1.65;color:var(--ink2)}
-.manifesto-item::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:.55rem}
-@media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid,.manifesto{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid,.manifesto{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}.hero-copy{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.5rem;box-shadow:var(--shadow)}}
+.intro-body{display:grid;gap:.95rem;max-width:72ch}
+.intro-body p{font-size:.96rem;line-height:1.82;color:var(--ink2)}
+.intro-cta{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:1.25rem;padding:.75rem 1.25rem;border-radius:var(--r-lg);background:var(--red);border:1px solid var(--red);color:#fff;font-size:.9rem;font-weight:700;text-decoration:none;transition:background var(--ease),transform var(--ease)}
+.intro-cta:hover{background:var(--red-mid);transform:translateY(-1px)}
+.intro-link{display:inline-flex;align-items:center;min-height:44px;margin-top:.7rem;color:var(--red);font-size:.92rem;font-weight:700;text-decoration:none}
+.intro-link:hover{text-decoration:underline}
+.intro-linkrow{display:flex;flex-wrap:wrap;align-items:center;gap:0 .25rem;margin-top:.9rem}
+.intro-linkrow a{display:inline-flex;align-items:center;min-height:44px;padding:0 .2rem;color:var(--red);font-size:.92rem;font-weight:700;text-decoration:none}
+.intro-linkrow a:hover{text-decoration:underline}
+.intro-linkrow .sep{color:var(--ink3);font-weight:400}
+@media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}.hero-copy{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.5rem;box-shadow:var(--shadow)}}
 
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
@@ -203,17 +203,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="hero reveal">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="kicker">Cardiff, Alabama</div>
-        <h1 class="title">Cardiff Needs Caretakers</h1>
+        <h1 class="title">Cardiff, Alabama</h1>
+        <p class="sub">A small town on Five Mile Creek, founded in 1900 by families who came here from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham.</p>
         <div class="hero-body">
-          <p>The flood of 2003 broke something in Cardiff that never got repaired. Families were displaced. Houses were lost. People who had held this town together for generations were scattered, and some never came back. By 2008, several of the people who had been holding things together loosely were gone too.</p>
-          <p>What followed was a long, slow fade. A town government that existed on paper but didn't function the way a municipality is supposed to. No real meetings. No ordinances. No budget. No accountability. Just a name on a map and a handful of people still living here.</p>
-          <p class="dormant-line">Cardiff's government is dormant now. That's the honest truth.</p>
-          <p>But the place is still here. The creek still runs. The roads still wind through the same hills. People still live in these houses and walk these woods. Cardiff doesn't need a government to be a community. It needs caretakers.</p>
+          <p>We are still here. About fifty of us. The creek still runs. The hills still hold. And the people who live on this ground still believe Cardiff is worth keeping.</p>
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
-          <a href="cardiff-civic.html" class="btn primary" style="font-size:.9rem;padding:.85rem 1.3rem;border-radius:var(--r-lg)">The Civic Pathway &nbsp;&#8594;</a>
-          <a href="docs/cardiff_report.pdf" target="_blank" rel="noopener" class="btn ghost" style="font-size:.9rem;padding:.85rem 1.3rem;border-radius:var(--r-lg)">Read the full report</a>
+          <a href="cardiff-civic.html" class="btn primary" style="min-height:44px;font-size:.9rem;padding:.85rem 1.3rem;border-radius:var(--r-lg)">Read our story &nbsp;&#8594;</a>
         </div>
       </div>
       <div class="hero-side">
@@ -318,39 +314,38 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <article class="card site-card reveal"><div class="site-kicker">Calendar</div><h3 class="card-title">See what is coming up next</h3><p class="card-body">Holidays, workdays, meetings, and community dates now have a home of their own instead of getting scattered across the site.</p><a class="site-link" href="cardiff-calendar.html">📅 Calendar</a></article>
   </section>
 
-  <div class="section-rule reveal"><h2>What this place is about</h2><hr></div>
-  <section class="manifesto reveal">
-    <div class="manifesto-block">
-      <div class="manifesto-kicker">Community</div>
-      <div class="manifesto-head">What a caretaker is</div>
-      <div class="manifesto-body">
-        <p>A caretaker isn't an elected official. A caretaker is someone who picks up a shovel when the ditch is clogged. Someone who checks on an elderly neighbor when it storms. Someone who notices the road is getting worse and makes a phone call. Someone who shows up, not because they have to, but because this is their place and they give a damn about it.</p>
-        <p>Cardiff doesn't need five people to save it. It needs five people willing to take care of it.</p>
-      </div>
+  <div class="section-rule reveal"><h2>A place with deep roots</h2><hr></div>
+  <section class="band reveal">
+    <div class="intro-body">
+      <p>Cardiff was named for Cardiff, Wales, by a coal miner named Isaac Price who wrote home telling his family there was work here. They came. So did the Stewarts from Scotland, the Negrons from France, and the Tombrellos from Sicily. They raised children together. They started a soccer club called the Primrose that won the Alabama Foot Ball Association Cup in 1898. They elected mayors named Stewart and Country and Tombrello, and they buried their dead in a cemetery on a hill above the creek.</p>
+      <p>A lot has happened since then. Some of it good. Some of it hard. But the bones of this place are the same as they were when the first families wrote letters back to Wales.</p>
     </div>
-    <div class="manifesto-block">
-      <div class="manifesto-kicker">History</div>
-      <div class="manifesto-head">What we can build to honor what came before</div>
-      <div class="manifesto-body">
-        <p>Cardiff has 120 years of history worth remembering out loud. The Welsh and Scottish families who named this town. The Sicilian and French families who followed. The Primrose Club that won the state football cup in 1898. The miners, the mayors, the people buried in our cemetery who built something real.</p>
-        <p>That history deserves more than memory. It deserves murals on the town hall walls. Historical markers along the old roads. A walking trail that tells the story. Something a kid growing up here can point to and say, "that's where I'm from."</p>
-      </div>
+    <a class="intro-link" href="cardiff-cemetery.html">Visit the cemetery &#8594;</a>
+  </section>
+
+  <div class="section-rule reveal"><h2>What this site is for</h2><hr></div>
+  <section class="band reveal">
+    <div class="intro-body">
+      <p>This is a place to gather what Cardiff knows about itself. The weather and the creek. The plants and animals in our woods. The recipes that came down through families. The stories the old timers told. The civic work that needs doing, and the hands willing to do it.</p>
+      <p>If you live here, this is yours. If you are a descendant of one of the founding families, this is yours too. If you are just curious about a small town in Alabama that has refused to disappear, you are welcome here.</p>
     </div>
-    <div class="manifesto-block">
-      <div class="manifesto-kicker">Action</div>
-      <div class="manifesto-head">What we can do for the people who are here right now</div>
-      <div class="manifesto-body">
-        <p>Not every good thing requires a government. Some of the most useful things a small community can do are simple:</p>
-        <div class="manifesto-list">
-          <div class="manifesto-item">A community garden on open land. Shared food, shared work.</div>
-          <div class="manifesto-item">A seed library at the town hall. Take what you need, bring back what you grow.</div>
-          <div class="manifesto-item">Web literacy workshops. Help neighbors get online, file forms, find resources.</div>
-          <div class="manifesto-item">A mutual aid shelf. Canned goods, supplies, the basics.</div>
-          <div class="manifesto-item">A place where people actually know each other's names again.</div>
-        </div>
-        <p>These aren't future plans waiting on a council vote. These are things that can start with one person and a folding table.</p>
-      </div>
+    <div class="intro-linkrow">
+      <a href="cardiff-almanac.html">Almanac</a>
+      <span class="sep">&middot;</span>
+      <a href="cardiff-guide.html">Field Guide</a>
+      <span class="sep">&middot;</span>
+      <a href="cardiff-hollers.html">Hills and Hollers</a>
+      <span class="sep">&middot;</span>
+      <a href="cardiff-kitchen.html">Cardiff Kitchen</a>
     </div>
+  </section>
+
+  <div class="section-rule reveal"><h2>A town worth bringing back</h2><hr></div>
+  <section class="band reveal">
+    <div class="intro-body">
+      <p>Cardiff still exists on the map, but our town government has been quiet for years. The good news is that Alabama law has a path for towns like ours, and we are walking it. The better news is that you do not need a title to be part of Cardiff. You just need to care.</p>
+    </div>
+    <a class="intro-cta" href="cardiff-civic.html">Learn how we restart &#8594;</a>
   </section>
 
   <div class="section-rule reveal"><h2>Fresh area news</h2><hr></div>
