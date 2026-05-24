@@ -154,6 +154,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .today-list .side-sub{font-size:.72rem;color:var(--ink3);line-height:1.5;margin-top:.1rem;overflow-wrap:anywhere}
 .alert-band{display:none;padding:1rem 1.1rem;margin-bottom:1.2rem;background:#fff6f7;border:1px solid rgba(200,16,46,.18);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
 .alert-band .mini-label{color:var(--red)}
+.alert-band .alert-source{display:inline-block;margin-top:.55rem;font-size:.78rem;font-weight:600;color:var(--red);text-decoration:none;border-bottom:1px solid rgba(200,16,46,.35)}
+.alert-band .alert-source:hover{border-bottom-color:var(--red)}
 .accent-card{background:var(--card)}
 .tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
 .hero-body{display:grid;gap:.95rem}
@@ -265,6 +267,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="alert-band reveal" id="homeAlertBand" aria-live="polite">
     <div class="mini-label">Alert strip</div>
     <div class="mini-value" id="homeAlertText">Checking current alerts for Cardiff and nearby roads.</div>
+    <a class="alert-source" href="https://weather.gov/bmx" target="_blank" rel="noreferrer">Source: National Weather Service, Birmingham &rarr;</a>
   </section>
 
   <div class="section-rule reveal"><h2>Daily read</h2><hr></div>
