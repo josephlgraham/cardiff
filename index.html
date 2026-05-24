@@ -49,7 +49,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .hero{padding:3rem 0 1.6rem}
-.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:1.4rem;align-items:start}
+.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:1.4rem;align-items:stretch}
 .kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem;display:flex;align-items:center;gap:.5rem}
 .kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block}
 .title{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:800;letter-spacing:-.03em;line-height:.96;color:var(--ink);margin-bottom:.9rem}
@@ -128,7 +128,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .site-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;align-self:flex-start;padding:.72rem 1rem;border-radius:999px;background:var(--red);border:1px solid var(--red);color:#fff;font-family:var(--sans);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;transition:background var(--ease),border-color var(--ease),transform var(--ease)}
 .site-link::after{content:"\2192";font-size:.9em;line-height:1}
 .site-link:hover{background:var(--red-mid);border-color:var(--red-mid);color:#fff;transform:translateY(-1px)}
-.hero-copy{display:grid;align-content:start;gap:1rem}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);padding:2rem 2.1rem}
+.hero-copy .title{margin-bottom:0}
+.hero-copy .sub{font-size:1.06rem;line-height:1.85}
 .hero-side{display:grid;gap:1rem}
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .hero-side>.hero-quick-grid{display:grid}
@@ -167,7 +169,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .intro-linkrow a:hover{text-decoration:underline}
 .intro-linkrow .sep{color:var(--ink3);font-weight:400}
 @media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}.hero-copy{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.5rem;box-shadow:var(--shadow)}}
+@media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}.hero-copy{justify-content:flex-start;padding:1.4rem 1.5rem}}
 
 </style>
 <link rel="stylesheet" href="cardiff-common.css">
@@ -203,9 +205,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="hero reveal">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1 class="title">Cardiff, Alabama</h1>
-        <p class="sub">A small town on Five Mile Creek, founded in 1900 by families who came here from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham.</p>
+        <h1 class="title">Glad you found us</h1>
+        <p class="sub">Welcome to Cardiff, a small town along Five Mile Creek in the hills of Jefferson County, Alabama.</p>
         <div class="hero-body">
+          <p>It was founded in 1900 by families who came from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham. They raised their children here, and the roots they put down still run deep.</p>
           <p>We are still here. About fifty of us. The creek still runs. The hills still hold. And the people who live on this ground still believe Cardiff is worth keeping.</p>
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
