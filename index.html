@@ -128,12 +128,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .site-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;align-self:flex-start;padding:.72rem 1rem;border-radius:999px;background:var(--red);border:1px solid var(--red);color:#fff;font-family:var(--sans);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;transition:background var(--ease),border-color var(--ease),transform var(--ease)}
 .site-link::after{content:"\2192";font-size:.9em;line-height:1}
 .site-link:hover{background:var(--red-mid);border-color:var(--red-mid);color:#fff;transform:translateY(-1px)}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:1.15rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);padding:2rem 2.1rem}
+.hero-copy{display:flex;flex-direction:column;justify-content:flex-start;gap:1.15rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);padding:2rem 2.1rem}
 .hero-copy .title{margin-bottom:0}
 .hero-copy .sub{font-size:1.06rem;line-height:1.85}
-.hero-side{display:grid;gap:1rem}
-.hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.hero-side>.hero-quick-grid{display:grid}
+.hero-grid>.photo-shell .photo-stage{aspect-ratio:4/3;min-height:0}
+.hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
 .hero-quick-card{min-height:100%;display:flex;flex-direction:column}
 .hero-quick-card .card-body{flex:1}
 .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -164,12 +163,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .intro-body p{font-size:.96rem;line-height:1.82;color:var(--ink2)}
 .intro-cta{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:1.25rem;padding:.75rem 1.25rem;border-radius:var(--r-lg);background:var(--red);border:1px solid var(--red);color:#fff;font-size:.9rem;font-weight:700;text-decoration:none;transition:background var(--ease),transform var(--ease)}
 .intro-cta:hover{background:var(--red-mid);transform:translateY(-1px)}
-.intro-link{display:inline-flex;align-items:center;min-height:44px;margin-top:.7rem;color:var(--red);font-size:.92rem;font-weight:700;text-decoration:none}
-.intro-link:hover{text-decoration:underline}
-.intro-linkrow{display:flex;flex-wrap:wrap;align-items:center;gap:0 .25rem;margin-top:.9rem}
-.intro-linkrow a{display:inline-flex;align-items:center;min-height:44px;padding:0 .2rem;color:var(--red);font-size:.92rem;font-weight:700;text-decoration:none}
-.intro-linkrow a:hover{text-decoration:underline}
-.intro-linkrow .sep{color:var(--ink3);font-weight:400}
+.intro-title{font-size:1.1rem;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-bottom:.55rem}
 @media(max-width:980px){.hero-grid,.grid-4,.grid-3,.news-grid,.dashboard-grid{grid-template-columns:1fr 1fr}.hero-quick-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}.mh-left-info,.mh-right-info{display:none}.mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}.mh-tabs a{padding:.48rem .75rem;font-size:.62rem}.wrap{padding:0 1rem 4rem}.hero-grid,.grid-2,.grid-3,.grid-4,.news-grid,.photo-caption,.hero-quick-grid,.dashboard-grid{grid-template-columns:1fr}.title{font-size:clamp(2.3rem,10vw,3.5rem)}.photo-credit{white-space:normal}.photo-stage{min-height:280px}.mobile-status-grid{display:grid}.hero-copy{justify-content:flex-start;padding:1.4rem 1.5rem}}
 
@@ -210,44 +204,42 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
         <h1 class="title">Glad you found us</h1>
         <p class="sub">Welcome to Cardiff, a small town along Five Mile Creek in the hills of Jefferson County, Alabama.</p>
         <div class="hero-body">
-          <p>It was founded in 1900 by families who came from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham. They raised their children here, and the roots they put down still run deep.</p>
-          <p>We are still here. About fifty of us. The creek still runs. The hills still hold. And the people who live on this ground still believe Cardiff is worth keeping.</p>
+          <p>Our town was founded in 1900 by families who came from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham. They raised their children side by side, and the roots they put down here still run deep.</p>
+          <p>There are only about fifty of us now, but we are still here, and we are glad you came. The creek still runs, the hills still hold, and the people who call this place home still believe Cardiff is worth keeping.</p>
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
           <a href="cardiff-civic.html" class="btn primary" style="min-height:44px;font-size:.9rem;padding:.85rem 1.3rem;border-radius:var(--r-lg)">Read our story &nbsp;&#8594;</a>
         </div>
       </div>
-      <div class="hero-side">
-        <div class="photo-shell info-box reveal" data-kicker="FEATURED PHOTO FROM OUR ARCHIVE">
-          <div class="photo-toolbar">
-          </div>
-          <div class="photo-stage">
-            <img id="heroPhoto" src="photos/1951 From the Sky.jpg?v=2026-03-28d" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
-            <div id="photoMarkers"></div>
-          </div>
-          <div class="photo-caption">
-            <div>
-              <div class="photo-title" id="photoTitle">Aerial view, 1951</div>
-              <p class="photo-copy" id="photoCopy"></p>
-            </div>
-            <div class="photo-credit" id="photoCredit">—</div>
-          </div>
+      <div class="photo-shell info-box reveal" data-kicker="FEATURED PHOTO FROM OUR ARCHIVE">
+        <div class="photo-toolbar">
         </div>
-        <div class="hero-quick-grid">
-          <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Daily rhythm</div>
-            <h3 class="card-title">Check the weather and local rhythms.</h3>
-            <p class="card-body">Open the almanac for yesterday's weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
-            <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
-          </article>
-          <article class="card site-card hero-quick-card reveal">
-            <div class="site-kicker">Around us</div>
-            <h3 class="card-title">Keep one eye on the wider area.</h3>
-            <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
-            <a class="site-link" href="cardiff-news.html">📰 News</a>
-          </article>
+        <div class="photo-stage">
+          <img id="heroPhoto" src="photos/1951 From the Sky.jpg?v=2026-03-28d" alt="Historical aerial photograph of Cardiff and the surrounding area from 1951">
+          <div id="photoMarkers"></div>
+        </div>
+        <div class="photo-caption">
+          <div>
+            <div class="photo-title" id="photoTitle">Aerial view, 1951</div>
+            <p class="photo-copy" id="photoCopy"></p>
+          </div>
+          <div class="photo-credit" id="photoCredit">—</div>
         </div>
       </div>
+    </div>
+    <div class="hero-quick-grid">
+      <article class="card site-card hero-quick-card reveal">
+        <div class="site-kicker">Daily rhythm</div>
+        <h3 class="card-title">Check the weather and local rhythms.</h3>
+        <p class="card-body">Open the almanac for yesterday's weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
+        <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
+      </article>
+      <article class="card site-card hero-quick-card reveal">
+        <div class="site-kicker">Around us</div>
+        <h3 class="card-title">Keep one eye on the wider area.</h3>
+        <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
+        <a class="site-link" href="cardiff-news.html">📰 News</a>
+      </article>
     </div>
   </section>
 
@@ -322,32 +314,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 
   <div class="section-rule reveal"><h2>A place with deep roots</h2><hr></div>
   <section class="band reveal">
+    <h3 class="intro-title">A short history</h3>
     <div class="intro-body">
       <p>Cardiff was named for Cardiff, Wales, by a coal miner named Isaac Price who wrote home telling his family there was work here. They came. So did the Stewarts from Scotland, the Negrons from France, and the Tombrellos from Sicily. They raised children together. They started a soccer club called the Primrose that won the Alabama Foot Ball Association Cup in 1898. They elected mayors named Stewart and Country and Tombrello, and they buried their dead in a cemetery on a hill above the creek.</p>
       <p>A lot has happened since then. Some of it good. Some of it hard. But the bones of this place are the same as they were when the first families wrote letters back to Wales.</p>
     </div>
-    <a class="intro-link" href="cardiff-cemetery.html">Visit the cemetery &#8594;</a>
+    <a class="intro-cta" href="cardiff-cemetery.html">Visit the cemetery &#8594;</a>
   </section>
 
   <div class="section-rule reveal"><h2>What this site is for</h2><hr></div>
   <section class="band reveal">
+    <h3 class="intro-title">Still here, still ours</h3>
     <div class="intro-body">
       <p>This is a place to gather what Cardiff knows about itself. The weather and the creek. The plants and animals in our woods. The recipes that came down through families. The stories the old timers told. The civic work that needs doing, and the hands willing to do it.</p>
       <p>If you live here, this is yours. If you are a descendant of one of the founding families, this is yours too. If you are just curious about a small town in Alabama that has refused to disappear, you are welcome here.</p>
     </div>
-    <div class="intro-linkrow">
-      <a href="cardiff-almanac.html">Almanac</a>
-      <span class="sep">&middot;</span>
-      <a href="cardiff-guide.html">Field Guide</a>
-      <span class="sep">&middot;</span>
-      <a href="cardiff-hollers.html">Hills and Hollers</a>
-      <span class="sep">&middot;</span>
-      <a href="cardiff-kitchen.html">Cardiff Kitchen</a>
-    </div>
-  </section>
-
-  <div class="section-rule reveal"><h2>A town worth bringing back</h2><hr></div>
-  <section class="band reveal">
     <div class="intro-body">
       <p>Cardiff still exists on the map, but our town government has been quiet for years. The good news is that Alabama law has a path for towns like ours, and we are walking it. The better news is that you do not need a title to be part of Cardiff. You just need to care.</p>
     </div>
