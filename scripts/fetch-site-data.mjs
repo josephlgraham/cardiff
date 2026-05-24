@@ -412,6 +412,32 @@ async function updateWeatherFile() {
     console.warn('Open-Meteo archive fetch failed, dailySummary will be null:', e.message);
   }
 
+  // Patch yesterday's rain with local station data — the regional model (Open-Meteo)
+  // often underreports convective rainfall. The AWN archive is the authoritative source.
+  try {
+    const archive = await readJson(WEATHER_ARCHIVE_FILE, { days: [] });
+    const yesterdayKey = shiftDayKey(localDateKey(obsDate), -1);
+    const archiveDay = (archive.days || []).find((d) => d.date === yesterdayKey);
+    if (archiveDay && Number.isFinite(archiveDay.rain)) {
+      const prevRain = dailySummary ? dailySummary.yesterdayRain : null;
+      if (!dailySummary) {
+        dailySummary = {
+          yesterdayHigh: Number.isFinite(archiveDay.high) ? archiveDay.high : null,
+          yesterdayLow: Number.isFinite(archiveDay.low) ? archiveDay.low : null,
+          yesterdayRain: archiveDay.rain,
+          todayHigh: null,
+          todayLow: null,
+          todayRain: null,
+        };
+      } else {
+        dailySummary.yesterdayRain = archiveDay.rain;
+      }
+      console.log(`Patched yesterdayRain from archive: ${archiveDay.rain}" (was ${prevRain})`);
+    }
+  } catch (e) {
+    console.warn('Archive rain patch failed (non-fatal):', e.message);
+  }
+
   const forecast = await fetchForecast();
 
   const payload = {
