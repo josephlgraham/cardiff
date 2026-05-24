@@ -1,8 +1,12 @@
 {
-  "updatedAt": "2026-05-24T17:39:09.600Z",
+  "updatedAt": "2026-05-24T18:48:36.446Z",
   "hasAlerts": true,
   "alertCount": 2,
-  "ticker": "🌊 Flood Watch · Through today 11 PM    ·    🌊 Flood Advisory · Through today 8 PM",
+  "hasSpcRisk": false,
+  "hasGaugeAlert": false,
+  "hasCalendarReminders": false,
+  "calendarReminderCount": 0,
+  "ticker": "🌊 Flood Watch · Through today 11 PM    ·    🌊 Flood Advisory · Through next 2 hr",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -23,10 +27,13 @@
       "urgency": "Expected",
       "emoji": "🌊",
       "ends": "2026-05-24T15:45:00-05:00",
-      "endsShort": "today 8 PM",
+      "endsShort": "next 2 hr",
       "headline": "Flood Advisory",
       "description": "* WHAT...Urban and small stream flooding caused by excessive",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.531ef1ff7ed8fa2013f930baeeb386a5e952ee15.001.1"
     }
-  ]
+  ],
+  "spcOutlook": [],
+  "gaugeAlerts": [],
+  "calendarReminders": []
 }
