@@ -44,6 +44,300 @@ const CONFIG = {
 
 
 // ─────────────────────────────────────────────────────────────────────
+//  SPC Categorical Outlook — advance severe weather signal
+//  Checks Day 1 and Day 2 outlooks for Enhanced+ risk over Cardiff.
+//  SPC GeoJSON source: https://www.spc.noaa.gov/products/outlook/
+//
+//  Only ENH / MDT / HIGH trigger a ticker line.
+//  TSTM / MRGL / SLGT are too routine for Jefferson County to surface.
+// ─────────────────────────────────────────────────────────────────────
+
+const CARDIFF_LON = -86.870;
+const CARDIFF_LAT =  33.640;
+
+const SPC_RISK_LEVELS = {
+  'ENH':  { label: 'Enhanced severe storm risk', emoji: '⛈️', priority: 3 },
+  'MDT':  { label: 'Moderate severe storm risk', emoji: '🌪️', priority: 4 },
+  'HIGH': { label: 'High severe storm risk',     emoji: '🌪️', priority: 5 }
+};
+
+const SPC_OUTLOOKS = [
+  { day: 1, when: 'today',    url: 'https://www.spc.noaa.gov/products/outlook/day1otlk_cat.lyr.geojson' },
+  { day: 2, when: 'tomorrow', url: 'https://www.spc.noaa.gov/products/outlook/day2otlk_cat.lyr.geojson' }
+];
+
+// Lightweight HTTPS JSON fetch (shared by SPC + any future sources)
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    const parsed = new URL(url);
+    const req = https.get(
+      { hostname: parsed.hostname, path: parsed.pathname + parsed.search,
+        headers: { 'User-Agent': CONFIG.userAgent, 'Accept': 'application/json' } },
+      res => {
+        if (res.statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${res.statusCode}`)); }
+        let body = '';
+        res.setEncoding('utf8');
+        res.on('data', c => body += c);
+        res.on('end', () => { try { resolve(JSON.parse(body)); } catch (e) { reject(e); } });
+      }
+    );
+    req.on('error', reject);
+    req.setTimeout(CONFIG.timeoutMs, () => { req.destroy(); reject(new Error('timeout')); });
+  });
+}
+
+// Ray-casting point-in-polygon for GeoJSON [lon, lat] rings
+function pointInRing(lon, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i];
+    const [xj, yj] = ring[j];
+    if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+function pointInGeometry(lon, lat, geometry) {
+  if (!geometry) return false;
+  const { type, coordinates } = geometry;
+  if (type === 'Polygon')      return pointInRing(lon, lat, coordinates[0]);
+  if (type === 'MultiPolygon') return coordinates.some(poly => pointInRing(lon, lat, poly[0]));
+  return false;
+}
+
+async function fetchSpcOutlookLines() {
+  const lines = [];
+
+  for (const outlook of SPC_OUTLOOKS) {
+    try {
+      const data = await fetchJson(outlook.url);
+      // Find the highest-priority risk category that covers Cardiff
+      let bestRisk = null;
+      let bestPriority = 0;
+      for (const feature of (data.features || [])) {
+        const code = (feature.properties?.LABEL || '').toUpperCase();
+        const risk = SPC_RISK_LEVELS[code];
+        if (!risk || risk.priority <= bestPriority) continue;
+        if (pointInGeometry(CARDIFF_LON, CARDIFF_LAT, feature.geometry)) {
+          bestRisk     = risk;
+          bestPriority = risk.priority;
+        }
+      }
+      if (bestRisk) {
+        lines.push(`${bestRisk.emoji} ${bestRisk.label} ${outlook.when} · SPC Day ${outlook.day}`);
+        console.log(`   SPC Day ${outlook.day}: ${bestRisk.label} over Cardiff`);
+      } else {
+        console.log(`   SPC Day ${outlook.day}: no enhanced+ risk over Cardiff`);
+      }
+    } catch (err) {
+      console.log(`   ✗ SPC Day ${outlook.day} outlook unavailable: ${err.message}`);
+    }
+  }
+
+  return lines;
+}
+
+
+// ─────────────────────────────────────────────────────────────────────
+//  USGS gauge flood stage thresholds — Five Mile Creek near Republic
+//
+//  Verify / update thresholds at:
+//    USGS: https://waterdata.usgs.gov/nwis/uv?site_no=02457595
+//    NWS:  https://water.noaa.gov/gauges/RPBAL
+//
+//  Reads from cardiff-watershed.json (updated every 6 hours by the
+//  watershed workflow) — no extra API call needed here.
+// ─────────────────────────────────────────────────────────────────────
+
+const GAUGE = {
+  id:          '02457595',
+  label:       'Five Mile Creek at Republic',
+  actionStage: 10.0,  // ft — low-lying areas begin to flood
+  floodStage:  14.0   // ft — NWS flood stage (verify at links above)
+};
+
+async function fetchGaugeAlertLines() {
+  const lines = [];
+  try {
+    // Query USGS Instantaneous Values directly — gives a fresh reading every run
+    // rather than relying on the 6-hour watershed file, which matters during fast-rising events
+    const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${GAUGE.id}&parameterCd=00065&siteStatus=all&period=PT3H`;
+    const data = await fetchJson(url);
+
+    const timeSeries = data?.value?.timeSeries || [];
+    const stageSeries = timeSeries.find(s => s?.variable?.variableCode?.[0]?.value === '00065');
+    const values = (stageSeries?.values?.[0]?.value || [])
+      .map(v => Number(v.value))
+      .filter(v => Number.isFinite(v));
+
+    if (!values.length) return lines;
+
+    const latest  = values[values.length - 1];
+    const earlier = values[0];
+    const rising  = (values.length >= 2) && (latest - earlier) >= 0.05; // ≥ 0.05 ft rise over 3 hrs
+
+    console.log(`   Gauge: ${GAUGE.label} — ${latest.toFixed(2)} ft, ${rising ? 'rising' : 'steady/falling'}`);
+
+    if (latest >= GAUGE.floodStage) {
+      lines.push(`🌊 ${GAUGE.label} at ${latest.toFixed(1)} ft — at or above flood stage`);
+    } else if (latest >= GAUGE.actionStage && rising) {
+      lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${latest.toFixed(1)} ft and climbing`);
+    }
+
+    if (lines.length) console.log(`   Gauge alert: ${lines[0]}`);
+  } catch (err) {
+    console.log(`   ✗ USGS gauge unavailable: ${err.message}`);
+    // Fall back to the watershed file if the live query fails
+    try {
+      const watershedPath = path.join(__dirname, 'cardiff-watershed.json');
+      const watershed = JSON.parse(fs.readFileSync(watershedPath, 'utf8'));
+      const lead = (watershed.gauges || []).find(g => g.id === GAUGE.id);
+      if (lead?.stage_ft != null) {
+        const stage  = lead.stage_ft;
+        const rising = (lead.trend || '').toLowerCase() === 'rising';
+        if (stage >= GAUGE.floodStage)
+          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft — at or above flood stage`);
+        else if (stage >= GAUGE.actionStage && rising)
+          lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
+      }
+    } catch (_) { /* watershed file missing too — skip */ }
+  }
+  return lines;
+}
+
+
+// ─────────────────────────────────────────────────────────────────────
+//  Civic calendar — day-before reminders
+//  Kept in sync with cardiff-season-data.js (civic lane entries).
+//  Add new events here whenever cardiff-season-data.js is updated.
+// ─────────────────────────────────────────────────────────────────────
+
+const CIVIC_EVENTS = [
+  {
+    id:      'tornado-siren-test',
+    title:   'Jefferson County tornado siren test',
+    kind:    'recurring-weekday',
+    nth:     1, weekday: 3, hour: 10,   // 1st Wednesday, 10 AM
+    exceptMonths: [],
+    emoji:   '🚨',
+    short:   'Sirens test at 10:00 AM — no action needed'
+  },
+  {
+    id:      'cardiff-city-council',
+    title:   'Cardiff City Council meeting',
+    kind:    'recurring-weekday',
+    nth:     2, weekday: 2, hour: 18,   // 2nd Tuesday, 6 PM
+    exceptMonths: [{ year: 2026, month: 4 }],
+    emoji:   '🏛️',
+    short:   '6:00 PM'
+  },
+  {
+    id:      'cardiff-town-council-april-2026',
+    title:   'Cardiff Town Council Meeting',
+    kind:    'day',
+    year: 2026, month: 4, day: 13, hour: 18,
+    emoji:   '🏛️',
+    short:   'Town Hall · 6:00 PM · All welcome'
+  },
+  {
+    id:      'hhw-collection-spring-2026',
+    title:   'Household Hazardous Waste Drop-Off',
+    kind:    'day',
+    year: 2026, month: 4, day: 25, hour: 8,
+    emoji:   '♻️',
+    short:   'First Baptist Gardendale · 8 AM – 11:30 AM'
+  },
+  {
+    id:      'electronics-dropoff-may-2026',
+    title:   'Electronics & Paper Shredding Drop-Off',
+    kind:    'day',
+    year: 2026, month: 5, day: 9, hour: 9,
+    emoji:   '♻️',
+    short:   'Center Point Satellite Courthouse · 9 AM – 11:30 AM'
+  },
+  {
+    id:      'electronics-dropoff-june-2026',
+    title:   'Electronics & Paper Shredding Drop-Off',
+    kind:    'day',
+    year: 2026, month: 6, day: 13, hour: 9,
+    emoji:   '♻️',
+    short:   'Valley Reclamation Facility, Bessemer · 9 AM – 11:30 AM'
+  },
+  {
+    id:      'electronics-dropoff-sep-2026',
+    title:   'Electronics & Paper Shredding Drop-Off',
+    kind:    'day',
+    year: 2026, month: 9, day: 12, hour: 9,
+    emoji:   '♻️',
+    short:   'Birmingham City Hall/Lynn Henley Park · 9 AM – 11:30 AM'
+  },
+  {
+    id:      'hhw-collection-fall-2026',
+    title:   'Household Hazardous Waste Drop-Off',
+    kind:    'day',
+    year: 2026, month: 10, day: 17, hour: 8,
+    emoji:   '♻️',
+    short:   'Camp Ketona · 8 AM – 11:30 AM'
+  }
+];
+
+// nth weekday of a month (weekday: 0=Sun … 6=Sat)
+function nthWeekdayOfMonth(year, month, weekday, nth) {
+  const firstDay = new Date(year, month - 1, 1);
+  const day = 1 + ((weekday - firstDay.getDay() + 7) % 7) + (nth - 1) * 7;
+  const daysInMonth = new Date(year, month, 0).getDate();
+  return day <= daysInMonth ? day : null;
+}
+
+// Returns { year, month, day } for "tomorrow" in America/Chicago
+function getTomorrowLocal(now) {
+  const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  const fmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  });
+  const parts = {};
+  fmt.formatToParts(tomorrow).forEach(p => {
+    if (p.type !== 'literal') parts[p.type] = parseInt(p.value, 10);
+  });
+  return { year: parts.year, month: parts.month, day: parts.day };
+}
+
+// Build ticker lines for civic events happening tomorrow
+function getTomorrowCivicLines(now) {
+  const t = getTomorrowLocal(now);
+  const lines = [];
+
+  for (const ev of CIVIC_EVENTS) {
+    let match = false;
+
+    if (ev.kind === 'day') {
+      if (ev.year && ev.year !== t.year) continue;
+      match = ev.month === t.month && ev.day === t.day;
+    } else if (ev.kind === 'recurring-weekday') {
+      const excepted = (ev.exceptMonths || []).some(
+        ex => ex.year === t.year && ex.month === t.month
+      );
+      if (!excepted) {
+        const day = nthWeekdayOfMonth(t.year, t.month, ev.weekday, ev.nth);
+        match = (day === t.day);
+      }
+    }
+
+    if (match) {
+      let line = `${ev.emoji} Tomorrow: ${ev.title}`;
+      if (ev.short) line += ` · ${ev.short}`;
+      lines.push(line);
+    }
+  }
+
+  return lines;
+}
+
+
+// ─────────────────────────────────────────────────────────────────────
 //  Emoji mapping — matched to NWS event names
 // ─────────────────────────────────────────────────────────────────────
 
@@ -399,17 +693,30 @@ async function main() {
     return line;
   });
 
+  // SPC categorical outlook — advance severe weather signal
+  const spcLines = await fetchSpcOutlookLines();
+
+  // USGS gauge threshold check — live query with watershed-file fallback
+  const gaugeLines = await fetchGaugeAlertLines();
+
+  // Calendar reminders for tomorrow's civic events
+  const calendarLines = getTomorrowCivicLines(now);
+  if (calendarLines.length) {
+    console.log(`   Calendar reminders: ${calendarLines.length}`);
+    calendarLines.forEach(l => console.log(`     ${l}`));
+  }
+
   // Combine into a single ticker string
-  // Multiple alerts get joined with a separator
+  // Priority order: NWS active alerts → SPC outlook → gauge alerts → calendar reminders
+  const allTickerLines = [...tickerLines, ...spcLines, ...gaugeLines, ...calendarLines];
   let tickerMessage;
   let hasAlerts = false;
 
-  if (tickerLines.length === 0) {
+  if (allTickerLines.length === 0) {
     tickerMessage = CONFIG.defaultMessage;
-    hasAlerts = false;
   } else {
-    tickerMessage = tickerLines.join('    ·    ');
-    hasAlerts = true;
+    tickerMessage = allTickerLines.join('    ·    ');
+    hasAlerts = tickerLines.length > 0 || spcLines.length > 0 || gaugeLines.length > 0;
   }
 
   console.log(`\n   Ticker: ${tickerMessage.slice(0, 120)}${tickerMessage.length > 120 ? '…' : ''}`);
@@ -419,6 +726,10 @@ async function main() {
     updatedAt: now.toISOString(),
     hasAlerts: hasAlerts,
     alertCount: alerts.length,
+    hasSpcRisk: spcLines.length > 0,
+    hasGaugeAlert: gaugeLines.length > 0,
+    hasCalendarReminders: calendarLines.length > 0,
+    calendarReminderCount: calendarLines.length,
     ticker: tickerMessage,
     pinnedMessage: pinnedMessage,
     pinnedMessageExpires: pinnedMessageExpires,
@@ -433,7 +744,10 @@ async function main() {
       headline: extractHeadline(a) || a.event || '',
       description: (a.description || '').split('\n')[0].slice(0, 200).trim(),
       link: a['@id'] || ''
-    }))
+    })),
+    spcOutlook: spcLines,
+    gaugeAlerts: gaugeLines,
+    calendarReminders: calendarLines
   };
 
   if (DRY_RUN) {
