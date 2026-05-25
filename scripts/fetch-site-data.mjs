@@ -1230,10 +1230,43 @@ async function main() {
   } catch (error) {
     console.error('Weather update failed (continuing):', error.message);
   }
+  let archivePayload = null;
   try {
-    await updateWeatherArchiveFromHistory(stationObs || new Date());
+    archivePayload = await updateWeatherArchiveFromHistory(stationObs || new Date());
   } catch (error) {
     console.error('Weather archive update failed (continuing):', error.message);
+  }
+  // The station archive is the authoritative source for yesterday's high/low/rain, but it
+  // is refreshed AFTER updateWeatherFile() builds dailySummary. On the first run after the
+  // day rolls over, the archive does not yet hold yesterday's finalized totals, so the
+  // summary falls back to the regional model (which underreports convective rain and can
+  // disagree on temps). Re-patch from the station's own record now.
+  if (weather?.dailySummary && archivePayload) {
+    try {
+      const yesterdayKey = shiftDayKey(localDateKey(stationObs || new Date()), -1);
+      const archiveDay = (archivePayload.days || []).find((d) => d.date === yesterdayKey);
+      if (archiveDay) {
+        const summary = weather.dailySummary;
+        const fields = [
+          ['yesterdayHigh', archiveDay.high],
+          ['yesterdayLow', archiveDay.low],
+          ['yesterdayRain', archiveDay.rain],
+        ];
+        const changes = [];
+        for (const [key, value] of fields) {
+          if (Number.isFinite(value) && value !== summary[key]) {
+            changes.push(`${key} ${summary[key]} -> ${value}`);
+            summary[key] = value;
+          }
+        }
+        if (changes.length) {
+          await writeJson(WEATHER_FILE, weather);
+          console.log(`Re-patched dailySummary from refreshed archive: ${changes.join(', ')}`);
+        }
+      }
+    } catch (error) {
+      console.error('Yesterday summary re-patch failed (continuing):', error.message);
+    }
   }
   try {
     await updateWatershedFile(weather);
