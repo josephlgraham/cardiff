@@ -28,11 +28,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin main
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add ticker.json
-            git commit -m "data: alerts refresh"
-            git push
-          else
+          git add ticker.json
+          if git diff --cached --quiet; then
             echo "No alert changes to commit."
+            exit 0
           fi
+          git commit -m "data: alerts refresh"
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto latest main (attempt $attempt)."
+            git fetch origin main
+            # Replayed (our) commit wins on conflict: these files are regenerated, so freshest data is correct.
+            git rebase -X theirs origin/main || git rebase --abort
+            sleep $((RANDOM % 4 + 2))
+          done
+          echo "Failed to push alert data after 5 attempts." >&2
+          exit 1

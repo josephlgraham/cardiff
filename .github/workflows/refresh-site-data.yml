@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: data-refresh-main
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -34,11 +38,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git pull --rebase --autostash origin main
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-weather-archive.json
-            git commit -m "data: daily refresh"
-            git push
-          else
+          git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-air-quality.json cardiff-rain-log.json cardiff-weather-archive.json
+          if git diff --cached --quiet; then
             echo "No data changes to commit."
+            exit 0
           fi
+          git commit -m "data: daily refresh"
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto latest main (attempt $attempt)."
+            git fetch origin main
+            # Replayed (our) commit wins on conflict: these files are regenerated, so freshest data is correct.
+            git rebase -X theirs origin/main || git rebase --abort
+            sleep $((RANDOM % 4 + 2))
+          done
+          echo "Failed to push refreshed data after 5 attempts." >&2
+          exit 1
