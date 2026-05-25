@@ -8,8 +8,8 @@
   'use strict';
 
   // ── Constants ────────────────────────────────────────────────────────────
-  var SW_URL = '/cardiff/sw.js';
-  var SW_SCOPE = '/cardiff/';
+  var SW_URL = '/sw.js';
+  var SW_SCOPE = '/';
   var POLL_INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
   var PERIODIC_SYNC_TAG = 'check-ticker';
   var PERIODIC_SYNC_MIN_INTERVAL = 10 * 60 * 1000; // 10 minutes in ms

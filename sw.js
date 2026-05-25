@@ -1,29 +1,29 @@
 // Cardiff, Alabama — Service Worker
 // Handles caching, offline support, and pinned-message push notifications via polling.
 
-const CACHE_NAME = 'cardiff-v1';
+const CACHE_NAME = 'cardiff-v2';
 const STATE_CACHE = 'cardiff-state';
-const TICKER_URL = 'https://josephlgraham.github.io/cardiff/ticker.json';
+const TICKER_URL = '/ticker.json';
 const STATE_KEY = 'cardiff-ticker-state';
 
 const PRECACHE_URLS = [
-  '/cardiff/',
-  '/cardiff/index.html',
-  '/cardiff/cardiff-calendar.html',
-  '/cardiff/cardiff-civic.html',
-  '/cardiff/cardiff-guide.html',
-  '/cardiff/cardiff-hollers.html',
-  '/cardiff/cardiff-cemetery.html',
-  '/cardiff/cardiff-involved.html',
-  '/cardiff/cardiff-news.html',
-  '/cardiff/cardiff-almanac.html',
-  '/cardiff/cardiff-kitchen.html',
-  '/cardiff/offline.html',
-  '/cardiff/cardiff-common.css',
-  '/cardiff/cardiff-common.js',
-  '/cardiff/manifest.json',
-  '/cardiff/icons/icon-192.svg',
-  '/cardiff/icons/icon-512.svg',
+  '/',
+  '/index.html',
+  '/cardiff-calendar.html',
+  '/cardiff-civic.html',
+  '/cardiff-guide.html',
+  '/cardiff-hollers.html',
+  '/cardiff-cemetery.html',
+  '/cardiff-involved.html',
+  '/cardiff-news.html',
+  '/cardiff-almanac.html',
+  '/cardiff-kitchen.html',
+  '/offline.html',
+  '/cardiff-common.css',
+  '/cardiff-common.js',
+  '/manifest.json',
+  '/icons/icon-192.svg',
+  '/icons/icon-512.svg',
 ];
 
 // ── Install ────────────────────────────────────────────────────────────────
@@ -83,7 +83,7 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(() =>
           caches.match(request).then(
-            (cached) => cached || caches.match('/cardiff/offline.html')
+            (cached) => cached || caches.match('/offline.html')
           )
         )
     );
@@ -161,11 +161,11 @@ async function showTickerNotification(message) {
 
   await self.registration.showNotification('Cardiff Update', {
     body: message,
-    icon: '/cardiff/icons/icon-192.svg',
-    badge: '/cardiff/icons/icon-192.svg',
+    icon: '/icons/icon-192.svg',
+    badge: '/icons/icon-192.svg',
     tag: 'cardiff-pinned',
     renotify: true,
-    data: { url: '/cardiff/' },
+    data: { url: '/' },
     vibrate: [200, 100, 200],
   });
 }
@@ -189,13 +189,13 @@ self.addEventListener('message', (event) => {
 // ── Notification click ─────────────────────────────────────────────────────
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const targetUrl = (event.notification.data && event.notification.data.url) || '/cardiff/';
+  const targetUrl = (event.notification.data && event.notification.data.url) || '/';
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
       // Focus an existing Cardiff tab if possible
       for (const client of clientList) {
-        if (client.url.includes('/cardiff/') && 'focus' in client) {
+        if (client.url.startsWith(self.location.origin) && 'focus' in client) {
           return client.focus();
         }
       }
