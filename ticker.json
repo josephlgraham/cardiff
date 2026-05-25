@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-05-25T12:43:55.916Z",
+  "updatedAt": "2026-05-25T15:44:27.958Z",
   "hasAlerts": true,
-  "alertCount": 2,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flood Watch · Through Wednesday 3 AM    ·    🌫️ Dense Fog Advisory · Through today 3 PM",
+  "ticker": "🌊 Flood Watch · Through Wednesday 12 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -15,22 +15,11 @@
       "severity": "Severe",
       "urgency": "Future",
       "emoji": "🌊",
-      "ends": "2026-05-26T22:00:00-05:00",
-      "endsShort": "Wednesday 3 AM",
+      "ends": "2026-05-26T19:00:00-05:00",
+      "endsShort": "Wednesday 12 AM",
       "headline": "Flood Watch",
-      "description": "* WHAT...Flash flooding caused by excessive rainfall is possible.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.388a4c8c419f6673b2c2059544fa31cd8cb3c77c.001.1"
-    },
-    {
-      "event": "Dense Fog Advisory",
-      "severity": "Moderate",
-      "urgency": "Expected",
-      "emoji": "🌫️",
-      "ends": "2026-05-25T10:00:00-05:00",
-      "endsShort": "today 3 PM",
-      "headline": "Dense Fog Advisory",
-      "description": "* WHAT...Visibility around or less than one mile in dense fog.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24628e7ea9a3d54a4b639e77f5beb204ea6bca2d.001.1"
+      "description": "* WHAT...Flash flooding caused by excessive rainfall continues to be",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.b456ea4db13aeae79e4bef1f7409939630925e14.002.1"
     }
   ],
   "spcOutlook": [],
