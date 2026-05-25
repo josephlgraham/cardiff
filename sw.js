@@ -1,7 +1,7 @@
 // Cardiff, Alabama — Service Worker
 // Handles caching, offline support, and pinned-message push notifications via polling.
 
-const CACHE_NAME = 'cardiff-v2';
+const CACHE_NAME = 'cardiff-v3';
 const STATE_CACHE = 'cardiff-state';
 const TICKER_URL = '/ticker.json';
 const STATE_KEY = 'cardiff-ticker-state';
@@ -16,6 +16,7 @@ const PRECACHE_URLS = [
   '/cardiff-cemetery.html',
   '/cardiff-involved.html',
   '/cardiff-news.html',
+  '/cardiff-announce.html',
   '/cardiff-almanac.html',
   '/cardiff-kitchen.html',
   '/offline.html',
