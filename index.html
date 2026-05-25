@@ -294,7 +294,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </article>
     <article class="card reveal">
       <div class="site-kicker">Morning read</div>
-      <h3 class="card-title">Yesterday &amp; sky</h3>
+      <h3 class="card-title">Sunrise &amp; sky</h3>
       <div class="today-list" id="homeMorning">
         <div class="side-item"><div class="side-icon">⏳</div><div><div class="side-val">Waiting on the station log.</div><div class="side-sub">Morning report</div></div></div>
       </div>
@@ -441,15 +441,6 @@ function getMoonPhase(date){
   const moonDay = (((date - knownNew) / 86400000) % 29.53 + 29.53) % 29.53;
   return phases.find((phase)=>moonDay>=phase.min&&moonDay<phase.max)||phases[0];
 }
-function groundRead(current,rain){
-  const today=rain?Number(rain.today||0):0;
-  const humidity=current?Number(current.humidity||0):0;
-  if(today>=0.25)return {title:'Wet ground',note:'Recent rain is enough to soften yards, creek edges, and low spots.',icon:'💧'};
-  if(today>=0.01)return {title:'Freshly damp',note:'A little rain has settled the dust and left a trace on the ground.',icon:'🌿'};
-  if(humidity>=80)return {title:'Holding moisture',note:'Shade and bottoms will stay damp longer than open ground.',icon:'🍃'};
-  if(humidity>=60)return {title:'Normal footing',note:'Neither baked out nor soupy in most spots.',icon:'🌱'};
-  return {title:'Dry on top',note:'Open ground will crust faster than shaded creek edges.',icon:'☀️'};
-}
 function conditionIcon(condition){
   if(condition==='Rain')return '🌧️';
   if(condition==='Sunny')return '☀️';
@@ -529,8 +520,6 @@ async function loadHomeDashboard(){
     alertBand.style.display='none';
   }
 
-  const current=weather&&weather.current?weather.current:null;
-  const rain=weather&&weather.rain?weather.rain:null;
   const gauges=watershed&&Array.isArray(watershed.gauges)?watershed.gauges:[];
   const leadGauge=gauges.find(g=>g.role==='lead')||gauges[0]||null;
   const leadStage=leadGauge?numericOrNaN(leadGauge.stage_ft):NaN;
@@ -538,8 +527,6 @@ async function loadHomeDashboard(){
   const now=new Date();
   const sun=getSunTimes(now);
   const moon=getMoonPhase(now);
-  const ground=groundRead(current,rain);
-  const morning=rain&&rain.morningReport?rain.morningReport:null;
   const showTonight=now.getHours()>=12;
 
   const dsMobile=weather&&weather.dailySummary?weather.dailySummary:null;
@@ -575,7 +562,7 @@ async function loadHomeDashboard(){
   const morningKicker=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.site-kicker'):null;
   const morningTitle=morningCard&&morningCard.parentNode?morningCard.parentNode.querySelector('.card-title'):null;
   if(morningKicker) morningKicker.textContent=showTonight?'Tonight\'s sky':'Morning read';
-  if(morningTitle) morningTitle.textContent=showTonight?'After dark':'Yesterday & sky';
+  if(morningTitle) morningTitle.textContent=showTonight?'After dark':'Sunrise & sky';
   if(morningCard){
     morningCard.innerHTML=showTonight
       ? [
@@ -584,7 +571,6 @@ async function loadHomeDashboard(){
           `<div class="side-item"><div class="side-icon">⭐</div><div><div class="side-val">Best first look</div><div class="side-sub">The clearest hour is often the first one after full dark, before haze and porch lights build in your eyes.</div></div></div>`
         ].join('')
       : [
-          `<div class="side-item"><div class="side-icon">🌧️</div><div><div class="side-val">${hasYest&&Number.isFinite(ds.yesterdayRain)?formatInches(ds.yesterdayRain):'—'}</div><div class="side-sub">Yesterday's rain</div></div></div>`,
           `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">${formatClock(sun.rise)}</div><div class="side-sub">Sunrise</div></div></div>`,
           `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">${buildSkyNote(moon)}</div></div></div>`
         ].join('');
