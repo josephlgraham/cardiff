@@ -641,6 +641,35 @@
       ? '<div style="margin-top:0.45rem;font-size:0.7rem;line-height:1.5;color:var(--ink3);">Scaled toward the everyday creek range so smaller rises stay readable. Big spikes still count in the stats above.</div>'
       : "";
 
+    const dayMarkers = [];
+    let prevDayKey = "";
+    points.forEach((point, index) => {
+      const date = new Date(point.at);
+      if (Number.isNaN(date.getTime())) return;
+      const dayKey = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+      if (dayKey !== prevDayKey) {
+        dayMarkers.push({ x: coords[index].x, label: String(date.getDate()), index });
+        prevDayKey = dayKey;
+      }
+    });
+    const usableRight = width - padRight;
+    const dayGridlines = dayMarkers
+      .filter((marker) => marker.index !== 0)
+      .map((marker) => '<line x1="' + marker.x.toFixed(1) + '" y1="' + padTop + '" x2="' + marker.x.toFixed(1) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.1)" stroke-width="1"/>')
+      .join("");
+    let lastDayLabelX = -100;
+    const dayLabels = dayMarkers
+      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + 40 && marker.x <= usableRight - 40)
+      .filter((marker) => {
+        if (marker.x - lastDayLabelX >= 24) {
+          lastDayLabelX = marker.x;
+          return true;
+        }
+        return false;
+      })
+      .map((marker) => '<text class="watershed-axis" x="' + marker.x.toFixed(1) + '" y="' + (height - 8) + '" text-anchor="middle">' + escapeHtml(marker.label) + "</text>")
+      .join("");
+
     return {
       meta: (label || "Lead gauge") + " · " + metaSuffix,
       stats: [
@@ -656,10 +685,12 @@
         '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.33) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.33) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
         '<line x1="' + padLeft + '" y1="' + (padTop + (height - padTop - padBottom) * 0.66) + '" x2="' + (width - padRight) + '" y2="' + (padTop + (height - padTop - padBottom) * 0.66) + '" stroke="rgba(80,44,8,0.08)" stroke-width="1"/>' +
         '<line x1="' + padLeft + '" y1="' + (height - padBottom) + '" x2="' + (width - padRight) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
+        dayGridlines +
         '<polyline fill="none" stroke="#0f5c6d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
         '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + "</text>" +
         '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
+        dayLabels +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 1) + '">' + escapeHtml(displayMax.toFixed(2) + " ft") + "</text>" +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(displayMin.toFixed(2) + " ft") + "</text>" +
         "</svg>" + chartNote
