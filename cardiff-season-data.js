@@ -15,9 +15,6 @@
       day: 1,
       windowLabel: "January 1900",
       calendarLabel: "Jan 1",
-      seasonTag: "calendar",
-      activeTag: "calendar",
-      upcomingTag: "coming up",
       summary: "An annual marker for the town itself. Incorporated January 1900."
     },
     {
@@ -31,9 +28,6 @@
       hour: 10,
       windowLabel: "First Wednesday of each month, 10:00 AM",
       calendarLabel: "First Wednesday, 10:00 AM",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       summary: "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed — it is a scheduled test."
     },
     {
@@ -48,9 +42,6 @@
       exceptMonths: [{year: 2026, month: 4}],
       windowLabel: "Second Tuesday of each month, 6:00 PM",
       calendarLabel: "Second Tuesday, 6:00 PM",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       summary: "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM."
     },
     {
@@ -65,10 +56,91 @@
       hour: 18,
       windowLabel: "Apr 13, 2026 · 6:00 PM",
       calendarLabel: "Apr 13, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       summary: "Cardiff Town Council meeting — the first step toward restarting active local government. All residents welcome. Cardiff Town Hall, 6:00 PM. No agenda required to attend."
+    },
+    {
+      id: "great-horned-owls",
+      title: "Great horned owls nesting",
+      category: "Worth a listen",
+      lane: "nature",
+      kind: "range",
+      startMonth: 1,
+      startDay: 1,
+      endMonth: 2,
+      endDay: 15,
+      windowLabel: "Jan - mid Feb",
+      calendarLabel: "Jan - mid Feb",
+      summary: "The earliest nesters in the woods. On cold still nights in January the pairs call back and forth across the bottoms, already setting up to raise young while everything else is still waiting out the winter."
+    },
+    {
+      id: "quadrantids",
+      title: "Quadrantid meteor shower",
+      category: "Celestial",
+      lane: "celestial",
+      kind: "range",
+      startMonth: 1,
+      startDay: 2,
+      endMonth: 1,
+      endDay: 4,
+      windowLabel: "Around Jan 3 - 4",
+      calendarLabel: "Around Jan 3 - 4",
+      summary: "The year's first major shower, short and sharp. The peak runs only a few hours, so a clear cold night around the third or fourth is the whole window. Worth bundling up for from a dark creek bottom."
+    },
+    {
+      id: "winter-wild-greens",
+      title: "Winter wild greens",
+      category: "Foraging",
+      lane: "nature",
+      kind: "range",
+      startMonth: 1,
+      startDay: 15,
+      endMonth: 3,
+      endDay: 15,
+      windowLabel: "Mid Jan - mid Mar",
+      calendarLabel: "Mid Jan - mid Mar",
+      summary: "Chickweed, henbit, and bittercress green up in the cool months when little else will, along fence lines, garden edges, and disturbed ground. They are mild and tender now, before the heat turns them bitter."
+    },
+    {
+      id: "red-maple-bloom",
+      title: "Red maple bloom (first color)",
+      category: "Worth a look",
+      lane: "nature",
+      kind: "range",
+      startMonth: 1,
+      startDay: 25,
+      endMonth: 3,
+      endDay: 1,
+      windowLabel: "Late Jan - Feb",
+      calendarLabel: "Late Jan - Feb",
+      summary: "Among the first trees to flower, well ahead of any leaves. On a warm late-winter day the tops of the red maples flush a dull red across the bottoms, the earliest real hint that the year is turning back over."
+    },
+    {
+      id: "candlemas-imbolc",
+      title: "Candlemas & Imbolc",
+      category: "Tradition",
+      lane: "tradition",
+      kind: "range",
+      startMonth: 2,
+      startDay: 1,
+      endMonth: 2,
+      endDay: 2,
+      windowLabel: "Feb 1 - 2",
+      calendarLabel: "Feb 1 - 2",
+      summary: "The cross-quarter point halfway between the winter solstice and the spring equinox. Older calendars marked it as the first stirring of spring, with candles, weather signs, and the watching-for-the-turn that later became Groundhog Day."
+    },
+    {
+      id: "spring-peepers",
+      title: "Spring peepers & chorus frogs",
+      category: "Worth a listen",
+      lane: "nature",
+      kind: "range",
+      startMonth: 2,
+      startDay: 1,
+      endMonth: 3,
+      endDay: 20,
+      windowLabel: "Feb - Mar",
+      calendarLabel: "Feb - Mar",
+      summary: "The first real sound of the turn. On warm wet evenings the peepers and upland chorus frogs start up in the wet bottoms and roadside ditches, loud enough to carry, well before anything has leafed out."
     },
     {
       id: "ramps",
@@ -82,9 +154,6 @@
       endDay: 1,
       windowLabel: "Feb 15 - Apr 1",
       calendarLabel: "Feb 15 - Apr 1",
-      seasonTag: "worth a look",
-      activeTag: "worth a look",
-      upcomingTag: "coming up",
       summary: "Earliest green on the creek bottoms. Look for the broad flat leaves before anything else leafs out. Smell confirms it."
     },
     {
@@ -99,9 +168,6 @@
       endDay: 30,
       windowLabel: "Mar - Apr",
       calendarLabel: "Mar - Apr",
-      seasonTag: "worth a look",
-      activeTag: "worth a look",
-      upcomingTag: "wait for spring",
       summary: "Warm wet days, tulip poplar slopes, old orchards, and the sort of ground people keep half-secret for a reason."
     },
     {
@@ -114,9 +180,6 @@
       day: 20,
       windowLabel: "Mar 20",
       calendarLabel: "Around Mar 20",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Day and night in balance. Older planting calendars treated this as a real turning, not just a date on paper."
     },
     {
@@ -129,9 +192,6 @@
       day: 1,
       windowLabel: "May 1",
       calendarLabel: "May 1",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Flowering, ribbons, bonfires, and spring-fire customs in older European calendars lived near this turning. Not a local legal holiday, just part of the longer seasonal inheritance."
     },
     {
@@ -146,9 +206,6 @@
       endDay: 12,
       windowLabel: "Late Mar - early Apr",
       calendarLabel: "Moves each spring",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Christian spring observance gathered around older rebirth-season symbols, dawn worship, flowers, and egg imagery that long predate modern church calendars. The exact date moves year to year."
     },
     {
@@ -161,9 +218,6 @@
       day: 20,
       windowLabel: "Around Mar 20",
       calendarLabel: "Around Mar 20",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Creek-bottom gardens can run a little later, but this is the frost date people still plan around."
     },
     {
@@ -178,9 +232,6 @@
       endDay: 8,
       windowLabel: "Spring (Mar - May)",
       calendarLabel: "Approx. Mar - May",
-      seasonTag: "on now",
-      activeTag: "on now",
-      upcomingTag: "later on",
       summary: "Gobblers, green-up, and early starts. Confirm Alabama dates each year before treating it as a legal calendar."
     },
     {
@@ -195,9 +246,6 @@
       endDay: 15,
       windowLabel: "Late May - Jun",
       calendarLabel: "Late May - Jun",
-      seasonTag: "worth a look",
-      activeTag: "worth a look",
-      upcomingTag: "watch for",
       summary: "Usually two weeks in late May into early June in the creek bottoms. One of the better reasons to be out after dark."
     },
     {
@@ -212,9 +260,6 @@
       endDay: 31,
       windowLabel: "May 1 - Aug 31",
       calendarLabel: "May 1 - Aug 31",
-      seasonTag: "on now",
-      activeTag: "on now",
-      upcomingTag: "coming up",
       summary: "Legal in Alabama May 1 through August 31. Half joke, half tradition. It earns its place."
     },
     {
@@ -227,9 +272,6 @@
       day: 21,
       windowLabel: "Jun 21",
       calendarLabel: "Around Jun 21",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "The longest day of the year. Peoples across the Southeast watched solar turnings long before they lived on printed calendars, and later midsummer customs gathered around the same light."
     },
     {
@@ -244,9 +286,6 @@
       endDay: 24,
       windowLabel: "Around Jun 21 - 24",
       calendarLabel: "Around Jun 21 - 24",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Bonfires, flower customs, and long-light celebrations sit near this point in older midsummer traditions. The shape of the season came first, the names came later."
     },
     {
@@ -261,9 +300,6 @@
       endDay: 31,
       windowLabel: "Late Jun - Jul",
       calendarLabel: "Late Jun - Jul",
-      seasonTag: "worth a look",
-      activeTag: "worth a look",
-      upcomingTag: "coming up",
       summary: "Late June into July along field edges and old clearings. The canes that were a nuisance all spring earn their keep now."
     },
     {
@@ -278,9 +314,6 @@
       endDay: 13,
       windowLabel: "Around Aug 11 - 13",
       calendarLabel: "Around Aug 11 - 13",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Most reliable shower of the year. Summer heat, clear skies, and the creek bottom is a fine spot."
     },
     {
@@ -295,9 +328,6 @@
       endDay: 30,
       windowLabel: "Aug - Sep",
       calendarLabel: "Aug - Sep",
-      seasonTag: "worth a look",
-      activeTag: "worth a look",
-      upcomingTag: "later on",
       summary: "August into September in the creek edge tangles and old fence lines. Native and wild and as local as it gets."
     },
     {
@@ -312,9 +342,6 @@
       endDay: 31,
       windowLabel: "Aug",
       calendarLabel: "August",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "later on",
       summary: "Across the Southeast, many Native communities tied ceremony to the corn cycle rather than one fixed printed date. Timing varied by people and place, which is part of the point."
     },
     {
@@ -329,9 +356,6 @@
       endDay: 31,
       windowLabel: "Sep 1 - Oct",
       calendarLabel: "Approx. Sep - Oct",
-      seasonTag: "on now",
-      activeTag: "on now",
-      upcomingTag: "watch for",
       summary: "Opens September 1 in Alabama. A big deal in rural communities and worth keeping on the fall list."
     },
     {
@@ -344,9 +368,6 @@
       day: 22,
       windowLabel: "Sep 22",
       calendarLabel: "Around Sep 22",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "The second balance point of the year, when old harvest calendars and the land itself both start leaning harder into fall."
     },
     {
@@ -361,9 +382,6 @@
       endDay: 1,
       windowLabel: "Oct 31 - Nov 1",
       calendarLabel: "Oct 31 - Nov 1",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "later on",
       summary: "Old end-of-harvest and turning-to-winter customs gathered around this edge of the year long before modern porch decorations got there first."
     },
     {
@@ -378,9 +396,6 @@
       endDay: 6,
       windowLabel: "Dec 24 - Jan 6",
       calendarLabel: "Dec 24 - Jan 6",
-      seasonTag: "calendar",
-      activeTag: "on now",
-      upcomingTag: "later on",
       summary: "Christian Christmas observance landed on a season already full of fire, evergreen, feast, and return-of-light customs. The church calendar came later than the winter turning it settled onto."
     },
     {
@@ -395,9 +410,6 @@
       endDay: 28,
       windowLabel: "Oct - Feb",
       calendarLabel: "Approx. Oct - Feb",
-      seasonTag: "good now",
-      activeTag: "good now",
-      upcomingTag: "later on",
       summary: "One of the friendlier seasons to learn because the sign is obvious and the rhythm is simple."
     },
     {
@@ -410,9 +422,6 @@
       day: 21,
       windowLabel: "Around Oct 21",
       calendarLabel: "Around Oct 21",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Peaks around October 21. Debris from Halley's Comet. Good from a dark creek bottom with no moon interference."
     },
     {
@@ -427,9 +436,6 @@
       endDay: 31,
       windowLabel: "Nov - Jan",
       calendarLabel: "Approx. Nov - Jan",
-      seasonTag: "watch now",
-      activeTag: "watch now",
-      upcomingTag: "later on",
       summary: "Still the big woods conversation once the leaves turn and the mornings sharpen up."
     },
     {
@@ -442,9 +448,6 @@
       day: 15,
       windowLabel: "Around Nov 15",
       calendarLabel: "Around Nov 15",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "later on",
       summary: "The ridges feel it first. The bottoms often hold on a little longer before the first real nip."
     },
     {
@@ -459,9 +462,6 @@
       endDay: 15,
       windowLabel: "After first frost",
       calendarLabel: "After first frost (around mid-November)",
-      seasonTag: "later on",
-      activeTag: "worth a walk",
-      upcomingTag: "later on",
       summary: "Post-first-frost only. Before the frost they will pucker you. After it, they are worth the walk. The ridges hold them longest."
     },
     {
@@ -474,9 +474,6 @@
       day: 17,
       windowLabel: "Around Nov 17",
       calendarLabel: "Around Nov 17",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Peaks around November 17. Can produce bursts in active years. Worth stepping outside even in a quiet year."
     },
     {
@@ -491,9 +488,6 @@
       endDay: 14,
       windowLabel: "Around Dec 13 - 14",
       calendarLabel: "Around Dec 13 - 14",
-      seasonTag: "watch for",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "Cold but worth it. Often the most active shower of the year, which is unusual because it does not come from a comet."
     },
     {
@@ -506,9 +500,6 @@
       day: 21,
       windowLabel: "Dec 21",
       calendarLabel: "Around Dec 21",
-      seasonTag: "calendar",
-      activeTag: "watch for",
-      upcomingTag: "watch for",
       summary: "The shortest day of the year. Long before modern Christmas calendars, people marked this dark turn with sky watching, fire, evergreens, and return-of-light traditions."
     },
     {
@@ -522,9 +513,6 @@
       day: 25,
       windowLabel: "Apr 25, 2026 · 8:00 AM – 11:30 AM",
       calendarLabel: "Apr 25, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County HHW drop-off — Cardiff area site is First Baptist Church, Gardendale (940 Main St.). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
     },
@@ -539,9 +527,6 @@
       day: 9,
       windowLabel: "May 9, 2026 · 9:00 AM – 11:30 AM",
       calendarLabel: "May 9, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
     },
@@ -556,9 +541,6 @@
       day: 13,
       windowLabel: "Jun 13, 2026 · 9:00 AM – 11:30 AM",
       calendarLabel: "Jun 13, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
     },
@@ -573,9 +555,6 @@
       day: 17,
       windowLabel: "Oct 17, 2026 · 8:00 AM – 11:30 AM",
       calendarLabel: "Oct 17, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County HHW drop-off — Cardiff area site is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
     },
@@ -590,9 +569,6 @@
       day: 12,
       windowLabel: "Sep 12, 2026 · 9:00 AM – 11:30 AM",
       calendarLabel: "Sep 12, 2026",
-      seasonTag: "civic",
-      activeTag: "today",
-      upcomingTag: "coming up",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
     }
@@ -656,6 +632,36 @@
     return { start, end };
   }
 
+  function monthsApart(from, to) {
+    return (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth());
+  }
+
+  // Badge text is derived from timing, not stored per entry: active items get a
+  // category-flavored status word, upcoming items get a plain "when".
+  function computeBadge(entry, active, daysUntil, today, start) {
+    const lane = String(entry.lane || "").toLowerCase();
+    const category = String(entry.category || "").toLowerCase();
+    const title = String(entry.title || "").toLowerCase();
+
+    if (active) {
+      if (lane === "hunting") return "in season";
+      if (lane === "celestial") return title.includes("meteor") ? "tonight" : "today";
+      if (lane === "frost") return "any day now";
+      if (lane === "tradition") return "here now";
+      if (lane === "civic") return "today";
+      if (lane === "nature") return category === "foraging" ? "ready now" : "active now";
+      return "on now";
+    }
+
+    if (daysUntil <= 7) return "this week";
+    const months = monthsApart(today, start);
+    if (months <= 0) return "this month";
+    if (months === 1) return "next month";
+    if (start.getFullYear() === today.getFullYear()) return "later this year";
+    if (start.getFullYear() === today.getFullYear() + 1) return "next year";
+    return "later";
+  }
+
   function describeOccurrence(entry, occurrence, today) {
     const active = today >= occurrence.start && today <= addDays(occurrence.end, 1);
     const nextRelevant = active ? today : occurrence.start;
@@ -685,7 +691,7 @@
       nextRelevant,
       dateLabel,
       longDateLabel,
-      badge: active ? entry.activeTag : entry.upcomingTag
+      badge: computeBadge(entry, active, daysUntil, today, occurrence.start)
     };
   }
 

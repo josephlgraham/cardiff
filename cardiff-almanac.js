@@ -904,7 +904,7 @@
 
     const notCivic = (entry) => entry.lane !== "civic";
     const previewEntries = sharedSeasonData.getSeasonEntries(date, 3).filter(notCivic);
-    const fullEntries = sharedSeasonData.getUpcomingCalendar(date).filter(notCivic).slice(0, 18);
+    const fullEntries = sharedSeasonData.getUpcomingCalendar(date).filter(notCivic);
     const entries = seasonWindowsExpanded ? fullEntries : previewEntries;
     const leadEntry = previewEntries.find((entry) => entry.active) || previewEntries[0] || fullEntries[0];
     if (!leadEntry) {
@@ -918,7 +918,7 @@
       '<div class="hunt-season">' +
         '<div class="hs-top">' +
           '<div><div class="hs-name">' + iconHtml(seasonIcon(entry)) + " " + escapeHtml(entry.title) + '</div><div class="hs-dates">' + escapeHtml(entry.longDateLabel || entry.dateLabel || entry.windowLabel || "Watch the season") + '</div><div class="hs-category">' + escapeHtml(entry.category || "Season window") + "</div></div>" +
-          '<div class="' + (entry.active ? "hs-open" : "hs-closed") + '">' + escapeHtml(entry.badge || entry.seasonTag || "watch for") + "</div>" +
+          '<div class="' + (entry.active ? "hs-open" : "hs-closed") + '">' + escapeHtml(entry.badge) + "</div>" +
         "</div>" +
         '<div class="hunt-meta">' + escapeHtml(entry.summary) + "</div>" +
       "</div>"
