@@ -251,6 +251,31 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hunt-expand{margin-top:0.8rem;width:100%;padding:0.72rem 0.9rem;border-radius:var(--r);border:1px solid var(--border2);background:var(--paper);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);cursor:pointer;transition:border-color var(--ease),color var(--ease),background var(--ease);}
 .hunt-expand:hover{border-color:var(--amber);color:var(--amber);background:#fff;}
 
+/* TURNINGS */
+.turn-flip{display:flex;align-items:center;gap:0.6rem;padding:0.35rem 0 0.85rem;margin-bottom:0.85rem;border-bottom:1px solid var(--rule);}
+.turn-arrow{flex-shrink:0;width:2.05rem;height:2.05rem;border-radius:100px;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);font-size:1.2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color var(--ease),color var(--ease),background var(--ease);}
+.turn-arrow:hover{border-color:var(--red);color:var(--red);background:#fff;}
+.turn-headline{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:0.7rem;text-align:left;}
+.turn-emoji{font-size:2rem;line-height:1;flex-shrink:0;}
+.turn-headline > div{min-width:0;}
+.turn-plain{font-family:var(--sans);font-size:1.32rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);line-height:1.1;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;}
+.turn-now{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:100px;background:rgba(42,122,58,0.12);color:var(--green);border:1px solid rgba(42,122,58,0.25);white-space:nowrap;}
+.turn-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-top:0.26rem;}
+.turn-lore{font-size:0.82rem;line-height:1.7;color:var(--ink2);margin:0 0 1rem;}
+.turn-section-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:0.35rem;margin-bottom:0.5rem;}
+.turn-section-label::before{content:"";width:8px;height:2px;background:var(--red);display:inline-block;}
+.turn-signs{display:grid;margin-bottom:0.4rem;}
+.turn-sign{display:flex;align-items:flex-start;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid var(--rule);}
+.turn-sign:last-child{border-bottom:none;}
+.turn-sign-icon{font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:0.06rem;}
+.turn-sign-text{font-size:0.78rem;line-height:1.62;color:var(--ink2);}
+.turn-winters{display:grid;gap:0.55rem;margin-top:0.5rem;}
+.turn-winter{padding:0.66rem 0.78rem;background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--r);}
+.turn-winter-name{font-size:0.82rem;font-weight:700;color:var(--ink);}
+.turn-winter-when{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-top:0.16rem;}
+.turn-winter-note{font-size:0.74rem;line-height:1.58;color:var(--ink3);margin-top:0.2rem;}
+.turn-section-gap{margin-top:1rem;}
+
 /* CTA */
 .cta-band{background:var(--ink);border-radius:var(--r-lg);padding:2rem;text-align:center;position:relative;overflow:hidden;margin:0 2rem 3rem;max-width:940px;}
 .cta-band::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
@@ -454,6 +479,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       </div>
       <div id="fishBody">—</div>
     </div>
+  </div>
+  <!-- TURNINGS -->
+  <div class="alm-card" id="turnings-card" style="display:none;">
+    <div class="card-head"><div><div class="card-kicker">The Turning Year</div><div class="card-title">Seasons of the Holler</div></div><div class="card-tag" id="turningsNav">—</div></div>
+    <div class="card-body" id="turningsBody">—</div>
   </div>
   <!-- PLANTING -->
   <div class="alm-card" id="plant-card">

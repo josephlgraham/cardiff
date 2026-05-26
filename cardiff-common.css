@@ -86,7 +86,8 @@ a:hover{text-decoration:underline;}
 .role-card,.letter-card,
 .side,.scanner,.priority,.xing,.announce-card,.cn-card,
 .mobile-status-card,.alert-band,
-.cta-band,.notify-card,.donate-band{
+.cta-band,.notify-card,.donate-band,
+.cardiff-app-desk{
   position:relative;
   overflow:hidden;
 }
@@ -103,7 +104,8 @@ a:hover{text-decoration:underline;}
 .role-card::after,.letter-card::after,
 .side::after,.scanner::after,.priority::after,.xing::after,.announce-card::after,.cn-card::after,
 .mobile-status-card::after,.alert-band::after,
-.cta-band::after,.notify-card::after,.donate-band::after{
+.cta-band::after,.notify-card::after,.donate-band::after,
+.cardiff-app-desk::after{
   content:"";
   position:absolute;
   top:0;

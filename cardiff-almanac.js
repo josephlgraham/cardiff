@@ -902,8 +902,9 @@
       return;
     }
 
-    const previewEntries = sharedSeasonData.getSeasonEntries(date, 3);
-    const fullEntries = sharedSeasonData.getUpcomingCalendar(date, 18);
+    const notCivic = (entry) => entry.lane !== "civic";
+    const previewEntries = sharedSeasonData.getSeasonEntries(date, 3).filter(notCivic);
+    const fullEntries = sharedSeasonData.getUpcomingCalendar(date).filter(notCivic).slice(0, 18);
     const entries = seasonWindowsExpanded ? fullEntries : previewEntries;
     const leadEntry = previewEntries.find((entry) => entry.active) || previewEntries[0] || fullEntries[0];
     if (!leadEntry) {
@@ -942,6 +943,190 @@
         buildSeasonWindows(date);
       };
     }
+  }
+
+  // Almanac-side content for each turning, keyed by the ids in turnings.json.
+  // The turning name, emoji, date range, and lore come from turnings.json;
+  // this layer adds the plain-language season name and the holler's seasonal signs.
+  const TURNING_CONTENT = {
+    yuletide: {
+      plainName: "Deep Winter",
+      signs: [
+        { icon: "❄️", text: "The coldest, clearest nights of the year — the sharpest star views if the haze stays off the bottoms." },
+        { icon: "🪵", text: "Wood heat and seed catalogs. Garden work is planning work now." },
+        { icon: "🦌", text: "Late deer season winds down; squirrel hunting stays good in the bare timber." },
+        { icon: "🌱", text: "Order seeds and start onions and leeks indoors toward the end of the stretch." }
+      ]
+    },
+    candlemas: {
+      plainName: "Late Winter",
+      signs: [
+        { icon: "🐸", text: "First spring peepers calling on warm evenings — the earliest sign of spring in the bottoms." },
+        { icon: "🧅", text: "Plant onions, potatoes, and English peas. Start brassicas indoors." },
+        { icon: "🌿", text: "Ramps and wild onions push up on the creek bottoms before anything else greens." },
+        { icon: "🎣", text: "Crappie start moving shallow as the water warms past the low forties." }
+      ]
+    },
+    quickening: {
+      plainName: "Early Spring",
+      signs: [
+        { icon: "🌸", text: "Dogwoods bloom — the old Southern signal it's safe to set out tender plants." },
+        { icon: "🍄", text: "Morels on the tulip-poplar slopes and old orchard ground after warm, wet days." },
+        { icon: "🦃", text: "Spring turkey season opens; gobblers work the green-up." },
+        { icon: "🐟", text: "Bass move up to spawn and the creek warms into good fishing." }
+      ],
+      littleWinters: [
+        { name: "Redbud winter", when: "Late March", note: "A cold snap that lands when the redbuds flush purple along the ridges." },
+        { name: "Dogwood winter", when: "Mid-April", note: "The reliable one — a chill that arrives while the dogwoods are still white." },
+        { name: "Locust winter", when: "Late April", note: "A last cool spell as the black locust blooms and the air goes sweet." }
+      ]
+    },
+    beltane: {
+      plainName: "Late Spring",
+      signs: [
+        { icon: "✨", text: "Fireflies rise in the creek bottoms — late May into June, the great early-summer show." },
+        { icon: "🐟", text: "Catfish noodling opens (legal May 1 – Aug 31). Half joke, half tradition." },
+        { icon: "🫐", text: "Mulberries drop and the first blackberries set along the field edges." },
+        { icon: "🌽", text: "The warm-season garden hits its stride — beans, squash, corn, and okra." }
+      ],
+      littleWinters: [
+        { name: "Blackberry winter", when: "Early-to-mid May", note: "The famous one — a cold snap right as the blackberries bloom." },
+        { name: "Whippoorwill winter", when: "Mid-to-late May", note: "A last chill about when the whippoorwills start calling at dusk." },
+        { name: "Britches winter", when: "Late May", note: "The final cool spell. The old saying is don't shed your winter britches till it passes." }
+      ]
+    },
+    midsummer: {
+      plainName: "High Summer",
+      signs: [
+        { icon: "☀️", text: "The summer solstice — the longest day and the year's high-water mark of light." },
+        { icon: "🐕", text: "The Dog Days run July 3 – Aug 11, when Sirius the Dog Star rises with the sun." },
+        { icon: "🍅", text: "Tomatoes, peppers, okra, and field peas come in hard. Keep everything watered." },
+        { icon: "🎣", text: "Fish early and late — midday heat pushes the bite deep and slow." }
+      ]
+    },
+    lammas: {
+      plainName: "Late Summer",
+      signs: [
+        { icon: "🌾", text: "The first-harvest turn, when summer's long labor starts paying back." },
+        { icon: "🦗", text: "Katydids begin; folk reckoning says first frost comes six weeks after the first call." },
+        { icon: "🍇", text: "Muscadines ripen wild along the creek edges and old fence lines." },
+        { icon: "🕊️", text: "Dove season opens September 1 — a rural fall touchstone." }
+      ]
+    },
+    michaelmas: {
+      plainName: "Early Fall",
+      signs: [
+        { icon: "⚖️", text: "The fall equinox — day and night in balance, the land leaning hard into autumn." },
+        { icon: "🌰", text: "Mast season — acorns and nuts rearrange where the wildlife spends its time." },
+        { icon: "🥬", text: "Plant fall greens, garlic, and cover crops; the cool-season garden returns." },
+        { icon: "🍂", text: "The first frost window opens late in the stretch — Cardiff's usually early November." }
+      ]
+    },
+    hallowtide: {
+      plainName: "Late Fall",
+      signs: [
+        { icon: "🍁", text: "First frost lands — the ridges feel it first, the bottoms hold on a little longer." },
+        { icon: "🦌", text: "Deer season becomes the big woods conversation once the mornings sharpen." },
+        { icon: "🟠", text: "Persimmons sweeten after frost. Worth the walk; the ridges hold them longest." },
+        { icon: "🌇", text: "Earliest sunsets land around December 7, a week before the solstice itself." }
+      ]
+    }
+  };
+
+  let turningsList = [];
+  let activeTurningIndex = 0;
+  let currentTurningIndex = 0;
+
+  function mmddToNum(mmdd) {
+    const parts = String(mmdd || "").split("-");
+    return (Number(parts[0]) || 0) * 100 + (Number(parts[1]) || 0);
+  }
+
+  function turningContainsDate(turning, date) {
+    const today = (date.getMonth() + 1) * 100 + date.getDate();
+    const start = mmddToNum(turning.start);
+    const end = mmddToNum(turning.end);
+    if (start <= end) return today >= start && today <= end;
+    return today >= start || today <= end; // wraps the year (e.g. Yuletide)
+  }
+
+  function formatTurningRange(turning) {
+    const fmt = (mmdd) => {
+      const parts = String(mmdd || "").split("-");
+      const d = new Date(2001, (Number(parts[0]) || 1) - 1, Number(parts[1]) || 1);
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    };
+    return fmt(turning.start) + " – " + fmt(turning.end);
+  }
+
+  function renderTurning() {
+    if (!turningsList.length) return;
+    const safeIndex = ((activeTurningIndex % turningsList.length) + turningsList.length) % turningsList.length;
+    const turning = turningsList[safeIndex];
+    const content = turning.content;
+    const isNow = safeIndex === currentTurningIndex;
+
+    const signsHtml = (content.signs || []).map((sign) => (
+      '<div class="turn-sign"><div class="turn-sign-icon">' + iconHtml(sign.icon) + '</div><div class="turn-sign-text">' + escapeHtml(sign.text) + "</div></div>"
+    )).join("");
+
+    const winters = content.littleWinters || [];
+    const wintersHtml = winters.length
+      ? '<div class="turn-section-label turn-section-gap">Little winters</div>' +
+        '<div class="turn-winters">' + winters.map((w) => (
+          '<div class="turn-winter"><div class="turn-winter-name">' + escapeHtml(w.name) + '</div><div class="turn-winter-when">' + escapeHtml(w.when) + '</div><div class="turn-winter-note">' + escapeHtml(w.note) + "</div></div>"
+        )).join("") + "</div>"
+      : "";
+
+    const html =
+      '<div class="turn-flip">' +
+        '<button class="turn-arrow" id="turnPrev" type="button" aria-label="Previous season">‹</button>' +
+        '<div class="turn-headline">' +
+          '<div class="turn-emoji">' + iconHtml(turning.emoji || "🌿") + "</div>" +
+          '<div>' +
+            '<div class="turn-plain">' + escapeHtml(content.plainName) + (isNow ? '<span class="turn-now">we’re here</span>' : "") + "</div>" +
+            '<div class="turn-sub">' + escapeHtml(turning.name) + " · " + escapeHtml(formatTurningRange(turning)) + "</div>" +
+          "</div>" +
+        "</div>" +
+        '<button class="turn-arrow" id="turnNext" type="button" aria-label="Next season">›</button>' +
+      "</div>" +
+      '<p class="turn-lore">' + escapeHtml(turning.explainer) + "</p>" +
+      '<div class="turn-section-label">In the holler</div>' +
+      '<div class="turn-signs">' + signsHtml + "</div>" +
+      wintersHtml;
+
+    setHTML("turningsBody", html);
+    setText("turningsNav", (safeIndex + 1) + " / " + turningsList.length);
+
+    const prevBtn = document.getElementById("turnPrev");
+    const nextBtn = document.getElementById("turnNext");
+    if (prevBtn) prevBtn.onclick = function () { activeTurningIndex = safeIndex - 1; renderTurning(); };
+    if (nextBtn) nextBtn.onclick = function () { activeTurningIndex = safeIndex + 1; renderTurning(); };
+  }
+
+  async function loadTurnings() {
+    let data;
+    try {
+      const resp = await fetch("turnings.json");
+      data = await resp.json();
+    } catch (error) {
+      console.error("Failed to load turnings.json", error);
+      return;
+    }
+    if (!data || !Array.isArray(data.turnings)) return;
+
+    turningsList = data.turnings
+      .filter((turning) => TURNING_CONTENT[turning.id])
+      .map((turning) => ({ ...turning, content: TURNING_CONTENT[turning.id] }));
+    if (!turningsList.length) return;
+
+    const now = new Date();
+    const found = turningsList.findIndex((turning) => turningContainsDate(turning, now));
+    currentTurningIndex = found >= 0 ? found : 0;
+    activeTurningIndex = currentTurningIndex;
+
+    showCard("turnings-card", true);
+    renderTurning();
   }
 
   function nextMeteorShower(date) {
@@ -1989,6 +2174,7 @@
     }
     applyPillCap();
     buildStaticSections();
+    loadTurnings();
     loadSkyGuide();
     initTopo();
     setupWatershedRangeControls();
