@@ -319,7 +319,29 @@ async function fetchForecast() {
   const forecastUrl = pointsData.properties?.forecast;
   if (!forecastUrl) throw new Error('Missing forecast URL from weather.gov points response');
   const forecastData = await fetchJson(forecastUrl, { headers: { Accept: 'application/geo+json' } });
-  return Array.isArray(forecastData.properties?.periods) ? forecastData.properties.periods.slice(0, 8) : [];
+  return Array.isArray(forecastData.properties?.periods) ? forecastData.properties.periods : [];
+}
+
+// Collapse NWS day/night periods into a 7-day daily outlook (date, hi, lo, condition).
+function buildWeekly(periods) {
+  const byDate = new Map();
+  for (const p of Array.isArray(periods) ? periods : []) {
+    if (!p || !p.startTime) continue;
+    const date = p.startTime.slice(0, 10);
+    let entry = byDate.get(date);
+    if (!entry) {
+      entry = { date, hi: null, lo: null, shortForecast: null };
+      byDate.set(date, entry);
+    }
+    if (p.isDaytime) {
+      if (Number.isFinite(p.temperature)) entry.hi = p.temperature;
+      if (p.shortForecast) entry.shortForecast = p.shortForecast;
+    } else {
+      if (Number.isFinite(p.temperature)) entry.lo = p.temperature;
+      if (!entry.shortForecast && p.shortForecast) entry.shortForecast = p.shortForecast;
+    }
+  }
+  return [...byDate.values()].filter((d) => d.hi != null || d.lo != null).slice(0, 7);
 }
 
 async function fetchYesterdaySummary(obsDate) {
@@ -438,7 +460,9 @@ async function updateWeatherFile() {
     console.warn('Archive rain patch failed (non-fatal):', e.message);
   }
 
-  const forecast = await fetchForecast();
+  const forecastPeriods = await fetchForecast();
+  const forecast = forecastPeriods.slice(0, 8);
+  const weekly = buildWeekly(forecastPeriods);
 
   const payload = {
     updatedAt: new Date().toISOString(),
@@ -468,6 +492,7 @@ async function updateWeatherFile() {
     },
     rain,
     forecast,
+    weekly,
     dailySummary
   };
 
