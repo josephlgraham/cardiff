@@ -138,6 +138,7 @@ If the answer is not clearly yes, rewrite.
 - Cardiff red stays the anchor color.
 - No dark mode by default.
 - Rounded corners and small visual warmth are part of the tone.
+- Every infobox/card carries a uniform 3px Cardiff-red top bar. This is applied site-wide from `cardiff-common.css` (a single `::after` rule that lists the card container classes), not per page. When a new page adds a new card class, add that class to that rule so the bar stays consistent. The bar goes on the card container only — not on sub-panels or list rows nested inside a card.
 - Infoboxes should only appear when they are actually useful.
 - If a card fits better on a different page, move it there.
 

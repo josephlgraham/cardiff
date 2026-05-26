@@ -68,6 +68,52 @@ a:hover{text-decoration:underline;}
 .info-box[data-kicker]::after{
   content:none;
 }
+
+/* Uniform Cardiff-red top bar on every infobox/card, site-wide.
+   Uses ::after so the dark accent bands keep their ::before texture.
+   overflow:hidden clips the bar flat to the rounded corners, so every
+   card matches regardless of which page defined it. */
+.card,.band,.photo-shell,.news-shell,.quote-card,
+.hero-copy,
+.notice-card,
+.alm-card,.hero-box,
+.feature-card,.lane-card,.footer-band,.quick-card,
+.vision-card,
+.order-tile,
+.game-card,.biome-card,
+.aside-card,.texture-card,.cat-card,.board-shell,.post-shell,
+.recipe-list-shell,.recipe-detail,.sub-card,.tip-band,
+.role-card,.letter-card,
+.side,.scanner,.priority,.xing,.announce-card,.cn-card,
+.mobile-status-card,.alert-band,
+.cta-band,.notify-card,.donate-band{
+  position:relative;
+  overflow:hidden;
+}
+.card::after,.band::after,.photo-shell::after,.news-shell::after,.quote-card::after,
+.hero-copy::after,
+.notice-card::after,
+.alm-card::after,.hero-box::after,
+.feature-card::after,.lane-card::after,.footer-band::after,.quick-card::after,
+.vision-card::after,
+.order-tile::after,
+.game-card::after,.biome-card::after,
+.aside-card::after,.texture-card::after,.cat-card::after,.board-shell::after,.post-shell::after,
+.recipe-list-shell::after,.recipe-detail::after,.sub-card::after,.tip-band::after,
+.role-card::after,.letter-card::after,
+.side::after,.scanner::after,.priority::after,.xing::after,.announce-card::after,.cn-card::after,
+.mobile-status-card::after,.alert-band::after,
+.cta-band::after,.notify-card::after,.donate-band::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:var(--red);
+  pointer-events:none;
+  z-index:1;
+}
 .site-kicker,
 .site-card .site-kicker,
 .section-kicker,
