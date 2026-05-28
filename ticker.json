@@ -1,38 +1,15 @@
 {
-  "updatedAt": "2026-05-28T22:44:59.201Z",
-  "hasAlerts": true,
-  "alertCount": 2,
+  "updatedAt": "2026-05-28T23:57:57.299Z",
+  "hasAlerts": false,
+  "alertCount": 0,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flash Flood Warning · Through next 15 min    ·    🌊 Flood Advisory · Through next 45 min",
+  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [
-    {
-      "event": "Flash Flood Warning",
-      "severity": "Severe",
-      "urgency": "Immediate",
-      "emoji": "🌊",
-      "ends": "2026-05-28T18:00:00-05:00",
-      "endsShort": "next 15 min",
-      "headline": "Flash Flood Warning",
-      "description": "FFWBMX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0337acf4d69bf211d3a7788d69b656bbb5fa6c2f.001.1"
-    },
-    {
-      "event": "Flood Advisory",
-      "severity": "Minor",
-      "urgency": "Expected",
-      "emoji": "🌊",
-      "ends": "2026-05-28T18:30:00-05:00",
-      "endsShort": "next 45 min",
-      "headline": "Flood Advisory",
-      "description": "* WHAT...Urban and small stream flooding caused by excessive",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9d70ec9e12c74370114c76adce0cfb29a17906a5.001.1"
-    }
-  ],
+  "alerts": [],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
