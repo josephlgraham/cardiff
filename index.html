@@ -434,6 +434,7 @@ function relativeTime(date){if(!date)return 'Date unavailable';const diff=Date.n
 function isFresh(date,days=6){return date&&(Date.now()-date.getTime())<=days*864e5}
 function scoreItem(item){const hay=(item.title+' '+item.description+' '+item.source).toLowerCase();let score=0;NEARBY_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=4});REGIONAL_KEYWORDS.forEach(k=>{if(hay.includes(k))score+=2});if(APPROVED_SOURCES.some(s=>item.source.includes(s)))score+=6;return score}
 function formatClock(date){return date.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
+function dayLength(sun){const r=sun.rise.getHours()*60+sun.rise.getMinutes();let s=sun.set.getHours()*60+sun.set.getMinutes();if(s<r)s+=1440;const mins=s-r;return Math.floor(mins/60)+'h '+String(mins%60).padStart(2,'0')+'m'}
 function getSunTimes(date){
   const start = new Date(date.getFullYear(), 0, 0);
   const dayOfYear = Math.floor((date - start) / 86400000);
@@ -607,7 +608,8 @@ async function loadHomeDashboard(){
         ].join('')
       : [
           `<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">${formatClock(sun.rise)}</div><div class="side-sub">Sunrise</div></div></div>`,
-          `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">${buildSkyNote(moon)}</div></div></div>`
+          `<div class="side-item"><div class="side-icon">${moon.icon}</div><div><div class="side-val">${moon.name}</div><div class="side-sub">${buildSkyNote(moon)}</div></div></div>`,
+          `<div class="side-item"><div class="side-icon">☀️</div><div><div class="side-val">${dayLength(sun)} of daylight</div><div class="side-sub">Sets at ${formatClock(sun.set)}</div></div></div>`
         ].join('');
   }
 }
