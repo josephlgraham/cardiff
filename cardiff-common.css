@@ -65,9 +65,6 @@ a:hover{text-decoration:underline;}
   padding-left:0.95rem;
   background:linear-gradient(var(--red),var(--red)) left center/8px 2px no-repeat;
 }
-.info-box[data-kicker]::after{
-  content:none;
-}
 
 /* Uniform Cardiff-red top bar on every infobox/card, site-wide.
    Uses ::after so the dark accent bands keep their ::before texture.
