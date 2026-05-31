@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-05-31T22:17:58.431Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-05-31T23:35:43.941Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "⚠️ Special Weather Statement · Through next 24 min",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Special Weather Statement",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "⚠️",
+      "ends": "2026-05-31T19:00:00-05:00",
+      "endsShort": "next 24 min",
+      "headline": "Special Weather Statement",
+      "description": "At 616 PM CDT, Doppler radar was tracking a strong thunderstorm near",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0316d28db37a221ad988113f8a73ee0d628ff935.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
