@@ -1,49 +1,53 @@
 {
-  "updatedAt": "2026-05-31T08:16:34.483Z",
+  "updatedAt": "2026-05-31T18:05:43.246Z",
   "stories": [
     {
-      "id": "monthly-rain-2026-05",
-      "source_type": "local_station",
-      "source_name": "Cardiff Desk",
-      "title": "May 2026 rain: 1.68 in recorded at Cardiff",
-      "summary": "The Cardiff station wrapped May 2026 with 1.68 in of measured precipitation.",
-      "url": "",
-      "published_at": "2026-05-31T08:16:34.483Z",
+      "id": "news-1-aol-com-jefferson-county-opening-storm-shelters-in-anticipation-of-sever",
+      "source_type": "media_feed",
+      "source_name": "AOL.com",
+      "title": "Jefferson County opening storm shelters in anticipation of severe weather",
+      "summary": "Jefferson County opening storm shelters in anticipation of severe weather &nbsp;&nbsp; AOL.com",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOa3VZUEtiSjBkZmRTaGpXWWo0eFJYVVMzLTd1eFlxeFB6WjFJNVYzUTFabjVlSkpWTThsdEcxLWRJNVpUWDBnSkd5S0UyM2ZnUHZ1OEYyN1habXpqSkd5YjF3cW00U0ZJRTBDNGxFWU93bGpMa1pnSmY3cER0SEE0SG0xRGQ?oc=5",
+      "published_at": "2026-05-30T19:43:09.000Z",
       "location_tags": [
-        "cardiff"
+        "jefferson_county"
       ],
       "topic_tags": [
         "weather"
       ],
-      "priority_level": 3,
+      "priority_level": 5,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
+      "is_alert": true,
+      "is_featured": true,
       "image_url": "",
       "raw_payload": {
         "modes": [
-          "weather"
+          "weather",
+          "all",
+          "regional"
         ],
         "tags": [
           "Weather"
         ]
       },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
-      "source": "Cardiff Desk",
-      "link": "",
-      "description": "The Cardiff station wrapped May 2026 with 1.68 in of measured precipitation.",
-      "date": "2026-05-31T08:16:34.483Z",
+      "last_synced_at": "2026-05-31T18:05:43.246Z",
+      "source": "AOL.com",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOa3VZUEtiSjBkZmRTaGpXWWo0eFJYVVMzLTd1eFlxeFB6WjFJNVYzUTFabjVlSkpWTThsdEcxLWRJNVpUWDBnSkd5S0UyM2ZnUHZ1OEYyN1habXpqSkd5YjF3cW00U0ZJRTBDNGxFWU93bGpMa1pnSmY3cER0SEE0SG0xRGQ?oc=5",
+      "description": "Jefferson County opening storm shelters in anticipation of severe weather &nbsp;&nbsp; AOL.com",
+      "date": "2026-05-30T19:43:09.000Z",
       "modes": [
-        "weather"
+        "weather",
+        "all",
+        "regional"
       ],
       "tags": [
         "Weather"
       ],
-      "priority": 3
+      "priority": 5
     },
     {
-      "id": "news-1-al-com-alabama-teacher-allegedly-threatened-to-kill-elementary-student-",
+      "id": "news-2-al-com-alabama-teacher-allegedly-threatened-to-kill-elementary-student-",
       "source_type": "media_feed",
       "source_name": "AL.com",
       "title": "Alabama teacher allegedly threatened to kill elementary student, family if child revealed sex crimes",
@@ -71,7 +75,7 @@
           "Schools"
         ]
       },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
+      "last_synced_at": "2026-05-31T18:05:43.246Z",
       "source": "AL.com",
       "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOTVdyRkRwRXdGeUtLendFTEdscnlaTmR6b0g0MU1yS3gxXzlQQ2VXXzBQZElKX0NLcUE0S0Fpc1FLNlNGcVlmT2lZd1FOZE0zVkhDYThPM29JajNZLUl5WWs1OEJ6aHBEVExFWU83RURjbkVfdy0xTnRHN3hqdnBaQzRkRy1qSU9DbmVweTRqanZISjhWSjd6OGxpU3ZSZzkzR1JzZklBZFlEcUw2VlVxSTY3T3Z1WFV5eHJzdzlROVg4WG9jQk9Yd1psSlFMQ0Z1NnRF0gHnAUFVX3lxTE5TS2xLSFZ2RmpZN3MxUGRWamRHWkczM0h5bXlhODlrcURFbk4ycFdwc0tQLTlVRmFoMDRNcm5BREp5RDhqWDNwUnNyRkNmbmc5NjdKVlgzc1l5b1d1Q20xcUd5c190LWdTczVKYUZKQ3FJZTU3VkUxTTRFUk04Qm1IUWNDTTN6UmI0a1ZMcXRkLU5QOEJteVBFUUJCZzlhZ21pNjVGWUR5Y1VsVFF0N0s1YUdJY2pKZ1Znam1ma3Qzbl9uVEFEX1dpMXJPM2xNbHE5dXB1VlkzOGxqcVdTMmdYUDI4QkhNWQ?oc=5",
       "description": "Alabama teacher allegedly threatened to kill elementary student, family if child revealed sex crimes &nbsp;&nbsp; AL.com",
@@ -86,7 +90,7 @@
       "priority": 3
     },
     {
-      "id": "news-2-national-review-a-democratic-house-candidate-s-minor-long-ago-work-for-an-al-qae",
+      "id": "news-3-national-review-a-democratic-house-candidate-s-minor-long-ago-work-for-an-al-qae",
       "source_type": "media_feed",
       "source_name": "National Review",
       "title": "A Democratic House Candidate’s Minor, Long-Ago Work for an al-Qaeda Front",
@@ -114,7 +118,7 @@
           "Nearby"
         ]
       },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
+      "last_synced_at": "2026-05-31T18:05:43.246Z",
       "source": "National Review",
       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQcVpOYVJuVU0zbURaM0tsQmQxZU5IZkJSMDBPY1daZ2xEWF9rNUJHTmFidDlkM0YxQW9kSVJ5bEw1YTRCYTg1ZEZHWmU4Nmk1LVVsOVhHenhqcno2b3pPUnZCM044bmM4dTZkdTVVVEFPMVBNVWxPRXdCeURpYllPREV5TXZRWm9Gc1FCV0pYUW9wZkhwSE5rd3JhdlZELUU4MHpJRk5xbzMxalVPSGYw0gG0AUFVX3lxTFBWOXFBWGJpVGF1VUtjOXM2SFFyUEV1cXNzTW8zNFZCdFgtbUZOT0gtVVRWRmRuVEtXOEx6WGhkU0xQUGkzXzhoLWV2VXhnamNfWmpteDFiTExub1NyZXJfYWN0WnlKdFFmLXMzQnh4aG5VZV9zcHRPLWk2ai1xcEUzdU51dTBGN3dhcVJnWi1HdXNMM0ZDMUJoZmlIYXVpT0xkQzVCWWxqX253UHN5S0lCNEZMdQ?oc=5",
       "description": "A Democratic House Candidate’s Minor, Long-Ago Work for an al-Qaeda Front &nbsp;&nbsp; National Review",
@@ -129,7 +133,7 @@
       "priority": 2
     },
     {
-      "id": "news-3-al-com-alabama-teacher-accused-of-threatening-child-allegedly-lured-7-y",
+      "id": "news-4-al-com-alabama-teacher-accused-of-threatening-child-allegedly-lured-7-y",
       "source_type": "media_feed",
       "source_name": "AL.com",
       "title": "Alabama teacher accused of threatening child allegedly lured 7-year-old into office",
@@ -157,7 +161,7 @@
           "Local"
         ]
       },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
+      "last_synced_at": "2026-05-31T18:05:43.246Z",
       "source": "AL.com",
       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeFQ3ZFhfc0R1ZndQUmNQZlVGTE5XZE5XV1ZnSDM2eTR2WjFNZUlrcVppcWdNMGxnN0Y3XzAtMHNjdWgwYm5kRXF0Slh2Y2s0VVgtcDczQlZNM2pzVkthaXhZSlhCLUVhRFRLT3JnVm5SS21fcksyTElnQ01lLVgyQ2stanNVRTNiTkIwbUx5UFdpWHp0Z09yOTBuYUVvd3pCUzMybm9PNE5pV2tRb1k2Nm01QTNoakE5Ml9xYU5B0gHSAUFVX3lxTFByY2VVQVRLNVZxbmRjRG9NTUxITFpKWXNuUFlheDFUT3ltcFNnWUl5Vkl1QThvOTJMVl9yUm8yRkZOUWFhRGVTekFNX1RxWTY5clNhVTdieWFfSUNlSXlQUmdLWVJQaHRVenFQNHhsYW9sa2xqYUt0MFhFckxPZHVHUDI3MTk0VnI3UzVsaXdWUG00enptUW01M1dpWTlwY2ZPTWJDM3FxTlFYNElYQlB1dkQ3Vk1UTnBmXzVlbWFZb2ZtS3hfQ0dVZERUSklpVTRmdw?oc=5",
       "description": "Alabama teacher accused of threatening child allegedly lured 7-year-old into office &nbsp;&nbsp; AL.com",
@@ -170,92 +174,6 @@
         "Local"
       ],
       "priority": 2
-    },
-    {
-      "id": "news-4-wrightfuneralhomeandcrematory-com-danny-morris-obituary-may-26-2026",
-      "source_type": "media_feed",
-      "source_name": "wrightfuneralhomeandcrematory.com",
-      "title": "Danny Morris Obituary May 26, 2026",
-      "summary": "Danny Morris Obituary May 26, 2026 &nbsp;&nbsp; wrightfuneralhomeandcrematory.com",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE81N0l4ZzRldHpTMFVmT0ZEODZHVzhLdk1OUGx1ZF9VdDEwalliWEpuWkZsV1lZMkFwZE5sN0ZCQXdnWloxRlA1Rk1OZnlPeTJMRzVPbWRQLTZ3dExQd2w3U3IzNDdjMUZuWW1FLU05MzhUUmp6NEs0cQ?oc=5",
-      "published_at": "2026-05-26T21:16:05.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
-      "source": "wrightfuneralhomeandcrematory.com",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE81N0l4ZzRldHpTMFVmT0ZEODZHVzhLdk1OUGx1ZF9VdDEwalliWEpuWkZsV1lZMkFwZE5sN0ZCQXdnWloxRlA1Rk1OZnlPeTJMRzVPbWRQLTZ3dExQd2w3U3IzNDdjMUZuWW1FLU05MzhUUmp6NEs0cQ?oc=5",
-      "description": "Danny Morris Obituary May 26, 2026 &nbsp;&nbsp; wrightfuneralhomeandcrematory.com",
-      "date": "2026-05-26T21:16:05.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 1
-    },
-    {
-      "id": "news-5-maxpreps-gardendale-football-schedule",
-      "source_type": "media_feed",
-      "source_name": "MaxPreps",
-      "title": "Gardendale Football Schedule",
-      "summary": "Gardendale Football Schedule &nbsp;&nbsp; MaxPreps",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeUJUckRJbDU5VldnT3NaaDBvVTRUZFpHdC1tSFVfcnpqZmJQVjlRRnBRMEM5VEdUNkxFVk5hWHNTaGxGQmJBTXBQZHo3SGNlNHpYXzJEQWdUOWFYUy1ZSFctOTN6VEFRc3hObEpibnFrYU5PT1BsOUlPdk95X190QmpB?oc=5",
-      "published_at": "2026-05-26T17:53:46.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-05-31T08:16:34.483Z",
-      "source": "MaxPreps",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeUJUckRJbDU5VldnT3NaaDBvVTRUZFpHdC1tSFVfcnpqZmJQVjlRRnBRMEM5VEdUNkxFVk5hWHNTaGxGQmJBTXBQZHo3SGNlNHpYXzJEQWdUOWFYUy1ZSFctOTN6VEFRc3hObEpibnFrYU5PT1BsOUlPdk95X190QmpB?oc=5",
-      "description": "Gardendale Football Schedule &nbsp;&nbsp; MaxPreps",
-      "date": "2026-05-26T17:53:46.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 1
     }
   ]
 }
