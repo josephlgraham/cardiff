@@ -98,7 +98,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .hero{padding:3rem 0 1.6rem}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:stretch}
 .kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem;display:flex;align-items:center;gap:.5rem}
 .kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block}
 .title{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:800;letter-spacing:-.03em;line-height:.96;color:var(--ink);margin-bottom:.9rem}
@@ -180,6 +180,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .hero-copy{display:flex;flex-direction:column;justify-content:flex-start;gap:1.15rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);padding:2rem 2.1rem}
 .hero-copy .title{margin-bottom:0;padding-bottom:.75rem;border-bottom:1px solid var(--rule)}
 .hero-copy .sub{font-size:1.06rem;line-height:1.85}
+.hero-signoff{margin-top:auto;padding-top:1rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.hero-body strong,.hero-quick-card .card-body strong{color:var(--ink);font-weight:700}
 .hero-grid>.photo-shell .photo-stage{aspect-ratio:1/1;min-height:0}
 .hero-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
 .hero-quick-card{min-height:100%;display:flex;flex-direction:column}
@@ -250,15 +252,17 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <section class="hero reveal">
     <div class="hero-grid">
       <div class="hero-copy">
+        <div class="site-kicker">Welcome</div>
         <h1 class="title">Glad you found us</h1>
         <p class="sub">Welcome to Cardiff, a small town along Five Mile Creek in the hills of Jefferson County, Alabama.</p>
         <div class="hero-body">
-          <p>Our town was founded in 1900 by families who came from Wales, Scotland, France, and Sicily to work the coal that fed Birmingham. They raised their children side by side, and the roots they put down here still run deep.</p>
-          <p>There are only about fifty of us now, but we are still here, and we are glad you came. The creek still runs, the hills still hold, and the people who call this place home still believe Cardiff is worth keeping.</p>
+          <p>Our town was founded in 1900 by families who came from <strong>Wales, Scotland, France, and Sicily</strong> to work the coal that fed Birmingham. They raised their children side by side, and the roots they put down here still run deep.</p>
+          <p>There are only about fifty of us now, but we are still here, and we are glad you came. The creek still runs, the hills still hold, and the people who call this place home still believe <strong>Cardiff is worth keeping</strong>.</p>
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
           <a href="cardiff-civic.html" class="btn primary" style="min-height:44px;font-size:.9rem;padding:.85rem 1.3rem;border-radius:var(--r-lg)">Read our story &nbsp;&#8594;</a>
         </div>
+        <div class="hero-signoff">Five Mile Creek &middot; Jefferson County, Alabama</div>
       </div>
       <div class="photo-shell info-box reveal" data-kicker="FEATURED PHOTO FROM OUR ARCHIVE">
         <div class="photo-toolbar">
@@ -280,13 +284,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
       <article class="card site-card hero-quick-card reveal">
         <div class="site-kicker">Daily rhythm</div>
         <h3 class="card-title">Check the weather and local rhythms.</h3>
-        <p class="card-body">Open the almanac for yesterday's weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
+        <p class="card-body">Open the <strong>almanac</strong> for yesterday's weather, creek conditions, moon phase, fishing notes, and the local seasonal read.</p>
         <a class="site-link" href="cardiff-almanac.html">🌤 Almanac</a>
       </article>
       <article class="card site-card hero-quick-card reveal">
         <div class="site-kicker">Around us</div>
         <h3 class="card-title">Keep one eye on the wider area.</h3>
-        <p class="card-body">Nearby towns, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
+        <p class="card-body"><strong>Nearby towns</strong>, county decisions, weather, roads, schools, and public safety all shape daily life in Cardiff.</p>
         <a class="site-link" href="cardiff-news.html">📰 News</a>
       </article>
     </div>
