@@ -14,15 +14,17 @@ a:hover{text-decoration:underline;}
 [id]{scroll-margin-top:var(--masthead-offset,150px);}
 .cardiff-masthead{background:var(--hdr-bg)!important;border-bottom:3px solid var(--red)!important;position:sticky!important;top:0!important;z-index:100!important;}
 .mh-identity{display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;padding:0.75rem 1.5rem!important;gap:1rem!important;border-bottom:1px solid var(--hdr-rule)!important;min-height:72px!important;}
-.mh-left-info{font-family:var(--mono)!important;font-size:0.75rem!important;letter-spacing:0.07em!important;color:var(--hdr-dim)!important;line-height:1.75!important;}
+.mh-left-info{font-family:var(--mono)!important;font-size:0.75rem!important;letter-spacing:0.07em!important;color:var(--hdr-dim)!important;line-height:1.75!important;white-space:nowrap!important;}
 .mh-brand{text-align:center!important;}
 .mh-brand-link{text-decoration:none!important;display:inline-block!important;}
 .mh-brand-name{font-family:var(--sans)!important;font-size:clamp(2rem,5vw,4rem)!important;font-weight:800!important;letter-spacing:-0.02em!important;line-height:1!important;color:var(--hdr-text)!important;text-shadow:0 1px 4px rgba(0,0,0,0.35)!important;white-space:nowrap!important;}
 .mh-brand-name .comma{color:var(--hdr-dimmer)!important;font-weight:300!important;}
 .mh-brand-sub{font-family:var(--mono)!important;font-size:0.62rem!important;letter-spacing:0.12em!important;text-transform:uppercase!important;color:var(--hdr-dimmer)!important;margin-top:0.22rem!important;display:block!important;}
-.mh-right-info{font-family:var(--mono)!important;font-size:0.75rem!important;letter-spacing:0.06em!important;color:var(--hdr-dim)!important;text-align:right!important;line-height:1.75!important;}
+.mh-right-info{font-family:var(--mono)!important;font-size:0.75rem!important;letter-spacing:0.06em!important;color:var(--hdr-dim)!important;text-align:right!important;line-height:1.75!important;white-space:nowrap!important;}
 .mh-right-info .wx-hi{color:rgba(245,234,216,0.88)!important;font-weight:500!important;font-size:0.88rem!important;}
 .mh-wx-link{text-decoration:none!important;color:inherit!important;}
+.mh-left-link{text-decoration:none!important;color:inherit!important;}
+.mh-left-link:hover{color:var(--hdr-text)!important;text-decoration:underline!important;}
 .mh-mobile-pills{display:none!important;}
 .mh-tabs{display:flex!important;overflow-x:auto!important;scrollbar-width:none!important;border-bottom:1px solid var(--hdr-rule)!important;}
 .mh-tabs::-webkit-scrollbar{display:none!important;}
@@ -34,6 +36,13 @@ a:hover{text-decoration:underline;}
 .announce-strip-scroll{flex:1!important;overflow:hidden!important;position:relative!important;padding:0 1rem!important;}
 .announce-strip-text{display:inline-block!important;white-space:nowrap!important;font-family:var(--mono)!important;font-size:0.63rem!important;letter-spacing:0.05em!important;animation:none!important;padding-left:0!important;}
 @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+/* Below ~800px the three-column masthead gets too tight for the watershed/gauge
+   lines (which never wrap), so hide them and keep the brand pinned to the center
+   track. (Below 600px the single-column mobile layout below takes over.) */
+@media(min-width:601px) and (max-width:800px){
+  .mh-left-info,.mh-right-info{display:none!important;}
+  .mh-brand{grid-column:2!important;}
+}
 @media(max-width:600px){
   .mh-identity{grid-template-columns:1fr!important;justify-items:center!important;gap:0.25rem!important;padding:0.6rem 1rem 0!important;min-height:unset!important;}
   .mh-left-info,.mh-right-info{display:none!important;}

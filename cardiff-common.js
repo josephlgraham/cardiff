@@ -76,6 +76,49 @@
   }
 
 
+  // When a page is opened with a #hash (e.g. the masthead creek link points to
+  // cardiff-almanac.html#watershed-card), the browser jumps to the target on
+  // load — but our async cards then render and push the target down, leaving the
+  // visitor stranded above it. Re-align to the target as the page settles, and
+  // bow out the moment the visitor scrolls on their own.
+  function honorHashAnchor() {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var target;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch (e) { return; }
+    if (!target) return;
+
+    var done = false;
+    var ro = null;
+    function stop() {
+      if (done) return;
+      done = true;
+      if (ro) ro.disconnect();
+      window.removeEventListener('wheel', onUser);
+      window.removeEventListener('touchmove', onUser);
+      window.removeEventListener('keydown', onKey);
+    }
+    function onUser() { stop(); }
+    function onKey(e) {
+      var nav = ['PageUp', 'PageDown', 'ArrowUp', 'ArrowDown', 'Home', 'End', ' '];
+      if (nav.indexOf(e.key) !== -1) stop();
+    }
+    function realign() { if (!done) target.scrollIntoView(); }
+
+    window.addEventListener('wheel', onUser, { passive: true });
+    window.addEventListener('touchmove', onUser, { passive: true });
+    window.addEventListener('keydown', onKey);
+
+    if (window.ResizeObserver) {
+      ro = new ResizeObserver(realign);
+      ro.observe(document.body);
+    }
+    realign();
+    setTimeout(stop, 2500);
+  }
+
+
   // ─────────────────────────────────────────────────────────────────
   //  WEATHER
   // ─────────────────────────────────────────────────────────────────
@@ -211,6 +254,177 @@
           stripText.textContent = '';
           setTickerMotion(stripText, false, '');
         }
+      });
+  }
+
+
+  // ─────────────────────────────────────────────────────────────────
+  //  ANNOUNCEMENTS (reads announcements.json — single source of truth)
+  //
+  //  To post or edit a notice, edit announcements.json. Never hand-edit
+  //  the HTML. This renderer fills, by element id:
+  //    • #announceCurrent / #announcePast  → full notices (announce page)
+  //    • #announceCard                      → compact preview (news page)
+  //  Notices auto-sort into current vs. past by their date.
+  // ─────────────────────────────────────────────────────────────────
+
+  var ANNOUNCEMENTS_URL = 'announcements.json';
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var WEEKDAYS_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  function escHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Parse 'YYYY-MM-DD' as a local date (avoids UTC off-by-one).
+  function parseLocalDate(str) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(str || ''));
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+
+  function todayStart() {
+    var n = new Date();
+    return new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  }
+
+  function noticeSummary(a) {
+    if (a.summary) return a.summary;
+    if (Array.isArray(a.body) && a.body.length) return a.body[0];
+    return '';
+  }
+
+  // Full notice card for the Announcements page.
+  function renderNoticeCard(a) {
+    var d = parseLocalDate(a.date);
+    var month = d ? MONTHS[d.getMonth()] : '';
+    var day = d ? d.getDate() : '';
+    var year = d ? d.getFullYear() : '';
+
+    var datebox =
+      '<div class="notice-datebox">' +
+        '<span class="notice-datebox-month">' + escHtml(month) + '</span>' +
+        '<span class="notice-datebox-day">' + escHtml(day) + '</span>' +
+        '<span class="notice-datebox-year">' + escHtml(year) + '</span>' +
+      '</div>';
+
+    var metaItems = '';
+    if (a.time) {
+      metaItems +=
+        '<div class="notice-meta-item"><div class="notice-meta-icon">🕕</div><div>' +
+          '<div class="notice-meta-label">Time</div>' +
+          '<div class="notice-meta-val">' + escHtml(a.time) + '</div>' +
+        '</div></div>';
+    }
+    if (a.location) {
+      metaItems +=
+        '<div class="notice-meta-item"><div class="notice-meta-icon">📍</div><div>' +
+          '<div class="notice-meta-label">Location</div>' +
+          '<div class="notice-meta-val">' + escHtml(a.location) + '</div>' +
+        '</div></div>';
+    }
+    var meta = metaItems ? '<div class="notice-meta">' + metaItems + '</div>' : '';
+
+    var paras = (Array.isArray(a.body) ? a.body : [])
+      .map(function (p) { return '<p>' + escHtml(p) + '</p>'; }).join('');
+
+    // Footer: "Posted by X · Weekday, Month D, YYYY at TIME · LOCATION"
+    var footerBits = [];
+    if (d) {
+      footerBits.push(WEEKDAYS[d.getDay()] + ', ' + month + ' ' + day + ', ' + year +
+        (a.time ? ' at ' + escHtml(a.time) : ''));
+    }
+    if (a.location) footerBits.push(escHtml(a.location));
+    var footer = 'Posted by ' + escHtml(a.postedBy || 'the Cardiff desk') +
+      (footerBits.length ? ' · ' + footerBits.join(' · ') : '');
+
+    return '<article class="notice-card reveal">' +
+      '<div class="notice-head">' + datebox +
+        '<div class="notice-head-text">' +
+          '<div class="notice-tag">' + escHtml(a.tag) + '</div>' +
+          '<div class="notice-headline">' + escHtml(a.headline) + '</div>' +
+        '</div></div>' +
+      '<div class="notice-body">' + meta +
+        '<div class="notice-desc">' + paras + '</div>' +
+      '</div>' +
+      '<div class="notice-footer">' + footer + '</div>' +
+    '</article>';
+  }
+
+  // Compact preview card for the News page (the #announceCard link).
+  function renderPreviewCard(el, a) {
+    var d = parseLocalDate(a.date);
+    var month = d ? MONTHS[d.getMonth()] : '';
+    var day = d ? d.getDate() : '';
+    var year = d ? d.getFullYear() : '';
+
+    var metaBits = [];
+    if (d) metaBits.push(WEEKDAYS_SHORT[d.getDay()] + ', ' + month + ' ' + day);
+    if (a.time) metaBits.push(a.time);
+    if (a.location) metaBits.push(a.location);
+
+    el.innerHTML =
+      '<div class="announce-card-date">' +
+        '<span class="announce-card-date-month">' + escHtml(month) + '</span>' +
+        '<span class="announce-card-date-day">' + escHtml(day) + '</span>' +
+        '<span class="announce-card-date-year">' + escHtml(year) + '</span>' +
+      '</div>' +
+      '<div class="announce-card-body">' +
+        '<div class="announce-card-kicker">Community Board · Current Notice</div>' +
+        '<div class="announce-card-title">' + escHtml(a.headline) + '</div>' +
+        '<div class="announce-card-meta">' + escHtml(metaBits.join(' · ')) + '</div>' +
+        '<div class="announce-card-copy">' + escHtml(noticeSummary(a)) + '</div>' +
+      '</div>' +
+      '<span class="announce-card-go">Full notice &rarr;</span>';
+  }
+
+  function loadAnnouncements() {
+    var card = document.getElementById('announceCard');
+    var currentBox = document.getElementById('announceCurrent');
+    var pastBox = document.getElementById('announcePast');
+    if (!card && !currentBox && !pastBox) return; // page has no slots
+
+    fetch(ANNOUNCEMENTS_URL, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('missing'); return r.json(); })
+      .then(function (data) {
+        var list = (data && Array.isArray(data.announcements)) ? data.announcements.slice() : [];
+        var today = todayStart();
+        var current = [], past = [];
+        list.forEach(function (a) {
+          var d = parseLocalDate(a.date);
+          if (d && d < today) past.push(a); else current.push(a);
+        });
+        current.sort(function (x, y) { return (parseLocalDate(x.date) || 0) - (parseLocalDate(y.date) || 0); });
+        past.sort(function (x, y) { return (parseLocalDate(y.date) || 0) - (parseLocalDate(x.date) || 0); });
+
+        // News page preview → soonest upcoming (fallback: most recent past).
+        if (card) {
+          var preview = current[0] || past[0];
+          if (preview) { renderPreviewCard(card, preview); card.hidden = false; }
+          else card.hidden = true;
+        }
+
+        // Announcements page → full current + past lists.
+        if (currentBox) {
+          currentBox.innerHTML = current.length
+            ? current.map(renderNoticeCard).join('')
+            : '<div class="archive-note reveal">No current notices. Check back soon.</div>';
+        }
+        if (pastBox) {
+          pastBox.innerHTML = past.length
+            ? past.map(renderNoticeCard).join('')
+            : '<div class="archive-note reveal">No archived notices yet. Past announcements will appear here.</div>';
+        }
+
+        initReveals(); // wire up scroll-reveal for the freshly injected nodes
+      })
+      .catch(function () {
+        // Leave the static fallback in place; just hide nothing extra.
+        if (currentBox) currentBox.innerHTML =
+          '<div class="archive-note reveal">Notices are temporarily unavailable.</div>';
       });
   }
 
@@ -355,7 +569,9 @@
     setInterval(loadWatershed, 10 * 60 * 1000);
     loadTicker();
     setInterval(loadTicker, TICKER_REFRESH_MS);
+    loadAnnouncements();
     initReveals();
+    honorHashAnchor();
     window.addEventListener('resize', centerActiveTab);
     window.addEventListener('load', centerActiveTab);
   }

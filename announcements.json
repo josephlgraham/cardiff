@@ -1,0 +1,31 @@
+{
+  "_readme": {
+    "what": "Single source of truth for community announcements. Both the Announcements page (cardiff-announce.html) and the News page preview card (cardiff-news.html) are built from this file by cardiff-common.js. Edit here only — do not hand-edit the HTML.",
+    "howToPostANotice": "Add an object to the \"announcements\" array below. Date determines placement automatically: a notice dated today or later shows under 'Current notices' and is the one previewed on the News page; once its date has passed it moves to 'Past notices' on its own. No need to move things by hand.",
+    "fields": {
+      "tag": "Short kicker above the headline, e.g. 'Community Meeting'. Required.",
+      "headline": "The notice title. Required.",
+      "date": "Event/notice date in YYYY-MM-DD (local time). Required. Drives current-vs-past and the date chip.",
+      "time": "Human-readable time, e.g. '6:00 PM'. Optional — omit for all-day or date-only notices.",
+      "location": "Where it happens, e.g. 'Town Hall'. Optional.",
+      "summary": "One short sentence shown in the News page preview card. Optional but recommended; if absent, the first body paragraph is used.",
+      "body": "Array of paragraphs (strings) shown in the full notice on the Announcements page. Required.",
+      "postedBy": "Attribution shown in the notice footer, e.g. 'the Cardiff desk'. Optional, defaults to 'the Cardiff desk'."
+    }
+  },
+  "announcements": [
+    {
+      "tag": "Community Meeting",
+      "headline": "Cardiff Community Meeting",
+      "date": "2026-06-09",
+      "time": "6:00 PM",
+      "location": "Town Hall",
+      "summary": "An open community meeting — all residents and neighbors welcome. No formal agenda; bring your questions, concerns, and ideas.",
+      "body": [
+        "All Cardiff residents and neighbors are welcome. This is an open community meeting — bring your questions, concerns, and ideas. There is no formal agenda; the floor belongs to the people who show up.",
+        "If you have something specific you would like discussed, come prepared to raise it. Cardiff works best when neighbors talk to each other directly."
+      ],
+      "postedBy": "the Cardiff desk"
+    }
+  ]
+}
