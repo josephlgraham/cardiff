@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-06-02T20:08:30.077Z",
-  "temp": 82,
-  "humidity": 77,
+  "updatedAt": "2026-06-03T09:55:03.335Z",
+  "temp": 61,
+  "humidity": 97,
   "windSpeed": 0,
-  "windDir": 354,
-  "windGust": 1,
-  "pressure": 29.749,
+  "windDir": 62,
+  "windGust": 0,
+  "pressure": 29.858,
   "pressureTrend": "rising",
-  "uv": 5,
-  "solarRadiation": 522.59,
+  "uv": 0,
+  "solarRadiation": 0,
   "dailyRain": 0,
   "hourlyRain": 0,
   "weeklyRain": 0.45,
   "monthlyRain": 0.45,
   "yearlyRain": 32.58,
-  "feelsLike": 87,
-  "dewPoint": 74,
-  "lastUpdated": "2026-06-02T20:07:00.000Z",
+  "feelsLike": 61,
+  "dewPoint": 60,
+  "lastUpdated": "2026-06-03T09:54:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 82,
-    "feelsLike": 87,
-    "feels": 87,
-    "humidity": 77,
+    "temp": 61,
+    "feelsLike": 61,
+    "feels": 61,
+    "humidity": 97,
     "windSpeed": 0,
-    "windDir": "N",
-    "windGust": 1,
+    "windDir": "ENE",
+    "windGust": 0,
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0,
     "precipTotal": 0,
-    "pressure": 29.749,
-    "pressureIn": 29.749,
-    "uv": 5,
-    "solarRadiation": 522.59,
-    "dewPoint": 74,
-    "obsTime": "2026-06-02T20:07:00.000Z",
-    "lastUpdated": "2026-06-02T20:07:00.000Z",
-    "condition": "Partly cloudy",
+    "pressure": 29.858,
+    "pressureIn": 29.858,
+    "uv": 0,
+    "solarRadiation": 0,
+    "dewPoint": 60,
+    "obsTime": "2026-06-03T09:54:00.000Z",
+    "lastUpdated": "2026-06-03T09:54:00.000Z",
+    "condition": "Clear",
     "source": "Ambient Weather",
     "sourceNote": null
   },
@@ -51,54 +51,35 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 65,
-      "windGust": 1,
-      "label": "So far today",
-      "isMorning": false,
-      "coverageStart": "2026-06-02"
+      "lowTemp": 61,
+      "windGust": 0,
+      "label": "Since midnight",
+      "isMorning": true,
+      "coverageStart": "2026-06-03"
     }
   },
   "forecast": [
     {
       "number": 1,
-      "name": "This Afternoon",
-      "startTime": "2026-06-02T15:00:00-05:00",
-      "endTime": "2026-06-02T18:00:00-05:00",
-      "isDaytime": true,
-      "temperature": 83,
+      "name": "Overnight",
+      "startTime": "2026-06-03T04:00:00-05:00",
+      "endTime": "2026-06-03T06:00:00-05:00",
+      "isDaytime": false,
+      "temperature": 63,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 10
+        "value": 0
       },
-      "windSpeed": "10 mph",
-      "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-      "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 83. Northeast wind around 10 mph. New rainfall amounts less than a tenth of an inch possible."
+      "windSpeed": "5 mph",
+      "windDirection": "E",
+      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+      "shortForecast": "Mostly Clear",
+      "detailedForecast": "Mostly clear, with a low around 63. East wind around 5 mph."
     },
     {
       "number": 2,
-      "name": "Tonight",
-      "startTime": "2026-06-02T18:00:00-05:00",
-      "endTime": "2026-06-03T06:00:00-05:00",
-      "isDaytime": false,
-      "temperature": 62,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 10
-      },
-      "windSpeed": "5 to 10 mph",
-      "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-      "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 62. Northeast wind 5 to 10 mph. New rainfall amounts less than a tenth of an inch possible."
-    },
-    {
-      "number": 3,
       "name": "Wednesday",
       "startTime": "2026-06-03T06:00:00-05:00",
       "endTime": "2026-06-03T18:00:00-05:00",
@@ -112,55 +93,17 @@
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
+      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
       "shortForecast": "Sunny",
       "detailedForecast": "Sunny, with a high near 81. East wind 5 to 10 mph."
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Wednesday Night",
       "startTime": "2026-06-03T18:00:00-05:00",
       "endTime": "2026-06-04T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 57,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 3
-      },
-      "windSpeed": "0 to 5 mph",
-      "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-      "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 57. East wind 0 to 5 mph."
-    },
-    {
-      "number": 5,
-      "name": "Thursday",
-      "startTime": "2026-06-04T06:00:00-05:00",
-      "endTime": "2026-06-04T18:00:00-05:00",
-      "isDaytime": true,
-      "temperature": 81,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 3
-      },
-      "windSpeed": "0 to 5 mph",
-      "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-      "shortForecast": "Sunny",
-      "detailedForecast": "Sunny, with a high near 81. East wind 0 to 5 mph."
-    },
-    {
-      "number": 6,
-      "name": "Thursday Night",
-      "startTime": "2026-06-04T18:00:00-05:00",
-      "endTime": "2026-06-05T06:00:00-05:00",
-      "isDaytime": false,
-      "temperature": 59,
+      "temperature": 58,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -168,13 +111,51 @@
         "value": 0
       },
       "windSpeed": "0 to 5 mph",
-      "windDirection": "SE",
+      "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 59."
+      "detailedForecast": "Mostly clear, with a low around 58. East wind 0 to 5 mph."
     },
     {
-      "number": 7,
+      "number": 4,
+      "name": "Thursday",
+      "startTime": "2026-06-04T06:00:00-05:00",
+      "endTime": "2026-06-04T18:00:00-05:00",
+      "isDaytime": true,
+      "temperature": 82,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 1
+      },
+      "windSpeed": "0 to 5 mph",
+      "windDirection": "SE",
+      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+      "shortForecast": "Sunny",
+      "detailedForecast": "Sunny, with a high near 82. Southeast wind 0 to 5 mph."
+    },
+    {
+      "number": 5,
+      "name": "Thursday Night",
+      "startTime": "2026-06-04T18:00:00-05:00",
+      "endTime": "2026-06-05T06:00:00-05:00",
+      "isDaytime": false,
+      "temperature": 60,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 1
+      },
+      "windSpeed": "0 to 5 mph",
+      "windDirection": "E",
+      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+      "shortForecast": "Mostly Clear",
+      "detailedForecast": "Mostly clear, with a low around 60. East wind 0 to 5 mph."
+    },
+    {
+      "number": 6,
       "name": "Friday",
       "startTime": "2026-06-05T06:00:00-05:00",
       "endTime": "2026-06-05T18:00:00-05:00",
@@ -193,12 +174,12 @@
       "detailedForecast": "Sunny, with a high near 84."
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Friday Night",
       "startTime": "2026-06-05T18:00:00-05:00",
       "endTime": "2026-06-06T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 63,
+      "temperature": 64,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -209,57 +190,76 @@
       "windDirection": "SE",
       "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
       "shortForecast": "Partly Cloudy",
-      "detailedForecast": "Partly cloudy, with a low around 63."
+      "detailedForecast": "Partly cloudy, with a low around 64."
+    },
+    {
+      "number": 8,
+      "name": "Saturday",
+      "startTime": "2026-06-06T06:00:00-05:00",
+      "endTime": "2026-06-06T18:00:00-05:00",
+      "isDaytime": true,
+      "temperature": 85,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 17
+      },
+      "windSpeed": "0 to 5 mph",
+      "windDirection": "SE",
+      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
+      "detailedForecast": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 85. Chance of precipitation is 20%."
     }
   ],
   "weekly": [
     {
-      "date": "2026-06-02",
-      "hi": 83,
-      "lo": 62,
-      "shortForecast": "Mostly Sunny"
-    },
-    {
       "date": "2026-06-03",
       "hi": 81,
-      "lo": 57,
+      "lo": 58,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-06-04",
-      "hi": 81,
-      "lo": 59,
+      "hi": 82,
+      "lo": 60,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-06-05",
       "hi": 84,
-      "lo": 63,
+      "lo": 64,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-06-06",
       "hi": 85,
-      "lo": 67,
-      "shortForecast": "Mostly Sunny"
+      "lo": 68,
+      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms"
     },
     {
       "date": "2026-06-07",
       "hi": 85,
-      "lo": 69,
+      "lo": 70,
       "shortForecast": "Chance Showers And Thunderstorms"
     },
     {
       "date": "2026-06-08",
       "hi": 85,
-      "lo": 69,
-      "shortForecast": "Chance Showers And Thunderstorms"
+      "lo": 70,
+      "shortForecast": "Showers And Thunderstorms Likely"
+    },
+    {
+      "date": "2026-06-09",
+      "hi": 85,
+      "lo": null,
+      "shortForecast": "Showers And Thunderstorms Likely"
     }
   ],
   "dailySummary": {
-    "yesterdayHigh": 91,
-    "yesterdayLow": 66,
-    "yesterdayRain": 0.45,
+    "yesterdayHigh": 86,
+    "yesterdayLow": 65,
+    "yesterdayRain": 0,
     "todayHigh": null,
     "todayLow": null,
     "todayRain": null
