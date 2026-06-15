@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-06-15T04:57:19.271Z",
+  "updatedAt": "2026-06-15T10:56:37.381Z",
   "leadGaugeId": "02457595",
-  "summary": "Cardiff has picked up 0.09 inches today, and Republic gauge is holding fairly steady. Lead stage is 1.35 ft with about 36.1 cfs moving through the channel. Month-to-date rain is 0.72 inches.",
+  "summary": "Cardiff is dry today, and Republic gauge is holding fairly steady. Lead stage is 1.35 ft with about 36.1 cfs moving through the channel. Month-to-date rain is 0.72 inches.",
   "rainContext": {
-    "today": 0.09,
+    "today": 0,
     "monthToDate": 0.72,
     "monthLabel": "June 2026",
     "monthComplete": true,
@@ -11,12 +11,12 @@
     "source": "ambient-station",
     "sourceNote": null,
     "morningReport": {
-      "amount": 0.09,
-      "lowTemp": 73,
-      "windGust": 6,
-      "label": "So far today",
-      "isMorning": false,
-      "coverageStart": "2026-06-14"
+      "amount": 0,
+      "lowTemp": 67,
+      "windGust": 0,
+      "label": "Since midnight",
+      "isMorning": true,
+      "coverageStart": "2026-06-15"
     }
   },
   "gauges": [
@@ -35,12 +35,8 @@
       "stage_ft": 1.35,
       "discharge_cfs": 36.1,
       "trend": "steady",
-      "updated_at": "2026-06-14T23:00:00.000-05:00",
+      "updated_at": "2026-06-15T05:00:00.000-05:00",
       "stage_history": [
-        {
-          "at": "2026-05-16T00:00:00.000-05:00",
-          "stage_ft": 1.21
-        },
         {
           "at": "2026-05-16T06:00:00.000-05:00",
           "stage_ft": 1.21
@@ -58,7 +54,7 @@
           "stage_ft": 1.2
         },
         {
-          "at": "2026-05-17T06:15:00.000-05:00",
+          "at": "2026-05-17T06:00:00.000-05:00",
           "stage_ft": 1.22
         },
         {
@@ -98,7 +94,7 @@
           "stage_ft": 1.47
         },
         {
-          "at": "2026-05-19T18:30:00.000-05:00",
+          "at": "2026-05-19T18:15:00.000-05:00",
           "stage_ft": 1.37
         },
         {
@@ -138,7 +134,7 @@
           "stage_ft": 1.28
         },
         {
-          "at": "2026-05-22T06:45:00.000-05:00",
+          "at": "2026-05-22T06:30:00.000-05:00",
           "stage_ft": 1.44
         },
         {
@@ -178,8 +174,8 @@
           "stage_ft": 1.46
         },
         {
-          "at": "2026-05-24T19:00:00.000-05:00",
-          "stage_ft": 2.89
+          "at": "2026-05-24T18:45:00.000-05:00",
+          "stage_ft": 3.01
         },
         {
           "at": "2026-05-25T01:00:00.000-05:00",
@@ -218,7 +214,7 @@
           "stage_ft": 1.49
         },
         {
-          "at": "2026-05-27T07:15:00.000-05:00",
+          "at": "2026-05-27T07:00:00.000-05:00",
           "stage_ft": 1.48
         },
         {
@@ -258,7 +254,7 @@
           "stage_ft": 1.56
         },
         {
-          "at": "2026-05-29T19:30:00.000-05:00",
+          "at": "2026-05-29T19:15:00.000-05:00",
           "stage_ft": 1.52
         },
         {
@@ -298,7 +294,7 @@
           "stage_ft": 1.41
         },
         {
-          "at": "2026-06-01T07:45:00.000-05:00",
+          "at": "2026-06-01T07:30:00.000-05:00",
           "stage_ft": 1.4
         },
         {
@@ -338,7 +334,7 @@
           "stage_ft": 1.33
         },
         {
-          "at": "2026-06-03T20:00:00.000-05:00",
+          "at": "2026-06-03T19:45:00.000-05:00",
           "stage_ft": 1.32
         },
         {
@@ -378,7 +374,7 @@
           "stage_ft": 1.24
         },
         {
-          "at": "2026-06-06T08:15:00.000-05:00",
+          "at": "2026-06-06T08:00:00.000-05:00",
           "stage_ft": 1.27
         },
         {
@@ -418,8 +414,8 @@
           "stage_ft": 2.12
         },
         {
-          "at": "2026-06-08T20:30:00.000-05:00",
-          "stage_ft": 2.77
+          "at": "2026-06-08T20:15:00.000-05:00",
+          "stage_ft": 2.84
         },
         {
           "at": "2026-06-09T02:30:00.000-05:00",
@@ -458,8 +454,8 @@
           "stage_ft": 1.64
         },
         {
-          "at": "2026-06-11T08:45:00.000-05:00",
-          "stage_ft": 1.61
+          "at": "2026-06-11T08:30:00.000-05:00",
+          "stage_ft": 1.62
         },
         {
           "at": "2026-06-11T14:45:00.000-05:00",
@@ -498,8 +494,8 @@
           "stage_ft": 1.47
         },
         {
-          "at": "2026-06-13T22:00:00.000-05:00",
-          "stage_ft": 1.44
+          "at": "2026-06-13T21:45:00.000-05:00",
+          "stage_ft": 1.45
         },
         {
           "at": "2026-06-14T04:00:00.000-05:00",
@@ -515,6 +511,10 @@
         },
         {
           "at": "2026-06-14T23:00:00.000-05:00",
+          "stage_ft": 1.35
+        },
+        {
+          "at": "2026-06-15T05:00:00.000-05:00",
           "stage_ft": 1.35
         }
       ],
