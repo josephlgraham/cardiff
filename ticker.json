@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-06-18T22:24:07.494Z",
+  "updatedAt": "2026-06-19T00:10:56.053Z",
   "hasAlerts": true,
   "alertCount": 2,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flood Watch · Through Saturday 12 AM    ·    🌊 Flood Advisory · Through tomorrow 1 AM",
+  "ticker": "🌊 Flood Watch · Through tomorrow 12 AM    ·    🌊 Flood Advisory · Through next 1 hr",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -16,7 +16,7 @@
       "urgency": "Future",
       "emoji": "🌊",
       "ends": "2026-06-19T19:00:00-05:00",
-      "endsShort": "Saturday 12 AM",
+      "endsShort": "tomorrow 12 AM",
       "headline": "Flood Watch",
       "description": "* WHAT...Flash flooding caused by excessive rainfall continues to be",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.07b1d6021ea98f45ffbb84b7c0d73ebf5830d52c.001.1"
@@ -27,7 +27,7 @@
       "urgency": "Expected",
       "emoji": "🌊",
       "ends": "2026-06-18T20:30:00-05:00",
-      "endsShort": "tomorrow 1 AM",
+      "endsShort": "next 1 hr",
       "headline": "Flood Advisory",
       "description": "* WHAT...Urban and small stream flooding caused by excessive",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5991c026088a09d7a3493aa2a7357bec11742287.001.1"
