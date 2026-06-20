@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-06-20T06:35:57.996Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-06-20T09:52:27.341Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "🌊 Flood Watch · Through tomorrow 12 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Flood Watch",
+      "severity": "Severe",
+      "urgency": "Future",
+      "emoji": "🌊",
+      "ends": "2026-06-20T19:00:00-05:00",
+      "endsShort": "tomorrow 12 AM",
+      "headline": "Flood Watch",
+      "description": "Widespread showers and storms are expected to develop once again",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.69d763132a755b61eaa73e2123eda58b3b820a10.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
