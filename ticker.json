@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-06-20T17:44:47.702Z",
+  "updatedAt": "2026-06-20T19:02:07.485Z",
   "hasAlerts": true,
-  "alertCount": 3,
+  "alertCount": 2,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flash Flood Warning · Through today 8 PM    ·    🌊 Flood Watch · Through tomorrow 12 AM    ·    ⚠️ Special Weather Statement · Through next 15 min",
+  "ticker": "🌊 Flash Flood Warning · Through next 58 min    ·    🌊 Flood Watch · Through tomorrow 12 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -16,7 +16,7 @@
       "urgency": "Immediate",
       "emoji": "🌊",
       "ends": "2026-06-20T15:00:00-05:00",
-      "endsShort": "today 8 PM",
+      "endsShort": "next 58 min",
       "headline": "Flash Flood Warning",
       "description": "FFWBMX",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.da54f975a19b0155e51975b294e105796488242b.001.1"
@@ -31,17 +31,6 @@
       "headline": "Flood Watch",
       "description": "Widespread showers and storms are expected to develop once again",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.69d763132a755b61eaa73e2123eda58b3b820a10.001.1"
-    },
-    {
-      "event": "Special Weather Statement",
-      "severity": "Moderate",
-      "urgency": "Expected",
-      "emoji": "⚠️",
-      "ends": "2026-06-20T13:00:00-05:00",
-      "endsShort": "next 15 min",
-      "headline": "Special Weather Statement",
-      "description": "At 1230 PM CDT, Doppler radar was tracking a strong thunderstorm near",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.60cdc2ce24b4e7e833d760c6f8e69ff0f3281a84.001.1"
     }
   ],
   "spcOutlook": [],
