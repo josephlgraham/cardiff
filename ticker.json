@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-06-20T21:55:03.745Z",
+  "updatedAt": "2026-06-20T23:13:24.606Z",
   "hasAlerts": true,
-  "alertCount": 3,
+  "alertCount": 4,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flash Flood Warning · Through next 35 min    ·    🌊 Flood Watch · Through tomorrow 12 AM    ·    🌊 Flood Advisory · Through next 2 hr",
+  "ticker": "🌊 Flash Flood Warning · Through next 1 hr    ·    🌊 Flood Warning · Through tomorrow 1 AM    ·    🌊 Flood Watch · Through next 47 min    ·    🌊 Flood Advisory · Through next 32 min",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -15,11 +15,22 @@
       "severity": "Severe",
       "urgency": "Immediate",
       "emoji": "🌊",
-      "ends": "2026-06-20T17:30:00-05:00",
-      "endsShort": "next 35 min",
+      "ends": "2026-06-20T19:30:00-05:00",
+      "endsShort": "next 1 hr",
       "headline": "Flash Flood Warning",
-      "description": "At 336 PM CDT, broadcast media reported thunderstorms producing",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.b643c06b7ec0a1a886f4112f3408a5c624c3d234.001.1"
+      "description": "FFWBMX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.587783994575dd5e729c6ebdb774ac5b3ee0171e.001.1"
+    },
+    {
+      "event": "Flood Warning",
+      "severity": "Severe",
+      "urgency": "Expected",
+      "emoji": "🌊",
+      "ends": "2026-06-20T20:15:00-05:00",
+      "endsShort": "tomorrow 1 AM",
+      "headline": "Flood Warning",
+      "description": "* WHAT...Flooding caused by excessive rainfall is expected.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dc1b5f2b9753e0ed6ee7b021412c677177a6e3d7.001.1"
     },
     {
       "event": "Flood Watch",
@@ -27,7 +38,7 @@
       "urgency": "Future",
       "emoji": "🌊",
       "ends": "2026-06-20T19:00:00-05:00",
-      "endsShort": "tomorrow 12 AM",
+      "endsShort": "next 47 min",
       "headline": "Flood Watch",
       "description": "Widespread showers and storms are expected to develop once again",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.69d763132a755b61eaa73e2123eda58b3b820a10.001.1"
@@ -38,7 +49,7 @@
       "urgency": "Expected",
       "emoji": "🌊",
       "ends": "2026-06-20T18:45:00-05:00",
-      "endsShort": "next 2 hr",
+      "endsShort": "next 32 min",
       "headline": "Flood Advisory",
       "description": "* WHAT...Urban and small stream flooding caused by excessive",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.08ab7e8ce53424eb512610bb7c8bc8a11620b5e4.001.1"
