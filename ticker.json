@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-06-22T16:11:47.107Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-06-22T19:50:11.363Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "⛈️ Severe Thunderstorm Watch · Through tomorrow 12 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Severe Thunderstorm Watch",
+      "severity": "Severe",
+      "urgency": "Future",
+      "emoji": "⛈️",
+      "ends": "2026-06-22T19:00:00-05:00",
+      "endsShort": "tomorrow 12 AM",
+      "headline": "Severe Thunderstorm Watch",
+      "description": "SEVERE THUNDERSTORM WATCH 374 REMAINS VALID UNTIL 7 PM CDT THIS",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d0bc5d8843f83c71f9be591ff4ac8881108af733.002.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
