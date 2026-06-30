@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-06-30T01:28:31.987Z",
+  "updatedAt": "2026-06-30T05:49:57.308Z",
   "hasAlerts": true,
   "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
-  "hasCalendarReminders": false,
-  "calendarReminderCount": 0,
-  "ticker": "🌡️ Heat Advisory · Through Thursday 2 AM",
+  "hasCalendarReminders": true,
+  "calendarReminderCount": 1,
+  "ticker": "🌡️ Heat Advisory · Through Thursday 2 AM    ·    🚨 Tomorrow: Jefferson County tornado siren test · Sirens test at 10:00 AM — no action needed",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -19,10 +19,12 @@
       "endsShort": "Thursday 2 AM",
       "headline": "Heat Advisory",
       "description": "* WHAT...Afternoon heat index values 105 to 109 through Wednesday.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fc0d46cc49f848907500c00934e6f7ef8de05ca1.001.1"
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7b2f83c2dc7656d081b31f851975c3b70d39a84c.002.1"
     }
   ],
   "spcOutlook": [],
   "gaugeAlerts": [],
-  "calendarReminders": []
+  "calendarReminders": [
+    "🚨 Tomorrow: Jefferson County tornado siren test · Sirens test at 10:00 AM — no action needed"
+  ]
 }
