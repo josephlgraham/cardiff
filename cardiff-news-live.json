@@ -1,6 +1,47 @@
 {
-  "updatedAt": "2026-06-29T19:05:37.673Z",
+  "updatedAt": "2026-06-30T08:32:14.683Z",
   "stories": [
+    {
+      "id": "monthly-rain-2026-06",
+      "source_type": "local_station",
+      "source_name": "Cardiff Desk",
+      "title": "June 2026 rain: 2.36 in recorded at Cardiff",
+      "summary": "The Cardiff station wrapped June 2026 with 2.36 in of measured precipitation.",
+      "url": "",
+      "published_at": "2026-06-30T08:32:14.683Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "weather"
+      ],
+      "priority_level": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "weather"
+        ],
+        "tags": [
+          "Weather"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "Cardiff Desk",
+      "link": "",
+      "description": "The Cardiff station wrapped June 2026 with 2.36 in of measured precipitation.",
+      "date": "2026-06-30T08:32:14.683Z",
+      "modes": [
+        "weather"
+      ],
+      "tags": [
+        "Weather"
+      ],
+      "priority": 3
+    },
     {
       "id": "news-1-wbma-warrior-firefighter-killed-battling-colorado-wildfire",
       "source_type": "media_feed",
@@ -8,14 +49,14 @@
       "title": "Warrior Firefighter Killed Battling Colorado Wildfire",
       "summary": "Warrior Firefighter Killed Battling Colorado Wildfire &nbsp;&nbsp; WBMA",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPR1ZYcGJ4V0RibV92eGdSVlkweGlDQTJLV19kTjI0RWlEWUtNYlZ4aU1UYjVXbkthaEx1eG9MZ25IWEVJb1dsS3prai04dVdvdkJZdERWVmJ0NXBDYlJKdEJrYXYzNUViV29fZHVYUkxSM0lLZUpTVlk2SGpkSTFIeTM0TnpKZkVYUjl2Ug?oc=5",
-      "published_at": "2026-06-29T15:57:38.000Z",
+      "published_at": "2026-06-29T16:01:01.000Z",
       "location_tags": [
         "cardiff"
       ],
       "topic_tags": [
         "fire"
       ],
-      "priority_level": 4,
+      "priority_level": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -32,11 +73,11 @@
           "Safety"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "WBMA",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPR1ZYcGJ4V0RibV92eGdSVlkweGlDQTJLV19kTjI0RWlEWUtNYlZ4aU1UYjVXbkthaEx1eG9MZ25IWEVJb1dsS3prai04dVdvdkJZdERWVmJ0NXBDYlJKdEJrYXYzNUViV29fZHVYUkxSM0lLZUpTVlk2SGpkSTFIeTM0TnpKZkVYUjl2Ug?oc=5",
       "description": "Warrior Firefighter Killed Battling Colorado Wildfire &nbsp;&nbsp; WBMA",
-      "date": "2026-06-29T15:57:38.000Z",
+      "date": "2026-06-29T16:01:01.000Z",
       "modes": [
         "nearby",
         "all",
@@ -46,55 +87,10 @@
         "Nearby",
         "Safety"
       ],
-      "priority": 4
+      "priority": 3
     },
     {
-      "id": "news-2-al-com-alabama-firefighter-among-3-killed-in-colorado-wildfire",
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "title": "Alabama firefighter among 3 killed in Colorado wildfire",
-      "summary": "Alabama firefighter among 3 killed in Colorado wildfire &nbsp;&nbsp; AL.com",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZXhwV2FBOC1WVDBCeVMyRXlRbi1LaURLWmtmWDRhSVVxWWZHal9acnFKaldJdlctellMUFlaWUNha01rSTM1N1VEdEtmN1BqdVkwSzVLSDdSV1Q1RkFzTWtqcUItZGMtVXNvMFdnUmF5YWZHbDA3WGNfOGtzbGc5Smo1WEFUT3N5anlXYWtUUHFxWm5SV0FZ0gGrAUFVX3lxTE16QXdHUDVQb3FqVTBtUEg2VEtiS3l2LWVZTXNJS29sS3RMZW5IWHBUTXhQaWE0blh0b3RUcFhnTDRKWmM1QmpOZDJWTWxKWjRUNVdEcDJIQ21yLXVzeDkxeGozRWdoZ2JlZUpfem5Lb3ZCcGo3VDFxdE05eUNNdG00amgtRVN0dC14dFg5dElFYy10UE9CUmNxdUM5ZnlLYW5sR1BMVmZseGd3SQ?oc=5",
-      "published_at": "2026-06-29T15:58:00.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "fire"
-      ],
-      "priority_level": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": true,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all",
-          "civic"
-        ],
-        "tags": [
-          "Safety"
-        ]
-      },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
-      "source": "AL.com",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZXhwV2FBOC1WVDBCeVMyRXlRbi1LaURLWmtmWDRhSVVxWWZHal9acnFKaldJdlctellMUFlaWUNha01rSTM1N1VEdEtmN1BqdVkwSzVLSDdSV1Q1RkFzTWtqcUItZGMtVXNvMFdnUmF5YWZHbDA3WGNfOGtzbGc5Smo1WEFUT3N5anlXYWtUUHFxWm5SV0FZ0gGrAUFVX3lxTE16QXdHUDVQb3FqVTBtUEg2VEtiS3l2LWVZTXNJS29sS3RMZW5IWHBUTXhQaWE0blh0b3RUcFhnTDRKWmM1QmpOZDJWTWxKWjRUNVdEcDJIQ21yLXVzeDkxeGozRWdoZ2JlZUpfem5Lb3ZCcGo3VDFxdE05eUNNdG00amgtRVN0dC14dFg5dElFYy10UE9CUmNxdUM5ZnlLYW5sR1BMVmZseGd3SQ?oc=5",
-      "description": "Alabama firefighter among 3 killed in Colorado wildfire &nbsp;&nbsp; AL.com",
-      "date": "2026-06-29T15:58:00.000Z",
-      "modes": [
-        "nearby",
-        "all",
-        "civic"
-      ],
-      "tags": [
-        "Safety"
-      ],
-      "priority": 4
-    },
-    {
-      "id": "news-3-the-journal-of-blacks-in-higher-education-alabama-state-university-and-morris-brown-college-launch-new-deg",
+      "id": "news-2-the-journal-of-blacks-in-higher-education-alabama-state-university-and-morris-brown-college-launch-new-deg",
       "source_type": "media_feed",
       "source_name": "The Journal of Blacks in Higher Education",
       "title": "Alabama State University and Morris Brown College Launch New Degree Pathway Agreement",
@@ -124,7 +120,7 @@
           "Schools"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "The Journal of Blacks in Higher Education",
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOYzFxMUpoZnhaT3FER0lzTVVUU2lNazE3WmE1UU1jc2VUd2V6c3dqV2d6RHZ3NW9pNllSdXFUYU5Ecjc1eWxYNnR3QkRBNW9ldU5rUExoTzFQM0doWENPX0J0dlpkSVlrU0pSNFREWlR1dnlNcC01eXROSHVFRkV1dm8zZ29wVUpUS3J2ZWtqejVUM01pbEg5UW9HUThZSEdZbGFTTmJIelpOemV1Vm5nVQ?oc=5",
       "description": "Alabama State University and Morris Brown College Launch New Degree Pathway Agreement &nbsp;&nbsp; The Journal of Blacks in Higher Education",
@@ -141,13 +137,56 @@
       "priority": 3
     },
     {
-      "id": "news-4-wvtm-colorado-knowles-fire-kills-alabama-firefighter-and-two-others-d",
+      "id": "news-3-wvtm-gardendale-community-mourns-alabama-father-who-died-trying-to-sa",
       "source_type": "media_feed",
       "source_name": "wvtm",
-      "title": "Colorado Knowles Fire kills Alabama firefighter and two others during attack operations",
-      "summary": "Colorado Knowles Fire kills Alabama firefighter and two others during attack operations &nbsp;&nbsp; wvtm",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOeUlsd1NJZDhBX1JsWF95Sm5ITC02aG02OE1lNGdzWGhfWTlkNHB1MHM4cnhhc18wU3U1aWlTQVpqVEdsR0ktUFVfZjVaOWlwMlFnZGR3OHIyRk84OFpJeFE4SllTSFdyTUhIcXZDcXZPcXFtMlVQM0ZGblBWRC01OEs2Q01hdDJLSXFrbHZJc0w?oc=5",
-      "published_at": "2026-06-29T17:32:00.000Z",
+      "title": "Gardendale community mourns Alabama father who died trying to save loved ones in Cahaba River",
+      "summary": "Gardendale community mourns Alabama father who died trying to save loved ones in Cahaba River &nbsp;&nbsp; wvtm",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQUERVdVNEcjZiUy0tODVCN3VTekhhVTdudkQzNExiUnlURGxBbFdwTDI3aWFSQVl1NG96TGhxZ0NUXzRROU40QmtNTVJ5QTExeGhGemU2eG91RnBEUVY4dThHVnlyOER1UW5EdkR2eUxLWVNjdW5OQUpOMFR3QWJGVTlVOUpLcXBpM0NxRFVTSy1DYnJxSm41M0lvSVUweVhrQ1c3Vi02bmFQYTMxazRWZE93?oc=5",
+      "published_at": "2026-06-30T04:09:00.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "community"
+      ],
+      "priority_level": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all"
+        ],
+        "tags": [
+          "Nearby"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "wvtm",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQUERVdVNEcjZiUy0tODVCN3VTekhhVTdudkQzNExiUnlURGxBbFdwTDI3aWFSQVl1NG96TGhxZ0NUXzRROU40QmtNTVJ5QTExeGhGemU2eG91RnBEUVY4dThHVnlyOER1UW5EdkR2eUxLWVNjdW5OQUpOMFR3QWJGVTlVOUpLcXBpM0NxRFVTSy1DYnJxSm41M0lvSVUweVhrQ1c3Vi02bmFQYTMxazRWZE93?oc=5",
+      "description": "Gardendale community mourns Alabama father who died trying to save loved ones in Cahaba River &nbsp;&nbsp; wvtm",
+      "date": "2026-06-30T04:09:00.000Z",
+      "modes": [
+        "nearby",
+        "all"
+      ],
+      "tags": [
+        "Nearby"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "news-4-al-com-alabama-firefighter-among-3-killed-in-colorado-wildfire",
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "title": "Alabama firefighter among 3 killed in Colorado wildfire",
+      "summary": "Alabama firefighter among 3 killed in Colorado wildfire &nbsp;&nbsp; AL.com",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZXhwV2FBOC1WVDBCeVMyRXlRbi1LaURLWmtmWDRhSVVxWWZHal9acnFKaldJdlctellMUFlaWUNha01rSTM1N1VEdEtmN1BqdVkwSzVLSDdSV1Q1RkFzTWtqcUItZGMtVXNvMFdnUmF5YWZHbDA3WGNfOGtzbGc5Smo1WEFUT3N5anlXYWtUUHFxWm5SV0FZ0gGrAUFVX3lxTE16QXdHUDVQb3FqVTBtUEg2VEtiS3l2LWVZTXNJS29sS3RMZW5IWHBUTXhQaWE0blh0b3RUcFhnTDRKWmM1QmpOZDJWTWxKWjRUNVdEcDJIQ21yLXVzeDkxeGozRWdoZ2JlZUpfem5Lb3ZCcGo3VDFxdE05eUNNdG00amgtRVN0dC14dFg5dElFYy10UE9CUmNxdUM5ZnlLYW5sR1BMVmZseGd3SQ?oc=5",
+      "published_at": "2026-06-29T15:58:00.000Z",
       "location_tags": [
         "cardiff"
       ],
@@ -170,11 +209,11 @@
           "Safety"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
-      "source": "wvtm",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOeUlsd1NJZDhBX1JsWF95Sm5ITC02aG02OE1lNGdzWGhfWTlkNHB1MHM4cnhhc18wU3U1aWlTQVpqVEdsR0ktUFVfZjVaOWlwMlFnZGR3OHIyRk84OFpJeFE4SllTSFdyTUhIcXZDcXZPcXFtMlVQM0ZGblBWRC01OEs2Q01hdDJLSXFrbHZJc0w?oc=5",
-      "description": "Colorado Knowles Fire kills Alabama firefighter and two others during attack operations &nbsp;&nbsp; wvtm",
-      "date": "2026-06-29T17:32:00.000Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "AL.com",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZXhwV2FBOC1WVDBCeVMyRXlRbi1LaURLWmtmWDRhSVVxWWZHal9acnFKaldJdlctellMUFlaWUNha01rSTM1N1VEdEtmN1BqdVkwSzVLSDdSV1Q1RkFzTWtqcUItZGMtVXNvMFdnUmF5YWZHbDA3WGNfOGtzbGc5Smo1WEFUT3N5anlXYWtUUHFxWm5SV0FZ0gGrAUFVX3lxTE16QXdHUDVQb3FqVTBtUEg2VEtiS3l2LWVZTXNJS29sS3RMZW5IWHBUTXhQaWE0blh0b3RUcFhnTDRKWmM1QmpOZDJWTWxKWjRUNVdEcDJIQ21yLXVzeDkxeGozRWdoZ2JlZUpfem5Lb3ZCcGo3VDFxdE05eUNNdG00amgtRVN0dC14dFg5dElFYy10UE9CUmNxdUM5ZnlLYW5sR1BMVmZseGd3SQ?oc=5",
+      "description": "Alabama firefighter among 3 killed in Colorado wildfire &nbsp;&nbsp; AL.com",
+      "date": "2026-06-29T15:58:00.000Z",
       "modes": [
         "nearby",
         "all",
@@ -186,7 +225,230 @@
       "priority": 3
     },
     {
-      "id": "news-5-colorado-public-radio-firefighters-killed-while-battling-snyder-fire-in-western-colora",
+      "id": "news-5-mshale-step-inside-the-harrington-by-smith-douglas-homes-in-fultondale-",
+      "source_type": "media_feed",
+      "source_name": "Mshale",
+      "title": "Step Inside The Harrington By Smith Douglas Homes In Fultondale Alabama Pk Subban (s5SLRF0CWR)",
+      "summary": "Step Inside The Harrington By Smith Douglas Homes In Fultondale Alabama Pk Subban (s5SLRF0CWR) &nbsp;&nbsp; Mshale",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1vX1BrdmlWbmJMSEhmbjhmTmhHTkZzU1dIbnZsZ29CTXU4ektGS2FrZHkzbXNrVE1xMl8yYzNscHQyQ1NEa0RqUTlNZTFXVW1zcGo1YkpseTdrMFE?oc=5",
+      "published_at": "2026-06-29T14:08:47.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "community"
+      ],
+      "priority_level": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all"
+        ],
+        "tags": [
+          "Nearby"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "Mshale",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1vX1BrdmlWbmJMSEhmbjhmTmhHTkZzU1dIbnZsZ29CTXU4ektGS2FrZHkzbXNrVE1xMl8yYzNscHQyQ1NEa0RqUTlNZTFXVW1zcGo1YkpseTdrMFE?oc=5",
+      "description": "Step Inside The Harrington By Smith Douglas Homes In Fultondale Alabama Pk Subban (s5SLRF0CWR) &nbsp;&nbsp; Mshale",
+      "date": "2026-06-29T14:08:47.000Z",
+      "modes": [
+        "nearby",
+        "all"
+      ],
+      "tags": [
+        "Nearby"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "news-6-the-detroit-news-macomb-county-woman-among-3-firefighters-killed-in-colorado-blaz",
+      "source_type": "media_feed",
+      "source_name": "The Detroit News",
+      "title": "Macomb County woman among 3 firefighters killed in Colorado blaze",
+      "summary": "Macomb County woman among 3 firefighters killed in Colorado blaze &nbsp;&nbsp; The Detroit News",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQbzNTMlptbXVzelA3bzREakZYdkp2RVlBeFMzQTJxRGZsdVY2RHdYQkFkOTF3NDI1S2o3dTczT0ZVcm9paDRsQnppV3FkNXdUUXhJRmVja3JxZXNyT25zV2w1NkFydGRSdEQySWFrYzF0TmQzZUdrNFJQbnJRWWtseDlDY3RpQWhpSFNaV3lMbTZ2V1VtYkN1R1FyczBHV1pjZ19iYkpYOFgxR3NnM0l6bUNZQUhwRUhZQk5iODc3aDNheHlRSXR0YjMySXZrbkd3?oc=5",
+      "published_at": "2026-06-29T22:20:00.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "fire"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all",
+          "civic"
+        ],
+        "tags": [
+          "Safety"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "The Detroit News",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQbzNTMlptbXVzelA3bzREakZYdkp2RVlBeFMzQTJxRGZsdVY2RHdYQkFkOTF3NDI1S2o3dTczT0ZVcm9paDRsQnppV3FkNXdUUXhJRmVja3JxZXNyT25zV2w1NkFydGRSdEQySWFrYzF0TmQzZUdrNFJQbnJRWWtseDlDY3RpQWhpSFNaV3lMbTZ2V1VtYkN1R1FyczBHV1pjZ19iYkpYOFgxR3NnM0l6bUNZQUhwRUhZQk5iODc3aDNheHlRSXR0YjMySXZrbkd3?oc=5",
+      "description": "Macomb County woman among 3 firefighters killed in Colorado blaze &nbsp;&nbsp; The Detroit News",
+      "date": "2026-06-29T22:20:00.000Z",
+      "modes": [
+        "nearby",
+        "all",
+        "civic"
+      ],
+      "tags": [
+        "Safety"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-7-wvtm-alabama-firefighter-among-3-killed-battling-colorado-wildfires",
+      "source_type": "media_feed",
+      "source_name": "wvtm",
+      "title": "Alabama firefighter among 3 killed battling Colorado wildfires",
+      "summary": "Alabama firefighter among 3 killed battling Colorado wildfires &nbsp;&nbsp; wvtm",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOeUlsd1NJZDhBX1JsWF95Sm5ITC02aG02OE1lNGdzWGhfWTlkNHB1MHM4cnhhc18wU3U1aWlTQVpqVEdsR0ktUFVfZjVaOWlwMlFnZGR3OHIyRk84OFpJeFE4SllTSFdyTUhIcXZDcXZPcXFtMlVQM0ZGblBWRC01OEs2Q01hdDJLSXFrbHZJc0w?oc=5",
+      "published_at": "2026-06-29T21:52:00.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "fire"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all",
+          "civic"
+        ],
+        "tags": [
+          "Safety"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "wvtm",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOeUlsd1NJZDhBX1JsWF95Sm5ITC02aG02OE1lNGdzWGhfWTlkNHB1MHM4cnhhc18wU3U1aWlTQVpqVEdsR0ktUFVfZjVaOWlwMlFnZGR3OHIyRk84OFpJeFE4SllTSFdyTUhIcXZDcXZPcXFtMlVQM0ZGblBWRC01OEs2Q01hdDJLSXFrbHZJc0w?oc=5",
+      "description": "Alabama firefighter among 3 killed battling Colorado wildfires &nbsp;&nbsp; wvtm",
+      "date": "2026-06-29T21:52:00.000Z",
+      "modes": [
+        "nearby",
+        "all",
+        "civic"
+      ],
+      "tags": [
+        "Safety"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-8-abc7-new-york-3-firefighters-killed-in-wildfire-on-colorado-utah-border-id-d-a",
+      "source_type": "media_feed",
+      "source_name": "ABC7 New York",
+      "title": "3 firefighters killed in wildfire on Colorado-Utah border ID'd as Emily Barker, Nick Hutcherson, Sydney Watson",
+      "summary": "3 firefighters killed in wildfire on Colorado-Utah border ID'd as Emily Barker, Nick Hutcherson, Sydney Watson &nbsp;&nbsp; ABC7 New York",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQUGtmaF9ZV25Qb2hvanBqX2ZEZGgyNU1xYm9fODI1UHNHX3dIcjIzOVRyS2h2MkhQUlloWG5TMlkxX3VwQUN4alRobThwdHJhcjl1bjlBb1NPVm9pY05LSGZndTl3clJ1R2c3aWVQQmcyWk43a1ZSSlNUTW5iSmQ4WV9paUM3bl9HMHBsc1kyeC03WDZZOFJVVldFZU9jTzYtVUFSblY4eGh3dnNBNE01bGdNU24wVjFXeHhoOXN2QWg2VHowcEJ5d3Bidk7SAdIBQVVfeXFMT24zNFViNjEyUXFwTlYtUjIxbzRRbFpnRV9wdmpmOXVHWnJrZ3dxZnZuemlLVUZmT0s5R1pUMXhqM1BwYmtjdEp2aDlSZl96dVlYeW52NWJHTXU5Zzc3cUNCeDRpMDY3Skk1TzE2VldhTGFjZ2psbktaQmU2LXZFMUxyTUx0bTF6V3FIZ3lkY2lVR29lV0NpOVRGcmlrM3NsWmdsbjBvVFYxRGpkUEM3MW15c2tLMkRjMkZscFFYWVJ4NXVjYVdVbFZ4ak5xbWgtU3V3?oc=5",
+      "published_at": "2026-06-29T20:29:58.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "fire"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all",
+          "civic"
+        ],
+        "tags": [
+          "Safety"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "ABC7 New York",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQUGtmaF9ZV25Qb2hvanBqX2ZEZGgyNU1xYm9fODI1UHNHX3dIcjIzOVRyS2h2MkhQUlloWG5TMlkxX3VwQUN4alRobThwdHJhcjl1bjlBb1NPVm9pY05LSGZndTl3clJ1R2c3aWVQQmcyWk43a1ZSSlNUTW5iSmQ4WV9paUM3bl9HMHBsc1kyeC03WDZZOFJVVldFZU9jTzYtVUFSblY4eGh3dnNBNE01bGdNU24wVjFXeHhoOXN2QWg2VHowcEJ5d3Bidk7SAdIBQVVfeXFMT24zNFViNjEyUXFwTlYtUjIxbzRRbFpnRV9wdmpmOXVHWnJrZ3dxZnZuemlLVUZmT0s5R1pUMXhqM1BwYmtjdEp2aDlSZl96dVlYeW52NWJHTXU5Zzc3cUNCeDRpMDY3Skk1TzE2VldhTGFjZ2psbktaQmU2LXZFMUxyTUx0bTF6V3FIZ3lkY2lVR29lV0NpOVRGcmlrM3NsWmdsbjBvVFYxRGpkUEM3MW15c2tLMkRjMkZscFFYWVJ4NXVjYVdVbFZ4ak5xbWgtU3V3?oc=5",
+      "description": "3 firefighters killed in wildfire on Colorado-Utah border ID'd as Emily Barker, Nick Hutcherson, Sydney Watson &nbsp;&nbsp; ABC7 New York",
+      "date": "2026-06-29T20:29:58.000Z",
+      "modes": [
+        "nearby",
+        "all",
+        "civic"
+      ],
+      "tags": [
+        "Safety"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-9-wiregrass-daily-news-alabama-firefighter-among-three-killed-battling-colorado-wildfir",
+      "source_type": "media_feed",
+      "source_name": "Wiregrass Daily News",
+      "title": "Alabama Firefighter Among Three Killed Battling Colorado Wildfire",
+      "summary": "Alabama Firefighter Among Three Killed Battling Colorado Wildfire &nbsp;&nbsp; Wiregrass Daily News",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVWxqa2ZzenlkMU80eEN0QW5jZnhDaV92cmVsVG5hOFV3WEQ3ZVJHUC1yenVVdFA5eWs4czJYcnVsUFl3VmFrOGU2M2V3a2M5RVFoVWFRMGlHWnFXZWxwWjV6TjF6ZjlpUVd1WlBfWG9VWnQ1bVhLckxKREpQLUdESXdESWk0Tmt4ZnBWZkxqNDFja0RGUTJhOHh6NXcyLXV3NXlkMDl5U3VDcGswWVA2eEVraUpyM2p3ZGsyUW5n?oc=5",
+      "published_at": "2026-06-29T19:46:57.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "fire"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all",
+          "civic"
+        ],
+        "tags": [
+          "Safety"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "Wiregrass Daily News",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVWxqa2ZzenlkMU80eEN0QW5jZnhDaV92cmVsVG5hOFV3WEQ3ZVJHUC1yenVVdFA5eWs4czJYcnVsUFl3VmFrOGU2M2V3a2M5RVFoVWFRMGlHWnFXZWxwWjV6TjF6ZjlpUVd1WlBfWG9VWnQ1bVhLckxKREpQLUdESXdESWk0Tmt4ZnBWZkxqNDFja0RGUTJhOHh6NXcyLXV3NXlkMDl5U3VDcGswWVA2eEVraUpyM2p3ZGsyUW5n?oc=5",
+      "description": "Alabama Firefighter Among Three Killed Battling Colorado Wildfire &nbsp;&nbsp; Wiregrass Daily News",
+      "date": "2026-06-29T19:46:57.000Z",
+      "modes": [
+        "nearby",
+        "all",
+        "civic"
+      ],
+      "tags": [
+        "Safety"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-10-colorado-public-radio-firefighters-killed-while-battling-snyder-fire-in-western-colora",
       "source_type": "media_feed",
       "source_name": "Colorado Public Radio",
       "title": "Firefighters killed while battling Snyder fire in Western Colorado identified",
@@ -199,7 +461,7 @@
       "topic_tags": [
         "fire"
       ],
-      "priority_level": 3,
+      "priority_level": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -215,7 +477,7 @@
           "Safety"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "Colorado Public Radio",
       "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1kbXdnM0RDWEwwNmtveXp1Ump1YTFxdTRaOVktMnRvQlliSHd4WVNQZkZPdWN1cll3V1UtLXU2NnJRTG8zSVl0RFZKNUVfdlNFaGp2MDVORTh0OG1YSHNSUjJXRklNcS15NWhJRndzWjExRzlz?oc=5",
       "description": "Firefighters killed while battling Snyder fire in Western Colorado identified &nbsp;&nbsp; Colorado Public Radio",
@@ -228,10 +490,55 @@
       "tags": [
         "Safety"
       ],
-      "priority": 3
+      "priority": 2
     },
     {
-      "id": "news-6-the-denver-post-3-wildland-firefighters-killed-in-western-colorado-identified",
+      "id": "news-11-firerescue1-3-firefighters-killed-in-colo-burnover-identified",
+      "source_type": "media_feed",
+      "source_name": "FireRescue1",
+      "title": "3 firefighters killed in Colo. burnover identified",
+      "summary": "3 firefighters killed in Colo. burnover identified &nbsp;&nbsp; FireRescue1",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZVVSOVIwNzFENkwwS09ReVFfbndOX2V6S3g3Y3d4LU42TlV3OUpBMk9HV0hpTGQwR3NJUWs4dFhGZnZLOTZHNUh5X3k2WnF1bTJobS1zczlEYUVJTjlTRjlfODc3TGUxNWJ5WWg3SXlwaHZDdkxkWVVWZk1TUVhjSjJnM3N2UXR3dTVHWFpWMWFacWJ3R3c4TVAydnl1bEM2YjdN?oc=5",
+      "published_at": "2026-06-29T16:19:41.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "fire"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all",
+          "civic"
+        ],
+        "tags": [
+          "Safety"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "FireRescue1",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZVVSOVIwNzFENkwwS09ReVFfbndOX2V6S3g3Y3d4LU42TlV3OUpBMk9HV0hpTGQwR3NJUWs4dFhGZnZLOTZHNUh5X3k2WnF1bTJobS1zczlEYUVJTjlTRjlfODc3TGUxNWJ5WWg3SXlwaHZDdkxkWVVWZk1TUVhjSjJnM3N2UXR3dTVHWFpWMWFacWJ3R3c4TVAydnl1bEM2YjdN?oc=5",
+      "description": "3 firefighters killed in Colo. burnover identified &nbsp;&nbsp; FireRescue1",
+      "date": "2026-06-29T16:19:41.000Z",
+      "modes": [
+        "nearby",
+        "all",
+        "civic"
+      ],
+      "tags": [
+        "Safety"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-12-the-denver-post-3-wildland-firefighters-killed-in-western-colorado-identified",
       "source_type": "media_feed",
       "source_name": "The Denver Post",
       "title": "3 wildland firefighters killed in western Colorado identified",
@@ -244,7 +551,7 @@
       "topic_tags": [
         "fire"
       ],
-      "priority_level": 3,
+      "priority_level": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -260,7 +567,7 @@
           "Safety"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "The Denver Post",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNcFNLSG5TTFl1RU9KVzVYUHBTd0l6aVdZSHAydDNZNDdNLW10blpTYW96OF9SajJrLTVPc1BzRllPQTl5RzRhUUdMOEZNNTlXVU1xUk1fdGdQbFNGbDJ6OVIwV3l0SnZzR2VGMW41aWNELWFLMzhNSmxFUmRmb3BDQW02S3Z4OVo1OC1MRGw0Yk45Zw?oc=5",
       "description": "3 wildland firefighters killed in western Colorado identified &nbsp;&nbsp; The Denver Post",
@@ -273,10 +580,10 @@
       "tags": [
         "Safety"
       ],
-      "priority": 3
+      "priority": 2
     },
     {
-      "id": "news-7-cbs-news-names-released-of-3-firefighters-who-died-in-colorado-while-resp",
+      "id": "news-13-cbs-news-names-released-of-3-firefighters-who-died-in-colorado-while-resp",
       "source_type": "media_feed",
       "source_name": "CBS News",
       "title": "Names released of 3 firefighters who died in Colorado while responding to wildfire",
@@ -289,7 +596,7 @@
       "topic_tags": [
         "fire"
       ],
-      "priority_level": 3,
+      "priority_level": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -305,7 +612,7 @@
           "Safety"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "CBS News",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNY2Z1MXVOT05COEppUnZTZXhHVk93eTFpZWlzYnp1TnpWVHVnaXY2V1ZIdmxDZmREU3VWZEZCODRZbXlqakdBN0x3VER5a2U0UDlZZWlTRHQzaDVIVXJDWmdxODlXNnI0RWNHOEVnaG83aFpBODlwQ2t5bjNuNHRIZ3lwLVVwZ2x1a2dWOENXVFRfQ1Fyd0s0Q1d0TUhiRjdMRzhoNzRfQQ?oc=5",
       "description": "Names released of 3 firefighters who died in Colorado while responding to wildfire &nbsp;&nbsp; CBS News",
@@ -318,10 +625,53 @@
       "tags": [
         "Safety"
       ],
-      "priority": 3
+      "priority": 2
     },
     {
-      "id": "news-8-256-today-alabama-a-m-reopens-morris-stephens-halls-after-21-million-renov",
+      "id": "news-14-iqair-air-quality-in-fultondale",
+      "source_type": "media_feed",
+      "source_name": "IQAir",
+      "title": "Air quality in Fultondale",
+      "summary": "Air quality in Fultondale &nbsp;&nbsp; IQAir",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBnaHJsdkdGWTNzeENqeUhpTnAyTGpFOE1Vdmlac25kSmpXci1fNHFzT19lenZzZlpiNU5ZY2dWQTdqM0ZwQlFTY21GZ1A1NDRVUGpRWXNoREpLRENtaDFIVXhVVTdvN0k?oc=5",
+      "published_at": "2026-06-28T05:20:16.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "community"
+      ],
+      "priority_level": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "",
+      "raw_payload": {
+        "modes": [
+          "nearby",
+          "all"
+        ],
+        "tags": [
+          "Nearby"
+        ]
+      },
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
+      "source": "IQAir",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBnaHJsdkdGWTNzeENqeUhpTnAyTGpFOE1Vdmlac25kSmpXci1fNHFzT19lenZzZlpiNU5ZY2dWQTdqM0ZwQlFTY21GZ1A1NDRVUGpRWXNoREpLRENtaDFIVXhVVTdvN0k?oc=5",
+      "description": "Air quality in Fultondale &nbsp;&nbsp; IQAir",
+      "date": "2026-06-28T05:20:16.000Z",
+      "modes": [
+        "nearby",
+        "all"
+      ],
+      "tags": [
+        "Nearby"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "news-15-256-today-alabama-a-m-reopens-morris-stephens-halls-after-21-million-renov",
       "source_type": "media_feed",
       "source_name": "256 Today",
       "title": "Alabama A&M reopens Morris, Stephens halls after $21 million renovation",
@@ -349,7 +699,7 @@
           "Nearby"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "256 Today",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZnNoeW9paXNVNjV3YTZZOFRscXdOSjBoQVE4eGx2RGFtYS1fNEpSVGRPNVBTVElrXzZZZ0hWOXlFMVBTT3JnWHBvdjNCNnowcDFKTWtNd2hodDV4d1U0RHM0QVV6U1RFWDlYQzdMZUkxNjBxVWI2RVNOT0F5SzV3RTNWeUtOTklOQXBqaWZ0dzhtNFQy?oc=5",
       "description": "Alabama A&M reopens Morris, Stephens halls after $21 million renovation &nbsp;&nbsp; 256 Today",
@@ -364,7 +714,7 @@
       "priority": 2
     },
     {
-      "id": "news-9-sports-illustrated-london-thomas",
+      "id": "news-16-sports-illustrated-london-thomas",
       "source_type": "media_feed",
       "source_name": "Sports Illustrated",
       "title": "London Thomas",
@@ -392,7 +742,7 @@
           "Local"
         ]
       },
-      "last_synced_at": "2026-06-29T19:05:37.674Z",
+      "last_synced_at": "2026-06-30T08:32:14.683Z",
       "source": "Sports Illustrated",
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOMGxRR2RuWlpJcnBKQjBDb215RUIxb3hnNnV3VExQM2thRjY3VXduSmNCZ1pXNF83Q21Idm9jRm5TVUpPbnJBU1JWZ2dLcHdXMXM0TllhRHIzbDdaX1JpVlZxNHk3VV9YNi1lX2pyZGVvSFBINU9XTDNkWENRcFlLUThlaXRrUnAzNGxXNDVscmpUbi1JTXExN25iVDNFQkFTeHFZTjlTNEM3T2ZTMF9aSzJCclB0cTZJbG94Qjd2N212OWUx?oc=5",
       "description": "London Thomas &nbsp;&nbsp; Sports Illustrated",
