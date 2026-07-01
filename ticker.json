@@ -1,15 +1,48 @@
 {
-  "updatedAt": "2026-07-01T15:59:18.971Z",
+  "updatedAt": "2026-07-01T18:07:04.237Z",
   "hasAlerts": true,
-  "alertCount": 1,
+  "alertCount": 4,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌡️ Heat Advisory · Through Friday 2 AM",
+  "ticker": "⛈️ Severe Thunderstorm Warning · Through next 23 min    ·    ⛈️ Severe Thunderstorm Watch · Through tomorrow 1 AM    ·    ⚠️ Special Weather Statement · Through next 23 min    ·    🌡️ Heat Advisory · Through Friday 2 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
+    {
+      "event": "Severe Thunderstorm Warning",
+      "severity": "Severe",
+      "urgency": "Immediate",
+      "emoji": "⛈️",
+      "ends": "2026-07-01T13:30:00-05:00",
+      "endsShort": "next 23 min",
+      "headline": "Severe Thunderstorm Warning",
+      "description": "SVRBMX",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.d918b624a04baecdb9bffd2144456799d4296559.001.1"
+    },
+    {
+      "event": "Severe Thunderstorm Watch",
+      "severity": "Severe",
+      "urgency": "Future",
+      "emoji": "⛈️",
+      "ends": "2026-07-01T20:00:00-05:00",
+      "endsShort": "tomorrow 1 AM",
+      "headline": "Severe Thunderstorm Watch",
+      "description": "THE NATIONAL WEATHER SERVICE HAS ISSUED SEVERE THUNDERSTORM WATCH",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.963fe7cd3f33c479e9e57c77e5d2e271f2f992fe.001.1"
+    },
+    {
+      "event": "Special Weather Statement",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "⚠️",
+      "ends": "2026-07-01T13:30:00-05:00",
+      "endsShort": "next 23 min",
+      "headline": "Special Weather Statement",
+      "description": "At 1241 PM CDT, Doppler radar was tracking a strong thunderstorm over",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f267e621545bd6e88869819958337489c7d880d4.001.1"
+    },
     {
       "event": "Heat Advisory",
       "severity": "Moderate",
