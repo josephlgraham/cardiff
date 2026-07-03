@@ -1,15 +1,26 @@
 {
-  "updatedAt": "2026-07-03T16:38:18.226Z",
+  "updatedAt": "2026-07-03T18:01:36.882Z",
   "hasAlerts": true,
-  "alertCount": 1,
+  "alertCount": 2,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌡️ Heat Advisory · Through Sunday 2 AM",
+  "ticker": "⚠️ Special Weather Statement · Through next 43 min    ·    🌡️ Heat Advisory · Through Sunday 2 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
+    {
+      "event": "Special Weather Statement",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "⚠️",
+      "ends": "2026-07-03T13:45:00-05:00",
+      "endsShort": "next 43 min",
+      "headline": "Special Weather Statement",
+      "description": "At 1254 PM CDT, Doppler radar was tracking a strong thunderstorm over",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.28142267fcac8104cb8fde016a40f89713e78a69.001.1"
+    },
     {
       "event": "Heat Advisory",
       "severity": "Moderate",
@@ -18,8 +29,8 @@
       "ends": "2026-07-04T21:00:00-05:00",
       "endsShort": "Sunday 2 AM",
       "headline": "Heat Advisory",
-      "description": "* WHAT...Heat index values in excess of 105 expected.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.db6d237619a13462b2abcc8594fba50c0e7bacd9.001.1"
+      "description": "* WHAT...Heat index values up to 103.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.21b957cbfe1c571aff8ec03eece54b7877192ad7.001.1"
     }
   ],
   "spcOutlook": [],
