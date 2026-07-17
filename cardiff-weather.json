@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-07-17T07:19:34.138Z",
-  "temp": 72,
-  "humidity": 99,
-  "windSpeed": 0,
-  "windDir": 1,
-  "windGust": 0,
-  "pressure": 29.799,
+  "updatedAt": "2026-07-17T18:08:14.444Z",
+  "temp": 93,
+  "humidity": 76,
+  "windSpeed": 2,
+  "windDir": 206,
+  "windGust": 3,
+  "pressure": 29.805,
   "pressureTrend": "steady",
-  "uv": 0,
-  "solarRadiation": 0,
+  "uv": 7,
+  "solarRadiation": 775.64,
   "dailyRain": 0,
   "hourlyRain": 0,
   "weeklyRain": 0.92,
   "monthlyRain": 2.59,
   "yearlyRain": 45.09,
-  "feelsLike": 73,
-  "dewPoint": 72,
-  "lastUpdated": "2026-07-17T07:19:00.000Z",
+  "feelsLike": 120,
+  "dewPoint": 84,
+  "lastUpdated": "2026-07-17T18:07:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 72,
-    "feelsLike": 73,
-    "feels": 73,
-    "humidity": 99,
-    "windSpeed": 0,
-    "windDir": "N",
-    "windGust": 0,
+    "temp": 93,
+    "feelsLike": 120,
+    "feels": 120,
+    "humidity": 76,
+    "windSpeed": 2,
+    "windDir": "SSW",
+    "windGust": 3,
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0,
     "precipTotal": 0,
-    "pressure": 29.799,
-    "pressureIn": 29.799,
-    "uv": 0,
-    "solarRadiation": 0,
-    "dewPoint": 72,
-    "obsTime": "2026-07-17T07:19:00.000Z",
-    "lastUpdated": "2026-07-17T07:19:00.000Z",
-    "condition": "Clear",
+    "pressure": 29.805,
+    "pressureIn": 29.805,
+    "uv": 7,
+    "solarRadiation": 775.64,
+    "dewPoint": 84,
+    "obsTime": "2026-07-17T18:07:00.000Z",
+    "lastUpdated": "2026-07-17T18:07:00.000Z",
+    "condition": "Sunny",
     "source": "Ambient Weather",
     "sourceNote": null
   },
@@ -52,36 +52,17 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 72,
-      "windGust": 0,
-      "label": "Since midnight",
-      "isMorning": true,
+      "windGust": 3,
+      "label": "So far today",
+      "isMorning": false,
       "coverageStart": "2026-07-17"
     }
   },
   "forecast": [
     {
       "number": 1,
-      "name": "Overnight",
-      "startTime": "2026-07-17T02:00:00-05:00",
-      "endTime": "2026-07-17T06:00:00-05:00",
-      "isDaytime": false,
-      "temperature": 73,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 4
-      },
-      "windSpeed": "0 mph",
-      "windDirection": "",
-      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
-      "shortForecast": "Mostly Clear",
-      "detailedForecast": "Mostly clear, with a low around 73. West wind around 0 mph."
-    },
-    {
-      "number": 2,
-      "name": "Friday",
-      "startTime": "2026-07-17T06:00:00-05:00",
+      "name": "This Afternoon",
+      "startTime": "2026-07-17T13:00:00-05:00",
       "endTime": "2026-07-17T18:00:00-05:00",
       "isDaytime": true,
       "temperature": 90,
@@ -89,17 +70,17 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 46
+        "value": 41
       },
-      "windSpeed": "0 to 10 mph",
+      "windSpeed": "10 mph",
       "windDirection": "NW",
-      "icon": "https://api.weather.gov/icons/land/day/tsra_hi,20/tsra_hi,50?size=medium",
+      "icon": "https://api.weather.gov/icons/land/day/tsra_hi,40?size=medium",
       "shortForecast": "Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms after 10am. Mostly sunny. High near 90, with temperatures falling to around 86 in the afternoon. Northwest wind 0 to 10 mph. Chance of precipitation is 50%. New rainfall amounts less than a tenth of an inch possible."
+      "detailedForecast": "A chance of showers and thunderstorms. Partly sunny, with a high near 90. Northwest wind around 10 mph. Chance of precipitation is 40%. New rainfall amounts less than a tenth of an inch possible."
     },
     {
-      "number": 3,
-      "name": "Friday Night",
+      "number": 2,
+      "name": "Tonight",
       "startTime": "2026-07-17T18:00:00-05:00",
       "endTime": "2026-07-18T06:00:00-05:00",
       "isDaytime": false,
@@ -108,7 +89,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 40
+        "value": 41
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "N",
@@ -117,7 +98,7 @@
       "detailedForecast": "A chance of showers and thunderstorms before 10pm. Partly cloudy, with a low around 73. North wind 0 to 5 mph. Chance of precipitation is 40%. New rainfall amounts less than a tenth of an inch possible."
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Saturday",
       "startTime": "2026-07-18T06:00:00-05:00",
       "endTime": "2026-07-18T18:00:00-05:00",
@@ -127,16 +108,16 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 26
+        "value": 18
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "NW",
-      "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi,30?size=medium",
-      "shortForecast": "Sunny then Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms after 1pm. Sunny, with a high near 92. Northwest wind 0 to 5 mph. Chance of precipitation is 30%."
+      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,20?size=medium",
+      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
+      "detailedForecast": "A slight chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 92. Northwest wind 0 to 5 mph. Chance of precipitation is 20%."
     },
     {
-      "number": 5,
+      "number": 4,
       "name": "Saturday Night",
       "startTime": "2026-07-18T18:00:00-05:00",
       "endTime": "2026-07-19T06:00:00-05:00",
@@ -146,16 +127,16 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 26
+        "value": 19
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "NW",
-      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,30/few?size=medium",
-      "shortForecast": "Chance Showers And Thunderstorms then Mostly Clear",
-      "detailedForecast": "A chance of showers and thunderstorms before 7pm. Mostly clear, with a low around 74. Northwest wind 0 to 5 mph. Chance of precipitation is 30%."
+      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,20?size=medium",
+      "shortForecast": "Slight Chance Showers And Thunderstorms",
+      "detailedForecast": "A slight chance of showers and thunderstorms before 1am. Mostly clear, with a low around 74. Northwest wind 0 to 5 mph. Chance of precipitation is 20%."
     },
     {
-      "number": 6,
+      "number": 5,
       "name": "Sunday",
       "startTime": "2026-07-19T06:00:00-05:00",
       "endTime": "2026-07-19T18:00:00-05:00",
@@ -165,16 +146,16 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 54
+        "value": 58
       },
       "windSpeed": "0 to 5 mph",
-      "windDirection": "W",
-      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,50?size=medium",
-      "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms after 1pm. Mostly sunny, with a high near 92. Chance of precipitation is 50%."
+      "windDirection": "NW",
+      "icon": "https://api.weather.gov/icons/land/day/sct/tsra_hi,60?size=medium",
+      "shortForecast": "Mostly Sunny then Showers And Thunderstorms Likely",
+      "detailedForecast": "Showers and thunderstorms likely after 1pm. Mostly sunny. High near 92, with temperatures falling to around 88 in the afternoon. Northwest wind 0 to 5 mph. Chance of precipitation is 60%."
     },
     {
-      "number": 7,
+      "number": 6,
       "name": "Sunday Night",
       "startTime": "2026-07-19T18:00:00-05:00",
       "endTime": "2026-07-20T06:00:00-05:00",
@@ -184,16 +165,16 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 54
+        "value": 58
       },
       "windSpeed": "0 to 5 mph",
-      "windDirection": "NW",
-      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,50/tsra_hi,20?size=medium",
-      "shortForecast": "Chance Showers And Thunderstorms",
-      "detailedForecast": "A chance of showers and thunderstorms before 1am. Partly cloudy, with a low around 74. Chance of precipitation is 50%."
+      "windDirection": "N",
+      "icon": "https://api.weather.gov/icons/land/night/tsra_hi,60/sct?size=medium",
+      "shortForecast": "Showers And Thunderstorms Likely then Partly Cloudy",
+      "detailedForecast": "Showers and thunderstorms likely before 7pm. Partly cloudy, with a low around 74. Chance of precipitation is 60%."
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Monday",
       "startTime": "2026-07-20T06:00:00-05:00",
       "endTime": "2026-07-20T18:00:00-05:00",
@@ -203,13 +184,32 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 18
+        "value": 12
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "N",
-      "icon": "https://api.weather.gov/icons/land/day/few/tsra_hi,20?size=medium",
-      "shortForecast": "Sunny then Slight Chance Showers And Thunderstorms",
-      "detailedForecast": "A slight chance of showers and thunderstorms after 1pm. Sunny, with a high near 93. Chance of precipitation is 20%."
+      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+      "shortForecast": "Sunny",
+      "detailedForecast": "Sunny, with a high near 93."
+    },
+    {
+      "number": 8,
+      "name": "Monday Night",
+      "startTime": "2026-07-20T18:00:00-05:00",
+      "endTime": "2026-07-21T06:00:00-05:00",
+      "isDaytime": false,
+      "temperature": 76,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 12
+      },
+      "windSpeed": "0 mph",
+      "windDirection": "",
+      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+      "shortForecast": "Mostly Clear",
+      "detailedForecast": "Mostly clear, with a low around 76."
     }
   ],
   "weekly": [
@@ -223,19 +223,19 @@
       "date": "2026-07-18",
       "hi": 92,
       "lo": 74,
-      "shortForecast": "Sunny then Chance Showers And Thunderstorms"
+      "shortForecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms"
     },
     {
       "date": "2026-07-19",
       "hi": 92,
       "lo": 74,
-      "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms"
+      "shortForecast": "Mostly Sunny then Showers And Thunderstorms Likely"
     },
     {
       "date": "2026-07-20",
       "hi": 93,
       "lo": 76,
-      "shortForecast": "Sunny then Slight Chance Showers And Thunderstorms"
+      "shortForecast": "Sunny"
     },
     {
       "date": "2026-07-21",
@@ -252,13 +252,13 @@
     {
       "date": "2026-07-23",
       "hi": 91,
-      "lo": null,
+      "lo": 72,
       "shortForecast": "Sunny"
     }
   ],
   "dailySummary": {
-    "yesterdayHigh": 88,
-    "yesterdayLow": 74,
+    "yesterdayHigh": 91,
+    "yesterdayLow": 71,
     "yesterdayRain": 0,
     "todayHigh": null,
     "todayLow": null,
