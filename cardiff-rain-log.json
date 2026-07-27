@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T08:33:19.320Z",
+  "updatedAt": "2026-07-27T18:25:12.370Z",
   "samples": [
     {
       "obsTime": "2026-05-25T00:08:00.000Z",
@@ -1535,6 +1535,18 @@
       "windGust": 0,
       "precipRate": 0,
       "humidity": 99,
+      "source": "ambient-station"
+    },
+    {
+      "obsTime": "2026-07-27T18:25:00.000Z",
+      "localDate": "2026-07-27",
+      "localMonth": "2026-07",
+      "hour": 13,
+      "dailyTotal": 0.08,
+      "temp": 90,
+      "windGust": 2,
+      "precipRate": 0,
+      "humidity": 78,
       "source": "ambient-station"
     }
   ],
