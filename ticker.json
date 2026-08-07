@@ -1,38 +1,15 @@
 {
-  "updatedAt": "2026-08-07T21:53:43.555Z",
-  "hasAlerts": true,
-  "alertCount": 2,
+  "updatedAt": "2026-08-07T22:40:47.908Z",
+  "hasAlerts": false,
+  "alertCount": 0,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flash Flood Warning · Through next 51 min    ·    ⚠️ Special Weather Statement · Through next 21 min",
+  "ticker": "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [
-    {
-      "event": "Flash Flood Warning",
-      "severity": "Severe",
-      "urgency": "Immediate",
-      "emoji": "🌊",
-      "ends": "2026-08-07T17:45:00-05:00",
-      "endsShort": "next 51 min",
-      "headline": "Flash Flood Warning",
-      "description": "At 434 PM CDT, Heavy rainfall has ended and floodwaters continue to",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5dec7fea777475c534d2e208447ca2459ad2edc1.001.1"
-    },
-    {
-      "event": "Special Weather Statement",
-      "severity": "Moderate",
-      "urgency": "Expected",
-      "emoji": "⚠️",
-      "ends": "2026-08-07T17:15:00-05:00",
-      "endsShort": "next 21 min",
-      "headline": "Special Weather Statement",
-      "description": "At 438 PM CDT, Doppler radar was tracking a strong thunderstorm over",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aa0bbbb9ba745c32cbf0bf0c4691c7ea865017eb.001.1"
-    }
-  ],
+  "alerts": [],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
