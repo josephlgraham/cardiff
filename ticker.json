@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-07T20:19:49.611Z",
+  "updatedAt": "2026-08-07T21:06:15.558Z",
   "hasAlerts": true,
   "alertCount": 2,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌊 Flash Flood Warning · Through today 10 PM    ·    🌊 Flood Advisory · Through next 55 min",
+  "ticker": "🌊 Flash Flood Warning · Through next 2 hr    ·    🌊 Flood Advisory · Through next 9 min",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -16,10 +16,10 @@
       "urgency": "Immediate",
       "emoji": "🌊",
       "ends": "2026-08-07T17:45:00-05:00",
-      "endsShort": "today 10 PM",
+      "endsShort": "next 2 hr",
       "headline": "Flash Flood Warning",
-      "description": "At 308 PM CDT, Doppler radar indicated thunderstorms producing heavy",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.410f87373f8e02e95395de457fed23318b35d34a.001.1"
+      "description": "At 348 PM CDT, emergency management reported thunderstorms producing",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.1ba87bd751765635e1c7c79fd96d3c383638cc63.001.1"
     },
     {
       "event": "Flood Advisory",
@@ -27,7 +27,7 @@
       "urgency": "Expected",
       "emoji": "🌊",
       "ends": "2026-08-07T16:15:00-05:00",
-      "endsShort": "next 55 min",
+      "endsShort": "next 9 min",
       "headline": "Flood Advisory",
       "description": "* WHAT...Urban area and small stream flooding caused by excessive",
       "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.37c67a9444caafa2c6430ec1f53131fee4839db9.001.1"
