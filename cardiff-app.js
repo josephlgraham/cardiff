@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  var MANIFEST_HREF = "manifest.webmanifest";
-  var SERVICE_WORKER_HREF = "cardiff-sw.js";
+  var MANIFEST_HREF = "/manifest.json";
+  var SERVICE_WORKER_HREF = "/sw.js";
   var PREFS_KEY = "cardiff-alert-preferences";
   var installPromptEvent = null;
 
