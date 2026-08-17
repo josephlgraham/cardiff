@@ -55,7 +55,7 @@ const TZ_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
 });
 
 const NEWS_QUERIES = [
-  { mode: 'nearby', query: '(Cardiff OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
+  { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
   { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama' },
   { mode: 'nearby', query: '("Five Mile Creek" OR Graysville OR Cardiff) Alabama' },
   { mode: 'nearby', query: '(Graysville OR Adamsville OR Cardiff) Alabama police fire rescue school road' },
@@ -92,7 +92,7 @@ const SOURCE_WEIGHTS = {
 };
 
 const PLACE_WEIGHTS = [
-  ['cardiff', 20], ['graysville', 15], ['adamsville', 15], ['minor', 14], ['bayview', 13],
+  ['cardiff', 20], ['brookside', 17], ['graysville', 15], ['adamsville', 15], ['minor', 14], ['bayview', 13],
   ['gardendale', 11], ['fultondale', 11], ['warrior', 9], ['kimberly', 8], ['morris', 7], ['five mile creek', 10],
   ['western jefferson', 10], ['north jefferson', 8], ['jefferson county', 8], ['birmingham', 3]
 ];
@@ -107,14 +107,14 @@ const TOPIC_WEIGHTS = [
 const LOW_SIGNAL_TERMS = ['football', 'basketball', 'softball', 'baseball', 'lottery', 'horoscope', 'crossword', 'celebrity'];
 
 const MODE_KEYWORDS = {
-  nearby: ['cardiff', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris', 'five mile creek'],
+  nearby: ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris', 'five mile creek'],
   civic: ['council', 'commission', 'mayor', 'clerk', 'school', 'education', 'budget', 'zoning', 'hearing', 'ordinance', 'board', 'police', 'fire', 'utility', 'water', 'sewer'],
   weather: ['weather', 'storm', 'tornado', 'wind', 'rain', 'flood', 'outage', 'road', 'traffic', 'closure', 'detour', 'train', 'paving'],
   regional: ['jefferson county', 'birmingham', 'north jefferson', 'western jefferson', 'development', 'public safety', 'roads', 'schools']
 };
 
 const TAG_RULES = [
-  ['Nearby', ['cardiff', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris']],
+  ['Nearby', ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris']],
   ['Roads', ['road', 'traffic', 'closure', 'detour', 'paving', 'train']],
   ['Weather', ['weather', 'storm', 'tornado', 'rain', 'flood', 'outage', 'wind']],
   ['Civic', ['council', 'commission', 'mayor', 'clerk', 'zoning', 'budget', 'ordinance', 'hearing']],
@@ -136,6 +136,7 @@ const NORMALIZED_TOPIC_RULES = [
 
 const NORMALIZED_LOCATION_RULES = [
   'cardiff',
+  'brookside',
   'five_mile_creek',
   'graysville',
   'jefferson_county',
