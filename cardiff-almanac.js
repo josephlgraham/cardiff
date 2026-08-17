@@ -7,6 +7,7 @@
   const ARCHIVE_URL = "cardiff-weather-archive.json";
   const AIR_QUALITY_URL = "cardiff-air-quality.json";
   const WATERSHED_URL = "cardiff-watershed.json";
+  const WATERSHED_FORECAST_URL = "cardiff-watershed-weather.json";
   const SKY_WATCH_URL = "cardiff-skywatch.json";
   const TICKER_URL = "ticker.json";
   const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
@@ -1723,6 +1724,54 @@
     }
   }
 
+  function forecastCondition(code) {
+    if (!Number.isFinite(code)) return "";
+    if (code === 0) return "☀️ Clear";
+    if (code <= 2) return "🌤 Partly cloudy";
+    if (code === 3) return "☁️ Overcast";
+    if (code <= 48) return "🌫 Fog";
+    if (code <= 57) return "🌦 Drizzle";
+    if (code <= 67) return "🌧 Rain";
+    if (code <= 77) return "❄️ Snow";
+    if (code <= 82) return "🌧 Showers";
+    if (code <= 86) return "❄️ Snow showers";
+    return "⛈ Thunderstorms";
+  }
+
+  function renderForecastPlace(place) {
+    const today = place && place.today ? place.today : null;
+    const hi = today ? numericOrNaN(today.hi) : NaN;
+    const lo = today ? numericOrNaN(today.lo) : NaN;
+    const temps = Number.isFinite(hi) && Number.isFinite(lo)
+      ? Math.round(hi) + "° / " + Math.round(lo) + "°"
+      : "—";
+    const precip = today && Number.isFinite(numericOrNaN(today.precipChance))
+      ? Math.round(numericOrNaN(today.precipChance)) + "% rain"
+      : "";
+    const condition = forecastCondition(today ? numericOrNaN(today.weatherCode) : NaN);
+    const detail = [condition, precip].filter(Boolean).join(" · ") || "—";
+    return '<div class="wf-place">' +
+      '<div class="wf-name">' + escapeHtml(place.place || "Nearby") + '</div>' +
+      '<div class="wf-temp">' + escapeHtml(temps) + '</div>' +
+      '<div class="wf-cond">' + escapeHtml(detail) + '</div>' +
+      "</div>";
+  }
+
+  async function loadWatershedForecast() {
+    try {
+      const response = await fetch(WATERSHED_FORECAST_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("watershed forecast");
+      const data = await response.json();
+      const places = Array.isArray(data.places) ? data.places : [];
+      if (!places.length) throw new Error("watershed forecast empty");
+      setText("watershedForecastUpdated", "Today's high and low");
+      setHTML("watershedForecastGrid", places.map(renderForecastPlace).join(""));
+    } catch (error) {
+      setText("watershedForecastUpdated", "Forecast sync offline");
+      setHTML("watershedForecastGrid", renderForecastPlace({ place: "Cardiff", today: null }));
+    }
+  }
+
   function lightningNote(alerts) {
     const thunderAlert = (alerts || []).find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
     if (thunderAlert) {
@@ -2180,11 +2229,13 @@
     setupWatershedRangeControls();
     loadTicker();
     loadWatershed();
+    loadWatershedForecast();
     loadWeather();
     loadAirQuality();
     loadForecast();
     window.setInterval(loadTicker, TICKER_REFRESH_MS);
     window.setInterval(loadWatershed, 10 * 60 * 1000);
+    window.setInterval(loadWatershedForecast, 30 * 60 * 1000);
     window.setInterval(loadWeather, 5 * 60 * 1000);
     window.setInterval(loadAirQuality, 15 * 60 * 1000);
   }

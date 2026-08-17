@@ -13,6 +13,13 @@ const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
 const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
 const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json');
 const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
+const WATERSHED_FORECAST_FILE = path.join(ROOT, 'cardiff-watershed-weather.json');
+
+const WATERSHED_FORECAST_POINTS = [
+  { place: 'Cardiff', lat: 33.640, lon: -86.870 },
+  { place: 'Brookside', lat: 33.6379, lon: -86.9167 },
+  { place: 'Graysville', lat: 33.6228, lon: -86.9573 }
+];
 
 const AW_API_KEY = process.env.AW_API_KEY || '';
 const AW_APP_KEY = process.env.AW_APP_KEY || '';
@@ -370,6 +377,44 @@ async function fetchYesterdaySummary(obsDate) {
     }
   }
   return null;
+}
+
+async function fetchPlaceForecast(point) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${point.lat}&longitude=${point.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=2`;
+  const data = await fetchJson(url);
+  const daily = data && data.daily;
+  if (!daily || !Array.isArray(daily.time) || !daily.time.length) return null;
+  return {
+    place: point.place,
+    lat: point.lat,
+    lon: point.lon,
+    today: {
+      date: daily.time[0],
+      hi: Math.round(daily.temperature_2m_max[0]),
+      lo: Math.round(daily.temperature_2m_min[0]),
+      precipChance: daily.precipitation_probability_max?.[0] ?? null,
+      weatherCode: daily.weathercode?.[0] ?? null
+    },
+    tomorrow: daily.time[1] ? {
+      date: daily.time[1],
+      hi: Math.round(daily.temperature_2m_max[1]),
+      lo: Math.round(daily.temperature_2m_min[1]),
+      precipChance: daily.precipitation_probability_max?.[1] ?? null,
+      weatherCode: daily.weathercode?.[1] ?? null
+    } : null
+  };
+}
+
+async function updateWatershedForecastFile() {
+  const results = await Promise.allSettled(WATERSHED_FORECAST_POINTS.map(fetchPlaceForecast));
+  const places = results
+    .map((r) => (r.status === 'fulfilled' && r.value ? r.value : null))
+    .filter(Boolean);
+  await writeJson(WATERSHED_FORECAST_FILE, {
+    updatedAt: new Date().toISOString(),
+    places
+  });
+  console.log(`Updated ${path.basename(WATERSHED_FORECAST_FILE)} with ${places.length} place${places.length === 1 ? '' : 's'}`);
 }
 
 async function updateWeatherFile() {
@@ -1298,6 +1343,11 @@ async function main() {
     await updateWatershedFile(weather);
   } catch (error) {
     console.error('Watershed update failed (continuing):', error.message);
+  }
+  try {
+    await updateWatershedForecastFile();
+  } catch (error) {
+    console.error('Watershed forecast update failed (continuing):', error.message);
   }
   try {
     await updateAirQualityFile();
