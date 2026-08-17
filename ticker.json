@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-17T01:42:01.402Z",
+  "updatedAt": "2026-08-17T02:47:24.250Z",
   "hasAlerts": true,
-  "alertCount": 2,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌡️ Extreme Heat Warning · Through tomorrow 2 AM    ·    🌡️ Heat Advisory · Through next 18 min",
+  "ticker": "🌡️ Extreme Heat Warning · Through tomorrow 2 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -18,19 +18,8 @@
       "ends": "2026-08-17T21:00:00-05:00",
       "endsShort": "tomorrow 2 AM",
       "headline": "Extreme Heat Warning",
-      "description": "* WHAT...For the Heat Advisory this afternoon, heat index values up",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6f99dbdbbd2700fa3ba37b8912b9134268dce7c4.001.2"
-    },
-    {
-      "event": "Heat Advisory",
-      "severity": "Moderate",
-      "urgency": "Expected",
-      "emoji": "🌡️",
-      "ends": "2026-08-16T21:00:00-05:00",
-      "endsShort": "next 18 min",
-      "headline": "Heat Advisory",
-      "description": "* WHAT...For the Heat Advisory this afternoon, heat index values up",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6f99dbdbbd2700fa3ba37b8912b9134268dce7c4.001.3"
+      "description": "* WHAT...Dangerously hot conditions with heat index values up to 113.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.03142920fcb2fccee5af855f3efd85b017ffb80d.001.1"
     }
   ],
   "spcOutlook": [],
