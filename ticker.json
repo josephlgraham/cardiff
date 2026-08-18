@@ -1,36 +1,25 @@
 {
-  "updatedAt": "2026-08-18T01:38:53.826Z",
+  "updatedAt": "2026-08-18T02:41:29.781Z",
   "hasAlerts": true,
-  "alertCount": 2,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌡️ Extreme Heat Warning · Through next 21 min    ·    ⚠️ Special Weather Statement · Through next 6 min",
+  "ticker": "⚠️ Special Weather Statement · Through next 19 min",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
-    {
-      "event": "Extreme Heat Warning",
-      "severity": "Severe",
-      "urgency": "Expected",
-      "emoji": "🌡️",
-      "ends": "2026-08-17T21:00:00-05:00",
-      "endsShort": "next 21 min",
-      "headline": "Extreme Heat Warning",
-      "description": "* WHAT...Dangerously hot conditions with heat index values up to 113.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9fcf24e82795d603a26a4aff68b8c0cc81ffee4e.002.1"
-    },
     {
       "event": "Special Weather Statement",
       "severity": "Moderate",
       "urgency": "Expected",
       "emoji": "⚠️",
-      "ends": "2026-08-17T20:45:00-05:00",
-      "endsShort": "next 6 min",
+      "ends": "2026-08-17T22:00:00-05:00",
+      "endsShort": "next 18 min",
       "headline": "Special Weather Statement",
-      "description": "At 803 PM CDT, Doppler radar was tracking strong thunderstorms along",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5c9eb9b6bdd848665a91401a211dbdd66c2e18ca.001.1"
+      "description": "At 918 PM CDT, Doppler radar was tracking strong thunderstorms along",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.fa52a5a4121418ca8b6da9fc3d734831aea4fbea.001.1"
     }
   ],
   "spcOutlook": [],
