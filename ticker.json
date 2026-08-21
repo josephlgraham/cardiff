@@ -1,26 +1,15 @@
 {
-  "updatedAt": "2026-08-21T04:51:41.552Z",
+  "updatedAt": "2026-08-21T05:36:07.732Z",
   "hasAlerts": true,
-  "alertCount": 2,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "⚠️ Special Weather Statement · Through next 23 min    ·    🌡️ Heat Advisory · Through tomorrow 2 AM",
+  "ticker": "🌡️ Heat Advisory · Through tomorrow 2 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
-    {
-      "event": "Special Weather Statement",
-      "severity": "Moderate",
-      "urgency": "Expected",
-      "emoji": "⚠️",
-      "ends": "2026-08-21T00:15:00-05:00",
-      "endsShort": "next 23 min",
-      "headline": "Special Weather Statement",
-      "description": "At 1124 PM CDT, Doppler radar was tracking strong thunderstorms along",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.90df2719fbbe8a9806379e629ddbbbc47e72cbd4.001.1"
-    },
     {
       "event": "Heat Advisory",
       "severity": "Moderate",
