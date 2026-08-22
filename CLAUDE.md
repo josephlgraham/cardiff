@@ -92,8 +92,18 @@ Everything is `fivemile-*`. Pages, styles, scripts, data files.
 `ticker.json`, `announcements.json`, `turnings.json`, and `offline.html` keep
 their names. They never carried a town in them, so there was nothing to fix.
 
-If a `cardiff-` reference turns up anywhere other than those stubs, the two
-tombstones, or `fivemile-civic.html`, it is a bug from the rename pass.
+If a `cardiff-` **filename** turns up anywhere other than those stubs and the
+two tombstones, it is a bug from the rename pass.
+
+Three kinds of `cardiff` are correct and must be left alone:
+
+- **The town.** Cardiff is one of the three towns. It appears in copy, in town
+  badges, in data, and in photograph filenames, and always should.
+- **Class names and data ids.** `cardiff-masthead`, `cardiff-site-footer`,
+  `cardiff-app-*`, `cardiff-city-council`, `cardiff-traffic-report` and the
+  rest were deliberately not renamed. See DECISIONS.md 10.
+- **`cardiffalabama.info`.** Still the live domain. The move to fivemile.now
+  is its own job and has not happened.
 
 ## Git
 

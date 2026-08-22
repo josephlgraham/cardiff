@@ -188,10 +188,34 @@ matters and `cardiff-sw.js` is kept as insurance for the earlier round.
 path it precaches changed at once.
 
 The service worker's internal cache keys were renamed too, `cardiff-state` to
-`fivemile-state` and the rest. They are keys rather than files and nothing
-depended on them, but leaving them would have left the only `cardiff-` strings
-in the source, and the rule in CLAUDE.md says any such string is a bug. A rule
-with a quiet exception in it stops being a rule.
+`fivemile-state` and the rest, along with the PWA install globals. They are
+keys and function names rather than files and nothing depended on them, but
+they lived in the same two files as the worker itself and leaving them there
+would have been confusing at exactly the point somebody is reading that code.
+
+**What was deliberately NOT renamed, and must not be:**
+
+- **CSS class names and data ids.** `cardiff-masthead` is on every page.
+  `cardiff-site-footer`, `cardiff-app-*`, `cardiff-marquee-smooth`,
+  `cardiff-city-council`, `cardiff-traffic-report`, the holler feedback keys,
+  and the season window ids are all in the same position. None of them is a
+  file, none is visible to a reader, and none appears in an address bar. The
+  editorial argument in this entry is entirely about what a Brookside reader
+  sees in their browser, and a class name is not that. Renaming roughly twenty
+  of them across twelve pages and two stylesheets is churn with real breakage
+  risk and no reader benefit.
+- **`cardiffalabama.info`.** Still the live domain, still in every canonical
+  link and the sitemap. The move to fivemile.now is its own job, and this
+  entry always assumed the two would land together. They did not. Whoever does
+  the domain cutover updates the canonicals, `robots.txt`, `sitemap.xml`, and
+  `CNAME` in one pass.
+- **The town.** Cardiff is one of the three towns. It belongs in copy, badges,
+  data, and photograph filenames.
+
+The rule in CLAUDE.md was tightened to say `cardiff-` **filename** rather than
+`cardiff-` reference, because as originally worded it made `cardiff-masthead`
+look like a bug, and the next person to read it would have taken the class off
+every page on the site.
 
 **Revisit if:** never. This one is done.
 
