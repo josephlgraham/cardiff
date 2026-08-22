@@ -29,7 +29,7 @@ window.FIVEMILE = window.FIVEMILE || {};
 (function () {
   var STORAGE_KEY = "fivemile-intro-seen";
 
-  /* Matches the longest animation in cardiff-common.css: the last town
+  /* Matches the longest animation in fivemile-common.css: the last town
      finishes at 790ms delay plus 200ms stagger plus 220ms duration. The
      margin covers slow paint on an old phone. */
   var RUN_MS = 1500;

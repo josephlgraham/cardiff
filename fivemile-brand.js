@@ -1,6 +1,6 @@
 /* FIVEMILE brand tokens.
    One source of truth for the publication name, domain, inbox, and towns.
-   Loaded before cardiff-common.js on every page.
+   Loaded before fivemile-common.js on every page.
 
    Renaming the publication should be an edit to this file, not a find and
    replace across forty HTML files. Anything that renders the publication

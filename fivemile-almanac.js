@@ -3,12 +3,12 @@
 
   const LAT = 33.640;
   const LON = -86.870;
-  const WX_URL = "cardiff-weather.json";
-  const ARCHIVE_URL = "cardiff-weather-archive.json";
-  const AIR_QUALITY_URL = "cardiff-air-quality.json";
-  const WATERSHED_URL = "cardiff-watershed.json";
-  const WATERSHED_FORECAST_URL = "cardiff-watershed-weather.json";
-  const SKY_WATCH_URL = "cardiff-skywatch.json";
+  const WX_URL = "fivemile-weather.json";
+  const ARCHIVE_URL = "fivemile-weather-archive.json";
+  const AIR_QUALITY_URL = "fivemile-air-quality.json";
+  const WATERSHED_URL = "fivemile-watershed.json";
+  const WATERSHED_FORECAST_URL = "fivemile-watershed-weather.json";
+  const SKY_WATCH_URL = "fivemile-skywatch.json";
   const TICKER_URL = "ticker.json";
   const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
   const TICKER_REFRESH_MS = 5 * 60 * 1000;

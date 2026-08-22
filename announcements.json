@@ -1,6 +1,6 @@
 {
   "_readme": {
-    "what": "Single source of truth for community announcements. Both the Announcements page (cardiff-announce.html) and the News page preview card (cardiff-news.html) are built from this file by cardiff-common.js. Edit here only — do not hand-edit the HTML.",
+    "what": "Single source of truth for community announcements. Both the Announcements page (fivemile-announce.html) and the News page preview card (fivemile-news.html) are built from this file by fivemile-common.js. Edit here only — do not hand-edit the HTML.",
     "howToPostANotice": "Add an object to the \"announcements\" array below. Date determines placement automatically: a notice dated today or later shows under 'Current notices' and is the one previewed on the News page; once its date has passed it moves to 'Past notices' on its own. No need to move things by hand.",
     "fields": {
       "tag": "Short kicker above the headline, e.g. 'Community Meeting'. Required.",

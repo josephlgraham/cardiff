@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const SNAPSHOT_URL = "cardiff-community-snapshot.json";
+  const SNAPSHOT_URL = "fivemile-community-snapshot.json";
 
   function finiteNumber(value) {
     const number = Number(value);

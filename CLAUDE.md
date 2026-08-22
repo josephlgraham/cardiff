@@ -83,12 +83,17 @@ Everything is `fivemile-*`. Pages, styles, scripts, data files.
   reference `fivemile-*`.
 - Stub files remain at the old `cardiff-*.html` paths with a meta refresh and
   a canonical link. Do not delete them and do not add anything to them.
-- `cardiff-sw.js` still exists as a self-unregistering tombstone for anyone who
-  installed the old PWA. Do not delete it. The live service worker is
-  `fivemile-sw.js`.
+- `sw.js` and `cardiff-sw.js` are both self-unregistering tombstones for
+  anyone who installed the PWA under an older path. Do not delete either. The
+  live service worker is `fivemile-sw.js`. `sw.js` is the one with real
+  installs behind it, because that is the path the site registered right up
+  until the rename; `cardiff-sw.js` is from a round before that.
 
-If a `cardiff-` reference turns up anywhere other than those stubs, the
-tombstone, or `cardiff-civic.html`, it is a bug from the rename pass.
+`ticker.json`, `announcements.json`, `turnings.json`, and `offline.html` keep
+their names. They never carried a town in them, so there was nothing to fix.
+
+If a `cardiff-` reference turns up anywhere other than those stubs, the two
+tombstones, or `fivemile-civic.html`, it is a bug from the rename pass.
 
 ## Git
 

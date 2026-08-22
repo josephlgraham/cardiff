@@ -6,13 +6,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
-const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
-const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
-const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
-const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
-const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json');
-const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
-const WATERSHED_FORECAST_FILE = path.join(ROOT, 'cardiff-watershed-weather.json');
+const WEATHER_FILE = path.join(ROOT, 'fivemile-weather.json');
+const RAIN_LOG_FILE = path.join(ROOT, 'fivemile-rain-log.json');
+const WATERSHED_FILE = path.join(ROOT, 'fivemile-watershed.json');
+const AIR_QUALITY_FILE = path.join(ROOT, 'fivemile-air-quality.json');
+const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'fivemile-community-snapshot.json');
+const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'fivemile-weather-archive.json');
+const WATERSHED_FORECAST_FILE = path.join(ROOT, 'fivemile-watershed-weather.json');
 
 /* West to east, which is the order every list of the three towns is written
    in. See DECISIONS.md 1. The pages that read this file look their town up by
@@ -457,7 +457,7 @@ async function updateWeatherFile() {
 }
 
 /* News used to be gathered here. It moved to scripts/fetch-news.mjs, which is
-   now the only writer of cardiff-news-live.json, reads the outlets' own feeds
+   now the only writer of fivemile-news-live.json, reads the outlets' own feeds
    rather than Google News, and keeps a permanent archive under news-archive/.
    The end of month rain story went with it. Do not add a second writer for
    that file here. See DECISIONS.md 17. */

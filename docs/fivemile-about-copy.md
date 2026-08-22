@@ -106,7 +106,7 @@ Cardiff keeping track of things.
 # Claude Code prompt
 
 ```
-Create cardiff-about.html using the standard site shell (masthead,
+Create fivemile-about.html using the standard site shell (masthead,
 announcement strip, footer, nav).
 
 Use the About page copy exactly as written in fivemile-about-copy.md.

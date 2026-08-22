@@ -22,7 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Refresh alert ticker
-        run: node cardiff-alerts.js
+        run: node fivemile-alerts.js
 
       - name: Commit alert data
         run: |

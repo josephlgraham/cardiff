@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hills and Hollers · FIVEMILE</title>
+<meta name="description" content="A community bulletin board for the three towns on Five Mile Creek. Local classifieds, asks, porch notes, and memories.">
+<link rel="canonical" href="https://cardiffalabama.info/fivemile-hollers.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Hills and Hollers · FIVEMILE">
+<meta property="og:description" content="A community bulletin board for the three towns on Five Mile Creek. Local classifieds, asks, porch notes, and memories.">
+<meta property="og:url" content="https://cardiffalabama.info/fivemile-hollers.html">
+<meta property="og:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hills and Hollers · FIVEMILE">
+<meta name="twitter:description" content="A community bulletin board for the three towns on Five Mile Creek. Local classifieds, asks, porch notes, and memories.">
+<meta name="twitter:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-mid:#9a0c22;--green:#2a7a3a;--green-hi:#3aaa4a;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 4px 20px rgba(80,44,8,0.12),0 1px 4px rgba(80,44,8,0.07);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:200ms ease;--hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;--hdr-dim:rgba(245,234,216,0.45);--hdr-dimmer:rgba(245,234,216,0.32);--hdr-nav:rgba(245,234,216,0.48);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:0.022;mix-blend-mode:multiply;}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}.page{position:relative;z-index:1;}
+
+/* MASTHEAD */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0.55rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:52px;}
+.mh-left-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;color:var(--hdr-dim);line-height:1.75;}
+.mh-brand{text-align:center;}.mh-brand-link{text-decoration:none;display:inline-block;}
+.mh-brand-name{font-family:var(--sans);font-size:clamp(1.2rem,2.8vw,1.8rem);font-weight:800;letter-spacing:-0.01em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,0.35);white-space:nowrap;}
+.mh-brand-name .comma{color:var(--red);}
+.mh-brand-sub{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:0.18rem;display:block;}
+.mh-right-info{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--hdr-dim);text-align:right;line-height:1.75;}
+.mh-right-info .wx-hi{color:rgba(245,234,216,0.88);font-weight:500;font-size:0.7rem;}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--hdr-rule);}
+.mh-tabs::-webkit-scrollbar{display:none;}
+.mh-tabs a{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--hdr-nav);text-decoration:none;padding:0.52rem 1.05rem;border-right:1px solid var(--hdr-rule);white-space:nowrap;flex-shrink:0;transition:color var(--ease),background var(--ease);position:relative;}
+.mh-tabs a:hover{color:var(--hdr-text);background:rgba(255,215,140,0.05);}
+.mh-tabs a.active{color:var(--red);}
+.mh-tabs a.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);}
+/* ANNOUNCEMENT STRIP — set display:none to hide */
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem;}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:0.63rem;letter-spacing:0.05em;animation:marquee 30s linear infinite;padding-left:100%;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+@media(max-width:700px){.mh-identity{grid-template-columns:1fr;justify-items:center;padding:0.5rem 1rem;}.mh-left-info,.mh-right-info{display:none;}.mh-brand-name{font-size:clamp(1.1rem,6vw,1.6rem);}}
+@media(max-width:480px){.mh-tabs a{padding:0.48rem 0.75rem;font-size:0.62rem;}}
+
+/* PAGE */
+.wrap{max-width:860px;margin:0 auto;padding:0 2rem 5rem;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Hero */
+.hh-hero{padding:3rem 0 2rem;}
+.hh-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.hh-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
+.hh-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
+.hh-sub{font-size:1rem;line-height:1.78;color:var(--ink2);max-width:600px;margin-bottom:1.5rem;}
+.holler-top{display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;margin-bottom:2rem;}
+.feature-card,.aside-card,.texture-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
+.feature-card{padding:1.35rem 1.35rem 1.2rem;}
+.aside-stack{display:grid;gap:1rem;}
+.aside-card,.texture-card{padding:1.1rem 1.1rem 1rem;}
+.feature-title{font-size:1.35rem;font-weight:800;color:var(--ink);line-height:1.15;margin:.55rem 0;}
+.feature-copy{font-size:.9rem;line-height:1.78;color:var(--ink2);}
+.feature-foot{margin-top:.95rem;padding-top:.85rem;border-top:1px solid var(--rule);font-size:.76rem;color:var(--ink3);}
+.aside-title{font-size:1rem;font-weight:800;color:var(--ink);margin:.45rem 0 .35rem;}
+.aside-copy{font-size:.84rem;line-height:1.7;color:var(--ink2);}
+.aside-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.85rem}
+.aside-actions .btn{font-family:var(--sans);font-size:.78rem;letter-spacing:0}
+.aside-card.play-refresh{animation:playPulse .24s ease;}
+@keyframes playPulse{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+.riddle-answer{margin-top:.7rem;padding:.72rem .78rem;background:rgba(32,96,160,.06);border:1px solid rgba(32,96,160,.16);border-radius:var(--r);font-size:.78rem;line-height:1.62;color:var(--ink2);display:none}
+.riddle-answer.visible{display:block}
+.riddle-answer strong{color:var(--blue)}
+.holler-feedback{margin-top:.95rem;padding-top:.9rem;border-top:1px solid var(--rule);display:grid;gap:.65rem}
+.feedback-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.feedback-title{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.feedback-copy{font-size:.74rem;line-height:1.55;color:var(--ink3);max-width:36ch}
+.feedback-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.feedback-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .72rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);font:inherit;font-size:.77rem;font-weight:700;cursor:pointer;transition:border-color var(--ease),background var(--ease),transform var(--ease),color var(--ease)}
+.feedback-btn:hover{border-color:rgba(200,16,46,.4);background:#fff}
+.feedback-btn.active{background:rgba(200,16,46,.08);border-color:rgba(200,16,46,.4);color:var(--red-mid)}
+.feedback-count{display:inline-flex;align-items:center;justify-content:center;min-width:1.6rem;padding:.12rem .4rem;border-radius:999px;background:rgba(28,18,8,.08);font-family:var(--mono);font-size:.63rem;font-weight:500;color:var(--ink3)}
+.feedback-btn.active .feedback-count{background:rgba(200,16,46,.16);color:var(--red-mid)}
+.feedback-status{font-size:.72rem;line-height:1.55;color:var(--ink3)}
+.feedback-status.error{color:var(--red-mid)}
+.texture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.texture-card .site-kicker{margin-bottom:.38rem;}
+.texture-card .card-title{margin-bottom:.35rem;}
+.texture-card .card-body{font-size:.83rem;}
+
+/* Section rule */
+.s-rule{display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1.25rem;}
+.s-rule h2{font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.s-rule hr{flex:1;border:none;border-top:1px solid var(--rule);}
+
+/* Category cards — independent 2-col with red accent */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem;}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;position:relative;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);transition:transform var(--ease),box-shadow var(--ease);display:grid;grid-template-columns:auto 1fr;column-gap:0.85rem;row-gap:0.18rem;align-items:start;}
+.cat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09);}
+.cat-icon{grid-column:1;grid-row:2 / span 2;font-size:1.3rem;line-height:1;display:block;margin-top:0.16rem;pointer-events:none;}
+.cat-name{grid-column:1 / -1;font-family:var(--sans);font-size:0.9rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;padding-right:0;}
+.cat-desc{grid-column:2;font-size:0.82rem;line-height:1.68;color:var(--ink2);padding-right:0;}
+.cat-example{grid-column:2;font-family:var(--mono);font-size:0.65rem;color:var(--ink3);margin-top:0.1rem;line-height:1.5;}
+.board-shell{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.3rem 1.2rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
+.board-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;}
+.board-status{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);}
+.board-copy{font-size:0.88rem;line-height:1.72;color:var(--ink2);max-width:62ch;}
+.board-head .section-kicker{font-weight:700;}
+.filter-strip{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.filter-pill{display:inline-flex;align-items:center;padding:0.38rem 0.72rem;border-radius:999px;background:var(--paper);border:1px solid var(--border2);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
+.listing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.listing-card{background:rgba(255,255,255,0.42);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1rem 0.95rem;display:grid;gap:0.7rem;}
+.listing-meta{display:flex;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+.listing-tag{color:var(--red);}
+.listing-title{font-size:1.02rem;font-weight:800;color:var(--ink);}
+.listing-copy{font-size:0.84rem;line-height:1.68;color:var(--ink2);}
+.listing-list{display:grid;gap:0.42rem;}
+.listing-list li{list-style:none;position:relative;padding-left:0.95rem;font-size:0.79rem;line-height:1.55;color:var(--ink2);}
+.listing-list li::before{content:"";position:absolute;left:0;top:0.53rem;width:6px;height:6px;border-radius:50%;background:var(--red);}
+.listing-foot{padding-top:0.7rem;border-top:1px solid var(--rule);font-size:0.76rem;line-height:1.58;color:var(--ink3);}
+.listing-actions{display:flex;gap:.55rem;flex-wrap:wrap}
+.listing-actions .btn{font-family:var(--sans);font-size:.78rem;letter-spacing:0}
+.finish-note{margin:1.1rem 0 0;padding:.9rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:.84rem;line-height:1.68;color:var(--red-mid);}
+.post-shell{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.2rem 1.15rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
+.post-copy{font-size:.86rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem;max-width:62ch}
+.post-form{display:grid;gap:.8rem}
+.post-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.post-form input,.post-form select,.post-form textarea{width:100%;padding:.78rem .9rem;border-radius:var(--r);border:1px solid var(--border2);background:#fff;color:var(--ink);font:inherit;outline:none;transition:border-color var(--ease),box-shadow var(--ease)}
+.post-form textarea{min-height:150px;resize:vertical}
+.post-form input:focus,.post-form select:focus,.post-form textarea:focus{border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.post-status{margin-top:.1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink3)}
+
+/* Print edition note */
+.print-note{background:var(--paper2);border:1px solid var(--border2);border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:1.1rem 1.25rem;margin-bottom:2rem;}
+.print-note p{font-size:0.88rem;line-height:1.75;color:var(--ink2);}
+.print-note strong{color:var(--ink);}
+
+/* Coming soon */
+.cs-banner{background:var(--ink);border-radius:14px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.cs-banner::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.cs-title{font-family:var(--sans);font-size:1.8rem;font-weight:800;color:var(--paper);margin-bottom:0.5rem;position:relative;}
+.cs-body{font-size:0.88rem;line-height:1.7;color:rgba(245,234,216,0.6);max-width:440px;margin:0 auto 1.25rem;position:relative;}
+.cs-btn{display:inline-block;padding:0.7rem 1.5rem;background:var(--red);border:none;border-radius:8px;font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
+.cs-btn:hover{background:var(--red-mid);}
+
+/* CTA band */
+.cta-band{background:var(--ink);border-radius:var(--r-lg);padding:2rem 2rem;text-align:center;position:relative;overflow:hidden;margin-top:2.5rem;}
+.cta-band::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='rgba(255,215,140,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;pointer-events:none;}
+.cta-title{font-family:var(--sans);font-size:1.4rem;font-weight:800;color:var(--paper);margin-bottom:0.4rem;position:relative;}
+.cta-body{font-size:0.86rem;line-height:1.7;color:rgba(245,234,216,0.55);max-width:420px;margin:0 auto 1rem;position:relative;}
+.cta-btn{display:inline-block;padding:0.6rem 1.3rem;background:var(--red);border:none;border-radius:var(--r);font-family:var(--sans);font-size:0.84rem;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;transition:background var(--ease);position:relative;}
+.cta-btn:hover{background:var(--red-mid);}
+
+@media(max-width:640px){.wrap{padding:0 1rem 4rem;}.holler-top,.texture-grid,.cat-grid,.listing-grid,.post-row{grid-template-columns:1fr;}}
+
+</style>
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Sets data-intro to
+     "pending" only for a reader who has not seen the intro and has not asked
+     for reduced motion. Anything unexpected resolves to "done", which is the
+     state where the masthead is fully visible. The timer is the backstop for
+     the case where fivemile-intro.js fails to load. -->
+<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+</head>
+<body>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
+    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<div class="wrap">
+  <div class="hh-hero reveal">
+    <div class="hh-kicker">Community Board</div>
+    <h1 class="hh-title">Hills &amp; Hollers</h1>
+    <p class="hh-sub">The classified section for Cardiff and the Five Mile Creek watershed. Free to post, free to read. No account required. Think of it as the community bulletin board that used to hang at the feed store — for everyone in the watershed.</p>
+  </div>
+
+  <section class="holler-top reveal">
+    <article class="feature-card">
+      <div class="section-kicker">Featured Holler</div>
+      <div class="feature-title">A page that can carry both a fence-post laugh and a real local need.</div>
+      <p class="feature-copy">Hills &amp; Hollers is where the site loosens its collar a little. It can hold a porch joke, a chainsaw recommendation, a memory about the old road, a note about something odd on the creek, or a neighbor asking who still knows how to fix a thing right.</p>
+      <p class="feature-copy">That mix matters. A community page should feel useful, but it should also sound like people actually live here.</p>
+      <div class="feature-foot">Use it for neighbor-to-neighbor texture, not for official notice. This is the porch, not the podium.</div>
+    </article>
+    <div class="aside-stack">
+      <article class="aside-card" id="hollerPlayCard">
+        <div class="site-kicker" id="hollerPlayKicker">Old-Timer Joke</div>
+        <div class="aside-title" id="hollerPlayTitle">Taking the scenic route</div>
+        <div class="aside-copy" id="hollerPlayBody">"I ain't lost. I'm just taking the scenic way back."</div>
+        <div class="riddle-answer" id="hollerRiddleAnswer"><strong>Answer:</strong> Five Mile Creek.</div>
+        <div class="aside-actions">
+          <button class="btn ghost" type="button" id="nextJokeBtn">Another joke</button>
+          <button class="btn ghost" type="button" id="showRiddleBtn">Show a riddle</button>
+          <button class="btn ghost" type="button" id="toggleRiddleBtn" hidden>Show answer</button>
+          <button class="btn ghost" type="button" id="nextRiddleBtn" hidden>Another riddle</button>
+          <button class="btn ghost" type="button" id="showJokeBtn" hidden>Show a joke</button>
+        </div>
+        <div class="holler-feedback">
+          <div class="feedback-head">
+            <div class="feedback-title">Porch-safe feedback</div>
+            <div class="feedback-copy" id="hollerFeedbackMeta">Positive taps only. This browser remembers the tally while the board desk starts collecting the real count.</div>
+          </div>
+          <div class="feedback-actions" id="hollerFeedbackActions">
+            <button class="feedback-btn" type="button" data-reaction="laugh">😂 Funny <span class="feedback-count" id="feedbackCountLaugh">0</span></button>
+            <button class="feedback-btn" type="button" data-reaction="grin">🙂 Got a grin <span class="feedback-count" id="feedbackCountGrin">0</span></button>
+            <button class="feedback-btn" type="button" data-reaction="helpful">👍 Helpful <span class="feedback-count" id="feedbackCountHelpful">0</span></button>
+          </div>
+          <div class="feedback-status" id="hollerFeedbackStatus">Tap one reaction. Only the neighborly ones live here.</div>
+        </div>
+      </article>
+      <article class="aside-card" id="hollerRecipeCard">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.1rem;">
+          <div class="site-kicker" style="margin:0;">Cardiff Kitchen</div>
+          <span style="font-family:var(--mono);font-size:0.58rem;color:var(--ink3);" id="recipeCardCount">1 of 3</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.55rem;margin:0.45rem 0 0.25rem;">
+          <span style="font-size:1.4rem;line-height:1;" id="recipeCardEmoji">🌿</span>
+          <div class="aside-title" style="margin:0;" id="recipeCardTitle">Polk Salad</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:0.45rem;" id="recipeCardLabel">Foraged · Spring</div>
+        <div class="aside-copy" id="recipeCardIntro">A spring greens dish with real safety rules. The preparation matters as much as the flavor.</div>
+        <div class="aside-actions">
+          <button class="btn ghost" type="button" style="font-size:0.78rem;" id="recipePrevBtn">← Prev</button>
+          <button class="btn ghost" type="button" style="font-size:0.78rem;" id="recipeNextBtn">Next →</button>
+          <a href="fivemile-kitchen.html" class="btn ghost" style="font-size:0.78rem;" id="recipeCardLink">Full recipe ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="s-rule reveal"><h2>Porch notes</h2><hr></div>
+  <section class="texture-grid">
+    <article class="texture-card reveal">
+      <div class="site-kicker">Community Ask</div>
+      <h3 class="card-title">Who still sharpens mower blades right and does not make a mess of them?</h3>
+      <p class="card-body">This is where a practical neighbor question belongs. Not every useful post is a classified. Sometimes people just need the right name, the right truck, or the right old hand.</p>
+    </article>
+    <article class="texture-card reveal">
+      <div class="site-kicker">Porch Note</div>
+      <h3 class="card-title">The dogwoods are waking up and the creek bottoms are greener than the ridges</h3>
+      <p class="card-body">Short, true, local notes help the page feel alive. They can be seasonal, funny, neighborly, or just the sort of thing someone would say leaning on a tailgate.</p>
+    </article>
+    <article class="texture-card reveal">
+      <div class="site-kicker">Local Memory</div>
+      <h3 class="card-title">Save the story before the person who knows it is gone</h3>
+      <p class="card-body">Little memories, old names for places, flood recollections, and "what used to be there" notes belong here before they get their own archive lane later.</p>
+    </article>
+  </section>
+
+  <div class="s-rule reveal"><h2>Board now</h2><hr></div>
+
+  <section class="board-shell reveal">
+    <div class="board-head">
+      <div>
+        <div class="section-kicker">Cardiff board</div>
+        <div class="board-copy">Local listings, work requests, and neighbor-to-neighbor notices for Cardiff and the Five Mile Creek watershed.</div>
+      </div>
+      <div class="board-status">Cardiff area · community listings</div>
+    </div>
+    <div class="filter-strip" aria-label="listing categories">
+      <span class="filter-pill">Help needed</span>
+      <span class="filter-pill">Property work</span>
+      <span class="filter-pill">Cardiff</span>
+    </div>
+    <div class="listing-grid">
+      <article class="listing-card">
+        <div class="listing-meta"><span class="listing-tag">Help needed</span><span>Cardiff</span></div>
+        <div class="listing-title">Need a tree cut down</div>
+        <div class="listing-copy">Looking for someone dependable to take down a tree safely near the house. This is the sort of practical local job the board is meant to carry.</div>
+        <ul class="listing-list">
+          <li>Best for someone who does tree work, cutting, cleanup, and a quick estimate.</li>
+          <li>Timing is flexible, but it would be good to handle it this spring.</li>
+          <li>Local recommendations and insured help would be ideal.</li>
+        </ul>
+        <div class="listing-actions">
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need a tree cut down')">Reply to this listing</button>
+        </div>
+        <div class="listing-foot">Replies can come through the board desk for review.</div>
+      </article>
+      <article class="listing-card">
+        <div class="listing-meta"><span class="listing-tag">Help needed</span><span>Cardiff</span></div>
+        <div class="listing-title">Need grading and dirt work</div>
+        <div class="listing-copy">Looking for grading and dirt work around the property, with enough detail here for someone local to know whether they should reach out and give an estimate.</div>
+        <ul class="listing-list">
+          <li>Useful for driveway shaping, smoothing low spots, and basic site cleanup.</li>
+          <li>Would like someone with equipment or a clear sense of what the job needs.</li>
+          <li>Good fit for local crews, recommendations, or someone available for estimate work.</li>
+        </ul>
+        <div class="listing-actions">
+          <button class="btn primary" type="button" onclick="prefillHollerReply('Reply to: Need grading and dirt work')">Reply to this listing</button>
+        </div>
+        <div class="listing-foot">Local equipment work and estimate leads are welcome.</div>
+      </article>
+    </div>
+    <div class="finish-note">Posting and reply tools are live in the intake form below. Everything still routes through a human review step before it appears on the board.</div>
+  </section>
+
+  <div class="s-rule reveal"><h2>What you will find here</h2><hr></div>
+
+  <div class="cat-grid">
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🤝</span>
+      <div class="cat-name">Seeking &amp; Offering Help</div>
+      <div class="cat-desc">Need a hand moving something heavy? Got tools to lend? Know someone who does good work? This is the place. Cardiff takes care of Cardiff.</div>
+      <div class="cat-example">Examples: firewood split, fence repair, chainsaw work, rides to town</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🌿</span>
+      <div class="cat-name">Free &amp; For Sale</div>
+      <div class="cat-desc">Extra vegetables from the garden. Seeds to share. Something in the barn you are not using. Barter welcome. No big business listings — this is neighbors trading with neighbors.</div>
+      <div class="cat-example">Examples: tomato starts, canned goods, equipment, animals</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">📅</span>
+      <div class="cat-name">Community Events</div>
+      <div class="cat-desc">Workdays, cleanups, meetings, gatherings. If it involves Cardiff people and Cardiff ground, it belongs here. Watershed cleanup days are especially welcome.</div>
+      <div class="cat-example">Examples: creek cleanup, council meetings, cookouts, workdays</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🔍</span>
+      <div class="cat-name">Looking For</div>
+      <div class="cat-desc">Searching for a specific person, a piece of Cardiff history, an old photograph, or someone who remembers? Post it here. This community has a long memory.</div>
+      <div class="cat-example">Examples: family history, old photos, property records, stories</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">🌊</span>
+      <div class="cat-name">Watershed Watch</div>
+      <div class="cat-desc">Spotted illegal dumping? Unusual activity on the creek? Wildlife worth documenting? Water conditions worth noting? Cardiff is upstream. What happens here matters downstream.</div>
+      <div class="cat-example">Examples: dumping reports, unusual sightings, water quality observations</div>
+    </div>
+    <div class="cat-card info-box reveal" data-kicker="Post type">
+      <span class="cat-icon">📖</span>
+      <div class="cat-name">Stories &amp; History</div>
+      <div class="cat-desc">Things you remember about Cardiff. Things your grandparents told you. History that is not written down anywhere. We want to write it down while we still can.</div>
+      <div class="cat-example">Examples: flood memories, family stories, old Cardiff, the way things were</div>
+    </div>
+  </div>
+
+  <div class="print-note reveal">
+    <p><strong>The spirit of the thing:</strong> The old Farmer's Almanac ran classified ads between the frost date tables and the moon calendars. Reader's Digest ran "Life in These United States" — short true stories from real people. Hills &amp; Hollers is that tradition for Cardiff and the Five Mile Creek watershed. No algorithms. No advertising. Just neighbors talking to neighbors.</p>
+  </div>
+
+  <div class="s-rule reveal"><h2>Post or reply</h2><hr></div>
+
+  <section class="post-shell reveal" id="holler-post">
+    <div class="section-kicker">Site inbox</div>
+    <p class="post-copy">Use this form to send a new listing, answer an existing one, pass along a watershed note, or drop off a porch joke, riddle, ask, or memory. Nothing posts automatically. It comes into the site inbox first so the board can stay neighborly and readable.</p>
+    <div class="post-form" id="hollerForm">
+      <div class="post-row">
+        <input type="text" id="hollerName" placeholder="Your Name">
+        <input type="email" id="hollerEmail" placeholder="Your Email">
+      </div>
+      <div class="post-row">
+        <select id="hollerMode">
+          <option value="">What are you sending?</option>
+          <option>New listing</option>
+          <option>Reply to a listing</option>
+          <option>Community ask</option>
+          <option>Porch note</option>
+          <option>Joke or riddle</option>
+          <option>Local memory</option>
+          <option>Watershed note</option>
+          <option>Community notice</option>
+        </select>
+        <input type="text" id="hollerTopic" placeholder="Listing title or reply target">
+      </div>
+      <textarea id="hollerMessage" placeholder="Describe the listing, the reply, or the note you want to send. Include any useful local details."></textarea>
+      <button class="btn primary" id="hollerSubmitBtn" type="button" onclick="submitHoller()">Send to the board desk</button>
+      <div class="post-status" id="hollerStatus" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <div class="cta-band reveal">
+    <div class="cta-title">Five Mile Creek needs your help.</div>
+    <p class="cta-body">Volunteer for creek cleanup days. Report illegal dumping. Help document the watershed. Every set of eyes matters.</p>
+    <a href="fivemile-involved.html" class="cta-btn">Get involved</a>
+  </div>
+</div>
+</div>
+
+<script src="fivemile-common.js"></script>
+<script>
+// SHARED JS
+
+// Recipe card
+(function(){
+  const RECIPES=[
+    {id:'polk-salad',title:'Polk Salad',label:'Foraged · Spring',emoji:'🌿',intro:'A spring greens dish with real safety rules. The preparation matters as much as the flavor.'},
+    {id:'fried-bream',title:'Fried Bream',label:'Creek Fish · Year-Round',emoji:'🐟',intro:'A creek-side fish supper built for a hot skillet and a short distance between catch and table.'},
+    {id:'squirrel-stew',title:'Squirrel Stew',label:'Wild Game · Fall',emoji:'🐿️',intro:'A long, steady pot meant for cool weather and a patient simmer.'}
+  ];
+  let idx=Math.floor(Math.random()*RECIPES.length);
+  function render(){
+    const r=RECIPES[idx];
+    document.getElementById('recipeCardEmoji').textContent=r.emoji;
+    document.getElementById('recipeCardTitle').textContent=r.title;
+    document.getElementById('recipeCardLabel').textContent=r.label;
+    document.getElementById('recipeCardIntro').textContent=r.intro;
+    document.getElementById('recipeCardLink').href='fivemile-kitchen.html#'+r.id;
+    document.getElementById('recipeCardCount').textContent=(idx+1)+' of '+RECIPES.length;
+  }
+  render();
+  document.getElementById('recipeNextBtn').addEventListener('click',()=>{idx=(idx+1)%RECIPES.length;render();});
+  document.getElementById('recipePrevBtn').addEventListener('click',()=>{idx=(idx-1+RECIPES.length)%RECIPES.length;render();});
+})();
+
+// Slide-in
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
+
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const HOLLER_ROTATOR_URL='fivemile-hollers-rotator.json';
+const HOLLER_FEEDBACK_FORM='Hills and Hollers Feedback';
+const HOLLER_FEEDBACK_VOTES_KEY='cardiff-holler-feedback-votes';
+const HOLLER_FEEDBACK_DELTAS_KEY='cardiff-holler-feedback-deltas';
+const REACTION_META={
+  laugh:{icon:'😂',label:'Funny'},
+  grin:{icon:'🙂',label:'Got a grin'},
+  helpful:{icon:'👍',label:'Helpful'}
+};
+const FALLBACK_ROTATOR={
+  jokes:[
+    {id:'joke-atoms',title:'Trust issues',body:'Why don\'t scientists trust atoms? Because they make up everything.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-eyebrows',title:'High expectations',body:'I told my wife she was drawing her eyebrows too high. She looked surprised.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-two-tired',title:'Road trouble',body:'Why did the bicycle fall over? It was two-tired.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-anti-gravity',title:'Good read',body:'I\'m reading a book about anti-gravity. It\'s impossible to put down.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-scarecrow',title:'Employee of the month',body:'Why did the scarecrow win an award? Because he was outstanding in his field.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-facial-hair',title:'Grew on me',body:'I used to hate facial hair. But it grew on me.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-astronaut',title:'Just a little space',body:'Did you hear about the claustrophobic astronaut? He just needed a little space.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-coffee-mugged',title:'Rough morning',body:'Why did the coffee file a police report? It got mugged.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-25-letters',title:'Missing one',body:'I only know 25 letters of the alphabet. I don\'t know y.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-construction',title:'Work in progress',body:'I have a joke about construction. I\'m still working on it.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-mood-ring',title:'Hard to say',body:'Someone stole my mood ring. I don\'t know how I feel about that.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-baseball-hit-me',title:'Late realization',body:'I couldn\'t figure out why the baseball kept getting bigger. Then it hit me.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-flamingo',title:'Firm stance',body:'My wife told me to stop acting like a flamingo. I had to put my foot down.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-gym-closed',title:'Out of business',body:'Why did the gym close down? It just didn\'t work out.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'joke-cardiff-traffic-report',title:'Cardiff traffic report',body:'Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk.',feedback:{laugh:0,grin:0,helpful:0}}
+  ],
+  riddles:[
+    {id:'riddle-runs-all-through-cardiff',question:'What runs all through Cardiff but never wears a shoe?',answer:'Five Mile Creek.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-shows-up-after-a-rain',question:'What shows up after a rain, tells the truth, and never says a word?',answer:'Tracks in the mud.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-belongs-to-the-whole-town',question:'What belongs to the whole town but gets used one porch at a time?',answer:'Good neighbor advice.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-gets-louder-the-stiller-it-gets',question:'What gets louder the stiller the woods get?',answer:'A barred owl after dark.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-more-you-take',question:'The more you take, the more you leave behind. What am I?',answer:'Footsteps.',feedback:{laugh:0,grin:0,helpful:0}},
+    {id:'riddle-full-of-holes',question:'I\'m full of holes but still hold water. What am I?',answer:'A sponge.',feedback:{laugh:0,grin:0,helpful:0}}
+  ]
+};
+let hollerRotator={
+  jokes:FALLBACK_ROTATOR.jokes.slice(),
+  riddles:FALLBACK_ROTATOR.riddles.slice()
+};
+let jokeIndex=0;
+let riddleIndex=0;
+let playMode='joke';
+let hasPlayInteraction=false;
+const hollerEls={
+  card:document.getElementById('hollerPlayCard'),
+  kicker:document.getElementById('hollerPlayKicker'),
+  title:document.getElementById('hollerPlayTitle'),
+  body:document.getElementById('hollerPlayBody'),
+  answer:document.getElementById('hollerRiddleAnswer'),
+  nextJokeBtn:document.getElementById('nextJokeBtn'),
+  showRiddleBtn:document.getElementById('showRiddleBtn'),
+  toggleRiddleBtn:document.getElementById('toggleRiddleBtn'),
+  nextRiddleBtn:document.getElementById('nextRiddleBtn'),
+  showJokeBtn:document.getElementById('showJokeBtn'),
+  feedbackMeta:document.getElementById('hollerFeedbackMeta'),
+  feedbackStatus:document.getElementById('hollerFeedbackStatus'),
+  feedbackButtons:[...document.querySelectorAll('#hollerFeedbackActions .feedback-btn')],
+  feedbackCounts:{
+    laugh:document.getElementById('feedbackCountLaugh'),
+    grin:document.getElementById('feedbackCountGrin'),
+    helpful:document.getElementById('feedbackCountHelpful')
+  }
+};
+const localFeedbackVotes=readStoredObject(HOLLER_FEEDBACK_VOTES_KEY);
+const localFeedbackDeltas=readStoredObject(HOLLER_FEEDBACK_DELTAS_KEY);
+
+function pickDailyIndex(length,offset=0){
+  if(!length)return 0;
+  const today=new Date();
+  const key=`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}-${offset}`;
+  let total=0;
+  for(let i=0;i<key.length;i++) total+=key.charCodeAt(i);
+  return total%length;
+}
+
+function readStoredObject(key){
+  try{
+    const raw=window.localStorage.getItem(key);
+    return raw?JSON.parse(raw):{};
+  }catch(err){
+    return {};
+  }
+}
+
+function writeStoredObject(key,value){
+  try{
+    window.localStorage.setItem(key,JSON.stringify(value));
+  }catch(err){}
+}
+
+function normalizeFeedback(feedback){
+  return {
+    laugh:Math.max(0,Number(feedback&&feedback.laugh)||0),
+    grin:Math.max(0,Number(feedback&&feedback.grin)||0),
+    helpful:Math.max(0,Number(feedback&&feedback.helpful)||0)
+  };
+}
+
+function slugify(value){
+  return String(value||'cardiff').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'cardiff';
+}
+
+function normalizeRotatorItems(items,fallback,type){
+  const source=Array.isArray(items)&&items.length?items:fallback;
+  return source.map((item,index)=>({
+    ...item,
+    id:item&&item.id?String(item.id):`${type}-${slugify((item&&item.title)||(item&&item.question)||('item-'+(index+1)))}`,
+    feedback:normalizeFeedback(item&&item.feedback)
+  }));
+}
+
+function getItemsForMode(mode){
+  if(mode==='riddle'){
+    return Array.isArray(hollerRotator.riddles)&&hollerRotator.riddles.length?hollerRotator.riddles:FALLBACK_ROTATOR.riddles;
+  }
+  return Array.isArray(hollerRotator.jokes)&&hollerRotator.jokes.length?hollerRotator.jokes:FALLBACK_ROTATOR.jokes;
+}
+
+function getCurrentItem(){
+  const items=getItemsForMode(playMode);
+  const index=playMode==='riddle'?riddleIndex:jokeIndex;
+  return items[index%items.length];
+}
+
+function flashPlayCard(){
+  if(!hollerEls.card)return;
+  hollerEls.card.classList.remove('play-refresh');
+  void hollerEls.card.offsetWidth;
+  hollerEls.card.classList.add('play-refresh');
+}
+
+function setFeedbackStatus(message,isError=false){
+  if(!hollerEls.feedbackStatus)return;
+  hollerEls.feedbackStatus.textContent=message;
+  hollerEls.feedbackStatus.classList.toggle('error',!!isError);
+}
+
+function feedbackCountsFor(item){
+  const base=normalizeFeedback(item&&item.feedback);
+  const local=localFeedbackDeltas[item&&item.id]||{};
+  return {
+    laugh:Math.max(0,base.laugh+Number(local.laugh||0)),
+    grin:Math.max(0,base.grin+Number(local.grin||0)),
+    helpful:Math.max(0,base.helpful+Number(local.helpful||0))
+  };
+}
+
+function renderFeedback(item){
+  if(!item)return;
+  const counts=feedbackCountsFor(item);
+  const currentVote=localFeedbackVotes[item.id]||'';
+  const total=counts.laugh+counts.grin+counts.helpful;
+  if(hollerEls.feedbackCounts.laugh) hollerEls.feedbackCounts.laugh.textContent=String(counts.laugh);
+  if(hollerEls.feedbackCounts.grin) hollerEls.feedbackCounts.grin.textContent=String(counts.grin);
+  if(hollerEls.feedbackCounts.helpful) hollerEls.feedbackCounts.helpful.textContent=String(counts.helpful);
+  hollerEls.feedbackButtons.forEach((btn)=>{
+    btn.classList.toggle('active',btn.dataset.reaction===currentVote);
+  });
+  if(hollerEls.feedbackMeta){
+    hollerEls.feedbackMeta.textContent=total?`${total} local porch tap${total===1?'':'s'} remembered here so far.`:'No local porch taps yet. Positive reactions only.';
+  }
+  if(currentVote&&REACTION_META[currentVote]){
+    setFeedbackStatus(`${REACTION_META[currentVote].icon} Saved as ${REACTION_META[currentVote].label}.`);
+  }else{
+    setFeedbackStatus('Tap one reaction. Only the neighborly ones live here.');
+  }
+}
+
+function renderJoke(options={}){
+  const joke=getCurrentItem();
+  hollerEls.kicker.textContent='Old-Timer Joke';
+  hollerEls.title.textContent=joke.title||'Porch joke';
+  hollerEls.body.textContent=joke.body||'Warm porch humor lives here.';
+  hollerEls.body.hidden=false;
+  hollerEls.answer.classList.remove('visible');
+  renderFeedback(joke);
+  if(options.pulse) flashPlayCard();
+}
+
+function renderRiddle(options={}){
+  const riddle=getCurrentItem();
+  hollerEls.kicker.textContent='Front Porch Riddle';
+  hollerEls.title.textContent=riddle.question||'Front porch riddle';
+  hollerEls.body.textContent='';
+  hollerEls.body.hidden=true;
+  hollerEls.answer.innerHTML='<strong>Answer:</strong> '+(riddle.answer||'Still thinking on that one.');
+  hollerEls.answer.classList.remove('visible');
+  hollerEls.toggleRiddleBtn.textContent='Show answer';
+  renderFeedback(riddle);
+  if(options.pulse) flashPlayCard();
+}
+
+function setPlayMode(mode,options={}){
+  playMode=mode==='riddle'?'riddle':'joke';
+  const showJoke=playMode==='joke';
+  hollerEls.nextJokeBtn.hidden=!showJoke;
+  hollerEls.showRiddleBtn.hidden=!showJoke;
+  hollerEls.toggleRiddleBtn.hidden=showJoke;
+  hollerEls.nextRiddleBtn.hidden=showJoke;
+  hollerEls.showJokeBtn.hidden=showJoke;
+  if(showJoke){
+    renderJoke(options);
+  }else{
+    renderRiddle(options);
+  }
+}
+
+function queueFeedbackLog(item,reaction){
+  if(!window.CardiffSite||typeof window.CardiffSite.submitForm!=='function')return;
+  const title=playMode==='riddle'?(item.question||item.id):(item.title||item.id);
+  window.CardiffSite.submitForm({
+    form:HOLLER_FEEDBACK_FORM,
+    name:'',
+    email:'',
+    topic:`${playMode==='riddle'?'Riddle':'Joke'} feedback · ${REACTION_META[reaction].label}`,
+    message:`Item ID: ${item.id}\nTitle: ${title}\nReaction: ${REACTION_META[reaction].label}\nPage: Hills and Hollers`,
+    page:'fivemile-hollers.html'
+  }).then(()=>{
+    const currentItem=getCurrentItem();
+    if(currentItem&&currentItem.id===item.id){
+      setFeedbackStatus(`${REACTION_META[reaction].icon} Saved as ${REACTION_META[reaction].label}. Sent to the board desk too.`);
+    }
+  }).catch(()=>{
+    const currentItem=getCurrentItem();
+    if(currentItem&&currentItem.id===item.id){
+      setFeedbackStatus(`${REACTION_META[reaction].icon} Saved here. The inbox missed this tap.`,true);
+    }
+  });
+}
+
+function registerFeedback(reaction){
+  const item=getCurrentItem();
+  if(!item||!REACTION_META[reaction])return;
+  const previous=localFeedbackVotes[item.id]||'';
+  if(previous===reaction){
+    setFeedbackStatus(`${REACTION_META[reaction].icon} Already marked ${REACTION_META[reaction].label}.`);
+    return;
+  }
+  if(previous&&REACTION_META[previous]){
+    const previousDelta=localFeedbackDeltas[item.id]||{};
+    previousDelta[previous]=Number(previousDelta[previous]||0)-1;
+    localFeedbackDeltas[item.id]=previousDelta;
+  }
+  const nextDelta=localFeedbackDeltas[item.id]||{};
+  nextDelta[reaction]=Number(nextDelta[reaction]||0)+1;
+  localFeedbackDeltas[item.id]=nextDelta;
+  localFeedbackVotes[item.id]=reaction;
+  writeStoredObject(HOLLER_FEEDBACK_VOTES_KEY,localFeedbackVotes);
+  writeStoredObject(HOLLER_FEEDBACK_DELTAS_KEY,localFeedbackDeltas);
+  renderFeedback(item);
+  setFeedbackStatus(`${REACTION_META[reaction].icon} Saving ${REACTION_META[reaction].label.toLowerCase()}...`);
+  queueFeedbackLog(item,reaction);
+}
+
+async function loadHollerRotator(){
+  try{
+    const res=await fetch(HOLLER_ROTATOR_URL,{cache:'no-store'});
+    if(!res.ok)throw new Error('rotator');
+    const data=await res.json();
+    hollerRotator={
+      jokes:normalizeRotatorItems(data.jokes,FALLBACK_ROTATOR.jokes,'joke'),
+      riddles:normalizeRotatorItems(data.riddles,FALLBACK_ROTATOR.riddles,'riddle')
+    };
+  }catch(err){
+    hollerRotator={
+      jokes:normalizeRotatorItems(FALLBACK_ROTATOR.jokes,FALLBACK_ROTATOR.jokes,'joke'),
+      riddles:normalizeRotatorItems(FALLBACK_ROTATOR.riddles,FALLBACK_ROTATOR.riddles,'riddle')
+    };
+  }
+  if(!hasPlayInteraction){
+    jokeIndex=Math.floor(Math.random()*hollerRotator.jokes.length);
+    riddleIndex=Math.floor(Math.random()*hollerRotator.riddles.length);
+    setPlayMode('joke');
+  }else{
+    setPlayMode(playMode);
+  }
+}
+
+hollerEls.nextJokeBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  const jokes=getItemsForMode('joke');
+  jokeIndex=(jokeIndex+1)%jokes.length;
+  setPlayMode('joke',{pulse:true});
+});
+
+hollerEls.toggleRiddleBtn.addEventListener('click',()=>{
+  const showing=hollerEls.answer.classList.toggle('visible');
+  const btn=hollerEls.toggleRiddleBtn;
+  btn.textContent=showing?'Hide answer':'Show answer';
+});
+
+hollerEls.nextRiddleBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  const riddles=getItemsForMode('riddle');
+  riddleIndex=(riddleIndex+1)%riddles.length;
+  setPlayMode('riddle',{pulse:true});
+});
+
+hollerEls.showRiddleBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  setPlayMode('riddle',{pulse:true});
+});
+
+hollerEls.showJokeBtn.addEventListener('click',()=>{
+  hasPlayInteraction=true;
+  setPlayMode('joke',{pulse:true});
+});
+
+hollerEls.feedbackButtons.forEach((btn)=>{
+  btn.addEventListener('click',()=>{
+    registerFeedback(btn.dataset.reaction||'');
+  });
+});
+
+setPlayMode('joke');
+loadHollerRotator();
+
+function prefillHollerReply(topic){
+  const mode=document.getElementById('hollerMode');
+  const field=document.getElementById('hollerTopic');
+  if(mode) mode.value='Reply to a listing';
+  if(field) field.value=topic;
+  const target=document.getElementById('holler-post');
+  if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  if(field) field.focus();
+}
+
+function submitHoller(){
+  const name=document.getElementById('hollerName').value.trim();
+  const email=document.getElementById('hollerEmail').value.trim();
+  const mode=document.getElementById('hollerMode').value.trim()||'Board note';
+  const topic=document.getElementById('hollerTopic').value.trim();
+  const message=document.getElementById('hollerMessage').value.trim();
+  const status=document.getElementById('hollerStatus');
+  status.textContent='';
+  if(!email||!email.includes('@')){document.getElementById('hollerEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('hollerEmail').style.borderColor='',2000);return;}
+  if(!topic||!message){if(!topic)document.getElementById('hollerTopic').style.borderColor='var(--red)';if(!message)document.getElementById('hollerMessage').style.borderColor='var(--red)';status.textContent='Please add a title and a short message.';setTimeout(()=>{document.getElementById('hollerTopic').style.borderColor='';document.getElementById('hollerMessage').style.borderColor='';},2000);return;}
+  const subject=encodeURIComponent('Hills and Hollers: '+mode+' · '+topic);
+  const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nType: '+mode+'\nTitle: '+topic+'\n\n'+message);
+  window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;
+  document.getElementById('hollerForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';
+}
+
+</script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

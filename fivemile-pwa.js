@@ -8,7 +8,7 @@
   'use strict';
 
   // ── Constants ────────────────────────────────────────────────────────────
-  var SW_URL = '/sw.js';
+  var SW_URL = '/fivemile-sw.js';
   var SW_SCOPE = '/';
   var POLL_INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
   var PERIODIC_SYNC_TAG = 'check-ticker';
@@ -33,7 +33,7 @@
   });
 
   /** Programmatically trigger the install prompt (exposed globally). */
-  window.cardiffInstallPWA = function () {
+  window.fivemileInstallPWA = function () {
     if (!_deferredInstallPrompt) return;
     _deferredInstallPrompt.prompt();
     _deferredInstallPrompt.userChoice.then(function () {
@@ -47,7 +47,7 @@
    * Call this from a user-gesture handler (button click, etc.).
    * Returns a Promise<NotificationPermission>.
    */
-  window.cardiffRequestNotifications = function () {
+  window.fivemileRequestNotifications = function () {
     if (!('Notification' in window)) {
       return Promise.resolve('denied');
     }
@@ -154,7 +154,7 @@
     if (!canPrompt && !isIOS()) return;
 
     var banner = document.createElement('div');
-    banner.id = 'cardiff-install-banner';
+    banner.id = 'fivemile-install-banner';
     banner.setAttribute('role', 'banner');
     banner.style.cssText = [
       'position:fixed',
@@ -201,7 +201,7 @@
         'flex-shrink:0',
       ].join(';');
       installBtn.addEventListener('click', function () {
-        window.cardiffInstallPWA();
+        window.fivemileInstallPWA();
       });
     }
 
@@ -222,12 +222,12 @@
     dismissBtn.addEventListener('click', function () {
       removeInstallBanner();
       // Suppress for this session
-      try { sessionStorage.setItem('cardiff-install-dismissed', '1'); } catch (e) {}
+      try { sessionStorage.setItem('fivemile-install-dismissed', '1'); } catch (e) {}
     });
 
     // Don't show again if dismissed this session
     try {
-      if (sessionStorage.getItem('cardiff-install-dismissed')) return;
+      if (sessionStorage.getItem('fivemile-install-dismissed')) return;
     } catch (e) {}
 
     banner.appendChild(text);

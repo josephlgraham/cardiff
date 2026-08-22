@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Playfair is the wordmark face and nothing else. Every page loads it,
      because without it the nameplate falls back to Georgia and the arc in
-     cardiff-common.css is measured against cap heights Georgia does not have.
+     fivemile-common.css is measured against cap heights Georgia does not have.
      See DECISIONS.md 14. -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
@@ -87,7 +87,7 @@ a{color:inherit}
 }
 </style>
 <script src="fivemile-brand.js"></script>
-<link rel="stylesheet" href="cardiff-common.css">
+<link rel="stylesheet" href="fivemile-common.css">
 <link rel="stylesheet" href="fivemile-cards.css">
 </head>
 <body>
@@ -97,11 +97,11 @@ a{color:inherit}
     <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name">FIVEMILE</div><span class="mh-brand-sub">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
   </div>
   <nav class="mh-tabs">
-    <a href="cardiff-news.html" id="tab-news">News</a>
-    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
-    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
-    <a href="cardiff-guide.html" id="tab-guide">Guide</a>
-    <a href="cardiff-cemetery.html" id="tab-cemetery">Heritage</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
+    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -220,7 +220,7 @@ loadJson('fivemile-home-anchor.json').then(function(data){
   if(data && Array.isArray(data.items)) render(data.items);
 }).catch(function(){});
 </script>
-<script src="cardiff-common.js"></script>
-<script src="/cardiff-pwa.js"></script>
+<script src="fivemile-common.js"></script>
+<script src="/fivemile-pwa.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 //     Mark the current page's tab with class="active".
 //
 //  2. Before </body>, include this script:
-//       <script src="cardiff-common.js"></script>
+//       <script src="fivemile-common.js"></script>
 //
 //  Weather, ticker, topo, and reveal animations are handled
 //  automatically. The masthead HTML lives statically in each page.
@@ -25,8 +25,8 @@
   'use strict';
 
   // ─── WEATHER ───────────────────────────────────────────────────
-  var WEATHER_URL = 'cardiff-weather.json';
-  var WATERSHED_URL = 'cardiff-watershed.json';
+  var WEATHER_URL = 'fivemile-weather.json';
+  var WATERSHED_URL = 'fivemile-watershed.json';
 
   // ─── TICKER ────────────────────────────────────────────────────
   var TICKER_URL = 'ticker.json';
@@ -46,25 +46,25 @@
   // rest are only reachable from here, so nothing gets dropped when the top nav
   // is trimmed. Add a page here when you add a page.
   //
-  // Kitchen (cardiff-kitchen.html) and Civic Pathway (cardiff-civic.html) are
+  // Kitchen (fivemile-kitchen.html) and Civic Pathway (fivemile-civic.html) are
   // shelved, not gone. Both pages are still in the repo, still served, and
   // still precached by the worker, so a bookmark or a link out of the guide
   // opens them exactly as before. They are only unlisted. Put them back here
   // to relist them, and do not delete the pages.
   var FOOTER_NAV = [
     { href: 'index.html',           label: 'Home' },
-    { href: 'cardiff-news.html',    label: 'News' },
-    { href: 'cardiff-almanac.html', label: 'Almanac' },
-    { href: 'cardiff-calendar.html',label: 'Calendar' },
-    { href: 'cardiff-guide.html',   label: 'Guide' },
-    { href: 'cardiff-cemetery.html',label: 'Heritage' },
+    { href: 'fivemile-news.html',    label: 'News' },
+    { href: 'fivemile-almanac.html', label: 'Almanac' },
+    { href: 'fivemile-calendar.html',label: 'Calendar' },
+    { href: 'fivemile-guide.html',   label: 'Guide' },
+    { href: 'fivemile-heritage.html',label: 'Heritage' },
     { href: 'fivemile-gallery.html',label: 'Gallery' },
-    { href: 'cardiff-hollers.html', label: 'Hills and Hollers' },
-    { href: 'cardiff-announce.html',label: 'Announcements' },
-    { href: 'cardiff-involved.html',label: 'Get Involved' }
+    { href: 'fivemile-hollers.html', label: 'Hills and Hollers' },
+    { href: 'fivemile-announce.html',label: 'Announcements' },
+    { href: 'fivemile-involved.html',label: 'Get Involved' }
   ];
 
-  // GitHub Pages serves /cardiff-news.html. Some static dev servers, including
+  // GitHub Pages serves /fivemile-news.html. Some static dev servers, including
   // `npx serve`, strip the extension and serve /cardiff-news. Normalise both to
   // a bare name so the current page is marked either way.
   function pageKey(pathOrHref) {
@@ -107,7 +107,7 @@
   function loadAppLayer() {
     if (document.querySelector('script[data-cardiff-app-layer]')) return;
     var script = document.createElement('script');
-    script.src = 'cardiff-app.js';
+    script.src = 'fivemile-app.js';
     script.defer = true;
     script.setAttribute('data-cardiff-app-layer', 'true');
     document.head.appendChild(script);
@@ -123,7 +123,7 @@
 
 
   // When a page is opened with a #hash (e.g. the masthead creek link points to
-  // cardiff-almanac.html#watershed-card), the browser jumps to the target on
+  // fivemile-almanac.html#watershed-card), the browser jumps to the target on
   // load — but our async cards then render and push the target down, leaving the
   // visitor stranded above it. Re-align to the target as the page settles, and
   // bow out the moment the visitor scrolls on their own.

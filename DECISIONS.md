@@ -171,10 +171,27 @@ Supabase teardown and before the brand tokens. Early is only safe because all
 the work happens on a branch and nothing is live while it is half done. On main
 this would have to run last.
 
-**What must never be deleted:** the stub files at the old paths, and
-`cardiff-sw.js`, which is now a self-unregistering tombstone that clears the
-old service worker off phones where the PWA was installed. Deleting either one
-strands real users.
+**What must never be deleted:** the stub files at the old paths, and the
+service worker tombstones, which clear the old worker off phones where the PWA
+was installed. Deleting either one strands real users.
+
+**Executed:** August 2026, later in the sprint than this entry planned. 36
+files renamed with `git mv`, 914 references rewritten, 10 stubs written at the
+old `.html` paths, and two tombstones.
+
+**Two tombstones, not one.** This entry named `cardiff-sw.js`, but by the time
+the pass actually ran the live worker had been sitting at `/sw.js` for a
+while, and that is the path installed readers had registered. A tombstone only
+works at the path the browser is still asking for, so `/sw.js` is the one that
+matters and `cardiff-sw.js` is kept as insurance for the earlier round.
+`fivemile-sw.js` is the live worker, bumped to `fivemile-v8` because every
+path it precaches changed at once.
+
+The service worker's internal cache keys were renamed too, `cardiff-state` to
+`fivemile-state` and the rest. They are keys rather than files and nothing
+depended on them, but leaving them would have left the only `cardiff-` strings
+in the source, and the rule in CLAUDE.md says any such string is a bug. A rule
+with a quiet exception in it stops being a rule.
 
 **Revisit if:** never. This one is done.
 
@@ -313,9 +330,9 @@ still apply, and the word paints flat at one size. Nothing is broken, it is
 just the old nameplate.
 
 **If you change the split, check the arc.** They are one feature in two files:
-the spans in `fivemile-intro.js`, the sizes in `cardiff-common.css`.
+the spans in `fivemile-intro.js`, the sizes in `fivemile-common.css`.
 
-**The wordmark size is set in `cardiff-common.css`, not the page style
+**The wordmark size is set in `fivemile-common.css`, not the page style
 blocks.** Every page still carries its own `.mh-brand-name` font-size from
 before the rebrand and the shared file overrides all twelve. Editing one page
 does nothing, which is confusing enough to be worth writing down.
@@ -353,7 +370,7 @@ largest. If anything is ever added back inside that box, check this first.
 
 **Timing lives in two files and has to agree:** `STRIKE_MS` and
 `strikeDelay()` in `fivemile-intro.js`, the durations and the town delays in
-`cardiff-common.css`, and `RUN_MS`, which is the backstop that ends the intro
+`fivemile-common.css`, and `RUN_MS`, which is the backstop that ends the intro
 and must outlast the last town.
 
 **Unchanged and not up for discussion:** it plays once ever, any input ends
@@ -388,7 +405,7 @@ treatment rather than shipping it inconsistently.
 **Decided:** August 2026. Supersedes the Google News gathering in
 `fetch-site-data.mjs`.
 
-`scripts/fetch-news.mjs` is the only writer of `cardiff-news-live.json`.
+`scripts/fetch-news.mjs` is the only writer of `fivemile-news-live.json`.
 `fetchNewsStories()` and `updateNewsFile()` were removed from
 `fetch-site-data.mjs`, which now handles weather, the creek, air, and the
 civic snapshot and nothing else. News runs on its own schedule in
@@ -605,7 +622,7 @@ notification.
 Six candidates and the two minute method for finding each feed are commented
 in `SOURCES`. Until at least one is filled in, obituaries only appear when a
 news feed happens to carry one or when one is pinned by hand in
-`cardiff-news-feed.json`.
+`fivemile-news-feed.json`.
 
 **Revisit if:** never, for the quietness. The feeds are just unfinished work.
 
@@ -633,7 +650,7 @@ is the natural next build, and it is the page that actually delivers on
 ## 24. The news file stayed backward compatible on purpose
 **Decided:** August 2026
 
-`cardiff-news-live.json` keeps every field the old file had and adds the new
+`fivemile-news-live.json` keeps every field the old file had and adds the new
 ones underneath: `section`, `why`, `town`, `tags`, `outlet`, `paywall`,
 `image`, `obit`, `score`.
 

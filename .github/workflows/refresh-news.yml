@@ -44,7 +44,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git add cardiff-news-live.json news-archive
+          git add fivemile-news-live.json news-archive
           if git diff --cached --quiet; then
             echo "No news changes to commit."
             exit 0

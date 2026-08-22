@@ -1,4 +1,4 @@
-// Backfill cardiff-weather-archive.json from an Ambient Weather Network CSV export.
+// Backfill fivemile-weather-archive.json from an Ambient Weather Network CSV export.
 //
 //   node scripts/import-awn-csv.mjs <path-to-AWN-export.csv>
 //
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
+const ARCHIVE_FILE = path.join(ROOT, 'fivemile-weather-archive.json');
 
 function findColumn(headers, predicate) {
   const index = headers.findIndex(predicate);

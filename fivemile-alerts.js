@@ -5,12 +5,12 @@
 //  with short, clean alert lines + emoji. Expired alerts auto-clear.
 //
 //  Usage:
-//    node cardiff-alerts.js                # normal run
-//    node cardiff-alerts.js --dry-run      # preview, don't write
-//    node cardiff-alerts.js --verbose      # show full alert detail
+//    node fivemile-alerts.js                # normal run
+//    node fivemile-alerts.js --dry-run      # preview, don't write
+//    node fivemile-alerts.js --verbose      # show full alert detail
 //
 //  Schedule with cron (every 10 minutes):
-//    */10 * * * * cd /path/to/site && node cardiff-alerts.js >> logs/alerts.log 2>&1
+//    */10 * * * * cd /path/to/site && node fivemile-alerts.js >> logs/alerts.log 2>&1
 //
 //  Output: ticker.json — read by every page's ticker strip
 // ─────────────────────────────────────────────────────────────────────
@@ -147,7 +147,7 @@ async function fetchSpcOutlookLines() {
 //    USGS: https://waterdata.usgs.gov/nwis/uv?site_no=02457595
 //    NWS:  https://water.noaa.gov/gauges/RPBAL
 //
-//  Reads from cardiff-watershed.json (updated every 6 hours by the
+//  Reads from fivemile-watershed.json (updated every 6 hours by the
 //  watershed workflow) — no extra API call needed here.
 // ─────────────────────────────────────────────────────────────────────
 
@@ -191,7 +191,7 @@ async function fetchGaugeAlertLines() {
     console.log(`   ✗ USGS gauge unavailable: ${err.message}`);
     // Fall back to the watershed file if the live query fails
     try {
-      const watershedPath = path.join(__dirname, 'cardiff-watershed.json');
+      const watershedPath = path.join(__dirname, 'fivemile-watershed.json');
       const watershed = JSON.parse(fs.readFileSync(watershedPath, 'utf8'));
       const lead = (watershed.gauges || []).find(g => g.id === GAUGE.id);
       if (lead?.stage_ft != null) {
@@ -210,8 +210,8 @@ async function fetchGaugeAlertLines() {
 
 // ─────────────────────────────────────────────────────────────────────
 //  Civic calendar — day-before reminders
-//  Kept in sync with cardiff-season-data.js (civic lane entries).
-//  Add new events here whenever cardiff-season-data.js is updated.
+//  Kept in sync with fivemile-season-data.js (civic lane entries).
+//  Add new events here whenever fivemile-season-data.js is updated.
 // ─────────────────────────────────────────────────────────────────────
 
 const CIVIC_EVENTS = [

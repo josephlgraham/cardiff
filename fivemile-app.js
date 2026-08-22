@@ -2,7 +2,7 @@
  * FIVEMILE app layer.
  *
  * Head tags only, plus a service worker registration for any page that loads
- * this without cardiff-pwa.js. The install banner lives in cardiff-pwa.js and
+ * this without fivemile-pwa.js. The install banner lives in fivemile-pwa.js and
  * is the only place that asks a reader to add the site to their home screen.
  *
  * This file used to build an "app desk" panel offering alert preferences:
@@ -17,7 +17,7 @@
   "use strict";
 
   var MANIFEST_HREF = "/manifest.json";
-  var SERVICE_WORKER_HREF = "/sw.js";
+  var SERVICE_WORKER_HREF = "/fivemile-sw.js";
 
   function ensureHeadTag(tagName, attrs) {
     var selector = tagName;
@@ -52,7 +52,7 @@
 
   /* Registering twice is harmless, the browser treats the second call for the
      same URL and scope as a no-op. Kept so a page loading this file without
-     cardiff-pwa.js still goes offline capable. */
+     fivemile-pwa.js still goes offline capable. */
   function registerServiceWorker() {
     if (!("serviceWorker" in navigator)) return;
     window.addEventListener("load", function () {

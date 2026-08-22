@@ -3,9 +3,9 @@
    scripts/fetch-news.mjs
 
    Gathers the news for FIVEMILE, sorts it into sections, and writes
-   cardiff-news-live.json plus a permanent monthly archive.
+   fivemile-news-live.json plus a permanent monthly archive.
 
-   This is the only writer of cardiff-news-live.json. It replaced
+   This is the only writer of fivemile-news-live.json. It replaced
    fetchNewsStories() and updateNewsFile() in fetch-site-data.mjs, which have
    been removed. Everything else in that file stayed where it was.
 
@@ -35,8 +35,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT_FILE = path.join(ROOT, 'cardiff-news-live.json');
-const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
+const OUT_FILE = path.join(ROOT, 'fivemile-news-live.json');
+const WEATHER_FILE = path.join(ROOT, 'fivemile-weather.json');
 const ARCHIVE_DIR = path.join(ROOT, 'news-archive');
 
 const UA = 'FivemileBot/1.0 (+https://fivemile.now/; fivemilec@gmail.com)';
@@ -153,7 +153,7 @@ const SOURCES = [
      Until at least one of these is filled in, the obituary section still
      fills from two places: notices that turn up inside the news feeds above,
      which the classifier catches, and anything you write into the pinned
-     list in cardiff-news-feed.json by hand when a family sends one in. */
+     list in fivemile-news-feed.json by hand when a family sends one in. */
   // { id:'ridouts-gardendale', outlet:'Ridout\'s Brown Service', kind:'obituary', weight:8, images:false, url:'' },
 
   /* Google News, used only as a net for the small names the outlets above do
@@ -805,7 +805,7 @@ async function build() {
    One story a month that nobody else files: the rain total, on the last day
    of the month, off our own station. It came over from fetch-site-data.mjs
    when the news gathering moved out of that file, because this is the only
-   thing that writes cardiff-news-live.json now and a story with no writer is
+   thing that writes fivemile-news-live.json now and a story with no writer is
    a story that quietly stops appearing.
 
    Two gates, both of which have to open. Today has to be the last day of the
@@ -839,7 +839,7 @@ async function monthlyRainStory() {
     /* Points at the almanac, which is where the month's rain is actually
        kept. A story row with no link never renders, so this has to go
        somewhere real. */
-    url: 'cardiff-almanac.html',
+    url: 'fivemile-almanac.html',
     date: now,
     section: 'towns',
     why: 'filed by the desk',
