@@ -1,0 +1,410 @@
+/* ===========================================================================
+   FIVEMILE card and badge system
+
+   Lifted from docs/fivemile-card-spec.html, revision 4. Class names are
+   exactly as specified and must not be renamed. Only the custom property
+   names changed, and only where the spec sheet collided with tokens the site
+   already uses:
+
+     spec --r      ->  --fm-card-r   (the site's --r is 8px, used by buttons)
+     spec --rule   ->  --fm-rule     (the site's --rule is a translucent brown)
+     spec --muted  ->  --fm-muted    (new, kept prefixed for symmetry)
+
+   The brand colors below are redeclared with the same values the pages
+   already carry, so this file works on a page that has not been rebuilt yet.
+
+   Not included: .card-sponsor and .sponsor-block. DECISIONS.md 12 retired
+   them. Advertising has its own visual language in docs/fivemile-ad-spec.html
+   and must never be card shaped.
+
+   Rules that apply to every card in here: no shadows, 14px radius, one card
+   per purpose, no card inside a card, every blurb a complete sentence, every
+   card has to look deliberate with no image and no data.
+   =========================================================================== */
+
+:root{
+  --red:#C8102E;
+  --paper:#F2E8D5;
+  --card:#FAF6EE;
+  --ink:#1C1208;
+  --masthead:#3D2810;
+
+  --fm-rule:#DDCFB8;
+  --fm-muted:#6B6156;
+  --fm-card-r:14px;
+
+  /* The size scale. Everything on the site is one of these four heights.
+     This is the rule most likely to erode, because every new card wants to
+     be a little taller than the one before it. */
+  --h-tile:150px;
+  --h-panel:214px;
+  --h-strip:76px;
+
+  /* Section colors. Left bar of a .tag only. Never a fill. */
+  --sec-news:#B23A2E;
+  --sec-almanac:#4E6E58;
+  --sec-calendar:#8A6D3B;
+  --sec-guide:#3F5E70;
+  --sec-heritage:#6B4E71;
+  --sec-garden:#6E7F3A;
+}
+
+/* ---------------------------------------------------------------------------
+   BADGES. Two systems, and they must never be confused.
+
+   .town-badge answers where. .tag answers what page. They differ in shape and
+   construction rather than only in hue, so they stay readable in black and
+   white and to a colorblind reader.
+
+   The towns have no colors. There is no .graysville / .cardiff / .brookside
+   variant and there must never be one. See DECISIONS.md 11.
+   --------------------------------------------------------------------------- */
+.town-badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--masthead);
+  padding:3px 9px;border-radius:99px;vertical-align:middle}
+
+.tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;
+  font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);
+  background:var(--card);border:1px solid var(--fm-rule);border-radius:4px;
+  padding:3px 9px 3px 0;overflow:hidden;vertical-align:middle;text-decoration:none}
+/* The bar reads one variable, --accent, and every colored variant sets it
+   rather than restating the ::before rule. The section classes below are the
+   original six. A page with its own set of subjects, the news beats being the
+   first, sets --accent from its own stylesheet and gets the same bar without
+   touching this file. The fallback is the muted brown, so a tag nobody has
+   given a color still looks deliberate.
+
+   Only the bar takes the color. The label stays ink, always. A tag whose text
+   is colored competes with the headline beside it and stops reading as the
+   quiet index mark it is. */
+.tag::before{content:"";width:4px;align-self:stretch;background:var(--accent,var(--fm-muted));flex:none}
+.tag.news{--accent:var(--sec-news)}
+.tag.almanac{--accent:var(--sec-almanac)}
+.tag.calendar{--accent:var(--sec-calendar)}
+.tag.guide{--accent:var(--sec-guide)}
+.tag.heritage{--accent:var(--sec-heritage)}
+.tag.garden{--accent:var(--sec-garden)}
+a.tag:hover{border-color:var(--masthead);text-decoration:none}
+
+/* ---------------------------------------------------------------------------
+   01  GAUGE TILE  .card-gauge  ·  --h-tile  ·  four across
+
+   The staff gauge bolted to a bridge piling. Never a bare number: every tile
+   names its source in the kicker and says what the reading means in a
+   sentence underneath. A figure with neither is a widget.
+   --------------------------------------------------------------------------- */
+.card-gauge{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
+  padding:13px 14px 13px 34px;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  min-height:var(--h-tile);text-decoration:none;color:inherit}
+.card-gauge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:19px;background:var(--masthead)}
+.g-ticks{position:absolute;left:0;top:0;bottom:0;width:19px}
+.g-ticks i{position:absolute;left:0;height:1px;width:7px;background:var(--paper);opacity:.45}
+.g-ticks i.maj{width:13px;opacity:.9;height:1.5px}
+
+/* .card-gauge.event  ·  a tile carrying a date instead of a reading
+
+   The rail on a gauge tile is a staff gauge, and the marks on it are
+   graduations you read a level off. That is true of the creek, the
+   temperature and the air. It is not true of a council meeting, and a ruler
+   printed beside a time is measuring nothing.
+
+   Same rail, same width, same brown, so the four tiles still read as one row.
+   The graduations become the perforation down the edge of a ticket stub,
+   which is the right object for something you turn up to. */
+.card-gauge.event .g-ticks i{left:6px;width:6px;height:6px;border-radius:50%;opacity:.55}
+.g-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);margin:0 0 auto}
+.g-val{font-family:var(--mono);font-size:30px;line-height:1;letter-spacing:-.03em;font-weight:500;margin-top:10px}
+.g-val span{font-size:13px;color:var(--fm-muted);letter-spacing:0}
+.g-sub{font-size:13.5px;color:var(--fm-muted);margin-top:7px;line-height:1.4}
+.g-sub b{color:var(--ink);font-weight:600}
+.card-gauge:hover{border-color:var(--masthead);text-decoration:none}
+
+/* ---------------------------------------------------------------------------
+   02  DEPARTMENT PANEL  .card-dept  ·  --h-panel  ·  two or three across
+
+   The newspaper section head. The workhorse, and it should be the most
+   common card on the site.
+   --------------------------------------------------------------------------- */
+.card-dept{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
+  overflow:hidden;display:flex;flex-direction:column;min-height:var(--h-panel)}
+.d-bar{background:var(--red);color:#fff;padding:9px 15px;display:flex;justify-content:space-between;
+  align-items:center;gap:10px}
+.d-bar h3{margin:0;font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.d-bar .r{font-family:var(--mono);font-size:10.5px;opacity:.88}
+.d-body{padding:15px;flex:1;display:flex;flex-direction:column}
+/* A body holding nothing but the hairline grid gives the grid all of it. Two
+   panels side by side stretch to the taller one, and without this the shorter
+   one finishes with a hole under its last row. The cells centre what they
+   hold, so the extra height reads as a bigger reading rather than a label
+   with a gap beneath it. A body with prose or several parts is unaffected. */
+.d-body > .d-rows:only-child{flex:1}
+.d-body > .d-rows:only-child .d-cell{display:flex;flex-direction:column;justify-content:center}
+
+/* .d-rows.list  ·  one reading per row, label and value on the same line
+
+   Four short readings in a two by two grid, stretched to stand level with a
+   taller card beside it, spend most of their height on air: a cell 117px tall
+   holding 43px of content, four times over.
+
+   Turned on its side the same four readings fill the same box. Each takes a
+   full width row with the label on the left and the figure on the right, the
+   way the tab card already sets a lookup, and four rows divide the height
+   between them instead of four boxes ballooning. The figure grows, because
+   there is room for it and the readers here are not young. */
+.d-body > .d-rows.list{grid-template-columns:1fr}
+.d-body > .d-rows.list .d-cell{flex-direction:row;align-items:center;justify-content:space-between;
+  gap:14px;padding:9px 14px}
+.d-body > .d-rows.list .d-cell em{margin-bottom:0}
+.d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em}
+.d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
+.d-body p:last-child{margin-bottom:0}
+.d-rows{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--fm-rule);border:1px solid var(--fm-rule);border-radius:8px;overflow:hidden}
+.d-cell{background:var(--card);padding:9px 11px}
+.d-cell em{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--fm-muted);margin-bottom:2px}
+.d-cell b{font-family:var(--mono);font-weight:500;font-size:16px}
+/* Three across, for a run of days rather than a set of paired readings. */
+.d-rows.three{grid-template-columns:repeat(3,1fr)}
+
+/* A weather mark inside a cell. Emoji, set at the size of a heading rather
+   than blown up, so it reads as a mark against the numbers and not as a
+   picture stuck on top of them. Never the only place a reading appears: the
+   cell states the temperature and the chance of rain underneath.
+
+   The label mark is the smaller cousin, sitting inline ahead of a cell's
+   label to say what is being measured. Both are aria-hidden or labelled at
+   the call site, so nothing gets read out twice. */
+.d-cell .wx-mark{display:block;margin:4px 0 2px;font-size:21px;line-height:1.2}
+.d-cell .d-mark{font-style:normal;font-size:12px;margin-right:5px;vertical-align:-1px}
+.d-cell .wx-pop{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  letter-spacing:.02em;color:var(--fm-muted);margin-top:3px}
+
+/* The suggestion under the forecast. Ruled off, because it is the one line on
+   the card telling a reader to do something rather than reporting a number. */
+.d-body .d-tip{margin:12px 0 0;padding-top:11px;border-top:1px solid var(--fm-rule);
+  font-size:15px;line-height:1.5}
+
+/* ---------------------------------------------------------------------------
+   03  INDEX TAB  .card-tab  ·  --h-panel  ·  three across
+
+   The tab on a courthouse ledger. For looking something up rather than
+   reading. The tab label is always a proper noun.
+   --------------------------------------------------------------------------- */
+.card-tab{background:var(--card);border:1.5px solid var(--masthead);border-radius:0 var(--fm-card-r) var(--fm-card-r) var(--fm-card-r);
+  padding:15px 17px;position:relative;margin-top:17px;min-height:var(--h-panel);
+  display:flex;flex-direction:column}
+.t-tab{position:absolute;top:-17px;left:-1.5px;background:var(--masthead);color:var(--paper);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  padding:3px 14px;border-radius:6px 6px 0 0}
+.t-title{font-size:17px;font-weight:700;margin:2px 0 11px}
+.t-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--fm-rule);font-size:14.5px}
+.t-row:last-of-type{border-bottom:none}
+.t-row b{font-family:var(--mono);font-weight:500;text-align:right}
+.t-note{margin-top:auto;padding-top:11px;border-top:1.5px solid var(--masthead);font-size:14px;color:var(--fm-muted)}
+
+/* .card-tab.brief  ·  a tab card with no rows in it
+
+   The full tab card is a lookup: a title, a list of .t-row pairs, and a note
+   ruled off at the bottom. The three towns on the homepage have no rows, so
+   the note's margin-top:auto had nothing to push against except the title,
+   and it opened a hole two thirds the height of the card between the two.
+
+   This variant is for that case only. The card takes its height from its
+   contents, the note follows the title at a reading gap, and the bottom rule
+   goes with the rows it was separating. Grid stretch still levels the row, so
+   three of these side by side finish flush.
+
+   Do not use it on a card that has .t-row children. There the rule and the
+   pinned note are doing real work. */
+.card-tab.brief{min-height:0;padding-bottom:16px}
+.card-tab.brief .t-title{margin-bottom:8px}
+.card-tab.brief .t-note{margin-top:0;padding-top:0;border-top:none}
+
+a.card-tab{text-decoration:none;color:inherit}
+a.card-tab:hover{text-decoration:none}
+a.card-tab:hover .t-title{color:var(--red)}
+
+/* ---------------------------------------------------------------------------
+   04  EVENT STUB  .card-stub  ·  --h-strip  ·  full width, stacked
+
+   The date gets the weight, because that is what people scan a calendar for.
+   Color is carried by the badges, not the card, so a list of twelve does not
+   turn into a quilt.
+   --------------------------------------------------------------------------- */
+.card-stub{display:flex;background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
+  overflow:hidden;text-decoration:none;color:inherit;min-height:var(--h-strip);margin-bottom:10px}
+.card-stub:hover{border-color:var(--masthead);text-decoration:none}
+.k-date{background:var(--masthead);color:var(--paper);padding:10px 13px;text-align:center;min-width:78px;
+  display:flex;flex-direction:column;justify-content:center;flex:none}
+.k-date .mo{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;opacity:.8}
+.k-date .dy{font-family:var(--mono);font-size:26px;line-height:1.12;font-weight:500}
+.k-bd{padding:10px 14px;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.k-top{display:flex;gap:7px;align-items:center;margin-bottom:4px;flex-wrap:wrap}
+.k-bd h3{margin:0 0 3px;font-size:15.5px;font-weight:700;line-height:1.3}
+.k-bd .w{font-size:13.5px;color:var(--fm-muted);line-height:1.4}
+
+/* .card-stub.story  ·  a stub for a headline instead of an event
+
+   A news story is a long row for the same reason an event is: a reader runs
+   down a stack of them looking for the one that concerns them. What changes is
+   what leads. Nobody scans news by date, so the dark date block comes off and
+   the town pill takes the front of the row, with the outlet and the age at the
+   far end of the same line. The headline then gets a line to itself, which is
+   what it needs at full width.
+
+   The pill is the ordinary .town-badge and answers the same question it always
+   answers. A story that names no town reads Regional, which is still an answer
+   to where. Every row carries one, because a row with a pill and a row without
+   stop looking like the same card. The meta pushes right with a margin rather
+   than the line spacing itself out, so it lands in the same place either way.
+
+   Do not use it for anything carrying a date worth scanning. That is the stub
+   above, and the difference between the two is the whole point of both. */
+.card-stub.story .k-bd{padding:12px 16px}
+.card-stub.story .k-top{gap:10px;margin-bottom:6px}
+.card-stub.story h3{margin:0;font-size:16.5px;line-height:1.34}
+.card-stub.story:hover h3{color:var(--red)}
+.k-src{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--fm-muted)}
+
+/* ---------------------------------------------------------------------------
+   05  POSTCARD  .card-post  ·  image locked to 16:9  ·  two across
+
+   A linen postcard turned over. The credit line finally has somewhere to
+   live that is not an afterthought. The image area is paper colored when
+   there is no photograph, so it never looks broken.
+   --------------------------------------------------------------------------- */
+.card-post{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);overflow:hidden;
+  display:flex;flex-direction:column}
+/* The photograph is positioned out of flow so the 16:9 box holds its shape no
+   matter what shape the picture is. Ours are square, and without this the
+   image sets the height and the ratio is lost. */
+.p-img{aspect-ratio:16/9;min-height:0;position:relative;overflow:hidden;background:var(--paper);
+  border-bottom:1px solid var(--fm-rule);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--fm-muted)}
+.p-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.p-bd{display:flex;flex:1}
+.p-lf{flex:1;padding:13px 15px;border-right:1px solid var(--fm-rule);min-width:0}
+.p-lf h3{margin:0 0 5px;font-size:17px;font-weight:700;line-height:1.3}
+.p-lf p{margin:0;font-size:14.5px;color:var(--fm-muted);line-height:1.5}
+/* The credit block. Two lines and they belong together: who made the picture,
+   then the month and year it was taken. They used to sit at opposite ends of
+   the column, which read as two unrelated notes rather than one attribution.
+
+   The stamp fills the column instead of holding a fixed 52px. A name has to
+   run on one line and a name does not fit inside a postage stamp, so this is
+   the franking mark rather than the stamp, which is the honest shape for it. */
+.p-rt{width:116px;padding:13px 12px;display:flex;flex-direction:column;align-items:stretch;
+  justify-content:flex-start;gap:7px;flex:none}
+.p-stamp{min-height:38px;padding:7px 6px;border:1.5px dashed var(--fm-rule);border-radius:3px;display:flex;
+  align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;letter-spacing:.07em;
+  color:var(--fm-muted);text-align:center;line-height:1.25}
+.p-yr{font-family:var(--mono);font-size:11px;color:var(--red);text-align:center}
+
+/* The postcard is a link wherever the picture leads somewhere, the gallery
+   from the front page being the case that matters. Mirrors a.card-tab. */
+a.card-post{text-decoration:none;color:inherit}
+a.card-post:hover{border-color:var(--masthead);text-decoration:none}
+a.card-post:hover .p-lf h3{color:var(--red)}
+
+/* ---------------------------------------------------------------------------
+   06  SEED PACKET  .card-packet  ·  window locked to 4:3  ·  three across
+   --------------------------------------------------------------------------- */
+.card-packet{background:var(--card);border:1.5px solid var(--masthead);border-radius:var(--fm-card-r);
+  overflow:hidden;display:flex;flex-direction:column}
+.s-top{background:var(--red);color:#fff;padding:9px 14px 11px;text-align:center}
+.s-top .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;opacity:.87}
+.s-top h3{margin:3px 0 0;font-size:18px;font-weight:800;letter-spacing:-.01em}
+.s-win{aspect-ratio:4/3;background:var(--paper);border-bottom:1.5px solid var(--masthead);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;color:var(--fm-muted)}
+.s-win img{width:100%;height:100%;object-fit:cover;display:block}
+.s-bd{padding:12px 14px;flex:1;display:flex;flex-direction:column}
+.s-row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;
+  border-bottom:1px dotted var(--fm-rule);padding:4px 0}
+.s-row:last-of-type{border-bottom:none}
+.s-row b{font-family:var(--mono);font-weight:500}
+.s-foot{margin-top:9px;font-size:13.5px;color:var(--fm-muted);line-height:1.45}
+
+/* ---------------------------------------------------------------------------
+   07  BRASS CHECK  .card-check  ·  --h-panel  ·  three across
+
+   Rare on purpose. This and the plat frame are the only dark or squared
+   elements on the site. If either turns up on a third page, something has
+   gone wrong.
+   --------------------------------------------------------------------------- */
+.card-check{background:var(--masthead);border-radius:var(--fm-card-r);padding:15px 16px 14px;color:var(--paper);
+  position:relative;min-height:var(--h-panel);display:flex;flex-direction:column}
+.b-hole{position:absolute;top:12px;right:14px;width:15px;height:15px;border-radius:50%;
+  background:var(--paper);box-shadow:inset 0 0 0 2px var(--masthead)}
+.b-num{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:#D9C9A8}
+.b-name{font-size:19px;font-weight:800;margin:4px 0 1px;letter-spacing:-.012em;padding-right:26px}
+.b-latin{font-family:var(--mono);font-size:11.5px;color:#BBA985;margin-bottom:11px}
+.b-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.b-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid #7A6444;color:#E4D8BE;padding:2px 8px;border-radius:99px}
+.b-tag.on{background:var(--red);border-color:var(--red);color:#fff}
+.b-line{font-size:14px;color:#DCCEB3;line-height:1.5}
+.b-foot{margin-top:auto;padding-top:10px;border-top:1px solid #5C4A31;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#BBA985}
+
+/* ---------------------------------------------------------------------------
+   08  NOTICE  .card-notice / .card-notice.info  ·  full width
+
+   Red for anything affecting safety or access, brown for everything else.
+   Every red notice names its source. A warning with no provenance is a rumor.
+   --------------------------------------------------------------------------- */
+.card-notice{background:var(--card);border:1px solid var(--fm-rule);border-left:5px solid var(--red);
+  border-radius:0 var(--fm-card-r) var(--fm-card-r) 0;padding:14px 17px}
+.n-kick{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin:0 0 4px}
+.card-notice h3{margin:0 0 5px;font-size:17px;font-weight:700;line-height:1.3}
+.card-notice p{margin:0;font-size:15.5px;line-height:1.5}
+.n-src{font-family:var(--mono);font-size:11px;color:var(--fm-muted);margin-top:9px}
+.n-src a{color:inherit}
+.card-notice.info{border-left-color:var(--masthead)}
+.card-notice.info .n-kick{color:var(--masthead)}
+
+/* ---------------------------------------------------------------------------
+   09  QUIZ  .card-quiz  ·  --h-panel  ·  two across or full width
+
+   The one place on the site where a little swagger is correct.
+   --------------------------------------------------------------------------- */
+.card-quiz{background:var(--masthead);border-radius:var(--fm-card-r);padding:18px 18px 16px;color:var(--paper);
+  text-decoration:none;display:flex;flex-direction:column;min-height:var(--h-panel);position:relative;overflow:hidden}
+.card-quiz::after{content:"";position:absolute;right:-28px;bottom:-28px;width:104px;height:104px;
+  border-radius:50%;background:var(--red);opacity:.22}
+.q-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#D9C9A8}
+.card-quiz h3{margin:8px 0 6px;font-size:23px;font-weight:800;line-height:1.18;letter-spacing:-.02em;color:#fff;position:relative}
+.card-quiz p{margin:0;font-size:14.5px;color:#DCCEB3;line-height:1.5;position:relative}
+.q-go{margin-top:auto;padding-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:#fff;position:relative}
+a.card-quiz:hover{text-decoration:none}
+
+/* ---------------------------------------------------------------------------
+   11  PLAT FRAME  .card-plat  ·  heritage page only
+
+   Deliberately breaks the 14px radius rule, which is why it is restricted to
+   framing heritage sections and never used for a data card.
+   --------------------------------------------------------------------------- */
+.card-plat{background:
+    linear-gradient(var(--fm-rule) 1px,transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg,var(--fm-rule) 1px,transparent 1px) 0 0/22px 100%,
+    var(--card);
+  border:1px solid var(--masthead);border-radius:2px;padding:17px;position:relative}
+.card-plat::before,.card-plat::after{content:"";position:absolute;width:9px;height:9px;border:1.5px solid var(--red)}
+.card-plat::before{top:6px;left:6px;border-right:none;border-bottom:none}
+.card-plat::after{bottom:6px;right:6px;border-left:none;border-top:none}
+.pl-in{background:rgba(250,246,238,.88);padding:12px 14px}
+.pl-in h3{margin:0 0 8px;font-size:18px;font-weight:700}
+.pl-in p{margin:0;font-size:15px;line-height:1.55}
+
+/* ---------------------------------------------------------------------------
+   Section head. Not a card, but every page that uses these cards needs it.
+   Ink rule under a small uppercase heading, with an optional red link out to
+   the section's own page.
+   --------------------------------------------------------------------------- */
+.hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:16px}
+.hd h1,.hd h2{margin:0;font-size:15px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.hd time,.hd .hd-note{font-family:var(--mono);font-size:12px;color:var(--fm-muted)}
+.hd a{font-family:var(--mono);font-size:11.5px;color:var(--red);text-decoration:none;letter-spacing:.06em;white-space:nowrap}
+.hd a:hover{text-decoration:underline}

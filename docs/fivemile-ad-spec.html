@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIVEMILE · Advertising spec sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   FIVEMILE ADVERTISING
+   Production ready. Copy into fivemile-common.css as written.
+
+   CORE PRINCIPLE
+   Ads are not cards. They do not use .card-* anything. A card
+   carries the publication's credibility, and paid placement
+   must never borrow it. Every structural property below is
+   chosen to be the opposite of a card:
+
+       card                     ad
+       14px radius              square corners
+       #FAF6EE card fill        #EBE0CC, darker than the page
+       heading weight 800       weight 600, capped
+       Cardiff red available    no red, ever
+       no label                 always labelled
+
+   A reader who has learned the cards will feel the difference
+   before they read the label. That is the point.
+   ============================================================ */
+
+:root{
+  --red:#C8102E; --paper:#F2E8D5; --card:#FAF6EE; --ink:#1C1208;
+  --masthead:#3D2810; --rule:#DDCFB8; --muted:#6B6156;
+  --ad-fill:#EBE0CC; --ad-rule:#C4B69B;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:34px 20px 110px;background:var(--paper);color:var(--ink);
+     font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto}
+h1{font-size:36px;font-weight:800;letter-spacing:-.025em;margin:0 0 4px;color:var(--red)}
+.lede{font-size:17px;color:var(--muted);max-width:66ch;margin:0 0 8px}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 40px}
+h2.sec{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+       border-bottom:2px solid var(--ink);padding-bottom:7px;margin:52px 0 18px}
+h3.item{font-size:22px;font-weight:800;letter-spacing:-.015em;margin:0 0 2px}
+.cls{font-family:var(--mono);font-size:12.5px;color:var(--red);margin:0 0 10px}
+.why{font-size:15.5px;color:var(--muted);max-width:68ch;margin:0 0 16px}
+.entry{margin-bottom:44px;padding-top:26px;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:none;padding-top:0}
+table.spec{width:100%;border-collapse:collapse;margin:16px 0 0;font-size:14.5px}
+table.spec th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule);padding:0 12px 6px 0;font-weight:700}
+table.spec td{border-bottom:1px solid var(--rule);padding:8px 12px 8px 0;vertical-align:top}
+table.spec td:first-child{font-family:var(--mono);font-size:13px;width:170px}
+.dont{background:#FBEDEE;border-left:4px solid var(--red);border-radius:0 10px 10px 0;
+      padding:11px 14px;margin-top:14px;font-size:14.5px}
+.dont b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.ctx{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:15px 17px;margin:14px 0}
+.ctx .h{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ctx p{margin:0;font-size:15.5px}
+
+/* ============================================================
+   THE AD BLOCK
+   Always a labelled container. An ad never appears loose.
+   ============================================================ */
+.ad-block{margin:30px 0;border-top:1px solid var(--ad-rule);padding-top:10px}
+.ad-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.ad-block.two{display:grid;gap:12px}
+.ad-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.ad-row{grid-template-columns:1fr}}
+
+/* ---- 01 notice ad ---- */
+.ad{display:flex;gap:13px;align-items:flex-start;background:var(--ad-fill);
+  border:1px solid var(--ad-rule);border-radius:0;padding:13px 15px;
+  text-decoration:none;color:inherit}
+.ad:hover{border-color:var(--masthead)}
+.ad-mark{width:46px;height:46px;flex:none;background:var(--paper);border:1px solid var(--ad-rule);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;
+  letter-spacing:.06em;color:var(--muted);text-align:center;line-height:1.2}
+.ad-bd{min-width:0}
+.ad-bd h3{margin:0 0 3px;font-size:16px;font-weight:600;line-height:1.3}
+.ad-bd p{margin:0;font-size:14.5px;color:#5A5145;line-height:1.45}
+.ad-bd .cta{display:block;margin-top:6px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;color:var(--masthead)}
+
+/* ---- 02 banner ad ---- */
+.ad-banner{display:block;background:var(--ad-fill);border:1px solid var(--ad-rule);
+  padding:18px 20px;text-decoration:none;color:inherit;text-align:center}
+.ad-banner:hover{border-color:var(--masthead)}
+.ad-banner h3{margin:0 0 4px;font-size:19px;font-weight:600;letter-spacing:-.01em}
+.ad-banner p{margin:0;font-size:15px;color:#5A5145}
+.ad-banner .cta{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.07em;color:var(--masthead);border-bottom:1px solid var(--ad-rule);padding-bottom:2px}
+
+/* ---- 03 supporter line ---- */
+.ad-line{background:var(--ad-fill);border:1px solid var(--ad-rule);padding:9px 14px;
+  font-size:14px;color:#5A5145;display:flex;gap:9px;align-items:baseline;flex-wrap:wrap}
+.ad-line .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--muted);flex:none}
+.ad-line a{color:var(--masthead);font-weight:600}
+
+/* ---- 04 house ad ---- */
+.ad.house{background:transparent;border-style:dashed}
+.ad.house .ad-mark{background:transparent;border-style:dashed}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Advertising spec sheet</h1>
+<p class="lede">Three ad formats, one disclosure rule, and a list of places an ad may never appear. Written so that a reader can tell at a glance what is paid and what is not, without having to read a label, and so that the label is there anyway.</p>
+<p class="stamp">FIVEMILE · Revision 1 · August 2026 · Companion to fivemile-card-spec.html</p>
+
+<!-- ============ PRINCIPLE ============ -->
+<h2 class="sec">The principle</h2>
+<p class="why">The earlier draft of this had a <span style="font-family:var(--mono);font-size:13px">.card-sponsor</span> class, and that was a mistake worth explaining, because the reasoning behind the fix is the whole of this document.</p>
+<p class="why">Making an ad <b>quiet</b> is not the same as making it <b>distinguishable</b>. A muted card is still a card, and every card on this site carries the publication's credibility. Paid placement must not be allowed to borrow that, no matter how tasteful it looks. Worse, a very quiet ad is closer to native advertising, which is the format regulators and readers both dislike most, and for good reason.</p>
+<p class="why">So ads are not cards. Every structural property is deliberately the opposite of one.</p>
+
+<table class="spec">
+  <tr><th>Property</th><th>A card</th><th>An ad</th></tr>
+  <tr><td>Corners</td><td>14px radius</td><td>Square. Zero radius, sitewide, no exceptions.</td></tr>
+  <tr><td>Fill</td><td>#FAF6EE, lighter than the page</td><td>#EBE0CC, darker than the page. It sits back rather than lifting off.</td></tr>
+  <tr><td>Heading weight</td><td>700 to 800</td><td>600, capped. It can never shout like a headline.</td></tr>
+  <tr><td>Cardiff red</td><td>Available</td><td>Never. Red belongs to the publication.</td></tr>
+  <tr><td>Label</td><td>None</td><td>Always, above the ad, never below or beside it.</td></tr>
+</table>
+<p class="why" style="margin-top:14px">A reader who has spent a month with this site will feel the difference before they read the word. The word is there anyway, because feeling is not consent.</p>
+
+<!-- ============ THE LABEL ============ -->
+<h2 class="sec">The label</h2>
+<p class="why">One word, chosen once, used everywhere. My recommendation is <b>ADVERTISEMENT</b>.</p>
+<p class="why">"Sponsors" sounds friendlier and that is exactly the problem with it. It is the word a business uses when it would rather the reader not think about money changing hands, and readers know it. "Advertisement" is what a small-town paper has printed above the back page for a hundred years. It is plain, it is unambiguous, and using it signals that you are not trying to blur anything. The friendliness you lose is worth less than the trust you keep.</p>
+<p class="why">Use <b>SUPPORTED BY</b> only for the third format below, where a business is underwriting a whole section rather than buying a display slot. That is a different arrangement and deserves a different word.</p>
+<table class="spec">
+  <tr><td>Placement</td><td>Above the ad, always. A label underneath is read after the fact and does not count.</td></tr>
+  <tr><td>Type</td><td>DM Mono, 10px, uppercase, .2em letter spacing, muted. Small but never smaller than this.</td></tr>
+  <tr><td>Scope</td><td>Labels the block, not each ad. Two ads in one labelled block is fine. An unlabelled ad anywhere is not.</td></tr>
+</table>
+
+<!-- ============ FORMATS ============ -->
+<h2 class="sec">The formats</h2>
+
+<div class="entry">
+  <h3 class="item">01 · Notice ad</h3>
+  <p class="cls">.ad-block &gt; .ad · the default · one or two per block</p>
+  <p class="why">The workhorse, and the one most local businesses will buy. A small mark, a name, a line about what they do, and a way to reach them. It looks like a card pinned to a board at the feed store, which is roughly what it is.</p>
+  <div class="ad-block">
+    <p class="ad-label">Advertisement</p>
+    <div class="ad-row">
+      <a class="ad" href="#">
+        <span class="ad-mark">LOGO</span>
+        <span class="ad-bd"><h3>Five Mile Creek Canoe and Co</h3>
+        <p>Boats, paddles, and a shuttle from the Billingsley Trestle down to Bensko Park. Runs go out most mornings from spring through October.</p>
+        <span class="cta">205 674 5550</span></span>
+      </a>
+      <a class="ad" href="#">
+        <span class="ad-mark">LOGO</span>
+        <span class="ad-bd"><h3>Adamsville Feed and Seed</h3>
+        <p>Garden seed, chicken feed, and hardware since 1974. We are on Veterans Memorial Drive and we still load your truck for you.</p>
+        <span class="cta">Open Monday to Saturday</span></span>
+      </a>
+    </div>
+  </div>
+  <table class="spec">
+    <tr><td>Mark</td><td>Optional. 46px square, the advertiser's logo. No photographs, no text baked into an image, no animation.</td></tr>
+    <tr><td>Copy</td><td>Name, one or two sentences, one contact line. Written by the advertiser, edited by you for length and house style.</td></tr>
+    <tr><td>Link</td><td>rel="sponsored noopener" target="_blank".</td></tr>
+  </table>
+</div>
+
+<div class="entry">
+  <h3 class="item">02 · Banner</h3>
+  <p class="cls">.ad-block &gt; .ad-banner · one per page maximum</p>
+  <p class="why">For a business that wants the whole width, usually seasonal. Still square, still darker than the page, still capped at weight 600. It is bigger than a notice ad and it is not louder, which is a distinction worth holding onto when somebody asks to make theirs stand out.</p>
+  <div class="ad-block">
+    <p class="ad-label">Advertisement</p>
+    <a class="ad-banner" href="#">
+      <h3>Bevill State Community College</h3>
+      <p>Fall registration is open in Sumiton. Welding, nursing, and business.</p>
+      <span class="cta">bscc.edu</span>
+    </a>
+  </div>
+</div>
+
+<div class="entry">
+  <h3 class="item">03 · Supporter line</h3>
+  <p class="cls">.ad-line · underwriting, not display</p>
+  <p class="why">One quiet line at the foot of a section, for a business underwriting an ongoing feature rather than buying a slot. This is the format most likely to be abused, so the rule is strict: a supporter's name appears at the bottom of the section and nowhere else in it. They do not get a mention in the copy, a photograph, or a say in what the section covers.</p>
+  <div class="ad-line"><span class="lab">Supported by</span><span>The garden page this month is supported by <a href="#">Adamsville Feed and Seed</a>.</span></div>
+  <div class="dont"><b>Never</b>A supporter never appears inside the content they support. If the feed store underwrites the garden page, the garden page does not recommend the feed store, quote the feed store, or photograph the feed store. Break this once and the section is worthless to every reader who notices.</div>
+</div>
+
+<div class="entry">
+  <h3 class="item">04 · House ad</h3>
+  <p class="cls">.ad.house · your own, in an empty slot</p>
+  <p class="why">When a slot has no advertiser, it either disappears or it carries a house ad. Both are correct and disappearing is the default. Use a house ad only when you want the slot visibly for sale, and label it the same way as everything else, because it occupies an ad slot and readers should not have to work out that this one is different.</p>
+  <div class="ad-block">
+    <p class="ad-label">Advertisement</p>
+    <a class="ad house" href="#">
+      <span class="ad-mark">5</span>
+      <span class="ad-bd"><h3>This space is for a local business</h3>
+      <p>FIVEMILE reaches people in Graysville, Cardiff, and Brookside who are looking for what is happening this week. Write and ask what a spot costs.</p>
+      <span class="cta">fivemilec@gmail.com</span></span>
+    </a>
+  </div>
+</div>
+
+<!-- ============ PLACEMENT ============ -->
+<h2 class="sec">Where ads may and may not go</h2>
+<table class="spec">
+  <tr><th>Page</th><th>Allowed</th><th>Why</th></tr>
+  <tr><td>Home</td><td>One block, below the news section. Never above the Right Now row.</td><td>The reason people come is the top of the page. Selling it would be selling the only thing that works.</td></tr>
+  <tr><td>News, Almanac, Calendar, Guide, Heritage, Garden</td><td>One block per page.</td><td>Normal inventory.</td></tr>
+  <tr><td>Town halls</td><td><b>None. Enforced in code.</b></td><td>This page carries council contacts and public meeting times. Paid placement next to civic information is the single fastest way to lose the standing the whole site depends on.</td></tr>
+  <tr><td>About</td><td><b>None. Enforced in code.</b></td><td>The page where you say who you are is not for sale.</td></tr>
+  <tr><td>Any page showing a red notice</td><td><b>None while the notice is live.</b></td><td>No advertisement runs beside a water advisory or a road closure. Suppress the block for that page load.</td></tr>
+  <tr><td>Get involved</td><td>House ad only.</td><td>It is the page that explains how to buy one.</td></tr>
+</table>
+<div class="dont"><b>Hard cap</b>One ad block per page, holding at most two ads. No page ever shows more. This is a limit on inventory, not a starting point to negotiate up from, and it is the reason the ads will be worth something.</div>
+
+<!-- ============ EDITORIAL ============ -->
+<h2 class="sec">Where money touches the writing</h2>
+<div class="ctx">
+  <div class="h">The rule</div>
+  <p>An advertiser buys a slot. An advertiser does not buy coverage, placement, a mention, favourable treatment, or advance notice of anything. There is no arrangement in which paying gets a business written about.</p>
+</div>
+<table class="spec">
+  <tr><td>If a current advertiser becomes news</td><td>Publish it and disclose the relationship in the piece, in a plain sentence. "The canoe company advertises on this site." Do not quietly pull the ad and pretend the relationship did not exist.</td></tr>
+  <tr><td>If the news is unflattering</td><td>Publish it anyway, disclose it, and expect to lose the advertiser. Decide now, while it is hypothetical and cheap, that this is what will happen.</td></tr>
+  <tr><td>Recommendations</td><td>If a piece recommends a business that advertises, say so in that piece. Every time, even when it is obvious.</td></tr>
+  <tr><td>Refusals</td><td>No political ads, no candidates, no ballot measures, no anything you would be uncomfortable seeing next to a story. Write the refusal list before the first offer, because after an offer it stops being a principle and becomes an argument.</td></tr>
+</table>
+
+<!-- ============ MECHANICS ============ -->
+<h2 class="sec">How it runs</h2>
+<table class="spec">
+  <tr><td>Data</td><td>fivemile-ads.json. Each entry: id, name, line, cta, url, logo, format, pages, starts, ends, house.</td></tr>
+  <tr><td>Expiry</td><td>An ad renders only when today falls between starts and ends. Expired ads vanish without anyone doing anything. This is the whole billing system at this scale.</td></tr>
+  <tr><td>Empty slots</td><td>Render nothing at all, or a house ad. Never an empty bordered box.</td></tr>
+  <tr><td>No tracking</td><td>No pixels, no third party scripts, no impression counts, no click counts. If an advertiser asks for numbers, tell them plainly that the site does not track readers and that you can tell them how many people visit the page.</td></tr>
+  <tr><td>What you can honestly report</td><td>Page views from your own analytics, and how long the ad ran. Nothing else, and do not imply otherwise.</td></tr>
+  <tr><td>Terms</td><td>A one page written note to every advertiser: what they get, which pages, how long, what happens if they are ever in a story, and that you edit copy for length and house style. Send it before the first payment. It prevents the whole category of argument that kills small publications.</td></tr>
+</table>
+
+<!-- ============ CHECKLIST ============ -->
+<h2 class="sec">Before the first ad goes live</h2>
+<table class="spec">
+  <tr><td>1</td><td>Pick the label word and use it everywhere. Recommended: ADVERTISEMENT.</td></tr>
+  <tr><td>2</td><td>Write the refusal list.</td></tr>
+  <tr><td>3</td><td>Write the one page terms note.</td></tr>
+  <tr><td>4</td><td>Build the code-level ban on town halls and about, so it cannot be forgotten later.</td></tr>
+  <tr><td>5</td><td>Add an Advertise section to Get Involved explaining the formats and inviting an email. No prices needed yet.</td></tr>
+  <tr><td>6</td><td>Talk to an accountant about how this income is handled before the first payment arrives.</td></tr>
+</table>
+
+</div>
+</body>
+</html>

@@ -5,3 +5,6 @@ node_modules/
 # assets/ and media/. Keep your originals here (and backed up elsewhere) —
 # `npm run generate-assets` reads from _src/ and writes the served files.
 _src/
+
+# Intermediate PNGs for favicon.ico, written by scripts/gen_icon_pngs.mjs
+scripts/.ico-src/

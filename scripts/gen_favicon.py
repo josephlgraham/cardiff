@@ -1,4 +1,19 @@
-"""One-off: regenerate the Cardiff favicon/icon SVGs with the brand 'C'.
+"""SUPERSEDED, August 2026. DO NOT RUN.
+
+This builds the old Cardiff 'C' mark. Running it overwrites favicon.svg and the
+icon SVGs with artwork the site no longer uses, and the next PNG build would
+carry it through to every icon.
+
+The FIVEMILE mark is drawn, not set in a typeface, so there is no glyph to
+outline. The source of truth is favicon.svg itself. To rebuild the icons:
+    node scripts/gen_icon_pngs.mjs      # PNGs, plus the .ico source sizes
+    python scripts/gen_favicon_ico.py   # packs favicon.ico
+
+Kept only for the outlining technique, in case a future mark is set in type.
+
+Original docstring follows.
+
+One-off: regenerate the Cardiff favicon/icon SVGs with the brand 'C'.
 
 The 'C' is the Plus Jakarta Sans ExtraBold (wght 800) glyph used by the
 masthead wordmark, outlined to a vector path so it renders identically in

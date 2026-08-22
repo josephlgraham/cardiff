@@ -110,8 +110,14 @@
     navigator.serviceWorker.controller.postMessage({ type: 'CHECK_TICKER' });
   }
 
+  /* The worker only raises a notification when permission is already granted,
+     and nothing on the site asks for it now that the alert desk is gone. So
+     polling would fetch ticker.json every ten minutes forever and could never
+     produce anything. Left wired for whenever alerts get thought through
+     properly, but idle until something grants permission. */
   function startPolling() {
     if (_pollTimer) return;
+    if (!('Notification' in window) || Notification.permission !== 'granted') return;
     _pollTimer = setInterval(sendCheckMessage, POLL_INTERVAL_MS);
   }
 
@@ -123,10 +129,29 @@
     );
   }
 
+  /* iPadOS reports itself as a Mac, so the touch point count is what separates
+     an iPad from a desktop. This is only used to decide which half of the
+     banner to show, never to withhold anything. */
+  function isIOS() {
+    var ua = navigator.userAgent || '';
+    if (/iphone|ipad|ipod/i.test(ua)) return true;
+    return navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  }
+
+  /* Two ways in, because the platforms differ and the reader should not have
+     to care which one they are on.
+
+     Chrome on Android hands us beforeinstallprompt, so a button can open the
+     native dialog. Safari has no equivalent API and never will have fired that
+     event, so an iPhone gets the same sentence and the two taps that do the
+     same job. Naming Apple's menu item is the one bit of interface this site
+     spells out, and only because it is Safari's interface and not ours. */
   function maybeShowInstallBanner() {
     if (isStandalone()) return;
-    if (!_deferredInstallPrompt) return;
     if (_bannerEl) return; // already showing
+
+    var canPrompt = !!_deferredInstallPrompt;
+    if (!canPrompt && !isIOS()) return;
 
     var banner = document.createElement('div');
     banner.id = 'cardiff-install-banner';
@@ -145,44 +170,53 @@
       'background:#3d2810',
       'border-top:2px solid #C8102E',
       'color:#f5ead8',
-      'font-family:system-ui,sans-serif',
-      'font-size:14px',
+      'font-family:var(--sans,"Plus Jakarta Sans",system-ui,sans-serif)',
+      'font-size:15px',
       'box-shadow:0 -2px 12px rgba(0,0,0,0.35)',
     ].join(';');
 
     var text = document.createElement('span');
-    text.textContent = 'Install the Cardiff app for offline access and alerts.';
+    // No app, no install, no progressive web anything. The reader is being
+    // asked to put an icon on their home screen, so that is what it says.
+    text.textContent = 'Add ' + ((window.BRAND && window.BRAND.name) || 'FIVEMILE') +
+      ' to your home screen.' +
+      (canPrompt ? '' : ' Tap the share button, then Add to Home Screen.');
     text.style.cssText = 'flex:1;line-height:1.4';
 
-    var installBtn = document.createElement('button');
-    installBtn.textContent = 'Install';
-    installBtn.style.cssText = [
-      'background:#C8102E',
-      'color:#fff',
-      'border:none',
-      'border-radius:6px',
-      'padding:8px 16px',
-      'font-size:13px',
-      'font-weight:700',
-      'cursor:pointer',
-      'white-space:nowrap',
-      'flex-shrink:0',
-    ].join(';');
-    installBtn.addEventListener('click', function () {
-      window.cardiffInstallPWA();
-    });
+    var installBtn = null;
+    if (canPrompt) {
+      installBtn = document.createElement('button');
+      installBtn.textContent = 'Add';
+      installBtn.style.cssText = [
+        'background:#C8102E',
+        'color:#fff',
+        'border:none',
+        'border-radius:6px',
+        'padding:10px 18px',
+        'min-height:44px',
+        'font:inherit',
+        'font-weight:700',
+        'cursor:pointer',
+        'white-space:nowrap',
+        'flex-shrink:0',
+      ].join(';');
+      installBtn.addEventListener('click', function () {
+        window.cardiffInstallPWA();
+      });
+    }
 
     var dismissBtn = document.createElement('button');
     dismissBtn.textContent = '✕';
-    dismissBtn.setAttribute('aria-label', 'Dismiss install banner');
+    dismissBtn.setAttribute('aria-label', 'Dismiss');
     dismissBtn.style.cssText = [
       'background:transparent',
       'color:rgba(245,234,216,0.7)',
       'border:none',
-      'font-size:18px',
+      'font-size:20px',
       'line-height:1',
       'cursor:pointer',
-      'padding:4px 8px',
+      'min-width:44px',
+      'min-height:44px',
       'flex-shrink:0',
     ].join(';');
     dismissBtn.addEventListener('click', function () {
@@ -197,7 +231,7 @@
     } catch (e) {}
 
     banner.appendChild(text);
-    banner.appendChild(installBtn);
+    if (installBtn) banner.appendChild(installBtn);
     banner.appendChild(dismissBtn);
 
     document.body.appendChild(banner);
@@ -212,9 +246,17 @@
   }
 
   // ── Boot ─────────────────────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', registerServiceWorker);
-  } else {
+  /* The banner has to be offered on its own as well as from the prompt event,
+     because Safari never fires that event and an iPhone would otherwise never
+     be told the site can go on a home screen at all. */
+  function boot() {
     registerServiceWorker();
+    maybeShowInstallBanner();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
   }
 })();

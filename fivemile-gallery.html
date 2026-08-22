@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery · FIVEMILE</title>
+<meta name="description" content="Every photograph that has run on the front page of FIVEMILE, with the name of whoever made it and the month it was taken.">
+<link rel="canonical" href="https://cardiffalabama.info/fivemile-gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Gallery · FIVEMILE">
+<meta property="og:description" content="Every photograph that has run on the front page of FIVEMILE, with the name of whoever made it and the month it was taken.">
+<meta property="og:url" content="https://cardiffalabama.info/fivemile-gallery.html">
+<meta property="og:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery · FIVEMILE">
+<meta name="twitter:description" content="Every photograph that has run on the front page of FIVEMILE, with the name of whoever made it and the month it was taken.">
+<meta name="twitter:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair is the wordmark face and nothing else. Every page loads it,
+     because without it the nameplate falls back to Georgia and the arc in
+     cardiff-common.css is measured against cap heights Georgia does not have.
+     See DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* Gallery layout only. Every card on this page comes from fivemile-cards.css.
+   Nothing card shaped should be defined here. */
+:root{
+  --red:#C8102E;
+  --paper:#F2E8D5;--card:#FAF6EE;
+  --ink:#1C1208;
+  --masthead:#3D2810;
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+.page{position:relative;z-index:1}
+a{color:inherit}
+
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
+.mh-brand{text-align:center;grid-column:2}
+.mh-brand-link{text-decoration:none;display:inline-block}
+.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
+.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
+.mh-tabs::-webkit-scrollbar{display:none}
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em}
+
+.wrap{max-width:1000px;margin:0 auto;padding:34px 20px 60px}
+.lede{font-size:16.5px;line-height:1.62;max-width:68ch;margin:0 0 26px}
+
+/* Postcards two across, which is the width the card was drawn for. Grid
+   stretch levels each row, so a long caption lengthens its neighbour too. */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.gallery .card-post{height:100%}
+.empty{grid-column:1/-1;font-size:15px;color:#6B6156;padding:12px 0}
+
+@media(max-width:820px){
+  .gallery{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}
+  .mh-brand{grid-column:1}
+  .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}
+  .wrap{padding:26px 16px 48px}
+}
+</style>
+<script src="fivemile-brand.js"></script>
+<link rel="stylesheet" href="cardiff-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+</head>
+<body>
+<div class="page">
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name">FIVEMILE</div><span class="mh-brand-sub">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="cardiff-news.html" id="tab-news">News</a>
+    <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="cardiff-guide.html" id="tab-guide">Guide</a>
+    <a href="cardiff-cemetery.html" id="tab-cemetery">Heritage</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hd"><h1>Gallery</h1><a href="index.html">Front page &rarr;</a></div>
+  <p class="lede">Every photograph that has run on the front page, kept with the name of whoever made it and the month it was taken. A picture leaves the front page after a while. It does not leave here.</p>
+  <div class="gallery" id="gallery">
+    <div class="empty">&mdash;</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ===========================================================================
+   Gallery. Reads the same file the front page reads, so a photograph is
+   archived by the act of being featured and there is no second list to keep
+   in step. Newest first, and anything with no date on it sorts to the end.
+   =========================================================================== */
+var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function esc(s){var d=document.createElement('div');d.textContent=String(s==null?'':s);return d.innerHTML}
+
+function loadJson(url){
+  return fetch(url, {cache:'no-store'}).then(function(r){
+    if(!r.ok) throw new Error(String(r.status));
+    return r.json();
+  });
+}
+
+/* Same rule as the front page. A photograph carries its own provenance in its
+   file name, what-it-is_monthyear_first-last.jpg, as in
+   brookside_fog_sept2022_joe-graham.jpg. The subject may hold underscores, so
+   the date is found by pattern; the month is read from its first three
+   letters, so sept and sep and september agree. The JSON fields win where set,
+   and a file matching neither reads as an em dash rather than a guess.
+
+   Month here is 1 based, because the sort below compares it as a number.
+   Keep this in step with fileFacts in index.html. */
+var MONTH_KEYS = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+function fileFacts(src){
+  var name = String(src || '').split('?')[0].split('/').pop().replace(/\.[A-Za-z0-9]+$/, '');
+  var month, year, who;
+  var named = name.match(/^(.+)_([A-Za-z]+)(\d{4})_([A-Za-z][A-Za-z0-9-]*)$/);
+  if(named){
+    month = MONTH_KEYS[named[2].slice(0, 3).toLowerCase()];
+    year = named[3];
+    who = named[4];
+  }else{
+    var dated = name.match(/^(.+)_(\d{4})-(\d{2})_([A-Za-z][A-Za-z0-9-]*)$/);
+    if(!dated) return {year:null, month:null, credit:''};
+    month = Number(dated[3]);
+    year = dated[2];
+    who = dated[4];
+  }
+  if(!month || month < 1 || month > 12) return {year:null, month:null, credit:''};
+  return {
+    year: year, month: month,
+    credit: who.split('-').filter(Boolean).map(function(part){
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(' ')
+  };
+}
+function takenKey(item){
+  var raw = String(item.taken || '').trim().match(/^(\d{4})-(\d{2})/);
+  if(raw){
+    var month = Number(raw[2]);
+    return (month >= 1 && month <= 12) ? {year:raw[1], month:month} : null;
+  }
+  var facts = fileFacts(item.src);
+  return facts.year ? {year:facts.year, month:facts.month} : null;
+}
+function takenLabel(item){
+  var key = takenKey(item);
+  return key ? MONTHS[key.month - 1] + ' ' + key.year : '';
+}
+function creditOf(item){
+  return String(item.credit || '').trim() || fileFacts(item.src).credit;
+}
+
+function render(items){
+  var target = document.getElementById('gallery');
+  var clean = items.filter(function(item){return item && item.src});
+  if(!clean.length) return;
+
+  clean.sort(function(a, b){
+    var ka = takenKey(a), kb = takenKey(b);
+    if(!ka && !kb) return 0;
+    if(!ka) return 1;
+    if(!kb) return -1;
+    return (kb.year - ka.year) || (kb.month - ka.month);
+  });
+
+  target.innerHTML = clean.map(function(item){
+    var src = String(item.src).indexOf('/') > -1 ? item.src : 'fivemile_photos/' + item.src;
+    var credit = creditOf(item);
+    var taken = takenLabel(item);
+    return '<div class="card-post">' +
+      '<div class="p-img"><img src="' + esc(src) + '" alt="' + esc(item.alt || '') + '" loading="lazy" decoding="async"></div>' +
+      '<div class="p-bd">' +
+        '<div class="p-lf">' +
+          '<h3>' + esc(item.title || '&mdash;') + '</h3>' +
+          '<p>' + esc(item.copy || '') + '</p>' +
+        '</div>' +
+        '<div class="p-rt">' +
+          '<div class="p-stamp">' + (credit ? esc(credit.toUpperCase()) : '&mdash;') + '</div>' +
+          '<div class="p-yr">' + (taken ? esc(taken) : '&mdash;') + '</div>' +
+        '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+loadJson('fivemile-home-anchor.json').then(function(data){
+  if(data && Array.isArray(data.items)) render(data.items);
+}).catch(function(){});
+</script>
+<script src="cardiff-common.js"></script>
+<script src="/cardiff-pwa.js"></script>
+</body>
+</html>

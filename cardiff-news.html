@@ -11,132 +11,135 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cardiff News · Cardiff, Alabama</title>
-<meta name="description" content="Cardiff-first local news: live creek and weather conditions, a dispatch log of nearby reports, community announcements, and a directory of emergency and county resources.">
+<title>News · FIVEMILE</title>
+<meta name="description" content="What is being reported this week in Graysville, Cardiff, and Brookside, and in the rest of west Jefferson County. Weather, the creek, obituaries, and what is coming up.">
 <link rel="canonical" href="https://cardiffalabama.info/cardiff-news.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cardiff, Alabama">
+<meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Cardiff News · Cardiff, Alabama">
-<meta property="og:description" content="Cardiff-first local news: live creek and weather conditions, a dispatch log of nearby reports, community announcements, and a directory of emergency and county resources.">
+<meta property="og:title" content="News · FIVEMILE">
+<meta property="og:description" content="What is being reported this week in Graysville, Cardiff, and Brookside, and in the rest of west Jefferson County.">
 <meta property="og:url" content="https://cardiffalabama.info/cardiff-news.html">
-<meta property="og:image" content="https://cardiffalabama.info/photos/1951%20From%20the%20Sky.jpg">
-<meta property="og:image:alt" content="Historical aerial photograph of Cardiff, Alabama, 1951">
+<meta property="og:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cardiff News · Cardiff, Alabama">
-<meta name="twitter:description" content="Cardiff-first local news: live creek and weather conditions, a dispatch log of nearby reports, community announcements, and a directory of emergency and county resources.">
-<meta name="twitter:image" content="https://cardiffalabama.info/photos/1951%20From%20the%20Sky.jpg">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="twitter:title" content="News · FIVEMILE">
+<meta name="twitter:description" content="What is being reported this week in Graysville, Cardiff, and Brookside, and in the rest of west Jefferson County.">
+<meta name="twitter:image" content="https://cardiffalabama.info/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
 <meta name="theme-color" content="#3d2810">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair is the wordmark face and nothing else. Every page loads it,
+     because without it the nameplate falls back to Georgia and the arc in
+     cardiff-common.css is measured against cap heights Georgia does not have.
+     See DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{--red:#C8102E;--red-mid:#9a0c22;--green:#4A7C59;--amber:#E87722;--blue:#2E86AB;--purple:#6B4C9A;--gold:#8B6914;--paper:#F2E8D5;--card:#FAF6EE;--ink:#1C1208;--ink2:#4A3418;--ink3:#7A5838;--border:rgba(80,44,8,.13);--border2:rgba(80,44,8,.24);--rule:rgba(80,44,8,.15);--shadow:0 2px 10px rgba(80,44,8,.09),0 1px 3px rgba(80,44,8,.06);--shadow-lg:0 8px 30px rgba(80,44,8,.12),0 2px 8px rgba(80,44,8,.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease}
+/* News page layout only. Every card on this page comes from
+   fivemile-cards.css or fivemile-news.css. Nothing card shaped is defined
+   here, same rule as the homepage. */
+:root{
+  --red:#C8102E;--red-mid:#9a0c22;
+  --paper:#F2E8D5;--paper2:#ede0c8;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;--ink3:#7a5838;
+  --masthead:#3D2810;
+  --border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --r:8px;--r-lg:14px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
 #topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 .page{position:relative;z-index:1}
-.wrap{max-width:1100px;margin:0 auto;padding:0 2rem 5rem}
+a{color:inherit}
+
+/* masthead. Identical to the homepage. The navigation strip is styled in
+   cardiff-common.css so every page gets the same one. */
+.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
+.mh-left-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;color:var(--hdr-dim);line-height:1.75}
+.mh-brand{text-align:center}.mh-brand-link{text-decoration:none;display:inline-block}
+.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
+.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
+.mh-right-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--hdr-dim);text-align:right;line-height:1.75}
+.mh-right-info .wx-hi{color:rgba(245,234,216,.88);font-weight:500;font-size:.88rem}
+.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
+.mh-tabs::-webkit-scrollbar{display:none}
+.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
+.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
+.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em}
+
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px 24px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.hero{padding:2.3rem 0 1.2rem}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:1rem;align-items:start}
-.hero-copy,.side,.scanner,.priority{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
-.hero-copy,.side,.scanner,.priority{position:relative}
-.hero-copy{padding:1.35rem}
-.section-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.35rem;margin-bottom:.38rem}
-.section-kicker::before{content:"";width:8px;height:2px;border-radius:999px;background:var(--red);display:inline-block}
-.title{font-size:clamp(2.5rem,6vw,4.3rem);line-height:.98;letter-spacing:-.03em;font-weight:800;color:var(--ink);margin:.7rem 0 .78rem}
-.sub{font-size:1rem;line-height:1.82;color:var(--ink2);max-width:62ch}
-.mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
-.mini{background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);padding:.78rem .84rem}
-.mini strong{display:block;font-size:.82rem;color:var(--ink);margin-bottom:.22rem}
-.mini p{font-size:.76rem;line-height:1.6;color:var(--ink3)}
-.side{padding:1.08rem 1.12rem}
-.card-title{display:block;font-family:var(--sans);font-size:1rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);padding-bottom:.5rem;margin-bottom:.45rem;border-bottom:1px solid var(--rule)}
-.card-body{font-size:.88rem;line-height:1.72;color:var(--ink2)}
-.tiny{font-size:.76rem;line-height:1.65;color:var(--ink3)}
-.creek{margin:0 0 1.2rem;padding:.95rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:999px;background:rgba(250,246,238,.92);border:1px solid rgba(80,44,8,.14);box-shadow:var(--shadow)}
-.creek-main{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
-.creek-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
-.creek-read{font-size:1rem;font-weight:800;color:var(--ink)}
-.creek-badge{display:inline-flex;align-items:center;padding:.3rem .6rem;border-radius:999px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent,var(--green))}
-.creek-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3);text-align:right}
-.priority{margin:0 0 1.2rem;padding:1rem 1.05rem;background:#fff6f7;border-color:rgba(200,16,46,.18);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.12)}
-.priority-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.36rem}
-.priority-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.28rem}
-.priority-copy{font-size:.9rem;line-height:1.68;color:var(--ink2)}
-.rule{display:flex;align-items:center;gap:.75rem;margin:40px 0;box-shadow:none}
-.rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.rule hr{flex:1;border:none;border-top:1px solid #DDCFB8;box-shadow:none}
-.scanner{padding:1.2rem 1.2rem 1.3rem}
-.scanner-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:1rem}
-.meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-.btn-lite{appearance:none;border:1px solid var(--border2);background:var(--paper);color:var(--ink2);padding:.7rem 1rem;border-radius:var(--r);font-size:.8rem;font-weight:700;cursor:pointer;transition:all var(--ease)}
-.btn-lite:hover{border-color:var(--amber);color:var(--amber);background:rgba(255,255,255,.7)}
-.list{display:grid;gap:.85rem;max-width:720px;margin:0 auto}
-.item{background:rgba(255,255,255,.48);border:1px solid var(--border);border-left:4px solid var(--accent,var(--red));border-radius:var(--r);padding:1rem 1.05rem}
-.item-top{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;align-items:center}
-.tag{display:inline-flex;align-items:center;padding:.27rem .54rem;border-radius:999px;border:1px solid rgba(80,44,8,.14);background:rgba(255,255,255,.45);font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--ink3))}
-.date{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink3)}
-.item h3{font-size:1.02rem;line-height:1.32;color:var(--ink);margin:.72rem 0 .42rem;font-weight:800}
-.body-copy{font-size:.9rem;line-height:1.74;color:var(--ink2)}
-.body-copy a,.source a{color:var(--red);font-weight:700;text-decoration:none}
-.body-copy a:hover,.source a:hover{text-decoration:underline}
-.source{margin-top:.78rem;padding-top:.68rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--ink3)}
-.actions{display:flex;justify-content:center;margin-top:1rem}
-.empty{padding:1.1rem;border:1px dashed var(--border2);border-radius:var(--r);background:rgba(255,255,255,.42);font-size:.88rem;line-height:1.72;color:var(--ink3)}
-.resources-copy{max-width:62ch;font-size:.86rem;line-height:1.72;color:var(--ink3);margin-bottom:1rem}
-.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.resource-group h3{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:.55rem}
-.resource-group li{display:grid;gap:.12rem}
-.resource-group ul{list-style:none;display:grid;gap:.46rem}
-.resource-group a{color:var(--ink2);text-decoration:none;font-size:.82rem;line-height:1.55}
-.resource-note{font-size:.74rem;line-height:1.55;color:var(--ink3)}
-.resource-group a:hover{color:var(--red)}
-@media(max-width:980px){.hero-grid,.resource-grid{grid-template-columns:1fr 1fr}.hero-copy{grid-column:1/-1}}
-@media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.mini-grid,.resource-grid{grid-template-columns:1fr}.creek{border-radius:var(--r-lg);align-items:flex-start;flex-direction:column}.creek-meta{text-align:left}.title{font-size:clamp(2.2rem,10vw,3.4rem)}}
-.cn-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 1.2rem}
-.cn-card{background:#FAF6EE;border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
-.cn-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
-.cn-title{font-size:.94rem;font-weight:800;color:var(--ink);margin-bottom:.6rem;padding-bottom:.42rem;border-bottom:1px solid var(--rule)}
-.cn-stat{display:flex;justify-content:space-between;align-items:baseline;margin:.22rem 0}
-.cn-stat-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.cn-stat-val{font-size:.86rem;font-weight:700;color:var(--ink)}
-.cn-hero{display:flex;align-items:baseline;gap:.45rem;margin-bottom:.35rem}
-.cn-emoji{font-size:1.8rem;line-height:1}
-.cn-temp{font-size:1.65rem;font-weight:800;color:var(--ink)}
-.cn-cond{font-size:.82rem;color:var(--ink2);margin-bottom:.6rem}
-.cn-bar{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none;margin-top:.1rem}
-.cn-bar::-webkit-scrollbar{display:none}
-.cn-day{display:flex;flex-direction:column;align-items:center;gap:.15rem;min-width:38px;flex-shrink:0}
-.cn-day-name{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
-.cn-day-icon{font-size:1.05rem;line-height:1}
-.cn-day-hi{font-size:.74rem;font-weight:700;color:var(--ink)}
-.cn-day-lo{font-size:.7rem;color:var(--ink3)}
-.cn-sub{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.72rem}
-@media(max-width:760px){.cn-row{grid-template-columns:1fr}}
-.announce-card{display:flex;align-items:center;gap:1.15rem;margin:0 0 1.2rem;padding:1rem 1.15rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);text-decoration:none;color:inherit;transition:border-color var(--ease),box-shadow var(--ease)}
-.announce-card:hover{border-color:var(--amber);box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(200,16,46,.09)}
-.announce-card-date{text-align:center;background:var(--red);border-radius:var(--r);padding:.5rem .8rem;min-width:62px;flex-shrink:0;align-self:flex-start;margin-top:.5rem}
-.announce-card-date-month{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);display:block}
-.announce-card-date-day{font-family:var(--sans);font-size:1.95rem;font-weight:800;line-height:1;color:#fff;display:block}
-.announce-card-date-year{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;color:rgba(255,255,255,.65);display:block;margin-top:.12rem}
-.announce-card-body{flex:1;min-width:0}
-.announce-card-kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:.32rem}
-.announce-card-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.22rem}
-.announce-card-meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink3);margin-bottom:.3rem}
-.announce-card-copy{font-size:.86rem;line-height:1.6;color:var(--ink2);max-width:60ch}
-.announce-card-go{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--red);white-space:nowrap;flex-shrink:0;align-self:center}
-.announce-card:hover .announce-card-go{color:var(--amber)}
-@media(max-width:600px){.announce-card{flex-wrap:wrap}.announce-card-go{align-self:flex-start;width:100%}}
+
+section.blk{padding:34px 0 0}
+.top{padding:28px 0 0}
+.two-eq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stack{display:grid;gap:12px}
+/* Stories run full width and stacked, the same rhythm the homepage uses for
+   its headlines. Gap rather than the stub's own bottom margin, so the last
+   row does not hang a margin off the end of the section. */
+.rows{display:flex;flex-direction:column;gap:10px}
+.rows .card-stub{margin-bottom:0}
+.obits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.empty{font-size:15px;color:#6B6156;padding:12px 0}
+
+/* The morning report and the coming up column are one row and finish level,
+   the same rule the homepage uses for the photograph and the event stubs. */
+.two-eq > div{display:flex;flex-direction:column}
+.two-eq > div > .hd{flex:none}
+.two-eq .card-dept{flex:1}
+#newsUpcoming{flex:1;display:flex;flex-direction:column;gap:10px}
+#newsUpcoming .card-stub{flex:1 0 auto;margin-bottom:0}
+/* One event has nothing to share the column with, so growing it turns a 76px
+   row into a card the full height of the morning report beside it. It keeps
+   its own height instead and the spare space falls below it. Two or more
+   divide the column between them, which is what the rule above is for. */
+#newsUpcoming .card-stub:only-child{flex:0 0 auto}
+/* Two lines of blurb, so all four stubs start from the same intrinsic height
+   and the extra space divides evenly. The full note is on the calendar. */
+#newsUpcoming .k-bd .w{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Highs across the three towns, west to east. One line, monospaced, so it
+   reads as a set of readings rather than a sentence. */
+.mr-towns{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink3)}
+.mr-towns b{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:0;margin-left:5px}
+
+/* The send block. Not a card in the card system sense, so it stays plain:
+   paper fill, hairline border, 14px radius. Same as the homepage. */
+.send{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px;text-align:center}
+.send h2{margin:0 0 6px;font-size:20px;font-weight:800}
+.send p{margin:0 auto 14px;color:#6B6156;font-size:16px;max-width:52ch}
+.send .btn{min-height:44px;font-size:15.5px}
+
+@media(max-width:820px){
+  .two-eq,.obits{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}
+  .mh-left-info,.mh-right-info{display:none}
+  .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}
+  .wrap{padding:0 16px 20px}
+}
 </style>
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page. -->
+<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
 <link rel="stylesheet" href="cardiff-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-news.css">
 </head>
 <body>
 <canvas id="topo-canvas"></canvas>
@@ -144,162 +147,876 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <header class="cardiff-masthead">
   <div class="mh-identity">
     <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
-    <div class="mh-brand"><a href="index.html" class="mh-brand-link"><div class="mh-brand-name">Cardiff<span class="comma"> &middot; </span>Alabama</div><span class="mh-brand-sub">Incorporated January 1900</span></a></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
     <div class="mh-right-info"><a href="cardiff-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
     <div class="mh-mobile-pills">
       <a href="cardiff-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
     </div>
   </div>
   <nav class="mh-tabs">
-    <a href="index.html" id="tab-home">Home</a>
     <a href="cardiff-news.html" id="tab-news" class="active">News</a>
-    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
     <a href="cardiff-almanac.html" id="tab-almanac">Almanac</a>
-    <a href="cardiff-civic.html" id="tab-civic">Civic Pathway</a>
-    <a href="cardiff-guide.html" id="tab-guide">Field Guide</a>
+    <a href="cardiff-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="cardiff-guide.html" id="tab-guide">Guide</a>
     <a href="cardiff-cemetery.html" id="tab-cemetery">Heritage</a>
-    <a href="cardiff-involved.html" id="tab-involved">Contact</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
   </div>
 </header>
-<main class="wrap">
-<section class="hero reveal">
-  <article class="hero-copy">
-    <div class="section-kicker">Scanner log</div>
-    <h1 class="title">Useful news, closer to home.</h1>
-  </article>
-</section>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
 
-<section class="cn-row reveal" aria-label="Conditions now">
-  <div class="cn-card">
-    <div class="cn-kicker">Station Log</div>
-    <div class="cn-title" id="cnWeatherTitle">Cardiff · Station</div>
-    <div id="cnWeatherBody">—</div>
-  </div>
-  <div class="cn-card">
-    <div class="cn-kicker">Creek at a Glance</div>
-    <div class="cn-title">Five Mile Creek</div>
-    <div id="cnCreekBody">—</div>
-    <div class="cn-sub">Republic &middot; Upstream Watch</div>
-  </div>
-  <div class="cn-card">
-    <div class="cn-kicker">7-Day Forecast</div>
-    <div class="cn-title">Cardiff Area</div>
-    <div class="cn-bar" id="cnForecastBar">—</div>
-  </div>
-</section>
+<div class="wrap">
 
-<!-- Current announcement preview. Populated by cardiff-common.js from
-     announcements.json — the static content below is a no-JS fallback. -->
-<a id="announceCard" class="announce-card reveal" href="cardiff-announce.html">
-  <div class="announce-card-body">
-    <div class="announce-card-kicker">Community Board</div>
-    <div class="announce-card-title">Announcements</div>
-    <div class="announce-card-copy">Meeting dates, notices, and anything else the neighborhood needs to know.</div>
-  </div>
-  <span class="announce-card-go">View notices &rarr;</span>
-</a>
+  <!-- HEAD ---------------------------------------------------------------- -->
+  <section class="top reveal">
+    <div class="hd"><h1>News</h1><time id="newsStamp">&mdash;</time></div>
+    <nav class="chips" id="newsChips" aria-label="Sections on this page"></nav>
+  </section>
 
-
-<section class="priority reveal" id="priorityNote" hidden aria-live="polite">
-  <div class="priority-label">Priority note</div>
-  <div class="priority-title" id="priorityTitle">—</div>
-  <div class="priority-copy" id="priorityCopy">—</div>
-</section>
-
-<div class="rule reveal"><h2>The Scanner</h2><hr></div>
-<section class="scanner reveal" aria-labelledby="scannerHeading">
-  <div class="scanner-top">
-    <div>
-      <div class="section-kicker">Dispatch log</div>
-      <h2 class="card-title" id="scannerHeading">Latest Cardiff-first stories</h2>
+  <!-- NOTICE + MORNING REPORT + COMING UP ---------------------------------- -->
+  <section class="blk reveal" style="padding-top:14px">
+    <div class="stack">
+      <div id="newsNotice" hidden></div>
+      <div class="two-eq">
+        <div>
+          <div class="hd"><h2 id="morning-report">The morning report</h2><a href="cardiff-almanac.html">Almanac &rarr;</a></div>
+          <div class="card-dept">
+            <div class="d-bar"><h3>Yesterday and ahead</h3><span class="r" id="mrStamp">&mdash;</span></div>
+            <div class="d-body">
+              <p id="mrLede">&mdash;</p>
+              <div class="d-rows list" id="mrYesterday">
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>High</em><b id="mrHigh">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i>Low</em><b id="mrLow">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i>Rain</em><b id="mrRain">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌊</i>Creek, 24h</em><b id="mrCreek">&mdash;</b></div>
+              </div>
+              <div class="d-rows three" id="mrForecast" hidden></div>
+              <div class="mr-towns" id="mrTowns" hidden></div>
+              <p class="d-tip" id="mrTip" hidden></p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="hd"><h2 id="coming-up">Coming up</h2><a href="cardiff-calendar.html">Calendar &rarr;</a></div>
+          <div id="newsUpcoming"><div class="empty">&mdash;</div></div>
+        </div>
+      </div>
     </div>
-    <div style="display:grid;gap:.55rem;justify-items:end;">
-      <div class="meta" id="scannerMeta">Reading local desk files</div>
-      <button class="btn-lite" type="button" id="refreshBtn">Refresh dispatches</button>
+  </section>
+
+  <!-- THE LEAD -------------------------------------------------------------- -->
+  <section class="blk reveal" id="leadBlock" hidden>
+    <div class="hd"><h2>The lead</h2><span class="hd-note" id="leadStamp"></span></div>
+    <div id="leadSlot"></div>
+  </section>
+
+  <!-- THREE TOWNS ----------------------------------------------------------- -->
+  <section class="blk reveal" id="townsBlock" hidden>
+    <div class="hd"><h2 id="three-towns">Graysville, Cardiff, Brookside</h2><span class="hd-note" id="townsCount"></span></div>
+    <div class="rows" id="townsRows"></div>
+  </section>
+
+  <!-- OBITUARIES ------------------------------------------------------------ -->
+  <section class="blk reveal" id="obitBlock" hidden>
+    <div class="hd"><h2 id="obituaries">Obituaries</h2><span class="hd-note" id="obitCount"></span></div>
+    <div class="obits" id="obitRows"></div>
+  </section>
+
+  <!-- WEST JEFFERSON -------------------------------------------------------- -->
+  <section class="blk reveal" id="nearbyBlock" hidden>
+    <div class="hd"><h2 id="west-jefferson">Around west Jefferson</h2><span class="hd-note" id="nearbyCount"></span></div>
+    <div class="rows" id="nearbyRows"></div>
+  </section>
+
+  <!-- CREEK AND WOODS ------------------------------------------------------- -->
+  <section class="blk reveal" id="creekBlock" hidden>
+    <div class="hd"><h2 id="the-creek">The creek and the woods</h2><span class="hd-note" id="creekCount"></span></div>
+    <div class="rows" id="creekRows"></div>
+  </section>
+
+  <!-- COUNTY AND STATE ------------------------------------------------------ -->
+  <section class="blk reveal" id="countyBlock" hidden>
+    <div class="hd"><h2 id="county-state">The county and the state</h2><span class="hd-note" id="countyCount"></span></div>
+    <div class="rows" id="countyRows"></div>
+  </section>
+
+  <!-- QUIET DAY ------------------------------------------------------------- -->
+  <section class="blk reveal" id="quietBlock" hidden>
+    <div class="hd"><h2>Nothing filed yet</h2></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>The wire is quiet</h3><span class="r">Three towns</span></div>
+      <div class="d-body">
+        <p>Nothing has come through for Graysville, Cardiff, or Brookside since the last run.</p>
+        <p class="d-tip">If something is happening that other people ought to know about, send it to <a id="quietMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a> and it goes up the same day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDING LINKS --------------------------------------------------------
+       Not news. These are the places worth going back to when weather turns,
+       roads shift, county business moves, or somebody needs the clean source.
+       Every number here was confirmed. Do not add one that was not.
+       ---------------------------------------------------------------------- -->
+  <div class="standing reveal">
+    <h2>Standing links</h2>
+    <p>These stay parked here on purpose. They are the places we keep going back to when weather turns, roads shift, county business moves, or somebody needs the clean source first.</p>
+    <div class="stand-grid">
+      <section>
+        <h3>Emergency and safety</h3>
+        <ul>
+          <li><a href="https://weather.gov/bmx" target="_blank" rel="noreferrer">NWS Birmingham</a><span class="n">Forecasts, alerts, and radar for these three towns.</span></li>
+          <li><a href="https://jeffcosheriffal.com/contact-us/" target="_blank" rel="noreferrer">Jefferson County Sheriff</a><span class="n">Main line: (205) 325-5700</span></li>
+          <li><a href="https://www.jeffcoema.org/" target="_blank" rel="noreferrer">Jefferson County EMA</a><span class="n">Preparedness, shelters, and emergency notifications. Phone: (205) 254-2039</span></li>
+          <li><a href="https://townofbrookside.com/fire-department-1" target="_blank" rel="noreferrer">Brookside Fire Department</a><span class="n">Non-emergency: (205) 674-8205</span></li>
+          <li><a href="https://al811.com" target="_blank" rel="noreferrer">Alabama 811</a><span class="n">Call before digging or utility work.</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>County and civic</h3>
+        <ul>
+          <li><a href="https://jccal.org" target="_blank" rel="noreferrer">Jefferson County Government</a><span class="n">County departments, services, and records.</span></li>
+          <li><a href="https://jeffersoncountyal.iqm2.com" target="_blank" rel="noreferrer">Jefferson County Commission meetings</a><span class="n">Agendas, meetings, and posted packets.</span></li>
+          <li><a href="https://myinfo.alabamavotes.gov" target="_blank" rel="noreferrer">Alabama VoterView</a><span class="n">Registration, polling place, and ballot information.</span></li>
+          <li><a href="https://graysvillecity.nexbillpayonline.com/city-hall/" target="_blank" rel="noreferrer">Graysville City Hall</a><span class="n">City Hall: (205) 674-5643</span></li>
+          <li><a href="https://townofbrookside.com/contact-us" target="_blank" rel="noreferrer">Brookside Town Hall</a><span class="n">Town Hall and general contact: (205) 674-9275</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Utilities and service</h3>
+        <ul>
+          <li><a href="https://townofbrookside.com/contact-us" target="_blank" rel="noreferrer">Brookside Water and Gas</a><span class="n">Cardiff water service runs through Brookside. Phone: (205) 674-9275</span></li>
+          <li><a href="https://www.alabamapower.com/residential/outages-and-storm-center.html" target="_blank" rel="noreferrer">Alabama Power</a><span class="n">Outages and storm center. Outage line: 1-800-888-2726</span></li>
+          <li><a href="https://outagemap.alabamapower.com" target="_blank" rel="noreferrer">Alabama Power outage map</a><span class="n">The live map, for a quick check.</span></li>
+          <li><a href="https://www.amwaste.net/contact" target="_blank" rel="noreferrer">AmWaste</a><span class="n">Garbage service and customer care: 1-888-449-6277</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Roads and traffic</h3>
+        <ul>
+          <li><a href="https://algotraffic.com" target="_blank" rel="noreferrer">ALGO Traffic</a><span class="n">Closures, crashes, and travel cameras, including I-22.</span></li>
+          <li><a href="https://dot.state.al.us" target="_blank" rel="noreferrer">ALDOT</a><span class="n">State road work, detours, and highway notices.</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>The watershed</h3>
+        <ul>
+          <li><a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noreferrer">Five Mile Creek at Republic, USGS</a><span class="n">Stage and flow history from the gauge this site reads.</span></li>
+          <li><a href="https://freshwaterlandtrust.org" target="_blank" rel="noreferrer">Freshwater Land Trust</a><span class="n">Regional watershed and trail work.</span></li>
+          <li><a href="https://freshwaterlandtrust.org/trail-map" target="_blank" rel="noreferrer">Five Mile Creek Greenway map</a><span class="n">Trail map and public access points.</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Local news</h3>
+        <ul>
+          <li><a href="https://northjeffersonherald.com" target="_blank" rel="noreferrer">North Jefferson Herald</a><span class="n">The closest routine community coverage.</span></li>
+          <li><a href="https://www.wbrc.com" target="_blank" rel="noreferrer">WBRC FOX6</a><span class="n">Breaking coverage across west and north Jefferson County.</span></li>
+          <li><a href="https://www.al.com" target="_blank" rel="noreferrer">AL.com Birmingham</a><span class="n">Metro reporting and public safety coverage.</span></li>
+          <li><a href="https://bhamnow.com" target="_blank" rel="noreferrer">Bham Now</a><span class="n">Metro development and daily local reads.</span></li>
+          <li><a href="https://birminghamwatch.org" target="_blank" rel="noreferrer">BirminghamWatch</a><span class="n">Civic and accountability reporting.</span></li>
+        </ul>
+      </section>
     </div>
   </div>
-  <div class="list" id="scannerList" aria-live="polite">
-    <div class="item">—</div>
-  </div>
-  <div class="actions"><button class="btn-lite" type="button" id="showOlderBtn" hidden>Show older</button></div>
-</section>
 
-<div class="rule reveal"><h2>Resources</h2><hr></div>
-<section class="reveal" aria-labelledby="resourcesHeading">
-  <div class="section-kicker">Standing links</div>
-  <h2 class="card-title" id="resourcesHeading">Keep the basics within reach</h2>
-  <p class="resources-copy">These links stay parked here on purpose. They are not news. They are the places we keep going back to when weather turns, roads shift, county business moves, or somebody needs the clean source first.</p>
-  <div class="resource-grid">
-    <section class="resource-group"><h3>Emergency &amp; Safety</h3><ul><li><a href="https://weather.gov/bmx" target="_blank" rel="noreferrer">NWS Birmingham</a><span class="resource-note">Forecasts, alerts, and radar for the Cardiff area.</span></li><li><a href="https://jeffcosheriffal.com/contact-us/" target="_blank" rel="noreferrer">Jefferson County Sheriff</a><span class="resource-note">Main line: (205) 325-5700</span></li><li><a href="https://www.jeffcoema.org/" target="_blank" rel="noreferrer">Jefferson County EMA</a><span class="resource-note">Preparedness, shelters, and emergency notifications. Phone: (205) 254-2039</span></li><li><a href="https://townofbrookside.com/fire-department-1" target="_blank" rel="noreferrer">Brookside Fire Department</a><span class="resource-note">Non-emergency: (205) 674-8205</span></li><li><a href="https://al811.com" target="_blank" rel="noreferrer">Alabama 811</a><span class="resource-note">Call before digging or utility work.</span></li></ul></section>
-    <section class="resource-group"><h3>County &amp; Civic</h3><ul><li><a href="https://jccal.org" target="_blank" rel="noreferrer">Jefferson County Government</a><span class="resource-note">County departments, services, and records.</span></li><li><a href="https://jeffersoncountyal.iqm2.com" target="_blank" rel="noreferrer">Jefferson County Commission Meetings</a><span class="resource-note">Agendas, meetings, and posted packets.</span></li><li><a href="https://myinfo.alabamavotes.gov" target="_blank" rel="noreferrer">Alabama VoterView</a><span class="resource-note">Registration, polling place, and ballot info.</span></li><li><a href="https://townofbrookside.com/contact-us" target="_blank" rel="noreferrer">Brookside Town Hall</a><span class="resource-note">Town Hall and general contact: (205) 674-9275</span></li><li><a href="https://graysvillecity.nexbillpayonline.com/city-hall/" target="_blank" rel="noreferrer">Graysville City Hall</a><span class="resource-note">City Hall: (205) 674-5643</span></li></ul></section>
-    <section class="resource-group"><h3>Utilities &amp; Service</h3><ul><li><a href="https://townofbrookside.com/contact-us" target="_blank" rel="noreferrer">Brookside Water &amp; Gas</a><span class="resource-note">Cardiff water service runs through Brookside. Phone: (205) 674-9275</span></li><li><a href="https://www.alabamapower.com/residential/outages-and-storm-center.html" target="_blank" rel="noreferrer">Alabama Power</a><span class="resource-note">Outages and storm center. Outage line: 1-800-888-2726</span></li><li><a href="https://outagemap.alabamapower.com" target="_blank" rel="noreferrer">Alabama Power Outage Map</a><span class="resource-note">Live outage map for quick checks.</span></li><li><a href="https://www.amwaste.net/contact" target="_blank" rel="noreferrer">AmWaste</a><span class="resource-note">Garbage service and customer care: 1-888-449-6277</span></li></ul></section>
-    <section class="resource-group"><h3>Roads &amp; Traffic</h3><ul><li><a href="https://algotraffic.com" target="_blank" rel="noreferrer">ALGO Traffic / I-22</a><span class="resource-note">Closures, crashes, and travel cameras.</span></li><li><a href="https://dot.state.al.us" target="_blank" rel="noreferrer">ALDOT</a><span class="resource-note">State road work, detours, and highway notices.</span></li></ul></section>
-    <section class="resource-group"><h3>Watershed &amp; Environment</h3><ul><li><a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noreferrer">Five Mile Creek - USGS Water Data</a><span class="resource-note">Republic gauge, stage, and flow history.</span></li><li><a href="https://freshwaterlandtrust.org" target="_blank" rel="noreferrer">Freshwater Land Trust</a><span class="resource-note">Regional watershed and trail work.</span></li><li><a href="https://freshwaterlandtrust.org/trail-map" target="_blank" rel="noreferrer">Five Mile Creek Greenway Map</a><span class="resource-note">Trail map and public access points.</span></li></ul></section>
-    <section class="resource-group"><h3>Local News</h3><ul><li><a href="https://northjeffersonherald.com" target="_blank" rel="noreferrer">North Jefferson Herald</a><span class="resource-note">Closest routine community coverage.</span></li><li><a href="https://www.wbrc.com" target="_blank" rel="noreferrer">WBRC FOX6</a><span class="resource-note">Breaking local coverage across west and north Jefferson County.</span></li><li><a href="https://www.al.com" target="_blank" rel="noreferrer">AL.com Birmingham</a><span class="resource-note">Metro reporting and public-safety coverage.</span></li><li><a href="https://bhamnow.com" target="_blank" rel="noreferrer">Bham Now</a><span class="resource-note">Metro development and daily local reads.</span></li><li><a href="https://birminghamwatch.org" target="_blank" rel="noreferrer">BirminghamWatch</a><span class="resource-note">Civic and accountability reporting.</span></li></ul></section>
+  <!-- WHERE THIS COMES FROM -------------------------------------------------- -->
+  <div class="sources reveal">
+    <h2>Where these come from</h2>
+    <p>Headlines here are gathered twice a day from the outlets that cover this part of Jefferson County. We run the headline, one sentence, and the outlet's name, and every one of them links straight to the original. We do not republish anybody's article.</p>
+    <p>When a photograph appears beside a headline, it is the picture the outlet itself published for sharing, loaded from that outlet's own server and credited to them. We never copy a photograph onto this site and we never take one out of the body of an article. If you publish here and you would rather we did not show your pictures at all, say so and we will turn them off for your site the same day.</p>
+    <p class="outlets" id="sourceList">&mdash;</p>
+    <p style="margin-top:12px"><a href="mailto:fivemilec@gmail.com" id="fixMail">Corrections and takedowns</a> go to the same address as everything else.</p>
   </div>
-</section>
-</main>
+
+  <!-- SEND ------------------------------------------------------------------- -->
+  <div class="send reveal">
+    <h2>Send us something</h2>
+    <p>Announcements, meeting notices, photographs, and obituaries. All three towns, all welcome.</p>
+    <a class="btn" id="sendMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>
+  </div>
+
 </div>
-<script src="cardiff-common.js"></script>
-<script>
-const SCANNER_ITEMS=[
-  /*
-    Write like a neighbor talking to neighbors.
-    Keep items to 1-3 sentences.
-    Explain why something matters to Cardiff specifically.
-    No contractions in body copy.
-    Inline HTML is only for this array: <a>, <strong>, <em>.
-  */
-];
-const URLS={ticker:"ticker.json",watershed:"cardiff-watershed.json",weather:"cardiff-weather.json",air:"cardiff-air-quality.json",desk:"cardiff-news-feed.json",live:"cardiff-news-live.json"};
-const COLORS={"CREEK WATCH":"#2E86AB","COUNTY":"#6B4C9A","BURN BAN":"#E87722","WEATHER":"#E87722","AIR":"#E87722","PICKED UP":"#4A7C59","GREENWAY":"#4A7C59","COMMUNITY":"#4A7C59","NEARBY":"#4A7C59","CIVIC":"#C8102E","UTILITIES":"#C8102E","SAFETY":"#C8102E","WILDLIFE":"#8B6914","SCHOOLS":"#6B4C9A","ROADS":"#8B6914","DESK":"#7A5838","REGIONAL":"#7A5838"};
-const SHOW_COUNT=12,REFRESH_MS=15*60*1e3,state={items:[],expanded:false};
-const $=id=>document.getElementById(id);
-const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-const plain=s=>{const d=document.createElement("div");d.innerHTML=s||"";return(d.textContent||"").replace(/\s+/g," ").trim();};
-const trunc=(s,n)=>{s=plain(s);return s.length<=n?s:s.slice(0,n).replace(/\s+\S*$/,"").trim()+"...";};
-const dt=v=>{const d=v?new Date(v):null;return d&&Number.isFinite(d.getTime())?d:null;};
-const recent=(v,days=5)=>{const d=dt(v);return d&&(Date.now()-d.getTime())<=days*864e5;};
-const dateText=v=>{const d=dt(v);return d?d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"Date unavailable";};
-const stamp=v=>{const d=dt(v);return d?d.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):"Update time unavailable";};
-const whole=v=>{v=Number(v);return Number.isFinite(v)?Math.round(v).toLocaleString("en-US"):null;};
-const json=u=>fetch(u,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(u);return r.json();});
-const slug=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80)||"item";
-const tag=t=>String(t||"COMMUNITY").trim().toUpperCase();
-const color=t=>COLORS[tag(t)]||"#7A5838";
-const status=s=>!Number.isFinite(s)?["Offline","#7A5838"]:s<2?["Low","#4A7C59"]:s<5?["Normal","#4A7C59"]:s<8?["Elevated","#E87722"]:s<12?["High","#c25d19"]:["Flood Stage","#C8102E"];
-const sourceLine=i=>!i.source?"":'<div class="source">&mdash; '+(i.link?'<a href="'+esc(i.link)+'" target="_blank" rel="noreferrer">'+esc(i.source)+"</a>":esc(i.source))+"</div>";
-function creekItem(w){const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==="lead"||x.id==="02457595"))||(Array.isArray(w&&w.gauges)?w.gauges[0]:null);if(!g||!Number.isFinite(Number(g.stage_ft)))return null;const ft=Number(g.stage_ft),cfs=whole(g.discharge_cfs),s=status(ft)[0],trend=String(g.trend||"").toLowerCase();return{id:"creek-"+slug(g.updated_at||w.updatedAt),date:g.updated_at||w.updatedAt,tag:"CREEK WATCH",title:"Five Mile Creek is at "+ft.toFixed(1)+" ft near Republic",body:"Republic gauge is reading "+ft.toFixed(1)+" ft"+(cfs?" and about "+cfs+" cfs moving through the channel.":".")+(trend?" The line is "+trend+".":" ")+"That reads as "+s.toLowerCase()+" for the Cardiff watch right now.",source:"USGS Gauge 02457595",link:"https://waterdata.usgs.gov/monitoring-location/02457595/",priority:95};}
-function weatherItem(w){const next=(Array.isArray(w&&w.forecast)?w.forecast:[]).find(x=>x&&x.isDaytime)||(Array.isArray(w&&w.forecast)?w.forecast[0]:null),cur=w&&w.current?w.current:null;if(!next&&!cur)return null;return{id:"weather-"+slug((next&&next.startTime)||(w&&w.updatedAt)),date:(next&&next.startTime)||(w&&w.updatedAt),tag:"WEATHER",title:next?next.name+" forecast: "+plain(next.shortForecast||"Local conditions"):"Weather read from around Cardiff",body:next&&next.detailedForecast?next.detailedForecast:(cur&&cur.summary)||"Weather details are settling in from the local station.",source:"NWS Birmingham",link:"https://weather.gov/bmx",priority:82};}
-function rainItem(w,y){const r=(w&&w.rainContext)||(y&&y.rain);if(!r)return null;const _now=new Date(),_tmw=new Date(_now);_tmw.setDate(_now.getDate()+1);if(_tmw.getMonth()===_now.getMonth())return null;if(r.monthComplete&&Number.isFinite(Number(r.monthToDate))){return{id:"rain-"+slug((r.monthLabel||"month")+"-"+r.monthToDate),date:(w&&w.updatedAt)||(y&&y.updatedAt),tag:"WEATHER",title:(r.monthLabel||"This month")+" closed at "+Number(r.monthToDate).toFixed(2)+" inches on the Cardiff rain log",body:"That is the final local weather-station total for the month. It gives the watershed some recharge while the lead creek gauge stays out of trouble right now.",source:"Cardiff weather log",link:"cardiff-almanac.html",priority:72};}return null;}
-function airItem(a){const c=a&&a.current?a.current:null,aqi=Number(c&&c.usAqi);if(!c)return null;return{id:"air-"+slug((c.observedLocalTime||a.updatedAt)+"-"+(c.category||"air")),date:c.observedLocalTime||a.updatedAt,tag:"AIR",title:Number.isFinite(aqi)?"Air quality is "+plain(c.category||"Good").toLowerCase()+" with AQI "+Math.round(aqi):"Air quality read for Cardiff",body:c.note||c.label||"The air-quality feed checked in without a longer note.",source:"Open-Meteo air quality",link:"cardiff-almanac.html",priority:70};}
-function alertItems(t){return!(t&&Array.isArray(t.alerts)&&t.alerts.length)?[]:t.alerts.map((a,i)=>({id:"alert-"+i+"-"+slug(a.headline||a.event),date:t.updatedAt||new Date().toISOString(),tag:"WEATHER",title:plain(a.headline||a.event||"Active alert"),body:[plain(a.description||""),a.endsShort?"This one is listed through "+plain(a.endsShort)+".":""].filter(Boolean).join(" "),source:"Cardiff ticker",link:"https://weather.gov/bmx",priority:120-i}));}
-function bulletinItem(d){return!plain(d&&d.bulletin)?null:{id:"bulletin-"+slug((d&&d.updatedAt)||d.bulletin),date:(d&&d.updatedAt)||new Date().toISOString(),tag:"DESK",title:"Desk bulletin",body:d.bulletin,source:"Cardiff Desk",priority:110};}
-function deskItems(items,pinned){return(Array.isArray(items)?items:[]).map((x,i)=>({id:x.id||"desk-"+i+"-"+slug(x.title||x.date),date:x.date||x.updatedAt||new Date().toISOString(),tag:(Array.isArray(x.tags)&&x.tags[0])||x.tag||"COMMUNITY",title:plain(x.title||"Desk note"),body:trunc(x.description||x.body||"",240),source:plain(x.source||"Cardiff Desk"),link:x.link||"",priority:Number(x.priority||0)+(pinned?95:60)})).filter(x=>x.title&&x.body);}
-function manualItems(){return SCANNER_ITEMS.map((x,i)=>({id:x.id||"manual-"+i+"-"+slug(x.title||x.date),date:x.date||new Date().toISOString(),tag:x.tag||"COMMUNITY",title:plain(x.title||"Scanner item"),body:String(x.body||""),source:plain(x.source||"Cardiff Desk"),link:x.link||"",priority:Number(x.priority||100),manual:true})).filter(x=>x.title&&x.body);}
-function liveItems(items){return(Array.isArray(items)?items:[]).map((x,i)=>({id:x.id||"live-"+i+"-"+slug(x.title||x.date),date:x.date||x.published_at||x.updatedAt||"",tag:(Array.isArray(x.tags)&&x.tags[0])||(Array.isArray(x.topic_tags)&&x.topic_tags[0])||"REGIONAL",title:plain(x.title||"Nearby report"),body:trunc(x.description||x.summary||"",220),source:plain(x.source||x.source_name||"Regional source"),link:x.link||x.url||"",priority:Number(x.priority||x.priority_level||0)+35})).filter(x=>x.title&&x.body&&recent(x.date,5));}
-function dedupe(items){const seen=new Set();const STOP=new Set("that this with from have will been were they their into about when over also more some what which there these after other than".split(" "));const kw=t=>new Set(slug(t).split("-").filter(w=>w.length>=4&&!STOP.has(w)));const overlap=(a,b)=>{let n=0;a.forEach(w=>b.has(w)&&n++);return n;};const titleKw=[];return items.filter(x=>{const k=slug(x.title)+"|"+String(x.link||"").replace(/[#?].*$/,"");if(!x.title||seen.has(k))return false;const ws=kw(x.title);if(titleKw.some(s=>overlap(ws,s)>=3))return false;seen.add(k);titleKw.push(ws);return true;});}
-function sortItems(items){return items.slice().sort((a,b)=>{const at=dt(a.date),bt=dt(b.date),am=at?at.getTime():0,bm=bt?bt.getTime():0;return bm-am||Number(b.priority||0)-Number(a.priority||0);});}
-function renderCreek(w){const el=$("creekStrip");if(!el)return;const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==="lead"||x.id==="02457595"))||(Array.isArray(w&&w.gauges)?w.gauges[0]:null),ft=g?Number(g.stage_ft):NaN,s=status(ft);el.style.setProperty("--accent",s[1]);el.innerHTML=!g||!Number.isFinite(ft)?'<div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">Data unavailable</span><span class="creek-badge">Offline</span></div><div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL</div>':'<div class="creek-main"><span class="creek-label">Five Mile Creek</span><span class="creek-read">'+ft.toFixed(1)+' ft</span><span class="creek-badge">'+esc(s[0])+'</span></div><div class="creek-meta">USGS Gauge 02457595 - Near Republic, AL<br>Updated '+esc(stamp(g.updated_at||w.updatedAt))+"</div>";}
-function sirenTestWindow(){const now=new Date(),day=now.getDay(),date=now.getDate(),t=now.getHours()*60+now.getMinutes();return day===3&&date<=7&&t>=590&&t<=605;}
-function renderPriority(t,d){const box=$("priorityNote"),title=$("priorityTitle"),copy=$("priorityCopy");if(!box)return;if(sirenTestWindow()){box.hidden=false;title.textContent="Siren test in progress — this is not an emergency";copy.textContent="Jefferson County tests outdoor warning sirens on the first Wednesday of every month at 10:00 AM for three minutes. No action is needed. For more information visit jeffcoema.org/sirens";return;}if(t&&Array.isArray(t.alerts)&&t.alerts.length){const a=t.alerts[0];box.hidden=false;title.textContent=plain(a.headline||a.event||"Active alert");copy.textContent=[plain(a.description||""),a.endsShort?"Through "+plain(a.endsShort)+".":""].filter(Boolean).join(" ");return;}if(d&&plain(d.bulletin)){box.hidden=false;title.textContent="Desk bulletin";copy.textContent=plain(d.bulletin);return;}box.hidden=true;}
-function renderList(items){const el=$("scannerList"),btn=$("showOlderBtn");if(!el||!btn)return;if(!items.length){el.innerHTML='<div class="empty">The scanner is quiet right now. Creek conditions, weather, and the standing links below are still available while the outside story line thins out.</div>';btn.hidden=true;return;}const list=state.expanded?items:items.slice(0,SHOW_COUNT);el.innerHTML=list.map(x=>'<article class="item" style="--accent:'+color(x.tag)+';"><div class="item-top"><span class="tag">'+esc(tag(x.tag))+'</span><span class="date">'+esc(dateText(x.date))+'</span></div><h3>'+esc(x.title)+'</h3><div class="body-copy">'+(x.manual?x.body:esc(plain(x.body||"")))+'</div>'+sourceLine(x)+'</article>').join("");btn.hidden=state.expanded||items.length<=SHOW_COUNT;}
-function renderMeta(items,updated){const el=$("scannerMeta");if(!el)return;const manual=items.filter(x=>x.manual||x.priority>=60&&x.source==="Cardiff Desk").length,signal=items.filter(x=>["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))&&x.source!=="Regional source").length,live=items.filter(x=>x.link&&/^https?:/i.test(x.link)&&!x.manual&&!["CREEK WATCH","WEATHER","AIR","DESK"].includes(tag(x.tag))).length;el.textContent=items.length+" items - "+manual+" desk notes - "+signal+" local signals - "+live+" nearby reports - refreshed "+stamp(updated);}
-function condEmoji(cond,temp){const c=String(cond||'').toLowerCase();if(/thunder|storm/.test(c))return'⛈️';if(/snow|sleet|ice/.test(c))return'❄️';if(/rain|shower|drizzle/.test(c))return'🌧️';if(/fog|mist/.test(c))return'🌫️';if(/overcast|cloud/.test(c))return'☁️';if(/partly|mostly/.test(c))return'🌤️';return(temp>=80)?'☀️':'🌤️';}
-function uvLabel(u){return u<=2?'Low':u<=5?'Moderate':u<=7?'High':'Very High';}
-function renderConditionsWeather(w){const el=document.getElementById('cnWeatherBody');const titleEl=document.getElementById('cnWeatherTitle');if(!el)return;const ds=w&&w.dailySummary;const hasYest=ds&&Number.isFinite(ds.yesterdayHigh)&&Number.isFinite(ds.yesterdayLow);if(titleEl&&w&&w.updatedAt){const d=new Date(w.updatedAt);titleEl.textContent='Recorded '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'});}if(!hasYest){el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Station log pending</span>';return;}const weekly=Number.isFinite(Number(w.weeklyRain))?Number(w.weeklyRain).toFixed(2)+'"':'—';const monthly=Number.isFinite(Number(w.monthlyRain))?Number(w.monthlyRain).toFixed(2)+'"':'—';el.innerHTML='<div class="cn-stat"><span class="cn-stat-label">Yesterday high</span><span class="cn-stat-val">'+ds.yesterdayHigh+'°F</span></div><div class="cn-stat"><span class="cn-stat-label">Yesterday low</span><span class="cn-stat-val">'+ds.yesterdayLow+'°F</span></div><div class="cn-stat"><span class="cn-stat-label">Yesterday rain</span><span class="cn-stat-val">'+(Number.isFinite(ds.yesterdayRain)?ds.yesterdayRain.toFixed(2)+'"':'—')+'</span></div><div class="cn-stat"><span class="cn-stat-label">Weekly rain</span><span class="cn-stat-val">'+weekly+'</span></div><div class="cn-stat"><span class="cn-stat-label">Monthly rain</span><span class="cn-stat-val">'+monthly+'</span></div>';}
-function renderConditionsCreek(w){const el=document.getElementById('cnCreekBody');if(!el)return;const g=(Array.isArray(w&&w.gauges)?w.gauges:[]).find(x=>x&&(x.role==='lead'||x.id==='02457595'))||null;if(!g||!Number.isFinite(Number(g.stage_ft))){el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Unavailable</span>';return;}const ft=Number(g.stage_ft),cfs=Number(g.discharge_cfs),s=status(ft);let change24=null;if(Array.isArray(g.stage_history)&&g.stage_history.length){const ref=new Date(g.updated_at||w.updatedAt).getTime()-24*3600*1e3;let best=null,bestDiff=Infinity;g.stage_history.forEach(h=>{const d=Math.abs(new Date(h.at).getTime()-ref);if(d<bestDiff){bestDiff=d;best=h;}});if(best)change24=ft-Number(best.stage_ft);}const chStr=change24!==null?(change24>=0?'+':'')+change24.toFixed(2)+' ft':'—';const chCol=change24===null?'':change24>0.05?'color:var(--amber)':change24<-0.05?'color:var(--green)':'';el.innerHTML='<div class="cn-stat"><span class="cn-stat-label">Stage</span><span class="cn-stat-val">'+ft.toFixed(2)+' ft</span></div><div class="cn-stat"><span class="cn-stat-label">Discharge</span><span class="cn-stat-val">'+(Number.isFinite(cfs)?cfs.toFixed(1)+' cfs':'—')+'</span></div><div class="cn-stat"><span class="cn-stat-label">24h Change</span><span class="cn-stat-val" style="'+chCol+'">'+chStr+'</span></div><div class="cn-stat"><span class="cn-stat-label">Read</span><span class="cn-stat-val" style="color:'+s[1]+'">'+s[0]+'</span></div>';}
-function renderConditionsForecast(w){const el=document.getElementById('cnForecastBar');if(!el)return;const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];const wk=Array.isArray(w&&w.weekly)?w.weekly:[];if(!wk.length){el.innerHTML='<span style="color:var(--ink3);font-size:.82rem">Unavailable</span>';return;}el.innerHTML=wk.map(day=>{const d=new Date(day.date+'T12:00:00');const hi=Number.isFinite(day.hi)?Math.round(day.hi)+'°':'—';const lo=Number.isFinite(day.lo)?Math.round(day.lo)+'°':'—';return'<div class="cn-day"><span class="cn-day-name">'+days[d.getDay()]+'</span><span class="cn-day-icon">'+condEmoji(day.shortForecast,day.hi)+'</span><span class="cn-day-hi">'+hi+'</span><span class="cn-day-lo">'+lo+'</span></div>';}).join('');}
-async function load(){const [t,w,y,a,d,l]=await Promise.allSettled([json(URLS.ticker),json(URLS.watershed),json(URLS.weather),json(URLS.air),json(URLS.desk),json(URLS.live)]);const ticker=t.status==="fulfilled"?t.value:null,watershed=w.status==="fulfilled"?w.value:null,weather=y.status==="fulfilled"?y.value:null,air=a.status==="fulfilled"?a.value:null,desk=d.status==="fulfilled"?d.value:null,live=l.status==="fulfilled"?l.value:null;renderCreek(watershed);renderConditionsWeather(weather);renderConditionsCreek(watershed);renderConditionsForecast(weather);renderPriority(ticker,desk);state.items=sortItems(dedupe([bulletinItem(desk),creekItem(watershed),weatherItem(weather),rainItem(watershed,weather),airItem(air),...alertItems(ticker),...manualItems(),...deskItems(desk&&desk.pinned,true),...deskItems(desk&&desk.stories,false),...liveItems(live&&live.stories)].filter(Boolean)));renderList(state.items);renderMeta(state.items,(live&&live.updatedAt)||(desk&&desk.updatedAt)||(watershed&&watershed.updatedAt)||(weather&&weather.updatedAt)||new Date().toISOString());}
-$("showOlderBtn").addEventListener("click",()=>{state.expanded=true;renderList(state.items);});
-$("refreshBtn").addEventListener("click",()=>{state.expanded=false;load();});
-load();
-window.setInterval(load,REFRESH_MS);
+</div>
 
+<script src="cardiff-season-data.js"></script>
+<script>
+/* ===========================================================================
+   News. Everything on this page is read from a JSON file in the repo or
+   computed from one. Nothing is written here at read time.
+
+   The page reads the shape written by scripts/fetch-news.mjs, which sorts the
+   stories into sections before they ever reach the browser. If it finds the
+   old flat file instead, it sorts them here with the same rules, so the page
+   works either way and gets faster once the builder has run.
+   =========================================================================== */
+
+var DATA = {
+  news:      'cardiff-news-live.json',
+  desk:      'cardiff-news-feed.json',
+  weather:   'cardiff-weather.json',
+  towns:     'cardiff-watershed-weather.json',
+  watershed: 'cardiff-watershed.json',
+  alerts:    'ticker.json'
+};
+
+var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var WEEKDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+/* West to east. Locked, see DECISIONS.md 1. */
+var TOWNS = ['Graysville','Cardiff','Brookside'];
+
+function esc(s){var d=document.createElement('div');d.textContent=String(s==null?'':s);return d.innerHTML}
+function plainText(html){var d=document.createElement('div');d.innerHTML=html||'';return (d.textContent||'').replace(/\s+/g,' ').trim()}
+function num(v){return (v===null||v===undefined||v==='')?NaN:Number(v)}
+function clock(date){return date.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
+/* new Date(null) is the epoch rather than an invalid date, so a missing
+   timestamp has to be rejected before it is parsed. */
+function parseDate(v){if(!v)return null;var d=new Date(v);return isNaN(+d)?null:d}
+function loadJson(url){return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(url);return r.json()})}
+function settle(list){return Promise.all(list.map(function(p){return p.then(function(v){return v},function(){return null})}))}
+function relativeTime(date){
+  if(!date) return 'Date unavailable';
+  var hrs = Math.round((Date.now() - date.getTime()) / 36e5);
+  if(hrs < 1) return 'Just now';
+  if(hrs < 24) return hrs + ' hour' + (hrs === 1 ? '' : 's') + ' ago';
+  var days = Math.round((Date.now() - date.getTime()) / 864e5);
+  return days + ' day' + (days === 1 ? '' : 's') + ' ago';
+}
+/* Stub blurbs are one sentence. The season entries carry longer notes, so
+   take the first sentence rather than trimming to a character count. */
+function firstSentence(text){
+  var clean = String(text || '').replace(/\s+/g, ' ').trim();
+  if(!clean) return '';
+  var stop = clean.search(/[.!?](\s|$)/);
+  return stop === -1 ? clean : clean.slice(0, stop + 1);
+}
+
+/* =====================================================================
+   THE MORNING REPORT
+   Yesterday off our own station, today and tomorrow off the weather
+   service, and the three town highs off the watershed forecast file.
+
+   This is not the homepage's daily read wearing a different hat. That card
+   opens with the creek and looks forward three daylight periods. This one
+   opens with the day that has just finished, because a reader coming to the
+   news page in the morning wants to know what happened overnight, and it
+   carries tonight as well as tomorrow for the same reason.
+   ===================================================================== */
+var WX_MARKS = {sun:'☀️', part:'⛅', cloud:'☁️', rain:'🌧️', storm:'⛈️', snow:'🌨️', fog:'🌫️'};
+function wxMark(text){
+  var sky = String(text || '').toLowerCase(), key = 'cloud';
+  if(/thunder|tstorm/.test(sky)) key = 'storm';
+  else if(/snow|sleet|ice|wintry|freezing/.test(sky)) key = 'snow';
+  else if(/rain|shower|drizzle/.test(sky)) key = 'rain';
+  else if(/fog|haze|smoke/.test(sky)) key = 'fog';
+  else if(/partly|mostly sunny|partly sunny|mostly clear/.test(sky)) key = 'part';
+  else if(/sunny|clear/.test(sky)) key = 'sun';
+  return '<span class="wx-mark" role="img" aria-label="' + esc(text || 'Forecast') + '">' + WX_MARKS[key] + '</span>';
+}
+function popOf(period){
+  var p = period && period.probabilityOfPrecipitation;
+  return num(p && typeof p === 'object' ? p.value : p);
+}
+/* This card runs three periods in a row rather than three days, so two of
+   them can fall on the same date: Saturday and Saturday night. The weather
+   service names those "Saturday" and "Saturday Night", and trimming a name to
+   fit the cell turned both into Saturday, which is a forecast that reads as a
+   mistake. The label is built from the period instead: the day is shortened,
+   the night says so, and today and tonight are named rather than dated. */
+function slotLabel(period, now){
+  var start = parseDate(period.startTime);
+  if(!start) return String(period.name || '').slice(0, 9);
+  if(start.toDateString() === now.toDateString()) return period.isDaytime ? 'Today' : 'Tonight';
+  var day = WEEKDAYS[start.getDay()].slice(0, 3);
+  return period.isDaytime ? day : day + ' night';
+}
+function stageChange24h(gauge){
+  if(!gauge || !Array.isArray(gauge.stage_history) || !gauge.stage_history.length) return null;
+  var target = Date.now() - 24*60*60*1000, closest = null, best = Infinity;
+  gauge.stage_history.forEach(function(entry){
+    var diff = Math.abs(new Date(entry.at).getTime() - target);
+    if(diff < best){best = diff; closest = entry}
+  });
+  if(!closest || !Number.isFinite(num(closest.stage_ft))) return null;
+  return gauge.stage_ft - closest.stage_ft;
+}
+/* One plain sentence about the day that has just finished, built from the
+   numbers underneath it so the sentence and the rows can never disagree. */
+function morningLede(summary, rain){
+  var high = summary ? num(summary.yesterdayHigh) : NaN;
+  var low = summary ? num(summary.yesterdayLow) : NaN;
+  var fell = summary ? num(summary.yesterdayRain) : NaN;
+  if(!Number.isFinite(high)) return 'Yesterday has not come off the station yet.';
+  var line = 'Yesterday reached ' + high + ' and fell to ' + (Number.isFinite(low) ? low : 'an unrecorded low') + '.';
+  if(Number.isFinite(fell) && fell >= 0.01){
+    line += ' ' + fell.toFixed(2) + ' inches of rain fell.';
+  }else if(Number.isFinite(fell)){
+    line += ' No rain was measured.';
+  }
+  var month = rain && Number.isFinite(num(rain.monthToDate)) ? num(rain.monthToDate) : NaN;
+  if(Number.isFinite(month)) line += ' The month stands at ' + month.toFixed(2) + ' inches.';
+  return line;
+}
+/* At most one suggestion, read off the forecast numbers and nothing else. It
+   always says the number it came from, so a reader who disagrees with the
+   advice still has the fact it was drawn from. Same ladder as the homepage. */
+function readTip(day, night){
+  var pop = day ? popOf(day) : NaN;
+  var high = day ? num(day.temperature) : NaN;
+  var low = night ? num(night.temperature) : NaN;
+  var sky = day ? String(day.shortForecast || '').toLowerCase() : '';
+  if(Number.isFinite(pop) && pop >= 50) return 'Rain is better than even at ' + pop + ' percent, so take something for it.';
+  if(Number.isFinite(high) && high >= 95) return 'It reaches ' + high + ', which is the kind of heat to carry water for and let the afternoon go by.';
+  if(Number.isFinite(high) && high <= 45) return 'It only reaches ' + high + ', so a coat rather than a jacket.';
+  if(Number.isFinite(pop) && pop >= 30) return 'Rain is a ' + pop + ' percent chance, which is worth leaving an umbrella in the truck.';
+  if(Number.isFinite(high) && high >= 88) return 'It reaches ' + high + ', hot enough to want water along.';
+  if(Number.isFinite(low) && low <= 42) return 'It drops to ' + low + ' after dark, so a coat if you are out late.';
+  if(Number.isFinite(low) && low <= 54) return 'It drops to ' + low + ' after dark, so a jacket if you are out late.';
+  if(/sunny|clear/.test(sky) && Number.isFinite(high) && high >= 72) return 'Clear and ' + high + ', which is sunglasses weather.';
+  return '';
+}
+function paintMorning(weather, watershed, towns){
+  var summary = weather && weather.dailySummary ? weather.dailySummary : null;
+  var high = summary ? num(summary.yesterdayHigh) : NaN;
+  var low = summary ? num(summary.yesterdayLow) : NaN;
+  var rain = summary ? num(summary.yesterdayRain) : NaN;
+
+  document.getElementById('mrLede').textContent = morningLede(summary, weather && weather.rain);
+  document.getElementById('mrHigh').innerHTML = Number.isFinite(high) ? high + '°F' : '&mdash;';
+  document.getElementById('mrLow').innerHTML  = Number.isFinite(low) ? low + '°F' : '&mdash;';
+  document.getElementById('mrRain').innerHTML = Number.isFinite(rain) ? rain.toFixed(2) + ' in' : '&mdash;';
+
+  var gauges = watershed && Array.isArray(watershed.gauges) ? watershed.gauges : [];
+  var lead = gauges.filter(function(g){return g.role === 'lead'})[0] || gauges[0] || null;
+  var change = lead ? stageChange24h(lead) : null;
+  document.getElementById('mrCreek').innerHTML = change === null
+    ? '&mdash;' : (change > 0 ? '+' : '') + change.toFixed(2) + ' ft';
+
+  var when = weather ? parseDate(weather.updatedAt) : null;
+  document.getElementById('mrStamp').textContent = when ? clock(when) : '—';
+
+  /* Anything already finished is dropped rather than relabelled, so a stale
+     file shows two periods instead of one that has been and gone. */
+  var cutoff = Date.now();
+  var periods = ((weather && Array.isArray(weather.forecast)) ? weather.forecast : [])
+    .filter(function(p){
+      var ends = parseDate(p.endTime);
+      return Number.isFinite(num(p.temperature)) && (!ends || ends.getTime() > cutoff);
+    });
+  var slots = periods.slice(0, 3);
+  var grid = document.getElementById('mrForecast');
+  var now = new Date();
+  if(slots.length){
+    grid.innerHTML = slots.map(function(period){
+      var pop = popOf(period);
+      return '<div class="d-cell">' +
+        '<em>' + esc(slotLabel(period, now)) + '</em>' + wxMark(period.shortForecast) +
+        '<b>' + num(period.temperature) + '&deg;</b>' +
+        '<i class="wx-pop">' + (Number.isFinite(pop) ? pop + '% rain' : '&mdash;') + '</i>' +
+        '</div>';
+    }).join('');
+    grid.hidden = false;
+  }
+
+  /* Three town highs, west to east, from the watershed forecast file. */
+  var places = towns && Array.isArray(towns.places) ? towns.places : [];
+  var row = TOWNS.map(function(name){
+    var hit = places.filter(function(p){return p.place === name})[0];
+    var hi = hit && hit.today ? num(hit.today.hi) : NaN;
+    return Number.isFinite(hi) ? '<span>' + name + '<b>' + hi + '°</b></span>' : '';
+  }).filter(Boolean);
+  if(row.length){
+    var el = document.getElementById('mrTowns');
+    el.innerHTML = '<span>Highs today</span>' + row.join('');
+    el.hidden = false;
+  }
+
+  var days = periods.filter(function(p){return p.isDaytime});
+  var nights = periods.filter(function(p){return !p.isDaytime});
+  var line = readTip(days[0], nights[0]);
+  var tip = document.getElementById('mrTip');
+  tip.textContent = line;
+  tip.hidden = !line;
+}
+
+/* =====================================================================
+   THE NOTICE
+   ===================================================================== */
+function cleanAlertText(text){
+  return String(text || '').replace(/\*/g, ' ')
+    .replace(/\b(WHAT|WHERE|WHEN|IMPACTS)\s*\.\.\./gi, '').replace(/\s+/g, ' ').trim();
+}
+function paintNotice(alerts){
+  var shell = document.getElementById('newsNotice');
+  var list = (alerts && alerts.hasAlerts && Array.isArray(alerts.alerts)) ? alerts.alerts : [];
+  if(!list.length){shell.hidden = true; shell.innerHTML = ''; return}
+  var alert = list[0];
+  var body = cleanAlertText(alert.description);
+  if(body && !/[.!?]$/.test(body)) body += '.';
+  if(!body) body = 'The National Weather Service has this in effect for the area.';
+  if(alert.endsShort) body += ' It runs through ' + esc(alert.endsShort) + '.';
+  shell.innerHTML =
+    '<div class="card-notice">' +
+      '<p class="n-kick">Weather alert</p>' +
+      '<h3>' + esc(alert.event || 'Active alert') + '</h3>' +
+      '<p>' + body + '</p>' +
+      '<p class="n-src">National Weather Service, Birmingham. ' +
+        '<a href="' + esc(alert.link || 'https://www.weather.gov/bmx') + '" target="_blank" rel="noreferrer">Read the full alert</a>.' +
+      '</p>' +
+    '</div>';
+  shell.hidden = false;
+}
+
+/* =====================================================================
+   COMING UP
+   Every lane, not only civic, because a reader on the news page wants to
+   know about the church dinner as much as the council meeting. Ten days
+   out, which is close enough to still be worth planning around.
+
+   The tag reads Calendar on every one of them, the same as the homepage.
+   A .tag answers which page a thing lives on and nothing else, so the lane
+   name does not go in it. See DECISIONS.md 11 and the note at the top of
+   fivemile-cards.css.
+   ===================================================================== */
+function paintUpcoming(){
+  var target = document.getElementById('newsUpcoming');
+  var data = window.CardiffSeasonData;
+  var items = (data && typeof data.getUpcomingCalendar === 'function')
+    ? data.getUpcomingCalendar(new Date()) : null;
+
+  var soon = Array.isArray(items) ? items.filter(function(item){
+    return item.start && item.daysUntil >= 0 && item.daysUntil <= 10;
+  }).sort(function(a, b){return a.start - b.start}).slice(0, 4) : [];
+
+  if(!soon.length){
+    target.innerHTML = '<div class="empty">&mdash;</div>';
+    return;
+  }
+
+  target.innerHTML = soon.map(function(entry){
+    var town = TOWNS.filter(function(t){return String(entry.title || '').indexOf(t) > -1})[0];
+    var day = String(entry.start.getDate());
+    return '<a class="card-stub" href="cardiff-calendar.html">' +
+      '<div class="k-date"><span class="mo">' + MONTHS[entry.start.getMonth()] + '</span>' +
+      '<span class="dy">' + (day.length < 2 ? '0' + day : day) + '</span></div>' +
+      '<div class="k-bd">' +
+        '<div class="k-top"><span class="tag calendar">Calendar</span>' +
+        (town ? '<span class="town-badge">' + esc(town) + '</span>' : '') + '</div>' +
+        '<h3>' + esc(entry.title) + '</h3>' +
+        '<div class="w">' + esc(firstSentence(entry.summary) || entry.dateLabel || '') + '</div>' +
+      '</div></a>';
+  }).join('');
+}
+
+/* =====================================================================
+   STORIES
+   ===================================================================== */
+
+/* The places we cover, in rings. A story earns its place on this page by
+   naming somewhere in one of them, and the ring it matched decides which
+   section it lands in. Longest names first inside each ring so "west
+   Jefferson" is not swallowed by "Jefferson".
+
+   These mirror the rings in scripts/fetch-news.mjs. The builder sorts
+   everything before it reaches here, so this only runs on a file written by
+   the old gatherer. Keep the two in step when either changes. */
+var RING_TOWNS  = ['graysville','cardiff','brookside','gin town'];
+var RING_NEARBY = ['adamsville','sylvan springs','pleasant grove','forestdale','fultondale',
+  'gardendale','maytown','mulga','docena','edgewater','sandusky','bayview','republic','sayre',
+  'trafford','kimberly','morris','warrior','corner','minor','west jefferson','western jefferson',
+  'north jefferson'];
+/* The outer ring is two rings. RING_COUNTY is our own county and state
+   government and qualifies on any beat. RING_METRO is Birmingham the city,
+   which is a neighbor rather than a government we answer to, and earns its
+   place only on a beat that physically travels out here. See DECISIONS.md 19.
+   The bare words alabama and state used to be in here and pulled in most of
+   the wire. */
+var RING_COUNTY = ['jefferson county','county commission','aldot','alabama legislature',
+  'alabama senate','alabama house','state legislature','statewide','state of alabama',
+  'adem','alabama department'];
+var RING_METRO  = ['birmingham','metro area','jefferson county schools'];
+/* The beats that reach out of the metro on their own, and what the county
+   section is for on top of them. Public safety is deliberately not in
+   COUNTY_BEATS: county offices turn up in metro crime coverage constantly,
+   and a shooting in Birmingham is not something a reader in Cardiff acts on.
+   It still runs freely in the towns and nearby sections. */
+var TRAVELS      = ['Beltline','Trains','Roads','The creek','Weather','Land','Utilities'];
+var COUNTY_BEATS = TRAVELS.concat(['Government','Schools']);
+/* Somewhere else in Alabama. The state agencies work in all 67 counties, so
+   an ALDOT release about bridges in St. Clair County matches aldot and roads
+   and reads as ours. Only asked at the county stage, so a story naming one of
+   our towns is already placed. Jefferson County's own municipalities are
+   deliberately absent. */
+var OTHER_PLACES = ['st. clair county','st clair county','shelby county','walker county',
+  'blount county','tuscaloosa county','greene county','bibb county','chilton county',
+  'cullman county','talladega county','etowah county','calhoun county','madison county',
+  'mobile county','montgomery county','baldwin county','lee county','marshall county',
+  'morgan county','limestone county','dekalb county','winston county','fayette county',
+  'dallas county','autauga county','elmore county','houston county',
+  'huntsville','tuscaloosa','montgomery','mobile','auburn','dothan','gadsden','anniston',
+  'decatur','florence','selma','jasper','alabaster','pelham','calera','oneonta',
+  'sylacauga','clanton'];
+/* Scoring only asks how far out a story is, not which of the two it matched. */
+var RING_WIDE   = RING_COUNTY.concat(RING_METRO);
+var CREEK_WORDS = ['five mile creek','fivemile creek','locust fork','watershed','black warrior',
+  'freshwater land trust','greenway','red rock trail','turkey creek','village creek','creek',
+  'water quality','dumping','cleanup','erosion','wildlife','forestry','wildfire','trail'];
+var OBIT_WORDS  = ['obituary','obituaries','funeral service','funeral home','visitation',
+  'passed away','celebration of life','memorial service','is survived by','preceded in death',
+  'graveside','burial'];
+
+/* Label, tag key, and the words that match it.
+
+   The key is always the label with everything but letters taken out, which is
+   the same rule tagsHtml uses on a tag the builder wrote. Both roads lead to
+   the same key, so a tag colored here and a tag colored there cannot disagree.
+   That is why two of them read oddly: Public safety is publicsafety and The
+   creek is thecreek. Keep them derived rather than chosen. */
+var BEATS = [
+  ['Roads',       'roads',       ['road','highway','paving','pothole','detour','closure','traffic','bridge','aldot','crash','wreck']],
+  ['Trains',      'trains',      ['train','crossing','railroad','csx','norfolk southern','locomotive']],
+  ['Beltline',    'beltline',    ['northern beltline','i-422','i-222','beltline']],
+  ['Weather',     'weather',     ['weather','storm','tornado','flood','hail','wind','heat','drought','snow','ice']],
+  ['The creek',   'thecreek',    ['five mile creek','fivemile creek','watershed','locust fork','greenway','water quality','trail']],
+  ['Land',        'land',        ['land','acres','timber','logging','mine','mining','quarry','strip pit','easement','conservation']],
+  ['Government',  'government',  ['council','commission','mayor','clerk','ordinance','zoning','budget','hearing','election','ballot','annex','incorporat']],
+  ['Schools',     'schools',     ['school','student','teacher','superintendent','board of education','graduation']],
+  ['Public safety','publicsafety',['police','fire','rescue','sheriff','arrest','shooting','ema','emergency','deputy','chief']],
+  ['Utilities',   'utilities',   ['water','sewer','power','outage','alabama power','gas line','garbage','landfill','recycling']],
+  ['Business',    'business',    ['business','store','restaurant','opening','jobs','hiring','plant','warehouse','data center','development']],
+  ['History',     'history',     ['history','historic','marker','cemetery','museum','archive','1900','coal camp']]
+];
+
+function cleanTitle(title){return String(title || '').replace(/\s+-\s+[^-]+$/, '').trim()}
+/* Several feeds put the headline in the description field and nothing else,
+   sometimes with the call letters stuck on the end. Printed under the
+   headline on the lead card that reads as a stutter, so a summary that is
+   only the headline again is dropped and the card runs without one. Compared
+   on letters and digits, because the two copies differ in punctuation. */
+function isEchoOfTitle(summary, title){
+  var bare = function(s){return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '')};
+  var body = bare(summary), head = bare(title);
+  if(!body || !head) return false;
+  return body.indexOf(head) === 0 && body.length < head.length * 1.4;
+}
+function blobOf(item){return (item.title + ' ' + item.description + ' ' + item.source).toLowerCase()}
+function hitList(blob, list){return list.filter(function(word){return blob.indexOf(word) > -1})}
+function properCase(word){return word.replace(/(^|\s)\S/g, function(c){return c.toUpperCase()})}
+
+/* The town badge answers where, and it is the first ring match in the order
+   above, so a story naming two of our towns badges the westernmost. */
+function placeOf(item){
+  var blob = blobOf(item);
+  for(var i = 0; i < TOWNS.length; i++){
+    if(blob.indexOf(TOWNS[i].toLowerCase()) > -1) return TOWNS[i];
+  }
+  var near = hitList(blob, RING_NEARBY)[0];
+  if(near) return properCase(near);
+  if(blob.indexOf('jefferson county') > -1) return 'Jefferson County';
+  if(blob.indexOf('birmingham') > -1) return 'Birmingham';
+  return 'Regional';
+}
+function beatsOf(item){
+  var blob = blobOf(item), found = [];
+  BEATS.forEach(function(rule){
+    if(found.length >= 2) return;
+    if(hitList(blob, rule[2]).length) found.push({label: rule[0], key: rule[1]});
+  });
+  return found;
+}
+/* Where a story goes when the builder has not already decided. Same order of
+   questions the builder asks, so the two never disagree. */
+function sectionOf(item){
+  if(item.section) return item.section;
+  var blob = blobOf(item);
+  if(hitList(blob, OBIT_WORDS).length) return 'obituaries';
+  if(hitList(blob, RING_TOWNS).length) return 'towns';
+  if(hitList(blob, CREEK_WORDS).length && hitList(blob, RING_TOWNS.concat(RING_NEARBY)).length) return 'creek';
+  if(hitList(blob, RING_NEARBY).length) return 'nearby';
+  if(hitList(blob, OTHER_PLACES).length) return 'skip';
+
+  var beats = beatsOf(item).map(function(b){return b.label});
+  if(hitList(blob, RING_COUNTY).length){
+    var acts = beats.filter(function(b){return COUNTY_BEATS.indexOf(b) > -1});
+    return acts.length ? 'county' : 'skip';
+  }
+  if(hitList(blob, RING_METRO).length){
+    var travels = beats.filter(function(b){return TRAVELS.indexOf(b) > -1});
+    return travels.length ? 'county' : 'skip';
+  }
+  return 'skip';
+}
+function scoreItem(item){
+  var blob = blobOf(item), score = 0;
+  if(hitList(blob, RING_TOWNS).length) score += 20;
+  if(hitList(blob, RING_NEARBY).length) score += 10;
+  if(hitList(blob, RING_WIDE).length) score += 3;
+  score += beatsOf(item).length * 4;
+  if(item.image && item.image.url) score += 3;
+  if(item.pinned) score += 30;
+  score += Number(item.priority || 0);
+  var age = item.date ? (Date.now() - item.date.getTime()) / 864e5 : 9;
+  score += Math.max(0, 8 - age * 1.5);
+  return score;
+}
+/* Two outlets covering the same wreck should not take two slots, and their
+   headlines never match exactly. Comparing the long words catches it without
+   needing the stories to be worded the same. */
+function longWords(title){
+  return String(title).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
+    .filter(function(word){return word.length > 4});
+}
+function looksLikeSameStory(item, picked){
+  var mine = longWords(item.title);
+  if(mine.length < 2) return false;
+  return picked.some(function(other){
+    var theirs = longWords(other.title);
+    if(!theirs.length) return false;
+    var shared = mine.filter(function(word){return theirs.indexOf(word) > -1}).length;
+    return shared / Math.min(mine.length, theirs.length) >= 0.6;
+  });
+}
+/* Obituaries stay up until the service has been and gone. Everything else
+   ages out in five days, and creek stories get two weeks because a cleanup
+   is still worth reading about a week later. See DECISIONS.md 20. */
+function isFresh(item){
+  if(!item.date) return false;
+  var days = (Date.now() - item.date.getTime()) / 864e5;
+  if(item.section === 'obituaries'){
+    var service = item.obit && parseDate(item.obit.service);
+    if(service) return service.getTime() > (Date.now() - 2 * 864e5);
+    return days <= 10;
+  }
+  if(item.section === 'creek') return days <= 14;
+  return days <= 5;
+}
+
+function normalizeStory(item){
+  var image = item.image && item.image.url ? item.image
+    : (item.image_url ? {url: item.image_url, from: 'feed', credit: ''} : null);
+  var story = {
+    id: item.id || '',
+    title: cleanTitle(item.title || 'Untitled'),
+    source: item.outlet || item.source || item.source_name || 'Regional source',
+    link: item.url || item.link || '',
+    description: plainText(item.summary || item.description || ''),
+    date: parseDate(item.published_at || item.date || item.updatedAt || ''),
+    priority: Number(item.priority_level || item.priority || 0),
+    pinned: Boolean(item.pinned || item.isPinned || item.is_featured),
+    paywall: Boolean(item.paywall),
+    town: item.town || '',
+    tags: Array.isArray(item.tags) ? item.tags : [],
+    obit: item.obit || null,
+    section: item.section || '',
+    image: image
+  };
+  story.section = sectionOf(story);
+  if(!story.town) story.town = placeOf(story);
+  if(isEchoOfTitle(story.description, story.title)) story.description = '';
+  return story;
+}
+
+/* --- rendering ------------------------------------------------------------ */
+/* The photograph is loaded from the outlet's own server and is decorative in
+   the accessibility sense: the headline underneath it carries the meaning, so
+   an empty alt is correct here rather than lazy. The credit is real text next
+   to it, not alt text, because a sighted reader needs to see it too. */
+function shotHtml(story){
+  if(!story.image || !story.image.url) return '';
+  return '<span class="k-shot"><img src="' + esc(story.image.url) + '" alt="" loading="lazy" ' +
+    'decoding="async" referrerpolicy="strict-origin-when-cross-origin"></span>';
+}
+/* A tag written by the builder arrives as a label. Its key is the label with
+   everything but letters taken out, which is what the beat colors match on. */
+function tagsHtml(story){
+  var beats = story.tags.length
+    ? story.tags.slice(0, 2).map(function(t){return {label: t, key: String(t).toLowerCase().replace(/[^a-z]/g,'')}})
+    : beatsOf(story);
+  return beats.map(function(b){
+    return '<span class="tag" data-beat="' + esc(b.key) + '">' + esc(b.label) + '</span>';
+  }).join('');
+}
+function rowHtml(story){
+  return '<a class="card-stub story" href="' + esc(story.link) + '" target="_blank" rel="noreferrer">' +
+    shotHtml(story) +
+    '<div class="k-bd">' +
+      '<div class="k-top">' +
+        '<span class="town-badge">' + esc(story.town) + '</span>' +
+        tagsHtml(story) +
+        (story.paywall ? '<span class="locked">Subscribers</span>' : '') +
+        '<span class="k-src">' + esc(story.source) + ' &middot; ' + esc(relativeTime(story.date)) + '</span>' +
+      '</div>' +
+      '<h3>' + esc(story.title) + '</h3>' +
+    '</div></a>';
+}
+function leadHtml(story){
+  var hasPhoto = story.image && story.image.url;
+  return '<a class="card-lead' + (hasPhoto ? '' : ' no-photo') + '" href="' + esc(story.link) + '" target="_blank" rel="noreferrer">' +
+    (hasPhoto
+      ? '<div class="l-img"><img src="' + esc(story.image.url) + '" alt="" loading="eager" decoding="async" ' +
+        'referrerpolicy="strict-origin-when-cross-origin">' +
+        '<span class="l-credit">Photograph: ' + esc(story.image.credit || story.source) + '</span></div>'
+      : '') +
+    '<div class="l-bd">' +
+      '<div class="l-top"><span class="town-badge">' + esc(story.town) + '</span>' + tagsHtml(story) +
+        (story.paywall ? '<span class="locked">Subscribers</span>' : '') + '</div>' +
+      '<h2>' + esc(story.title) + '</h2>' +
+      (story.description ? '<p>' + esc(story.description) + '</p>' : '') +
+      '<span class="l-src">' + esc(story.source) + ' &middot; ' + esc(relativeTime(story.date)) + '</span>' +
+    '</div></a>';
+}
+/* An obituary card carries the name, the town, the service, and the funeral
+   home. No photograph and no beat color. See DECISIONS.md 22. */
+function obitHtml(story){
+  var o = story.obit || {};
+  var name = o.name || story.title;
+  var bits = [];
+  if(o.age) bits.push('Age ' + o.age);
+  if(o.town || story.town) bits.push(o.town || story.town);
+  if(story.date) bits.push(relativeTime(story.date));
+  var service = o.serviceLabel || (o.service ? new Date(o.service).toLocaleString('en-US',
+    {weekday:'long', month:'long', day:'numeric', hour:'numeric', minute:'2-digit'}) : '');
+  return '<a class="card-obit" href="' + esc(story.link) + '" target="_blank" rel="noreferrer">' +
+    '<h3 class="o-name">' + esc(name) + '</h3>' +
+    (bits.length ? '<div class="o-line">' + esc(bits.join(' · ')) + '</div>' : '') +
+    (service ? '<p class="o-svc">Service ' + esc(service) + '.</p>' : '') +
+    '<div class="o-home">' + esc(o.home || story.source) + '</div>' +
+    '</a>';
+}
+
+/* A picture that will not load takes its slot with it, so the row closes up
+   instead of holding an empty grey box. */
+function guardImages(root){
+  var imgs = root.querySelectorAll('img[referrerpolicy]');
+  for(var i = 0; i < imgs.length; i++){
+    imgs[i].addEventListener('error', function(){
+      var slot = this.closest('.k-shot');
+      if(slot){slot.parentNode.removeChild(slot); return}
+      var lead = this.closest('.card-lead');
+      if(lead){
+        lead.classList.add('no-photo');
+        var frame = lead.querySelector('.l-img');
+        if(frame) frame.parentNode.removeChild(frame);
+      }
+    });
+  }
+}
+
+function fillSection(key, label, stories, limit){
+  var block = document.getElementById(key + 'Block');
+  var rows = document.getElementById(key + 'Rows');
+  var count = document.getElementById(key + 'Count');
+  if(!block || !stories.length) return null;
+  var use = stories.slice(0, limit);
+  rows.innerHTML = use.map(key === 'obit' ? obitHtml : rowHtml).join('');
+  if(count) count.textContent = stories.length > use.length
+    ? use.length + ' of ' + stories.length : String(use.length);
+  block.hidden = false;
+  guardImages(rows);
+  return {href: '#' + label.anchor, name: label.chip, n: use.length};
+}
+
+function paintNews(live, desk){
+  var raw = []
+    .concat((desk && Array.isArray(desk.pinned)) ? desk.pinned : [])
+    .concat((desk && Array.isArray(desk.stories)) ? desk.stories : [])
+    .concat((live && Array.isArray(live.stories)) ? live.stories : []);
+
+  var pool = raw.map(normalizeStory).filter(function(story){
+    return story.title && story.link && story.section !== 'skip' && isFresh(story);
+  }).sort(function(a, b){return scoreItem(b) - scoreItem(a)});
+
+  /* One pass to drop the same wreck covered by three outlets. Obituaries are
+     exempt: two people can share a surname and both notices belong here. */
+  var kept = [], seen = {};
+  pool.forEach(function(story){
+    var key = (story.title + '|' + story.source).toLowerCase();
+    if(seen[key]) return;
+    seen[key] = true;
+    if(story.section !== 'obituaries' && looksLikeSameStory(story, kept)) return;
+    kept.push(story);
+  });
+
+  var by = {towns: [], nearby: [], creek: [], county: [], obituaries: []};
+  kept.forEach(function(story){ if(by[story.section]) by[story.section].push(story) });
+
+  var chips = [];
+
+  /* The lead is the best story in the two closest rings. County news does not
+     lead this page even when it is the biggest thing on the wire, because
+     this page is about here. See DECISIONS.md 19. */
+  var leadPool = by.towns.concat(by.creek);
+  var lead = leadPool[0] || by.nearby[0] || null;
+  if(lead){
+    var slot = document.getElementById('leadSlot');
+    slot.innerHTML = leadHtml(lead);
+    document.getElementById('leadStamp').textContent = lead.source;
+    document.getElementById('leadBlock').hidden = false;
+    guardImages(slot);
+    ['towns','nearby','creek','county'].forEach(function(k){
+      by[k] = by[k].filter(function(s){return s !== lead});
+    });
+  }
+
+  [
+    ['towns',  {anchor:'three-towns',    chip:'Three towns'},      8],
+    ['obit',   {anchor:'obituaries',     chip:'Obituaries'},       6, 'obituaries'],
+    ['nearby', {anchor:'west-jefferson', chip:'West Jefferson'},   8],
+    ['creek',  {anchor:'the-creek',      chip:'The creek'},        6],
+    ['county', {anchor:'county-state',   chip:'County and state'}, 6]
+  ].forEach(function(row){
+    var chip = fillSection(row[0], row[1], by[row[3] || row[0]], row[2]);
+    if(chip) chips.push(chip);
+  });
+
+  if(!kept.length) document.getElementById('quietBlock').hidden = false;
+
+  /* The jump row is built from what is actually on the page today. The
+     weather and the calendar are always there, so they lead it. */
+  var all = [{href:'#morning-report', name:'This morning'}, {href:'#coming-up', name:'Coming up'}].concat(chips);
+  document.getElementById('newsChips').innerHTML = all.map(function(c){
+    return '<a class="chip" href="' + c.href + '">' + esc(c.name) + (c.n ? '<b>' + c.n + '</b>' : '') + '</a>';
+  }).join('');
+
+  /* Every outlet that put something on the page today, named at the bottom. */
+  var outlets = [];
+  kept.forEach(function(s){ if(outlets.indexOf(s.source) === -1) outlets.push(s.source) });
+  document.getElementById('sourceList').innerHTML = outlets.length
+    ? 'On this page today: ' + esc(outlets.sort().join(' · '))
+    : '&mdash;';
+
+  var stamp = live ? parseDate(live.updatedAt) : null;
+  document.getElementById('newsStamp').textContent = stamp
+    ? 'Gathered at ' + clock(stamp) : '—';
+}
+
+/* --- boot ---------------------------------------------------------------- */
+if(window.BRAND && window.BRAND.email){
+  ['sendMail','quietMail','fixMail'].forEach(function(id){
+    var mail = document.getElementById(id);
+    if(!mail) return;
+    mail.href = 'mailto:' + window.BRAND.email;
+    if(id === 'sendMail') mail.textContent = window.BRAND.email;
+  });
+}
+
+paintUpcoming();
+
+settle([
+  loadJson(DATA.news),
+  loadJson(DATA.desk),
+  loadJson(DATA.weather),
+  loadJson(DATA.towns),
+  loadJson(DATA.watershed),
+  loadJson(DATA.alerts)
+]).then(function(r){
+  paintNotice(r[5]);
+  paintMorning(r[2], r[4], r[3]);
+  paintNews(r[0], r[1]);
+});
 </script>
+<script src="cardiff-common.js"></script>
 <script src="/cardiff-pwa.js"></script>
 </body>
 </html>

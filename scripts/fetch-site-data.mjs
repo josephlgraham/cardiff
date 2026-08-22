@@ -7,7 +7,6 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
 const WEATHER_FILE = path.join(ROOT, 'cardiff-weather.json');
-const NEWS_FILE = path.join(ROOT, 'cardiff-news-live.json');
 const RAIN_LOG_FILE = path.join(ROOT, 'cardiff-rain-log.json');
 const WATERSHED_FILE = path.join(ROOT, 'cardiff-watershed.json');
 const AIR_QUALITY_FILE = path.join(ROOT, 'cardiff-air-quality.json');
@@ -15,10 +14,15 @@ const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'cardiff-community-snapshot.json
 const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'cardiff-weather-archive.json');
 const WATERSHED_FORECAST_FILE = path.join(ROOT, 'cardiff-watershed-weather.json');
 
+/* West to east, which is the order every list of the three towns is written
+   in. See DECISIONS.md 1. The pages that read this file look their town up by
+   name, so the order here is not what puts them on the screen in the right
+   order, but a list in the wrong order is what teaches the next person the
+   wrong order. */
 const WATERSHED_FORECAST_POINTS = [
+  { place: 'Graysville', lat: 33.6228, lon: -86.9573 },
   { place: 'Cardiff', lat: 33.640, lon: -86.870 },
-  { place: 'Brookside', lat: 33.6379, lon: -86.9167 },
-  { place: 'Graysville', lat: 33.6228, lon: -86.9573 }
+  { place: 'Brookside', lat: 33.6379, lon: -86.9167 }
 ];
 
 const AW_API_KEY = process.env.AW_API_KEY || '';
@@ -61,95 +65,6 @@ const TZ_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
   hourCycle: 'h23'
 });
 
-const NEWS_QUERIES = [
-  { mode: 'nearby', query: '(Cardiff OR Brookside OR Graysville OR Adamsville OR Minor OR Bayview) Alabama' },
-  { mode: 'nearby', query: '(Gardendale OR Fultondale OR Warrior OR Kimberly OR Morris) Alabama' },
-  { mode: 'nearby', query: '("Five Mile Creek" OR Graysville OR Cardiff) Alabama' },
-  { mode: 'nearby', query: '(Graysville OR Adamsville OR Cardiff) Alabama police fire rescue school road' },
-  { mode: 'weather', query: '(Jefferson County OR Birmingham) Alabama weather storm tornado flood outage emergency' },
-  { mode: 'weather', query: '(road closure OR traffic OR detour OR train OR paving) (Jefferson County OR Graysville OR Adamsville OR Gardendale) Alabama' },
-  { mode: 'weather', query: '(Jefferson County EMA OR Alabama Power OR ALDOT) Jefferson County Alabama outage shelter severe weather' },
-  { mode: 'civic', query: '(Jefferson County OR Birmingham) Alabama city council county commission school board zoning sewer water' },
-  { mode: 'civic', query: '(Graysville OR Adamsville OR Gardendale OR Fultondale OR Warrior) Alabama council commission mayor public works' },
-  { mode: 'civic', query: '(Graysville OR Cardiff) Alabama water sewer utility public works' },
-  { mode: 'civic', query: '(Jefferson County OR western Jefferson County) Alabama brush pickup debris public works utility board' },
-  { mode: 'regional', query: '(north Jefferson County OR western Jefferson County) Alabama development public safety schools' },
-  { mode: 'regional', query: '(Graysville OR Gardendale OR Fultondale) Alabama police fire rescue school' }
-];
-
-const SOURCE_WEIGHTS = {
-  'Cardiff Desk': 14,
-  'Jefferson County EMA': 10,
-  'Jefferson County': 10,
-  'BirminghamWatch': 8,
-  'AL.com': 7,
-  'WBRC': 7,
-  'WBRC FOX6 News': 7,
-  'WVTM 13': 6,
-  'ABC 33/40': 6,
-  'ABC3340': 6,
-  'CBS 42': 6,
-  'WBHM': 6,
-  'Bham Now': 5,
-  'North Jefferson Herald': 6,
-  'North Jefferson Post': 5,
-  'The Birmingham Times': 5,
-  'Birmingham Business Journal': 5,
-  'Patch': 4
-};
-
-const PLACE_WEIGHTS = [
-  ['cardiff', 20], ['brookside', 17], ['graysville', 15], ['adamsville', 15], ['minor', 14], ['bayview', 13],
-  ['gardendale', 11], ['fultondale', 11], ['warrior', 9], ['kimberly', 8], ['morris', 7], ['five mile creek', 10],
-  ['western jefferson', 10], ['north jefferson', 8], ['jefferson county', 8], ['birmingham', 3]
-];
-
-const TOPIC_WEIGHTS = [
-  ['train', 10], ['closure', 9], ['detour', 8], ['road', 8], ['traffic', 7], ['paving', 8], ['weather', 8],
-  ['storm', 10], ['tornado', 12], ['flood', 10], ['outage', 9], ['emergency', 8], ['school', 8], ['education', 7],
-  ['council', 9], ['commission', 8], ['mayor', 7], ['clerk', 7], ['zoning', 8], ['budget', 7], ['hearing', 7],
-  ['grant', 6], ['utility', 8], ['water', 9], ['sewer', 9], ['fire', 7], ['police', 7], ['public safety', 8]
-];
-
-const LOW_SIGNAL_TERMS = ['football', 'basketball', 'softball', 'baseball', 'lottery', 'horoscope', 'crossword', 'celebrity'];
-
-const MODE_KEYWORDS = {
-  nearby: ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris', 'five mile creek'],
-  civic: ['council', 'commission', 'mayor', 'clerk', 'school', 'education', 'budget', 'zoning', 'hearing', 'ordinance', 'board', 'police', 'fire', 'utility', 'water', 'sewer'],
-  weather: ['weather', 'storm', 'tornado', 'wind', 'rain', 'flood', 'outage', 'road', 'traffic', 'closure', 'detour', 'train', 'paving'],
-  regional: ['jefferson county', 'birmingham', 'north jefferson', 'western jefferson', 'development', 'public safety', 'roads', 'schools']
-};
-
-const TAG_RULES = [
-  ['Nearby', ['cardiff', 'brookside', 'graysville', 'adamsville', 'minor', 'bayview', 'gardendale', 'fultondale', 'warrior', 'kimberly', 'morris']],
-  ['Roads', ['road', 'traffic', 'closure', 'detour', 'paving', 'train']],
-  ['Weather', ['weather', 'storm', 'tornado', 'rain', 'flood', 'outage', 'wind']],
-  ['Civic', ['council', 'commission', 'mayor', 'clerk', 'zoning', 'budget', 'ordinance', 'hearing']],
-  ['Schools', ['school', 'education', 'student', 'board']],
-  ['Utilities', ['water', 'sewer', 'utility', 'outage', 'power']],
-  ['Safety', ['police', 'fire', 'public safety', 'rescue', 'emergency']]
-];
-
-const NORMALIZED_TOPIC_RULES = [
-  ['weather', ['weather', 'storm', 'tornado', 'wind', 'rain']],
-  ['flood', ['flood', 'flash flood', 'high water', 'hydrologic']],
-  ['fire', ['fire', 'wildfire', 'burn', 'smoke']],
-  ['roads', ['road', 'traffic', 'closure', 'detour', 'paving', 'train']],
-  ['government', ['council', 'commission', 'mayor', 'clerk', 'budget', 'ordinance', 'hearing', 'legislature']],
-  ['community', ['school', 'education', 'community', 'workday', 'meeting']],
-  ['creek', ['five mile creek', 'creek', 'watershed']],
-  ['environment', ['dumping', 'cleanup', 'pollution', 'water quality', 'epa']]
-];
-
-const NORMALIZED_LOCATION_RULES = [
-  'cardiff',
-  'brookside',
-  'five_mile_creek',
-  'graysville',
-  'jefferson_county',
-  'birmingham_metro'
-];
-
 const WATERSHED_GAUGES = [
   {
     id: '02457595',
@@ -166,12 +81,6 @@ async function fetchJson(url, init = {}) {
   const response = await fetch(url, init);
   if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
   return response.json();
-}
-
-async function fetchText(url, init = {}) {
-  const response = await fetch(url, init);
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
-  return response.text();
 }
 
 async function writeJson(filePath, payload) {
@@ -547,286 +456,11 @@ async function updateWeatherFile() {
   return payload;
 }
 
-function decodeHtml(text = '') {
-  return text
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#x27;/g, "'")
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8211;/g, '-')
-    .replace(/&#8212;/g, '-')
-    .replace(/&#8230;/g, '...');
-}
-
-function plainText(text = '') {
-  return decodeHtml(text).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function cleanTitle(title = '') {
-  return title.replace(/\s+-\s+[^-]+$/, '').replace(/\s+\|\s+[^|]+$/, '').trim();
-}
-
-function slugify(value = '') {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64) || 'item';
-}
-
-function parseDate(value) {
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? null : date;
-}
-
-function normalizeSource(source = '') {
-  return source.replace(/^By\s+/i, '').trim() || 'Regional source';
-}
-
-function itemKey(item) {
-  const normTitle = cleanTitle(item.title || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-  const normLink = (item.link || '').replace(/^https?:\/\/(www\.)?/i, '').replace(/[#?].*$/, '').replace(/\/$/, '').trim();
-  return `${normTitle}|${normLink}`;
-}
-
-function textBlob(item) {
-  return [item.title, item.description, item.source, (item.tags || []).join(' '), (item.modes || []).join(' ')].join(' ').toLowerCase();
-}
-
-function containsAny(blob, terms) {
-  return terms.some((term) => blob.includes(term));
-}
-
-function listScore(blob, pairs) {
-  return pairs.reduce((sum, [term, val]) => sum + (blob.includes(term) ? val : 0), 0);
-}
-
-function sourceScore(source = '') {
-  let score = 0;
-  Object.entries(SOURCE_WEIGHTS).forEach(([name, val]) => {
-    if (source.includes(name)) score = Math.max(score, val);
-  });
-  return score;
-}
-
-function freshnessScore(date) {
-  if (!date) return 0;
-  const hours = (Date.now() - date.getTime()) / 36e5;
-  if (hours < 6) return 14;
-  if (hours < 24) return 11;
-  if (hours < 48) return 8;
-  if (hours < 96) return 5;
-  if (hours < 9 * 24) return 2;
-  return -30;
-}
-
-function isRecentStory(date, maxDays = 5) {
-  return !!date && (Date.now() - date.getTime()) <= maxDays * 864e5;
-}
-
-function penaltyScore(blob) {
-  return LOW_SIGNAL_TERMS.reduce((penalty, term) => penalty + (blob.includes(term) ? -4 : 0), 0);
-}
-
-function classifyModes(item) {
-  const blob = textBlob(item);
-  const modes = ['all'];
-  Object.keys(MODE_KEYWORDS).forEach((mode) => {
-    if (containsAny(blob, MODE_KEYWORDS[mode])) modes.push(mode);
-  });
-  return [...new Set(modes)];
-}
-
-function buildTags(item) {
-  const blob = textBlob(item);
-  const tags = [];
-  TAG_RULES.forEach(([label, terms]) => {
-    if (tags.length < 3 && terms.some((term) => blob.includes(term))) tags.push(label);
-  });
-  if (!tags.length) tags.push('Local');
-  return tags;
-}
-
-function buildNormalizedTopicTags(item) {
-  const blob = textBlob(item);
-  const tags = [];
-  NORMALIZED_TOPIC_RULES.forEach(([label, terms]) => {
-    if (tags.length < 4 && terms.some((term) => blob.includes(term))) tags.push(label);
-  });
-  if (!tags.length) tags.push('community');
-  return tags;
-}
-
-function buildNormalizedLocationTags(item) {
-  const blob = textBlob(item)
-    .replace(/five mile creek/g, 'five_mile_creek')
-    .replace(/jefferson county/g, 'jefferson_county')
-    .replace(/birmingham metro/g, 'birmingham_metro');
-  const tags = NORMALIZED_LOCATION_RULES.filter((label) => blob.includes(label));
-  if (!tags.length) tags.push('cardiff');
-  return tags;
-}
-
-function scoreItem(item) {
-  const blob = textBlob(item);
-  return freshnessScore(item.date) + sourceScore(item.source) + listScore(blob, PLACE_WEIGHTS) + listScore(blob, TOPIC_WEIGHTS) + penaltyScore(blob);
-}
-
-function extractTag(itemXml, tag) {
-  const match = itemXml.match(new RegExp(`<${tag}\\b[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
-  return match ? decodeHtml(match[1].trim()) : '';
-}
-
-function extractSourceFromTitle(title = '') {
-  const match = title.match(/\s+-\s+([^-]+)$/);
-  return match ? match[1].trim() : 'Regional source';
-}
-
-function parseRssItems(xml) {
-  const itemMatches = xml.match(/<item\b[\s\S]*?<\/item>/gi) || [];
-  return itemMatches.map((itemXml) => {
-    const title = extractTag(itemXml, 'title');
-    return {
-      title: cleanTitle(title || 'Untitled'),
-      source: normalizeSource(extractTag(itemXml, 'source') || extractSourceFromTitle(title)),
-      link: extractTag(itemXml, 'link') || '#',
-      description: plainText(extractTag(itemXml, 'description')),
-      date: parseDate(extractTag(itemXml, 'pubDate')),
-      modes: [],
-      tags: [],
-      priority: 0
-    };
-  });
-}
-
-async function fetchNewsStories() {
-  const stories = [];
-  const syncedAt = new Date().toISOString();
-
-  for (const entry of NEWS_QUERIES) {
-    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(entry.query)}&hl=en-US&gl=US&ceid=US:en`;
-    try {
-      const xml = await fetchText(url, { headers: { 'User-Agent': 'CardiffSiteBot/1.0' } });
-      parseRssItems(xml).forEach((story) => {
-        story.modes = [...new Set([entry.mode, ...classifyModes(story)])];
-        story.tags = buildTags(story);
-        story.priority = Math.max(0, Math.round(scoreItem(story) / 8));
-        stories.push(story);
-      });
-    } catch (error) {
-      console.warn(`News query failed for mode ${entry.mode}: ${error.message}`);
-    }
-  }
-
-  const deduped = [];
-  const seen = new Set();
-  for (const story of stories) {
-    const key = itemKey(story);
-    if (!story.title || !story.link || seen.has(key)) continue;
-    seen.add(key);
-    deduped.push(story);
-  }
-
-  return deduped
-    .filter((story) => isRecentStory(story.date, 5))
-    .sort((a, b) => scoreItem(b) - scoreItem(a) || ((b.date || 0) - (a.date || 0)))
-    .slice(0, 48)
-    .map((story, index) => {
-      const isoDate = story.date ? story.date.toISOString() : '';
-      return {
-        id: `news-${index + 1}-${slugify(story.source)}-${slugify(story.title)}`,
-        source_type: 'media_feed',
-        source_name: story.source,
-        title: story.title,
-        summary: story.description,
-        url: story.link,
-        published_at: isoDate,
-        location_tags: buildNormalizedLocationTags(story),
-        topic_tags: buildNormalizedTopicTags(story),
-        priority_level: story.priority,
-        section_target: 'news',
-        module_target: 'regional_news_tracker',
-        is_alert: containsAny(textBlob(story), ['alert', 'warning', 'watch', 'closure', 'outage', 'flood', 'storm']),
-        is_featured: scoreItem(story) >= 26,
-        image_url: '',
-        raw_payload: {
-          modes: story.modes,
-          tags: story.tags
-        },
-        last_synced_at: syncedAt,
-        source: story.source,
-        link: story.link,
-        description: story.description,
-        date: isoDate,
-        modes: story.modes,
-        tags: story.tags,
-        priority: story.priority
-      };
-    });
-}
-
-async function buildMonthlyRainStory(rain, now) {
-  // Gate 1 — is today the last day of the month?
-  const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
-  const isLastDay = tomorrow.getMonth() !== now.getMonth();
-  if (!isLastDay) return null;
-
-  // Gate 2 — does the story log already contain a fingerprint for this month?
-  const monthKey = localMonthKey(now); // "YYYY-MM"
-  const fingerprint = `monthly-rain-${monthKey}`;
-  const existing = await readJson(NEWS_FILE, { stories: [] });
-  const alreadyFiled = Array.isArray(existing.stories) &&
-    existing.stories.some((s) => s.id === fingerprint);
-  if (alreadyFiled) return null;
-
-  const monthToDate = rain && Number.isFinite(rain.monthToDate) ? Number(rain.monthToDate) : null;
-  const monthLabel = rain && rain.monthLabel ? rain.monthLabel : localMonthLabel(now);
-  const totalText = monthToDate !== null ? `${monthToDate.toFixed(2)} in` : 'totals still compiling';
-  const isoDate = now.toISOString();
-
-  return {
-    id: fingerprint,
-    source_type: 'local_station',
-    source_name: 'Cardiff Desk',
-    title: `${monthLabel} rain: ${totalText} recorded at Cardiff`,
-    summary: `The Cardiff station wrapped ${monthLabel} with ${totalText} of measured precipitation.`,
-    url: '',
-    published_at: isoDate,
-    location_tags: ['cardiff'],
-    topic_tags: ['weather'],
-    priority_level: 3,
-    section_target: 'news',
-    module_target: 'regional_news_tracker',
-    is_alert: false,
-    is_featured: false,
-    image_url: '',
-    raw_payload: { modes: ['weather'], tags: ['Weather'] },
-    last_synced_at: isoDate,
-    source: 'Cardiff Desk',
-    link: '',
-    description: `The Cardiff station wrapped ${monthLabel} with ${totalText} of measured precipitation.`,
-    date: isoDate,
-    modes: ['weather'],
-    tags: ['Weather'],
-    priority: 3
-  };
-}
-
-async function updateNewsFile(weatherPayload = null) {
-  const now = new Date();
-  const weather = weatherPayload || await readJson(WEATHER_FILE, { rain: null });
-  const [stories, monthlyRainStory] = await Promise.all([
-    fetchNewsStories(),
-    buildMonthlyRainStory(weather?.rain || null, now)
-  ]);
-  const allStories = monthlyRainStory ? [monthlyRainStory, ...stories] : stories;
-  await writeJson(NEWS_FILE, {
-    updatedAt: now.toISOString(),
-    stories: allStories
-  });
-  console.log(`Updated ${path.basename(NEWS_FILE)} with ${allStories.length} stor${allStories.length === 1 ? 'y' : 'ies'}${monthlyRainStory ? ' (+ monthly rain summary)' : ''}`);
-}
+/* News used to be gathered here. It moved to scripts/fetch-news.mjs, which is
+   now the only writer of cardiff-news-live.json, reads the outlets' own feeds
+   rather than Google News, and keeps a permanent archive under news-archive/.
+   The end of month rain story went with it. Do not add a second writer for
+   that file here. See DECISIONS.md 17. */
 
 function findSeries(data, parameterCode) {
   return (data.value?.timeSeries || []).find((series) => {
@@ -950,9 +584,12 @@ function summarizeWatershed(gauges, rain) {
   }
   const rainToday = Number(rain?.today || 0);
   const rainMonth = Number(rain?.monthToDate || 0);
+  /* No town name in here. The rain gauge sits in one of the three and the
+     daily read is for all three, so the sentence says where the reading
+     applies rather than where the instrument is bolted down. */
   const rainLine = rainToday >= 0.01
-    ? `Cardiff has picked up ${rainToday.toFixed(2)} inches today`
-    : 'Cardiff is dry today';
+    ? `The area has picked up ${rainToday.toFixed(2)} inches today`
+    : 'It is dry across the area today';
   const trendLine = lead.trend === 'rising'
     ? `and ${lead.label} is climbing`
     : (lead.trend === 'falling' ? `and ${lead.label} is easing down` : `and ${lead.label} is holding fairly steady`);
@@ -1358,11 +995,6 @@ async function main() {
     await updateCommunitySnapshotFile();
   } catch (error) {
     console.error('Community snapshot update failed (continuing):', error.message);
-  }
-  try {
-    await updateNewsFile(weather);
-  } catch (error) {
-    console.error('News update failed (continuing):', error.message);
   }
 }
 

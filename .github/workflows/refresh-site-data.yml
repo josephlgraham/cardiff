@@ -25,7 +25,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Refresh weather, watershed, civic snapshot, and news files
+      # News is not gathered here any more. It has its own script and its own
+      # schedule in refresh-news.yml, because a morning report wants gathering
+      # in the morning.
+      - name: Refresh weather, watershed, and civic snapshot files
         run: node scripts/fetch-site-data.mjs
         env:
           AW_API_KEY: ${{ secrets.AW_API_KEY }}
@@ -38,7 +41,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git add cardiff-news-live.json cardiff-weather.json cardiff-watershed.json cardiff-watershed-weather.json cardiff-air-quality.json cardiff-rain-log.json cardiff-weather-archive.json
+          git add cardiff-weather.json cardiff-watershed.json cardiff-watershed-weather.json cardiff-air-quality.json cardiff-rain-log.json cardiff-weather-archive.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0

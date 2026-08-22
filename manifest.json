@@ -1,7 +1,7 @@
 {
-  "name": "Cardiff, Alabama",
-  "short_name": "Cardiff",
-  "description": "Community news and information for Cardiff, Alabama",
+  "name": "Fivemile",
+  "short_name": "Fivemile",
+  "description": "Weather, the creek, and what is coming up in Graysville, Cardiff, and Brookside.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "theme_color": "#3d2810",
   "orientation": "any",
   "lang": "en-US",
-  "categories": ["news", "government"],
+  "categories": ["news", "weather"],
   "icons": [
     {
       "src": "/icons/icon-192.png",
@@ -24,7 +24,7 @@
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icons/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

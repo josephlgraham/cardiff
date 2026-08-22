@@ -1,7 +1,12 @@
-// Cardiff, Alabama — Service Worker
-// Handles caching, offline support, and pinned-message push notifications via polling.
+// FIVEMILE service worker.
+// Handles caching, offline support, and pinned-message polling.
 
-const CACHE_NAME = 'cardiff-v3';
+// Bumped for the FIVEMILE rebrand. Anyone who installed the site to their home
+// screen has the old masthead, the old name, and the old CSS cached. Changing
+// the manifest does not evict that. Bumping this constant does, because the
+// activate handler below deletes every cache that is not this one.
+// Bump it again on any change readers must not miss.
+const CACHE_NAME = 'fivemile-v7';
 const STATE_CACHE = 'cardiff-state';
 const TICKER_URL = '/ticker.json';
 const STATE_KEY = 'cardiff-ticker-state';
@@ -19,12 +24,21 @@ const PRECACHE_URLS = [
   '/cardiff-announce.html',
   '/cardiff-almanac.html',
   '/cardiff-kitchen.html',
+  '/fivemile-gallery.html',
   '/offline.html',
   '/cardiff-common.css',
+  '/fivemile-cards.css',
+  '/fivemile-news.css',
   '/cardiff-common.js',
+  '/fivemile-brand.js',
+  '/fivemile-intro.js',
   '/manifest.json',
+  '/favicon.svg',
   '/icons/icon-192.svg',
   '/icons/icon-512.svg',
+  // Precached because the notification above uses it, and a notification that
+  // fires while the phone is offline still has to find its icon.
+  '/icons/icon-192.png',
 ];
 
 // ── Install ────────────────────────────────────────────────────────────────
@@ -138,7 +152,7 @@ async function checkTicker() {
     if (!res.ok) return;
     data = await res.json();
   } catch {
-    return; // Network unavailable — silently skip
+    return; // Network unavailable, silently skip
   }
 
   const newMessage = (data.pinnedMessage || '').trim();
@@ -160,10 +174,14 @@ async function showTickerNotification(message) {
   // Check permission before attempting to show
   if (self.Notification && Notification.permission !== 'granted') return;
 
-  await self.registration.showNotification('Cardiff Update', {
+  // The worker cannot read fivemile-brand.js, so the name is written out here.
+  // If the publication is ever renamed again, this is one of the few places a
+  // find and replace has to reach.
+  // PNG rather than SVG: Android will not render an SVG notification icon.
+  await self.registration.showNotification('FIVEMILE', {
     body: message,
-    icon: '/icons/icon-192.svg',
-    badge: '/icons/icon-192.svg',
+    icon: '/icons/icon-192.png',
+    badge: '/icons/icon-192.png',
     tag: 'cardiff-pinned',
     renotify: true,
     data: { url: '/' },

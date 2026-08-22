@@ -1,0 +1,68 @@
+name: Refresh News
+
+# Its own schedule, separate from Refresh Site Data, because the two want
+# different hours. Weather and the creek are gathered at midnight and noon
+# Central. A page that opens with "the morning report" wants to have been
+# gathered around six in the morning, so this runs at 6 am and 4 pm Central.
+#
+# Cron here is UTC and does not follow daylight saving, so these drift by an
+# hour between March and November. That is close enough for a news page and
+# not worth a second workflow to fix.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 11,21 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-refresh-main
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gather the news
+        run: node scripts/fetch-news.mjs
+
+      - name: Commit the news files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git add cardiff-news-live.json news-archive
+          if git diff --cached --quiet; then
+            echo "No news changes to commit."
+            exit 0
+          fi
+          git commit -m "data: news refresh"
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto latest main (attempt $attempt)."
+            git fetch origin main
+            # The live file is regenerated every run, so the freshest copy wins.
+            # This job is the only writer of either path, so a conflict here
+            # would mean two news runs overlapped, which the concurrency group
+            # above already prevents.
+            git rebase -X theirs origin/main || git rebase --abort
+            sleep $((RANDOM % 4 + 2))
+          done
+          echo "Failed to push the news after 5 attempts." >&2
+          exit 1

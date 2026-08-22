@@ -42,11 +42,57 @@
   };
 
 
+  // Every listed page on the site. The masthead nav carries five of these; the
+  // rest are only reachable from here, so nothing gets dropped when the top nav
+  // is trimmed. Add a page here when you add a page.
+  //
+  // Kitchen (cardiff-kitchen.html) and Civic Pathway (cardiff-civic.html) are
+  // shelved, not gone. Both pages are still in the repo, still served, and
+  // still precached by the worker, so a bookmark or a link out of the guide
+  // opens them exactly as before. They are only unlisted. Put them back here
+  // to relist them, and do not delete the pages.
+  var FOOTER_NAV = [
+    { href: 'index.html',           label: 'Home' },
+    { href: 'cardiff-news.html',    label: 'News' },
+    { href: 'cardiff-almanac.html', label: 'Almanac' },
+    { href: 'cardiff-calendar.html',label: 'Calendar' },
+    { href: 'cardiff-guide.html',   label: 'Guide' },
+    { href: 'cardiff-cemetery.html',label: 'Heritage' },
+    { href: 'fivemile-gallery.html',label: 'Gallery' },
+    { href: 'cardiff-hollers.html', label: 'Hills and Hollers' },
+    { href: 'cardiff-announce.html',label: 'Announcements' },
+    { href: 'cardiff-involved.html',label: 'Get Involved' }
+  ];
+
+  // GitHub Pages serves /cardiff-news.html. Some static dev servers, including
+  // `npx serve`, strip the extension and serve /cardiff-news. Normalise both to
+  // a bare name so the current page is marked either way.
+  function pageKey(pathOrHref) {
+    var s = String(pathOrHref).split('?')[0].split('#')[0];
+    s = s.substring(s.lastIndexOf('/') + 1);
+    s = s.replace(/\.html$/, '');
+    return s === '' ? 'index' : s;
+  }
+
   function buildFooter() {
+    var here = pageKey(window.location.pathname);
+    var links = '';
+    for (var i = 0; i < FOOTER_NAV.length; i++) {
+      var item = FOOTER_NAV[i];
+      var isHere = pageKey(item.href) === here;
+      links += '<a href="' + item.href + '"' +
+        (isHere ? ' aria-current="page"' : '') + '>' + item.label + '</a>';
+    }
+
+    var brand = (window.BRAND && window.BRAND.full) || 'Fivemile';
+    // Current year rather than a hardcoded one, so the footer does not go
+    // stale on January 1st.
+    var year = new Date().getFullYear();
+
     return '<footer class="cardiff-site-footer" id="cardiff-site-footer">' +
       '<div class="cardiff-site-footer-inner">' +
-      '<div class="cardiff-site-footer-slogan">100 Years Y2K</div>' +
-      '<div class="cardiff-site-footer-copy">Copyright 2026</div>' +
+      '<nav class="cardiff-site-footer-nav" aria-label="All pages">' + links + '</nav>' +
+      '<div class="cardiff-site-footer-copy">Copyright ' + brand + ' ' + year + '</div>' +
       '</div>' +
       '</footer>';
   }

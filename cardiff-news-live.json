@@ -1,711 +1,434 @@
 {
-  "updatedAt": "2026-08-21T17:31:44.166Z",
+  "updatedAt": "2026-08-22T22:28:12.409Z",
+  "counts": {
+    "county": 6,
+    "nearby": 2,
+    "towns": 2
+  },
+  "sections": {
+    "towns": [
+      "news-5-abc-33-40-man-charged-in-deadly-graysville-shooting-after-dispute-invo",
+      "news-6-wvtm-13-65-year-old-man-shot-killed-in-graysville-argument-identifie"
+    ],
+    "nearby": [
+      "news-2-abc-33-40-hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-",
+      "news-3-cbs-42-hanceville-woman-identified-in-fatal-fultondale-i-65-crash"
+    ],
+    "creek": [],
+    "county": [
+      "news-1-birminghamwatch-freshwater-land-trust-celebrates-30-years-with-new-home-alon",
+      "news-4-al-com-what-to-know-about-alabama-s-new-hunting-and-fishing-license",
+      "news-7-abc-33-40-crews-respond-to-water-main-break-in-north-birmingham",
+      "news-8-abc-33-40-aldot-seeks-public-input-on-i-59-bridge-replacements-over-bi",
+      "news-9-bham-now-4-big-takeaways-from-downtown-birmingham-mid-year-report",
+      "news-10-bham-now-these-new-books-are-making-environmental-education-fun-for-l"
+    ],
+    "obituaries": []
+  },
   "stories": [
     {
-      "id": "news-1-cbs42-com-minor-high-school-alabama-s-42-two-a-days",
+      "id": "news-1-birminghamwatch-freshwater-land-trust-celebrates-30-years-with-new-home-alon",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek",
+        "Land"
+      ],
+      "outlet": "BirminghamWatch",
+      "paywall": false,
+      "image": {
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/08/8-18-2026-FLT-sign-on-The-Hardwick-Building-on-Rotary-Trail.jpg",
+        "from": "feed",
+        "width": 1204,
+        "credit": "BirminghamWatch"
+      },
+      "obit": null,
+      "score": 37,
       "source_type": "media_feed",
-      "source_name": "cbs42.com",
-      "title": "Minor High School: Alabama’s 42 Two-A-Days",
-      "summary": "Minor High School: Alabama’s 42 Two-A-Days &nbsp;&nbsp; cbs42.com",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUVBXeHhXUzllVUdLelNXNG9aTEl2bDdVc3h6SUVUWXhGeUtfOWJ3aFZyYlFnZ003bXNTbzRKellZRE1XazM5Qm1yVlRITTZzVGJtcWllSThPREFYVmRUdGIyeW1HazVLWm04YmdMS2l2VnJLRk1JNjhDOXBFZGRud3JaZGJNd1RHZDJScUFId0ZSejRRR3JkWGZn0gGfAUFVX3lxTE85bkdGcDZuY1JCdFJTQ2pNbk1JV1hVdVdLU3VyTjYyRHRDcTNHQW5Pc0JlTGV5dTlQelJNX2NWbkxuQno1M2NHQVlRT0VrYk5DbTgzUzdfX18yb2dSemxJS29mMkxFbWxjUkdvNGdWX3lDUzY4OE5aY3BtaVluQjFETF9aWTNnYUw1NUVLSUZ6d1Z2WnVIc19XY3N2aUxVNA?oc=5",
-      "published_at": "2026-08-20T11:14:55.000Z",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "Freshwater Land Trust celebrates 30 years with new home along Rotary Trail",
+      "summary": "The land conservation and trail-building nonprofit now operates from the heart of one of the city's most recognizable public spaces. The post Freshwater Land Trust celebrates 30 years with new home along Rotary Trail appeared first on BirminghamWatch .",
+      "description": "The land conservation and trail-building nonprofit now operates from the heart of one of the city's most recognizable public spaces. The post Freshwater Land Trust celebrates 30 years with new home along Rotary Trail appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/08/20/freshwater-land-trust-celebrates-30-years-with-new-home-along-rotary-trail/",
+      "link": "https://birminghamwatch.org/2026/08/20/freshwater-land-trust-celebrates-30-years-with-new-home-along-rotary-trail/",
+      "published_at": "2026-08-20T07:57:47.000Z",
+      "date": "2026-08-20T07:57:47.000Z",
       "location_tags": [
-        "cardiff"
+        "birmingham"
       ],
       "topic_tags": [
-        "community"
+        "the-creek",
+        "land"
       ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/08/8-18-2026-FLT-sign-on-The-Hardwick-Building-on-Rotary-Trail.jpg"
+    },
+    {
+      "id": "news-2-abc-33-40-hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/718/986/0x1/90/352dcc91-8405-4336-9227-1d9c9b2ff613-ellison.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 33,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Hueytown man convicted in deadly hit and run that killed 18-year-old",
+      "summary": "A Hueytown man has been convicted in the 2024 hit-and-run death of 18-year-old Gabriel Demorris Edwards. A Jefferson County jury found 73-year-old Walter Lee El",
+      "description": "A Hueytown man has been convicted in the 2024 hit-and-run death of 18-year-old Gabriel Demorris Edwards. A Jefferson County jury found 73-year-old Walter Lee El",
+      "url": "https://abc3340.com/news/local/hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-year-old",
+      "link": "https://abc3340.com/news/local/hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-year-old",
+      "published_at": "2026-08-22T17:43:02.000Z",
+      "date": "2026-08-22T17:43:02.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [],
       "priority_level": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": true,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all",
-          "civic"
-        ],
-        "tags": [
-          "Nearby",
-          "Schools"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "cbs42.com",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUVBXeHhXUzllVUdLelNXNG9aTEl2bDdVc3h6SUVUWXhGeUtfOWJ3aFZyYlFnZ003bXNTbzRKellZRE1XazM5Qm1yVlRITTZzVGJtcWllSThPREFYVmRUdGIyeW1HazVLWm04YmdMS2l2VnJLRk1JNjhDOXBFZGRud3JaZGJNd1RHZDJScUFId0ZSejRRR3JkWGZn0gGfAUFVX3lxTE85bkdGcDZuY1JCdFJTQ2pNbk1JV1hVdVdLU3VyTjYyRHRDcTNHQW5Pc0JlTGV5dTlQelJNX2NWbkxuQno1M2NHQVlRT0VrYk5DbTgzUzdfX18yb2dSemxJS29mMkxFbWxjUkdvNGdWX3lDUzY4OE5aY3BtaVluQjFETF9aWTNnYUw1NUVLSUZ6d1Z2WnVIc19XY3N2aUxVNA?oc=5",
-      "description": "Minor High School: Alabama’s 42 Two-A-Days &nbsp;&nbsp; cbs42.com",
-      "date": "2026-08-20T11:14:55.000Z",
-      "modes": [
-        "nearby",
-        "all",
-        "civic"
-      ],
-      "tags": [
-        "Nearby",
-        "Schools"
-      ],
-      "priority": 4
-    },
-    {
-      "id": "news-2-cbs42-com-minor-high-school-alabama-s-42-two-a-days",
-      "source_type": "media_feed",
-      "source_name": "cbs42.com",
-      "title": "Minor High School: Alabama’s 42 Two-A-Days",
-      "summary": "Minor High School: Alabama’s 42 Two-A-Days &nbsp;&nbsp; cbs42.com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUl9zVUNJbHk5empodmlSbnZTMGx6M2pya2QxQWM5RGNncDUwT3NhOWRhX29VVGxzejAtOGd4SHJTbmdROEMyZ0l5alB4b3M1TkE3bi10Z2FaNlU1VzJ5NG1XcE5uMkFqVkd6MnVBOHNKNGJQcTdaVjFyWm1uSWpiYzdLM0VLQnhFWEJ0ejhfTVM?oc=5",
-      "published_at": "2026-08-20T02:38:30.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": true,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all",
-          "civic"
-        ],
-        "tags": [
-          "Nearby",
-          "Schools"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "cbs42.com",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUl9zVUNJbHk5empodmlSbnZTMGx6M2pya2QxQWM5RGNncDUwT3NhOWRhX29VVGxzejAtOGd4SHJTbmdROEMyZ0l5alB4b3M1TkE3bi10Z2FaNlU1VzJ5NG1XcE5uMkFqVkd6MnVBOHNKNGJQcTdaVjFyWm1uSWpiYzdLM0VLQnhFWEJ0ejhfTVM?oc=5",
-      "description": "Minor High School: Alabama’s 42 Two-A-Days &nbsp;&nbsp; cbs42.com",
-      "date": "2026-08-20T02:38:30.000Z",
-      "modes": [
-        "nearby",
-        "all",
-        "civic"
-      ],
-      "tags": [
-        "Nearby",
-        "Schools"
-      ],
-      "priority": 4
-    },
-    {
-      "id": "news-3-wbrc-hanceville-woman-killed-in-fultondale-crash",
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "title": "Hanceville woman killed in Fultondale crash",
-      "summary": "Hanceville woman killed in Fultondale crash &nbsp;&nbsp; WBRC",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBkQzFlTzBPcDRQNUpJNWRBUE5ZbmJXcnJaV0JHQmg0R0l3QlFYb3FSUnByMXFjMC05QkdxWnBqSmEwSzFBZEt5Qkh3RVVKOGJhaElEM0ZtUUltaG84TDF1dS05Nm83Y3J6LWFuZjNiYk40TWswazYwdnB4QnZaUQ?oc=5",
-      "published_at": "2026-08-20T14:25:00.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": true,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "WBRC",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBkQzFlTzBPcDRQNUpJNWRBUE5ZbmJXcnJaV0JHQmg0R0l3QlFYb3FSUnByMXFjMC05QkdxWnBqSmEwSzFBZEt5Qkh3RVVKOGJhaElEM0ZtUUltaG84TDF1dS05Nm83Y3J6LWFuZjNiYk40TWswazYwdnB4QnZaUQ?oc=5",
-      "description": "Hanceville woman killed in Fultondale crash &nbsp;&nbsp; WBRC",
-      "date": "2026-08-20T14:25:00.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 3
-    },
-    {
-      "id": "news-4-al-com-suspect-charged-in-fatal-shooting-of-65-year-old-man-in-graysvil",
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "title": "Suspect charged in fatal shooting of 65-year-old man in Graysville",
-      "summary": "Suspect charged in fatal shooting of 65-year-old man in Graysville &nbsp;&nbsp; AL.com",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNW9HeVFPQkpnZkxGNXVKdXgyUlh6Y1BCU3Z1a0xHckhiNHl5WDktc1g4ZUd6WlZSUjg4SktJQ2dSRV9KUF9sdkdFR29CMlJULVFpTUFrRHZGMGw5bXF5ajl5Uk54TVdob2Y5V3l6UmFZcDEzYlJRVlNPV1dMSGtoSFBiTmdBOTJLa2kxdklKd0R2YmNLR09vYi1LdW9scEg3el9sTzFB0gG6AUFVX3lxTFBwdkVaSDJxSFRIUXVYb1R4emRQcldFT2trSVBZLUk3QXFLVm84eVhaUURwQnVhNzlaVlVJckJtZ1oxR1BUdUJwQ09QaWdiN2I2ZlZYd0JWUER2SWJuclo1STA2TzlTdHhoX0hZMXRlc2JSTnRNSUt0UzlCbFk1cXJfNWdZU0RwTDdLNXBOMVM3TWdPc2hWQTVvaks4RE9lYl9XcXlxZmJpU0V6VExNZU1COE11cWl6RHRUZw?oc=5",
-      "published_at": "2026-08-16T22:50:00.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 3,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "AL.com",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNW9HeVFPQkpnZkxGNXVKdXgyUlh6Y1BCU3Z1a0xHckhiNHl5WDktc1g4ZUd6WlZSUjg4SktJQ2dSRV9KUF9sdkdFR29CMlJULVFpTUFrRHZGMGw5bXF5ajl5Uk54TVdob2Y5V3l6UmFZcDEzYlJRVlNPV1dMSGtoSFBiTmdBOTJLa2kxdklKd0R2YmNLR09vYi1LdW9scEg3el9sTzFB0gG6AUFVX3lxTFBwdkVaSDJxSFRIUXVYb1R4emRQcldFT2trSVBZLUk3QXFLVm84eVhaUURwQnVhNzlaVlVJckJtZ1oxR1BUdUJwQ09QaWdiN2I2ZlZYd0JWUER2SWJuclo1STA2TzlTdHhoX0hZMXRlc2JSTnRNSUt0UzlCbFk1cXJfNWdZU0RwTDdLNXBOMVM3TWdPc2hWQTVvaks4RE9lYl9XcXlxZmJpU0V6VExNZU1COE11cWl6RHRUZw?oc=5",
-      "description": "Suspect charged in fatal shooting of 65-year-old man in Graysville &nbsp;&nbsp; AL.com",
-      "date": "2026-08-16T22:50:00.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 3
+      "image_url": "https://abc3340.com/resources/media2/16x9/718/986/0x1/90/352dcc91-8405-4336-9227-1d9c9b2ff613-ellison.png"
     },
     {
-      "id": "news-5-wbma-fultondale-crews-extinguish-fire-after-lawnmower-overturns-near-",
-      "source_type": "media_feed",
-      "source_name": "WBMA",
-      "title": "Fultondale crews extinguish fire after lawnmower overturns near Lowery Parkway",
-      "summary": "Fultondale crews extinguish fire after lawnmower overturns near Lowery Parkway &nbsp;&nbsp; WBMA",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUXA1SEhXTGlRYjhfczNjWWRvU1ZrLVRZUjJWckdkWFdPcldBcTR5WlVqbVI0SHJ0MVJGdl9tNWM5YURZX09KUm1uT0xJb2ItbkdNbGtucTgwSS05cnFVZHpCbVM0bWRDY2lmZnd0MFoydGgtTnJhdktTaXJaR2Q0S2dEeGpHVEJBVVl5MnJJQWpxRERIejRKcWNGNXN4UWluOXIxNXVpX0VoRUZqWXc?oc=5",
-      "published_at": "2026-08-19T16:46:44.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "fire"
-      ],
-      "priority_level": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "regional",
-          "all",
-          "nearby",
-          "civic"
-        ],
-        "tags": [
-          "Nearby",
-          "Safety"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "WBMA",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUXA1SEhXTGlRYjhfczNjWWRvU1ZrLVRZUjJWckdkWFdPcldBcTR5WlVqbVI0SHJ0MVJGdl9tNWM5YURZX09KUm1uT0xJb2ItbkdNbGtucTgwSS05cnFVZHpCbVM0bWRDY2lmZnd0MFoydGgtTnJhdktTaXJaR2Q0S2dEeGpHVEJBVVl5MnJJQWpxRERIejRKcWNGNXN4UWluOXIxNXVpX0VoRUZqWXc?oc=5",
-      "description": "Fultondale crews extinguish fire after lawnmower overturns near Lowery Parkway &nbsp;&nbsp; WBMA",
-      "date": "2026-08-19T16:46:44.000Z",
-      "modes": [
-        "regional",
-        "all",
-        "nearby",
-        "civic"
-      ],
+      "id": "news-3-cbs-42-hanceville-woman-identified-in-fatal-fultondale-i-65-crash",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
       "tags": [
-        "Nearby",
-        "Safety"
+        "Roads"
       ],
-      "priority": 3
-    },
-    {
-      "id": "news-6-wbma-hanceville-woman-killed-in-multi-vehicle-crash-on-i-65-in-fulton",
-      "source_type": "media_feed",
-      "source_name": "WBMA",
-      "title": "Hanceville woman killed in multi-vehicle crash on I-65 in Fultondale",
-      "summary": "Hanceville woman killed in multi-vehicle crash on I-65 in Fultondale &nbsp;&nbsp; WBMA",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeWEzLWJHcC1RV2NOMl9pbmJoWGFrVk9DWGg4dnpLOGJxWEtfS2t0X2JBMEZVZFg3Uy1xOWtRX0pFVmp4SE9NNVphOWwwRmN2SXU2YnZGZUF2Yk5ZVjNiaTFwTUFUX1VkV2lFVWszRmZEbi1SNnFjTjNtNXNfZXFiXzZDeWhqMzI3QVJWcENUSWU5dXllOWREZnlqRS1GTVZO?oc=5",
-      "published_at": "2026-08-21T05:37:13.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/wmbb-FATAL-TRAFFIC-CRASH.png?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
       },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "WBMA",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeWEzLWJHcC1RV2NOMl9pbmJoWGFrVk9DWGg4dnpLOGJxWEtfS2t0X2JBMEZVZFg3Uy1xOWtRX0pFVmp4SE9NNVphOWwwRmN2SXU2YnZGZUF2Yk5ZVjNiaTFwTUFUX1VkV2lFVWszRmZEbi1SNnFjTjNtNXNfZXFiXzZDeWhqMzI3QVJWcENUSWU5dXllOWREZnlqRS1GTVZO?oc=5",
-      "description": "Hanceville woman killed in multi-vehicle crash on I-65 in Fultondale &nbsp;&nbsp; WBMA",
-      "date": "2026-08-21T05:37:13.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 3
-    },
-    {
-      "id": "news-7-wvtm-65-year-old-man-shot-killed-in-graysville-argument-identified-su",
+      "obit": null,
+      "score": 30,
       "source_type": "media_feed",
-      "source_name": "wvtm",
-      "title": "65-year-old man shot, killed in Graysville argument identified; Suspect in custody",
-      "summary": "65-year-old man shot, killed in Graysville argument identified; Suspect in custody &nbsp;&nbsp; wvtm",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
-      "published_at": "2026-08-18T17:09:00.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "wvtm",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
-      "description": "65-year-old man shot, killed in Graysville argument identified; Suspect in custody &nbsp;&nbsp; wvtm",
-      "date": "2026-08-18T17:09:00.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 3
-    },
-    {
-      "id": "news-8-cbs42-com-65-year-old-man-shot-killed-in-graysville",
-      "source_type": "media_feed",
-      "source_name": "cbs42.com",
-      "title": "65-year-old man shot, killed in Graysville",
-      "summary": "65-year-old man shot, killed in Graysville &nbsp;&nbsp; cbs42.com",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNU3VIZndxVFlxam9uR0R3S1lpWVRZdkV1bi1jOG9YU2plWEo2djZvV1hISVNYaWR0bUY5LTA3a25qeGdzN2xERWFBOE91NlJyNGRPMnBrNXBPOVljMTYtUXg4Nnh5dGxPRzNCakwzSFg3WkFOTWx3UVM0bDZMdHBpNdIBhgFBVV95cUxNUG1BTXc0c24xU3NyWVpSYlBZdy16dTZtMUprc0lXZXlWV25QS1BXb2tNNFkxNEV0Zkx6XzBSZWtRRm5XSVBvRHdVb3lZREtrdW50Nm1DTmVLclhyX18ta2FndjRYdnAwWkVudDgyUmpfcTBxc3pUNGg2WkpMVWpvbEZ1Rk9YQQ?oc=5",
-      "published_at": "2026-08-18T15:05:07.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "cbs42.com",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNU3VIZndxVFlxam9uR0R3S1lpWVRZdkV1bi1jOG9YU2plWEo2djZvV1hISVNYaWR0bUY5LTA3a25qeGdzN2xERWFBOE91NlJyNGRPMnBrNXBPOVljMTYtUXg4Nnh5dGxPRzNCakwzSFg3WkFOTWx3UVM0bDZMdHBpNdIBhgFBVV95cUxNUG1BTXc0c24xU3NyWVpSYlBZdy16dTZtMUprc0lXZXlWV25QS1BXb2tNNFkxNEV0Zkx6XzBSZWtRRm5XSVBvRHdVb3lZREtrdW50Nm1DTmVLclhyX18ta2FndjRYdnAwWkVudDgyUmpfcTBxc3pUNGg2WkpMVWpvbEZ1Rk9YQQ?oc=5",
-      "description": "65-year-old man shot, killed in Graysville &nbsp;&nbsp; cbs42.com",
-      "date": "2026-08-18T15:05:07.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 3
-    },
-    {
-      "id": "news-9-cbs42-com-hanceville-woman-identified-in-fatal-fultondale-i-65-crash",
-      "source_type": "media_feed",
-      "source_name": "cbs42.com",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
       "title": "Hanceville woman identified in fatal Fultondale I-65 crash",
-      "summary": "Hanceville woman identified in fatal Fultondale I-65 crash &nbsp;&nbsp; cbs42.com",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPenVKcG05akt0T3JMb0x1Z01KX0NZUzBCcEhiY3ZNVVZUUUk3R3c0dmZOR2YxZ2drRnRHeXZEQnpWYjRmUDRQd2EwTHBaSkJJVTF1Mnd2V0FtWFoxNTQ5RzFJWWsxbkVPMUFVVExRYU9qX3pFdEQtUUxQc1RCV0c5QkU3MFpJRnNaRjg3U0g1dW5lMWVqaWltbdIBmAFBVV95cUxPenVKcG05akt0T3JMb0x1Z01KX0NZUzBCcEhiY3ZNVVZUUUk3R3c0dmZOR2YxZ2drRnRHeXZEQnpWYjRmUDRQd2EwTHBaSkJJVTF1Mnd2V0FtWFoxNTQ5RzFJWWsxbkVPMUFVVExRYU9qX3pFdEQtUUxQc1RCV0c5QkU3MFpJRnNaRjg3U0g1dW5lMWVqaWltbQ?oc=5",
-      "published_at": "2026-08-20T09:57:39.000Z",
+      "summary": "FULTONDALE, Ala. (WIAT) -- A 35-year-old woman who was killed in a crash on I-65 South in Fultondale was identified Thursday. Katherine England, of Hanceville, was the sole occupant of a vehicle involved in a multi-vehicle crash around 6:50 p.m. on I-65 South near Exit 267. England was pronounced dead at the scene. The",
+      "description": "FULTONDALE, Ala. (WIAT) -- A 35-year-old woman who was killed in a crash on I-65 South in Fultondale was identified Thursday. Katherine England, of Hanceville, was the sole occupant of a vehicle involved in a multi-vehicle crash around 6:50 p.m. on I-65 South near Exit 267. England was pronounced dead at the scene. The",
+      "url": "https://www.cbs42.com/traffic/hanceville-woman-identified-in-fatal-fultondale-i-65-crash/",
+      "link": "https://www.cbs42.com/traffic/hanceville-woman-identified-in-fatal-fultondale-i-65-crash/",
+      "published_at": "2026-08-20T14:57:39.000Z",
+      "date": "2026-08-20T14:57:39.000Z",
       "location_tags": [
-        "cardiff"
+        "fultondale"
       ],
       "topic_tags": [
-        "community"
+        "roads"
       ],
-      "priority_level": 2,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "cbs42.com",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPenVKcG05akt0T3JMb0x1Z01KX0NZUzBCcEhiY3ZNVVZUUUk3R3c0dmZOR2YxZ2drRnRHeXZEQnpWYjRmUDRQd2EwTHBaSkJJVTF1Mnd2V0FtWFoxNTQ5RzFJWWsxbkVPMUFVVExRYU9qX3pFdEQtUUxQc1RCV0c5QkU3MFpJRnNaRjg3U0g1dW5lMWVqaWltbdIBmAFBVV95cUxPenVKcG05akt0T3JMb0x1Z01KX0NZUzBCcEhiY3ZNVVZUUUk3R3c0dmZOR2YxZ2drRnRHeXZEQnpWYjRmUDRQd2EwTHBaSkJJVTF1Mnd2V0FtWFoxNTQ5RzFJWWsxbkVPMUFVVExRYU9qX3pFdEQtUUxQc1RCV0c5QkU3MFpJRnNaRjg3U0g1dW5lMWVqaWltbQ?oc=5",
-      "description": "Hanceville woman identified in fatal Fultondale I-65 crash &nbsp;&nbsp; cbs42.com",
-      "date": "2026-08-20T09:57:39.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 2
+      "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/wmbb-FATAL-TRAFFIC-CRASH.png?w=900"
     },
     {
-      "id": "news-10-wbma-man-charged-in-deadly-graysville-shooting-after-dispute-involvin",
+      "id": "news-4-al-com-what-to-know-about-alabama-s-new-hunting-and-fishing-license",
+      "section": "county",
+      "why": "alabama department, land",
+      "town": "Regional",
+      "tags": [
+        "Land"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/ZK4FSIEBDBG4PCN5A4X36QUR4Y.jpg?auth=1ecd705cfd34621de869612622f6b5041972958c7e094c1058a88fe0d3d03972&smart=true&height=1200",
+        "from": "feed",
+        "width": 4157,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "WBMA",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "What to Know About Alabama’s New Hunting and Fishing License System",
+      "summary": "The Alabama Department of Conservation and Natural Resources is launching a new licensing platform designed to simplify license purchases and account management.",
+      "description": "The Alabama Department of Conservation and Natural Resources is launching a new licensing platform designed to simplify license purchases and account management.",
+      "url": "https://www.al.com/news/2026/08/what-to-know-about-alabamas-new-hunting-and-fishing-license-system.html",
+      "link": "https://www.al.com/news/2026/08/what-to-know-about-alabamas-new-hunting-and-fishing-license-system.html",
+      "published_at": "2026-08-22T18:20:42.000Z",
+      "date": "2026-08-22T18:20:42.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "land"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/ZK4FSIEBDBG4PCN5A4X36QUR4Y.jpg?auth=1ecd705cfd34621de869612622f6b5041972958c7e094c1058a88fe0d3d03972&smart=true&height=1200"
+    },
+    {
+      "id": "news-5-abc-33-40-man-charged-in-deadly-graysville-shooting-after-dispute-invo",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
       "title": "Man charged in deadly Graysville shooting after dispute involving suspect’s relative",
-      "summary": "Man charged in deadly Graysville shooting after dispute involving suspect’s relative &nbsp;&nbsp; WBMA",
+      "summary": "",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQVgwS2NpY204WUVuX3JzZEN4VkJJRjhNZGpLSXRfamxEdHFkTzhCbGlDVHF4allMYnVqREJ1bm1ZWmE5UjgtWkJGVVVIcmJXM2w1YjlWLXkzTERLR0ZfSXlGTWczRXUtYXZBTkhYT29LVkVNeXN3SmM3LVBtUWxpWm5uWmZNQQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQVgwS2NpY204WUVuX3JzZEN4VkJJRjhNZGpLSXRfamxEdHFkTzhCbGlDVHF4allMYnVqREJ1bm1ZWmE5UjgtWkJGVVVIcmJXM2w1YjlWLXkzTERLR0ZfSXlGTWczRXUtYXZBTkhYT29LVkVNeXN3SmM3LVBtUWxpWm5uWmZNQQ?oc=5",
       "published_at": "2026-08-17T03:49:39.000Z",
+      "date": "2026-08-17T03:49:39.000Z",
       "location_tags": [
         "graysville"
       ],
       "topic_tags": [
-        "community"
+        "public-safety"
       ],
-      "priority_level": 2,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "WBMA",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQVgwS2NpY204WUVuX3JzZEN4VkJJRjhNZGpLSXRfamxEdHFkTzhCbGlDVHF4allMYnVqREJ1bm1ZWmE5UjgtWkJGVVVIcmJXM2w1YjlWLXkzTERLR0ZfSXlGTWczRXUtYXZBTkhYT29LVkVNeXN3SmM3LVBtUWxpWm5uWmZNQQ?oc=5",
-      "description": "Man charged in deadly Graysville shooting after dispute involving suspect’s relative &nbsp;&nbsp; WBMA",
-      "date": "2026-08-17T03:49:39.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 2
+      "image_url": ""
     },
     {
-      "id": "news-11-reason-foundation-study-fort-bend-tx-and-gwinnett-county-ga-are-the-most-fiscally-",
+      "id": "news-6-wvtm-13-65-year-old-man-shot-killed-in-graysville-argument-identifie",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
+      "tags": [],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "Reason Foundation",
-      "title": "Study: Fort Bend (TX) and Gwinnett County (GA) are the most fiscally stressed school districts in the nation",
-      "summary": "Study: Fort Bend (TX) and Gwinnett County (GA) are the most fiscally stressed school districts in the nation &nbsp;&nbsp; Reason Foundation",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSmFjYi12VUJYaTR0ZndGWm8wUEtXdlZfamdnbVVCZnBTNGdRX0F1OEpQcFQ5TTJoSmg4amhuSFNPMDBpX0IxRmRjTk9NdlJQcmpKOUtySkgxNDFId3V3b3JJNHFsYjJmUVgteE04V1VVMW9UbVZOX0lNb1pLMmRFS2NFYm1TQ3ZaTi1PNWo3X2c3NEFhY3g3QUR6VFE?oc=5",
-      "published_at": "2026-08-20T04:05:00.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "65-year-old man shot, killed in Graysville argument identified; Suspect in custody",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
+      "published_at": "2026-08-18T17:09:00.000Z",
+      "date": "2026-08-18T17:09:00.000Z",
       "location_tags": [
-        "cardiff"
+        "graysville"
       ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 2,
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "regional",
-          "all",
-          "civic"
-        ],
-        "tags": [
-          "Schools"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "Reason Foundation",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSmFjYi12VUJYaTR0ZndGWm8wUEtXdlZfamdnbVVCZnBTNGdRX0F1OEpQcFQ5TTJoSmg4amhuSFNPMDBpX0IxRmRjTk9NdlJQcmpKOUtySkgxNDFId3V3b3JJNHFsYjJmUVgteE04V1VVMW9UbVZOX0lNb1pLMmRFS2NFYm1TQ3ZaTi1PNWo3X2c3NEFhY3g3QUR6VFE?oc=5",
-      "description": "Study: Fort Bend (TX) and Gwinnett County (GA) are the most fiscally stressed school districts in the nation &nbsp;&nbsp; Reason Foundation",
-      "date": "2026-08-20T04:05:00.000Z",
-      "modes": [
-        "regional",
-        "all",
-        "civic"
+      "image_url": ""
+    },
+    {
+      "id": "news-7-abc-33-40-crews-respond-to-water-main-break-in-north-birmingham",
+      "section": "county",
+      "why": "birmingham, utilities",
+      "town": "Birmingham",
+      "tags": [
+        "Utilities"
       ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/27e58e27-efef-4cf2-bb9a-73d442cbe5bf-Px8.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 23,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Crews Respond to Water Main Break in North Birmingham",
+      "summary": "Crews responded Thursday evening to a water main break near 24th Avenue and 24th Street North in Birmingham.Workers were actively addressing the break around 6:",
+      "description": "Crews responded Thursday evening to a water main break near 24th Avenue and 24th Street North in Birmingham.Workers were actively addressing the break around 6:",
+      "url": "https://abc3340.com/news/local/alabama-crews-responded-to-water-main-break-in-birmingham-august-2026",
+      "link": "https://abc3340.com/news/local/alabama-crews-responded-to-water-main-break-in-birmingham-august-2026",
+      "published_at": "2026-08-21T01:04:28.000Z",
+      "date": "2026-08-21T01:04:28.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "utilities"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/27e58e27-efef-4cf2-bb9a-73d442cbe5bf-Px8.jpg"
+    },
+    {
+      "id": "news-8-abc-33-40-aldot-seeks-public-input-on-i-59-bridge-replacements-over-bi",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1079/986/0x354/90/a02b370d-3b3c-4c57-a5f6-e18a91bcc35b-081426I59BRMUCKLEROYCREEK.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 23,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "ALDOT seeks public input on I-59 bridge replacements over Big Canoe, Muckleroy creeks",
+      "summary": "Drivers who travel Interstate 59 between Springville and Ashville could see major bridge work starting in 2027, and the Alabama Department of Transportation is",
+      "description": "Drivers who travel Interstate 59 between Springville and Ashville could see major bridge work starting in 2027, and the Alabama Department of Transportation is",
+      "url": "https://abc3340.com/news/local/aldot-seeks-public-input-on-i-59-bridge-replacements-over-big-canoe-muckleroy-creeks",
+      "link": "https://abc3340.com/news/local/aldot-seeks-public-input-on-i-59-bridge-replacements-over-big-canoe-muckleroy-creeks",
+      "published_at": "2026-08-20T21:28:59.000Z",
+      "date": "2026-08-20T21:28:59.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x354/90/a02b370d-3b3c-4c57-a5f6-e18a91bcc35b-081426I59BRMUCKLEROYCREEK.png"
+    },
+    {
+      "id": "news-9-bham-now-4-big-takeaways-from-downtown-birmingham-mid-year-report",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_8854-scaled-e1787334096580-1200x628.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 23,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "4 big takeaways from downtown Birmingham mid-year report",
+      "summary": "🚨 DOWNTOWN BIRMINGHAM IS GROWING: The new mid-year economic report just dropped — and the numbers are impressive. Downtown accounts for 35% of Birmingham's jobs, residential occupancy jumped to 84%, and foot traffic is up across the board. Here's what you need to know.",
+      "description": "🚨 DOWNTOWN BIRMINGHAM IS GROWING: The new mid-year economic report just dropped — and the numbers are impressive. Downtown accounts for 35% of Birmingham's jobs, residential occupancy jumped to 84%, and foot traffic is up across the board. Here's what you need to know.",
+      "url": "https://bhamnow.com/2026/08/21/4-big-takeaways-from-this-downtown-birmingham-mid-year-report/#utm_source=rss&utm_medium=rss&utm_campaign=4-big-takeaways-from-this-downtown-birmingham-mid-year-report",
+      "link": "https://bhamnow.com/2026/08/21/4-big-takeaways-from-this-downtown-birmingham-mid-year-report/#utm_source=rss&utm_medium=rss&utm_campaign=4-big-takeaways-from-this-downtown-birmingham-mid-year-report",
+      "published_at": "2026-08-21T17:54:27.000Z",
+      "date": "2026-08-21T17:54:27.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_8854-scaled-e1787334096580-1200x628.jpeg"
+    },
+    {
+      "id": "news-10-bham-now-these-new-books-are-making-environmental-education-fun-for-l",
+      "section": "county",
+      "why": "jefferson county, schools",
+      "town": "Jefferson County",
       "tags": [
         "Schools"
       ],
-      "priority": 2
-    },
-    {
-      "id": "news-12-legacy-obituary-betty-jean-clayton-obituary-2026-warrior-al-messmer-goodwin-fune",
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/08/08-14-2026-Reilly-and-Hana-4aRS-M-edited.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 21,
       "source_type": "media_feed",
-      "source_name": "Legacy obituary",
-      "title": "Betty Jean Clayton Obituary (2026) - Warrior, AL - Messmer-Goodwin Funeral Home - Warrior",
-      "summary": "Betty Jean Clayton Obituary (2026) - Warrior, AL - Messmer-Goodwin Funeral Home - Warrior &nbsp;&nbsp; Legacy obituary",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOLS1XaFFSNzJlbDFjdWt4RUNfTC1oMnI5NWNZRXlDeDB3WWJJbVM1R3ctd2RyaEt4aHZyUmJfOWZUQ21FanlKYkFsNExBRUhPRFJpNFNybEV4T1NYLTE2azcxSHNRWWdDT1RiWU51YnowV0ZVZVdaSHhYYmctTTJwQXd3?oc=5",
-      "published_at": "2026-08-19T16:31:27.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "These new books are making environmental education fun for local students",
+      "summary": "🌏 Jefferson County just turned environmental ed into something kids want to do: new activity books use characters, games, and coloring pages to teach kids why clean water starts with them. 👇NowPartner",
+      "description": "🌏 Jefferson County just turned environmental ed into something kids want to do: new activity books use characters, games, and coloring pages to teach kids why clean water starts with them. 👇NowPartner",
+      "url": "https://bhamnow.com/2026/08/20/these-new-books-are-making-environmental-education-fun-for-local-students/#utm_source=rss&utm_medium=rss&utm_campaign=these-new-books-are-making-environmental-education-fun-for-local-students",
+      "link": "https://bhamnow.com/2026/08/20/these-new-books-are-making-environmental-education-fun-for-local-students/#utm_source=rss&utm_medium=rss&utm_campaign=these-new-books-are-making-environmental-education-fun-for-local-students",
+      "published_at": "2026-08-20T14:16:20.000Z",
+      "date": "2026-08-20T14:16:20.000Z",
       "location_tags": [
-        "cardiff"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "community"
+        "schools"
       ],
-      "priority_level": 2,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "Legacy obituary",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOLS1XaFFSNzJlbDFjdWt4RUNfTC1oMnI5NWNZRXlDeDB3WWJJbVM1R3ctd2RyaEt4aHZyUmJfOWZUQ21FanlKYkFsNExBRUhPRFJpNFNybEV4T1NYLTE2azcxSHNRWWdDT1RiWU51YnowV0ZVZVdaSHhYYmctTTJwQXd3?oc=5",
-      "description": "Betty Jean Clayton Obituary (2026) - Warrior, AL - Messmer-Goodwin Funeral Home - Warrior &nbsp;&nbsp; Legacy obituary",
-      "date": "2026-08-19T16:31:27.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 2
-    },
-    {
-      "id": "news-13-wbma-student-arrested-after-threat-investigation-at-verbena-high-scho",
-      "source_type": "media_feed",
-      "source_name": "WBMA",
-      "title": "Student arrested after threat investigation at Verbena High School in Chilton County",
-      "summary": "Student arrested after threat investigation at Verbena High School in Chilton County &nbsp;&nbsp; WBMA",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNbWhROXU5aFZockFCcWNIQ19vb0ZuX0phcmE3RnpvSE1VY0dkUllaM01WMXFrdjc4M0J0Ti0tdWtidVFCWDJUUThMbUY2SHhXLUZTZHhmeVVmUl94VmJGOTQ4YTM2c3lJM0tfWGlmcTRVM2JvakRpb3JfX2kwUWR5VmN6QWZFamtYaUdKQUthRXRBQUQ1MnhzcnhVU3l4TTRoNmRITjhHU0dJLWh5eHZOeU05LTZiYi15cFJhWG5rbjVyWUh2aHo4QXU2bVF4dXQ2ZjBoZFh1Vjg3OXltZW80dlJTYWZaUQ?oc=5",
-      "published_at": "2026-08-17T22:17:25.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "regional",
-          "all",
-          "civic"
-        ],
-        "tags": [
-          "Schools"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "WBMA",
-      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNbWhROXU5aFZockFCcWNIQ19vb0ZuX0phcmE3RnpvSE1VY0dkUllaM01WMXFrdjc4M0J0Ti0tdWtidVFCWDJUUThMbUY2SHhXLUZTZHhmeVVmUl94VmJGOTQ4YTM2c3lJM0tfWGlmcTRVM2JvakRpb3JfX2kwUWR5VmN6QWZFamtYaUdKQUthRXRBQUQ1MnhzcnhVU3l4TTRoNmRITjhHU0dJLWh5eHZOeU05LTZiYi15cFJhWG5rbjVyWUh2aHo4QXU2bVF4dXQ2ZjBoZFh1Vjg3OXltZW80dlJTYWZaUQ?oc=5",
-      "description": "Student arrested after threat investigation at Verbena High School in Chilton County &nbsp;&nbsp; WBMA",
-      "date": "2026-08-17T22:17:25.000Z",
-      "modes": [
-        "regional",
-        "all",
-        "civic"
-      ],
-      "tags": [
-        "Schools"
-      ],
-      "priority": 2
-    },
-    {
-      "id": "news-14-al-com-john-wayne-mccutchen",
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "title": "John \"Wayne\" McCutchen",
-      "summary": "John \"Wayne\" McCutchen &nbsp;&nbsp; AL.com",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNcHJ5WEc0RjRpNDhXZkFGRHpYRU5waDlxVlIzcWxVLWROOTVWTHlHOTNfVndCbjBya0VEMGlUMU0xaFFWVU85VlFRSlZfMlkwS0VhZ1o0V2pBSW9HSkRKZVV2dXRTMWdOc3RRV0hNZzg1WFlTRG50b0t4QUJtNnhWV2owRGhYdDE4dEI1NExoSQ?oc=5",
-      "published_at": "2026-08-19T16:45:48.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Local"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "AL.com",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNcHJ5WEc0RjRpNDhXZkFGRHpYRU5waDlxVlIzcWxVLWROOTVWTHlHOTNfVndCbjBya0VEMGlUMU0xaFFWVU85VlFRSlZfMlkwS0VhZ1o0V2pBSW9HSkRKZVV2dXRTMWdOc3RRV0hNZzg1WFlTRG50b0t4QUJtNnhWV2owRGhYdDE4dEI1NExoSQ?oc=5",
-      "description": "John \"Wayne\" McCutchen &nbsp;&nbsp; AL.com",
-      "date": "2026-08-19T16:45:48.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Local"
-      ],
-      "priority": 2
-    },
-    {
-      "id": "news-15-sports-illustrated-owen-travis-mortimer-jordan-blue-devils-football-morris-al",
-      "source_type": "media_feed",
-      "source_name": "Sports Illustrated",
-      "title": "Owen Travis - Mortimer Jordan Blue Devils Football (Morris, AL)",
-      "summary": "Owen Travis - Mortimer Jordan Blue Devils Football (Morris, AL) &nbsp;&nbsp; Sports Illustrated",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZkg5T3F1UGhVQUNZUHZITzR3bE5iQ3FFdXFRSnRWdUNDQnJScGVaWklqLXRZWjBhQnFhN09vMmpPV2lNSTd5SmtMRnRTTVlseUdqOERXYnk0NlR0S2tRSG9LM0JPcVhUY3ZRRW1FeWlCd2U3TGYyQnZCVG9FeWVEWHotVnZmYnYxbGk3Z2VFQ1RqM3I5YWlRRlVYakVBZUhWYjJxV0dmV3ZIbW9OcEc2cmdjdGV6bGEyQWdHQUNpbw?oc=5",
-      "published_at": "2026-08-20T10:41:34.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "nearby",
-          "all"
-        ],
-        "tags": [
-          "Nearby"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZkg5T3F1UGhVQUNZUHZITzR3bE5iQ3FFdXFRSnRWdUNDQnJScGVaWklqLXRZWjBhQnFhN09vMmpPV2lNSTd5SmtMRnRTTVlseUdqOERXYnk0NlR0S2tRSG9LM0JPcVhUY3ZRRW1FeWlCd2U3TGYyQnZCVG9FeWVEWHotVnZmYnYxbGk3Z2VFQ1RqM3I5YWlRRlVYakVBZUhWYjJxV0dmV3ZIbW9OcEc2cmdjdGV6bGEyQWdHQUNpbw?oc=5",
-      "description": "Owen Travis - Mortimer Jordan Blue Devils Football (Morris, AL) &nbsp;&nbsp; Sports Illustrated",
-      "date": "2026-08-20T10:41:34.000Z",
-      "modes": [
-        "nearby",
-        "all"
-      ],
-      "tags": [
-        "Nearby"
-      ],
-      "priority": 1
-    },
-    {
-      "id": "news-16-reason-foundation-study-nassau-county-and-miami-dade-are-the-nation-s-most-fiscall",
-      "source_type": "media_feed",
-      "source_name": "Reason Foundation",
-      "title": "Study: Nassau County and Miami-Dade are the nation’s most fiscally-stressed counties",
-      "summary": "Study: Nassau County and Miami-Dade are the nation’s most fiscally-stressed counties &nbsp;&nbsp; Reason Foundation",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVWk0R0ROWjl0emFFMTNraThNQ1NHcFpnTG9tS082UUc0XzBvZlZybjlzUXBOOUhDZ2ZSMVprMDVTSjYwZ2dadlM4anJkMjA2SVlVTGNTOUN4VnR2VVZSQUNaUVV6WkoydTRWZmRSZHFOZnRVRkNBM0JYQ0p4OENEd0JOYWMxak1kZGdGNmhlNW9Jdw?oc=5",
-      "published_at": "2026-08-20T04:11:00.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [
-        "community"
-      ],
-      "priority_level": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "",
-      "raw_payload": {
-        "modes": [
-          "regional",
-          "all"
-        ],
-        "tags": [
-          "Local"
-        ]
-      },
-      "last_synced_at": "2026-08-21T17:31:44.166Z",
-      "source": "Reason Foundation",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVWk0R0ROWjl0emFFMTNraThNQ1NHcFpnTG9tS082UUc0XzBvZlZybjlzUXBOOUhDZ2ZSMVprMDVTSjYwZ2dadlM4anJkMjA2SVlVTGNTOUN4VnR2VVZSQUNaUVV6WkoydTRWZmRSZHFOZnRVRkNBM0JYQ0p4OENEd0JOYWMxak1kZGdGNmhlNW9Jdw?oc=5",
-      "description": "Study: Nassau County and Miami-Dade are the nation’s most fiscally-stressed counties &nbsp;&nbsp; Reason Foundation",
-      "date": "2026-08-20T04:11:00.000Z",
-      "modes": [
-        "regional",
-        "all"
-      ],
-      "tags": [
-        "Local"
-      ],
-      "priority": 1
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/08-14-2026-Reilly-and-Hana-4aRS-M-edited.jpg"
     }
   ]
 }
