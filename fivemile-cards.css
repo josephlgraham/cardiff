@@ -152,8 +152,14 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    between them instead of four boxes ballooning. The figure grows, because
    there is room for it and the readers here are not young. */
 .d-body > .d-rows.list{grid-template-columns:1fr}
-.d-body > .d-rows.list .d-cell{flex-direction:row;align-items:center;justify-content:space-between;
-  gap:14px;padding:9px 14px}
+/* display:flex is load bearing and was missing. The four properties under it
+   are all flex properties, and .d-cell is a plain block by default, so
+   without this line every one of them was inert: the label kept its own line
+   above the figure and each row spent 66px showing 47px of content. The card
+   read as four boxes of air, which is the exact failure this variant was
+   written to fix. */
+.d-body > .d-rows.list .d-cell{display:flex;flex-direction:row;align-items:center;
+  justify-content:space-between;gap:14px;padding:9px 14px}
 .d-body > .d-rows.list .d-cell em{margin-bottom:0}
 .d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em}
 .d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
