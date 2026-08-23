@@ -204,13 +204,11 @@ would have been confusing at exactly the point somebody is reading that code.
   sees in their browser, and a class name is not that. Renaming roughly twenty
   of them across twelve pages and two stylesheets is churn with real breakage
   risk and no reader benefit.
-- **`cardiffalabama.info`.** Still the live domain, still in every canonical
-  link and the sitemap. The move to fivemile.now is its own job, and this
-  entry always assumed the two would land together. They did not. Whoever does
-  the domain cutover updates the canonicals, `robots.txt`, `sitemap.xml`, and
-  `CNAME` in one pass.
 - **The town.** Cardiff is one of the three towns. It belongs in copy, badges,
   data, and photograph filenames.
+
+The domain went with the rename in the end rather than separately, which is
+what this entry originally assumed. See decision 26.
 
 The rule in CLAUDE.md was tightened to say `cardiff-` **filename** rather than
 `cardiff-` reference, because as originally worded it made `cardiff-masthead`
@@ -714,3 +712,57 @@ future page with its own set gets the same bar for one line each.
 headlines and turned an index mark into something competing with the story.
 See the two badge systems in DECISIONS.md 11: shape and construction carry the
 meaning, not hue, so this has to stay readable in black and white.
+
+---
+
+## 26. The domain is fivemile.now
+**Decided:** August 2026. Executed alongside the rename pass in decision 10.
+
+`cardiffalabama.info` is gone from the repo. `CNAME`, every canonical link,
+every `og:url`, the JSON-LD graph on the homepage, `sitemap.xml`,
+`robots.txt`, and the canonical links in the ten stub files all read
+`fivemile.now`.
+
+**Why with the rename rather than after it:** decision 10 assumed the two
+would land together and counted on it. Doing them together costs one GA4
+discontinuity instead of two, and it means a reader never sees a `fivemile-`
+page served from a `cardiff-` domain, which was the contradiction the rename
+existed to remove in the first place.
+
+**This does not take effect until the branch merges,** because GitHub Pages
+reads `CNAME` from the published branch. Nothing about the live site changes
+while this sits on `fivemile`.
+
+**What has to be true before the merge, outside this repo.** The repo change
+is the smaller half of a domain move and it fails loudly if the rest is not
+ready:
+
+- DNS for `fivemile.now` has to point at GitHub Pages. For an apex domain that
+  is four A records to `185.199.108.153`, `185.199.109.153`,
+  `185.199.110.153`, and `185.199.111.153`, and the matching AAAA records if
+  you want IPv6.
+- Pages has to accept the domain in repo settings. Pushing `CNAME` to the
+  published branch normally sets it, but check it landed.
+- HTTPS is not instant. The certificate is issued after DNS resolves, and
+  Enforce HTTPS cannot be ticked until it is. Expect a window where the site
+  answers on http and not https.
+
+**If DNS is not ready when this merges, the site goes dark.** Not degraded,
+dark. That is the one genuinely dangerous thing in this whole branch, and it
+is the reason to do the DNS first and the merge second rather than the other
+way round.
+
+**Inbound links to the old domain break.** GitHub Pages serves one custom
+domain and cannot redirect from another. Anything that has to keep working
+needs `cardiffalabama.info` kept registered and pointed at a redirect
+somewhere that is not Pages. The known cases:
+
+- The QR code on the physical sign. Decision 10 called it trivially
+  reprintable, which it is, but it has to actually be reprinted. The files in
+  `qr-codes/` encode the old address and need regenerating.
+- Anything shared to Facebook before the cutover.
+- Search results, until Google recrawls. The canonicals point at the new
+  domain, so this resolves on its own, slowly.
+
+**Revisit if:** never for the choice of domain. The redirect question is open
+and depends on whether the old domain is worth keeping registered.

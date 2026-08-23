@@ -102,8 +102,9 @@ Three kinds of `cardiff` are correct and must be left alone:
 - **Class names and data ids.** `cardiff-masthead`, `cardiff-site-footer`,
   `cardiff-app-*`, `cardiff-city-council`, `cardiff-traffic-report` and the
   rest were deliberately not renamed. See DECISIONS.md 10.
-- **`cardiffalabama.info`.** Still the live domain. The move to fivemile.now
-  is its own job and has not happened.
+The domain is `fivemile.now`. `cardiffalabama.info` is gone from the repo
+entirely, including `CNAME`. See DECISIONS.md 26 for what has to be true in
+DNS and in repo settings for that to work.
 
 ## Git
 
