@@ -1,9 +1,14 @@
 name: Refresh News
 
-# Its own schedule, separate from Refresh Site Data, because the two want
-# different hours. Weather and the creek are gathered at midnight and noon
-# Central. A page that opens with "the morning report" wants to have been
-# gathered around six in the morning, so this runs at 6 am and 4 pm Central.
+# Two editions a day, morning and evening: 6 am and 6 pm Central. A page that
+# opens with "the morning report" wants to have been gathered in the morning,
+# and the evening run catches everything the day filed after lunch.
+#
+# Deliberately not more often. Alerts, current conditions, and the creek gauge
+# move on their own ten minute schedule in refresh-live.yml, so the things a
+# reader needs right now are never waiting on an edition. Headlines are not
+# that, and gathering them every ten minutes would churn the archive without
+# telling anybody anything new. See DECISIONS.md 30.
 #
 # Cron here is UTC and does not follow daylight saving, so these drift by an
 # hour between March and November. That is close enough for a news page and
@@ -12,7 +17,7 @@ name: Refresh News
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11,21 * * *'
+    - cron: '0 11,23 * * *'
 
 permissions:
   contents: write

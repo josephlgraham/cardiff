@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories &middot; FIVEMILE</title>
+<meta name="description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
+<link rel="canonical" href="https://fivemile.now/fivemile-news-archive.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Stories &middot; FIVEMILE">
+<meta property="og:description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
+<meta property="og:url" content="https://fivemile.now/fivemile-news-archive.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stories &middot; FIVEMILE">
+<meta name="twitter:description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair is the wordmark face and nothing else. Every page loads it,
+     because without it the nameplate falls back to Georgia and the arc in
+     fivemile-common.css is measured against cap heights Georgia does not have.
+     See DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-archive.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd"><h1>Stories</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
+    <p class="lede">Every story that has run on the news page, filed under the month it ran in and left
+      there. This is the whole reason for having a site instead of a group: a thing that mattered in March
+      is still findable in November.</p>
+    <p class="arc-count" id="newsStamp">&mdash;</p>
+    <div class="reel" id="newsReel" role="group" aria-label="Stories by month"></div>
+    <div class="arc-find">
+      <input type="search" id="newsFind" placeholder="Search every story on file" aria-label="Search every story on file" autocomplete="off">
+      <span class="arc-count" id="newsCount">&mdash;</span>
+    </div>
+    <div id="newsRows">
+      <div class="empty">&mdash;</div>
+    </div>
+  </section>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Headlines and summaries from the outlets that published them, gathered twice a day and written into the
+    month they belong to. Every row links back to the original, and the outlet is named on it. Nothing is
+    rewritten here and nothing is ever pruned. Obituaries run on the
+    <a href="fivemile-news.html">news page</a> and are kept the same way.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-archive.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

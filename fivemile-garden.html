@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden &middot; FIVEMILE</title>
+<meta name="description" content="The planting year for zone 7b and 8a creek bottomland: what goes in this month, the two frost dates, and twelve months at a glance.">
+<link rel="canonical" href="https://fivemile.now/fivemile-garden.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Garden &middot; FIVEMILE">
+<meta property="og:description" content="The planting year for zone 7b and 8a creek bottomland: what goes in this month, the two frost dates, and twelve months at a glance.">
+<meta property="og:url" content="https://fivemile.now/fivemile-garden.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Garden &middot; FIVEMILE">
+<meta name="twitter:description" content="The planting year for zone 7b and 8a creek bottomland: what goes in this month, the two frost dates, and twelve months at a glance.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-almanac.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="topo-canvas"></canvas>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac" class="active">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<nav class="desk-rail" aria-label="Almanac desks">
+  <div class="desk-rail-inner" data-desk-rail></div>
+</nav>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd">
+      <h1>Garden</h1>
+      <a href="https://www.aces.edu/blog/topics/lawn-garden/planting-guide-for-home-gardening-in-alabama/" target="_blank" rel="noopener">Extension guide &rarr;</a>
+    </div>
+    <p class="desk-intro">Zone 7b running into 8a, on creek bottomland that drains unevenly and holds a
+      little more frost-free time than the ridges above it. The whole year hangs off two dates: the last
+      spring frost around March 20 and the first fall frost around November 15.</p>
+  <div class="four-eq">
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">This month</p>
+        <div class="g-val" id="gardenMonthVal">&mdash;</div>
+        <div class="g-sub" id="gardenMonthSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Next frost date</p>
+        <div class="g-val" id="gardenFrostVal">&mdash;</div>
+        <div class="g-sub" id="gardenFrostSub">This reading is not coming through right now.</div>
+      </div>
+      <a class="card-gauge" href="fivemile-almanac.html#weather">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Ground &middot; Cardiff</p>
+        <div class="g-val" id="gardenGroundVal">&mdash;</div>
+        <div class="g-sub" id="gardenGroundSub">This reading is not coming through right now.</div>
+      </a>
+      <a class="card-gauge" href="fivemile-almanac.html#weather">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Rain &middot; This month</p>
+        <div class="g-val" id="gardenRainVal">&mdash;</div>
+        <div class="g-sub" id="gardenRainSub">This reading is not coming through right now.</div>
+      </a>
+  </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>What to do now</h2><span class="hd-note" id="gardenStamp">&mdash;</span></div>
+
+    <!-- One packet, for the crop this month leads with, beside everything else
+         the month asks for. The list is the whole month and not only the
+         planting: clearing a spent bed and cutting greens are the work too.
+         A month whose lead crop has no photograph runs the list on its own,
+         which is what .no-feature is for. -->
+    <div class="two-eq" id="gardenMonthRow">
+      <div id="gardenFeature"></div>
+      <div class="card-dept">
+        <div class="d-bar"><h3 id="gardenTag">This month</h3><span class="r" id="gardenMonthName">&mdash;</span></div>
+        <div class="d-body">
+          <div class="alm-list" id="gardenJobs">
+            <div class="empty">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack" style="margin-top:12px">
+      <div class="card-dept">
+        <div class="d-bar"><h3>Bottomland</h3><span class="r">Local conditions</span></div>
+        <div class="d-body">
+          <p class="wx-narrative" id="gardenNarrative">&mdash;</p>
+          <div class="sci-box">
+            <div class="sci-label">Why the bottoms behave differently</div>
+            <p>Cold air is heavier than warm air and runs downhill at night, so it pools in the low ground
+              along the creek. That is why a bottomland garden can take a frost on a night the ridge above it
+              escapes, even though the same bottoms hold moisture and warmth better through the day. Plant
+              the tender things on the higher edge of the plot if you have the choice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>The planting year</h2><span class="hd-note">Twelve months, one line each</span></div>
+    <div class="month-grid" id="gardenYear"></div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>Dates and spacing</h2></div>
+    <div class="two-eq">
+      <div class="card-tab">
+        <span class="t-tab">Frost</span>
+        <div class="t-title">The two dates everything hangs off</div>
+        <div class="t-row"><span>Last spring frost</span><b>Around Mar 20</b></div>
+        <div class="t-row"><span>First fall frost</span><b>Around Nov 15</b></div>
+        <div class="t-row"><span>Growing season</span><b id="gardenSeasonLength">&mdash;</b></div>
+        <div class="t-row"><span>Zone</span><b>7b to 8a</b></div>
+        <div class="t-note">Averages, not promises. The ridges feel the first frost before the bottoms do,
+          and a late cold snap after the spring date happens often enough to plan around.</div>
+      </div>
+
+      <div class="card-dept">
+        <div class="d-bar"><h3>Sowing depth and spacing</h3><span class="r">Extension figures</span></div>
+        <div class="d-body">
+          <p>Spacing, sowing depth, and days to maturity for every vegetable grown in this state are
+            published by the Alabama Cooperative Extension System and kept current. Rather than copy a
+            table that goes stale, this page points at theirs.</p>
+          <p class="d-tip"><a href="https://www.aces.edu/blog/topics/lawn-garden/planting-guide-for-home-gardening-in-alabama/" target="_blank" rel="noopener">Planting guide for home gardening in Alabama</a>,
+            and the month by month <a href="https://www.aces.edu/blog/topics/fruits-lawn-garden/alabama-gardeners-calendar/" target="_blank" rel="noopener">Alabama gardener's calendar</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk
+       pages do not each keep their own copy of the markup. -->
+  <div data-desk-back></div>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Planting timing follows the
+    <a href="https://www.aces.edu/blog/topics/lawn-garden/planting-guide-for-home-gardening-in-alabama/" target="_blank" rel="noopener">Alabama Cooperative Extension System planting guide</a>
+    for Central Alabama. Frost dates are the ones this site already keeps in its season calendar, around
+    March 20 and around November 15, and they are averages rather than deadlines.
+    Ground condition and rain totals come from the weather station in Cardiff.
+    The packet photograph is somebody else's work, usually a United States Department of Agriculture
+    picture in the public domain, and it is credited to the photographer who took it. A crop this
+    site has no photograph of does not get a packet.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-season-data.js"></script>
+<script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
+<script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-garden.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

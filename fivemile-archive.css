@@ -1,0 +1,170 @@
+/* ===========================================================================
+   fivemile-archive.css
+
+   The archive family: the hub and its four rooms. Every card on all five pages
+   comes from fivemile-cards.css, same as the homepage, the news page, and the
+   almanac family. What lives here is the reel, the day tables, and the two
+   small charts.
+
+   This file used to open with its own copy of the page shell and a note saying
+   that if a third copy ever turned up, the shell should move into
+   fivemile-common.css. Both halves of that turned out to be wrong. There were
+   six copies by the time anybody counted, and common.css was the wrong
+   destination, because eight pages keep their styles in an inline <style>
+   block that loads before it. The shell is now in fivemile-shell.css and only
+   the pages that share it load it. See DECISIONS.md 40.
+
+   Load order is common, cards, shell, then this.
+   =========================================================================== */
+
+:root{
+  --red:#C8102E;
+  --paper:#F2E8D5;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;
+  --masthead:#3D2810;
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --fm-rule:#DDCFB8;--fm-muted:#6B6156;
+  --r:8px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+
+  /* The two charted holdings. Rain is the blue the news page already gives a
+     weather story and the creek is the green it gives a creek story, so a
+     reader who has seen those tags meets the same two colors here. The two
+     unpainted holdings, photographs and stories, have nothing to color: a
+     photograph brings its own and a headline is ink.
+
+     The charts read these straight off the page. An inline SVG is part of the
+     document, so fill="var(--hold-creek)" resolves the same as it would on a
+     div, and neither of these values is written twice. */
+  --hold-weather:#2E86AB;
+  --hold-creek:#4A7C59;
+}
+
+/* The reset, the measure, the grids, .lede and .empty are in
+   fivemile-shell.css. The archive puts its top gap on the wrap rather than on
+   a first section, which is the one place it disagrees with the shell. */
+.wrap{padding-top:26px}
+
+/* The line under a room's opening paragraph saying how much is in it. It is
+   the same object as the count beside the search box, so it is the same class:
+   a small mono line that reports a quantity and nothing else. */
+p.arc-count{margin:0 0 16px}
+
+/* ---------------------------------------------------------------------------
+   THE REEL
+
+   The month picker, carried by the three rooms that hold a run of months.
+   It had to look like neither of the two navigations already on the page: the
+   masthead tabs are brown and all caps, and the footer is a plain list. This
+   is neither. It is mono, small, square cornered, and sits in a row you push
+   sideways, which is as close as a browser gets to winding a spool of film.
+
+   A chip is 44px tall, which is the tap floor in CLAUDE.md, and the year sits
+   in the strip as a label rather than as a chip, so nobody taps it expecting
+   something to happen.
+   --------------------------------------------------------------------------- */
+.reel{display:flex;align-items:stretch;gap:6px;overflow-x:auto;padding:0 0 12px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-bottom:6px}
+.reel::-webkit-scrollbar{display:none}
+.reel-year{flex:none;display:flex;align-items:center;padding:0 10px 0 2px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.13em;color:var(--fm-muted)}
+.reel-btn{flex:none;min-width:64px;min-height:44px;padding:6px 12px;
+  background:var(--card);border:1px solid var(--fm-rule);border-radius:4px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink);cursor:pointer;line-height:1.25;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:border-color var(--ease),background var(--ease)}
+.reel-btn small{display:block;font-size:9.5px;letter-spacing:.06em;color:var(--fm-muted);
+  text-transform:none;margin-top:1px}
+.reel-btn:hover{border-color:var(--masthead);background:#fff}
+.reel-btn[aria-pressed="true"]{background:var(--masthead);border-color:var(--masthead);color:var(--paper)}
+.reel-btn[aria-pressed="true"] small{color:rgba(242,232,213,.75)}
+
+/* ---------------------------------------------------------------------------
+   THE DAY TABLE
+
+   A month of readings, one row a day. Mono figures so the columns line up as
+   columns rather than as ragged text, and a hairline under every row so a
+   thumb can hold its place going down thirty one of them.
+
+   Gust and mean flow are the two columns that come off under 480px. They are
+   the two a reader is least often after, and both are reported in the summary
+   above the table, so nothing is actually lost on a phone. Everything else
+   stays: a table that drops the reading you came for is not a table.
+   --------------------------------------------------------------------------- */
+.arc-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13.5px}
+.arc-table th,.arc-table td{padding:7px 6px;text-align:right;white-space:nowrap}
+.arc-table thead th{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--fm-muted);border-bottom:1.5px solid var(--ink);
+  padding-bottom:7px}
+.arc-table tbody th{text-align:left;font-weight:500;color:var(--ink)}
+.arc-table tbody th span{color:var(--fm-muted);margin-right:6px}
+.arc-table tbody tr{border-bottom:1px solid var(--fm-rule)}
+.arc-table tbody tr:last-child{border-bottom:none}
+.arc-table .zero{color:var(--fm-muted)}
+/* The one number in the month worth finding without reading the column. */
+.arc-table .peak{color:var(--red)}
+
+/* ---------------------------------------------------------------------------
+   THE CHARTS
+
+   Same construction as the creek chart on the almanac: an inline polyline
+   drawn from the numbers already on the page, no library, and a mono label at
+   each end of the axis. Nothing here is interactive, because a chart you have
+   to poke at is worse than a table on a phone and the table is right
+   underneath it.
+   --------------------------------------------------------------------------- */
+.arc-chart{margin:0 0 15px}
+.arc-chart svg{display:block;width:100%;height:150px}
+.arc-chart.tall svg{height:186px}
+.arc-axis{font-family:var(--mono);font-size:11px;fill:#6B6156}
+
+/* ---------------------------------------------------------------------------
+   SEARCH
+
+   One field over every month the archive holds. It is a search box and looks
+   like one, which is the whole reason there is no label above it: the
+   placeholder already says what it searches, and a label would say the same
+   words twice.
+   --------------------------------------------------------------------------- */
+.arc-find{display:flex;gap:10px;align-items:center;margin:0 0 14px}
+.arc-find input{flex:1;min-width:0;min-height:44px;padding:10px 13px;font-family:var(--sans);
+  font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--fm-rule);
+  border-radius:var(--r);transition:border-color var(--ease)}
+.arc-find input:focus{outline:none;border-color:var(--masthead)}
+.arc-find input::placeholder{color:var(--fm-muted)}
+.arc-count{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fm-muted);white-space:nowrap}
+
+/* ---------------------------------------------------------------------------
+   THE GALLERY
+
+   Postcards two across, which is the width the card was drawn for. Grid
+   stretch levels each row, so a long caption lengthens its neighbour too.
+   --------------------------------------------------------------------------- */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.gallery .card-post{height:100%}
+.gallery .empty{grid-column:1/-1}
+
+.src-note{margin-top:34px;padding-top:14px;border-top:1px solid var(--fm-rule);
+  font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--fm-muted)}
+.src-note a{color:var(--red);text-decoration:none}
+.src-note a:hover{text-decoration:underline}
+.src-note strong{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+
+@media(max-width:820px){
+  .gallery{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .wrap{padding:20px 16px 24px}
+  section.blk{padding:28px 0 0}
+  .arc-chart svg{height:132px}
+  .arc-chart.tall svg{height:164px}
+}
+@media(max-width:480px){
+  .arc-table{font-size:13px}
+  .arc-table th,.arc-table td{padding:7px 4px}
+  .arc-table .opt{display:none}
+}

@@ -46,7 +46,9 @@ history. Things worth knowing about.
 
 ### What we do not run
 
-Obituaries. Sports. Politics.
+Sports. Politics. Hunting locations of any kind.
+
+Obituaries do run, on the news page only. See DECISIONS.md 22.
 
 ### Send us something
 
@@ -62,17 +64,21 @@ Tell us and we will fix it. fivemilec@gmail.com.
 
 **Footer line, every page, links to this section:**
 
-> Built with AI help. A person approves everything before it publishes, and no
-> image here is AI generated.
+> No AI runs on this site. A person writes and approves everything here, and no
+> image is AI generated.
 
 ### How this site is made
 
-I use AI tools to build and write FIVEMILE. Claude helps me write the code,
-draft pages, and catch things I miss. I would rather say that plainly than have
-somebody wonder about it, so here is what it does and does not mean.
+The point of this section is the first line of it: there is no AI running on
+this site. AI is a tool used to build it, the way a saw is a tool used to build
+a porch. Lead with that, because it is what a reader is actually asking.
 
 **A person decides what runs.** Everything written in FIVEMILE's own voice is
 written or edited by me before it goes up. Nothing publishes on its own.
+
+**Automatic is not the same thing as AI.** The news sorting is a written list of
+keyword rules, not a model, and that was chosen deliberately so the reason a
+story landed somewhere can be read back. See DECISIONS.md 19.
 
 **The news page is different, and you should know how.** Headlines there are
 gathered automatically from other publications, sorted by a script, and linked

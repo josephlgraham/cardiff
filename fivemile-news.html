@@ -41,6 +41,7 @@
      See DECISIONS.md 14. -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
+
 /* News page layout only. Every card on this page comes from
    fivemile-cards.css or fivemile-news.css. Nothing card shaped is defined
    here, same rule as the homepage. */
@@ -55,45 +56,14 @@
   --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
   --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
-body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
-#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-.page{position:relative;z-index:1}
-a{color:inherit}
 
-/* masthead. Identical to the homepage. The navigation strip is styled in
-   fivemile-common.css so every page gets the same one. */
-.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
-.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
-.mh-left-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;color:var(--hdr-dim);line-height:1.75}
-.mh-brand{text-align:center}.mh-brand-link{text-decoration:none;display:inline-block}
-.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
-.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
-.mh-right-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--hdr-dim);text-align:right;line-height:1.75}
-.mh-right-info .wx-hi{color:rgba(245,234,216,.88);font-weight:500;font-size:.88rem}
-.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
-.mh-tabs::-webkit-scrollbar{display:none}
-.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
-.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
-.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em}
-
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px 24px}
+/* The reset, the measure, the section rhythm and the grids are in
+   fivemile-shell.css, loaded below. What is left in here is this page's own. */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-section.blk{padding:34px 0 0}
 .top{padding:28px 0 0}
-.two-eq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.stack{display:grid;gap:12px}
-/* Stories run full width and stacked, the same rhythm the homepage uses for
-   its headlines. Gap rather than the stub's own bottom margin, so the last
-   row does not hang a margin off the end of the section. */
-.rows{display:flex;flex-direction:column;gap:10px}
-.rows .card-stub{margin-bottom:0}
 .obits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.empty{font-size:15px;color:#6B6156;padding:12px 0}
 
 /* The morning report and the coming up column are one row and finish level,
    the same rule the homepage uses for the photograph and the event stubs. */
@@ -125,40 +95,40 @@ section.blk{padding:34px 0 0}
 .send .btn{min-height:44px;font-size:15.5px}
 
 @media(max-width:820px){
-  .two-eq,.obits{grid-template-columns:1fr}
-}
-@media(max-width:760px){
-  .mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}
-  .mh-left-info,.mh-right-info{display:none}
-  .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}
-  .wrap{padding:0 16px 20px}
+  .obits{grid-template-columns:1fr}
 }
 </style>
 <script src="fivemile-brand.js"></script>
-<!-- Masthead intro gate. Runs before the first paint. Same as every page. -->
-<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
 <link rel="stylesheet" href="fivemile-common.css">
 <link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
 <link rel="stylesheet" href="fivemile-news.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <header class="cardiff-masthead">
   <div class="mh-identity">
     <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
     <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
-    <div class="mh-right-info"><a href="fivemile-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
     <div class="mh-mobile-pills">
-      <a href="fivemile-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
     </div>
   </div>
   <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
     <a href="fivemile-news.html" id="tab-news" class="active">News</a>
-    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
     <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
-    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
-    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -168,12 +138,11 @@ section.blk{padding:34px 0 0}
      paint. Do not move this to the end of the body and do not add defer. -->
 <script src="fivemile-intro.js"></script>
 
-<div class="wrap">
+<main tabindex="-1" class="wrap" id="main">
 
   <!-- HEAD ---------------------------------------------------------------- -->
   <section class="top reveal">
     <div class="hd"><h1>News</h1><time id="newsStamp">&mdash;</time></div>
-    <nav class="chips" id="newsChips" aria-label="Sections on this page"></nav>
   </section>
 
   <!-- NOTICE + MORNING REPORT + COMING UP ---------------------------------- -->
@@ -243,16 +212,17 @@ section.blk{padding:34px 0 0}
     <div class="rows" id="countyRows"></div>
   </section>
 
-  <!-- QUIET DAY ------------------------------------------------------------- -->
-  <section class="blk reveal" id="quietBlock" hidden>
-    <div class="hd"><h2>Nothing filed yet</h2></div>
-    <div class="card-dept">
-      <div class="d-bar"><h3>The wire is quiet</h3><span class="r">Three towns</span></div>
-      <div class="d-body">
-        <p>Nothing has come through for Graysville, Cardiff, or Brookside since the last run.</p>
-        <p class="d-tip">If something is happening that other people ought to know about, send it to <a id="quietMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a> and it goes up the same day.</p>
-      </div>
-    </div>
+  <!-- STILL WORTH READING -------------------------------------------------
+       What runs when the wire is quiet. Three towns this size do not file
+       every day, and the archive keeps everything that ever ran, so there is
+       always something to put here. A reader who opens the page on a slow
+       Tuesday gets the last few weeks instead of a notice about how little
+       happened. Obituaries are never pulled forward into this.
+       See DECISIONS.md 22 and 31.
+       ---------------------------------------------------------------------- -->
+  <section class="blk reveal" id="recentBlock" hidden>
+    <div class="hd"><h2 id="still-worth-reading">Still worth reading</h2><span class="hd-note" id="recentCount"></span></div>
+    <div class="rows" id="recentRows"></div>
   </section>
 
   <!-- STANDING LINKS --------------------------------------------------------
@@ -324,7 +294,8 @@ section.blk{padding:34px 0 0}
   <!-- WHERE THIS COMES FROM -------------------------------------------------- -->
   <div class="sources reveal">
     <h2>Where these come from</h2>
-    <p>Headlines here are gathered twice a day from the outlets that cover this part of Jefferson County. We run the headline, one sentence, and the outlet's name, and every one of them links straight to the original. We do not republish anybody's article.</p>
+    <p>Headlines here are gathered twice a day, morning and evening, from the outlets that cover this part of Jefferson County. We run the headline, one sentence, and the outlet's name, and every one of them links straight to the original. We do not republish anybody's article.</p>
+    <p>Weather alerts, conditions, and the creek gauge do not wait for an edition. Those are checked every ten minutes, day and night, so the red strip and the morning report are current even when the headlines are hours old.</p>
     <p>When a photograph appears beside a headline, it is the picture the outlet itself published for sharing, loaded from that outlet's own server and credited to them. We never copy a photograph onto this site and we never take one out of the body of an article. If you publish here and you would rather we did not show your pictures at all, say so and we will turn them off for your site the same day.</p>
     <p class="outlets" id="sourceList">&mdash;</p>
     <p style="margin-top:12px"><a href="mailto:fivemilec@gmail.com" id="fixMail">Corrections and takedowns</a> go to the same address as everything else.</p>
@@ -337,7 +308,7 @@ section.blk{padding:34px 0 0}
     <a class="btn" id="sendMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>
   </div>
 
-</div>
+</main>
 </div>
 
 <script src="fivemile-season-data.js"></script>
@@ -903,18 +874,84 @@ function guardImages(root){
   }
 }
 
-function fillSection(key, label, stories, limit){
+function fillSection(key, stories, limit){
   var block = document.getElementById(key + 'Block');
   var rows = document.getElementById(key + 'Rows');
   var count = document.getElementById(key + 'Count');
-  if(!block || !stories.length) return null;
+  if(!block || !stories.length) return 0;
   var use = stories.slice(0, limit);
   rows.innerHTML = use.map(key === 'obit' ? obitHtml : rowHtml).join('');
   if(count) count.textContent = stories.length > use.length
     ? use.length + ' of ' + stories.length : String(use.length);
   block.hidden = false;
   guardImages(rows);
-  return {href: '#' + label.anchor, name: label.chip, n: use.length};
+  return use.length;
+}
+
+/* Every outlet that put something on the page, named at the bottom. Hidden
+   rather than left holding an em dash when there is nothing to name, because
+   a lone dash under a paragraph about sourcing reads as a fault. */
+function listOutlets(stories){
+  var outlets = [];
+  stories.forEach(function(story){
+    if(story.source && outlets.indexOf(story.source) === -1) outlets.push(story.source);
+  });
+  var line = document.getElementById('sourceList');
+  line.hidden = !outlets.length;
+  if(outlets.length) line.innerHTML = 'On this page today: ' + esc(outlets.sort().join(' · '));
+}
+
+function archiveMonthKey(date, offset){
+  var d = new Date(date.getFullYear(), date.getMonth() + offset, 1);
+  return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2);
+}
+
+/* The archive standing in on a quiet day. Every story that has ever run is in
+   news-archive/YYYY-MM.json and stays there, which is the whole reason this
+   site exists rather than a Facebook group, so there is always something to
+   put on the page. Fetched only when it is needed, which on most days is
+   never, so the usual visit still costs the same six files it always did.
+
+   Obituaries are left out on purpose. A notice is worth running the week it is
+   filed and is not something to resurface a month later. See DECISIONS.md 22.
+
+   This month and last, because on the first of the month this month is nearly
+   empty. Two files is the whole budget. */
+function fillFromArchive(){
+  var now = new Date();
+  settle([
+    loadJson('news-archive/' + archiveMonthKey(now, 0) + '.json'),
+    loadJson('news-archive/' + archiveMonthKey(now, -1) + '.json')
+  ]).then(function(files){
+    var pool = [];
+    files.forEach(function(file){
+      if(file && Array.isArray(file.stories)) pool = pool.concat(file.stories);
+    });
+
+    var ranked = pool.map(normalizeStory).filter(function(story){
+      return story.title && story.link && story.section !== 'obituaries' && story.section !== 'skip';
+    }).sort(function(a, b){
+      return (b.date ? b.date.getTime() : 0) - (a.date ? a.date.getTime() : 0);
+    });
+
+    var kept = [], seen = {};
+    ranked.forEach(function(story){
+      var key = (story.title + '|' + story.source).toLowerCase();
+      if(seen[key]) return;
+      seen[key] = true;
+      if(looksLikeSameStory(story, kept)) return;
+      kept.push(story);
+    });
+    kept = kept.slice(0, 8);
+    if(!kept.length) return;
+
+    var rows = document.getElementById('recentRows');
+    rows.innerHTML = kept.map(rowHtml).join('');
+    document.getElementById('recentCount').textContent = String(kept.length);
+    document.getElementById('recentBlock').hidden = false;
+    guardImages(rows);
+    listOutlets(kept);
+  });
 }
 
 function paintNews(live, desk){
@@ -941,12 +978,11 @@ function paintNews(live, desk){
   var by = {towns: [], nearby: [], creek: [], county: [], obituaries: []};
   kept.forEach(function(story){ if(by[story.section]) by[story.section].push(story) });
 
-  var chips = [];
-
   /* The lead is the best story in the two closest rings. County news does not
      lead this page even when it is the biggest thing on the wire, because
      this page is about here. See DECISIONS.md 19. */
   var leadPool = by.towns.concat(by.creek);
+  var placed = 0;
   var lead = leadPool[0] || by.nearby[0] || null;
   if(lead){
     var slot = document.getElementById('leadSlot');
@@ -954,37 +990,27 @@ function paintNews(live, desk){
     document.getElementById('leadStamp').textContent = lead.source;
     document.getElementById('leadBlock').hidden = false;
     guardImages(slot);
+    placed += 1;
     ['towns','nearby','creek','county'].forEach(function(k){
       by[k] = by[k].filter(function(s){return s !== lead});
     });
   }
 
   [
-    ['towns',  {anchor:'three-towns',    chip:'Three towns'},      8],
-    ['obit',   {anchor:'obituaries',     chip:'Obituaries'},       6, 'obituaries'],
-    ['nearby', {anchor:'west-jefferson', chip:'West Jefferson'},   8],
-    ['creek',  {anchor:'the-creek',      chip:'The creek'},        6],
-    ['county', {anchor:'county-state',   chip:'County and state'}, 6]
+    ['towns',  8],
+    ['obit',   6, 'obituaries'],
+    ['nearby', 8],
+    ['creek',  6],
+    ['county', 6]
   ].forEach(function(row){
-    var chip = fillSection(row[0], row[1], by[row[3] || row[0]], row[2]);
-    if(chip) chips.push(chip);
+    placed += fillSection(row[0], by[row[2] || row[0]], row[1]);
   });
 
-  if(!kept.length) document.getElementById('quietBlock').hidden = false;
+  /* Nothing fresh cleared the freshness rules, so the archive fills the space
+     instead. The page never says so and never apologises for it. */
+  if(!placed) { fillFromArchive(); return; }
 
-  /* The jump row is built from what is actually on the page today. The
-     weather and the calendar are always there, so they lead it. */
-  var all = [{href:'#morning-report', name:'This morning'}, {href:'#coming-up', name:'Coming up'}].concat(chips);
-  document.getElementById('newsChips').innerHTML = all.map(function(c){
-    return '<a class="chip" href="' + c.href + '">' + esc(c.name) + (c.n ? '<b>' + c.n + '</b>' : '') + '</a>';
-  }).join('');
-
-  /* Every outlet that put something on the page today, named at the bottom. */
-  var outlets = [];
-  kept.forEach(function(s){ if(outlets.indexOf(s.source) === -1) outlets.push(s.source) });
-  document.getElementById('sourceList').innerHTML = outlets.length
-    ? 'On this page today: ' + esc(outlets.sort().join(' · '))
-    : '&mdash;';
+  listOutlets(kept);
 
   var stamp = live ? parseDate(live.updatedAt) : null;
   document.getElementById('newsStamp').textContent = stamp
@@ -993,7 +1019,7 @@ function paintNews(live, desk){
 
 /* --- boot ---------------------------------------------------------------- */
 if(window.BRAND && window.BRAND.email){
-  ['sendMail','quietMail','fixMail'].forEach(function(id){
+  ['sendMail','fixMail'].forEach(function(id){
     var mail = document.getElementById(id);
     if(!mail) return;
     mail.href = 'mailto:' + window.BRAND.email;

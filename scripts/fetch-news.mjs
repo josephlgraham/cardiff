@@ -926,6 +926,40 @@ async function archive(records) {
     }
     console.log(`Archive ${month}: ${added.length} added, ${merged.length} total`);
   }
+  if (!DRY_RUN) await writeArchiveIndex();
+}
+
+/* A static host cannot list a directory, so the archive page would have no way
+   to know which months exist without guessing at filenames. This writes the
+   shelf label: every month file on disk, how many stories are in it, and the
+   span it covers. Built by reading the directory rather than from the months
+   this run touched, so a quiet month keeps its place in the list. */
+async function writeArchiveIndex() {
+  const names = (await fs.readdir(ARCHIVE_DIR)).filter((name) => /^\d{4}-\d{2}\.json$/.test(name));
+  const months = [];
+  for (const name of names.sort()) {
+    try {
+      const data = JSON.parse(await fs.readFile(path.join(ARCHIVE_DIR, name), 'utf8'));
+      const stories = data.stories || [];
+      if (!stories.length) continue;
+      const dates = stories.map((s) => s.published_at || '').filter(Boolean).sort();
+      months.push({
+        month: data.month || name.replace('.json', ''),
+        count: stories.length,
+        first: dates[0] || '',
+        last: dates[dates.length - 1] || ''
+      });
+    } catch (error) {
+      console.warn(`Archive index skipped ${name}: ${error.message}`);
+    }
+  }
+  months.reverse();
+  const total = months.reduce((sum, m) => sum + m.count, 0);
+  await fs.writeFile(
+    path.join(ARCHIVE_DIR, 'index.json'),
+    `${JSON.stringify({ updatedAt: new Date().toISOString(), total, months }, null, 2)}\n`
+  );
+  console.log(`Archive index: ${months.length} month(s), ${total} stories`);
 }
 
 async function main() {

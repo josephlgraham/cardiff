@@ -1,0 +1,368 @@
+/* ===========================================================================
+   FIVEMILE almanac family
+
+   Five pages share this file: the almanac itself and the four desks it opens
+   into.
+
+     fivemile-almanac.html   the creek, the weather, the date
+     fivemile-fishing.html   water, species, seasons, regulations
+     fivemile-garden.html    the planting year for zone 7b/8a bottomland
+     fivemile-nightsky.html  moon, planets, meteors, what is up tonight
+     fivemile-nature.html    what is moving, blooming, opening, and closing
+
+   Every card on these pages comes from fivemile-cards.css and the page shell
+   comes from fivemile-shell.css. Nothing card shaped is defined here, which is
+   the same rule the homepage and the news page already follow. What this file
+   carries is the desk rail, the almanac's own layout, and the small run of
+   classes the almanac scripts write into a card body.
+
+   Load order in every family page is common, cards, shell, then this file. The
+   masthead rules in fivemile-common.css are all !important and still win,
+   which is deliberate: the masthead is the same object on every page and no
+   page gets to argue with it.
+   =========================================================================== */
+
+:root{
+  --red:#C8102E;--red-mid:#9a0c22;
+  --paper:#F2E8D5;--paper2:#ede0c8;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;--ink3:#7a5838;
+  --masthead:#3D2810;
+  --green:#2a7a3a;--amber:#b47800;--blue:#2060a0;
+  --border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  --r:8px;--r-lg:14px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+
+  /* The five desks. Read by the rail and by nothing else.
+
+     DECISIONS.md 25 allows a page with its own set of subjects to set
+     --accent from its own stylesheet rather than adding classes to the card
+     file. The news beats did it first. These are the second set, and like the
+     beats they color a 4px bar and never a word. */
+  --desk-almanac:#4E6E58;
+  --desk-fishing:#2F6B8A;
+  --desk-garden:#6E7F3A;
+  --desk-sky:#4C4B7C;
+  --desk-nature:#8A5A2E;
+}
+
+/* The reset, the ground, and the measure are in fivemile-shell.css. */
+.emoji{font-family:var(--emoji);font-style:normal}
+
+/* ---------------------------------------------------------------------------
+   THE DESK RAIL
+
+   The index to the five pages, carried by all five. It replaced a row of
+   rounded pills that jumped to anchors on one very long page, so the first
+   requirement was that it not look like those pills and the second was that
+   it not look like the navigation bar sitting directly above it.
+
+   It is neither. The masthead nav is brown, all caps, and marks the current
+   page with a red underline. The rail is paper, sentence case, square
+   cornered, and marks the current page by going quiet and heavy rather than
+   bright. Each item carries the 4px accent bar the .tag badge uses, which is
+   the site's existing mark for an index entry, and a live line of its own
+   underneath so the rail reports something rather than only pointing.
+
+   Not a sidebar. It has to work at 390px, where a vertical rail is either a
+   wall of links above the content or a horizontal row anyway, and where two
+   layouts of the same object drift apart. One row, scrolled sideways on a
+   phone the way the nav above it already scrolls.
+   --------------------------------------------------------------------------- */
+/* No band. The first pass gave the rail its own paper2 fill and a rule under
+   it, which cut it off from the page and made it read as chrome bolted under
+   the masthead rather than as the top of the page you are on. It sits on the
+   page background now, with the topographic lines running behind it like they
+   run behind everything else, and the items are the only objects in it. */
+.desk-rail{background:transparent;position:relative;z-index:2}
+.desk-rail-inner{max-width:1000px;margin:0 auto;padding:16px 20px 0;display:flex;gap:8px;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.desk-rail-inner::-webkit-scrollbar{display:none}
+.desk-item{display:flex;align-items:center;gap:10px;flex:1 0 auto;min-width:158px;min-height:52px;
+  background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r);padding:8px 12px 8px 0;
+  text-decoration:none;color:inherit;overflow:hidden;transition:border-color var(--ease),background var(--ease)}
+.desk-item::before{content:"";width:4px;align-self:stretch;background:var(--accent,#6B6156);flex:none}
+.desk-item:hover{border-color:var(--masthead);background:#fff;text-decoration:none}
+.desk-item > .desk-text{min-width:0;flex:1}
+.desk-name{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.desk-sub{display:block;font-family:var(--mono);font-size:10.5px;color:#6B6156;line-height:1.4;margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:19ch}
+/* The arrow. This is the whole fix for the first pass, which had five items
+   that named a page and gave a reader nothing to tell them the name was a
+   door. An arrow is not copy and it does not explain the interface: it points.
+   Red, because red is what this site uses for a link that leaves. */
+.desk-go{font-size:17px;line-height:1;color:var(--red);flex:none}
+.desk-item:hover .desk-go{color:var(--masthead)}
+/* Going back up to the almanac. The arrow leads instead of following, which is
+   the one difference a reader needs between the way home and the way onward. */
+.desk-item.back .desk-go{order:-1;margin-left:12px}
+.desk-item.back{border-color:var(--masthead)}
+/* The current page. Recessed, arrowless, and still a link so a tap reloads and
+   nothing dead-ends. */
+.desk-item[aria-current="page"]{background:var(--paper2);border:1.5px solid var(--masthead)}
+.desk-item[aria-current="page"] .desk-name{color:var(--masthead)}
+
+/* The way back, repeated at the foot of every desk page. A reader who has come
+   down a long page should not have to scroll back up to leave it. Full width,
+   a big arrow, and the name of the place it goes. */
+.desk-back{display:flex;align-items:center;gap:14px;margin-top:34px;min-height:68px;
+  padding:14px 18px;background:var(--card);border:1px solid #DDCFB8;border-left:5px solid var(--red);
+  border-radius:0 var(--r-lg) var(--r-lg) 0;text-decoration:none;color:inherit;
+  transition:border-color var(--ease),background var(--ease)}
+.desk-back:hover{background:#fff;border-color:#DDCFB8;border-left-color:var(--red);text-decoration:none}
+.desk-back .a{font-size:26px;line-height:1;color:var(--red);flex:none}
+.desk-back b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.desk-back i{display:block;font-style:normal;font-size:14.5px;color:#6B6156;line-height:1.45;margin-top:2px}
+.desk-item[data-desk="almanac"]{--accent:var(--desk-almanac)}
+.desk-item[data-desk="fishing"]{--accent:var(--desk-fishing)}
+.desk-item[data-desk="garden"]{--accent:var(--desk-garden)}
+.desk-item[data-desk="sky"]{--accent:var(--desk-sky)}
+.desk-item[data-desk="nature"]{--accent:var(--desk-nature)}
+
+/* ---------------------------------------------------------------------------
+   LAYOUT
+
+   Same 1000px measure as the homepage and the news page, same 12px card gap.
+   --------------------------------------------------------------------------- */
+/* .wrap, section.blk, the four grids, .rows and .empty are in
+   fivemile-shell.css. What is left here is the desk pages' own.
+
+   section.top is the top gap. The shell leaves .wrap flush and lets the first
+   section carry it, which is what these five pages do. */
+section.top{padding:24px 0 0}
+/* Three parts to two, for a chart beside a panel. Only the almanac uses it. */
+.two-wide{display:grid;grid-template-columns:3fr 2fr;gap:12px;align-items:start}
+.two-wide > .card-dept{height:100%}
+/* The seed packets are however many crops the month actually has, which is
+   between zero and four. A fixed three column grid leaves a hole beside two
+   packets, so this row fits itself to what it holds. */
+#gardenPackets{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
+
+/* The lead paragraph under a section head on a desk page. One or two
+   sentences saying what the page is for, then out of the way. */
+.desk-intro{font-size:16.5px;line-height:1.6;color:var(--ink2);max-width:64ch;margin:0 0 16px}
+
+/* The send block that closes a page. Not a card in the card system sense, so
+   it stays plain: paper fill, hairline border, 14px radius. Same values as
+   the news page and the homepage, deliberately. */
+.send{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px;text-align:center}
+.send h2{margin:0 0 6px;font-size:20px;font-weight:800}
+.send p{margin:0 auto 14px;color:#6B6156;font-size:16px;max-width:52ch}
+.send .btn{min-height:44px;font-size:15.5px;display:inline-flex;align-items:center;justify-content:center;padding:0 20px;text-decoration:none}
+
+/* ---------------------------------------------------------------------------
+   THE DATE HERO
+
+   Sun, date, and yesterday, across the top of the almanac. Three department
+   panels rather than three one-off boxes, so the row is made of the same
+   object as everything under it.
+   --------------------------------------------------------------------------- */
+.hero-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.hero-date{background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r-lg);
+  min-width:186px;padding:16px 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero-day{font-size:18px;font-weight:800;color:var(--red);letter-spacing:-.01em}
+.hero-num{font-size:clamp(3rem,8vw,5rem);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--ink);margin:2px 0}
+.hero-month{font-size:18px;font-weight:800;color:var(--red);letter-spacing:-.01em}
+/* Two readings stacked inside one panel body, ruled apart. The panel is a
+   .card-dept, so the bar and the border come from the card system. */
+.hero-pair{display:grid;gap:11px}
+.hero-pair > div + div{border-top:1px solid #DDCFB8;padding-top:11px}
+.hero-lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:#6B6156;margin-bottom:3px}
+.hero-val{font-size:17px;font-weight:700;line-height:1.25}
+.hero-note{font-family:var(--mono);font-size:11.5px;color:#6B6156;margin-top:3px;line-height:1.45}
+
+/* The month row on the garden desk: the lead crop's packet beside the list of
+   everything the month asks for. February sows three things and there is a
+   photograph of none of them yet, so the packet drops out and the list takes
+   the full width rather than sitting beside a hole. */
+#gardenMonthRow.no-feature{grid-template-columns:1fr}
+#gardenMonthRow > #gardenFeature{display:flex;flex-direction:column}
+#gardenMonthRow > #gardenFeature > .card-packet{flex:1}
+
+/* ---------------------------------------------------------------------------
+   THE CREEK
+
+   The gauge tiles are the card system's .card-gauge, unchanged. What is here
+   is the depth chart that sits under them, which is the one thing on the site
+   that draws rather than reports.
+   --------------------------------------------------------------------------- */
+.creek-note{font-size:15.5px;line-height:1.55;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
+.watershed-chart-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:11px}
+.watershed-chart-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#6B6156;margin-top:3px}
+.watershed-range-toggle{display:inline-flex;align-items:center;gap:4px;padding:3px;background:var(--paper);border:1px solid #DDCFB8;border-radius:99px}
+.watershed-range-btn{appearance:none;border:none;background:transparent;color:#6B6156;font:inherit;font-family:var(--mono);
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;min-height:44px;padding:0 16px;border-radius:99px;cursor:pointer;
+  transition:background var(--ease),color var(--ease)}
+.watershed-range-btn:hover{color:var(--ink)}
+.watershed-range-btn.active{background:rgba(200,16,46,.12);color:var(--red-mid)}
+.watershed-range-btn:disabled{opacity:.45;cursor:not-allowed}
+.watershed-chart{min-height:270px}
+.watershed-chart svg{display:block;width:100%;height:270px}
+.watershed-chart-empty{font-size:15px;line-height:1.55;color:#6B6156;padding:20px 0}
+.watershed-axis{font-family:var(--mono);font-size:11px;fill:#6B6156}
+.watershed-upstream{margin-top:11px;padding:11px 13px;background:var(--paper);border:1px solid #DDCFB8;
+  border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:15px;line-height:1.55;color:var(--ink2)}
+
+/* ---------------------------------------------------------------------------
+   WEATHER
+
+   The narrative line and the science note. Both are prose inside a card, so
+   both take the card system reading size rather than the 11px they used to.
+   --------------------------------------------------------------------------- */
+.wx-narrative{font-size:15.5px;line-height:1.6;color:var(--ink2)}
+.sci-box{margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
+.sci-label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#6B6156;margin-bottom:4px}
+.sci-box p{font-size:15px;line-height:1.6;color:var(--ink2)}
+.wf-grid{display:grid;gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
+.wf-place{background:var(--card);padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.wf-name{font-size:15px;font-weight:700}
+.wf-temp{font-family:var(--mono);font-size:17px}
+.wf-cond{font-size:14px;color:#6B6156;flex-basis:100%;line-height:1.45}
+
+/* ---------------------------------------------------------------------------
+   ROW LISTS
+
+   Planting, fishing, nature, sky, and season windows all render the same
+   shape: a mark, a name, a status word, and a sentence. They were five
+   near-identical rules with five sets of sizes. They are one rule now, and a
+   desk that wants a status word colors it with a modifier.
+   --------------------------------------------------------------------------- */
+.alm-list{display:grid}
+.alm-row{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;padding:11px 0;border-bottom:1px solid #DDCFB8}
+.alm-row:last-child{border-bottom:none}
+.alm-row:first-child{padding-top:2px}
+.alm-mark{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
+.alm-name{font-size:15.5px;font-weight:700;line-height:1.3}
+.alm-status{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6B6156;margin:3px 0 2px}
+.alm-note{font-size:14.5px;line-height:1.55;color:#6B6156}
+.alm-head-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.pa-plant{color:var(--green)}
+.pa-harvest{color:var(--amber)}
+.pa-wait{color:#6B6156}
+.alm-stars{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;white-space:nowrap;color:var(--amber)}
+.f-good{color:var(--green)}
+.f-mid{color:var(--amber)}
+.f-low{color:#6B6156}
+/* Open and closed, for a season that has a gate on it. */
+.alm-open,.alm-closed{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;white-space:nowrap}
+.alm-open{background:rgba(42,122,58,.12);color:var(--green);border:1px solid rgba(42,122,58,.28)}
+.alm-closed{background:rgba(80,44,8,.06);color:#6B6156;border:1px solid #DDCFB8}
+.alm-when{font-family:var(--mono);font-size:11.5px;color:#6B6156;margin-top:2px}
+.alm-expand{margin-top:14px;width:100%;min-height:46px;padding:0 14px;border-radius:var(--r);
+  border:1px solid #DDCFB8;background:var(--paper);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink2);cursor:pointer;transition:border-color var(--ease),color var(--ease)}
+.alm-expand:hover{border-color:var(--masthead);color:var(--ink)}
+
+/* ---------------------------------------------------------------------------
+   THE MOON
+   --------------------------------------------------------------------------- */
+.moon-wrap{display:flex;align-items:center;gap:14px}
+.moon-big{font-family:var(--emoji);font-style:normal;font-size:44px;line-height:1;flex:none}
+.moon-name{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.moon-meta{font-family:var(--mono);font-size:11.5px;color:#6B6156;margin-top:3px;line-height:1.5}
+.moon-lore{font-size:15.5px;line-height:1.6;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
+/* The eight phases as a strip, for the night sky page. The current one is
+   marked, the rest are the reference. */
+.moon-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
+.moon-cell{background:var(--card);padding:10px 4px;text-align:center;display:grid;gap:3px;align-content:start}
+.moon-cell.on{background:var(--paper)}
+.moon-cell .m{font-family:var(--emoji);font-style:normal;font-size:22px;line-height:1.2}
+.moon-cell .n{font-size:11.5px;line-height:1.3;color:#6B6156}
+.moon-cell.on .n{color:var(--ink);font-weight:700}
+
+/* ---------------------------------------------------------------------------
+   THE WEEK
+   --------------------------------------------------------------------------- */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
+.week-item{background:var(--card);padding:10px 6px;text-align:center;display:grid;gap:3px;align-content:start}
+.week-item-day{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#6B6156}
+.week-item-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
+.week-item-temp{font-family:var(--mono);font-size:15px}
+.week-item-note{font-size:12.5px;line-height:1.4;color:#6B6156}
+
+/* ---------------------------------------------------------------------------
+   THE TWELVE MONTHS
+
+   The garden and nature desks both run a year at a glance. One row per month,
+   the current one marked, so a reader can see what is coming without
+   scrolling through twelve cards.
+   --------------------------------------------------------------------------- */
+.month-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.month-cell{background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r);padding:11px 13px;
+  text-decoration:none;color:inherit;display:block}
+.month-cell.on{border:1.5px solid var(--masthead);background:var(--paper)}
+.month-name{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6156}
+.month-cell.on .month-name{color:var(--masthead)}
+.month-lead{font-size:15px;font-weight:700;line-height:1.35;margin-top:4px}
+.month-note{font-size:13.5px;line-height:1.5;color:#6B6156;margin-top:4px}
+
+/* ---------------------------------------------------------------------------
+   SMALL PARTS
+
+   Alerts, the sky callout, and the report rows the scripts write when a feed
+   is quiet. All of them are the same shape: a label, a value, a sentence.
+   --------------------------------------------------------------------------- */
+.report-stack,.alert-stack,.sky-stack{display:grid;gap:10px}
+.report-row,.alert-row,.sky-event{background:var(--paper);border:1px solid #DDCFB8;border-radius:var(--r);padding:11px 13px}
+.report-label,.alert-label{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6B6156}
+.report-value,.alert-value{font-size:15.5px;font-weight:700;line-height:1.4;margin-top:3px}
+.report-note,.alert-note{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px}
+.sky-event{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;align-items:start}
+.sky-event-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
+.sky-event-title{font-size:15.5px;font-weight:700;line-height:1.3}
+.sky-event-note{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px}
+.sky-callout{background:var(--paper);border:1px solid #DDCFB8;border-left:4px solid var(--amber);
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+.alert-banner{background:rgba(200,16,46,.05);border:1px solid #DDCFB8;border-left:5px solid var(--red);
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+.alert-calm{background:var(--paper);border:1px solid #DDCFB8;border-left:5px solid var(--green);
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+.alert-banner strong,.alert-calm strong{color:var(--ink)}
+.side-item{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;padding:11px 0;border-bottom:1px solid #DDCFB8}
+.side-item:last-child{border-bottom:none}
+.side-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
+.side-val{font-size:15.5px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.side-sub{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px;overflow-wrap:anywhere}
+
+/* The source line. Every desk page ends with one, and every reading that
+   comes from somewhere else names where. A number with no provenance is a
+   rumor, which is the rule the red notice already runs on. */
+.src-note{margin-top:22px;padding-top:14px;border-top:1px solid #DDCFB8;font-family:var(--mono);
+  font-size:11.5px;line-height:1.7;color:#6B6156}
+.src-note a{color:var(--red);text-decoration:none}
+.src-note a:hover{text-decoration:underline}
+.src-note strong{font-family:var(--sans);font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);
+  display:block;margin-bottom:5px}
+
+/* ---------------------------------------------------------------------------
+   RESPONSIVE
+
+   Tested at 390px. Tap targets stay at or above 44px, prose stays at or
+   above the card system reading size, and nothing on any of the five pages
+   sits in more than one column.
+   --------------------------------------------------------------------------- */
+@media(max-width:900px){
+  .week-grid{grid-template-columns:repeat(4,1fr)}
+  .moon-strip{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:820px){
+  .two-wide{grid-template-columns:1fr}
+  .hero-row{grid-template-columns:1fr}
+  .hero-date{min-width:0;padding:14px 20px}
+  .month-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .desk-rail-inner{padding:10px 16px}
+}
+@media(max-width:560px){
+  .week-grid{grid-template-columns:repeat(2,1fr)}
+  .month-grid{grid-template-columns:1fr}
+  .watershed-chart,.watershed-chart svg{height:230px;min-height:230px}
+  /* The rail stops stretching and starts scrolling. Full width items on a
+     phone would be five rows of nav above every page on the desk. */
+  .desk-item{flex:0 0 auto;min-width:0}
+  .desk-sub{max-width:15ch}
+}

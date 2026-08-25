@@ -1,0 +1,90 @@
+{
+ "note": "Written by scripts/build-garden-photos.mjs. Edit scripts/garden-photo-picks.json instead.",
+ "photos": {
+  "tomatoes": {
+   "src": "fivemile_photos/garden/tomatoes_karelj.webp",
+   "alt": "A staked tomato plant carrying green fruit, with yellow blossom hanging open on the same stem.",
+   "credit": "Karelj",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File%3ARaj%C4%8De1.jpg",
+   "source": "Wikimedia Commons"
+  },
+  "okra": {
+   "src": "fivemile_photos/garden/okra_bill-tarpenning.webp",
+   "alt": "An okra pod standing straight up off the stem with the spent flower still hanging from its tip.",
+   "credit": "Bill Tarpenning",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File%3AAbelmoschus_esculentus_(cropped).jpg",
+   "source": "Wikimedia Commons"
+  },
+  "collards": {
+   "src": "fivemile_photos/garden/collards_usdagov.webp",
+   "alt": "Two gloved hands reaching into the middle of a collard plant, the broad ribbed leaves filling the frame.",
+   "credit": "USDAgov",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File%3A20170714-PJK-Gleaning-0239TONEDINSTAGRAM.jpg",
+   "source": "Wikimedia Commons"
+  },
+  "corn": {
+   "src": "fivemile_photos/garden/corn_forest-and-kim-starr.webp",
+   "alt": "A short block of sweet corn in full tassel at the edge of a worked garden.",
+   "credit": "Forest and Kim Starr",
+   "license": "CC BY 3.0 US",
+   "url": "https://commons.wikimedia.org/wiki/File%3AStarr-120628-7708-Zea_mays-cv_Ilini_Xtra_Sweet_habit_in_veggie_garden-Hawea_Pl_Olinda-Maui_(24555021784).jpg",
+   "source": "Wikimedia Commons"
+  },
+  "sweetpotato": {
+   "src": "fivemile_photos/garden/sweetpotato_usdagov.webp",
+   "alt": "Sweet potatoes lying on the ground where they were just turned up, still attached to the vine.",
+   "credit": "USDAgov",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File%3ASweet_Potato_Harvest_at_Kirby_Farms_(20130920-OC-LSC-0767).jpg",
+   "source": "Wikimedia Commons"
+  },
+  "garlic": {
+   "src": "fivemile_photos/garden/garlic_challiyan.webp",
+   "alt": "A garlic bulb with the papery outer skin opened back to show the cloves inside.",
+   "credit": "Challiyan",
+   "license": "CC BY 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File%3AGarlic.JPG",
+   "source": "Wikimedia Commons"
+  },
+  "radishes": {
+   "src": "fivemile_photos/garden/radishes_usdagov.webp",
+   "alt": "A red radish half lifted out of dark soil with its leaves still on it.",
+   "credit": "USDAgov",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File%3ARadish_harvest_at_Green_Bexar_Farm%2C_in_Saint_Hedwig%2C_Texas%2C_near_San_Antonio%2C_on_Oct_21%2C_2020_(20201021-NRCS-LSC-0780).jpg",
+   "source": "Wikimedia Commons"
+  },
+  "southernpeas": {
+   "src": "fivemile_photos/garden/southernpeas_carl-davies.webp",
+   "alt": "Long cowpea pods hanging in a bunch from the vine among the leaves.",
+   "credit": "Carl Davies",
+   "license": "CC BY 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File%3ACSIRO_ScienceImage_3264_Cowpea_pods.jpg",
+   "source": "Wikimedia Commons"
+  },
+  "covercrop": {
+   "src": "fivemile_photos/garden/covercrop_usda-nrcs-south-dakota.webp",
+   "alt": "A cover crop coming up green in rows through the stubble of a cut corn field.",
+   "credit": "USDA NRCS South Dakota",
+   "license": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File%3AAwesome_cover_crops_started_in_eastern_South_Dakota_(14941202317).jpg",
+   "source": "Wikimedia Commons"
+  }
+ },
+ "items": {
+  "Tomatoes": "tomatoes",
+  "Fall tomatoes": "tomatoes",
+  "Okra": "okra",
+  "Collards": "collards",
+  "Collards and turnips": "collards",
+  "Corn": "corn",
+  "Sweet potato slips": "sweetpotato",
+  "Garlic": "garlic",
+  "Carrots and radishes": "radishes",
+  "Southern peas": "southernpeas",
+  "Cover crop": "covercrop"
+ }
+}

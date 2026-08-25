@@ -4,12 +4,14 @@
    comes off a typewriter, then the three town names land underneath in the
    same direction. West to east, which is also the locked town order.
 
-   Runs about 1.1 seconds and then never again.
+   Runs about 1.9 seconds, once a day.
 
    Design constraints, all of them deliberate:
 
-   1. Once, ever. Gated on localStorage, not sessionStorage. A reader who
-      has seen it does not see it a second time.
+   1. Once a day, not once ever. What goes into localStorage is the date the
+      reader last saw it, so it comes back the next day they open the site
+      and never twice in the same one. sessionStorage would bring it back on
+      every new tab, which is a different and worse thing.
    2. Never for anyone who has asked for reduced motion at the OS level.
       That check happens in the head gate, before this file loads.
    3. Any input ends it immediately. Tap, key, scroll, or wheel.
@@ -20,6 +22,9 @@
       reveals the masthead anyway.
    6. The red announcement strip is not touched. It is visible from the
       first frame, on every load, per CLAUDE.md.
+   7. On the homepage the wordmark replays it. Everywhere else the wordmark
+      is the link home, which is what it has always been. See bindReplay()
+      at the foot of this file.
 
    Loaded synchronously immediately after the masthead markup so the split
    happens before the first paint. Do not add defer or async to the tag. */
@@ -29,10 +34,22 @@ window.FIVEMILE = window.FIVEMILE || {};
 (function () {
   var STORAGE_KEY = "fivemile-intro-seen";
 
+  /* The stored value is the local date the reader last saw the intro, so the
+     day turns over at their midnight rather than UTC's. Month and day are not
+     padded because the string is only ever compared against itself.
+
+     The head gate in every page builds this same key inline, before this file
+     loads. If one changes the other has to change with it. */
+  function todayKey() {
+    var t = new Date();
+    return t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate();
+  }
+
   /* Matches the longest animation in fivemile-common.css: the last town
-     finishes at 790ms delay plus 200ms stagger plus 220ms duration. The
-     margin covers slow paint on an old phone. */
-  var RUN_MS = 1500;
+     finishes at 1240ms delay plus 340ms stagger plus 300ms duration, which is
+     1880ms. The margin covers slow paint on an old phone. The 2600ms backstop
+     in each page's head gate is set from this number and has to outlast it. */
+  var RUN_MS = 2200;
 
   var root = document.documentElement;
   var doneTimer = null;
@@ -41,9 +58,14 @@ window.FIVEMILE = window.FIVEMILE || {};
     return document.getElementById(id);
   }
 
-  /* Milliseconds between one letter being struck and the next. About twelve
-     characters a second, which is a fast typist rather than a teleprinter. */
-  var STRIKE_MS = 85;
+  /* Milliseconds between one letter being struck and the next. About seven
+     and a half characters a second. This was 85ms, which is a fast typist;
+     at 135ms it is somebody setting a nameplate rather than racing through a
+     sentence, and the eight letters are legible one at a time as they land.
+
+     Every other number in this file and in the intro block of
+     fivemile-common.css is set from this one. Change it and walk the rest. */
+  var STRIKE_MS = 135;
 
   /* When each letter lands. Not index times STRIKE_MS: a small wobble rides
      on top, because an even rate reads as a metronome and the thing being
@@ -137,7 +159,7 @@ window.FIVEMILE = window.FIVEMILE || {};
     /* Written now rather than on completion, so a reader who reloads
        halfway through does not sit through it a second time. */
     try {
-      localStorage.setItem(STORAGE_KEY, "1");
+      localStorage.setItem(STORAGE_KEY, todayKey());
     } catch (e) {}
 
     /* Setting this synchronously in the same task as the split means the
@@ -159,7 +181,8 @@ window.FIVEMILE = window.FIVEMILE || {};
   } catch (e) {}
 
   /* Called by the page. Only the head gate can set "pending", and it only
-     does so for a first time reader who has not asked for reduced motion. */
+     does so for a reader who has not seen it today and has not asked for
+     reduced motion. */
   if (root.getAttribute("data-intro") === "pending") {
     try {
       play();
@@ -168,9 +191,10 @@ window.FIVEMILE = window.FIVEMILE || {};
     }
   }
 
-  /* Replay on demand. Two uses: a future theme toggle can call this, and
-     Joe can run FIVEMILE.playIntro() in the console to see it again
-     without clearing site data. */
+  /* Replay on demand. Three uses: the wordmark on the homepage calls this,
+     a future theme toggle can call it, and Joe can run
+     FIVEMILE.playIntro() in the console to see it again without clearing
+     site data. */
   window.FIVEMILE.playIntro = function () {
     var reduced = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -184,10 +208,61 @@ window.FIVEMILE = window.FIVEMILE || {};
     }
   };
 
-  /* Clears the seen flag so the next load plays it fresh. */
+  /* Clears the stored date so the next load plays it fresh. */
   window.FIVEMILE.resetIntro = function () {
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch (e) {}
   };
+
+  /* Is this the homepage. Same rule as pageKey() in fivemile-common.js: take
+     the last path segment and drop the extension, so "/", "/index.html" and
+     the extensionless "/index" some dev servers hand back all count. */
+  function isHome() {
+    var s = String(window.location.pathname).split("?")[0].split("#")[0];
+    s = s.substring(s.lastIndexOf("/") + 1).replace(/\.html$/, "");
+    return s === "" || s === "index";
+  }
+
+  /* The wordmark is the link home on every page. On the homepage that link
+     has nowhere to go, so it replays the intro instead. Everywhere else it is
+     left exactly as it is and takes the reader home.
+
+     Deliberately not announced anywhere. It is not in the copy, it has no
+     tooltip, and the aria-label still says Home, because on every page but
+     one that is what it is and CLAUDE.md does not allow the UI to explain
+     itself. A reader who taps the nameplate finds it. A reader who does not
+     has lost nothing.
+
+     Three things this is careful about:
+
+     - The link stays a link. preventDefault only fires on a plain left click,
+       so open in new tab, middle click, and long press all still work, and
+       with JavaScript off the nameplate is a link home like anywhere else.
+     - Reduced motion is not bound at all. playIntro() would return without
+       doing anything, and a nameplate that swallows the click and then does
+       nothing is worse than one that reloads the page.
+     - The pointerdown listener that ends the intro is registered inside
+       play(), after this click has already been dispatched, so the click that
+       starts the replay cannot also be the input that ends it. */
+  function bindReplay() {
+    if (!isHome()) return;
+    var reduced = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    var link = document.querySelector(".mh-brand-link");
+    if (!link) return;
+
+    link.addEventListener("click", function (e) {
+      if (e.button && e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      window.FIVEMILE.playIntro();
+    });
+  }
+
+  try {
+    bindReplay();
+  } catch (e) {}
 })();

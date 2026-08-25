@@ -13,56 +13,11 @@
    =========================================================================== */
 
 /* --- beat colors ---------------------------------------------------------
-   A beat is what a story is about: roads, the creek, the council. Each one
-   gets a color and keeps it everywhere, so a reader learns the palette
-   without being told what it means.
-
-   This sets --accent and nothing else. The card system's .tag draws the left
-   bar from that variable and leaves the label ink, which is the whole rule:
-   the bar carries the color, the words never do. See fivemile-cards.css.
-
-   Twelve beats and eight colors, because Roads and Trains want to be told
-   apart at a glance and Utilities and Weather do not. Doubling up is better
-   than twelve colors nobody can hold in their head.
-
-   The key is the beat's printed label with everything but letters taken out,
-   which is why two of these read oddly: Public safety is publicsafety and The
-   creek is thecreek. That one rule is what lets a tag written by the builder
-   and a tag worked out in the browser land on the same color, and it is the
-   only thing keeping these selectors in step with the labels. If you rename a
-   beat, rename its key here to match. */
-.tag[data-beat="roads"]       {--accent:#E87722}
-.tag[data-beat="trains"]      {--accent:#4A3418}
-.tag[data-beat="beltline"]    {--accent:#9a0c22}
-.tag[data-beat="thecreek"]    {--accent:#4A7C59}
-.tag[data-beat="land"]        {--accent:#4A7C59}
-.tag[data-beat="weather"]     {--accent:#2E86AB}
-.tag[data-beat="utilities"]   {--accent:#2E86AB}
-.tag[data-beat="government"]  {--accent:#6B4C9A}
-.tag[data-beat="schools"]     {--accent:#8B6914}
-.tag[data-beat="business"]    {--accent:#8B6914}
-.tag[data-beat="publicsafety"]{--accent:#C8102E}
-.tag[data-beat="history"]     {--accent:#7A5838}
-.tag[data-beat="obituary"]    {--accent:#4A3418}
-
-/* --- the jump row --------------------------------------------------------
-   One line of section names under the headline. Only the sections that have
-   something in them today are drawn, so the row is a true table of contents
-   rather than a menu of empty rooms. It scrolls sideways on a phone rather
-   than wrapping into a second line under the masthead.
-
-   44px, not the 36 a pill this size wants to be. These are tapped, and the
-   tap target floor is not negotiable on a site read mostly outdoors on a
-   phone. See CLAUDE.md. */
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;min-height:44px;display:inline-flex;align-items:center;gap:6px;
-  padding:8px 14px;border-radius:999px;background:var(--card);
-  border:1px solid var(--fm-rule);text-decoration:none;color:var(--ink2);
-  font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
-  white-space:nowrap;transition:border-color 220ms ease,color 220ms ease}
-.chip:hover,.chip:focus-visible{border-color:var(--red);color:var(--red)}
-.chip b{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:0;color:var(--ink3)}
+   Moved to fivemile-cards.css, under .tag, when the archive page became the
+   second page that renders a story row. Nothing else changed: the news page
+   loads the card file first, so the same declarations apply from the same
+   place at the same specificity. Add a new beat there, not here.
+   ------------------------------------------------------------------------- */
 
 /* --- the photograph on a story row ---------------------------------------
    The slot the date block occupies on a calendar stub: flush to the left edge,

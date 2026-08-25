@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fishing &middot; FIVEMILE</title>
+<meta name="description" content="Water temperature, creek level, and what is worth trying on Five Mile Creek today, plus species, seasons, limits, and the state fish advisory.">
+<link rel="canonical" href="https://fivemile.now/fivemile-fishing.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Fishing &middot; FIVEMILE">
+<meta property="og:description" content="Water temperature, creek level, and what is worth trying on Five Mile Creek today, plus species, seasons, limits, and the state fish advisory.">
+<meta property="og:url" content="https://fivemile.now/fivemile-fishing.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fishing &middot; FIVEMILE">
+<meta name="twitter:description" content="Water temperature, creek level, and what is worth trying on Five Mile Creek today, plus species, seasons, limits, and the state fish advisory.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-almanac.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="topo-canvas"></canvas>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac" class="active">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<nav class="desk-rail" aria-label="Almanac desks">
+  <div class="desk-rail-inner" data-desk-rail></div>
+</nav>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd">
+      <h1>Fishing</h1>
+      <a href="https://www.outdooralabama.com/fishing/freshwater-fishing" target="_blank" rel="noopener">Outdoor Alabama &rarr;</a>
+    </div>
+    <p class="desk-intro">Five Mile Creek is a small water. What it holds, and whether any of it is
+      interested today, comes down to water temperature, how much is moving through the channel, and
+      whether the weather has settled down. All three are on this page.</p>
+  <div class="four-eq">
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Water &middot; Estimated</p>
+        <div class="g-val" id="fishWaterVal">&mdash;</div>
+        <div class="g-sub" id="fishWaterSub">This reading is not coming through right now.</div>
+      </div>
+      <a class="card-gauge" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Creek &middot; Republic</p>
+        <div class="g-val" id="fishCreekVal">&mdash;</div>
+        <div class="g-sub" id="fishCreekSub">This reading is not coming through right now.</div>
+      </a>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Pressure &middot; Station</p>
+        <div class="g-val" id="fishPressureVal">&mdash;</div>
+        <div class="g-sub" id="fishPressureSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Best window &middot; Today</p>
+        <div class="g-val" id="fishWindowVal">&mdash;</div>
+        <div class="g-sub" id="fishWindowSub">This reading is not coming through right now.</div>
+      </div>
+  </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>Today on the creek</h2><span class="hd-note" id="fishStamp">&mdash;</span></div>
+    <div class="two-eq">
+      <div class="card-dept">
+        <div class="d-bar"><h3>What is worth trying</h3><span class="r">Three stars is the ceiling</span></div>
+        <div class="d-body">
+          <div class="alm-list" id="fishRatings">
+            <div class="empty">&mdash;</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dept">
+        <div class="d-bar"><h3>Reading the water</h3><span class="r" id="fishReadStamp">&mdash;</span></div>
+        <div class="d-body">
+          <p class="wx-narrative" id="fishNarrative">&mdash;</p>
+          <div class="sci-box">
+            <div class="sci-label">Why water temperature runs the whole thing</div>
+            <p>Fish are cold blooded, so the temperature of the water sets how fast they digest, how much
+              they need to eat, and how far they will move to get it. That is why the same creek can feel
+              empty in February and busy in June. The figure in the tile above is an estimate built from
+              air temperature and the time of year, not a thermometer in the water.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE THREE THAT MATTER -----------------------------------------------
+       Brass check cards. Rare on purpose across the site, and this is the
+       page they were drawn for: a specimen with a name, a latin name, and a
+       line about how it lives. See DECISIONS.md on the card spec.
+       ------------------------------------------------------------------- -->
+  <section class="blk">
+    <div class="hd"><h2>The three that matter here</h2><span class="hd-note">Warrior basin creek fish</span></div>
+    <div class="three-eq" id="fishSpecies"></div>
+    <div class="card-notice info" style="margin-top:12px">
+      <p class="n-kick">Species list</p>
+      <h3>What actually lives in this stretch has never been written down here</h3>
+      <p>The three above are the ones anybody who fishes this creek will recognize, and the general run of
+        Warrior basin sunfish and catfish goes well beyond them. A proper species list for the lower end of
+        Five Mile Creek would need a survey, not a guess.
+        <!-- NEEDS-CONFIRMATION: a sourced species list for Five Mile Creek below Republic.
+             Candidates are an ADEM or Freshwater Land Trust stream assessment, or a state
+             fisheries survey. Do not fill this in from general knowledge. -->
+        If you know of a survey, or you fish it and want to say what you catch,
+        <a href="mailto:fivemilec@gmail.com?subject=Five%20Mile%20Creek%20fishing">send it in</a>.</p>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>The fishing year</h2><span class="hd-note">By water temperature, not by date</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>Month by month</h3><span class="r" id="fishYearStamp">&mdash;</span></div>
+      <div class="d-body">
+        <div class="month-grid" id="fishYear"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>Before you go</h2></div>
+    <div class="two-eq">
+
+      <a class="card-tab" href="https://www.outdooralabama.com/fishing/freshwater-fishing-creel-and-size-limits" target="_blank" rel="noopener">
+        <span class="t-tab">Limits</span>
+        <div class="t-title">Creel and size limits</div>
+        <div class="t-row"><span>Black bass, daily</span><b>10</b></div>
+        <div class="t-row"><span>Bream, daily</span><b>50</b></div>
+        <div class="t-row"><span>Set by</span><b>Alabama DCNR</b></div>
+        <div class="t-note">Statewide freshwater limits, checked August 2026. Specific waters can carry their
+          own rules and the annual regulations digest is the authority. Read it before you keep anything.</div>
+      </a>
+
+      <a class="card-tab" href="https://www.outdooralabama.com/licenses" target="_blank" rel="noopener">
+        <span class="t-tab">License</span>
+        <div class="t-title">You need one</div>
+        <div class="t-row"><span>Who</span><b>Most adults</b></div>
+        <div class="t-row"><span>Season runs</span><b>Sep 1 to Aug 31</b></div>
+        <div class="t-row"><span>Sold by</span><b>Alabama DCNR</b></div>
+        <div class="t-note">Alabama sells freshwater fishing licenses online and through license agents.
+          Exemptions exist by age and residency, and the state page is where to check yours.</div>
+      </a>
+
+    </div>
+
+    <div class="card-notice" style="margin-top:12px">
+      <p class="n-kick">Before you eat what you catch</p>
+      <h3>Alabama publishes a fish consumption advisory every year</h3>
+      <p>The state updates advisories annually, waterbody by waterbody and species by species, from sampling
+        done the previous fall. Five Mile Creek runs through a long industrial history, so this is not a
+        formality here. Check the current advisory for this creek before you eat anything out of it.
+        <!-- NEEDS-CONFIRMATION: what the current advisory actually says for Five Mile Creek,
+             Jefferson County. Do not summarize the PDF from memory. Read the current year's
+             advisory, and if it names this creek, quote it here with the year. -->
+      </p>
+      <p class="n-src">Source: <a href="https://www.alabamapublichealth.gov/tox/fish-advisories.html" target="_blank" rel="noopener">Alabama Department of Public Health, Fish Advisories</a>, updated annually from Alabama Department of Environmental Management sampling.</p>
+    </div>
+  </section>
+
+  <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk
+       pages do not each keep their own copy of the markup. -->
+  <div data-desk-back></div>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Creek stage and flow: <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge 02457595, Fivemile Creek near Republic</a>.
+    Air temperature and barometric pressure: the weather station in Cardiff. Water temperature on this page is
+    an estimate from air temperature and season, not a measured reading.
+    Regulations and licenses: <a href="https://www.outdooralabama.com/fishing/freshwater-fishing" target="_blank" rel="noopener">Alabama Department of Conservation and Natural Resources</a>.
+    Consumption advisories: <a href="https://www.alabamapublichealth.gov/tox/fish-advisories.html" target="_blank" rel="noopener">Alabama Department of Public Health</a>.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-season-data.js"></script>
+<script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
+<script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-fishing.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

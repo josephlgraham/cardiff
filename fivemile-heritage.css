@@ -1,0 +1,519 @@
+/* ===========================================================================
+   fivemile-heritage.css
+
+   The heritage family: the hub and its seven chapter pages. The town panels
+   are cards out of fivemile-cards.css, and the town badges and tags on the
+   timeline rows come from the same file. Everything else here is typographic
+   rather than card shaped, and that is the point. A run of cards is what this
+   page was before, and a run of cards is what read as a pile.
+
+   THE SPLIT. The hub is a front page and a chapter page is the chapter. The
+   hub gives each of the seven a plate, one big figure, a few sentences and a
+   door, and the door goes to a real page at a real address rather than to an
+   anchor further down the same scroll. That is what fixed the navigation:
+   turns that promise a page now deliver one. The hub carries no dated entries
+   at all, which is the other half of the fix, because four hundred lines of
+   timeline is not a front page.
+
+   Two shapes do all the work. .hub-ch is the door and it belongs to the hub.
+   .ch-head, .ch-open and .hz-list are the chapter and they belong to the
+   seven. Almost nothing is shared between them but the plate and the rules.
+
+   Nothing in here is a new card and nothing in here should become one. If a
+   second page ever wants a chapter or a plate, that is the moment to look at
+   whether it belongs in the card file, not before.
+
+   THE SHELL. The rules under "page shell" are the same shell
+   fivemile-archive.css carries, which is the same shell fivemile-almanac.css
+   carries. That makes three, and the note at the top of the archive file says
+   in as many words that when a third turns up, the shell is what moves into
+   fivemile-common.css. It has not moved yet, because fivemile-common.css is
+   loaded by every page on the site including the ones that still carry their
+   own inline styles, and dropping a body font-size into all of them is not a
+   change to make in passing. It is owed.
+
+   Load order is common, then cards, then this.
+   =========================================================================== */
+
+:root{
+  --red:#C8102E;--red-mid:#9a0c22;
+  --paper:#F2E8D5;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;
+  --masthead:#3D2810;
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --fm-rule:#DDCFB8;--fm-muted:#6B6156;
+  --r:8px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+}
+
+/* --- page shell ---------------------------------------------------------- */
+/* The reset, the measure, the grids and .lede are in fivemile-shell.css.
+   Heritage puts its top gap on the wrap rather than on a first section, and
+   its empty state is a point larger because a chapter with nothing in it is
+   read rather than glanced at. */
+.wrap{padding-top:26px}
+section.blk[id]{scroll-margin-top:18px}
+.empty{font-size:16px}
+
+/* ---------------------------------------------------------------------------
+   THE THREE TOWNS
+
+   Three .card-tab panels across, in the order they always go: Graysville,
+   Cardiff, Brookside. Full tab cards rather than .card-tab.brief, because
+   these have rows and the rows are the point. DECISIONS.md 15 says .brief is
+   for the rowless case and must not go on a card with .t-row children.
+   --------------------------------------------------------------------------- */
+.towns{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.towns > .card-tab{height:100%}
+
+/* A reference mark on a row value. It lives here rather than in
+   fivemile-cards.css because one page uses it, which is the rule at the top
+   of that file read the other way round. No italics anywhere on this site, so
+   this is a span rather than the <i> the shape suggests. */
+.t-mark{font-family:var(--mono);font-size:10px;font-weight:400;color:var(--red);
+  vertical-align:super;line-height:1;margin-left:2px}
+
+/* ---------------------------------------------------------------------------
+   THE PANEL
+
+   Prose gets mounted. Everything on these pages that a reader actually reads
+   sits on card paper inside a hairline, the same as every card on the site,
+   because a run of sentences floating on the background reads as a draft that
+   somebody forgot to finish. This is the museum wall panel and it is the one
+   shape the whole section is built out of.
+
+   WHAT DOES NOT GET ONE. Section headings. A .hd is a two or three word label
+   with an ink rule under it, which is furniture rather than a body of text,
+   and putting a box around a label gives you a box with a label in it. The
+   ladder rungs, the timeline, the chapter navigation and the closing source
+   note are all already panels of their own and must not be nested inside a
+   second one.
+   --------------------------------------------------------------------------- */
+.panel{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
+  padding:22px 24px}
+.panel > .lede:last-child,.panel > p:last-child{margin-bottom:0}
+
+/* A plate inside a panel is already on card paper, so it drops its own mount
+   and keeps the hairline that divides the picture from its credit. Two nested
+   paper panels with two radii is one too many, which is the same call the
+   ladder rungs make. */
+.panel .ch-fig{background:none;border:none;border-radius:0}
+.panel .ch-fig img{border-radius:6px}
+.panel .ch-fig figcaption{padding:10px 0 0;border-top:1px solid var(--fm-rule);margin-top:11px}
+
+/* ---------------------------------------------------------------------------
+   THE HUB: A LADDER OF SEVEN
+
+   This replaced a contents list, and it replaced it because a contents list
+   answers "what is in here" and could not answer "is this worth my time".
+   A rung carries a photograph, a few sentences on why that stretch of years
+   mattered, and the way in. That is enough to decide on, which is all the hub
+   is for. There was a pulled out figure in there for a while and it came out
+   again: set big enough to be worth pulling out it fought the title, and set
+   small enough not to it was just the first line of the blurb twice.
+
+   THE ALTERNATION. Three blocks to a rung: identity, plate, body. Odd rungs
+   run identity first and even rungs run identity last, so the run zigzags
+   down the page instead of stacking seven near identical rows. Seven of
+   anything laid out the same way stops being read about halfway down, and the
+   big numeral is what the eye catches on the way past.
+
+   Only the grid areas swap. The DOM order is identity, plate, body on every
+   single rung, so a screen reader and a keyboard get one consistent order
+   while the eye gets two. This is why it is grid-template-areas and not
+   reversed markup or row-reverse.
+
+   Two chapters have no photograph, because none honestly exists for those
+   years. Those rungs give the body the plate's column rather than leaving a
+   hole in the middle of the ladder, and they still alternate.
+
+   THE RUNGS ARE CARDS. This file used to say in as many words that they were
+   not and must not become any, on the grounds that the page is typographic.
+   That held while a rung was type on paper between two hairlines. It stopped
+   holding once the run moved above the town panels and became the first thing
+   on the page: seven blocks of type floating on the paper with nothing under
+   them read as a draft, and the museum panel this is now wants its exhibits
+   mounted. Card paper, hairline, the site's 14px radius, same as everything
+   else that holds something.
+
+   THE OVERLAY, AND WHY THE RUNG IS A DIV. The rung cannot be an anchor. A
+   plate carries a credit, a credit is a link, and an anchor inside an anchor
+   is invalid HTML that the parser repairs by splitting the outer one, which
+   turned seven rungs into nineteen. So the title holds the only real link and
+   that link stretches a transparent layer over the whole rung, which gives a
+   reader on a phone the entire rung as a target without nesting anything. The
+   credit is lifted one step above that layer so it stays clickable, and it is
+   the only thing on the rung that is allowed to be.
+   --------------------------------------------------------------------------- */
+.hub-chapters{display:grid;gap:16px;margin-top:22px}
+
+.hub-ch{position:relative;display:grid;gap:14px 26px;align-items:start;
+  grid-template-columns:minmax(0,168px) minmax(0,296px) minmax(0,1fr);
+  grid-template-areas:"id plate body";
+  background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
+  padding:24px;transition:border-color var(--ease),background var(--ease)}
+.hub-ch.alt{grid-template-columns:minmax(0,1fr) minmax(0,296px) minmax(0,168px);
+  grid-template-areas:"body plate id"}
+.hub-ch.noplate{grid-template-columns:minmax(0,168px) minmax(0,1fr);
+  grid-template-areas:"id body"}
+.hub-ch.noplate.alt{grid-template-columns:minmax(0,1fr) minmax(0,168px);
+  grid-template-areas:"body id"}
+
+/* The hover. The tint that used to carry it is the resting state now, so the
+   border does the work instead, which is what .card-tab and the chapter nav
+   already do on this site. Everything else that moved before still moves. */
+.hub-ch:hover{border-color:var(--masthead)}
+.hub-ch:hover .hub-link{color:var(--red)}
+.hub-ch:hover .hub-arrow{transform:translateX(4px)}
+.hub-ch:hover .hub-no{color:var(--red)}
+.hub-ch:hover .ch-fig{border-color:var(--fm-rule)}
+
+.hub-id{grid-area:id;min-width:0}
+.hub-plate{grid-area:plate;min-width:0}
+.hub-bd{grid-area:body;min-width:0}
+
+/* On a mirrored rung the identity block hangs off the right edge, so it is
+   set flush right to meet it. The body stays left aligned on every rung,
+   because a right aligned paragraph is harder to read and the ragged edge is
+   not worth the symmetry. */
+.hub-ch.alt .hub-id{text-align:right}
+
+.hub-title{font-size:26px;font-weight:800;letter-spacing:-.024em;line-height:1.08;margin:0 0 5px}
+.hub-link{text-decoration:none;color:inherit;transition:color var(--ease)}
+.hub-link:hover{text-decoration:none}
+.hub-link::after{content:"";position:absolute;inset:0;z-index:1}
+.hub-link:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* The one thing that has to reach through the overlay. */
+.hub-plate .fig-credit a{position:relative;z-index:2}
+
+/* A plate on a rung is already sitting on card paper, so it drops its own
+   mount and keeps only the hairline that separates the picture from the
+   credit under it. Two nested paper panels with two radii is one too many. */
+.hub-plate .ch-fig{background:none;border:none;border-radius:0}
+.hub-plate .ch-fig figcaption{padding:9px 0 0}
+
+/* Every thumbnail on the ladder is trimmed to one shape. The plates are a
+   square photograph, a portrait measured drawing and five landscape prints,
+   and left alone they made two rungs more than twice the height of the other
+   five, which is not variety, it is a broken rhythm. The full plate is never
+   trimmed: the chapter page shows all of it. Anchored to the centre unless
+   the picture says otherwise, which the drawing does, because its heading and
+   its oven batteries are along the top. */
+.hub-plate .ch-fig img{aspect-ratio:4 / 3;object-fit:cover;object-position:center;
+  height:auto;border-radius:6px}
+.hub-plate .ch-fig img.crop-top{object-position:center top}
+
+.hub-span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--fm-muted)}
+
+/* The rung number, and the reason the ladder reads as one. Big enough to
+   catch the eye on the way down, quiet enough that it never competes with the
+   title beside it. It is decoration rather than information, which is why it
+   is aria-hidden in the markup: the count is already in the heading order. */
+.hub-no{display:block;margin-top:12px;font-family:var(--mono);font-size:46px;line-height:.82;
+  font-weight:500;letter-spacing:-.04em;color:var(--fm-rule);transition:color var(--ease)}
+
+.hub-blurb{font-size:16.5px;line-height:1.6;color:var(--ink2);margin:0;max-width:58ch}
+
+/* The way in, and how thick the record is once you are through it. The count
+   is the honest part: three entries and eleven entries should not look the
+   same from out here. */
+.hub-go{display:flex;align-items:center;gap:9px;margin-top:15px;min-height:44px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+.hub-arrow{display:inline-block;transition:transform var(--ease)}
+.hub-count{color:var(--fm-muted);letter-spacing:.06em}
+.hub-count::before{content:"\00b7";margin-right:9px}
+
+/* ---------------------------------------------------------------------------
+   A CHAPTER PAGE
+
+   The way back up, then number, span and title, then a plate and the opening
+   beside it, then everything dated. All seven are built the same way from the
+   same script, which is what makes them read as a publication rather than as
+   seven files that happen to share a stylesheet.
+   --------------------------------------------------------------------------- */
+
+/* The chapter's opening spread. The number, the title, the plate and the
+   summary are one thought and they get one mount, which is the closest thing
+   on this site to the panel on a gallery wall. The heading goes inside it
+   rather than above it because at this size it is a display block and the
+   anchor of the page, not a section label. */
+.ch-lead{margin-bottom:26px}
+.ch-lead .ch-head{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--fm-rule)}
+
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;margin-bottom:22px}
+.ch-no{font-family:var(--mono);font-size:42px;line-height:.82;font-weight:500;color:var(--red);
+  letter-spacing:-.03em}
+.ch-span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--fm-muted);margin-bottom:5px}
+.ch-title{font-size:30px;font-weight:800;letter-spacing:-.022em;line-height:1.04;margin:0}
+
+/* The opener. Plate on the left at roughly the size the source file actually
+   is, so it is never scaled up past what it can carry, and the paragraph
+   beside it. A chapter with no plate gives the paragraph the full measure. */
+.ch-open{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:24px;align-items:start}
+.ch-open.noplate{grid-template-columns:1fr}
+.ch-plates{display:grid;gap:14px;min-width:0}
+.ch-lede{min-width:0}
+
+/* The opening. Longer than it used to be and set looser to carry it, because
+   this is the paragraph doing the teaching and a reader should be able to
+   stay in it. */
+.ch-note{font-size:17px;line-height:1.68;color:var(--ink2);max-width:58ch;margin:0}
+.ch-open.noplate .ch-note{max-width:64ch}
+
+/* A plate. Paper mount, hairline, caption and credit under the picture as
+   real text. See DECISIONS.md 18 on why a credit is never a title attribute. */
+.ch-fig{margin:0;background:var(--card);border:1px solid var(--fm-rule);border-radius:14px;overflow:hidden}
+.ch-fig img{display:block;width:100%;height:auto;background:var(--paper)}
+.ch-fig figcaption{padding:11px 14px 12px;font-size:16px;line-height:1.5;color:var(--ink2);
+  border-top:1px solid var(--fm-rule)}
+.fig-credit{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--fm-muted);line-height:1.5}
+.fig-credit a{color:inherit;text-decoration:underline;text-decoration-color:var(--fm-rule);
+  text-underline-offset:2px}
+.fig-credit a:hover{color:var(--red);text-decoration-color:var(--red)}
+
+/* A plate on the hub, where the blurb beside it is already doing what a
+   caption does. The caption comes off and the credit stays, because a credit
+   is owed and a caption is only useful. */
+.ch-fig.compact figcaption{padding:9px 13px 10px}
+.ch-fig.compact .fig-credit{margin-top:0}
+
+/* ---------------------------------------------------------------------------
+   THE CHAPTER LIST
+
+   One list per chapter, in date order, with all three towns in it. This was
+   three columns for a while and the columns were wrong: a column is a place
+   to file things and this page is trying to show that the three towns
+   happened to each other, which you read down a chronology and lose in a
+   grid.
+
+   A row carries the date, a town badge, and a tag, and the tag's color runs
+   down the row's left edge. That treatment is not new here. It is the accent
+   bar a .card-notice carries and the beat bar a news row carries, doing the
+   same job in a third place: telling you what kind of thing this is before
+   you have read a word of it.
+
+   THE COLORS. Eight topics, eight colors, and four of them are deliberately
+   the color their news beat already has, so a reader who has learned the
+   palette on the news page does not have to learn a second one here. The
+   creek is the creek's green, government is government's purple, fire and
+   storm is the public safety red, and settlement is the history brown. The
+   four with no counterpart take the remaining hues from the same set. See the
+   note above the beat colors in fivemile-cards.css: a page with its own
+   subjects sets --accent from its own stylesheet, which is what this is.
+
+   --accent is set on the row, not on the tag. The tag's bar reads it through
+   the cascade and the row's left edge reads the same one, so the two cannot
+   drift apart, and a topic nobody has colored falls back to the muted brown
+   and still looks deliberate.
+   --------------------------------------------------------------------------- */
+.ch-body{margin-top:0}
+
+/* THE PANEL. The timeline used to be hairlines ruled straight onto the paper
+   with nothing behind them, which on this site reads as a table that has not
+   been finished. It is one panel now, card paper and a hairline and the usual
+   radius, with the rows divided inside it. That is the same construction
+   .d-rows uses in fivemile-cards.css, which is the site's answer to a table
+   and has been all along.
+
+   The line about which towns the chapter has nothing for lives inside the
+   panel rather than under it, because it is a statement about this table and
+   belongs in the same box as the table. */
+.hz-panel{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
+  overflow:hidden}
+.hz-panel > .empty{padding:20px 24px}
+
+.hz-list{list-style:none;margin:0;padding:0}
+.hz-row{position:relative;padding:18px 24px 18px 30px;border-bottom:1px solid var(--fm-rule)}
+.hz-row:last-child{border-bottom:none}
+.hz-row::before{content:"";position:absolute;left:14px;top:18px;bottom:18px;width:3px;border-radius:2px;
+  background:var(--accent,var(--fm-muted))}
+
+.hz-row[data-topic="settlement"]  {--accent:#7A5838}
+.hz-row[data-topic="coal"]        {--accent:#4A3418}
+.hz-row[data-topic="people"]      {--accent:#2E86AB}
+.hz-row[data-topic="church"]      {--accent:#8B6914}
+.hz-row[data-topic="government"]  {--accent:#6B4C9A}
+.hz-row[data-topic="townlife"]    {--accent:#E87722}
+.hz-row[data-topic="thecreek"]    {--accent:#4A7C59}
+.hz-row[data-topic="fireandstorm"]{--accent:#C8102E}
+
+/* The date, where it happened, and what it was about, on one line. The badge
+   answers where and the tag answers what, which is the split described at the
+   top of fivemile-cards.css. The towns have no colors, decision 11, so the
+   badge stays masthead brown on every row and the color on the line is the
+   tag's alone. */
+.hz-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.hz-when{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);white-space:nowrap}
+
+.hz-title{display:block;font-size:18px;font-weight:700;line-height:1.3;letter-spacing:-.012em;
+  margin-bottom:5px}
+.hz-note{font-size:16px;line-height:1.55;color:var(--ink2);margin:0;max-width:68ch}
+
+/* The source line. Mono, quiet, and under every single entry, because a fact
+   on this page with no source is a fact this page should not be running. */
+.hz-src{margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--fm-muted);line-height:1.5}
+.hz-src a{color:inherit;text-decoration:underline;text-decoration-color:var(--fm-rule);
+  text-underline-offset:2px}
+.hz-src a:hover{color:var(--red);text-decoration-color:var(--red)}
+
+/* A town the chapter has nothing for. The three column layout said this with
+   an em dash under an empty heading and a list has no room to, so the chapter
+   says it in a sentence. It is copy rather than furniture, so it is set at
+   reading size like everything else a person actually reads here. */
+.hz-gap{margin:0;padding:16px 24px;border-top:1px solid var(--fm-rule);font-size:16px;
+  line-height:1.55;color:var(--fm-muted)}
+.hz-list + .hz-gap{border-top:1px solid var(--fm-rule)}
+
+/* ---------------------------------------------------------------------------
+   MOVING BETWEEN CHAPTERS
+
+   The same three things at the head of a chapter and at its foot: the one
+   before, the way back to all seven, and the one after. It used to be a back
+   link at the top and a pair of turns at the bottom, which meant a reader who
+   had just arrived could not see where they had landed without scrolling to
+   the end to find out.
+
+   One component, two weights. .top is a quiet strip, because nothing above the
+   chapter title should compete with it. .foot is a set of panels, because that
+   is the moment the reader is choosing where to go and the choice has earned
+   the room. Both are the same three cells in the same order, so it is one
+   thing to learn rather than two.
+
+   The middle cell is always the hub, which is what keeps this readable at a
+   glance: the way out is in the same place on every chapter, at both ends of
+   every chapter. The first chapter has nothing before it and the last has
+   nothing after it, and those cells go empty rather than greyed, so the hub
+   stays centred and nothing on the page looks like it should work and does
+   not.
+   --------------------------------------------------------------------------- */
+.ch-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.ch-nav .chn,.ch-nav .chn-hub{text-decoration:none;color:inherit}
+.ch-nav a:hover{text-decoration:none}
+.chn-none{display:block}
+
+/* --- the strip at the head ------------------------------------------------
+   One low panel rather than three labels ruled onto the paper, for the same
+   reason the timeline is a panel. The two dividers hang off the middle cell
+   rather than off the outer two, so an end with no chapter behind it leaves
+   an empty seat instead of a stray line. */
+.ch-nav.top{margin-bottom:22px;gap:0;background:var(--card);border:1px solid var(--fm-rule);
+  border-radius:var(--fm-card-r,14px);overflow:hidden}
+.ch-nav.top .chn,.ch-nav.top .chn-hub{display:flex;align-items:center;gap:8px;min-height:44px;
+  padding:10px 15px;font-family:var(--mono);font-size:11px;letter-spacing:.07em;color:var(--fm-muted);
+  transition:color var(--ease),background var(--ease)}
+.ch-nav.top .chn-hub{border-left:1px solid var(--fm-rule);border-right:1px solid var(--fm-rule)}
+.ch-nav.top a:hover{background:var(--paper)}
+.ch-nav.top .chn-next{justify-content:flex-end;text-align:right}
+.ch-nav.top .chn-hub{justify-content:center;text-align:center;gap:7px;white-space:nowrap}
+.ch-nav.top .chn:hover,.ch-nav.top .chn-hub:hover{color:var(--red)}
+.ch-nav.top .chn-dir{flex:none;text-transform:uppercase;letter-spacing:.12em}
+.ch-nav.top .chn-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
+  color:var(--ink);font-family:var(--sans);font-size:13.5px;letter-spacing:0}
+.ch-nav.top .chn:hover .chn-name{color:var(--red)}
+.ch-nav.top .chn-hub b{font-family:var(--sans);font-size:13.5px;font-weight:700;letter-spacing:-.01em;
+  color:var(--ink)}
+.ch-nav.top .chn-hub i{font-style:normal;letter-spacing:.09em;text-transform:uppercase}
+.ch-nav.top .chn-hub:hover b{color:var(--red)}
+
+/* --- the panels at the foot ----------------------------------------------- */
+.ch-nav.foot{margin-top:36px;padding-top:20px;border-top:1px solid var(--fm-rule)}
+.ch-nav.foot .chn,.ch-nav.foot .chn-hub{display:flex;flex-direction:column;justify-content:center;
+  gap:5px;min-height:44px;padding:13px 15px;background:var(--card);border:1px solid var(--fm-rule);
+  border-radius:14px;transition:border-color var(--ease)}
+.ch-nav.foot .chn-hub{align-items:center;text-align:center;min-width:158px}
+.ch-nav.foot .chn:hover,.ch-nav.foot .chn-hub:hover{border-color:var(--masthead)}
+.ch-nav.foot .chn:hover .chn-name,.ch-nav.foot .chn-hub:hover b{color:var(--red)}
+.ch-nav.foot .chn-next{text-align:right;align-items:flex-end}
+.ch-nav.foot .chn-dir,.ch-nav.foot .chn-hub i{font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);font-style:normal}
+.ch-nav.foot .chn-name,.ch-nav.foot .chn-hub b{font-size:16.5px;font-weight:700;line-height:1.25;
+  letter-spacing:-.01em;transition:color var(--ease)}
+
+/* ---------------------------------------------------------------------------
+   The closing band, and the send block the homepage also ends on.
+   --------------------------------------------------------------------------- */
+/* The closing band. A rule with type under it was the last thing on these
+   pages still sitting straight on the paper. */
+.src-note{margin-top:40px;padding:22px 24px;background:var(--card);
+  border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
+  font-size:16px;line-height:1.6;color:var(--fm-muted)}
+.src-note > p{max-width:72ch}
+.src-note strong{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:9px;font-weight:500}
+.src-note p{margin:0 0 12px}
+.src-note p:last-of-type{margin-bottom:0}
+.src-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--fm-rule);
+  text-underline-offset:2px}
+.src-note a:hover{color:var(--red);text-decoration-color:var(--red)}
+.src-list{list-style:none;margin:16px 0 0;padding:0;font-size:15.5px;
+  border-top:1px solid var(--fm-rule)}
+.src-list li{padding:9px 0 9px 16px;position:relative;border-bottom:1px solid var(--fm-rule)}
+.src-list li:last-child{border-bottom:none;padding-bottom:0}
+.src-list li::before{content:"";position:absolute;left:0;top:1.15em;width:7px;height:1px;
+  background:var(--fm-rule)}
+
+.send{margin-top:34px;background:var(--card);border:1px solid var(--fm-rule);border-radius:14px;
+  padding:22px;text-align:center}
+.send h2{margin:0 0 6px;font-size:20px;font-weight:800}
+.send p{margin:0 auto 14px;color:var(--fm-muted);font-size:16px;max-width:54ch;line-height:1.55}
+.send .btn{min-height:44px;font-size:15.5px}
+
+/* --- narrow -------------------------------------------------------------- */
+@media(max-width:860px){
+  .towns{grid-template-columns:1fr;gap:24px}
+  .ch-open{grid-template-columns:1fr;gap:18px}
+  .ch-note{max-width:64ch}
+  /* The ladder stops being a ladder. Three columns need about nine hundred
+     pixels to hold a photograph and a paragraph at once, and below that the
+     alternation is not interesting, it is just two of the seven rungs having
+     their picture in a different place. Every rung stacks in DOM order, which
+     is the order it was always written in. */
+  .hub-ch,.hub-ch.alt,.hub-ch.noplate,.hub-ch.noplate.alt{grid-template-columns:1fr;
+    grid-template-areas:"id" "plate" "body";gap:16px;padding:20px}
+  .hub-ch.alt .hub-id{text-align:left}
+  .hub-plate{max-width:420px}
+  /* Stacked, the numeral has nothing to sit under, so it goes up beside the
+     span and gets out of the way of the title. */
+  .hub-id{display:grid;grid-template-columns:auto 1fr;gap:0 13px;align-items:baseline}
+  .hub-no{grid-row:1;grid-column:1;margin-top:0;font-size:27px;line-height:1}
+  .hub-span{grid-row:1;grid-column:2}
+  .hub-title{grid-row:2;grid-column:1 / -1;margin:9px 0 0}
+}
+@media(max-width:760px){
+  .wrap{padding:20px 16px 20px}
+  .ch-head{gap:13px}
+  .ch-no{font-size:34px}
+  .ch-title{font-size:25px}
+  .hub-title{font-size:23px}
+  /* Three cells side by side at 375px gives each of them about 110 pixels,
+     and a chapter title does not fit in that. The head strip drops the two
+     titles and keeps the arrows, which is enough to move by when the chapter
+     you are on is named twelve pixels underneath. The panels at the foot keep
+     their titles and stack instead, because that is where the reader is
+     actually deciding. */
+  .ch-nav.top{grid-template-columns:auto 1fr auto}
+  .ch-nav.top .chn-name{display:none}
+  .ch-nav.foot{grid-template-columns:1fr 1fr}
+  .ch-nav.foot .chn-hub{grid-column:1 / -1;order:-1;min-width:0}
+  .ch-nav.foot .chn-none{display:none}
+  /* The first and last chapters have one neighbour, not two, so the one they
+     do have takes the whole row instead of sitting in half of it with a hole
+     beside it. */
+  .ch-nav.foot.no-prev .chn-next,.ch-nav.foot.no-next .chn-prev{grid-column:1 / -1}
+  /* The list keeps its structure all the way down. The only thing that gives
+     at 390px is the room around a row, because the date, the badge and the
+     tag already wrap onto a second line by themselves. */
+  .hz-row{padding:16px 16px 16px 24px}
+  .hz-row::before{left:10px;top:16px;bottom:16px}
+  .hz-gap{padding:15px 16px}
+  .hz-panel > .empty{padding:18px 16px}
+  .src-note{padding:18px 16px}
+  .panel{padding:18px 16px}
+  .ch-nav.top .chn,.ch-nav.top .chn-hub{padding:10px 11px}
+  .hz-title{font-size:17.5px}
+}

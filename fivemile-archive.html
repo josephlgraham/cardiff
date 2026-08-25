@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive &middot; FIVEMILE</title>
+<meta name="description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, and every story that has run.">
+<link rel="canonical" href="https://fivemile.now/fivemile-archive.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Archive &middot; FIVEMILE">
+<meta property="og:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, and every story that has run.">
+<meta property="og:url" content="https://fivemile.now/fivemile-archive.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Archive &middot; FIVEMILE">
+<meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, and every story that has run.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair is the wordmark face and nothing else. Every page loads it,
+     because without it the nameplate falls back to Georgia and the arc in
+     fivemile-common.css is measured against cap heights Georgia does not have.
+     See DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-archive.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd"><h1>Archive</h1><a href="index.html">Front page &rarr;</a></div>
+    <p class="lede">Four things get kept here and none of them go anywhere: the photographs that have run
+      on the front page, every day the weather station has reported, the creek at the Republic gauge, and
+      every story that has run, filed under the month it ran in. A library keeps its old papers on
+      microfiche and makes you wind a spool to find March. This is that, without the spool.</p>
+
+    <!-- Each panel reports what is behind it before a reader opens it. Every
+         figure is read off the file the room itself reads, so a number here
+         cannot drift from the number in there. -->
+    <div class="two-eq">
+
+      <a class="card-dept" href="fivemile-gallery.html">
+        <div class="d-bar"><h3>Gallery</h3><span class="r">Front page</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em>Pictures</em><b id="hubPhotoCount">&mdash;</b></div>
+            <div class="d-cell"><em>Most recent</em><b id="hubPhotoNewest">&mdash;</b></div>
+            <div class="d-cell"><em>Oldest</em><b id="hubPhotoOldest">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubPhotoNote">&mdash;</p>
+          <p class="d-go">Gallery <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+      <a class="card-dept" href="fivemile-weather-archive.html">
+        <div class="d-bar"><h3>Weather</h3><span class="r">Cardiff station</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em>Days on file</em><b id="hubWeatherDays">&mdash;</b></div>
+            <div class="d-cell"><em>Back to</em><b id="hubWeatherSince">&mdash;</b></div>
+            <div class="d-cell"><em>Hottest</em><b id="hubWeatherHot">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubWeatherNote">&mdash;</p>
+          <p class="d-go">Weather log <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+      <a class="card-dept" href="fivemile-creek-archive.html">
+        <div class="d-bar"><h3>The creek</h3><span class="r">USGS 02457595</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em>Days on file</em><b id="hubCreekDays">&mdash;</b></div>
+            <div class="d-cell"><em>Back to</em><b id="hubCreekSince">&mdash;</b></div>
+            <div class="d-cell"><em>Highest</em><b id="hubCreekHigh">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubCreekNote">&mdash;</p>
+          <p class="d-go">Creek log <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+      <a class="card-dept" href="fivemile-news-archive.html">
+        <div class="d-bar"><h3>Stories</h3><span class="r">News page</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em>Stories</em><b id="hubNewsCount">&mdash;</b></div>
+            <div class="d-cell"><em>Months</em><b id="hubNewsMonths">&mdash;</b></div>
+            <div class="d-cell"><em>Back to</em><b id="hubNewsSince">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubNewsNote">&mdash;</p>
+          <p class="d-go">Story index <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Every room reads the same file the live page reads, so nothing here is kept by hand and nothing can
+    fall out of step. The photographs are this site's own and are credited to whoever made them. Weather is
+    the Ambient Weather station in Cardiff. The creek is the
+    <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge
+    on Fivemile Creek near Republic</a>, station 02457595. Stories are headlines and summaries from the
+    outlets that published them, kept with a link back to the original. Nothing here is ever deleted.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-archive.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · FIVEMILE</title>
+<meta name="description" content="What FIVEMILE is, who runs it, what we publish, and how the site is made. A community publication for Graysville, Cardiff, and Brookside.">
+<link rel="canonical" href="https://fivemile.now/fivemile-about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="About · FIVEMILE">
+<meta property="og:description" content="What FIVEMILE is, who runs it, what we publish, and how the site is made.">
+<meta property="og:url" content="https://fivemile.now/fivemile-about.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About · FIVEMILE">
+<meta name="twitter:description" content="What FIVEMILE is, who runs it, what we publish, and how the site is made.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair is the wordmark face, loaded on every page for the reason in
+     DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* About page layout only. This page is read rather than scanned, so it has no
+   cards, no infoboxes, and no data widgets. One column, one measure, generous
+   line height. See DECISIONS.md 32. */
+:root{
+  --red:#C8102E;--red-mid:#9a0c22;
+  --paper:#F2E8D5;--paper2:#ede0c8;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;--ink3:#7a5838;
+  --masthead:#3D2810;
+  --border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --r:8px;--r-lg:14px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
+#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.page{position:relative;z-index:1}
+a{color:inherit}
+
+
+/* One column, 680px, because this is a page somebody reads top to bottom. */
+.wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.about-head{padding:38px 0 6px}
+.about-kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:.5rem}
+.about-head h1{font-size:clamp(2rem,7vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.about-lede{margin-top:.9rem;font-size:1.06rem;line-height:1.7;color:var(--ink2)}
+
+section.abt{padding:34px 0 0}
+.abt h2{font-size:1.22rem;font-weight:800;color:var(--ink);padding-bottom:.55rem;margin-bottom:.9rem;border-bottom:1px solid var(--rule)}
+.abt p{font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:.9rem}
+.abt p:last-child{margin-bottom:0}
+.abt strong{color:var(--ink);font-weight:700}
+.abt a{color:var(--red);font-weight:700;text-decoration:none}
+.abt a:hover,.abt a:focus-visible{text-decoration:underline}
+
+/* The runs and does-not-run lists. Plain, one item a line, no bullets, because
+   they read as a short inventory rather than an argument. */
+.abt-list{list-style:none;margin:0 0 .9rem;padding:0}
+.abt-list li{font-size:1rem;line-height:1.8;color:var(--ink2);padding-left:1.1rem;position:relative}
+.abt-list li::before{content:"";position:absolute;left:0;top:.78em;width:5px;height:5px;border-radius:50%;background:var(--ink3)}
+
+/* Support. The one block on the page with buttons in it. */
+.support{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:26px 24px}
+.support h2{font-size:1.22rem;font-weight:800;color:var(--ink);padding-bottom:.55rem;margin-bottom:.9rem;border-bottom:1px solid var(--rule)}
+.support p{font-size:1rem;line-height:1.8;color:var(--ink2);margin-bottom:.9rem}
+.support-uses{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.1rem}
+.support-use{font-family:var(--mono);font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);
+  background:var(--paper);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
+.support-btns{display:flex;flex-wrap:wrap;gap:10px}
+.support-btn{flex:1 1 200px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:10px;text-decoration:none;font-size:1rem;font-weight:700;padding:11px 18px;transition:background var(--ease),color var(--ease),border-color var(--ease)}
+.support-btn-primary{background:var(--red);color:#fff;border:1px solid var(--red)}
+.support-btn-primary:hover,.support-btn-primary:focus-visible{background:var(--red-mid);border-color:var(--red-mid)}
+.support-btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--border2)}
+.support-btn-ghost:hover,.support-btn-ghost:focus-visible{border-color:var(--red);color:var(--red)}
+
+.abt-close{margin-top:40px;padding-top:22px;border-top:1px solid var(--rule);font-size:.95rem;line-height:1.75;color:var(--ink3)}
+
+@media(max-width:760px){
+  .wrap{padding:0 16px 44px}
+  .support{padding:22px 18px}
+}
+</style>
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="topo-canvas"></canvas>
+<div class="page">
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about" class="active">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<main tabindex="-1" class="wrap" id="main">
+
+  <div class="about-head reveal">
+    <div class="about-kicker">About</div>
+    <h1>About FIVEMILE</h1>
+    <p class="about-lede">FIVEMILE tells you what is going on in Graysville, Cardiff, and Brookside right now. The weather. The creek. When the council meets. What is happening this weekend. That is the whole idea, and it is why the address is fivemile.now.</p>
+  </div>
+
+  <section class="abt reveal">
+    <h2>What this is for</h2>
+    <p>This is one place. One creek, the same hills, the same weather over all of it, and a good many of the same families. We cover it that way.</p>
+    <p><strong>Put good information where people can find it.</strong> What the weather and the creek are doing before you go out in them. Where the greenway runs and where you can get down to the water. What is happening here, and what is being planned for here. We put it up plainly and leave the deciding to you.</p>
+    <p><strong>Keep it afterward.</strong> A year from now somebody wants to know what the creek did last March, or what used to stand on a lot. The Facebook groups are good for talking and no use for remembering. This is the other half.</p>
+  </section>
+
+  <section class="abt reveal">
+    <h2>Send us something</h2>
+    <p>Photographs, announcements, and events are welcome from anybody in any of the three towns. Write to <a id="sendMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>.</p>
+    <p>By sending us a photograph you are giving us permission to publish it on this site with your name, unless you tell us not to.</p>
+  </section>
+
+  <section class="abt reveal">
+    <h2>Before you send</h2>
+    <p><strong>Be neighborly.</strong> Treat everyone the way you would if you ran into them at the mailbox. Disagreements are fine. Disrespect is not.</p>
+    <p><strong>No hate speech, bigotry, or discrimination.</strong> Anything that targets a person for their race, ethnicity, religion, gender, or identity will not be approved. Period.</p>
+    <p><strong>You are responsible for what you send.</strong> Everything is reviewed before it goes up, and anything published here is published because a person decided to publish it.</p>
+  </section>
+
+  <section class="abt reveal">
+    <h2>If we get something wrong</h2>
+    <p>Tell us and we will fix it. Write to <a id="fixMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>. Somebody reading this almost certainly knows more about some corner of these three towns than the site does, and that is the point.</p>
+  </section>
+
+  <section class="abt reveal" id="how-this-is-made">
+    <h2>How this site is made</h2>
+    <p><strong>There is no AI running on this site.</strong> Nothing on these pages is being written or decided by a machine while you read it. When the creek page tells you the water is up, that number came off a gauge in the creek. The note beside it was written ahead of time by a person and matched to the conditions by a plain rule. There is no chatbot here and there is not going to be one.</p>
+    <p><strong>Some of it is automatic, and automatic is not the same thing as AI.</strong> The news page gathers headlines from other publications twice a day and sorts them using a list of rules that a person wrote down and can read back. No model decides what goes where. I do not write those stories and I do not read every one before it appears, so that page is the one place where something reaches you before I have seen it. Every headline links straight to whoever reported it.</p>
+    <p><strong>I do use AI tools to build the site.</strong> Claude helps me write code, draft pages, and catch things I miss. It works for me, the way a good tool does. It does not work on its own and it does not decide anything.</p>
+    <p><strong>A person decides what runs.</strong> Everything written in FIVEMILE's own voice is written or edited by me before it goes up. Nothing publishes on its own.</p>
+    <p><strong>No invented photographs, ever.</strong> Nothing here is an AI generated image and nothing ever will be. Historical photographs are real, sourced, and credited. Around here people can recognize their own grandparents in a picture, and a fake one would be unforgivable.</p>
+    <p><strong>No invented quotes, people, or history.</strong> When something is not known, the site says it is not known.</p>
+    <p><strong>The mistakes are still mine.</strong> Using a tool is not an excuse for getting something wrong. Tell me and I will fix it, and say that I fixed it.</p>
+  </section>
+  <section class="support reveal" id="support">
+    <h2>Support this project</h2>
+    <p>This is an independent community website built on personal time and personal money. Contributions support the development, upkeep, hosting, tools, and expansion of the site itself. They do not go to the City of Graysville, the Town of Cardiff, the Town of Brookside, or to any official municipal account.</p>
+    <p>I am building this because these three towns are home, and I want the place to have a living record that is useful, welcoming, and worth returning to. Support helps me keep documenting it, improving the site, and adding the tools this project still needs.</p>
+    <div class="support-uses">
+      <span class="support-use">Hosting and tools</span>
+      <span class="support-use">Research and writing</span>
+      <span class="support-use">Photograph and archive work</span>
+      <span class="support-use">Future site features</span>
+    </div>
+    <div class="support-btns">
+      <a href="https://venmo.com/josephlgraham" class="support-btn support-btn-primary">Venmo Joe</a>
+      <a class="support-btn support-btn-ghost" id="supportMail" href="mailto:fivemilec@gmail.com?subject=Support%20for%20FIVEMILE">Email Joe</a>
+    </div>
+  </section>
+
+  <p class="abt-close reveal">FIVEMILE is not connected to the City of Graysville, the Town of Cardiff, the Town of Brookside, or Jefferson County. It is not a government website. It is just a fellow from Cardiff keeping track of things.</p>
+
+</main>
+</div>
+
+<script>
+/* The inbox renders from BRAND so that changing the address is one edit in
+   fivemile-brand.js rather than a find and replace across the site. The href
+   in the markup is the same address, so the links work with JS off. */
+if(window.BRAND && window.BRAND.email){
+  var mail = window.BRAND.email;
+  ['sendMail','fixMail'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.href = 'mailto:' + mail;
+    el.textContent = mail;
+  });
+  var support = document.getElementById('supportMail');
+  if(support) support.href = 'mailto:' + mail + '?subject=' + encodeURIComponent('Support for ' + (window.BRAND.name || 'FIVEMILE'));
+}
+
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e, i){
+    if(e.isIntersecting){
+      setTimeout(function(){ e.target.classList.add('visible') }, i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el) });
+</script>
+<script src="fivemile-common.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

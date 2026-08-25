@@ -1,0 +1,345 @@
+/* ===========================================================================
+   fivemile-guide.css
+
+   The field guide. One page, seventy species, and a sheet that opens over it.
+
+   Every card on the page comes from fivemile-cards.css except one. The
+   exception is .card-species, defined near the bottom of this file, and the
+   reason it exists is written there. The precedent is .card-plat, which is
+   restricted to heritage for its own reasons.
+
+   The page shell it used to carry its own copy of now lives in
+   fivemile-shell.css, along with the five other copies that were scattered
+   around the repo. See DECISIONS.md 40.
+
+   Load order is common, cards, shell, then this.
+   =========================================================================== */
+
+:root{
+  --red:#C8102E;
+  --paper:#F2E8D5;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;--ink3:#7a5838;
+  --masthead:#3D2810;
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  --fm-rule:#DDCFB8;--fm-muted:#6B6156;
+  --r:8px;--r-lg:14px;--ease:220ms ease;
+  --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
+  --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
+
+  /* The page accent. Already declared in fivemile-cards.css as --sec-guide,
+     which is the color the guide's tag carries wherever a guide story turns up
+     on another page. Repeated under a local name so the rules below read as
+     what they are, and never given a second value. */
+  --guide:#3F5E70;
+
+  /* The four risk levels the field-use line reports. Red is the one that
+     matters and the other three step down from it. Nothing on this page is
+     colored by risk except this one line, because a page that paints half its
+     species red teaches a reader to stop looking at red. */
+  --risk-high:#C8102E;
+  --risk-mid:#b47800;
+  --risk-low:#4A7C59;
+}
+
+/* ---------------------------------------------------------------------------
+   LAYOUT
+
+   The reset, the measure, the grids, .lede and .empty are in
+   fivemile-shell.css. The guide puts its top gap on the wrap rather than on a
+   first section, the same as the archive and heritage.
+   --------------------------------------------------------------------------- */
+.wrap{padding-top:26px}
+section.top{padding:0}
+
+.src-note{margin-top:34px;padding-top:14px;border-top:1px solid var(--fm-rule);
+  font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--fm-muted)}
+.src-note a{color:var(--red);text-decoration:none}
+.src-note a:hover{text-decoration:underline}
+.src-note strong{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+
+/* ---------------------------------------------------------------------------
+   THE SEARCH BOX
+
+   The front door. A reader arriving here is usually standing outdoors with a
+   phone in one hand looking at something they cannot name, so the first thing
+   on the page is the one field that answers that.
+
+   Same construction as the archive's search, deliberately, because it is the
+   same object doing the same job. 16px on the input is not a style choice: it
+   is the size below which iOS zooms the page on focus.
+   --------------------------------------------------------------------------- */
+.gd-find{position:relative;margin:0 0 12px}
+.gd-find input{width:100%;min-height:52px;padding:12px 44px 12px 15px;font-family:var(--sans);
+  font-size:16.5px;color:var(--ink);background:var(--card);border:1.5px solid var(--fm-rule);
+  border-radius:var(--r);transition:border-color var(--ease)}
+.gd-find input:focus{outline:none;border-color:var(--masthead)}
+.gd-find input::placeholder{color:var(--fm-muted)}
+/* Clearing a search is a thing people do constantly and the native search
+   affordance is four pixels wide on a phone. */
+.gd-clear{position:absolute;right:4px;top:4px;bottom:4px;width:40px;appearance:none;border:0;
+  background:none;color:var(--fm-muted);font-size:20px;line-height:1;cursor:pointer;border-radius:var(--r)}
+.gd-clear:hover{color:var(--red)}
+
+/* ---------------------------------------------------------------------------
+   THE FILTER CHIPS
+
+   Two rows: where you are standing, then what time of year. They scroll
+   sideways rather than wrapping to four lines on a phone, the same decision
+   the archive's reel makes and for the same reason.
+
+   44px tall, which is the tap floor in CLAUDE.md. The pressed state is
+   carried by aria-pressed rather than by a class, so the styling and the
+   thing a screen reader announces can never disagree.
+   --------------------------------------------------------------------------- */
+.gd-chips{display:flex;gap:6px;overflow-x:auto;padding:0 0 8px;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch}
+.gd-chips::-webkit-scrollbar{display:none}
+.gd-chip{flex:none;min-height:44px;padding:6px 14px;background:var(--card);
+  border:1px solid var(--fm-rule);border-radius:99px;font-family:var(--mono);font-size:12.5px;
+  letter-spacing:.06em;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;
+  gap:6px;white-space:nowrap;transition:border-color var(--ease),background var(--ease)}
+.gd-chip .ic{font-family:var(--emoji);font-size:14px;line-height:1}
+.gd-chip:hover{border-color:var(--masthead);background:#fff}
+.gd-chip[aria-pressed="true"]{background:var(--masthead);border-color:var(--masthead);color:var(--paper)}
+/* The one chip that is a live reading rather than a category. It filters to
+   whatever the calendar says is out this season, so it gets the accent. */
+.gd-chip.now[aria-pressed="true"]{background:var(--guide);border-color:var(--guide)}
+
+.gd-count{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fm-muted);white-space:nowrap}
+
+/* ---------------------------------------------------------------------------
+   THE SPECIES GRID  ·  .card-species
+
+   The one card on this page that is not in fivemile-cards.css, and the only
+   page it is allowed on. The reasoning:
+
+   A field guide entry is a photograph with a name under it. That is what the
+   object is. None of the eight cards in the system is that. The postcard is
+   closest and it is wrong here: it locks to 16:9, which cuts the top off a
+   standing heron and the ends off a snake, and it spends a hundred and sixteen
+   pixels of every card on a credit block, which is right for a photograph
+   somebody came to look at and wrong for seventy of them in a grid.
+
+   So: 4:3, because that is the shape most of these photographs are, and the
+   credit moves to the sheet where the picture is actually large enough to be
+   worth crediting. Everything else is the system's: 14px radius, card stock,
+   one hairline, no shadow.
+
+   It is a button and not a link because there is no page to link to. The
+   sheet is the entry.
+   --------------------------------------------------------------------------- */
+.gd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gd-grid .empty{grid-column:1/-1}
+
+.card-species{display:flex;flex-direction:column;text-align:left;background:var(--card);
+  border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);overflow:hidden;
+  padding:0;font:inherit;color:inherit;cursor:pointer;
+  transition:border-color var(--ease)}
+.card-species:hover{border-color:var(--masthead)}
+.card-species:hover .sp-name{color:var(--red)}
+.card-species:focus-visible{outline:2px solid var(--masthead);outline-offset:2px}
+
+/* Paper coloured, so a species with no photograph reads as a blank plate in a
+   book rather than as a broken image. The emoji sits in it at plate size. */
+.sp-shot{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--paper);
+  border-bottom:1px solid var(--fm-rule);display:flex;align-items:center;justify-content:center}
+.sp-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sp-shot .ic{font-family:var(--emoji);font-size:34px;line-height:1;opacity:.55}
+
+.sp-bd{padding:10px 12px 11px;display:flex;flex-direction:column;gap:2px;flex:1}
+.sp-name{font-size:15.5px;font-weight:700;line-height:1.25;transition:color var(--ease)}
+.sp-latin{font-family:var(--mono);font-size:11px;color:var(--fm-muted);line-height:1.35}
+.sp-where{margin-top:auto;padding-top:7px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fm-muted)}
+/* A species that is out right now gets one mark and nothing else. */
+.sp-where .on{color:var(--guide)}
+
+/* ---------------------------------------------------------------------------
+   THE SHEET
+
+   A species opens over the page instead of navigating to it, because a reader
+   working through a grid of seventy is going to open and close a lot of them
+   and a page load between each one is the whole cost of the thing.
+
+   It is a <dialog>, so Escape closes it, focus is trapped for a keyboard user,
+   and the rest of the page is inert without any of that being written here.
+   On a phone it fills the screen. Anything less is a card floating in a
+   viewport that is already only 390px wide.
+   --------------------------------------------------------------------------- */
+.gd-sheet{width:min(640px,100%);max-width:100%;max-height:100dvh;height:auto;padding:0;border:0;
+  background:var(--paper);color:var(--ink);border-radius:var(--r-lg);overflow:hidden;
+  margin:auto}
+.gd-sheet::backdrop{background:rgba(28,18,8,.62)}
+.gd-sheet-in{max-height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+/* The close bar stays put while the note scrolls under it. On a phone this is
+   the only way back out that does not require finding the top of a long
+   article, and it is the browser's own back gesture's visible twin. */
+.gd-bar{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:10px;
+  background:var(--masthead);color:var(--paper);padding:0 6px 0 15px;min-height:48px}
+.gd-bar-t{flex:1;min-width:0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:#D9C9A8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gd-bar button{appearance:none;border:0;background:none;color:var(--paper);font:inherit;
+  min-width:44px;min-height:44px;cursor:pointer;border-radius:var(--r);
+  display:inline-flex;align-items:center;justify-content:center;font-size:19px;line-height:1}
+.gd-bar button:hover{background:rgba(255,255,255,.12)}
+.gd-bar .step{font-family:var(--mono);font-size:16px}
+.gd-bar .step[disabled]{opacity:.3;cursor:default;background:none}
+
+/* The photograph, whole. The grid crops to 4:3 because a grid has to line up,
+   but here the picture is the point and a crop can cut the top off a standing
+   heron or the ends off a snake. So: full width, natural height, capped so a
+   tall photograph still leaves the name visible under it, on paper. A picture
+   narrower than the sheet sits on paper the same colour as the page, which is
+   how a plate in a book looks anyway. */
+.gd-shot{position:relative;min-height:180px;max-height:58vh;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gd-shot img{display:block;width:100%;height:auto;max-height:58vh;object-fit:contain}
+.gd-shot .ic{font-family:var(--emoji);font-size:60px;line-height:1;opacity:.5}
+
+/* Where the pictures came from. Every one of these is somebody's photograph
+   under a licence that asks for their name, so the name is on the page and not
+   in a file somewhere. The line is small and it is never absent. */
+.gd-credit{background:var(--card);border-bottom:1px solid var(--fm-rule);padding:8px 15px;
+  font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--fm-muted)}
+.gd-credit a{color:var(--fm-muted);text-decoration:underline;text-underline-offset:2px}
+.gd-credit a:hover{color:var(--red)}
+.gd-credit b{font-weight:500;color:var(--ink2)}
+
+/* More than one photograph, so a reader can see the animal twice. Thumbnails
+   are 56px, which is over the tap floor, and they only appear when there is a
+   second one to go to. */
+.gd-thumbs{display:flex;gap:6px;padding:9px 15px;background:var(--card);
+  border-bottom:1px solid var(--fm-rule);overflow-x:auto;scrollbar-width:none}
+.gd-thumbs::-webkit-scrollbar{display:none}
+.gd-thumb{flex:none;width:56px;height:56px;padding:0;border:1.5px solid var(--fm-rule);
+  border-radius:6px;overflow:hidden;background:var(--paper);cursor:pointer}
+.gd-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.gd-thumb[aria-pressed="true"]{border-color:var(--masthead)}
+
+.gd-body{padding:15px}
+.gd-body > * + *{margin-top:14px}
+
+/* The identity block is .card-check from the card system, used for the thing
+   it was drawn for: a numbered tag with a name, a latin name, and the vantage
+   pills. Inside the sheet it does not need the panel height. */
+.gd-body .card-check{min-height:0}
+
+/* The four readings under the name. Not gauge tiles: a gauge tile is for a
+   number that moves and none of these move. Hairline grid, same construction
+   as .d-rows in the card file. */
+.gd-quick{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--fm-rule);
+  border:1px solid var(--fm-rule);border-radius:8px;overflow:hidden}
+.gd-quick div{background:var(--card);padding:9px 11px}
+.gd-quick em{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fm-muted);margin-bottom:3px}
+.gd-quick b{font-size:14px;font-weight:600;line-height:1.35}
+.gd-quick b.high{color:var(--risk-high)}
+.gd-quick b.mid{color:var(--risk-mid)}
+.gd-quick b.low{color:var(--risk-low)}
+
+.gd-lab{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fm-muted);margin-bottom:-6px}
+.gd-note{font-size:16px;line-height:1.6}
+
+/* What it gets mistaken for. This is the only part of a field guide entry that
+   can keep somebody out of an emergency room, so it is a red notice from the
+   card system and not a paragraph in the middle of the note. */
+.gd-body .card-notice p{font-size:15.5px}
+
+/* What the old people said. Set apart because it is a different kind of claim
+   from the rest of the entry: it is testimony, not observation. */
+.gd-otw{background:rgba(61,40,16,.05);border:1px solid var(--fm-rule);border-radius:var(--r-lg);
+  padding:13px 15px}
+.gd-otw em{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--masthead);margin-bottom:5px}
+.gd-otw p{font-size:15.5px;line-height:1.6;color:var(--ink2)}
+
+.gd-facts{display:grid;gap:10px}
+.gd-fact{border-top:1px solid var(--fm-rule);padding-top:10px}
+.gd-fact:first-child{border-top:0;padding-top:0}
+.gd-fact em{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+.gd-fact p{font-size:15.5px;line-height:1.55}
+
+.gd-out{display:flex;flex-wrap:wrap;gap:8px}
+.gd-btn{appearance:none;min-height:44px;padding:0 16px;display:inline-flex;align-items:center;
+  justify-content:center;gap:7px;border-radius:var(--r);border:1px solid var(--masthead);
+  background:var(--card);color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;
+  text-decoration:none;transition:background var(--ease),color var(--ease)}
+.gd-btn:hover{background:var(--masthead);color:var(--paper);text-decoration:none}
+.gd-btn.solid{background:var(--masthead);color:var(--paper)}
+.gd-btn.solid:hover{background:var(--red);border-color:var(--red)}
+
+/* ---------------------------------------------------------------------------
+   THE QUIZ
+
+   Runs in the same sheet. Twenty-nine of the seventy species carry a question,
+   and the question is the old guide's, kept because it is the one part of that
+   build that was doing something a list cannot do.
+
+   The choices are buttons a finger can hit, stacked, never side by side. A
+   two-across answer grid on a phone is how somebody taps the wrong one.
+   --------------------------------------------------------------------------- */
+.gd-q{font-size:17.5px;line-height:1.45;font-weight:700}
+.gd-choices{display:grid;gap:8px}
+.gd-choice{appearance:none;width:100%;min-height:52px;padding:12px 15px;text-align:left;
+  background:var(--card);border:1.5px solid var(--fm-rule);border-radius:var(--r);
+  font:500 16px/1.4 var(--sans);color:var(--ink);cursor:pointer;
+  transition:border-color var(--ease),background var(--ease)}
+.gd-choice:hover:not([disabled]){border-color:var(--masthead);background:#fff}
+.gd-choice[data-mark="ok"]{border-color:var(--risk-low);background:rgba(74,124,89,.1)}
+.gd-choice[data-mark="no"]{border-color:var(--red);background:rgba(200,16,46,.08)}
+.gd-choice[disabled]{cursor:default}
+
+.gd-verdict{border-radius:var(--r-lg);padding:13px 15px;font-size:16px;line-height:1.55}
+.gd-verdict.ok{background:rgba(74,124,89,.12);border:1px solid rgba(74,124,89,.4)}
+.gd-verdict.no{background:rgba(200,16,46,.08);border:1px solid rgba(200,16,46,.32)}
+
+.gd-score{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--fm-muted)}
+.gd-tally{font-family:var(--mono);font-size:44px;line-height:1;letter-spacing:-.03em;
+  color:var(--red);text-align:center;padding:6px 0}
+
+/* ---------------------------------------------------------------------------
+   THE BIOMES
+
+   Department panels, because that is what they are: a named place with a run
+   of notes under it. The gear line is the one thing on this page a reader acts
+   on rather than reads, so it is in the plain register and it is last, where
+   somebody skimming will still land on it.
+   --------------------------------------------------------------------------- */
+/* The quiz card is the card system's .card-quiz, but it starts something on
+   this page rather than going to another one, so it is a button. These four
+   declarations are only what a button loses by not being an anchor. */
+button.card-quiz{width:100%;text-align:left;border:0;font:inherit;cursor:pointer}
+
+.gd-gear{margin-top:auto;padding-top:11px;border-top:1px solid var(--fm-rule);
+  font-size:14.5px;line-height:1.5;color:var(--ink2)}
+.gd-gear em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+.gd-bcount{font-family:var(--mono);font-size:10.5px;opacity:.88}
+
+/* ---------------------------------------------------------------------------
+   RESPONSIVE
+
+   Tested at 390px. Two species across, because one across turns seventy
+   entries into a very long page and three puts the name at eleven pixels.
+   --------------------------------------------------------------------------- */
+@media(max-width:900px){
+  .gd-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .wrap{padding:20px 16px 24px}
+  section.blk{padding:28px 0 0}
+}
+@media(max-width:560px){
+  .gd-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .sp-name{font-size:15px}
+  /* The sheet stops being a dialog on a page and becomes the screen. */
+  .gd-sheet{width:100%;height:100dvh;max-height:100dvh;border-radius:0}
+  .gd-sheet-in{height:100dvh}
+  .gd-quick{grid-template-columns:1fr}
+}

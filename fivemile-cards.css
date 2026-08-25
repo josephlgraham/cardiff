@@ -84,6 +84,35 @@
 .tag.guide{--accent:var(--sec-guide)}
 .tag.heritage{--accent:var(--sec-heritage)}
 .tag.garden{--accent:var(--sec-garden)}
+
+/* The news beats. They lived in fivemile-news.css until a second page needed
+   them, which is the moment that file's own header says to move a rule in
+   here. Two pages render a story row now: the news page and the archive.
+
+   A beat is what a story is about: roads, the creek, the council. Each one
+   gets a color and keeps it everywhere, so a reader learns the palette without
+   being told what it means. Twelve beats and eight colors, because Roads and
+   Trains want telling apart at a glance and Utilities and Weather do not.
+   Doubling up beats twelve colors nobody can hold in their head.
+
+   The key is the beat's printed label with everything but letters taken out,
+   which is why two of these read oddly: Public safety is publicsafety and The
+   creek is thecreek. That one rule is what lets a tag written by the builder
+   and a tag worked out in the browser land on the same color. If you rename a
+   beat, rename its key here to match. */
+.tag[data-beat="roads"]       {--accent:#E87722}
+.tag[data-beat="trains"]      {--accent:#4A3418}
+.tag[data-beat="beltline"]    {--accent:#9a0c22}
+.tag[data-beat="thecreek"]    {--accent:#4A7C59}
+.tag[data-beat="land"]        {--accent:#4A7C59}
+.tag[data-beat="weather"]     {--accent:#2E86AB}
+.tag[data-beat="utilities"]   {--accent:#2E86AB}
+.tag[data-beat="government"]  {--accent:#6B4C9A}
+.tag[data-beat="schools"]     {--accent:#8B6914}
+.tag[data-beat="business"]    {--accent:#8B6914}
+.tag[data-beat="publicsafety"]{--accent:#C8102E}
+.tag[data-beat="history"]     {--accent:#7A5838}
+.tag[data-beat="obituary"]    {--accent:#4A3418}
 a.tag:hover{border-color:var(--masthead);text-decoration:none}
 
 /* ---------------------------------------------------------------------------
@@ -93,8 +122,15 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    names its source in the kicker and says what the reading means in a
    sentence underneath. A figure with neither is a widget.
    --------------------------------------------------------------------------- */
+/* Three rows, top down: kicker, reading, sentence. The reading used to hang
+   off the bottom of the tile, which meant a tile whose sentence ran to two
+   lines pushed its number a line higher than the tile beside it and the row
+   of figures came out stepped. Rows are fixed now and only the sentence
+   stretches, so all four numbers in a row sit on one line and the eye reads
+   straight across them. */
 .card-gauge{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
-  padding:13px 14px 13px 34px;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  padding:13px 14px 13px 34px;position:relative;overflow:hidden;display:grid;
+  grid-template-rows:auto auto 1fr;
   min-height:var(--h-tile);text-decoration:none;color:inherit}
 .card-gauge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:19px;background:var(--masthead)}
 .g-ticks{position:absolute;left:0;top:0;bottom:0;width:19px}
@@ -112,12 +148,37 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    The graduations become the perforation down the edge of a ticket stub,
    which is the right object for something you turn up to. */
 .card-gauge.event .g-ticks i{left:6px;width:6px;height:6px;border-radius:50%;opacity:.55}
-.g-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);margin:0 0 auto}
+.g-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);margin:0}
 .g-val{font-family:var(--mono);font-size:30px;line-height:1;letter-spacing:-.03em;font-weight:500;margin-top:10px}
 .g-val span{font-size:13px;color:var(--fm-muted);letter-spacing:0}
-.g-sub{font-size:13.5px;color:var(--fm-muted);margin-top:7px;line-height:1.4}
+.g-sub{font-size:13.5px;color:var(--fm-muted);margin-top:7px;line-height:1.4;align-self:start}
 .g-sub b{color:var(--ink);font-weight:600}
 .card-gauge:hover{border-color:var(--masthead);text-decoration:none}
+
+/* The second line has to run straight across too. Not every reading on these
+   pages is a figure: the desk pages carry Lower pressure, Waxing Gibbous,
+   Normal footing, and those run to two lines where a stage reading runs to
+   one. Sizing each tile on its own put a two-line reading's sentence a line
+   below the sentences either side of it, which is the same stagger one row
+   further down.
+
+   Where the browser has subgrid the four tiles share the row's three tracks,
+   so the reading track is as tall as the tallest reading in that row and both
+   lines are level. grid-auto-rows repeats the pattern for the second and third
+   ranks the row breaks into on a narrow screen. Without subgrid every tile
+   still keeps its own three rows, which is what levelled the readings. */
+@supports (grid-template-rows:subgrid) and (selector(:has(*))){
+  :is(.four-eq,.now-grid,.grid4):has(> .card-gauge){grid-template-rows:auto auto 1fr;grid-auto-rows:auto auto 1fr}
+  :is(.four-eq,.now-grid,.grid4) > .card-gauge{grid-row:span 3;grid-template-rows:subgrid;row-gap:0}
+
+  /* Seed packets share their four bands the same way: header, window, credit,
+     body. The credit is one line for USDAgov and two for a photographer with a
+     longer name, and without this the longer credit pushes that packet's rows
+     down past its neighbour's. */
+  :is(.three-eq,.two-eq,.grid3):has(> .card-packet){grid-template-rows:auto auto auto 1fr;
+    grid-auto-rows:auto auto auto 1fr}
+  :is(.three-eq,.two-eq,.grid3) > .card-packet{grid-row:span 4;grid-template-rows:subgrid;row-gap:0}
+}
 
 /* ---------------------------------------------------------------------------
    02  DEPARTMENT PANEL  .card-dept  ·  --h-panel  ·  two or three across
@@ -164,6 +225,24 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
 .d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em}
 .d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
 .d-body p:last-child{margin-bottom:0}
+/* A department panel that is a link to somewhere else.
+
+   The same addition .card-tab and .card-post already carry, for the same
+   reason: a card that summarizes a page a reader can go to has to be tappable
+   over its whole face, not only on a line of text at the bottom. The panel
+   still carries that line, because an arrow a reader can see is what tells
+   them the card goes somewhere. The hover mirrors the tab card exactly. */
+a.card-dept{text-decoration:none;color:inherit}
+a.card-dept:hover{border-color:var(--masthead);text-decoration:none}
+a.card-dept:hover .d-go{color:var(--masthead)}
+
+/* The destination line. Red, arrowed, pinned to the bottom of the body, and
+   the same label idiom as the red link in a section head: it names where the
+   card goes and nothing else. Never an instruction. */
+.d-body .d-go{margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.06em;color:var(--red);display:flex;align-items:center;gap:7px}
+.d-body .d-go span{font-family:var(--sans);font-size:15px;line-height:1}
+
 .d-rows{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--fm-rule);border:1px solid var(--fm-rule);border-radius:8px;overflow:hidden}
 .d-cell{background:var(--card);padding:9px 11px}
 .d-cell em{display:block;font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;
@@ -316,19 +395,33 @@ a.card-post:hover .p-lf h3{color:var(--red)}
    06  SEED PACKET  .card-packet  ·  window locked to 4:3  ·  three across
    --------------------------------------------------------------------------- */
 .card-packet{background:var(--card);border:1.5px solid var(--masthead);border-radius:var(--fm-card-r);
-  overflow:hidden;display:flex;flex-direction:column}
+  overflow:hidden;display:grid;grid-template-rows:auto auto auto 1fr}
 .s-top{background:var(--red);color:#fff;padding:9px 14px 11px;text-align:center}
 .s-top .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;opacity:.87}
 .s-top h3{margin:3px 0 0;font-size:18px;font-weight:800;letter-spacing:-.01em}
-.s-win{aspect-ratio:4/3;background:var(--paper);border-bottom:1.5px solid var(--masthead);
-  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;color:var(--fm-muted)}
+.s-win{aspect-ratio:4/3;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px;color:var(--fm-muted)}
 .s-win img{width:100%;height:100%;object-fit:cover;display:block}
-.s-bd{padding:12px 14px;flex:1;display:flex;flex-direction:column}
+.s-bd{padding:12px 14px;display:flex;flex-direction:column}
 .s-row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;
   border-bottom:1px dotted var(--fm-rule);padding:4px 0}
 .s-row:last-of-type{border-bottom:none}
 .s-row b{font-family:var(--mono);font-weight:500}
 .s-foot{margin-top:9px;font-size:13.5px;color:var(--fm-muted);line-height:1.45}
+/* Under the window, not in the body, because it belongs to the photograph
+   rather than to the crop. Two of these photographs are CC BY and one is
+   CC BY-SA, and those are only free to use while the name stays with the
+   picture.
+
+   The strip is part of the frame and carries the rule that used to sit under
+   the window. Every packet has one, because a packet only runs when it has a
+   photograph, and the row shares the strip's height below so that a long
+   credit wrapping to two lines cannot push one packet's rows a line under its
+   neighbour's. That is the stagger the gauge tiles were just cured of. */
+.s-credit{margin:0;padding:8px 14px;font-family:var(--mono);font-size:11px;line-height:1.5;
+  color:var(--fm-muted);border-bottom:1.5px solid var(--masthead);background:var(--card)}
+.s-credit a{color:var(--fm-muted);text-decoration:underline;text-underline-offset:2px}
+.s-credit a:hover{color:var(--red)}
 
 /* ---------------------------------------------------------------------------
    07  BRASS CHECK  .card-check  ·  --h-panel  ·  three across

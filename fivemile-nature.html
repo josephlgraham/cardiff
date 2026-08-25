@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature Watch &middot; FIVEMILE</title>
+<meta name="description" content="What is moving, blooming, and calling along Five Mile Creek this month, plus the season windows and frost dates the year turns on.">
+<link rel="canonical" href="https://fivemile.now/fivemile-nature.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Nature Watch &middot; FIVEMILE">
+<meta property="og:description" content="What is moving, blooming, and calling along Five Mile Creek this month, plus the season windows and frost dates the year turns on.">
+<meta property="og:url" content="https://fivemile.now/fivemile-nature.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nature Watch &middot; FIVEMILE">
+<meta name="twitter:description" content="What is moving, blooming, and calling along Five Mile Creek this month, plus the season windows and frost dates the year turns on.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-almanac.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="topo-canvas"></canvas>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac" class="active">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<nav class="desk-rail" aria-label="Almanac desks">
+  <div class="desk-rail-inner" data-desk-rail></div>
+</nav>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd"><h1>Nature Watch</h1><span class="hd-note" id="natureStamp">&mdash;</span></div>
+    <p class="desk-intro">What is moving, blooming, calling, and changing along the lower end of Five Mile
+      Creek, plus the season windows the year actually turns on. Everything here is something you can walk
+      outside and check.</p>
+  <div class="four-eq">
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">This month</p>
+        <div class="g-val" id="natureMonthVal">&mdash;</div>
+        <div class="g-sub" id="natureMonthSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Daylight &middot; Today</p>
+        <div class="g-val" id="natureLightVal">&mdash;</div>
+        <div class="g-sub" id="natureLightSub">This reading is not coming through right now.</div>
+      </div>
+      <a class="card-gauge" href="fivemile-calendar.html">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Next season window</p>
+        <div class="g-val" id="natureWindowVal">&mdash;</div>
+        <div class="g-sub" id="natureWindowSub">This reading is not coming through right now.</div>
+      </a>
+      <a class="card-gauge" href="fivemile-almanac.html#weather">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Ground &middot; Cardiff</p>
+        <div class="g-val" id="natureGroundVal">&mdash;</div>
+        <div class="g-sub" id="natureGroundSub">This reading is not coming through right now.</div>
+      </a>
+  </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>What to watch for</h2><span class="hd-note" id="natureTag">&mdash;</span></div>
+    <div class="two-eq">
+      <div class="card-dept">
+        <div class="d-bar"><h3 id="natureMonthName">This month</h3><span class="r">Nature desk</span></div>
+        <div class="d-body">
+          <div class="alm-list" id="natureBody">
+            <div class="empty">&mdash;</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dept">
+        <div class="d-bar"><h3>Reading the month</h3><span class="r" id="natureReadStamp">&mdash;</span></div>
+        <div class="d-body">
+          <p class="wx-narrative" id="natureNarrative">&mdash;</p>
+          <div class="sci-box">
+            <div class="sci-label">Why the creek bottoms run late</div>
+            <p>Water holds heat longer than air or soil does, so the strip along a creek warms slower in
+              spring and cools slower in fall than the open ground a hundred feet away. It is why the bottoms
+              green up after the fence lines and hold their leaf color after the ridges have dropped, and why
+              the same walk gives you a different month depending which side of the bank you take.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd">
+      <h2>Season windows</h2>
+      <a href="fivemile-calendar.html">Full calendar &rarr;</a>
+    </div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>What is open and what is coming</h3><span class="r">Next three months</span></div>
+      <div class="d-body">
+        <div class="alm-list" id="natureWindows">
+          <div class="empty">&mdash;</div>
+        </div>
+        <button class="alm-expand" id="natureExpand" type="button" hidden>Show the full run of seasons</button>
+      </div>
+    </div>
+    <div class="card-notice info" style="margin-top:12px">
+      <p class="n-kick">Hunting seasons</p>
+      <h3>Dates only, and that is deliberate</h3>
+      <p>Season dates are listed here because they are part of the year in these three towns and because
+        people plan around them. Locations are not, and never will be. The state sets the dates and the
+        annual regulations are the authority on all of it.
+        <a href="https://www.outdooralabama.com/hunting" target="_blank" rel="noopener">Outdoor Alabama</a>
+        publishes the current seasons.</p>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>The nature year</h2><span class="hd-note">Twelve months, one line each</span></div>
+    <div class="month-grid" id="natureYear"></div>
+  </section>
+
+  <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk
+       pages do not each keep their own copy of the markup. -->
+  <div data-desk-back></div>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    The month by month notes are written by the nature desk and kept in this site's own file. Season windows,
+    frost dates, and the old seasonal turnings come from the same calendar data the
+    <a href="fivemile-calendar.html">calendar page</a> reads, so the two can never disagree.
+    Daylight is calculated on the page. Ground condition comes from the weather station in Cardiff.
+    Hunting season dates are set by the
+    <a href="https://www.outdooralabama.com/hunting" target="_blank" rel="noopener">Alabama Department of Conservation and Natural Resources</a>.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-season-data.js"></script>
+<script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
+<script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-nature.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+# The ten minute run: severe weather alerts, current conditions, and the creek
+# gauge. These are the three things that can change while somebody is standing
+# outside deciding whether to move the truck, so they are the three things that
+# do not wait for an edition.
+#
+# Alerts, weather, and the gauge share one workflow and make ONE commit on
+# purpose. Every push to main rebuilds GitHub Pages, and Pages throttles at
+# roughly ten builds an hour. Three separate ten minute workflows would push
+# eighteen times an hour and start losing builds. One pushes six.
+#
+# The heavier work, the station history backfill, the forecast, air quality, and
+# the civic snapshot, stays in refresh-site-data.yml on its twice daily run.
+# See DECISIONS.md 30.
+name: Refresh Live Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/10 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-refresh-main
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Alerts go first and never block on anything else. A warning is the one
+      # thing on this site that is worth nothing if it is late, so a slow
+      # station or a USGS timeout must not sit in front of it.
+      - name: Refresh alert ticker
+        continue-on-error: true
+        run: node fivemile-alerts.js
+
+      # Current conditions and the gauge. If the station is offline, which
+      # happens when the power goes out at the house, this throws, the step is
+      # skipped, and the last good reading stays on the site rather than being
+      # overwritten with nothing.
+      - name: Refresh current conditions and the creek gauge
+        continue-on-error: true
+        run: node scripts/fetch-site-data.mjs --live
+        env:
+          AW_API_KEY: ${{ secrets.AW_API_KEY }}
+          AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
+
+      - name: Commit live data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          # Stage only the files that actually moved. Every payload stamps its
+          # own updatedAt, so a file whose sole change is that stamp is not
+          # news, and committing it would put a fresh blob in history every ten
+          # minutes for nothing. This is checked per file rather than across the
+          # whole batch: the rain log is 50 KB and only gains a sample once an
+          # hour, so without this it would ride along on the weather file's
+          # coat-tails 144 times a day. See DECISIONS.md 30.
+          for f in ticker.json fivemile-weather.json fivemile-watershed.json fivemile-rain-log.json fivemile-creek-archive.json; do
+            [ -f "$f" ] || continue
+            git add "$f"
+            moved=$(git diff --cached -U0 -- "$f" | grep -E '^[+-]' | grep -Ev '^(\+\+\+|---)' | grep -v '"updatedAt"' | head -1)
+            if [ -z "$moved" ]; then
+              git reset -q HEAD -- "$f"
+              git checkout -- "$f"
+            fi
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing moved but timestamps; skipping commit."
+            exit 0
+          fi
+          git commit -m "data: live refresh"
+          for attempt in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto latest main (attempt $attempt)."
+            git fetch origin main
+            # Replayed (our) commit wins on conflict: these files are regenerated, so freshest data is correct.
+            git rebase -X theirs origin/main || git rebase --abort
+            sleep $((RANDOM % 4 + 2))
+          done
+          echo "Failed to push live data after 5 attempts." >&2
+          exit 1

@@ -68,8 +68,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .recipe-btn.active .recipe-arrow{color:#fff;}
 .recipe-detail{padding:1.45rem 1.1rem 1.25rem;}
 .detail-hero{display:grid;grid-template-columns:180px 1fr;gap:1rem;align-items:start;}
+.detail-artcol{min-width:0;}
 .detail-art{height:180px;border-radius:14px;background:transparent;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;padding:0;}
 .detail-emoji{font-size:4rem;line-height:1;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#fff;border:1px solid rgba(80,44,8,0.08);border-radius:14px;box-shadow:0 8px 18px rgba(80,44,8,0.06);}
+/* Who took the photograph. Two of the three are CC BY, so this line is a
+   condition of using them rather than a nicety. */
+.detail-credit{margin:0.45rem 0 0;font-family:var(--mono);font-size:0.66rem;line-height:1.5;color:var(--ink3);}
+.detail-credit a{color:inherit;}
 .detail-art img{display:block;width:100%;height:100%;object-fit:contain;position:relative;z-index:1;background:#fff;border:1px solid rgba(80,44,8,0.08);border-radius:14px;padding:0.45rem;box-shadow:0 8px 18px rgba(80,44,8,0.06);}
 .detail-title{font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.45rem;}
 .detail-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.11em;color:var(--ink3);margin-bottom:0.55rem;}
@@ -115,27 +120,30 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
      for reduced motion. Anything unexpected resolves to "done", which is the
      state where the masthead is fully visible. The timer is the backstop for
      the case where fivemile-intro.js fails to load. -->
-<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
 <link rel="stylesheet" href="fivemile-common.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <header class="cardiff-masthead">
   <div class="mh-identity">
     <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
     <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
-    <div class="mh-right-info"><a href="fivemile-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
     <div class="mh-mobile-pills">
-      <a href="fivemile-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
     </div>
   </div>
   <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
     <a href="fivemile-news.html" id="tab-news">News</a>
-    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
     <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
-    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
-    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -144,7 +152,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 <!-- Loaded here, synchronously, so the wordmark is split before the first
      paint. Do not move this to the end of the body and do not add defer. -->
 <script src="fivemile-intro.js"></script>
-<div class="wrap">
+<main tabindex="-1" class="wrap" id="main">
   <section class="k-hero">
     <div class="k-kicker">From the Land</div>
     <h1 class="k-title">The Cardiff Kitchen</h1>
@@ -176,7 +184,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     </div>
     <div id="recipeSubStatus" style="margin-top:0.9rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink2);" aria-live="polite"></div>
   </div>
-</div>
+</main>
 </div>
 <script>
 const RECIPES=[
@@ -231,26 +239,49 @@ const detail=document.getElementById('recipeDetail');
 
 function formatTimer(seconds){const mins=Math.floor(seconds/60);return `${mins} min`;}
 
+// The three recipes whose subject is a species the field guide carries, so
+// they show the guide's photograph of it. These used to point at the drawn
+// guide art, which is gone. Two of the three are CC BY, which asks for a name,
+// so the credit line under the picture is not decoration. See DECISIONS.md 39.
 const RECIPE_ASSETS={
-  'polk-salad':'assets/guide_pokeweed.png',
-  'fried-bream':'assets/guide_bream.png',
-  'squirrel-stew':'assets/guide_squirrel.png'
+  'polk-salad':{
+    src:'fivemile_photos/guide/pokeweed_2021_rsewll_1.webp',
+    alt:'A pokeweed stem with a drooping cluster of dark purple berries, the stalk turning magenta.',
+    credit:'Rachel Sewell',license:'CC BY',
+    url:'https://www.inaturalist.org/observations/89560875'
+  },
+  'fried-bream':{
+    src:'fivemile_photos/guide/bream_2021_schylerbrown_1.webp',
+    alt:'A bluegill held flat in an open hand above shallow water, showing the dark ear flap and the olive and orange banding along its side.',
+    credit:'Schyler Brown',license:'CC0',
+    url:'https://www.inaturalist.org/observations/88854793'
+  },
+  'squirrel-stew':{
+    src:'fivemile_photos/guide/squirrel_2024_podz_1.webp',
+    alt:'A grey squirrel sitting upright on its haunches in green grass with its tail curled up behind it.',
+    credit:'Derrick Wales',license:'CC BY',
+    url:'https://www.inaturalist.org/observations/203029358'
+  }
 };
 function getRecipeDetailArt(recipe){
-  const src=RECIPE_ASSETS[recipe.id]||'';
-  return src
-    ? `<img src="${src}" alt="${recipe.title}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'detail-emoji',textContent:${JSON.stringify(recipe.emoji)}}))">`
-    : `<div class="detail-emoji">${recipe.emoji}</div>`;
+  const a=RECIPE_ASSETS[recipe.id];
+  if(!a) return `<div class="detail-emoji">${recipe.emoji}</div>`;
+  return `<img src="${a.src}" alt="${a.alt}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'detail-emoji',textContent:${JSON.stringify(recipe.emoji)}}))">`;
+}
+function getRecipeDetailCredit(recipe){
+  const a=RECIPE_ASSETS[recipe.id];
+  if(!a) return '';
+  return `<p class="detail-credit">${a.credit}, ${a.license}, via <a href="${a.url}" target="_blank" rel="noopener">iNaturalist</a>.</p>`;
 }
 
 function renderList(){recipeList.innerHTML=RECIPES.map(recipe=>`<button class="recipe-btn ${recipe.id===activeRecipe?'active':''}" type="button" data-id="${recipe.id}"><span class="recipe-emoji">${recipe.emoji}</span><span class="recipe-copy"><span class="recipe-name">${recipe.title}</span><span class="recipe-sub">${recipe.subtitle}</span><span class="recipe-meta">${recipe.label}</span></span><span class="recipe-arrow">→</span></button>`).join('');recipeList.querySelectorAll('.recipe-btn').forEach(btn=>btn.addEventListener('click',()=>{activeRecipe=btn.dataset.id;updateRecipeHash(activeRecipe);renderList();renderDetail();}));}
-function renderDetail(){const recipe=RECIPES.find(item=>item.id===activeRecipe)||RECIPES[0];updateRecipeHash(recipe.id);detail.innerHTML=`<div class="detail-head"><div class="detail-kicker">Selected recipe</div></div><div class="detail-hero"><div class="detail-art">${getRecipeDetailArt(recipe)}</div><div><div class="detail-title">${recipe.title}</div><div class="detail-sub">${recipe.subtitle}</div><div class="detail-tag">${recipe.label}</div><p class="detail-body">${recipe.intro}</p>${recipe.warning?`<div class="safety-box"><strong>Safety note.</strong> ${recipe.warning}</div>`:''}</div></div><div class="recipe-grid"><div class="recipe-col"><div class="col-title">Ingredients</div><ul class="ing-list">${recipe.ingredients.map(item=>`<li><span class="amt">${item.amt}</span> ${item.name}</li>`).join('')}</ul></div><div class="recipe-col"><div class="col-title">Method</div><ol class="step-list">${recipe.steps.map((step,index)=>`<li><div class="step-num">${String(index+1).padStart(2,'0')}</div><div><div class="step-title">${step.title}</div><div class="step-copy">${step.text}</div>${step.timer?`<button type="button" class="step-timer" onclick="startTimer(this,${step.timer})">⏱ ${formatTimer(step.timer)}</button>`:''}</div></li>`).join('')}</ol></div></div><div class="note-box"><strong>Kitchen note</strong>${recipe.notes}</div>`;}
+function renderDetail(){const recipe=RECIPES.find(item=>item.id===activeRecipe)||RECIPES[0];updateRecipeHash(recipe.id);detail.innerHTML=`<div class="detail-head"><div class="detail-kicker">Selected recipe</div></div><div class="detail-hero"><div class="detail-artcol"><div class="detail-art">${getRecipeDetailArt(recipe)}</div>${getRecipeDetailCredit(recipe)}</div><div><div class="detail-title">${recipe.title}</div><div class="detail-sub">${recipe.subtitle}</div><div class="detail-tag">${recipe.label}</div><p class="detail-body">${recipe.intro}</p>${recipe.warning?`<div class="safety-box"><strong>Safety note.</strong> ${recipe.warning}</div>`:''}</div></div><div class="recipe-grid"><div class="recipe-col"><div class="col-title">Ingredients</div><ul class="ing-list">${recipe.ingredients.map(item=>`<li><span class="amt">${item.amt}</span> ${item.name}</li>`).join('')}</ul></div><div class="recipe-col"><div class="col-title">Method</div><ol class="step-list">${recipe.steps.map((step,index)=>`<li><div class="step-num">${String(index+1).padStart(2,'0')}</div><div><div class="step-title">${step.title}</div><div class="step-copy">${step.text}</div>${step.timer?`<button type="button" class="step-timer" onclick="startTimer(this,${step.timer})">⏱ ${formatTimer(step.timer)}</button>`:''}</div></li>`).join('')}</ol></div></div><div class="note-box"><strong>Kitchen note</strong>${recipe.notes}</div>`;}
 
 const activeTimers=new Map();
 function startTimer(el,seconds){const key=el.dataset.key||(el.dataset.key=Math.random().toString(36).slice(2));if(activeTimers.has(key)){clearInterval(activeTimers.get(key));activeTimers.delete(key);el.classList.remove('running','done');el.textContent=el.dataset.original;return;}el.dataset.original=el.textContent;let remaining=seconds;el.classList.add('running');function tick(){remaining--;if(remaining<=0){clearInterval(activeTimers.get(key));activeTimers.delete(key);el.classList.remove('running');el.classList.add('done');el.textContent='Done';return;}const m=Math.floor(remaining/60),s=remaining%60;el.textContent=`${m}:${s.toString().padStart(2,'0')} remaining`;}
 const interval=setInterval(tick,1000);activeTimers.set(key,interval);tick();}
 
-function submitRecipe(){const name=document.getElementById('rsubName').value.trim(),dish=document.getElementById('rsubDish').value.trim(),recipe=document.getElementById('rsubRecipe').value.trim(),status=document.getElementById('recipeSubStatus');status.textContent='';if(!dish||!recipe){if(!dish)document.getElementById('rsubDish').style.borderColor='var(--red)';if(!recipe)document.getElementById('rsubRecipe').style.borderColor='var(--red)';status.textContent='Please add the dish name and the recipe.';setTimeout(()=>{document.getElementById('rsubDish').style.borderColor='';document.getElementById('rsubRecipe').style.borderColor='';},2000);return;}const subject=encodeURIComponent('Cardiff recipe submission: '+dish);const body=encodeURIComponent('Name: '+(name||'')+'\nDish: '+dish+'\n\n'+recipe);window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;document.getElementById('recipeSubForm').innerHTML='<div style="padding:1.5rem;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';}
+function submitRecipe(){const name=document.getElementById('rsubName').value.trim(),dish=document.getElementById('rsubDish').value.trim(),recipe=document.getElementById('rsubRecipe').value.trim(),status=document.getElementById('recipeSubStatus');status.textContent='';if(!dish||!recipe){if(!dish)document.getElementById('rsubDish').style.borderColor='var(--red)';if(!recipe)document.getElementById('rsubRecipe').style.borderColor='var(--red)';status.textContent='Please add the dish name and the recipe.';setTimeout(()=>{document.getElementById('rsubDish').style.borderColor='';document.getElementById('rsubRecipe').style.borderColor='';},2000);return;}const subject=encodeURIComponent('Cardiff recipe submission: '+dish);const body=encodeURIComponent('Name: '+(name||'')+'\nDish: '+dish+'\n\n'+recipe);window.location.href='mailto:'+'fivemilec@gmail.com'+'?subject='+subject+'&body='+body;document.getElementById('recipeSubForm').innerHTML='<div style="padding:1.5rem;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';}
 
 window.addEventListener('hashchange',()=>{const next=getRecipeFromHash();if(next!==activeRecipe){activeRecipe=next;renderList();renderDetail();}});
 

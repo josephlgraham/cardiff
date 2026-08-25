@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Sky &middot; FIVEMILE</title>
+<meta name="description" content="The moon tonight over Five Mile Creek, the next four phases, what the sky is doing this month, and the seven meteor showers worth a look.">
+<link rel="canonical" href="https://fivemile.now/fivemile-nightsky.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Night Sky &middot; FIVEMILE">
+<meta property="og:description" content="The moon tonight over Five Mile Creek, the next four phases, what the sky is doing this month, and the seven meteor showers worth a look.">
+<meta property="og:url" content="https://fivemile.now/fivemile-nightsky.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Night Sky &middot; FIVEMILE">
+<meta name="twitter:description" content="The moon tonight over Five Mile Creek, the next four phases, what the sky is doing this month, and the seven meteor showers worth a look.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-almanac.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="topo-canvas"></canvas>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac" class="active">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<!-- Loaded here, synchronously, so the wordmark is split before the first
+     paint. Do not move this to the end of the body and do not add defer. -->
+<script src="fivemile-intro.js"></script>
+
+<nav class="desk-rail" aria-label="Almanac desks">
+  <div class="desk-rail-inner" data-desk-rail></div>
+</nav>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd"><h1>Night Sky</h1><span class="hd-note" id="skyStamp">&mdash;</span></div>
+    <p class="desk-intro">What is over the creek tonight, and what is worth staying up for. Nothing on this
+      page needs a telescope. Jefferson County carries enough light that the faint things are gone, but the
+      moon, the bright planets, and the good meteor showers all still work from a dark yard.</p>
+  <div class="four-eq">
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Moon &middot; Tonight</p>
+        <div class="g-val" id="skyMoonVal">&mdash;</div>
+        <div class="g-sub" id="skyMoonSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Moon age</p>
+        <div class="g-val" id="skyAgeVal">&mdash;</div>
+        <div class="g-sub" id="skyAgeSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Dark hours &middot; Tonight</p>
+        <div class="g-val" id="skyDarkVal">&mdash;</div>
+        <div class="g-sub" id="skyDarkSub">This reading is not coming through right now.</div>
+      </div>
+      <div class="card-gauge">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick">Next meteor shower</p>
+        <div class="g-val" id="skyNextVal">&mdash;</div>
+        <div class="g-sub" id="skyNextSub">This reading is not coming through right now.</div>
+      </div>
+  </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>The moon</h2><span class="hd-note">One cycle, twenty nine and a half days</span></div>
+    <div class="two-wide">
+      <div class="card-dept">
+        <div class="d-bar"><h3>Tonight</h3><span class="r" id="skyMoonStamp">&mdash;</span></div>
+        <div class="d-body">
+          <div class="moon-wrap">
+            <div class="moon-big" id="moonIcon">&#127769;</div>
+            <div>
+              <div class="moon-name" id="moonName">&mdash;</div>
+              <div class="moon-meta" id="moonMeta">Tonight over Five Mile Creek</div>
+            </div>
+          </div>
+          <div class="moon-lore" id="moonLore">&mdash;</div>
+          <div class="sci-box">
+            <div class="sci-label">Why it matters</div>
+            <p id="moonSci">&mdash;</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-tab">
+        <span class="t-tab">Coming up</span>
+        <div class="t-title">The next four phases</div>
+        <div id="skyPhaseRows">
+          <div class="t-row"><span>&mdash;</span><b>&mdash;</b></div>
+        </div>
+        <div class="t-note">Worked out from the length of the lunar cycle, so these are the right day and
+          not the right minute. A published lunar calendar is the place to go for the hour.</div>
+      </div>
+    </div>
+    <div class="moon-strip" id="moonStrip" style="margin-top:12px"></div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>This month</h2><span class="hd-note" id="skyMonthTag">&mdash;</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3 id="skyMonthName">The sky this month</h3><span class="r">Sky desk</span></div>
+      <div class="d-body">
+        <p class="wx-narrative" id="skyOpening">&mdash;</p>
+        <div class="sky-stack" id="skyMonthBody" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>The meteor year</h2><span class="hd-note">Seven worth a look</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>Named showers</h3><span class="r">Peak dates shift a day either way</span></div>
+      <div class="d-body">
+        <div class="alm-list" id="meteorList"></div>
+        <p class="d-tip">A shower is the Earth running through the dust trail an old comet left behind. The
+          date repeats every year because the trail sits in the same place in the orbit. What changes is the
+          moon: a bright one washes out everything but the brightest streaks, which is why a good shower and
+          a good night are two different questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="hd"><h2>Watching from here</h2></div>
+    <div class="card-notice info">
+      <p class="n-kick">What a Jefferson County yard can do</p>
+      <h3>Give it twenty minutes and stay off your phone</h3>
+      <p>Eyes take about twenty minutes to adapt to the dark and one look at a bright screen resets the
+        clock. Face away from the nearest streetlight, let the horizon be something other than a floodlit
+        parking lot, and the difference between a bad sky and a decent one is mostly patience. The creek
+        bottoms below the ridge lines are darker than the roads above them.</p>
+    </div>
+  </section>
+
+  <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk
+       pages do not each keep their own copy of the markup. -->
+  <div data-desk-back></div>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Moon phase, moon age, and sunrise and sunset are calculated on the page from the date and this
+    location, using the standard solar position approximation and the length of the lunar cycle. Nothing on
+    this page is fetched from a sky service. The month by month notes are written by the sky desk and kept
+    in this site's own file. Meteor shower peak dates are the long-run averages for each shower and move a
+    day either way from year to year.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-season-data.js"></script>
+<script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
+<script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-nightsky.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>
