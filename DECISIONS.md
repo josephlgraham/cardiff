@@ -103,7 +103,12 @@ and families. It does not argue that they should merge.
 readers in Brookside and Graysville, and everything else it publishes gets read
 through that lens. Its usefulness is the whole asset.
 
-**Related:** no politics of any kind on the site.
+**Related:** decision 35 opened politics up to anything that lands in these three
+towns, which does not touch this entry. Reporting a hearing, a zoning change or
+an incorporation question is exactly the reporting subject this entry describes.
+Arguing for an outcome is still off. The distinction is the whole point, and it
+matters most on this subject: the site's standing with a reader in Brookside is
+what makes covering it worth anything.
 
 ---
 
@@ -390,13 +395,87 @@ to contain the light sweep. The strike starts at `scale(1.3)`, so leaving the
 clip in would have shaved the first and last letters at the moment they are
 largest. If anything is ever added back inside that box, check this first.
 
-**Timing lives in two files and has to agree:** `STRIKE_MS` and
-`strikeDelay()` in `fivemile-intro.js`, the durations and the town delays in
-`fivemile-common.css`, and `RUN_MS`, which is the backstop that ends the intro
-and must outlast the last town.
+**Timing lives in three files and has to agree.** `STRIKE_MS` and
+`strikeDelay()` in `fivemile-intro.js` set the rate; the durations and the
+town delays in `fivemile-common.css` are derived from it; `RUN_MS` is the
+backstop that ends the intro and must outlast the last town; and the 2600ms
+timer in every page's head gate must outlast `RUN_MS`. Walk them in that
+order.
 
-**Unchanged and not up for discussion:** it plays once ever, any input ends
-it, reduced motion skips it, and the red announcement strip is never touched.
+**Stretched, August 2026.** `STRIKE_MS` went from 85ms to 135ms and the whole
+piece from about 1.1 seconds to about 1.9. At 85ms it was a fast typist and
+the eight letters arrived as a single event; at 135ms they are legible one at
+a time, which is the only reason to letter a nameplate in the first place. The
+towns were pulled back to 1240ms so there is a real gap after the wordmark
+finishes at 1155ms. That gap is what makes it two movements instead of one
+long one.
+
+**It plays once a day, not once ever.** What goes into localStorage is the
+date the reader last saw it, built from local `getFullYear`/`getMonth`/
+`getDate` so the day turns over at their midnight rather than UTC's. Once
+ever was right when the intro was a first-visit greeting. It is the
+publication's nameplate being set, and a daily paper sets its nameplate every
+day. Once a day is the whole difference between a splash screen, which is
+something to get past, and a front page, which is something to arrive at.
+
+The same three lines are inlined in each page's head gate and defined as
+`todayKey()` in `fivemile-intro.js`. Two copies, because the gate has to run
+before any file loads or the masthead flashes un-split. If one changes the
+other has to change with it. A reader carrying the old `"1"` flag from before
+this change simply gets one more play, which is the correct outcome.
+
+**The wordmark replays it on the homepage.** The nameplate is the link home on
+every page, and on the homepage that link had nowhere to go. Now it replays
+the intro there and stays the link home everywhere else. It is not labelled,
+it has no tooltip, and its `aria-label` still says Home, because on six pages
+out of seven that is exactly what it is and CLAUDE.md does not let the UI
+explain itself. Somebody who taps the nameplate finds it; somebody who never
+does has lost nothing.
+
+Three things `bindReplay()` is careful about, and all three are load-bearing:
+it only calls `preventDefault` on a plain left click, so open-in-new-tab and
+long-press still work and the nameplate is still a link with JavaScript off;
+it does not bind at all under reduced motion, because `playIntro()` would
+return without doing anything and a nameplate that swallows a click and then
+sits there is worse than one that reloads; and the `pointerdown` listener that
+ends the intro is registered inside `play()`, after the click that started the
+replay has finished dispatching, so the replay cannot cancel itself.
+
+**The fill mode is `backwards`, and there is no `will-change`.** Both of those
+are load-bearing and both look like something to tidy up. They are not.
+
+There was a small shake at the end. Nothing was moving: the resting position
+is identical before and after, measured. What moved was the antialiasing. An
+element that is mid-transform sits on its own compositing layer and its text
+is drawn with grayscale antialiasing; an element with no transform is drawn
+into the page with subpixel antialiasing. Crossing between the two resharpens
+the text.
+
+With `both`, every span held its final frame, transform and layer and all,
+until `finish()` flipped `data-intro` to `done` at `RUN_MS`. That is 320ms
+after the last town has stopped, so all eleven spans dropped their layers in
+the same frame, in silence, after the nameplate had visibly come to rest. One
+synchronised resharpen across the whole wordmark, well after the motion ended,
+which is the most noticeable place to put it.
+
+`backwards` still holds the `from` state through the delay, which is the thing
+that keeps a letter hidden until it is struck. What it does not do is hold the
+`to` state afterwards, so each span drops its layer at the end of its own
+animation, staggered, in the same frame it stops moving. A resharpen
+underneath a letter that is still landing is not visible.
+
+`will-change` had to go with it, because `will-change:transform` promotes a
+layer whether or not a transform is currently applied. Leaving it would have
+kept all eleven layers alive until `RUN_MS` and put the synchronised flick
+straight back. It was buying a first-frame hint on eight short animations over
+eight small spans, which does not pay for a visible artefact.
+
+**Anything that animates a transform on this wordmark inherits this problem.**
+If a third piece of motion is ever added here, give it `backwards` too, and do
+not add `will-change` back as an optimisation.
+
+**Unchanged and not up for discussion:** any input ends it, reduced motion
+skips it, and the red announcement strip is never touched.
 
 ---
 
@@ -660,10 +739,9 @@ by `refresh-news.yml` alongside it.
 **Why:** this is the whole reason the site exists rather than a Facebook
 group, and it was the one thing the old gatherer did not do.
 
-**Open:** the monthly files exist as soon as this runs, but nothing links to
-them yet. A `fivemile-archive.html` that lists months and lets a person search
-is the natural next build, and it is the page that actually delivers on
-"nothing scrolls away."
+**Built, August 2026.** `fivemile-news-archive.html` lists the months and
+searches across all of them. It reads `news-archive/index.json`, written by the
+same gatherer, because a static host cannot list a directory. See decision 36.
 
 **Revisit if:** never. Do not add a pruning step.
 
@@ -766,3 +844,1478 @@ somewhere that is not Pages. The known cases:
 
 **Revisit if:** never for the choice of domain. The redirect question is open
 and depends on whether the old domain is worth keeping registered.
+
+---
+
+## 27. The almanac is five pages, not one
+**Decided:** August 2026.
+
+The almanac carried nine cards down one column: weather, the creek, the
+watershed forecast, fishing, planting, nature watch, season windows, sky
+almanac, the moon, a fact, and the week ahead. Each one was a summary of a
+subject that deserved a page, and none of them could be any good at that
+width. The page was also the last one on the site still running its own private
+card CSS, roughly 250 lines of it inline in the head, which is how it drifted
+away from everything else in the first place.
+
+It is now five pages:
+
+| Page | Carries |
+| --- | --- |
+| `fivemile-almanac.html` | The creek, the weather, the date, the week ahead |
+| `fivemile-fishing.html` | Water, species, the fishing year, limits, the advisory |
+| `fivemile-garden.html` | The planting year, the frost dates, seed packets |
+| `fivemile-nightsky.html` | Moon, dark hours, the month's sky, the meteor year |
+| `fivemile-nature.html` | The nature year, season windows, frost, hunting dates |
+
+**The creek moved to the top of the almanac,** above the weather. It is the
+reading the publication is named after and the one people come for, and it
+spent a year sitting below three weather cards. It leads with four
+`.card-gauge` tiles, every one of which links out to
+[USGS 02457595](https://waterdata.usgs.gov/monitoring-location/02457595/).
+Every reading on every one of the five pages that comes from somebody else's
+instrument links to that instrument. A number with no provenance is a rumor,
+which is the rule the red notice already ran on, applied to data.
+
+**What is shared and where it lives.** `fivemile-almanac-core.js` holds
+anything two or more of the five need: the sun and moon arithmetic, the creek
+mood bands, the fishing ratings, the planting year, the nature year, the meteor
+list, and the desk rail. `fivemile-almanac.css` holds the page shell, the rail,
+the layout grids, and the row classes the scripts write into a card body.
+Neither file holds a card: every card on all five pages comes from
+`fivemile-cards.css`.
+
+**Two card types got their first home here.** `.card-check`, the brass check,
+is the fishing desk's species card, which is what its `b-latin` field was drawn
+for. `.card-packet`, the seed packet, is the garden desk's. The card spec says
+the brass check is rare on purpose and something has gone wrong if it turns up
+on a third page. The fishing desk is its second page after the spec sheet, and
+that is where it stops.
+
+**Season windows folded into nature watch** rather than staying a card of their
+own. Both answer the same question, which is what is happening in the woods and
+fields right now. Hunting seasons appear there as dates and only as dates.
+Decision 5 is unchanged and always will be.
+
+**What did not move.** The turnings, the Seasons of the Holler content in
+`turnings.json`, stayed with the calendar page, which already renders them in
+full. The nature desk links to it rather than drawing a second copy. One card
+per purpose.
+
+**Revisit if:** a desk turns out to have nothing on it worth a page. Fishing
+and the garden are the two most likely to earn their keep, and the night sky is
+the one most dependent on somebody keeping `fivemile-skywatch.json` current.
+
+---
+
+## 28. The desk rail points, and the almanac carries a card for every desk
+**Decided:** August 2026. Replaces the "Jump to today" pills. Revised the same
+day, after the first pass failed in front of a reader.
+
+The almanac used to open with a row of rounded pills that jumped to anchors
+further down the same page. Once the page split, five of the seven pills were
+pointing at other pages, which is a navigation bar wearing a pill costume.
+
+**The first pass was too quiet and it did not work.** It set five tiles in a
+paper2 band under the masthead, each naming a page, each marking the current
+page by going subtle. Joe read it as a row of section headings rather than as
+five links, and said so. Two separate faults:
+
+- *Nothing pointed.* A tile with a name and no arrow reads as a label. The fix
+  is an arrow on every entry, in red. An arrow is not copy and it does not
+  explain the interface. It points, which is the one job.
+- *The band cut it off from the page.* Its own fill and a rule underneath made
+  it look like chrome bolted to the bottom of the masthead. It sits on the page
+  background now, with the topographic lines running behind it, and the tiles
+  are the only objects in it.
+
+**What the rail is.** All five family pages, directly under the red strip. The
+masthead nav above it is brown, all caps, and marks the current page with a red
+underline. The rail is paper, sentence case, 8px corners, arrowed, and marks
+the current page by recessing it and taking its arrow away. Each entry carries
+the 4px accent bar the `.tag` badge uses and a live line of its own, so it
+reports something rather than only pointing.
+
+**Getting back.** On a desk page the almanac entry leads with a left arrow
+instead of trailing a right one, and every desk page repeats the way home as a
+full width `.desk-back` block at the foot. A reader who has come down the
+fishing page should not have to scroll back up to leave it.
+
+**Five accent colors, set from `fivemile-almanac.css`.** Decision 25 allows a
+page with its own set of subjects to set `--accent` from its own stylesheet.
+The news beats did it first. Like the beats, these color a bar and never a word.
+
+**It is a row, not a side rail.** A vertical rail becomes a horizontal row at
+390px anyway, and two layouts of the same object drift apart.
+
+**The almanac also carries a card per desk, and that is the primary route.**
+Four `.card-dept` panels, two across: a red bar naming the subject in plain
+words, three readings for today, a sentence, and a red arrowed line naming the
+page it opens. The whole panel is the link, which is why `a.card-dept` was
+added to the card file alongside the `a.card-tab` and `a.card-post` rules that
+were already there.
+
+The first pass used `.card-tab` for these. The tab card is a lookup object and
+it gave a reader no visible signal that it went anywhere, which is the same
+fault the rail had. The department panel is the loudest and most familiar card
+on the site, and the red bar is unmissable.
+
+**Why both a card and a rail.** They answer different questions. The card
+answers "is it worth going" with today's numbers on it. The rail answers "what
+else is here" from anywhere in the family. Neither replaces the other, and a
+reader who misses one still finds the other.
+
+**Reading level.** Most readers here are on a phone, many are older, and the
+site assumes a sixth grade reading level for anything a person has to act on.
+That is a rule about clarity, not about dumbing the prose down: the labels are
+short and plain, the destinations are named rather than described, and the
+blurbs stay full sentences in the publication voice. It never becomes "click
+here to see". See the voice skill on the two registers.
+
+**Revisit if:** the family grows past five. Six entries is where a row stops
+being scannable.
+
+---
+
+## 29. Town order is enforced where it is rendered, not where it is fetched
+**Decided:** August 2026. Fixes a live violation of the rule in decision 1.
+
+`fivemile-watershed-weather.json` was arriving as Cardiff, Brookside,
+Graysville, and the almanac was mapping over the array in file order. The three
+towns had been going onto the screen in the wrong order on a live page.
+
+The generator's own comment in `scripts/fetch-site-data.mjs` says the order in
+that file is not what puts the towns on the screen and that pages are expected
+to look their town up by name. That was true of the intent and not true of the
+code. The almanac now sorts by name into Graysville, Cardiff, Brookside before
+it renders, so the rule holds no matter what any feed says.
+
+**The general form:** the town order rule is a rendering rule. Any page that
+takes three towns out of a file and puts them on the screen sorts them itself.
+Fixing the file is not a fix, because the file gets rewritten by a scheduled
+job every few hours.
+
+**Also moved in this pass:** the gauge tick rail drawing, which lived in a
+`<script>` block in `index.html` until the almanac grew gauge tiles of its own.
+It is in `fivemile-common.js` now, as `window.FivemileDrawTicks`, and
+`index.html` calls through to it. Two copies of that function would have
+drifted, and a drifted tick rail is the kind of thing nobody notices for a year.
+
+---
+
+## 30. The data schedule: ten minutes for conditions, two editions a day for news
+**Decided:** August 2026
+
+Three schedules, and the split is about what a reader can act on.
+
+`refresh-live.yml` runs every ten minutes and refreshes three things: the alert
+ticker, current conditions from the station, and the Republic gauge. Those are
+what can change while somebody is standing in the yard deciding whether to move
+a truck.
+
+`refresh-news.yml` runs at 11:00 and 23:00 UTC, six in the morning and six in
+the evening Central. A morning edition and an evening edition.
+
+`refresh-site-data.yml` keeps its twice daily run, and everything heavier stays
+in it: the station history backfill, the watershed forecast, air quality, and
+the civic snapshot.
+
+**Alerts, weather, and the gauge share one workflow and make one commit.** This
+is the load bearing part. Every push to `main` rebuilds GitHub Pages, and Pages
+throttles at roughly ten builds an hour. Three separate ten minute workflows
+would push eighteen times an hour and start losing builds. One pushes six.
+Actions minutes are not the constraint: the repo is public, so minutes are free
+and unlimited. The build limit is the constraint.
+
+The commit step stages each file only if something other than its own
+`updatedAt` stamp moved, so a quiet night does not rebuild the site 144 times
+for nothing. The check is per file rather than across the batch, because the
+rain log is 50 KB and gains a sample once an hour: without it the log would ride
+along on the weather file every ten minutes and put a fresh 50 KB blob in
+history each time.
+
+**Size is not the risk here, and it is worth writing down which limit is which.**
+The published site is what Pages caps at 1 GB, and that is the tracked files
+only, currently about 8 MB. The 1 GB figure on the source repository is a
+recommendation, not a wall. History is around 250 MB and almost all of it is
+one time image commits plus an 18 MB DLL that got committed out of
+`node_modules` once. Data churn adds a few hundred MB a year before packing.
+The site cannot stop working because the robots ran too often.
+
+**Two things in `fetch-site-data.mjs` had to change before this cadence was
+safe:**
+
+- The rain log now persists one sample an hour rather than one per run. At 144
+  a day, `MAX_RAIN_SAMPLES` would have held about seventeen days, and month to
+  date rain would have quietly started under-reporting around the eighteenth of
+  every month. Today's figures are still computed against the live reading, so
+  nothing a reader sees waits for the top of the hour.
+- The yesterday re-patch is now a function, `patchYesterdayFromArchive`, called
+  by both runs. The live run hands it the archive straight off disk instead of
+  refetching the history. Without that, every ten minute run would have walked
+  yesterday's high, low, and rain back to the regional model's version.
+
+**The station going offline is handled by doing nothing.** `updateWeatherFile`
+throws when Ambient returns no device data, which is what a power cut at the
+house looks like from here. The step is `continue-on-error`, so the run carries
+on, `fivemile-weather.json` is left alone, and the site keeps showing the last
+real reading instead of being overwritten with nothing. No rain sample is
+written either, so an outage does not put zeros in the log.
+
+`ARCHIVE_HISTORY_DAYS` went from 3 to 10 in the same pass, so a week long outage
+heals itself on the next twice daily run instead of needing `import-awn-csv.mjs`
+by hand. The loop skips any day already owned by `awn-csv` or `awn-history`, so
+a manual CSV import is never overwritten and the wider window costs one fetch a
+day in steady state. Gaps older than ten days are still a CSV import.
+
+**Revisit if:** Pages starts dropping builds anyway, in which case the live run
+goes to fifteen minutes before anything else is touched.
+
+---
+
+## 31. The news page never tells a reader it is empty
+**Decided:** August 2026
+
+There is no quiet day card any more. The old one was headed "Nothing filed yet"
+over a bar reading "The wire is quiet", and it appeared whenever zero stories
+survived the freshness rules.
+
+Two things were wrong with it. "Filed" is newsroom idiom, and stacked on "the
+wire is quiet" it reads to somebody in Graysville like a form that did not go
+through. Worse, it fired on `!kept.length`, which cannot tell a quiet wire from
+a JSON file that failed to load, and then asserted "Nothing has come through for
+Graysville, Cardiff, or Brookside since the last run." The page does not know
+that. It knows it failed to read a file.
+
+**What happens instead:** when nothing fresh places, `fillFromArchive()` pulls
+this month and last month out of `news-archive/` and fills the story area under
+"Still worth reading". The archive is permanent by decision 23, so there is
+always something to put there. It is fetched only when it is needed, so an
+ordinary visit still costs the same six files it always did.
+
+Obituaries are excluded from the fallback. A notice is worth running the week it
+is filed and is not something to resurface a month later. See decision 22.
+
+The outlet line at the bottom hides itself when there is nothing to name rather
+than holding an em dash, because a lone dash under a paragraph about sourcing
+reads as a fault rather than as an empty state.
+
+**The em dash empty state is untouched everywhere else.** Small slots that hold
+a single value still show a dash, per CLAUDE.md. This decision is about the page
+telling the reader, in sentences, that it has nothing to show. It should not.
+
+**Revisit if:** the fallback starts showing the same eight stories for weeks at
+a stretch, which would mean the gatherer is broken rather than the town being
+quiet.
+
+---
+
+## 32. About replaces Get Involved
+**Decided:** August 2026
+
+`fivemile-involved.html` is gone. `fivemile-about.html` took its place in the
+footer nav, in the sitemap, in the service worker precache list, and as the
+target of the `cardiff-involved.html` stub.
+
+**Why it went rather than being edited.** Get Involved was written for one town
+and for a particular moment: a council recruitment drive for Cardiff, when the
+site was about Cardiff. Four role cards said "Document Cardiff" and "Cardiff
+takes care of Cardiff", the submission form offered "Serving on the town
+council" as its first option, and the liability note called the site "Cardiff,
+Alabama, a community website maintained by volunteers". None of that survives
+the move to three towns without being rewritten into something else, and the
+something else is an About page.
+
+**What moved onto About:**
+
+- The support band, with the Venmo link. This is the answer to where the Venmo
+  goes now that it is not on a working page: it goes on the page that explains
+  what the project is, which is the only place asking for money makes sense.
+- The community rules, as prose rather than a numbered card.
+- The about copy, and the AI disclosure rewritten to lead with the fact that no
+  AI runs on the site at all. The earlier draft opened with "I use AI tools to
+  build and write FIVEMILE", which answers a question nobody asked before
+  answering the one they did. It now opens with "There is no AI running on this
+  site" and explains that automatic is not the same thing as AI, which is true
+  here in a specific and checkable way: the news sorting is written keyword
+  rules by decision 19, and the almanac notes are written ahead of time by a
+  person and matched by a plain rule.
+
+**What did not move, and is simply gone:** the four role cards, and the general
+contact form with its interest dropdown. The form's job is covered by the inbox
+link on every page, the Hills and Hollers form, and the send block on the news
+page. If the role cards are wanted back they should be rewritten for three
+towns first, not restored.
+
+**The letter came over and then came back off.** It was carried across from Get
+Involved and broadened to the three towns, and on reading it in place Joe called
+it: it was not working on this page. It is gone rather than parked. The old
+version is in git history if it is ever wanted, and the "Who runs it" section
+carries the first person voice on its own now.
+
+The Civic Pathway link went out with it. That is the only thing the letter was
+load bearing for, and the civic page is still in the footer nav and linked from
+elsewhere.
+
+**Two family anecdotes were deliberately left out.** The draft in
+`docs/fivemile-about-copy.md` carried two `[confirm]` notes about relatives and
+the businesses they worked in. Joe's call was to leave them out. They are not in
+the page and they are not in a comment either, because an HTML comment is served
+to the reader like everything else.
+
+**The page is read, not scanned.** One column, 680px, no cards, no infoboxes, no
+data widgets. It is the only page on the site with no live data on it at all,
+and it should stay that way.
+
+**Footer nav only.** The top nav is for the working pages: News, Almanac,
+Calendar, Guide, Heritage. About does not go in it.
+
+**Four calls to action pointed at the retired page's form** and were rewired to
+what each was actually for rather than all being aimed at About. "Add your name"
+on the civic page and the two creek volunteering buttons became inbox links with
+their own subject lines. The civic footer button became "About this site",
+because it sat next to an inbox link already.
+
+**Revisit if:** the classifieds work lands and needs a rules page of its own, in
+which case "Before you send" on About is the copy to start from.
+
+---
+
+## 33. The cleanup pass, and what a naive one would have deleted
+**Decided:** August 2026
+
+A sweep for unreferenced files before the remaining pages get built. The useful
+part of this entry is not the list of what went, it is the list of what looked
+dead and is not.
+
+**Removed, verified dead:**
+
+- `fivemile-civic-data.js`. Loaded by no page.
+- `fivemile-community-snapshot.json`. Written twice a day, read only by the
+  script above.
+- `fivemile-app-icon.svg`. `manifest.json` points at `icons/*.png`.
+- `qr-codes/cardiff-announce-qr.png` and `qr-codes/cardiff-homepage.png`. They
+  encode the retired domain. Deleting the image does not affect any QR code
+  already printed, which encodes a URL rather than pointing at this file.
+
+`updateCommunitySnapshotFile()` is no longer called. Its Census endpoint returns
+HTML instead of JSON and has been failing on every run. The function is left in
+place, unwired, so the civic figures can come back without being rebuilt.
+
+**Not removed, and here is why they look removable.** A basename grep says
+nothing references these. A basename grep is wrong.
+
+- **The 24 `guide_*_ee.webp` files, in `assets/webp/` and `assets/thumbs/`.**
+  The guide builds these names at runtime:
+  `buildGuideAssetPath(file.replace(/\.png$/i, '_ee.png'))`. Deleting them
+  breaks the guide silently, because the failure is a broken image on one card
+  rather than an error anybody sees. **Any future orphan sweep has to account
+  for constructed filenames.**
+- **`fivemile-home-gallery.json`.** Nothing fetched it when this was written,
+  and it was not junk: it held the titles, captions, credits, and alt text for
+  the three photographs carried over from the old Cardiff site. It was the seed
+  for the Archive page. **Deleted since, with its template.** The Archive was
+  built and the three pictures were not the right start for it. See decision 36.
+- **`fivemile-alerts.js`.** Referenced only from `.github/workflows/`, which is
+  easy to leave out of a search of the site's own files.
+- **`fivemile-almanac.js`.** Superseded looking, because
+  `fivemile-almanac-core.js` exists, but the almanac page loads both. The core
+  file is shared by the five almanac-family pages and the other is the page's
+  own module, the same shape as `fivemile-fishing.js`.
+- **The `cardiff-*.html` stubs, `sw.js`, and `cardiff-sw.js`.** Protected by
+  CLAUDE.md and unreferenced on purpose.
+- **`google8fee6247b6a9aea0.html`.** Search Console verification.
+
+**Still to decide:** `cardiff_report.pdf` and `docs/fivemile-rebrand-spec.docx`
+are tracked, unreferenced, and therefore publicly downloadable from the live
+site. Neither is linked from anywhere. Left in place pending Joe's call.
+
+## The masthead is one variant now
+
+It was three, and the differences were not deliberate:
+
+- The four almanac desks wrote the creek emoji as `&#127754;` rather than the
+  literal glyph. Same rendering, separate variant for nothing.
+- **`fivemile-gallery.html` had a stripped masthead**: no watershed button, no
+  creek reading, no mobile pill, and no `id="mhWordmark"`, which is the element
+  `fivemile-intro.js` splits for the nameplate animation. It also never loaded
+  `fivemile-brand.js`. That page had been quietly running a degraded shell.
+
+All sixteen pages now carry byte identical masthead markup, ignoring the
+`class="active"` that marks the current tab, and all sixteen load
+`fivemile-brand.js`.
+
+**The remaining duplication is CSS, and it is inert.** `fivemile-common.css`
+already defines the entire masthead, and it does so with `!important` on every
+declaration. That is not a style choice, it is armour against the nine pages
+that redefine `.cardiff-masthead`, `.mh-identity`, `.mh-brand-name` and the rest
+inside their own `<style>` block. Those per page rules are already losing every
+contest they enter. Deleting them changes nothing visually and lets the
+`!important` come off afterwards. That is worth doing as its own pass with its
+own verification, not folded into a cleanup.
+
+## The footer nav is the site map
+
+It was a flat run of twelve links, then briefly a parent and child tree that
+mirrored the masthead. Both were wrong for different reasons. The tree grouped
+pages by where they sit in the top nav rather than by what a reader is looking
+for, and with eight groups of uneven length it left half the grid empty and ran
+to 334px of mostly whitespace.
+
+It is now four named columns, grouped by what somebody is actually after:
+
+| Column | Pages |
+|---|---|
+| News | News, Calendar, Announcements |
+| Almanac | Almanac, Fishing, Garden, Night Sky, Nature Watch |
+| The place | Field Guide, Heritage, Gallery, Archive |
+| This site | Home, About |
+
+Calendar sits with News rather than on its own because dates and what is
+happening are the same errand. Add a page to the group it belongs in. A group
+past about six items wants splitting rather than shrinking.
+
+The column name is a `span` with the list pointing at it via `aria-labelledby`,
+not a heading. Four `h2` elements in every page's footer would junk up the
+heading outline on every page of the site, and the group name is still
+announced.
+
+**The rows are 44px on a phone and 25px from 700px up.** The tap target floor in
+CLAUDE.md is about thumbs, so it applies where there are thumbs. This started as
+a `pointer:fine` query, which reported inconsistently and silently kept the tall
+rows, so it is a width breakpoint instead. Measured at 390px: two columns, no
+row under 44px, and no horizontal overflow.
+
+Announcements stays out of the masthead deliberately. It is reachable from the
+footer and from a direct link, which is the whole point of it.
+
+## Accessibility baseline
+
+Measured rather than assumed. Every colour pair in the palette passes WCAG AA
+for normal text:
+
+| Pair | Ratio |
+|---|---|
+| ink on paper | 15.16 |
+| ink2 on paper | 9.62 |
+| ink3 on paper | 5.27 |
+| red on paper | 4.84 |
+| masthead text on masthead | 11.69 |
+
+Body text is 17px against a 16px floor, tap targets are 44px, `lang="en"` is set
+on every page, the footer marks the current page with `aria-current`, and the
+intro animation honours `prefers-reduced-motion`.
+
+**Three real gaps, none of them cosmetic:**
+
+1. **No skip link on any page.** A keyboard or switch user tabs through the
+   watershed button, the nameplate, five masthead tabs, and the creek link
+   before reaching content, on every page, every time.
+2. **No `<main>` landmark on fifteen of sixteen pages.** Only the calendar has
+   one. Screen reader users navigate by landmark; without one there is nothing
+   to jump to.
+3. **`fivemile-calendar.html` and `fivemile-guide.html` have no `<h1>`.** The
+   heading outline starts at `<h2>`, which breaks heading navigation and reads
+   as a page with no title.
+
+All three are shell level and should be fixed in the same pass that
+de-duplicates the masthead CSS, since that pass is already touching every page's
+head and opening body.
+
+**Revisit if:** an orphan sweep is run again, in which case read the second list
+in this entry first.
+
+---
+
+## 34. One masthead stylesheet, and the accessibility floor
+**Decided:** August 2026
+
+### The masthead CSS lived in eleven places
+
+`fivemile-common.css` owned the masthead already. Nine pages redefined it inside
+their own `<style>` block and `fivemile-almanac.css` carried a tenth copy. Those
+duplicates are gone: 183 rules out of the pages, 17 out of the almanac
+stylesheet. `fivemile-common.css` is now the only file that styles the masthead.
+
+**This was verified rather than eyeballed.** Every masthead element on all
+sixteen pages had its computed styles recorded before the change, through
+iframes in a real browser: background, border, grid columns, font size, weight,
+letter spacing, colour, padding, height. After the change the same capture ran
+again. **Zero differences across sixteen pages.** Any future pass at this should
+do the same thing, because the failure mode is a masthead that shifts by two
+pixels on one page and nobody notices for a month.
+
+### The `!important` stays, and it is not what it looks like
+
+The obvious follow up was to strip `!important` off the masthead rules now that
+nothing competes with them. That was tried and reverted, because it is not only
+armour against the page level copies. It also beats the inline `background` that
+the ticker script writes on `.announce-strip` when an alert has a severity
+colour. Removing it turned the strip amber on every page carrying a live
+advisory.
+
+So there is a standing conflict worth knowing about: **the ticker script sets an
+inline severity colour on the strip, and the stylesheet overrides it, so the
+strip is always red.** CLAUDE.md says the strip is a solid red accent bar, which
+means the CSS is expressing the intended rule and the severity colouring in the
+script is vestigial. Left exactly as it was found. If the strip should ever
+change colour by severity, the fix is to delete the colour from the script or to
+change the rule deliberately, not to remove `!important` and let the two race.
+
+### Accessibility floor
+
+Three gaps closed across all sixteen pages.
+
+**A skip link, first in the body and therefore the first tab stop.** Without it
+a keyboard or switch user walked the watershed button, the nameplate, five
+masthead tabs and the creek link before reaching content, on every page, every
+time. Off screen until focused, then it lands at the top left over the masthead.
+Measured at 159 by 49 pixels, which clears the 44px floor.
+
+**A `main` landmark on every page**, carrying `id="main"` and `tabindex="-1"`.
+The tabindex is the part that is easy to leave out and matters: without it,
+activating the skip link scrolls the page but leaves focus at the top, so the
+next Tab goes back into the masthead. Fourteen pages had their `div.wrap`
+promoted to `main`, which is a tag change with no class change and therefore no
+style change. The guide had no `.wrap` at all, so its `#scroll-area` became the
+landmark.
+
+**An `h1` on the two pages that had none.** The guide's title was a styled
+`div`, now a heading with the same declarations, so nothing moved. The calendar
+has no visible title in its design, so it got a visually hidden one rather than
+inventing a heading the layout was not built for. If a visible calendar title is
+ever wanted, remove the `visually-hidden` class.
+
+Measured, on all sixteen: skip link is the first focusable element, its target is
+`#main`, the landmark exists with the focus attribute, and there is exactly one
+`h1`.
+
+The palette was already fine. Every pair passes WCAG AA for normal text, ink on
+paper at 15.16 and the weakest, red on paper, at 4.84.
+
+**Note on verifying `:focus` locally.** `document.hasFocus()` is false when the
+preview pane is not displayed, so `:focus` never matches and the skip link
+appears not to work. It is working. Check by forcing the rule rather than by
+trusting the computed style.
+
+
+### Three things the verification sweep turned up
+
+All pre-existing, none caused by the shell pass, all fixed:
+
+- **The guide never had a footer.** `injectFooter()` appends to `.page`, and the
+  guide is the one page with no `.page` wrapper, so it bailed silently. It now
+  falls back to `document.body`. That matters more now that the footer is the
+  site map, because the guide was otherwise a dead end.
+- **All three Kitchen recipe photographs were broken.** `RECIPE_ASSETS` pointed
+  at `assets/guide_*.png`; the files are `assets/webp/guide_*.webp`. An
+  `onerror` handler swaps in an emoji, which is exactly why nobody noticed.
+  Paths corrected.
+- **`fivemile-fishing.html` still linked to the retired Get Involved page.** The
+  sweep that rewired those links listed pages with `git ls-files`, and the four
+  almanac desks are not committed yet, so they were invisible to it. **A
+  repo-wide sweep has to include untracked files or it will miss the newest
+  pages, which are exactly the ones most likely to be wrong.**
+
+`cardiff_report.pdf` and `docs/fivemile-rebrand-spec.docx` were removed from the
+working tree. They remain in git history, and the repository is public, so this
+stops them being served from the site but does not make them unreachable to
+somebody who clones. Taking them out of history is a rewrite and was not done.
+
+
+**Revisit if:** a new page is added. It needs the skip link, the landmark with
+its tabindex, one `h1`, and no masthead CSS of its own.
+
+---
+
+## 35. Politics runs when it lands here, and the About page stops listing coverage
+**Decided:** August 2026
+
+**The coverage inventory is off the About page.** It had a section for what we
+run and a section for what we do not. Neither was earning its place. A reader
+does not arrive at a community site wondering whether it carries basketball,
+and a list of exclusions reads as defensive on a page whose job is to say what
+the thing is for. What runs is now demonstrated by the news page rather than
+declared on the About page.
+
+The policy still exists. It lives in CLAUDE.md, where it is an instruction to
+whoever is building, not a notice to the reader.
+
+**Politics is no longer off.** The rule was written when this was a site about
+one town with a dormant government, and it has been overtaken. Zoning, permits,
+hearing dates, council votes, incorporation questions: those are the things that
+change this watershed, and leaving them out was leaving out the news.
+
+**The line is geography, not subject.** It runs if it changes Graysville,
+Cardiff, or Brookside or the ground around them. National politics does not,
+party politics does not, and there are no endorsements. Give the fact and the
+date and let the reader decide, which is the house method and the reason this
+can be done without the page taking a side.
+
+**Nothing in the gatherer had to change, which is worth knowing.** `NEVER` in
+`fetch-news.mjs` blocks sports, horoscopes, lottery, ad copy and county bid
+notices. It never blocked politics. There has been a `Government` beat all along
+matching city council, town council, county commission, mayor, ordinance,
+zoning, budget, public hearing, election, ballot and incorporation, and it is in
+`COUNTY_BEATS`, so those stories already qualified through the county ring. The
+geographic filter that keeps this local is `OTHER_PLACES`, which is asked only
+at the county stage, so a story naming one of our towns is already placed before
+it is reached.
+
+In other words the code was already doing what this decision describes, and the
+only thing stopping political coverage was a sentence in CLAUDE.md and rule 5
+in the voice skill. Both updated.
+
+**Revisit if:** the news page starts reading as a zoning docket, in which case
+the fix is freshness and volume limits per section rather than banning the beat
+again.
+
+---
+
+## 36. The Archive is a hub with four rooms
+**Decided:** August 2026
+
+`fivemile-gallery.html` held four photographs and was named for the one thing
+it did. Everything else the site keeps was already on disk and reachable by
+nobody: 232 days of weather, a month of creek readings, and every story that
+had ever run. Decision 23 said in as many words that a page listing the news
+months was the one that actually delivers on "nothing scrolls away."
+
+**Five pages, not one.** The first build put all four holdings on a single page
+and it ran to twelve thousand pixels, which is a filing cabinet with every
+drawer pulled out at once. `fivemile-archive.html` is now a hub and nothing
+else: four panels, three readings and a line apiece, and a door.
+
+| Page | Holds | Reads |
+|---|---|---|
+| `fivemile-archive.html` | the four doors | all four files |
+| `fivemile-gallery.html` | every photograph that has run | `fivemile-home-anchor.json` |
+| `fivemile-weather-archive.html` | every day the station reported | `fivemile-weather-archive.json` |
+| `fivemile-creek-archive.html` | the creek, day by day | `fivemile-creek-archive.json` |
+| `fivemile-news-archive.html` | every story, by month | `news-archive/` |
+
+The three data rooms are named for the file they read, which is the whole
+reason they are not `fivemile-weather.html` and friends: `fivemile-weather.json`
+is current conditions and belongs to the almanac. A page named for the wrong
+file is a trap for whoever greps next. The gallery keeps the name it has always
+had.
+
+**The hub is four `a.card-dept` panels, which is the almanac's own hub.** Same
+construction, down to the count: four linked department panels, three rows in a
+`.d-rows.list`, a `.d-tip` line, and a `.d-go`. That was not copied for the sake
+of it. A reader who has used the almanac already knows what this page is.
+
+Every figure on the hub is read off the file the room itself reads, so a number
+out front cannot drift from the number inside. The `.r` tag in each panel's bar
+names the source rather than repeating the count that is already in the rows.
+
+**One script for all five, gated on the markup.** `fivemile-archive.js` is on
+the same footing as `fivemile-almanac-core.js`: the rooms are the same three
+moves over different numbers, and splitting them would mean keeping the reel
+and the day table in step across four copies. Each loader returns immediately
+unless it finds an element only its own page carries, so a room fetches its own
+file and nothing else.
+
+**Nothing here keeps a list of its own.** A photograph is archived by being
+featured, a day by the station reporting it, a story by running. There is no
+second list to fall out of step, which is the only way an archive stays true
+without somebody minding it.
+
+**The creek had no record at all, and now it does.** `stage_history` in
+`fivemile-watershed.json` is a thirty day window that overwrites itself, so the
+creek was the one thing on this site that did scroll away, quietly, the whole
+time. `fivemile-creek-archive.json` is new and permanent: one row a day holding
+the low, the high, the mean, and the mean flow, rolled up from the gauge's own
+fifteen minute record inside `updateWatershedFile`. USGS answers every call with
+thirty days, so the file filled a month on its first run and repairs whatever a
+missed run leaves behind, the same way the weather archive heals off the station
+history.
+
+Two rules keep it honest. **Completed days only**, because today is still moving
+and is already on the almanac from the live file, and because a row that changes
+every ten minutes would put a fresh blob in git history 144 times a day for one
+line. And **a day needs 48 of its 96 readings** to be written at all. The oldest
+day in any thirty day window is cut off partway through and will never be
+fetched again, so its low and high would be wrong forever; a gap is better than
+a quiet lie about how low the creek got. A gauge that has died answers 200 with
+a full series of zeros rather than an error, so a run that is all zeros is
+dropped whole.
+
+**`news-archive/index.json` is the shelf label.** GitHub Pages cannot list a
+directory, so without it the page would have to guess at filenames. It is
+written by `fetch-news.mjs` from the directory rather than from the months a run
+touched, so a quiet month keeps its place in the list. Months load one at a
+time; the first keystroke in the search box pulls the whole run down and
+searches all of it.
+
+**The reel is the one new control.** Three rooms hold a run of months and they
+share it: mono, square cornered, 44px tall, pushed sideways. It had to resemble
+neither of the two navigations already on the page, and it does not. The
+masthead tabs are brown and all caps, the desk rail on the almanac is paper
+cards with an accent bar, and this is a strip of small frames you wind past.
+Each chip reports something under its own name rather than only naming a month:
+a month of rain, an average stage, a count of stories.
+
+**Short months in a label, whole months in a sentence.** A reel chip, a table
+heading and the small mono count line under each room's opening paragraph are
+labels and take Jan. A `.d-tip` on the hub is copy and takes January. Two
+formatters, `monthLabel` and `monthProse`, and the rule for which is which is
+whether the words would be read aloud.
+
+**The three photographs from the old Cardiff site came out.** The 1951 aerial,
+the historic marker, and the town hall were the seed `fivemile-home-gallery.json`
+had been kept for. They also made the gallery read as Cardiff's archive rather
+than as this publication's, which is the opposite of what the front of the site
+says. The gallery now holds the four photographs FIVEMILE started with and grows
+from there. `fivemile-home-gallery.json` and its template are deleted, which
+retires the "not junk, it is the seed" note in decision 33. The three image
+files are still in `photos/` and nothing references them; the 1951 aerial is
+worth keeping for the heritage page whatever happens to the rest.
+
+**The beat colors moved into `fivemile-cards.css`.** They lived in
+`fivemile-news.css`, whose own header says to move a rule into the card file the
+moment a second page needs it. Two pages render a story row now. Nothing changed
+visually: the news page loads the card file first, so the same declarations
+apply from the same place at the same specificity.
+
+**The two charts are the almanac's chart, not a new idea.** Inline SVG built
+from the numbers already on the page, no library, a mono label at each end, and
+nothing to poke at, because a chart you have to touch is worse than a table on a
+phone and the table is directly underneath it. Rain is columns standing on the
+days it fell. The creek is a line with the day's low to high shaded behind it,
+which is the part a daily mean hides: a month that averaged a foot and a half
+still had an afternoon at three and a half.
+
+**Revisit if:** the weather room gets slow. It reads all 232 days at once to
+build the records board, which is fine at one year and worth watching at five.
+The fix is a records file written by the same job that writes the archive, not
+pagination.
+
+---
+
+## 37. Heritage is a hub and seven chapter pages
+**Decided:** August 2026
+
+Heritage was one page. It opened with the three towns, then a contents list,
+then seven chapters stacked into the same scroll, each one carrying every
+dated entry that fell inside its years. Fifty three entries, all of them
+showing, before a reader had decided whether they cared. At the foot of each
+chapter was a prev and next link.
+
+**Those two links are what made the whole thing feel wrong.** A page turn
+promises a page. These delivered an anchor sixty lines further down the
+document you were already in, so the reader got the motion of navigation with
+none of the arrival. It is the kind of thing that reads as broken without
+anybody being able to say what broke.
+
+**So the turns got what they were promising.** Heritage is a family now, on
+the same pattern as the almanac: `fivemile-heritage.html` is the hub,
+`fivemile-heritage-<id>.html` are the seven chapters, and they share
+`fivemile-heritage.css` and `fivemile-heritage-core.js`. A chapter has its own
+URL, its own title, its own description, and its own share image, so a chapter
+can be sent to somebody on its own, which is the thing a single scroll could
+never do.
+
+**The hub carries no dated entries at all.** Each chapter gets a photograph,
+one big figure, a few sentences, and a door. That is enough to decide on, and
+deciding is the only job a front page has. The count of entries is printed on
+the way in, because a chapter with three and a chapter with eleven should not
+look identical from outside, and that count is the one thing the old contents
+list was carrying that was worth keeping.
+
+**Nothing about a chapter is written into its HTML.** The span, the title, the
+opening, the plates, the timeline and both turns all come out of
+`fivemile-heritage.json` against a single `data-chapter` attribute. Moving a
+chapter boundary or adding a fact re-files itself across all eight pages
+without anybody editing eight files. The one thing each page keeps for itself
+is its head, because the reader who needs the title and the share image is a
+link preview and it never runs the script.
+
+**A hub row is a div, not an anchor, and this is not a style preference.** A
+plate carries a credit and a credit is a link. Wrapping the row in an `<a>`
+puts an anchor inside an anchor, which the parser repairs by tearing the outer
+one open: it turned seven rows into nineteen, live. The title holds the only
+real link and stretches a transparent overlay across the row, and the credit is
+lifted above that overlay so it stays clickable. If a future row grows a second
+link, it needs the same treatment.
+
+**The three town columns inside a chapter went away first**, before any of the
+above, and for a separate reason. Three columns is a filing cabinet, and the
+point of putting these towns on one page is that they happened to each other,
+which you read down a chronology and lose in a grid. Each chapter is now one
+list in date order, with a town badge answering where and a tag answering what,
+and the tag's color running down the row's left edge the way a beat runs down a
+news row. What the columns did well was show a thin record: an empty column
+said so at a glance. A list cannot, so a chapter says it in a sentence instead.
+
+**Revisit if:** the chapter count moves much past seven. Eight pages is
+already at the edge of what is reasonable to keep in sync by hand, and the
+masthead is duplicated across every one of them, which is a debt the whole
+site carries and this made slightly worse.
+
+---
+
+## 38. The nav is seven items, and Hills and Hollers is shelved
+**Decided:** August 2026
+
+The masthead nav was News, Almanac, Calendar, Guide, Heritage. It is now Home,
+News, Calendar, Almanac, Field Guide, Heritage, About.
+
+**Home is in the bar even though the wordmark already goes home.** The
+nameplate has been the link home since the site had a nameplate, and a lot of
+readers know that. A lot do not, and on this site the nameplate now does
+something else on the homepage anyway. A tab that says Home costs one slot and
+removes the only piece of navigation on the site you had to already know
+about.
+
+**Calendar moved ahead of Almanac** because they were in the wrong order for
+what people come for. What is happening this week beats what the sky is doing
+this week, and Calendar and News are the same errand, which is why they sit
+together in the footer already.
+
+**Guide became Field Guide,** which is what the page has been called
+everywhere else on the site, including in the footer site map, since it was
+written. The nav was the last place still calling it something shorter.
+
+**About is in the bar now.** It was reachable from the footer only. About is
+the page that answers who is doing this and why, which on a publication nobody
+has heard of yet is not a footer question. See DECISIONS.md 32 for what About
+replaced.
+
+**Seven items do not fit 390px, so the strip scrolls.** Five did, which is why
+the mobile rule used to divide the width evenly between them with `flex:1 1 0`
+and no scrolling at all. The row measures about 440px now. Shrinking to fit
+was the alternative and it was the wrong trade: it means 12px labels or
+clipped ones, and CLAUDE.md sets the type floor where it does because the
+readers here skew older. A strip that scrolls is a strip that scrolls. A nav
+nobody can read is broken.
+
+Measured at 375px, on all twenty seven pages: the strip is 509px, every tab is
+46px tall, the narrowest is News at 57px wide, and the page itself does not
+overflow horizontally.
+
+Two things make the scroll legible rather than a trap. Whichever tab the right
+edge lands on is cut through rather than ending flush, which is the thing that
+tells a thumb there is more. And `centerActiveTab()` scrolls the current
+page's tab into the middle on load and on resize, so a reader who lands on
+Heritage sees Almanac and About either side of it.
+
+**What this costs, stated plainly:** on the homepage the active tab is Home,
+the strip sits at scrollLeft 0, and About is off the right edge until somebody
+scrolls. That is the price of the seventh item and it is a real one. The fix,
+if it turns out to matter, is to let the strip wrap to two rows on a phone.
+That was not done now because it makes the masthead twice as tall on the
+primary target for the sake of one tab, and because the masthead's height is a
+number the announcement strip and the intro were both tuned around. Shrinking
+the type to fit is not on the table.
+
+**The centring is auto margins on the end tabs, not `justify-content`, and
+that is a correctness fix rather than a preference.** A centred flex row that
+overflows its scroll container overflows it at *both* ends, and `scrollLeft`
+cannot go below zero, so the leading overflow is unreachable. With
+`justify-content:center` still on it, Home would have sat off the left edge of
+a phone with no way to scroll back to it. Auto margins centre the same way
+when there is free space and resolve to zero when there is not.
+
+**The Heritage tab's id was `tab-cemetery`.** It predated Heritage being
+Heritage. Nothing keyed on it, so it is `tab-heritage` now. This is not a
+counterexample to DECISIONS.md 10: that decision is about the `cardiff-`
+prefixed class names and data ids, which stay.
+
+### Hills and Hollers is shelved, not deleted
+
+It is out of the footer site map, out of the sitemap, and out of the service
+worker precache list. `fivemile-hollers.html` is still in the repo and still
+works, and it carries `robots: noindex,follow` so a crawler does not find it
+on its own and drop a reader onto a page with no way back into the site.
+
+The reason is not that it is bad. It is that it is the only part of the site
+whose value depends entirely on whether people post, and there is no way to
+know that before launch. Everything else here works with an audience of one:
+the weather log is still a weather log if nobody reads it. A classifieds board
+with nothing on it is just an empty room, and an empty room on a new site is a
+worse first impression than no room at all.
+
+`cardiff-hollers.html` stays where it is, as a stub with its meta refresh,
+under the rule in CLAUDE.md. It now points at an unlinked page, which is
+correct: anyone arriving on the old URL still lands somewhere real.
+
+**To bring it back:** put it back in `FOOTER_NAV` under This site, add its
+`<url>` to `sitemap.xml`, add `/fivemile-hollers.html` to `PRECACHE_URLS`,
+take the `robots` line out of its head, and bump `CACHE_NAME`. Not in the
+masthead nav, which is full.
+
+**Revisit if:** the site gets enough traffic that people are already sending
+in notices without being asked. That is the signal. Launching it and waiting
+is not.
+
+---
+
+## 39. The field guide gets real photographs, and the drawn art goes
+**Decided:** August 2026
+
+The guide was the last page on the site still holding its own copy of the
+design tokens, and the last one still showing pictures that were generated
+rather than taken. Both are fixed in the same pass, because they were the same
+problem: the guide was built before the rest of the site knew what it was.
+
+### The photographs
+
+Every species photograph now comes from **iNaturalist**, filtered to research
+grade observations whose pictures are released under **CC0, CC BY, or CC BY-SA**.
+Two hundred and ten photographs across seventy species, three each, and a
+hundred and fifty-four of them were taken in Alabama.
+
+**Alabama first is the whole point.** A field guide for three towns on Five
+Mile Creek should show the animal as it looks here. The query asks for Alabama
+observations and only widens to the rest of the country when a species has too
+few, and the widening is recorded rather than hidden, so a thin species is
+visible as a thin species instead of quietly looking like the others.
+
+**CC BY-NC was on the table and was not taken.** It would have deepened the
+pool considerably, and the site is non-commercial, so it would have been
+defensible. It was refused because a licence that depends on the site staying
+non-commercial is a licence somebody has to re-clear before the guide can ever
+be printed, put on a sign, or handed to a school. The three free licences never
+need re-clearing.
+
+**Every photograph carries a name on the page.** Two of the three licences
+require attribution and CC0 does not, and the page does not distinguish between
+them: photographer, place, date, licence, and a link back to the observation,
+on every entry. Doing it only where it is compulsory would mean the credit line
+is a legal notice. Doing it everywhere means it is a byline.
+
+**Three per species, and the grid rotates them by day of the year.** So the
+page is not the same page every visit, so a photograph that fails to load has
+two behind it, and so a reader who cannot tell from one picture has a second
+and a third in the sheet. Nothing is stored to do this: the day of the year
+picks the photograph, which means everybody looking on the same day sees the
+same one.
+
+**Two entries could not be answered by iNaturalist and were handled openly.**
+Shed antlers are an object rather than an organism, so both photographs come
+from Wikimedia Commons, named as specific files rather than pulled from a
+search that can change under us. Wildflowers is a category rather than a
+species, so it borrows the guide's own photographs of black-eyed Susan,
+ironweed, goldenrod, and passion flower, each still carrying its own credit.
+Neither one gets a picture that pretends to be something it is not.
+
+**The mammals needed a second pass, and the reason is worth writing down.**
+Research grade and freely licensed, sorted by votes, a white-tailed deer comes
+back as roadkill, a skull, and a trail camera frame, because that is what
+people stop and record. Nine species were re-pulled using iNaturalist's
+"alive" annotation, which is optional and therefore a much smaller and much
+better pool. **If a future pull looks wrong, check the mammals first.**
+
+**`assets/` is gone,** all eighty-seven drawn files. `fivemile-kitchen.html`
+was the only other page using them and now points at the guide's photographs of
+pokeweed, bluegill, and grey squirrel, with a credit line under the picture
+that it did not have before. The guide-art half of `generate-assets.js` went
+with the art it processed.
+
+**Two scripts, and the picks file is committed on purpose.**
+`scripts/fetch-guide-photos.mjs` gathers candidates into `_src/`, which is
+outside git. `scripts/build-guide-photos.mjs` turns the chosen ones into the
+served WebP and writes the credits into `fivemile-guide.json`.
+`scripts/guide-photo-picks.json` sits between them and records which of six
+candidates was chosen and what the alt text is. That is a judgement somebody
+made looking at contact sheets and it is not recoverable from anything else in
+the repo, so it is version controlled like source.
+
+### The page
+
+**The data came out of the HTML.** Seventy species, previously two thousand
+lines of object literals inside `fivemile-guide.html`, now
+`fivemile-guide.json`, read by `fivemile-guide.js`. Same shape as
+`fivemile-heritage.json`. Six pollution entries that were filtered out at
+runtime by a hidden-id list were deleted rather than carried.
+
+**A hundred and sixty-eight em dashes came out of the copy.** They were in
+almost every field note. This is a hard rule in CLAUDE.md and the guide had
+never been held to it.
+
+**The front door changed.** The old page opened on a welcome screen that asked
+you to choose a biome or browse. The guide now opens on the search box and the
+grid, because the commonest arrival is somebody standing outside with a phone
+looking at something they cannot name. Biomes became a filter row and a section
+of panels further down. The quiz survives, entered from a card, because it was
+the one part of the old build doing something a list cannot do.
+
+**A species is a URL.** Opening one pushes a history entry, so the phone's back
+gesture closes the sheet instead of leaving the page, and `#cottonmouth` can be
+sent to somebody.
+
+**`.card-species` is a new card and it is restricted to this page.** The
+precedent is `.card-plat`, which heritage owns for its own reasons. The
+argument is in `fivemile-guide.css` above the class: a field guide entry is a
+photograph with a name under it, no card in the system is that, and the
+postcard is wrong here because 16:9 cuts the top off a standing heron and
+spends a hundred and sixteen pixels per card on a credit block. `.card-check`,
+the brass check, is used in the sheet for exactly what the spec sheet drew it
+for, which was a spotted bass and a great blue heron.
+
+**The grid crops to 4:3 and the sheet does not.** A grid has to line up. A
+guide that crops a snake is not a guide.
+
+### The shell is now duplicated three times
+
+**Corrected by decision 40. It was six, not three, and the destination named
+here was wrong.** The count above missed `fivemile-heritage.css` and the inline
+`<style>` blocks in `index.html` and `fivemile-news.html`, and moving the shell
+into `fivemile-common.css` would have broken six pages that carry a different
+measure. The shell is now in `fivemile-shell.css`. See decision 40.
+
+---
+
+## 40. The page shell is its own file, and it is not common.css
+**Decided:** August 2026
+
+Decision 39 closed by saying the shell existed in three copies and should move
+into `fivemile-common.css`, repeating a note that had been sitting at the top of
+`fivemile-archive.css` since the archive was built. Both halves were wrong, and
+finding out why is most of what this entry is for.
+
+### It was six copies, not three
+
+`.wrap`, `section.blk`, the equal grids, `.empty`, `.lede`, `.page`, and the
+`html`/`body`/`*` reset were duplicated in:
+
+`fivemile-almanac.css`, `fivemile-archive.css`, `fivemile-heritage.css`,
+`fivemile-guide.css`, and the inline `<style>` blocks in `index.html` and
+`fivemile-news.html`.
+
+The two inline copies are the ones the earlier counts missed, and they are the
+ones that matter most, because they are the homepage and the news page.
+
+### common.css was the wrong destination, and it would have failed quietly
+
+**On every page that keeps its styles in an inline `<style>` block, that block
+comes before the `<link>` to `fivemile-common.css`.** index.html has its style
+at line 73 and the link at 174. Kitchen: 38 and 124. Calendar: 41 and 172. Same
+shape on About, Announce, Civic, Hollers, and the news page.
+
+`.wrap` is a single class selector on both sides, so a `.wrap` in common.css
+beats the page's own. Six pages carry a measure that is not 1000px and every
+one of them would have been silently retitled:
+
+| Page | Measure |
+|---|---|
+| About | 680px |
+| Announce | 760px |
+| Hollers | 860px |
+| Calendar | 1100px, until decision 41 |
+| Civic | 1100px |
+| Kitchen | 1120px |
+
+None of those is an accident. About is a reading column. Calendar and Civic are
+tables that need the room. Kitchen is the widest thing on the site because a
+recipe is two columns side by side.
+
+**The calendar stopped being a table.** Decision 41 rebuilt it on the card
+system, where every row is a full width event stub, and it now loads this file
+and takes the 1000px measure. It asked for the file by name, which is the only
+way a page is supposed to get it. Five pages are left in the table above and
+they still must not have it. **The lesson is the one that keeps coming
+up in this repo: a shared file at the bottom of the load order is not a safe
+place to put anything a page might reasonably disagree with.**
+
+### So: fivemile-shell.css, loaded by the pages that share the shell
+
+Twenty-one of them. The homepage, the news page, the field guide, the almanac
+and its four desks, the archive and its four rooms, and heritage with its seven
+chapters. Load order is common, cards, shell, then the page's own file, so the
+page file still wins and the almanac keeps `.two-wide`, the guide keeps its
+species grid, and heritage keeps a 16px empty state.
+
+The six pages above do not load it and must not. If one of them ever wants the
+1000px measure it gets the file explicitly. It never gets it by default.
+
+Nothing about anyone's load order had to change, which is the other reason this
+beat putting it in common.css. Moving eight `<style>` blocks after their
+`<link>` would have flipped the cascade for every other rule those pages and
+common.css both touch, on eight working pages, to fix one.
+
+### What was reconciled, and what was left alone
+
+**Reconciled, no visible change.** The reset, the measure, the 34px section
+rhythm, the four grids, `.rows`, `.empty`, and `.lede` were identical or
+identical in value across every copy. `.empty` differed only in heritage, at
+16px, which stays as a one line override there.
+
+**The top gap was left split, deliberately.** The seven pages in the almanac
+group leave `.wrap` flush and put the gap on `section.top`. The archive group,
+the guide, and heritage put it on `.wrap` instead. The two roads arrive two
+pixels apart, 24px against 26px, which is precisely why nobody noticed them
+diverging. The shell carries the flush version because it is the majority, and
+three files add one `padding-top` line each. **Unifying it is right and it is
+not a refactor**, it is a rendering change on thirteen pages to save six lines,
+and it should be looked at rather than shipped inside a move.
+
+**Three rules did not move at all**, because the copies disagree about more
+than whitespace:
+
+- **`.src-note`.** The almanac sets 22px and 11.5px, the archive and the guide
+  set 34px and 12.5px, and heritage is not the same object: it is a boxed panel
+  on card stock. Recommend unifying on the archive pair, which is the newer and
+  more readable one, and accepting that it changes five almanac pages.
+- **`.send`.** The almanac gives `.send .btn` five more declarations than the
+  homepage and the news page do.
+- **`.desk-intro`.** The almanac's name for `.lede`, at 1.6 line height and a
+  16px bottom margin against 1.62 and 18px. The same object under two names,
+  two hairs apart.
+
+**Dead code went with it.** `.four-eq` in `fivemile-archive.css` was styled and
+had a breakpoint and is used by no archive page. `.four-eq` is an almanac
+family class and nothing else.
+
+### The two things that did change, and both are corrections
+
+**The field guide now breaks where the rest of the site breaks.** It had
+`.two-eq` holding two columns down to 760px, where every other page collapses
+at 820, and a bespoke rule putting `.three-eq` into two columns below 900,
+where the site goes from three straight to one. Between 760 and 900 pixels the
+guide was the only page on the site keeping a two column card row. It now
+follows the shell.
+
+**The five archive pages gained the paper grain.** `fivemile-archive.css` never
+had the `body::after` noise texture that every other page carries. That was an
+oversight rather than a decision, and picking up the shell picked it up too.
+They also gain the `#topo-canvas` rule, which is inert there because no archive
+page has the canvas element.
+
+### How this was verified
+
+Every page was measured in an iframe at 390, 600, 800, 900, and 1280 pixels,
+before and after: the computed `.wrap` box, `section.blk`, `section.top`,
+`.lede`, `.empty`, `.src-note`, `.page`, `body`, every grid's
+`grid-template-columns`, `documentElement.scrollWidth`, and the height of the
+announcement strip.
+
+Twenty-seven pages at two widths and twenty-one pages at three more. Two
+differences, both on the field guide, both listed above. Everything else is
+byte-identical, including all six pages that must not load the shell.
+
+**Any future change to this file should be verified the same way.** The iframe
+harness is the cheap part; the expensive part is knowing which numbers you were
+supposed to keep.
+
+---
+
+## 41. The calendar is stubs and months, and it gave up its own measure
+**Decided:** August 2026
+
+The calendar was the last page still built the way the old site built pages:
+its own 200 line `<style>` block, its own card shapes, its own type scale, its
+own accordion, and a row of pills across the top. It worked. It did not look
+like the rest of the site, and Joe said so.
+
+### What it is now
+
+Four stylesheets in the usual load order, common, cards, shell, then
+`fivemile-calendar.css`, and no inline `<style>` block at all. Every card on the
+page comes from `fivemile-cards.css`:
+
+- **A date is an event stub.** The card spec wrote `.card-stub` for exactly
+  this and says so: the date gets the weight, because that is what people scan a
+  calendar for, and the color is carried by the badges so a list of twelve does
+  not turn into a quilt.
+The turnings do not appear on the page at all, which is the change after this
+one.
+
+### The Standing dates block came out again
+
+The first pass carried a Standing dates section under Next up: index tabs, one
+per council, one for the siren test, one for the market, each a small lookup
+saying when that thing meets. Joe cut it the first time he saw it, and he was
+right.
+
+Every card in it appeared again as a row a few hundred pixels below, in the
+month it falls in, carrying the same sentence. One card per purpose, and the
+month lists are the purpose. A lookup earns its place when the thing it looks up
+is not already on the page. These were on the page twice.
+
+What the tabs carried that a dated row does not is the shape of the rule, First
+Monday rather than Sep 14. That belongs in the sentence on the row, and it is
+there: every recurring entry's summary says how often it meets before it says
+anything else.
+
+**The measure went from 1100px to 1000px.** Decision 40 lists the calendar's
+1100px as deliberate, on the grounds that it was a table that needed the room.
+It is not a table any more, it is a run of full width stubs, and the card system
+is drawn to the 1000px measure. So the calendar takes `fivemile-shell.css`
+explicitly, exactly the way decision 40 said a page should get it: on purpose,
+never by default. Five pages still do not load the shell and still must not.
+
+**The emoji came off the rows.** The old page ran a ninety line keyword table
+that put a picture on every entry. Ninety colored marks down a page is the quilt
+the card spec is written against. The month rail keeps its month emoji and the
+turnings keep theirs, which is where the character was doing work.
+
+### The turnings are a filing system, not a season
+
+`turnings.json` files its seventy two entries under eight named turnings:
+Candlemas, Quickening, Beltane, Midsummer, Lammas, Michaelmas, Hallowtide,
+Yuletide. The first pass surfaced all eight, as a name in every month head
+(**September** · *Lammas* · 11 dates) and as a row of tab cards at the foot of
+the page explaining what each one was.
+
+Joe cut both. The reason is worth writing down because the content looked good
+and was still wrong: **those are our names for the year, not the reader's.**
+Candlemas is a real day, Lammas is a real day, Michaelmas is a real day, and
+people here keep some of them. Hallowtide as the name of the stretch from
+November to December is a frame this site put on the calendar, and a month head
+reading Hallowtide tells a reader in Graysville that the site has opinions about
+what November is called.
+
+**The days stay, every one of them.** Candlemas is still February 2, Lammas is
+still August 1, Michaelmas is still September 29, Yule is still on the solstice,
+and each carries its own sentence saying what it is. What went is the framing
+layer above them. A month is a month.
+
+The eight groupings stay in the file, because they are how the entries are
+organised and they cost nothing. Their `explainer` text is not rendered
+anywhere now. That is dead data, kept deliberately: it is good writing, and if
+those explanations ever earn a page it should be one about the old calendar,
+not the month heads of this one.
+
+### January of this year through twelve months forward
+
+The old page rendered January to December of the current year, which meant a
+reader opening it in December saw a year that was nearly over. The rebuild
+rolled it: twelve months forward from this one.
+
+**That was half right and it lost the year behind you.** A calendar that drops a
+month the moment it ends is a rolling window that overwrites itself, which is
+the exact shape CLAUDE.md says to fix rather than ship. It surfaced the first
+time Joe sent in an event that had already happened: the Brookside duck race in
+June, worth having on the record even though it is past. There was nowhere for
+it to go.
+
+So the window opens on 1 January of the current year and runs twelve months
+forward from the current month. Nineteen months in August, twelve in January.
+Past months are shut, their rail chips are dimmed rather than removed, and they
+still carry their counts, so the year reads as a year with a position in it.
+
+Twelve months of dates fully expanded is about twenty seven thousand pixels on a
+phone. That is not a long page, it is a page people give up on. So a month is a
+`<details>`: this month and next are open, the other ten are shut, and the head
+of a shut month still carries the month, the turning it sits in, and how many
+dates are in it. The page comes to about eleven thousand pixels, and the whole
+year is still visible as a year.
+
+**The rail opens what it jumps to.** Each chip is a real anchor and works with
+no JavaScript, and a chip carries the count of dates in its month. That is
+decision 28's lesson: a chip with a month name and nothing else reads as a
+heading rather than as something that goes anywhere, which is how the almanac's
+first pass failed in front of a reader. The count makes it report something.
+
+### Seven subjects, and the calendar sets its own accents
+
+Civic, Garden, Season, Tradition, Sky, Market, Community. Decision 25 allows a page with
+its own set of subjects to set `--accent` from its own stylesheet, the way the
+news beats already do, and a `.tag` reading Calendar on every row of the
+calendar page would answer a question nobody asked. Civic and Garden borrow the
+government and garden colors they already have elsewhere, so nobody has to learn
+the palette twice.
+
+**Civic and Community are separate lanes and that matters past the color.** A
+council meeting and a duck race are both worth turning up to and they are not
+the same errand. The homepage used to take the next three civic dates and
+nothing else, which made the front page a page about local government. It takes
+both lanes now. The weekly market is in neither, for the reason above: it would
+win every slot every Thursday.
+
+### The recurrence rules live in one file
+
+The calendar used to work out for itself when a monthly meeting falls, which
+meant `fivemile-calendar.js` and `fivemile-season-data.js` both held the rule
+and only one of them could know about the holiday shift. `getEntriesForMonth`
+is in the season data file now and the calendar asks it a month at a time.
+
+**Graysville meets twice a month**, first and third Thursday at six at
+Graysville City Hall, so `nth` is read as a list and a plain number is a list of
+one. Nothing else about the recurrence had to change.
+
+**Brookside meets on the first Monday unless that Monday is a holiday**, and
+then it moves to the second. That is a rule, not a list of exceptions, so it is
+written as one: `holidayShift` on the entry, and a `mondayHoliday` check that
+knows Labor Day is always the first Monday of September, and that a Fourth of
+July or a New Year's Day landing on a Sunday is kept on the Monday after. The
+occurrence carries a note saying why it moved and the stub prints it. Nobody has
+to remember to extend a list every year.
+
+**The market is weekly and it is not in the civic lane.** The homepage takes the
+next three civic dates and nothing else. A market that comes round every Thursday
+would win all three and push the council meetings off the front page. It shows
+on the calendar as one standing row a month rather than four rows of the same
+sentence, and on the news page, which takes anything inside ten days regardless
+of lane, it earns its row like anything else happening this week.
+
+### The reminders knew about one council out of three
+
+`fivemile-alerts.js` keeps its own copy of the civic list, because it runs in CI
+and reads no browser file, and its own header says to add new events to it
+whenever the season data changes. Nobody had. That is a bad shape for the one
+file whose whole job is telling somebody a meeting is tomorrow. All three
+councils are in it now, with the holiday shift and the nth list mirrored.
+
+**Two copies of a recurrence rule is one too many** and this entry will not
+pretend otherwise. The honest fix is for the script to read
+`fivemile-season-data.js` rather than restate it, which is a short eval with a
+stubbed `window`. The reason it is not done here is that a failure inside that
+eval is a silent end to every reminder the site sends. Worth doing deliberately,
+with a fallback, and not inside a page rebuild.
+
+**And it was dropping one reminder a year.** `getTomorrowLocal` worked tomorrow
+out by adding twenty four hours to the current time. Two days a year are not
+twenty four hours long, and on the November one that lands back on today, so a
+run in the small hours of the first Sunday in November got the wrong date. In
+2026 that is the day before the Brookside meeting. Later runs caught it, because
+the script goes every ten minutes, but a meeting reminder that depends on which
+run catches it is not a reminder. It steps one day forward on the Chicago
+calendar now.
+
+### What is on it that was not
+
+The garden dates, which existed on the site only as prose on the garden desk:
+turning the beds when the soil crumbles, Good Friday planting, pumpkins in
+around the Fourth for Halloween, the fall garden in September, the spent beds
+turned under after the first frost. Both Alabama sales tax holidays, written as
+the rules the state sets them by rather than as a list of years. The Graysville
+and Brookside council meetings, neither of which the site had anywhere. The
+Gardendale market.
+
+**Graysville and Brookside both came from Joe**, who is a source. The Brookside
+time and place are his too, given the day after the first pass shipped without
+them. Where the web could confirm something it was checked, and the two sales
+tax holiday rules are the state's own.
+
+**One thing is deliberately not written down**, with a NEEDS-CONFIRMATION
+comment in `fivemile-season-data.js` where it would go: which months the market
+runs. The aggregators disagree with each other and one of them prints a start
+date that is not a Thursday. The calendar says Thursdays and stops there.
+
+### Copy that had never been read
+
+`turnings.json` carried an explainer for each of the eight turnings that the old
+page never rendered. They are on the page now, which is how seven em dashes in
+copy turned up in a file nobody had reread since it was written. Those are gone,
+along with a dozen blurbs that only restated the date the stub already carries.
+
+**Revisit if:** the card system's 13.5px blurb turns out to be too small for
+this page specifically. Every other page uses a stub blurb as a secondary line
+under a headline. On the calendar it is the line that explains what Michaelmas
+is, and it is the reason a reader is here.
+
+---
+
+## 42. Cardiff is one of the three towns, not the name of the place
+**Decided:** August 2026
+
+The site was renamed to FIVEMILE and the files were renamed with it, and the
+copy underneath was left alone. So the words kept saying what the old site said.
+The red strip on every page defaulted to "Cardiff news desk". The field guide
+told a reader that white-tailed deer are the most visible large mammal in
+Cardiff, that Cardiff sits in Brood XIX territory, and that Cardiff's fields
+host the wildflowers. The almanac reported that yesterday around Cardiff the
+temperature ranged, and that lightning risk should be treated as real around
+Cardiff. The announcements page had a kicker reading "Cardiff, Alabama".
+
+None of that is a rename bug of the kind decision 10 is about. Those are
+sentences, and every one of them told a reader in Graysville or Brookside that
+this site is about somewhere else.
+
+### The rule
+
+**Cardiff appears when Cardiff is what is meant.** The council, the charter,
+the 1919 fire, the marker with the four family names on it, the weather station
+that is physically in Cardiff and is cited as its source. All correct, all left
+alone, and CLAUDE.md already said so.
+
+**Cardiff never stands in for the watershed.** Where it was doing that it is now
+one of: these three towns, along the creek, here, or this part of Jefferson
+County, whichever the sentence wanted. Two dozen strings across the field guide,
+the almanac, the ticker defaults in three files, the season data, the alert
+script, and two page kickers.
+
+### What it cost to notice
+
+The slant survived the rename because a rename pass greps for filenames. Nobody
+greps for a town name that is supposed to be there, which is exactly why this
+one lasted: `grep Cardiff` returns hundreds of correct hits and a couple of
+dozen wrong ones, and the wrong ones are only visible if you read the sentence.
+
+**The test for a new sentence:** if it names one town, would a reader in the
+other two nod or feel talked past? A gauge reading, a council meeting, and a
+town's own history name their town. Everything else names the creek, the three
+towns, or here.
+
+### Two things that go with it
+
+**Brookside's food festival is on the calendar.** St. Nicholas has put on the
+Russian and Slavic food festival the first Saturday and Sunday of November for
+years, at the parish hall on Pastor Street, and the parish, founded in 1894, is
+the oldest Orthodox church in Alabama. It was in `fivemile-heritage.json` the
+whole time as a line of history and was not on any calendar. It is the first
+entry on this site for a recurring event that belongs to a town other than
+Cardiff, and the fact that it took this long to add is the same finding as the
+rest of this entry.
+
+**Graysville still has nothing but its council meeting.** That is a gap, not a
+decision. The Mayberry and Graysville Squad Car Nationals is the obvious
+candidate and the only date that could be confirmed for it is July 5, 2025, so
+it is not written down. Ask Joe.
+
+---
+
+## 43. The season data is a data file, whatever its extension says
+**Decided:** August 2026
+
+The calendar rebuild shipped and Joe opened it and the Brookside meetings were
+not on it. What was on it was Labor Day, carrying a note saying the Brookside
+meeting moves off that Monday to the one after. A calendar referring to a
+meeting it does not list.
+
+Nothing was wrong with the calendar. The service worker routes by file
+extension:
+
+- `.json` is **network-first**. Data changes, and a reader should get the
+  current copy.
+- `.css` and `.js` are **cache-first**. Code and styles change on a deploy, and
+  a bumped `CACHE_NAME` is what evicts them.
+
+The calendar reads two files. `turnings.json` is data and is called data, so it
+came down fresh. `fivemile-season-data.js` is data with a `.js` on the end, so
+it came out of the cache, and the cached copy predated Graysville and Brookside
+existing. The page then drew a fresh half and a stale half and stitched them
+together into a calendar that was internally inconsistent rather than merely
+out of date. **That is worse than stale.** A page a week behind is obviously a
+page a week behind. A page that names a meeting in one row and omits it from
+another looks like a bug in the site's facts.
+
+### The fix and the rule
+
+`fivemile-season-data.js` is in a `DATA_SCRIPTS` list in the fetch handler and
+is served network-first alongside the JSON. The extension rules still cover
+everything else, because everything else genuinely is code.
+
+**The rule is about what a file holds, not what it is called.** If a file
+carries dates, readings, or anything a scheduled job or a person edits between
+deploys, it is data and it goes in that list, whatever suffix it has. If it
+carries behavior, it is code and the cache bump is what moves it.
+
+**The deeper point is that the two halves of one page's data must travel
+together.** Splitting a calendar across a network-first file and a cache-first
+file was safe only for as long as nobody added an entry to one of them.
+
+### Why the cache bump was not enough on its own
+
+`CACHE_NAME` went to v28 in the same pass and `activate` calls `clients.claim()`,
+so a returning reader is fixed on their next load either way. That is the
+recovery, and it is not the fix: it depends on somebody remembering to bump the
+constant every time a council date changes, and council dates change on their
+own schedule and not on the site's. Network-first means the next load is
+current whether anyone bumped anything or not.
+
+**Revisit if:** a second data file grows a code extension. The list is a list
+because there will probably be a second one.

@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendar · FIVEMILE</title>
-<meta name="description" content="Meetings, events, and gatherings in Graysville, Cardiff, and Brookside. Send us a date and it goes on the board.">
+<meta name="description" content="Meetings, events, and gatherings in Graysville, Cardiff, and Brookside, with the garden dates, the feast days, and twelve months ahead. Send us a date and it goes on the board.">
 <link rel="canonical" href="https://fivemile.now/fivemile-calendar.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
@@ -35,160 +35,46 @@
 <meta name="theme-color" content="#3d2810">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"></noscript>
+<!-- Playfair is the wordmark face and nothing else. Every page loads it,
+     because without it the nameplate falls back to Georgia and the arc in
+     fivemile-common.css is measured against cap heights Georgia does not have.
+     See DECISIONS.md 14. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="fetch" href="turnings.json" crossorigin>
-<style>
-:root{--red:#C8102E;--red-mid:#9a0c22;--green:#446b52;--green-hi:#729b70;--amber:#b47800;--blue:#2060a0;--paper:#f2e8d5;--paper2:#ede0c8;--card:#faf6ee;--ink:#1c1208;--ink2:#4a3418;--ink3:#7a5838;--border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);--shadow:0 2px 10px rgba(80,44,8,0.09),0 1px 3px rgba(80,44,8,0.06);--shadow-lg:0 8px 30px rgba(80,44,8,0.12),0 2px 8px rgba(80,44,8,0.08);--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;--r:8px;--r-lg:14px;--ease:220ms ease}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
-body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
-#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-.page{position:relative;z-index:1}
-.wrap{max-width:1100px;margin:0 auto;padding:0 2rem 5rem}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.hero{padding:2.5rem 0 1.5rem}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem;align-items:start}
-.kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
-.kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block}
-.title{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;letter-spacing:-.03em;line-height:.98;color:var(--ink);margin-bottom:.9rem}
-.sub{font-size:1rem;line-height:1.8;color:var(--ink2);max-width:68ch}
-.btn-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:var(--r);font-size:.82rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all var(--ease);border:1px solid transparent}
-.btn.primary{background:var(--red);color:#fff}
-.btn.primary:hover{background:var(--red-mid)}
-.btn.ghost{background:var(--paper2);color:var(--ink2);border-color:var(--border2)}
-.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
-.pill-strip{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding:.2rem 0 1.35rem}
-.pill-strip::-webkit-scrollbar{display:none}
-.pill-link{display:flex;align-items:center;gap:.6rem;padding:.62rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:999px;text-decoration:none;white-space:nowrap;transition:all var(--ease)}
-.pill-link:hover{border-color:var(--red);background:var(--paper2)}
-.pill-emoji{font-size:1rem;line-height:1}
-.pill-text{font-size:.78rem;font-weight:700;color:var(--ink)}
-.pill-sub{font-family:var(--mono);font-size:.56rem;color:var(--ink3)}
-.card,.feature-card,.lane-card,.footer-band{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative}
-.quick-card{padding:1.2rem 1.15rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09)}
-.section-rule{display:flex;align-items:center;gap:.75rem;margin:40px 0;box-shadow:none}
-.section-rule h2{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.section-rule hr{flex:1;border:none;border-top:1px solid #DDCFB8;box-shadow:none}
-.section-kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;padding-bottom:.7rem;margin-bottom:.75rem;border-bottom:1px solid var(--rule)}
-.section-kicker::before{content:"";width:12px;height:2px;background:var(--red);display:inline-block}
-.quick-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
-.quick-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
-.quick-list{display:grid;gap:.55rem;margin-top:.9rem}
-.quick-list li{list-style:none;position:relative;padding-left:1rem;font-size:.8rem;line-height:1.58;color:var(--ink2)}
-.quick-list li::before{content:"";position:absolute;left:0;top:.52rem;width:6px;height:6px;border-radius:50%;background:var(--red)}
-.feature-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
-.feature-card{padding:1.3rem 1.25rem 1.15rem}
-.feature-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
-.date-chip{display:inline-flex;align-items:center;padding:.28rem .58rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper2);font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.holiday-title{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:.55rem}
-.holiday-copy{font-size:.92rem;line-height:1.76;color:var(--ink2)}
-.event-meta{display:grid;gap:.55rem;margin-top:1rem}
-.meta-row{display:flex;align-items:flex-start;gap:.65rem;padding:.62rem 0;border-top:1px solid var(--rule)}
-.meta-row:first-child{border-top:none;padding-top:0}
-.meta-icon{font-size:1rem;line-height:1;flex-shrink:0;margin-top:.08rem}
-.meta-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.12rem}
-.meta-copy{font-size:.82rem;line-height:1.58;color:var(--ink2)}
-.stack{display:grid;gap:1rem}
-.mini-card{padding:1.05rem}
-.mini-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
-.mini-copy{font-size:.84rem;line-height:1.68;color:var(--ink2)}
-.mini-date{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
-.lane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-.lane-card{padding:1.08rem}
-.lane-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
-.lane-copy{font-size:.84rem;line-height:1.7;color:var(--ink2)}
-.lane-note{margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--ink3)}
-.month-shell{padding:1.25rem 1.2rem 1.15rem}
-.month-list{display:grid;gap:.75rem}
-.month-item{display:grid;grid-template-columns:minmax(108px,128px) 2.4rem minmax(0,1fr);gap:.85rem;padding:.8rem 0;border-top:1px solid var(--rule);align-items:start}
-.month-item:first-child{border-top:none;padding-top:0}
-.month-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--red)}
-.month-icon{font-size:1.35rem;line-height:1;display:flex;align-items:flex-start;justify-content:center;padding-top:.05rem}
-.month-main{min-width:0}
-.month-title{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:.12rem}
-.month-copy{font-size:.8rem;line-height:1.6;color:var(--ink2)}
-.turning-card{padding:1.5rem 1.4rem 1.3rem}
-.turning-head{display:flex;align-items:center;gap:.9rem;padding-bottom:1rem;margin-bottom:.85rem;border-bottom:2px solid var(--rule)}
-.turning-emoji{font-size:2.1rem;line-height:1;flex-shrink:0}
-.turning-meta{min-width:0}
-.turning-name{font-size:1.42rem;font-weight:800;color:var(--ink);line-height:1.1}
-.turning-range{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);display:block;margin-top:.22rem}
-.te-list{list-style:none;display:grid;gap:0;margin:0;padding:0}
-.te-item{display:grid;grid-template-columns:minmax(80px,104px) 2.2rem minmax(0,1fr);gap:.85rem;padding:.72rem 0;border-top:1px solid var(--rule);align-items:start}
-.te-icon{font-size:1.15rem;line-height:1;text-align:center;padding-top:.08rem}
-.te-item:first-child{border-top:none;padding-top:0}
-.te-date{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding-top:.1rem}
-.te-body{min-width:0}
-.te-name{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.1rem;line-height:1.35}
-.te-desc{font-size:.8rem;line-height:1.58;color:var(--ink2);margin-bottom:.22rem}
-.te-link{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none;font-weight:500}
-.te-link:hover{text-decoration:underline}
-.cal-context{font-size:.92rem;line-height:1.78;color:var(--ink2);margin:.55rem 0 1.1rem}
-.footer-band{padding:1.25rem 1.2rem 1.18rem;margin-top:1rem}
-.footer-title{font-size:1.06rem;font-weight:800;color:var(--ink);margin-bottom:.45rem}
-.footer-copy{font-size:.86rem;line-height:1.72;color:var(--ink2)}
-.submit-card{padding:1.2rem 1.15rem 1.15rem;margin-top:2rem}
-.submit-card .section-kicker{margin-bottom:.6rem}
-.submit-title{font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:.4rem}
-.submit-copy{font-size:.84rem;line-height:1.72;color:var(--ink2);margin-bottom:1rem}
-.submit-form{display:grid;gap:.8rem}
-.submit-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.submit-form input,.submit-form select,.submit-form textarea{width:100%;padding:.78rem .9rem;border-radius:var(--r);border:1px solid var(--border2);background:#fff;color:var(--ink);font:inherit;outline:none;transition:border-color var(--ease),box-shadow var(--ease)}
-.submit-form textarea{min-height:150px;resize:vertical}
-.submit-form input:focus,.submit-form select:focus,.submit-form textarea:focus{border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
-.submit-status{margin-top:.1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink3)}
-.hero .sub+.sub{margin-top:.9rem}
-.infopill-strip{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;padding:8px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.infopill-strip::-webkit-scrollbar{display:none}
-.infopill{flex-shrink:0;white-space:nowrap;min-height:44px;padding:10px 14px;border-radius:999px;font-size:13px;border:1px solid var(--border);background:var(--card);color:var(--ink2);cursor:pointer;font-family:var(--sans);display:flex;flex-direction:column;justify-content:center;line-height:1.25;text-align:left}
-.infopill.current{background:var(--red);color:#fff;border-color:var(--red)}
-.infopill-name{font-weight:700}
-.infopill-range{font-size:11px;opacity:.75}
-summary::-webkit-details-marker{display:none}
-summary{list-style:none;cursor:pointer}
-.chevron{transition:transform .2s ease;margin-left:auto;flex-shrink:0;font-size:1.2rem;color:var(--ink3);line-height:1;align-self:center}
-details[open] .chevron{transform:rotate(90deg)}
-details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom:none}
-@media(max-width:600px){
-  .te-item{grid-template-columns:minmax(46px,56px) 1.8rem minmax(0,1fr);gap:.55rem;align-items:center}
-  .te-date{font-size:.6rem}
-  .month-item{grid-template-columns:minmax(60px,80px) 2rem minmax(0,1fr);gap:.55rem;align-items:center}
-  .turning-card{padding:1.1rem .9rem 1rem}
-}
-@media(max-width:980px){.hero-grid,.feature-grid,.lane-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){.wrap{padding:0 1rem 4rem}.hero-grid,.feature-grid,.lane-grid,.submit-row{grid-template-columns:1fr}.title{font-size:clamp(2.2rem,10vw,3.5rem)}}
-</style>
 <script src="fivemile-brand.js"></script>
-<!-- Masthead intro gate. Runs before the first paint. Sets data-intro to
-     "pending" only for a reader who has not seen the intro and has not asked
-     for reduced motion. Anything unexpected resolves to "done", which is the
-     state where the masthead is fully visible. The timer is the backstop for
-     the case where fivemile-intro.js fails to load. -->
-<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
+<!-- Masthead intro gate. Runs before the first paint. Same as every page.
+     The stored value is a date, so the intro plays once a day. See index.html
+     for the full note and DECISIONS.md 16 for why. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<!-- No inline style block on this page any more. The shell, the cards, and the
+     page's own furniture are four stylesheets in the load order every rebuilt
+     page uses: common, cards, shell, then the page. See DECISIONS.md 40 and 41. -->
 <link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-calendar.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <header class="cardiff-masthead">
   <div class="mh-identity">
     <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
     <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
-    <div class="mh-right-info"><a href="fivemile-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
     <div class="mh-mobile-pills">
-      <a href="fivemile-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
     </div>
   </div>
   <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
     <a href="fivemile-news.html" id="tab-news">News</a>
-    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
     <a href="fivemile-calendar.html" id="tab-calendar" class="active">Calendar</a>
-    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
-    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -198,31 +84,53 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
      paint. Do not move this to the end of the body and do not add defer. -->
 <script src="fivemile-intro.js"></script>
 
-<main class="wrap">
-  <div id="infopill-strip-container" class="reveal" style="padding-top:1.5rem"></div>
+<main id="main" tabindex="-1" class="wrap">
 
-  <p class="cal-context reveal">Some of these dates will look unfamiliar — Candlemas, Beltane, Lammas, Hallowtide. They were carried here by the families who built Cardiff: the <strong>Stewarts</strong> from Scotland, the <strong>Woodfords</strong> from Wales, the <strong>Tombrellos</strong> from Sicily, the <strong>Negrons</strong> from France. A lot of those names have been lost over the generations. The days themselves haven't.</p>
+  <!-- HEAD ------------------------------------------------------------------ -->
+  <section class="top reveal">
+    <div class="hd"><h1>Calendar</h1><time id="calStamp">&mdash;</time></div>
+    <p class="lede">Council meetings, county collection days, the market, the garden dates, and the feast days people here still keep. Twelve months of it, and everything on it stays where you can find it again.</p>
+    <p class="lede">A few of these days will look unfamiliar, and they got here the way nearly everything here got here. The mines hired from home, so home came with them. Welsh and Scottish families came to Cardiff in the 1880s. Slovak and Ukrainian families came to Brookside, better than a third of the town by 1910, and built St. Nicholas so they would have somewhere to keep their own year in. Every one of those families was an immigrant, and what they carried was a calendar: days worth marking, food to cook on them, a reason to get everybody in one room. A hundred years on, those are not anybody's foreign customs. They are just what people here do in February and in August.</p>
+  </section>
 
-  <div class="stack" id="turnings-shell">
-    <section class="card turning-card reveal">
-      <div class="turning-head">
-        <span class="turning-emoji" aria-hidden="true">🌿</span>
-        <div class="turning-meta">
-          <h2 class="turning-name">Loading calendar…</h2>
-          <span class="turning-range">One moment</span>
-        </div>
-      </div>
-    </section>
-  </div>
+  <!-- NEXT UP ---------------------------------------------------------------
+       The answer to the question most people open a calendar with. Five rows,
+       dated, nearest first.
+       ---------------------------------------------------------------------- -->
+  <section class="blk reveal">
+    <div class="hd"><h2 id="next-up">Next up</h2><span class="hd-note">Nearest first</span></div>
+    <div id="calNext"><div class="empty">&mdash;</div></div>
+  </section>
 
-  <section class="card submit-card reveal" id="send-date">
-    <div class="section-kicker">Send a date in</div>
-    <div class="submit-title">Add something to the calendar</div>
-    <p class="submit-copy">Use this to send holidays, meetings, workdays, deadline reminders, or community dates. Submissions go into the site inbox for review before anything is posted.</p>
+  <!-- THE MONTHS -------------------------------------------------------------
+       There was a Standing dates block here, three tab cards restating when
+       each council meets. Every one of them appeared again as a row a few
+       hundred pixels below, in the month it falls in. One card per purpose,
+       and the months are the purpose. See DECISIONS.md 41.
+       ---------------------------------------------------------------------- -->
+  <section class="blk reveal">
+    <div class="hd"><h2 id="the-year">The year ahead</h2><span class="hd-note">Twelve months</span></div>
+    <div id="calRail"></div>
+  </section>
+  <div id="calMonths"></div>
+
+  <!-- There was a section here called The old names, eight tab cards for the
+       eight turnings in turnings.json, and the month heads carried the name of
+       the turning each month sat in. Both are gone. The turnings are a filing
+       system for the entries, not something a reader needs, and a month head
+       reading Hallowtide is the site's own framing sitting on top of a
+       calendar. Candlemas and Lammas and Michaelmas are still on it as the
+       days they are, each explaining itself on its own row.
+       See DECISIONS.md 41. -->
+
+  <!-- SEND ------------------------------------------------------------------- -->
+  <div class="send reveal" id="send-date">
+    <h2>Send a date in</h2>
+    <p>Holidays, meetings, workdays, deadlines, church suppers, anything with a date on it. It goes to the site inbox and gets read before anything is posted.</p>
     <div class="submit-form" id="calendarForm">
       <div class="submit-row">
-        <input type="text" id="calName" placeholder="Your Name">
-        <input type="email" id="calEmail" placeholder="Your Email">
+        <input type="text" id="calName" placeholder="Your name" autocomplete="name">
+        <input type="email" id="calEmail" placeholder="Your email" autocomplete="email">
       </div>
       <div class="submit-row">
         <input type="text" id="calDate" placeholder="Date or date range">
@@ -235,29 +143,46 @@ details:not([open]) .turning-head{padding-bottom:0;margin-bottom:0;border-bottom
           <option>Deadline</option>
         </select>
       </div>
-      <textarea id="calDetails" placeholder="What should be on the calendar? Include the name of the date, what it is, and any useful details."></textarea>
-      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">📬 Send date in</button>
+      <textarea id="calDetails" placeholder="What is it, where is it, and what time?"></textarea>
+      <button class="btn primary" id="calendarSubmitBtn" type="button" onclick="submitCalendarDate()">Send date in</button>
       <div class="submit-status" id="calendarStatus" aria-live="polite"></div>
     </div>
-  </section>
+  </div>
+
 </main>
 </div>
 
 <script>
+/* The form builds a mailto and hands off to the reader's mail app. There is no
+   backend and there is not going to be one. See DECISIONS.md 2. */
 function submitCalendarDate(){
-  const name=document.getElementById('calName').value.trim();
-  const email=document.getElementById('calEmail').value.trim();
-  const date=document.getElementById('calDate').value.trim();
-  const type=document.getElementById('calType').value.trim()||'Calendar date';
-  const details=document.getElementById('calDetails').value.trim();
-  const status=document.getElementById('calendarStatus');
+  var name=document.getElementById('calName').value.trim();
+  var email=document.getElementById('calEmail').value.trim();
+  var date=document.getElementById('calDate').value.trim();
+  var type=document.getElementById('calType').value.trim()||'Calendar date';
+  var details=document.getElementById('calDetails').value.trim();
+  var status=document.getElementById('calendarStatus');
   status.textContent='';
-  if(!email||!email.includes('@')){document.getElementById('calEmail').style.borderColor='var(--red)';status.textContent='Please add a valid email address.';setTimeout(()=>document.getElementById('calEmail').style.borderColor='',2000);return;}
-  if(!date||!details){if(!date)document.getElementById('calDate').style.borderColor='var(--red)';if(!details)document.getElementById('calDetails').style.borderColor='var(--red)';status.textContent='Please add the date and a short description.';setTimeout(()=>{document.getElementById('calDate').style.borderColor='';document.getElementById('calDetails').style.borderColor='';},2000);return;}
-  const subject=encodeURIComponent('Cardiff calendar date: '+type+' · '+date);
-  const body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
-  window.location.href='mailto:'+'josephlgraham'+'@'+'gmail.com'+'?subject='+subject+'&body='+body;
-  document.getElementById('calendarForm').innerHTML='<div style="padding:1rem 0;font-size:1rem;font-weight:700;color:var(--green);text-align:center;">Your email app should be opening now.</div>';
+  if(!email||email.indexOf('@')===-1){
+    document.getElementById('calEmail').style.borderColor='var(--red)';
+    status.textContent='That email address does not look right.';
+    setTimeout(function(){document.getElementById('calEmail').style.borderColor=''},2000);
+    return;
+  }
+  if(!date||!details){
+    if(!date)document.getElementById('calDate').style.borderColor='var(--red)';
+    if(!details)document.getElementById('calDetails').style.borderColor='var(--red)';
+    status.textContent='The date and a short description are both needed.';
+    setTimeout(function(){
+      document.getElementById('calDate').style.borderColor='';
+      document.getElementById('calDetails').style.borderColor='';
+    },2000);
+    return;
+  }
+  var subject=encodeURIComponent('FIVEMILE calendar date: '+type+' · '+date);
+  var body=encodeURIComponent('Name: '+(name||'')+'\nEmail: '+email+'\nDate: '+date+'\nType: '+type+'\n\n'+details);
+  window.location.href='mailto:'+'fivemilec@gmail.com'+'?subject='+subject+'&body='+body;
+  document.getElementById('calendarForm').innerHTML='<div class="submit-done">Your mail app should be opening now.</div>';
 }
 </script>
 <script defer src="fivemile-season-data.js"></script>

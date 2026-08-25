@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ─────────────────────────────────────────────────────────────────────
-//  Cardiff Weather Alerts
+//  FIVEMILE weather alerts
 //  Pulls active NWS alerts for Jefferson County, writes ticker.json
 //  with short, clean alert lines + emoji. Expired alerts auto-clear.
 //
@@ -33,27 +33,27 @@ const CONFIG = {
   outputFile: path.join(__dirname, 'ticker.json'),
 
   // Default ticker message when no alerts are active
-  defaultMessage: 'Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County',
+  defaultMessage: 'FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County',
 
   // Request timeout (ms)
   timeoutMs: 12000,
 
   // User-Agent (NWS requires a contact string)
-  userAgent: 'CardiffAlerts/1.0 (cardiff-alabama-community-site)'
+  userAgent: 'FivemileAlerts/1.0 (fivemile.now community site)'
 };
 
 
 // ─────────────────────────────────────────────────────────────────────
 //  SPC Categorical Outlook — advance severe weather signal
-//  Checks Day 1 and Day 2 outlooks for Enhanced+ risk over Cardiff.
+//  Checks Day 1 and Day 2 outlooks for Enhanced+ risk over the three towns.
 //  SPC GeoJSON source: https://www.spc.noaa.gov/products/outlook/
 //
 //  Only ENH / MDT / HIGH trigger a ticker line.
 //  TSTM / MRGL / SLGT are too routine for Jefferson County to surface.
 // ─────────────────────────────────────────────────────────────────────
 
-const CARDIFF_LON = -86.870;
-const CARDIFF_LAT =  33.640;
+const WATERSHED_LON = -86.870;
+const WATERSHED_LAT =  33.640;
 
 const SPC_RISK_LEVELS = {
   'ENH':  { label: 'Enhanced severe storm risk', emoji: '⛈️', priority: 3 },
@@ -113,23 +113,25 @@ async function fetchSpcOutlookLines() {
   for (const outlook of SPC_OUTLOOKS) {
     try {
       const data = await fetchJson(outlook.url);
-      // Find the highest-priority risk category that covers Cardiff
+      // Find the highest-priority risk category that covers the three towns.
+      // One point stands for all three: they sit within a few miles of each
+      // other and an SPC risk polygon is far larger than that.
       let bestRisk = null;
       let bestPriority = 0;
       for (const feature of (data.features || [])) {
         const code = (feature.properties?.LABEL || '').toUpperCase();
         const risk = SPC_RISK_LEVELS[code];
         if (!risk || risk.priority <= bestPriority) continue;
-        if (pointInGeometry(CARDIFF_LON, CARDIFF_LAT, feature.geometry)) {
+        if (pointInGeometry(WATERSHED_LON, WATERSHED_LAT, feature.geometry)) {
           bestRisk     = risk;
           bestPriority = risk.priority;
         }
       }
       if (bestRisk) {
         lines.push(`${bestRisk.emoji} ${bestRisk.label} ${outlook.when} · SPC Day ${outlook.day}`);
-        console.log(`   SPC Day ${outlook.day}: ${bestRisk.label} over Cardiff`);
+        console.log(`   SPC Day ${outlook.day}: ${bestRisk.label} over the three towns`);
       } else {
-        console.log(`   SPC Day ${outlook.day}: no enhanced+ risk over Cardiff`);
+        console.log(`   SPC Day ${outlook.day}: no enhanced+ risk over the three towns`);
       }
     } catch (err) {
       console.log(`   ✗ SPC Day ${outlook.day} outlook unavailable: ${err.message}`);
@@ -181,7 +183,7 @@ async function fetchGaugeAlertLines() {
     console.log(`   Gauge: ${GAUGE.label} — ${latest.toFixed(2)} ft, ${rising ? 'rising' : 'steady/falling'}`);
 
     if (latest >= GAUGE.floodStage) {
-      lines.push(`🌊 ${GAUGE.label} at ${latest.toFixed(1)} ft — at or above flood stage`);
+      lines.push(`🌊 ${GAUGE.label} at ${latest.toFixed(1)} ft, at or above flood stage`);
     } else if (latest >= GAUGE.actionStage && rising) {
       lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${latest.toFixed(1)} ft and climbing`);
     }
@@ -198,7 +200,7 @@ async function fetchGaugeAlertLines() {
         const stage  = lead.stage_ft;
         const rising = (lead.trend || '').toLowerCase() === 'rising';
         if (stage >= GAUGE.floodStage)
-          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft — at or above flood stage`);
+          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, at or above flood stage`);
         else if (stage >= GAUGE.actionStage && rising)
           lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
       }
@@ -222,7 +224,17 @@ const CIVIC_EVENTS = [
     nth:     1, weekday: 3, hour: 10,   // 1st Wednesday, 10 AM
     exceptMonths: [],
     emoji:   '🚨',
-    short:   'Sirens test at 10:00 AM — no action needed'
+    short:   'Sirens test at 10:00 AM, no action needed'
+  },
+  // The three councils, west to east. See DECISIONS.md 1.
+  {
+    id:      'graysville-city-council',
+    title:   'Graysville City Council meeting',
+    kind:    'recurring-weekday',
+    nth:     [1, 3], weekday: 4, hour: 18,   // 1st and 3rd Thursday, 6 PM
+    exceptMonths: [],
+    emoji:   '🏛️',
+    short:   'Graysville City Hall · 6:00 PM'
   },
   {
     id:      'cardiff-city-council',
@@ -234,6 +246,16 @@ const CIVIC_EVENTS = [
     short:   '6:00 PM'
   },
   {
+    id:      'brookside-town-council',
+    title:   'Brookside Town Council meeting',
+    kind:    'recurring-weekday',
+    nth:     1, weekday: 1,            // 1st Monday, moved off a holiday
+    holidayShift: true,
+    exceptMonths: [],
+    emoji:   '🏛️',
+    short:   'Brookside Town Hall · 6:00 PM'
+  },
+  {
     id:      'cardiff-town-council-april-2026',
     title:   'Cardiff Town Council Meeting',
     kind:    'day',
@@ -241,13 +263,31 @@ const CIVIC_EVENTS = [
     emoji:   '🏛️',
     short:   'Town Hall · 6:00 PM · All welcome'
   },
+  // Community events. Same day-before reminder as a council meeting, because a
+  // reader wants to know about the walk as much as the vote.
+  {
+    id:      'brookside-awareness-walk-2026',
+    title:   'Suicide Awareness Walk, Brookside',
+    kind:    'day',
+    year: 2026, month: 9, day: 12, hour: 9,
+    emoji:   '💛',
+    short:   'Brookside Ballpark · registration 9 AM, walk at 10'
+  },
+  {
+    id:      'brookside-duck-race-2026',
+    title:   'Five Mile Creek Rubber Duck Race',
+    kind:    'day',
+    year: 2026, month: 6, day: 12, hour: 12,
+    emoji:   '🦆',
+    short:   'Brookside Ballpark · registration noon, race at 1 PM'
+  },
   {
     id:      'hhw-collection-spring-2026',
     title:   'Household Hazardous Waste Drop-Off',
     kind:    'day',
     year: 2026, month: 4, day: 25, hour: 8,
     emoji:   '♻️',
-    short:   'First Baptist Gardendale · 8 AM – 11:30 AM'
+    short:   'First Baptist Gardendale · 8 AM to 11:30 AM'
   },
   {
     id:      'electronics-dropoff-may-2026',
@@ -255,7 +295,7 @@ const CIVIC_EVENTS = [
     kind:    'day',
     year: 2026, month: 5, day: 9, hour: 9,
     emoji:   '♻️',
-    short:   'Center Point Satellite Courthouse · 9 AM – 11:30 AM'
+    short:   'Center Point Satellite Courthouse · 9 AM to 11:30 AM'
   },
   {
     id:      'electronics-dropoff-june-2026',
@@ -263,7 +303,7 @@ const CIVIC_EVENTS = [
     kind:    'day',
     year: 2026, month: 6, day: 13, hour: 9,
     emoji:   '♻️',
-    short:   'Valley Reclamation Facility, Bessemer · 9 AM – 11:30 AM'
+    short:   'Valley Reclamation Facility, Bessemer · 9 AM to 11:30 AM'
   },
   {
     id:      'electronics-dropoff-sep-2026',
@@ -271,7 +311,7 @@ const CIVIC_EVENTS = [
     kind:    'day',
     year: 2026, month: 9, day: 12, hour: 9,
     emoji:   '♻️',
-    short:   'Birmingham City Hall/Lynn Henley Park · 9 AM – 11:30 AM'
+    short:   'Birmingham City Hall/Lynn Henley Park · 9 AM to 11:30 AM'
   },
   {
     id:      'hhw-collection-fall-2026',
@@ -279,9 +319,35 @@ const CIVIC_EVENTS = [
     kind:    'day',
     year: 2026, month: 10, day: 17, hour: 8,
     emoji:   '♻️',
-    short:   'Camp Ketona · 8 AM – 11:30 AM'
+    short:   'Camp Ketona · 8 AM to 11:30 AM'
   }
 ];
+
+// The federal holidays a first Monday meeting can collide with. Mirrors
+// mondayHoliday in fivemile-season-data.js; keep the two in step.
+function fixedHoliday(month, day) {
+  if (month === 1  && day === 1)  return "New Year's Day";
+  if (month === 6  && day === 19) return 'Juneteenth';
+  if (month === 7  && day === 4)  return 'Independence Day';
+  if (month === 11 && day === 11) return 'Veterans Day';
+  if (month === 12 && day === 25) return 'Christmas Day';
+  return null;
+}
+
+function mondayHoliday(year, month, day) {
+  const onTheDay = fixedHoliday(month, day);
+  if (onTheDay) return onTheDay;
+
+  const date = new Date(year, month - 1, day);
+  if (date.getDay() === 1) {
+    const before = new Date(year, month - 1, day - 1);
+    const observed = fixedHoliday(before.getMonth() + 1, before.getDate());
+    if (observed) return observed;
+  }
+
+  if (month === 9 && day === nthWeekdayOfMonth(year, 9, 1, 1)) return 'Labor Day';
+  return null;
+}
 
 // nth weekday of a month (weekday: 0=Sun … 6=Sat)
 function nthWeekdayOfMonth(year, month, weekday, nth) {
@@ -291,18 +357,27 @@ function nthWeekdayOfMonth(year, month, weekday, nth) {
   return day <= daysInMonth ? day : null;
 }
 
-// Returns { year, month, day } for "tomorrow" in America/Chicago
+// Returns { year, month, day } for "tomorrow" in America/Chicago.
+//
+// This works out today's date here and steps one day forward on the calendar,
+// rather than adding twenty four hours to a timestamp. Two days a year are not
+// twenty four hours long, and on the November one, adding twenty four hours to
+// a time in the small hours lands back on today. The effect was that the
+// Brookside reminder went missing on the first Monday of November: the run
+// caught it later in the day, but the whole point of this script is that a
+// meeting reminder never depends on which run catches it.
 function getTomorrowLocal(now) {
-  const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
   const fmt = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago',
     year: 'numeric', month: '2-digit', day: '2-digit'
   });
   const parts = {};
-  fmt.formatToParts(tomorrow).forEach(p => {
+  fmt.formatToParts(now).forEach(p => {
     if (p.type !== 'literal') parts[p.type] = parseInt(p.value, 10);
   });
-  return { year: parts.year, month: parts.month, day: parts.day };
+  // Date.UTC rolls the month and the year over for us.
+  const next = new Date(Date.UTC(parts.year, parts.month - 1, parts.day + 1));
+  return { year: next.getUTCFullYear(), month: next.getUTCMonth() + 1, day: next.getUTCDate() };
 }
 
 // Build ticker lines for civic events happening tomorrow
@@ -321,8 +396,21 @@ function getTomorrowCivicLines(now) {
         ex => ex.year === t.year && ex.month === t.month
       );
       if (!excepted) {
-        const day = nthWeekdayOfMonth(t.year, t.month, ev.weekday, ev.nth);
-        match = (day === t.day);
+        // nth is a list, and a plain number is a list of one. Graysville meets
+        // twice a month; everything else meets once.
+        const nths = Array.isArray(ev.nth) ? ev.nth : [ev.nth];
+        match = nths.some(nth => {
+          let day = nthWeekdayOfMonth(t.year, t.month, ev.weekday, nth);
+          if (day === null) return false;
+          // Brookside moves off a holiday to the following week. Same rule as
+          // fivemile-season-data.js, and the two have to agree or the reminder
+          // fires on a night nobody is meeting.
+          if (ev.holidayShift && mondayHoliday(t.year, t.month, day)) {
+            const shifted = nthWeekdayOfMonth(t.year, t.month, ev.weekday, nth + 1);
+            if (shifted !== null) day = shifted;
+          }
+          return day === t.day;
+        });
       }
     }
 
@@ -616,7 +704,7 @@ function fetchAlerts() {
 
 async function main() {
   const now = new Date();
-  console.log(`\n⚡ Cardiff Alerts — ${now.toLocaleString()}`);
+  console.log(`\n⚡ FIVEMILE alerts, ${now.toLocaleString()}`);
 
   // Preserve any manually pinned message from the existing ticker file
   let pinnedMessage = '';

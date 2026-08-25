@@ -1,0 +1,221 @@
+/* ===========================================================================
+   fivemile-calendar.css
+
+   The calendar page's own file. Load order is common, cards, shell, then this,
+   the same as the news page.
+
+   Nothing card shaped is defined in here. Every card on the calendar comes out
+   of fivemile-cards.css: the event stub for a date, the index tab for a
+   standing meeting and for a turning of the year, the notice for anything the
+   reader has to act on. What is left in this file is the page's own furniture:
+   its subject colors, the month rail, and two small additions to the stub.
+
+   THE MEASURE CHANGED. The calendar used to set its own 1100px wrap, and
+   DECISIONS.md 40 lists that as deliberate, on the grounds that the page was a
+   table that needed the room. It is not a table any more. It is a run of event
+   stubs, and the card system is drawn to the 1000px measure the other twenty
+   one pages use, so the page takes fivemile-shell.css explicitly and the
+   bespoke measure goes. See DECISIONS.md 41.
+   =========================================================================== */
+
+/* The tokens the masthead and the buttons in fivemile-common.css read that
+   neither cards.css nor shell.css declares. Same values every other page
+   carries. This file loads last, so a duplicate here is a duplicate with the
+   same value and nothing moves. */
+:root{
+  --red:#C8102E;--red-mid:#9a0c22;
+  --paper:#F2E8D5;--paper2:#ede0c8;--card:#FAF6EE;
+  --ink:#1C1208;--ink2:#4a3418;--ink3:#7a5838;
+  --masthead:#3D2810;
+  --border:rgba(80,44,8,0.13);--border2:rgba(80,44,8,0.24);--rule:rgba(80,44,8,0.15);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --r:8px;--r-lg:14px;--ease:220ms ease;
+}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.top{padding:28px 0 0}
+
+/* ---------------------------------------------------------------------------
+   THE SUBJECTS
+
+   The calendar's own set, the same arrangement decision 25 allows and the news
+   beats already use: the bar takes the color, the label stays ink, and the
+   page sets --accent from its own stylesheet rather than touching cards.css.
+
+   Seven of them, and they answer what kind of date this is. Civic and Garden
+   borrow the government and garden colors they already have elsewhere on the
+   site, so a reader who has learned the palette on the news page and the
+   garden desk does not have to learn it twice.
+
+   Civic and Community are separate on purpose. A council meeting and a duck
+   race are both worth turning up to and they are not the same errand, and the
+   data keeps them in separate lanes for the same reason.
+   --------------------------------------------------------------------------- */
+.tag.civic     {--accent:#6B4C9A}
+.tag.community {--accent:#B23A2E}
+.tag.garden    {--accent:#6E7F3A}
+.tag.season    {--accent:#4E6E58}
+.tag.tradition {--accent:#8A6D3B}
+.tag.sky       {--accent:#2E86AB}
+.tag.market    {--accent:#8B6914}
+
+/* ---------------------------------------------------------------------------
+   THE MONTH RAIL
+
+   Twelve months of dates is a long page, so the rail is how a reader gets to
+   November without scrolling through October. Each chip is a real anchor link
+   and works with no JavaScript at all.
+
+   Decision 28 is the reason each chip carries a count. A chip with a month
+   name and nothing else reads as a heading rather than as something that goes
+   anywhere, which is exactly how the almanac's first pass failed in front of a
+   reader. The count makes it report something. The current month is red.
+   --------------------------------------------------------------------------- */
+.month-rail{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+  padding:2px 2px 4px;margin:0 0 6px;-webkit-overflow-scrolling:touch}
+.month-rail::-webkit-scrollbar{display:none}
+.mr-chip{flex:none;min-height:44px;display:flex;flex-direction:column;justify-content:center;
+  padding:6px 14px;background:var(--card);border:1px solid var(--fm-rule);border-radius:99px;
+  text-decoration:none;color:inherit;white-space:nowrap}
+.mr-chip:hover{border-color:var(--masthead);text-decoration:none}
+.mr-chip b{font-size:14.5px;font-weight:700;line-height:1.2}
+.mr-chip span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--fm-muted)}
+.mr-chip.now{background:var(--red);border-color:var(--red);color:#fff}
+.mr-chip.now span{color:rgba(255,255,255,.82)}
+/* A month that has already gone by. Still there, still a link, still counted,
+   just not competing with the ones ahead. Nothing on this site scrolls away
+   and a dimmed chip is how that reads on a rail. */
+.mr-chip.past{opacity:.62}
+.mr-chip.past:hover{opacity:1}
+/* Twelve chips run to about 1100px, so on a wide screen they wrap onto two
+   lines rather than hiding four months off the right edge of a strip nobody
+   can tell scrolls. On a phone the strip scrolls, which is what a phone
+   expects. */
+@media(min-width:821px){
+  .month-rail{flex-wrap:wrap;overflow:visible}
+}
+
+/* ---------------------------------------------------------------------------
+   TWO ADDITIONS TO THE EVENT STUB
+
+   Both live here rather than in cards.css because the calendar is the only
+   page that needs either of them. If a second page ever does, they move.
+
+   .card-stub.window  ·  a date that is not a day
+
+   Some of what a calendar keeps has no date on it. The soil is ready when it
+   crumbles, the fall garden goes in through September, the market is every
+   Thursday. Those are real entries and they belong in the month they fall in,
+   but the day slot has no number to put in it, so the block carries a short
+   word instead: ALL MONTH, THURSDAYS. Same block, same brown, same width, so a
+   run of stubs still reads straight down the left edge.
+
+   .card-stub.today  ·  the date block goes red
+
+   One row on the whole page can have it, and only on the day itself.
+   --------------------------------------------------------------------------- */
+.k-date .wd{font-family:var(--mono);font-size:11px;line-height:1.3;letter-spacing:.09em;
+  text-transform:uppercase;padding-top:3px}
+/* Every date block on the page is the same width, dated or not, so a month
+   with THURSDAYS in it still reads straight down its left edge. 94px is what
+   the longest of those words needs. */
+.card-stub .k-date{min-width:94px}
+.card-stub.today .k-date{background:var(--red)}
+
+/* The source line at the foot of a stub's body. A reader who wants to know
+   what Michaelmas is gets one link out, and nothing else on the row is a link,
+   so tapping a row never takes anybody off the site by surprise. Mirrors the
+   .d-go line on a department panel.
+
+   align-self, because .k-bd is a column flex container and without it the link
+   stretches the width of the card and a reader gets a 300px hit area on a
+   60px word. 44px tall, which is the floor in CLAUDE.md. */
+.k-more{display:inline-flex;align-self:flex-start;align-items:center;gap:5px;
+  min-height:44px;padding-top:6px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--red);
+  text-decoration:none}
+.k-more:hover{text-decoration:underline}
+
+/* A note on a stub that has moved off its usual date. Small, ruled off, and
+   it says why. */
+.k-shift{margin-top:6px;padding-top:6px;border-top:1px solid var(--fm-rule);
+  font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--fm-muted)}
+
+/* ---------------------------------------------------------------------------
+   THE MONTH BLOCKS
+
+   A section head and a run of stubs, twelve times over. The head carries the
+   month, the year when it is not this one, and how many dates are in it.
+   --------------------------------------------------------------------------- */
+/* The month head is not sticky and should not be made sticky. The masthead
+   already is, --masthead-offset is never set by anything so it is the 150px
+   fallback everywhere, and a second sticky bar measured against a guess is how
+   a phone ends up with two headers and no page.
+
+   A month is a <details>. This month and next are open, the other ten are
+   shut, and the rail opens whichever one it jumps to. Twelve months of dates
+   fully expanded is about twenty seven thousand pixels on a phone, which is
+   not a page anybody reads down: it is a page people give up on. Shut, the
+   head still carries the month, the turning, and the count, so the whole year
+   is visible as a year and only the months a reader asked for are drawn out.
+
+   The summary is the section head, styled the same open or shut, so nothing
+   moves when one turns over. */
+.month-blk{padding:26px 0 0}
+/* Tap target. The head is a heading and a line of mono, which comes to about
+   26px, so the padding takes the summary to the 44px floor. */
+.month-blk > summary{list-style:none;cursor:pointer;min-height:44px;padding-top:12px}
+.month-blk > summary::-webkit-details-marker{display:none}
+.month-blk > summary:focus-visible{outline:2px solid rgba(200,16,46,.24);outline-offset:3px}
+.m-chev{font-size:19px;line-height:1;color:var(--fm-muted);transition:transform .18s ease;
+  display:inline-block;padding-left:4px}
+.month-blk[open] .m-chev{transform:rotate(90deg)}
+
+/* The month head's note carries the year when it is not this one, the turning
+   the month sits in, and the number of dates. The turning name is the thread
+   between the month lists and the section that explains the names. .hd-note is
+   already styled in fivemile-cards.css and needs nothing here. */
+
+/* ---------------------------------------------------------------------------
+   THE TURNINGS
+
+   Index tabs, three across, which is the width the card spec draws them at.
+   A tab card is for looking something up rather than reading, and somebody who
+   has just met the word Michaelmas in a month list is looking it up.
+
+   There was a Standing dates block using this same grid, three tabs restating
+   when each council meets. It came out: every one of those cards appeared
+   again as a row in the month it falls in, a few hundred pixels below itself.
+   See DECISIONS.md 41.
+   --------------------------------------------------------------------------- */
+.tab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.tab-grid{grid-template-columns:1fr}}
+
+/* ---------------------------------------------------------------------------
+   SEND A DATE IN
+
+   Not a card in the card system sense, so it stays plain: card stock, hairline
+   border, 14px radius. The same block the homepage and the news page finish
+   on. The button treatment is in fivemile-common.css and reaches this form
+   through .submit-form button.
+   --------------------------------------------------------------------------- */
+.send{margin-top:34px;background:var(--card);border:1px solid var(--fm-rule);border-radius:14px;padding:22px}
+.send h2{margin:0 0 6px;font-size:20px;font-weight:800}
+.send p{margin:0 0 16px;color:var(--fm-muted);font-size:16px;max-width:56ch}
+.submit-form{display:grid;gap:10px}
+.submit-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.submit-form input,.submit-form select,.submit-form textarea{width:100%;min-height:44px;
+  padding:11px 13px;border-radius:var(--r);border:1px solid var(--border2);background:#fff;
+  color:var(--ink);font:inherit;font-size:16px;outline:none;
+  transition:border-color var(--ease),box-shadow var(--ease)}
+.submit-form textarea{min-height:140px;resize:vertical}
+.submit-form input:focus,.submit-form select:focus,.submit-form textarea:focus{
+  border-color:rgba(200,16,46,.55);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.submit-status{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--fm-muted)}
+.submit-done{padding:14px 0;font-size:16px;font-weight:700;color:var(--ink)}
+
+@media(max-width:640px){
+  .submit-row{grid-template-columns:1fr}
+}

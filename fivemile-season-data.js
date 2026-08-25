@@ -28,7 +28,24 @@
       hour: 10,
       windowLabel: "First Wednesday of each month, 10:00 AM",
       calendarLabel: "First Wednesday, 10:00 AM",
-      summary: "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed — it is a scheduled test."
+      summary: "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test."
+    },
+    {
+      /* Twice a month, which is why nth is a list. The recurrence code takes
+         either a single number or a list of them. */
+      id: "graysville-city-council",
+      title: "Graysville City Council meeting",
+      category: "Civic",
+      lane: "civic",
+      town: "Graysville",
+      kind: "recurring-weekday",
+      nth: [1, 3],
+      weekday: 4,
+      hour: 18,
+      place: "Graysville City Hall",
+      windowLabel: "First and third Thursday of each month, 6:00 PM",
+      calendarLabel: "First and third Thursday, 6:00 PM",
+      summary: "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall."
     },
     {
       id: "cardiff-city-council",
@@ -56,7 +73,88 @@
       hour: 18,
       windowLabel: "Apr 13, 2026 · 6:00 PM",
       calendarLabel: "Apr 13, 2026",
-      summary: "Cardiff Town Council meeting — the first step toward restarting active local government. All residents welcome. Cardiff Town Hall, 6:00 PM. No agenda required to attend."
+      summary: "Cardiff Town Council meeting, the first step toward restarting active local government. All residents welcome. Cardiff Town Hall, 6:00 PM. No agenda required to attend."
+    },
+    {
+      /* Brookside meets on the first Monday. When that Monday is a holiday the
+         meeting moves to the second Monday, which is what happens every
+         September because the first Monday is Labor Day. holidayShift below is
+         what works that out, rather than a list of exceptions somebody has to
+         remember to extend. */
+      id: "brookside-town-council",
+      title: "Brookside Town Council meeting",
+      category: "Civic",
+      lane: "civic",
+      town: "Brookside",
+      kind: "recurring-weekday",
+      nth: 1,
+      weekday: 1,
+      hour: 18,
+      holidayShift: true,
+      place: "Brookside Town Hall",
+      windowLabel: "First Monday of each month, 6:00 PM",
+      calendarLabel: "First Monday, 6:00 PM",
+      summary: "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday."
+    },
+    {
+      /* Two Brookside events off the town's own listing. The lane is community
+         rather than civic: a duck race is not a council meeting, and the two
+         want telling apart in the data even though a reader wants both. */
+      id: "brookside-duck-race-2026",
+      title: "Five Mile Creek Rubber Duck Race",
+      category: "Community",
+      lane: "community",
+      town: "Brookside",
+      kind: "day",
+      year: 2026,
+      month: 6,
+      day: 12,
+      hour: 12,
+      place: "Brookside Ballpark",
+      windowLabel: "Jun 12, 2026 · 12:00 PM",
+      calendarLabel: "Jun 12, 2026",
+      summary: "Registration at noon at the Brookside Ballpark and the race starts at one. Tickets are $20 for a chance at $1,000, and the proceeds go back into community events."
+    },
+    {
+      id: "brookside-awareness-walk-2026",
+      title: "Suicide Awareness Walk",
+      category: "Community",
+      lane: "community",
+      town: "Brookside",
+      kind: "day",
+      year: 2026,
+      month: 9,
+      day: 12,
+      hour: 9,
+      place: "Brookside Ballpark",
+      windowLabel: "Sep 12, 2026 · 9:00 AM",
+      calendarLabel: "Sep 12, 2026",
+      summary: "Registration at nine at the Brookside Ballpark and the walk sets off at ten. Stephanie Hodges has the details on 205-572-2678. The 988 Suicide and Crisis Lifeline answers calls and texts at any hour, on any day."
+    },
+    {
+      /* The market is the only weekly entry on the site, and it is deliberately
+         not in the civic lane. The homepage takes the next three civic dates
+         and nothing else, and a market that comes round every Thursday would
+         win all three slots and push the council meetings off the front page.
+         The news page takes anything inside ten days regardless of lane, so
+         the market does earn a row in Coming up, which is right: it is a real
+         thing happening this week. */
+      id: "gardendale-farmers-market",
+      title: "Gardendale Farmers Market",
+      category: "Market",
+      lane: "market",
+      town: "Gardendale",
+      kind: "weekly",
+      weekday: 4,
+      hour: 9,
+      endHour: 13,
+      place: "857 Main Street, Gardendale",
+      windowLabel: "Thursdays, 9:00 AM to 1:00 PM",
+      calendarLabel: "Thursdays",
+      /* NEEDS-CONFIRMATION: which months it runs. The aggregators disagree and
+         none of them agree with the market, so the calendar says Thursdays and
+         stops there. */
+      summary: "Growers set up on Thursday mornings at 857 Main Street in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one."
     },
     {
       id: "great-horned-owls",
@@ -511,10 +609,10 @@
       year: 2026,
       month: 4,
       day: 25,
-      windowLabel: "Apr 25, 2026 · 8:00 AM – 11:30 AM",
+      windowLabel: "Apr 25, 2026 · 8:00 AM to 11:30 AM",
       calendarLabel: "Apr 25, 2026",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
-      summary: "Jefferson County HHW drop-off — Cardiff area site is First Baptist Church, Gardendale (940 Main St.). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
+      summary: "Jefferson County HHW drop-off. The nearest site to these towns is First Baptist Church, Gardendale (940 Main St.). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM to 11:30 AM."
     },
     {
       id: "electronics-dropoff-may-2026",
@@ -525,10 +623,10 @@
       year: 2026,
       month: 5,
       day: 9,
-      windowLabel: "May 9, 2026 · 9:00 AM – 11:30 AM",
+      windowLabel: "May 9, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "May 9, 2026",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
-      summary: "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
+      summary: "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     },
     {
       id: "electronics-dropoff-june-2026",
@@ -539,10 +637,10 @@
       year: 2026,
       month: 6,
       day: 13,
-      windowLabel: "Jun 13, 2026 · 9:00 AM – 11:30 AM",
+      windowLabel: "Jun 13, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "Jun 13, 2026",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
-      summary: "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
+      summary: "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     },
     {
       id: "hhw-collection-fall-2026",
@@ -553,10 +651,10 @@
       year: 2026,
       month: 10,
       day: 17,
-      windowLabel: "Oct 17, 2026 · 8:00 AM – 11:30 AM",
+      windowLabel: "Oct 17, 2026 · 8:00 AM to 11:30 AM",
       calendarLabel: "Oct 17, 2026",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
-      summary: "Jefferson County HHW drop-off — Cardiff area site is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM – 11:30 AM."
+      summary: "Jefferson County HHW drop-off. The nearest site to these towns is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM to 11:30 AM."
     },
     {
       id: "electronics-dropoff-sep-2026",
@@ -567,10 +665,10 @@
       year: 2026,
       month: 9,
       day: 12,
-      windowLabel: "Sep 12, 2026 · 9:00 AM – 11:30 AM",
+      windowLabel: "Sep 12, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "Sep 12, 2026",
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
-      summary: "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM – 11:30 AM."
+      summary: "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     }
   ];
 
@@ -610,13 +708,87 @@
     return day <= daysInMonth ? day : null;
   }
 
-  function buildRecurringOccurrenceForYearMonth(entry, year, month) {
-    if (entry.exceptMonths && entry.exceptMonths.some(function(e) { return e.year === year && e.month === month; })) return null;
-    const day = nthWeekdayOfMonth(year, month, entry.weekday, entry.nth);
-    if (day === null) return null;
-    const start = atNoon(year, month, day);
-    const end = atNoon(year, month, day);
-    return { start, end };
+  // Last occurrence of a weekday in a month, 0=Sun. Memorial Day and the
+  // February tax holiday weekend are both counted from the end of the month.
+  function lastWeekdayOfMonth(year, month, weekday) {
+    const last = new Date(year, month, 0);
+    return last.getDate() - ((last.getDay() - weekday + 7) % 7);
+  }
+
+  /* The federal holidays that can land on a Monday, which is the only thing a
+     first Monday meeting can collide with. Returns the holiday's name when the
+     given date is one, so the shift can say why it moved rather than moving in
+     silence.
+
+     Not the whole federal list: MLK, Presidents, Columbus, and Veterans days
+     are the third, third, second, and eleventh, so none of them can be a first
+     Monday, and Memorial Day is the last Monday of May. What is left is New
+     Year's Day, Independence Day, and Labor Day. */
+  function fixedHoliday(month, day) {
+    if (month === 1 && day === 1) return "New Year's Day";
+    if (month === 6 && day === 19) return "Juneteenth";
+    if (month === 7 && day === 4) return "Independence Day";
+    if (month === 11 && day === 11) return "Veterans Day";
+    if (month === 12 && day === 25) return "Christmas Day";
+    return null;
+  }
+
+  function mondayHoliday(year, month, day) {
+    const onTheDay = fixedHoliday(month, day);
+    if (onTheDay) return onTheDay;
+
+    const date = new Date(year, month - 1, day);
+    if (date.getDay() === 1) {
+      /* A fixed holiday that lands on the Sunday before is kept on this
+         Monday, and town hall is shut either way. July 2027 is the case: the
+         Fourth is a Sunday and the first Monday is the fifth. */
+      const before = new Date(year, month - 1, day - 1);
+      const observed = fixedHoliday(before.getMonth() + 1, before.getDate());
+      if (observed) return observed;
+    }
+
+    if (month === 9 && day === nthWeekdayOfMonth(year, 9, 1, 1)) return "Labor Day";
+    return null;
+  }
+
+  /* Every time a recurring entry comes round in one month. Graysville meets
+     twice, everything else once, so `nth` is read as a list either way and a
+     plain number is a list of one. */
+  function buildRecurringOccurrencesForYearMonth(entry, year, month) {
+    if (entry.exceptMonths && entry.exceptMonths.some(function(e) { return e.year === year && e.month === month; })) return [];
+
+    const nths = Array.isArray(entry.nth) ? entry.nth : [entry.nth];
+    const out = [];
+
+    nths.forEach(function (nth) {
+      let day = nthWeekdayOfMonth(year, month, entry.weekday, nth);
+      if (day === null) return;
+
+      /* A meeting that moves off a holiday goes to the next week. The note
+         travels with the occurrence so the calendar can print the reason. */
+      let shiftNote = null;
+      if (entry.holidayShift) {
+        const holiday = mondayHoliday(year, month, day);
+        if (holiday) {
+          const shifted = nthWeekdayOfMonth(year, month, entry.weekday, nth + 1);
+          if (shifted !== null) {
+            shiftNote = "Moved a week later this month because the usual date is " + holiday + ".";
+            day = shifted;
+          }
+        }
+      }
+
+      out.push({ start: atNoon(year, month, day), end: atNoon(year, month, day), shiftNote: shiftNote });
+    });
+
+    return out.sort(function (a, b) { return a.start - b.start; });
+  }
+
+  /* The next time a weekly entry comes round, on or after the reference day. */
+  function buildWeeklyOccurrence(entry, today) {
+    const ahead = (entry.weekday - today.getDay() + 7) % 7;
+    const start = addDays(today, ahead);
+    return { start: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()), end: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()) };
   }
 
   function buildOccurrence(entry, year) {
@@ -677,6 +849,9 @@
       const timePart = entry.timeTBD ? "time TBD" : (entry.hour !== undefined ? formatTime(entry.hour) : null);
       dateLabel = formatMonthDay(occurrence.start) + (timePart ? ", " + timePart : "");
       longDateLabel = formatFullDate(occurrence.start) + (timePart ? " \u00b7 " + timePart : "");
+    } else if (entry.kind === "weekly") {
+      dateLabel = entry.windowLabel;
+      longDateLabel = formatFullDate(occurrence.start);
     } else {
       dateLabel = entry.windowLabel;
       longDateLabel = `${formatMonthDay(occurrence.start)} - ${formatMonthDay(occurrence.end)}`;
@@ -691,6 +866,7 @@
       nextRelevant,
       dateLabel,
       longDateLabel,
+      shiftNote: occurrence.shiftNote || null,
       badge: computeBadge(entry, active, daysUntil, today, occurrence.start)
     };
   }
@@ -698,16 +874,19 @@
   function resolveEntry(entry, referenceDate) {
     const today = atNoon(referenceDate.getFullYear(), referenceDate.getMonth() + 1, referenceDate.getDate());
 
+    if (entry.kind === "weekly") {
+      return describeOccurrence(entry, buildWeeklyOccurrence(entry, today), today);
+    }
+
     if (entry.kind === "recurring-weekday") {
       const refYear = today.getFullYear();
       const refMonth = today.getMonth() + 1;
       const occurrences = [];
       for (let offset = -1; offset <= 13; offset++) {
         const d = new Date(refYear, refMonth - 1 + offset, 1);
-        const occ = buildRecurringOccurrenceForYearMonth(entry, d.getFullYear(), d.getMonth() + 1);
-        if (occ) {
+        buildRecurringOccurrencesForYearMonth(entry, d.getFullYear(), d.getMonth() + 1).forEach(function (occ) {
           occurrences.push(describeOccurrence(entry, occ, today));
-        }
+        });
       }
       const active = occurrences.find((item) => item.active);
       if (active) return active;
@@ -851,11 +1030,54 @@
     return months;
   }
 
+  /* Everything that lands in one named calendar month, for the calendar page.
+
+     The calendar used to work the recurrences out for itself, which meant two
+     files held the same rule and only one of them knew about the holiday
+     shift. The recurrence rules live in this file and nothing else
+     re-implements them.
+
+     Ranges are left out on purpose. A window that runs from March to May is
+     the almanac's object, not a date on a calendar, and decision 27 put those
+     on the nature and garden desks. */
+  function getEntriesForMonth(year, month) {
+    const daysInMonth = new Date(year, month, 0).getDate();
+    const monthStart = atNoon(year, month, 1);
+    const monthEnd = atNoon(year, month, daysInMonth);
+    const out = [];
+
+    SEASON_ENTRIES.forEach(function (entry) {
+      if (entry.kind === "day") {
+        if (entry.year && entry.year !== year) return;
+        if (entry.month !== month) return;
+        out.push({ entry: entry, start: atNoon(year, month, entry.day), shiftNote: null, standing: false });
+        return;
+      }
+      if (entry.kind === "recurring-weekday") {
+        buildRecurringOccurrencesForYearMonth(entry, year, month).forEach(function (occ) {
+          if (occ.start >= monthStart && occ.start <= monthEnd) {
+            out.push({ entry: entry, start: occ.start, shiftNote: occ.shiftNote || null, standing: false });
+          }
+        });
+        return;
+      }
+      if (entry.kind === "weekly") {
+        /* One row a month, not four or five. A market that comes round every
+           Thursday is a standing arrangement, and printing it five times turns
+           the month into a list of the same sentence. */
+        out.push({ entry: entry, start: monthStart, shiftNote: null, standing: true });
+      }
+    });
+
+    return out.sort(function (a, b) { return a.start - b.start; });
+  }
+
   window.CardiffSeasonData = {
     entries: SEASON_ENTRIES.slice(),
     getAllEntries,
     getSeasonEntries,
     getUpcomingCalendar,
-    getCalendarMonths
+    getCalendarMonths,
+    getEntriesForMonth
   };
 })();

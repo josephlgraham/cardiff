@@ -7,10 +7,32 @@ fivemile.now.
 
 Run by Joe Graham. Contact fivemilec@gmail.com.
 
+Joe's personal address never appears on the site. Every contact point, every
+mailto, and every form target is the site address. If you are copying a form
+from an older page, check the address before you paste it.
+
 ## The point
+
+**Get people informed and interested in what is going on locally.** That is the
+mission in Joe's words, and it is the test a new feature has to pass. A meeting
+somebody can turn up to, a vote that changes the ground here, a reading off the
+creek gauge, a date worth planning around.
+
+Interested is half of it and it is the half that gets dropped. Nobody turns up
+to a meeting they never heard was worth turning up to, so a council date is not
+a line in a table. It says when, where, and what is on the agenda, and it says
+it in a sentence a person would actually say.
 
 Facebook groups are fine for talking and useless for remembering. This site
 keeps things. Nothing here scrolls away.
+
+The Archive is where that promise is kept and where it can be checked. It is a
+hub, `fivemile-archive.html`, and four rooms: the gallery, the weather log, the
+creek log, and the story index. Each room reads the same file the live page
+reads, so nothing is archived by hand and nothing can fall out of step. If you
+add something the site keeps, give it a room. If you add a rolling window that
+overwrites itself, you have added something that scrolls away, and the creek
+archive in DECISIONS.md 36 is the pattern for fixing it.
 
 ## Stack
 
@@ -69,10 +91,19 @@ shows". The site should be intuitive, not annotated.
 ## Coverage
 
 We run: photographs, announcements, events, weather and creek conditions,
-local history, gardening, fishing.
+local history, gardening, fishing, obituaries.
 
-We do not run: obituaries, sports, politics, or hunting location content of any
-kind. Season dates only, never spots or maps.
+Obituaries run on the news page only. No photograph, no beat color, never in
+the announcement strip, never a push notification. See DECISIONS.md 22.
+
+Politics runs when it lands here. Zoning, a permit, a hearing date, a council
+vote, an incorporation question, anything that changes Graysville, Cardiff, or
+Brookside or the ground around them. Post the facts and the dates and let people
+decide. No national politics, no party politics, no endorsements, and no telling
+a reader what to think. See DECISIONS.md 35.
+
+We do not run: sports, or hunting location content of any kind. Season dates
+only, never spots or maps.
 
 ## File naming
 
@@ -91,9 +122,18 @@ Everything is `fivemile-*`. Pages, styles, scripts, data files.
 
 `ticker.json`, `announcements.json`, `turnings.json`, and `offline.html` keep
 their names. They never carried a town in them, so there was nothing to fix.
+`news-archive/YYYY-MM.json` and `news-archive/index.json` are the same case.
 
 If a `cardiff-` **filename** turns up anywhere other than those stubs and the
 two tombstones, it is a bug from the rename pass.
+
+**Cardiff never stands in for the whole watershed in copy.** Naming Cardiff is
+right when Cardiff is what is meant: its council, its charter, its history, the
+weather station that sits there and is cited as the source of a reading. It is
+wrong as shorthand for the area. "Yesterday around Cardiff" and "the most
+visible large mammal in Cardiff" both tell a reader in Graysville that this site
+is about somewhere else. Write these three towns, along the creek, here, or this
+part of Jefferson County. See DECISIONS.md 42.
 
 Three kinds of `cardiff` are correct and must be left alone:
 

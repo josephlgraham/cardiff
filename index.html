@@ -71,6 +71,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
+
 /* Homepage layout only. Every card on this page comes from
    fivemile-cards.css, which is the shared card system taken from
    docs/fivemile-card-spec.html. Nothing card shaped should be defined here. */
@@ -85,43 +86,16 @@
   --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
   --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
-body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");opacity:.022;mix-blend-mode:multiply}
-#topo-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
-.page{position:relative;z-index:1}
-a{color:inherit}
 
-/* masthead. Unchanged apart from the navigation strip, which is styled in
-   fivemile-common.css so every page gets the same one. */
-.cardiff-masthead{background:var(--hdr-bg);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
-.mh-identity{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.75rem 1.5rem;gap:1rem;border-bottom:1px solid var(--hdr-rule);min-height:72px}
-.mh-left-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;color:var(--hdr-dim);line-height:1.75}
-.mh-brand{text-align:center}.mh-brand-link{text-decoration:none;display:inline-block}
-.mh-brand-name{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--hdr-text);text-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
-.mh-brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hdr-dimmer);margin-top:.22rem;display:block}
-.mh-right-info{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--hdr-dim);text-align:right;line-height:1.75}
-.mh-right-info .wx-hi{color:rgba(245,234,216,.88);font-weight:500;font-size:.88rem}
-.mh-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
-.mh-tabs::-webkit-scrollbar{display:none}
-.announce-strip{background:var(--red);color:#fff;height:26px;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
-.announce-strip-scroll{flex:1;overflow:hidden;position:relative;padding:0 1rem}
-.announce-strip-text{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:.63rem;letter-spacing:.05em}
-
-/* The sitemap adds 48px of its own above its rule, so the page does not need
-   another 60 underneath the send block. */
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px 24px}
+/* The reset, the measure, the section rhythm and the grids are in
+   fivemile-shell.css, loaded below. What is left in here is this page's own. */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-section.blk{padding:34px 0 0}
 .now{padding:28px 0 0}
 .now-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.two-eq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .towns{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.stack{display:grid;gap:12px}
 
 /* The photograph and the coming up column are one row, equal halves, and have
    to finish level. Both stretch to the taller of the two: the postcard puts
@@ -145,14 +119,9 @@ section.blk{padding:34px 0 0}
    last row does not hang a margin off the end of the section. */
 .stories{display:flex;flex-direction:column;gap:10px}
 .stories .card-stub{margin-bottom:0}
-.empty{font-size:15px;color:#6B6156;padding:12px 0}
 
-/* about band and the send block. Neither is a card in the card system sense,
-   so both stay plain: paper fill, hairline border, 14px radius. */
-.about{background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px 24px;margin-top:34px}
-.about h2{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.015em}
-.about p{margin:0 0 12px;font-size:16.5px;line-height:1.62;max-width:68ch}
-.about p:last-child{margin-bottom:0}
+/* The send block. Not a card in the card system sense, so it stays plain:
+   paper fill, hairline border, 14px radius. */
 .send{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px;text-align:center}
 .send h2{margin:0 0 6px;font-size:20px;font-weight:800}
 .send p{margin:0 auto 14px;color:#6B6156;font-size:16px;max-width:52ch}
@@ -160,44 +129,50 @@ section.blk{padding:34px 0 0}
 
 @media(max-width:820px){
   .now-grid{grid-template-columns:repeat(2,1fr)}
-  .two,.two-eq,.towns{grid-template-columns:1fr}
+  .two,.towns{grid-template-columns:1fr}
   .towns{gap:24px}
-}
-@media(max-width:760px){
-  .mh-identity{grid-template-columns:1fr;justify-items:center;gap:.25rem;padding:.6rem 1rem;min-height:unset}
-  .mh-left-info,.mh-right-info{display:none}
-  .mh-brand-name{font-size:clamp(1.8rem,8vw,2.8rem)}
-  .wrap{padding:0 16px 20px}
 }
 </style>
 <script src="fivemile-brand.js"></script>
 <!-- Masthead intro gate. Runs before the first paint. Sets data-intro to
-     "pending" only for a reader who has not seen the intro and has not asked
-     for reduced motion. Anything unexpected resolves to "done", which is the
-     state where the masthead is fully visible. The timer is the backstop for
-     the case where fivemile-intro.js fails to load. -->
-<script>(function(){var d=document.documentElement;try{var seen=localStorage.getItem('fivemile-intro-seen');var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},1500);})();</script>
+     "pending" only for a reader who has not seen the intro today and has not
+     asked for reduced motion. Anything unexpected resolves to "done", which is
+     the state where the masthead is fully visible. The timer is the backstop
+     for the case where fivemile-intro.js fails to load.
+
+     What is stored is a date, not a flag, so the intro comes back the next day
+     the reader opens the site and not again in between. The key is built from
+     local getFullYear/getMonth/getDate rather than an ISO string, so the day
+     turns over at the reader's midnight rather than UTC's. It is only ever
+     compared against itself, so the unpadded month and day are fine. The same
+     three lines are in fivemile-intro.js as todayKey() and the two have to
+     agree. See DECISIONS.md 16. -->
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
 <link rel="stylesheet" href="fivemile-common.css">
 <link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <canvas id="topo-canvas"></canvas>
 <div class="page">
 <header class="cardiff-masthead">
   <div class="mh-identity">
     <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
     <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
-    <div class="mh-right-info"><a href="fivemile-almanac.html#watershed-card" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
     <div class="mh-mobile-pills">
-      <a href="fivemile-almanac.html#watershed-card" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
     </div>
   </div>
   <nav class="mh-tabs">
+    <a href="index.html" id="tab-home" class="active">Home</a>
     <a href="fivemile-news.html" id="tab-news">News</a>
-    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
     <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
-    <a href="fivemile-guide.html" id="tab-guide">Guide</a>
-    <a href="fivemile-heritage.html" id="tab-cemetery">Heritage</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
   </nav>
   <div class="announce-strip">
     <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
@@ -207,13 +182,13 @@ section.blk{padding:34px 0 0}
      paint. Do not move this to the end of the body and do not add defer. -->
 <script src="fivemile-intro.js"></script>
 
-<div class="wrap">
+<main tabindex="-1" class="wrap" id="main">
 
   <!-- RIGHT NOW ---------------------------------------------------------- -->
   <section class="now reveal">
     <div class="hd"><h1>Right now</h1><time id="nowStamp">&mdash;</time></div>
     <div class="now-grid" id="nowGrid">
-      <a class="card-gauge" href="fivemile-almanac.html#watershed-card">
+      <a class="card-gauge" href="fivemile-almanac.html#the-creek">
         <span class="g-ticks" data-ticks></span>
         <p class="g-kick">Creek &middot; Republic</p>
         <div class="g-val">&mdash;</div>
@@ -302,32 +277,29 @@ section.blk{padding:34px 0 0}
     </div>
   </section>
 
-  <!-- ABOUT --------------------------------------------------------------- -->
-  <div class="about reveal">
-    <h2>The last of Five Mile Creek</h2>
-    <p>The creek rises from a spring near Chalkville and runs forty three miles west, collecting half of Jefferson County on the way. Graysville, Cardiff, and Brookside are the last towns it passes before it empties into the Locust Fork. Whatever happens upstream arrives here eventually, and for most of a century what arrived was mine tailings and coke runoff. People called it Chocolate Creek. They called it Creosote Creek. They kept their children out of it.</p>
-    <p>Then six cities formed a district in 2002, bought sixteen and a half miles of abandoned CSX rail bed, and started pulling the corridor back. Nearly sixteen miles of that is walkable now. The state tested these waters and put no restriction on eating anything caught between Brookside and Cardiff. There is an outfitter running boats from the Billingsley Trestle down to Bensko Park. There are herons working the shallows most mornings.</p>
-    <p>That recovery is the best story in this part of the county and almost nobody is telling it. This is where we tell it, alongside the ordinary useful business of three towns that share one watershed: what the water is doing, when the council meets, what is worth driving over for this weekend.</p>
-  </div>
-
   <!-- THE THREE TOWNS ------------------------------------------------------ -->
   <section class="blk reveal">
     <div class="hd"><h2>The three towns</h2><a href="fivemile-heritage.html">Heritage &rarr;</a></div>
-    <div class="towns">
+    <!-- One fact per town, drawn at random on every load from
+         fivemile-heritage.json. The three sitting here in the markup come out
+         of that same file, so a reader whose fetch does not land gets a true
+         card with a source behind it rather than an em dash. Keep them in
+         step with the file if you edit them. -->
+    <div class="towns" id="homeTowns">
       <div class="card-tab brief">
         <span class="t-tab">Graysville</span>
-        <h3 class="t-title">Gin Town first</h3>
-        <p class="t-note">It was called Gin Town before it was Graysville. The state pulled its charter in 1927, and it came back in 1945 to build its own water system.</p>
+        <h3 class="t-title">It was Gin Town before it was Graysville</h3>
+        <p class="t-note">There was one cotton gin for miles and it was here, so Gin Town is what people called it. Who the Grays were, and when the name changed, nobody seems to have written down.</p>
       </div>
       <div class="card-tab brief">
         <span class="t-tab">Cardiff</span>
-        <h3 class="t-title">Named for Wales</h3>
-        <p class="t-note">The men who came here to dig coal named it for Cardiff, Wales. Their sons won a state soccer cup in 1898.</p>
+        <h3 class="t-title">Named for a town in Wales</h3>
+        <p class="t-note">Price named the mine for Cardiff in Wales, and the town took the mine's name. It is one of four places in Jefferson County named for somewhere in Britain.</p>
       </div>
       <div class="card-tab brief">
         <span class="t-tab">Brookside</span>
-        <h3 class="t-title">The oldest Orthodox church in Alabama</h3>
-        <p class="t-note">Slovak and Rusyn miners built it here in 1894, and it still serves dinner every November.</p>
+        <h3 class="t-title">Sloss went to Europe for miners</h3>
+        <p class="t-note">Sloss could not find enough skilled miners here, so its recruiters went to the Austro Hungarian Empire. Slovak and Carpatho Rusyn families arrived through the 1890s.</p>
       </div>
     </div>
   </section>
@@ -339,7 +311,7 @@ section.blk{padding:34px 0 0}
     <a class="btn" id="sendMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>
   </div>
 
-</div>
+</main>
 </div>
 
 <script src="fivemile-season-data.js"></script>
@@ -357,7 +329,8 @@ var DATA = {
   alerts:    'ticker.json',
   newsDesk:  'fivemile-news-feed.json',
   newsLive:  'fivemile-news-live.json',
-  anchor:    'fivemile-home-anchor.json'
+  anchor:    'fivemile-home-anchor.json',
+  heritage:  'fivemile-heritage.json'
 };
 
 var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -464,16 +437,28 @@ function paintAir(air){
   paintTile(2, Math.round(aqi), ' AQI', sentence);
 }
 
-/* The next civic date on the calendar, read from the same season data the
-   calendar page uses. Nothing here is written by hand. */
+/* The next date on the calendar a person can turn up to, read from the same
+   season data the calendar page uses. Nothing here is written by hand.
+
+   Two lanes, not one. Civic is the councils and the county. Community is the
+   duck race, the food festival, the awareness walk. Both are things happening
+   in town on a date, which is what this tile answers, and a front page that
+   only ever names a council meeting is a front page about local government
+   rather than about here. The weekly market is deliberately in neither: it
+   would win this slot every Thursday. */
 function nextCivic(){
   var data = window.CardiffSeasonData;
   if(!data || typeof data.getUpcomingCalendar !== 'function') return null;
   var items = data.getUpcomingCalendar(new Date());
   if(!Array.isArray(items)) return null;
   return items.filter(function(item){
-    return String(item.lane || '').toLowerCase() === 'civic' && item.start && item.daysUntil >= 0;
+    return isTownDate(item) && item.start && item.daysUntil >= 0;
   }).sort(function(a,b){return a.start - b.start})[0] || null;
+}
+
+function isTownDate(item){
+  var lane = String(item.lane || '').toLowerCase();
+  return lane === 'civic' || lane === 'community';
 }
 
 function whenPhrase(entry){
@@ -947,7 +932,7 @@ function paintUpcoming(){
     ? data.getUpcomingCalendar(new Date()) : null;
 
   var civic = Array.isArray(items) ? items.filter(function(item){
-    return String(item.lane || '').toLowerCase() === 'civic' && item.start && item.daysUntil >= 0;
+    return isTownDate(item) && item.start && item.daysUntil >= 0;
   }).sort(function(a, b){return a.start - b.start}).slice(0, 3) : [];
 
   if(!civic.length){
@@ -970,32 +955,46 @@ function paintUpcoming(){
   }).join('');
 }
 
+/* --- the three towns ----------------------------------------------------- */
+/* One fact apiece, picked at random on every load out of the same file the
+   heritage page reads. Only facts flagged home are in the running: the file
+   holds the whole timeline, and a good deal of it is a line about a coal
+   washer or a gas board that earns its place in a chronology and does not
+   earn a panel on the front page.
+   TOWNS is the site's west to east order and the map over it is what puts
+   these three in it, rather than whatever order the file happens to be in.
+   See DECISIONS.md 1 and 29. */
+function paintTowns(heritage){
+  var target = document.getElementById('homeTowns');
+  if(!target || !heritage || !Array.isArray(heritage.facts)) return;
+
+  var picked = TOWNS.map(function(town){
+    var pool = heritage.facts.filter(function(fact){
+      return fact.home && fact.town === town && fact.title && fact.note;
+    });
+    return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+  });
+
+  /* All three or none. Two live cards and one left over from the markup would
+     read as a rendering fault rather than a set. */
+  if(picked.indexOf(null) > -1) return;
+
+  target.innerHTML = picked.map(function(fact){
+    return '<div class="card-tab brief">' +
+      '<span class="t-tab">' + esc(fact.town) + '</span>' +
+      '<h3 class="t-title">' + esc(fact.title) + '</h3>' +
+      '<p class="t-note">' + esc(fact.note) + '</p>' +
+    '</div>';
+  }).join('');
+}
+
 /* --- gauge tick marks ---------------------------------------------------- */
-/* Drawn to the measured height of each tile so the rail reads as one piece of
-   metal rather than a repeating texture. */
+/* The rail itself is drawn by fivemile-common.js, which every page loads. It
+   moved there when the almanac grew gauge tiles of its own, so there is one
+   implementation rather than two that drift. This call keeps the existing
+   sites here working. */
 function drawTicks(){
-  var rails = document.querySelectorAll('[data-ticks]');
-  for(var i = 0; i < rails.length; i++){
-    var rail = rails[i], host = rail.parentNode;
-    var height = host.offsetHeight || 150;
-    var out = '';
-    /* A tile carrying a date gets a perforated stub instead of a scale. The
-       creek, the temperature and the air quality are all levels read off a
-       graduated rail, which is what those tick marks are drawing. A meeting at
-       ten in the morning is not a level, and a ruler beside it is measuring
-       nothing. Wider spacing than the ticks, because a perforation you could
-       tear along is not a row of graduations. */
-    if(host.classList.contains('event')){
-      for(var p = 1; p < Math.floor(height / 13); p++){
-        out += '<i style="top:' + (p * 13) + 'px"></i>';
-      }
-    }else{
-      for(var t = 1; t < Math.floor(height / 7); t++){
-        out += '<i class="' + (t % 5 === 0 ? 'maj' : '') + '" style="top:' + (t * 7) + 'px"></i>';
-      }
-    }
-    rail.innerHTML = out;
-  }
+  if(window.FivemileDrawTicks) window.FivemileDrawTicks();
 }
 
 /* --- boot ---------------------------------------------------------------- */
@@ -1015,7 +1014,8 @@ settle([
   loadJson(DATA.air),
   loadJson(DATA.alerts),
   loadJson(DATA.newsDesk),
-  loadJson(DATA.newsLive)
+  loadJson(DATA.newsLive),
+  loadJson(DATA.heritage)
 ]).then(function(results){
   var weather = results[0], watershed = results[1], air = results[2], alerts = results[3];
   paintCreek(watershed);
@@ -1026,6 +1026,7 @@ settle([
   paintYesterday(weather, watershed);
   paintStamp(weather, watershed);
   paintNews(results[4], results[5]);
+  paintTowns(results[6]);
   drawTicks();
 });
 
