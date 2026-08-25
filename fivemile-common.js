@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────
-//  Cardiff Common — Shared across all pages
+//  FIVEMILE Common. Shared across all pages.
 //
 //  This file handles the live elements that appear on every page:
 //    • Creek/watershed reading in the masthead
@@ -30,7 +30,7 @@
 
   // ─── TICKER ────────────────────────────────────────────────────
   var TICKER_URL = 'ticker.json';
-  var DEFAULT_TICKER = 'Cardiff news desk \u00b7 nearby towns \u00b7 weather and roads \u00b7 schools \u00b7 public decisions \u00b7 daily life around western Jefferson County';
+  var DEFAULT_TICKER = 'FIVEMILE \u00b7 Graysville, Cardiff, Brookside \u00b7 weather and roads \u00b7 the creek \u00b7 schools \u00b7 public decisions \u00b7 daily life around western Jefferson County';
   var TICKER_REFRESH_MS = 5 * 60 * 1000;
 
   // Severity-based ticker strip colors
@@ -42,26 +42,39 @@
   };
 
 
-  // Every listed page on the site. The masthead nav carries five of these; the
-  // rest are only reachable from here, so nothing gets dropped when the top nav
-  // is trimmed. Add a page here when you add a page.
-  //
-  // Kitchen (fivemile-kitchen.html) and Civic Pathway (fivemile-civic.html) are
-  // shelved, not gone. Both pages are still in the repo, still served, and
-  // still precached by the worker, so a bookmark or a link out of the guide
-  // opens them exactly as before. They are only unlisted. Put them back here
-  // to relist them, and do not delete the pages.
+  // The footer is the site map, grouped the way somebody would look for things
+  // rather than the way the top nav is ordered. Four columns, each a heading and
+  // a short list. Add a page to the group it belongs in. If a group ever runs
+  // past six items it wants splitting, not shrinking. See DECISIONS.md 33.
   var FOOTER_NAV = [
-    { href: 'index.html',           label: 'Home' },
-    { href: 'fivemile-news.html',    label: 'News' },
-    { href: 'fivemile-almanac.html', label: 'Almanac' },
-    { href: 'fivemile-calendar.html',label: 'Calendar' },
-    { href: 'fivemile-guide.html',   label: 'Guide' },
-    { href: 'fivemile-heritage.html',label: 'Heritage' },
-    { href: 'fivemile-gallery.html',label: 'Gallery' },
-    { href: 'fivemile-hollers.html', label: 'Hills and Hollers' },
-    { href: 'fivemile-announce.html',label: 'Announcements' },
-    { href: 'fivemile-involved.html',label: 'Get Involved' }
+    { label: 'News', items: [
+      { href: 'fivemile-news.html',     label: 'News' },
+      { href: 'fivemile-calendar.html', label: 'Calendar' },
+      // Not in the masthead on purpose. Reachable from here and by direct link.
+      { href: 'fivemile-announce.html', label: 'Announcements' }
+    ] },
+    { label: 'Almanac', items: [
+      { href: 'fivemile-almanac.html',  label: 'Almanac' },
+      { href: 'fivemile-fishing.html',  label: 'Fishing' },
+      { href: 'fivemile-garden.html',   label: 'Garden' },
+      { href: 'fivemile-nightsky.html', label: 'Night Sky' },
+      { href: 'fivemile-nature.html',   label: 'Nature Watch' }
+    ] },
+    { label: 'The place', items: [
+      { href: 'fivemile-guide.html',    label: 'Field Guide' },
+      { href: 'fivemile-heritage.html', label: 'Heritage' },
+      { href: 'fivemile-gallery.html',  label: 'Gallery' },
+      // The hub. Its other three rooms, the weather log, the creek log, and
+      // the story index, are one tap in from here rather than four more rows.
+      { href: 'fivemile-archive.html',  label: 'Archive' }
+    ] },
+    // Hills and Hollers came out of here when it was shelved before launch.
+    // The page is still in the repo and still works; nothing links to it.
+    // See DECISIONS.md 38.
+    { label: 'This site', items: [
+      { href: 'index.html',             label: 'Home' },
+      { href: 'fivemile-about.html',    label: 'About' }
+    ] }
   ];
 
   // GitHub Pages serves /fivemile-news.html. Some static dev servers, including
@@ -76,12 +89,24 @@
 
   function buildFooter() {
     var here = pageKey(window.location.pathname);
-    var links = '';
+    // Each column is a named group. The name is a span rather than a heading, so
+    // the footer does not add four entries to every page's heading outline, and
+    // the list points at it with aria-labelledby so it is still announced.
+    var cols = '';
     for (var i = 0; i < FOOTER_NAV.length; i++) {
-      var item = FOOTER_NAV[i];
-      var isHere = pageKey(item.href) === here;
-      links += '<a href="' + item.href + '"' +
-        (isHere ? ' aria-current="page"' : '') + '>' + item.label + '</a>';
+      var group = FOOTER_NAV[i];
+      var gid = 'fnav-g' + i;
+      var links = '';
+      for (var j = 0; j < group.items.length; j++) {
+        var item = group.items[j];
+        var isHere = pageKey(item.href) === here;
+        links += '<li><a href="' + item.href + '"' +
+          (isHere ? ' aria-current="page"' : '') + '>' + item.label + '</a></li>';
+      }
+      cols += '<li class="fnav-col">' +
+        '<span class="fnav-head" id="' + gid + '">' + group.label + '</span>' +
+        '<ul class="fnav-list" aria-labelledby="' + gid + '">' + links + '</ul>' +
+        '</li>';
     }
 
     var brand = (window.BRAND && window.BRAND.full) || 'Fivemile';
@@ -91,15 +116,18 @@
 
     return '<footer class="cardiff-site-footer" id="cardiff-site-footer">' +
       '<div class="cardiff-site-footer-inner">' +
-      '<nav class="cardiff-site-footer-nav" aria-label="All pages">' + links + '</nav>' +
+      '<nav class="cardiff-site-footer-nav" aria-label="All pages">' +
+      '<ul class="fnav-cols">' + cols + '</ul></nav>' +
       '<div class="cardiff-site-footer-copy">Copyright ' + brand + ' ' + year + '</div>' +
       '</div>' +
       '</footer>';
   }
-
   function injectFooter() {
     if (document.getElementById('cardiff-site-footer')) return;
-    var page = document.querySelector('.page');
+    // Most pages wrap their content in .page. The guide does not, and a page
+    // without a footer is a dead end now that the footer is the site map, so
+    // fall back to the body rather than bailing. See DECISIONS.md 34.
+    var page = document.querySelector('.page') || document.body;
     if (!page) return;
     page.insertAdjacentHTML('beforeend', buildFooter());
   }
@@ -384,7 +412,7 @@
         (a.time ? ' at ' + escHtml(a.time) : ''));
     }
     if (a.location) footerBits.push(escHtml(a.location));
-    var footer = 'Posted by ' + escHtml(a.postedBy || 'the Cardiff desk') +
+    var footer = 'Posted by ' + escHtml(a.postedBy || 'the FIVEMILE desk') +
       (footerBits.length ? ' · ' + footerBits.join(' · ') : '');
 
     return '<article class="notice-card reveal">' +
@@ -602,6 +630,47 @@
 
 
   // ─────────────────────────────────────────────────────────────────
+  //  GAUGE TICK RAILS
+  //
+  //  The graduated rail down the left edge of a .card-gauge tile, drawn to
+  //  the measured height of each tile so it reads as one piece of metal
+  //  rather than a repeating texture.
+  //
+  //  This lived in index.html until the almanac grew gauge tiles of its own.
+  //  Two copies of it would have drifted, so it moved here, which is the file
+  //  every page already loads. index.html now calls through to this.
+  // ─────────────────────────────────────────────────────────────────
+
+  function drawTicks() {
+    var rails = document.querySelectorAll('[data-ticks]');
+    for (var i = 0; i < rails.length; i++) {
+      var rail = rails[i], host = rail.parentNode;
+      if (!host) continue;
+      var height = host.offsetHeight || 150;
+      var out = '';
+      // A tile carrying a date gets a perforated stub instead of a scale. The
+      // creek, the temperature and the air quality are all levels read off a
+      // graduated rail, which is what those tick marks are drawing. A meeting
+      // at ten in the morning is not a level, and a ruler beside it is
+      // measuring nothing. Wider spacing than the ticks, because a
+      // perforation you could tear along is not a row of graduations.
+      if (host.classList.contains('event')) {
+        for (var p = 1; p < Math.floor(height / 13); p++) {
+          out += '<i style="top:' + (p * 13) + 'px"></i>';
+        }
+      } else {
+        for (var t = 1; t < Math.floor(height / 7); t++) {
+          out += '<i class="' + (t % 5 === 0 ? 'maj' : '') + '" style="top:' + (t * 7) + 'px"></i>';
+        }
+      }
+      rail.innerHTML = out;
+    }
+  }
+
+  window.FivemileDrawTicks = drawTicks;
+
+
+  // ─────────────────────────────────────────────────────────────────
   //  BOOT
   // ─────────────────────────────────────────────────────────────────
 
@@ -611,6 +680,9 @@
     centerActiveTab();
     initSmoothMarquee();
     initTopo();
+    drawTicks();
+    window.addEventListener('resize', drawTicks);
+    window.addEventListener('load', drawTicks);
     loadWatershed();
     setInterval(loadWatershed, 10 * 60 * 1000);
     loadTicker();

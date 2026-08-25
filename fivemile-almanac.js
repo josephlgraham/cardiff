@@ -1,20 +1,34 @@
+/* ===========================================================================
+   FIVEMILE almanac page
+
+   The creek, the weather, and the date. Nothing else.
+
+   Fishing, the garden, the night sky, and nature watch used to be cards down
+   the bottom of this page and are now four pages of their own. What is left
+   here is the reading people come for, plus one tab card per desk carrying
+   that desk's line for today.
+
+   Shared arithmetic and the month tables live in fivemile-almanac-core.js.
+   The topographic background, the ticker strip, the masthead creek reading,
+   the footer, and the gauge tick rails are all fivemile-common.js. This file
+   only renders this page.
+   =========================================================================== */
 (function () {
   "use strict";
 
-  const LAT = 33.640;
-  const LON = -86.870;
+  const FA = window.FivemileAlmanac;
+  if (!FA) return;
+
   const WX_URL = "fivemile-weather.json";
   const ARCHIVE_URL = "fivemile-weather-archive.json";
   const AIR_QUALITY_URL = "fivemile-air-quality.json";
   const WATERSHED_URL = "fivemile-watershed.json";
   const WATERSHED_FORECAST_URL = "fivemile-watershed-weather.json";
-  const SKY_WATCH_URL = "fivemile-skywatch.json";
   const TICKER_URL = "ticker.json";
-  const DEFAULT_TICKER = "Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County";
+  const DEFAULT_TICKER = "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County";
   const TICKER_REFRESH_MS = 5 * 60 * 1000;
-  const WDIRS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-  const DAYS_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const DAYS_LONG = FA.DAYS_LONG;
+  const MONTHS_LONG = FA.MONTHS_LONG;
   const STRIP_COLORS = {
     extreme: "#8b0000",
     severe: "#C8102E",
@@ -22,337 +36,45 @@
     minor: "#446b52"
   };
 
-  const PLANTING_GUIDE = {
-    0: {
-      tag: "Steady winter work",
-      items: [
-        { icon: "🥬", name: "Collards and mustard", action: "Harvest", note: "Keep cutting outer leaves. Cold snaps sweeten the flavor." },
-        { icon: "🧅", name: "Onion starts", action: "Plan", note: "Order starts now so beds are ready before the late-winter warm spell." },
-        { icon: "🪵", name: "Garden beds", action: "Prepare", note: "Top up compost and leaf mold while growth is quiet and the ground is open." }
-      ]
-    },
-    1: {
-      tag: "Late-winter prep",
-      items: [
-        { icon: "🧅", name: "Onions and leeks", action: "Plant", note: "A good month for getting alliums rooted before the heat builds." },
-        { icon: "🥔", name: "Irish potatoes", action: "Plant", note: "Start once the soil is workable and the creek bottoms are not sticky." },
-        { icon: "🫛", name: "English peas", action: "Plant", note: "Get them in early so they can bloom before real spring warmth arrives." }
-      ]
-    },
-    2: {
-      tag: "Spring opening",
-      items: [
-        { icon: "🥔", name: "Potatoes", action: "Plant", note: "A classic creek-bottom crop now that the worst freezes are usually behind us." },
-        { icon: "🥬", name: "Lettuce and greens", action: "Plant", note: "Succession sow every week or two while nights still run cool." },
-        { icon: "🥕", name: "Carrots and beets", action: "Plant", note: "Keep seedbeds evenly damp. Early spring moisture helps them start well." }
-      ]
-    },
-    3: {
-      tag: "Tender plants on deck",
-      items: [
-        { icon: "🌽", name: "Sweet corn", action: "Plant", note: "Plant after the ground warms and the creek bottoms stop feeling cold at dawn." },
-        { icon: "🫘", name: "Pole beans", action: "Plant", note: "Wait for settled warmth. Beans sulk in chilly soil." },
-        { icon: "🍅", name: "Tomatoes", action: "Set out", note: "Harden them off first and keep row cover handy for late cold surprises." }
-      ]
-    },
-    4: {
-      tag: "Main garden weather",
-      items: [
-        { icon: "🍅", name: "Tomatoes and peppers", action: "Plant", note: "This is when the warm-season garden starts to look like itself." },
-        { icon: "🥒", name: "Cucumbers and squash", action: "Plant", note: "Direct sow in rich soil and watch for fast overnight growth." },
-        { icon: "🌿", name: "Basil and herbs", action: "Plant", note: "Warm nights help them take hold without sulking." }
-      ]
-    },
-    5: {
-      tag: "Keep it mulched",
-      items: [
-        { icon: "🌽", name: "Corn and okra", action: "Tend", note: "Side-dress, weed, and keep moisture even while the heat is still climbing." },
-        { icon: "🍅", name: "Tomatoes", action: "Train", note: "Tie, prune, and mulch before the first hard push of summer humidity." },
-        { icon: "🫘", name: "Beans", action: "Plant", note: "A fresh sowing now stretches the harvest deeper into summer." }
-      ]
-    },
-    6: {
-      tag: "Heat-smart gardening",
-      items: [
-        { icon: "🍅", name: "Tomatoes", action: "Harvest", note: "Pick often and keep airflow open through the vines." },
-        { icon: "🫑", name: "Peppers and okra", action: "Harvest", note: "These love the heat once they are fully rooted." },
-        { icon: "🥒", name: "Fall brassica starts", action: "Start", note: "Begin seed in shade so transplants are ready for late summer." }
-      ]
-    },
-    7: {
-      tag: "Fall garden setup",
-      items: [
-        { icon: "🥦", name: "Broccoli and cabbage", action: "Start", note: "Set transplants once nights soften and the worst heat breaks." },
-        { icon: "🥬", name: "Collards", action: "Plant", note: "They settle in now and shine once cooler weather arrives." },
-        { icon: "🥕", name: "Carrots", action: "Plant", note: "Consistent moisture matters more than anything else in August seedbeds." }
-      ]
-    },
-    8: {
-      tag: "Second-season greens",
-      items: [
-        { icon: "🥬", name: "Turnip greens and mustard", action: "Plant", note: "One of the easiest and most rewarding fall plantings around here." },
-        { icon: "🧄", name: "Garlic bed prep", action: "Prepare", note: "Build loose, fertile rows now so cloves can go in later." },
-        { icon: "🥦", name: "Brassicas", action: "Tend", note: "Protect young leaves from chewing insects while the weather is still warm." }
-      ]
-    },
-    9: {
-      tag: "Cool-season rhythm",
-      items: [
-        { icon: "🥬", name: "Greens", action: "Plant", note: "Keep the bed full. October is one of the prettiest months in a Southern garden." },
-        { icon: "🧄", name: "Garlic", action: "Plant", note: "Plant toward the end of the month into loose, weed-free soil." },
-        { icon: "🥔", name: "Sweet potatoes", action: "Harvest", note: "Lift before nights get too cool and cure them somewhere dry." }
-      ]
-    },
-    10: {
-      tag: "Tuck in winter crops",
-      items: [
-        { icon: "🧄", name: "Garlic", action: "Plant", note: "A prime month for a dependable garlic patch." },
-        { icon: "🥬", name: "Kale and collards", action: "Harvest", note: "Flavor improves as the air turns colder." },
-        { icon: "🍂", name: "Beds and mulch", action: "Prepare", note: "Leaves are not waste here. They are next spring's soil." }
-      ]
-    },
-    11: {
-      tag: "Quiet season, living soil",
-      items: [
-        { icon: "🥬", name: "Winter greens", action: "Harvest", note: "Pick what you need and let the patch keep working through the cold." },
-        { icon: "🧄", name: "Garlic", action: "Watch", note: "Leave it be under mulch and let the roots build over winter." },
-        { icon: "🌱", name: "Cover beds", action: "Rest", note: "A little protection now pays you back in spring texture and fertility." }
-      ]
-    }
-  };
-
-  const NATURE_GUIDE = {
-    0: [
-      { icon: "🦆", title: "Winter birds on the move", note: "Creek edges and open fields stay busy with mixed flocks while the hardwood canopy is bare." },
-      { icon: "🌤", title: "Clear-sky tracking", note: "Low leaves and soft ground make it easier to read prints and crossings after a cold night." },
-      { icon: "🌿", title: "Moss brightens first", note: "Even in the quietest month, wet banks glow green before almost anything else does." }
-    ],
-    1: [
-      { icon: "🐸", title: "First frog talk", note: "Warm evenings can wake up the earliest calls from wet ground near the creek." },
-      { icon: "🌼", title: "Edges start greening", note: "Sunny fence lines and ditch banks begin the spring show before the woods do." },
-      { icon: "🕊", title: "Songbird mornings", note: "Dawn gets louder this month as territory and nesting season start up." }
-    ],
-    2: [
-      { icon: "🌸", title: "Dogwood and redbud cues", note: "When the understory lights up, the whole watershed starts shifting into spring." },
-      { icon: "🐟", title: "Creek life rising", note: "Longer days pull more visible life to the shallows and margins." },
-      { icon: "🦋", title: "First pollinator push", note: "Sunny, still afternoons bring out the first real butterfly traffic." }
-    ],
-    3: [
-      { icon: "🐝", title: "Pollinator month", note: "Bloom, warmth, and longer light make this one of the liveliest months in the bottoms." },
-      { icon: "🌿", title: "Fresh edible growth", note: "Tender greens, herbs, and creekside plants grow fast enough to notice day by day." },
-      { icon: "🕊", title: "Nest-building everywhere", note: "Listen for concentrated bird activity in hedges, brush piles, and edge habitat." }
-    ],
-    4: [
-      { icon: "🪺", title: "Young wildlife season", note: "Give thickets and tall grass a little extra grace. A lot is hiding there now." },
-      { icon: "🦎", title: "Warm rocks, more reptiles", note: "Sunny paths and bank edges draw out basking lizards and snakes." },
-      { icon: "🌼", title: "Field margins stay busy", note: "Disturbed ground and open meadows carry a lot of insect and bird traffic this month." }
-    ],
-    5: [
-      { icon: "🌳", title: "Deep green canopy", note: "Shade over the creek changes temperature, sound, and how far you can see into the woods." },
-      { icon: "🪲", title: "Insect life spikes", note: "You notice it in the air first, then in the birds that follow it." },
-      { icon: "🐢", title: "Sunny log watch", note: "Turtles love a stable warm stretch with bright afternoon light." }
-    ],
-    6: [
-      { icon: "🎣", title: "Creek mornings matter", note: "Wildlife movement is strongest before the heat settles in for the day." },
-      { icon: "🦌", title: "Edges after rain", note: "Soft soil and fresh growth make movement easier to spot after a shower." },
-      { icon: "🌩", title: "Storm rhythms", note: "Summer weather changes the whole pace of the watershed from one day to the next." }
-    ],
-    7: [
-      { icon: "🦗", title: "Late-summer soundscape", note: "Cicadas, katydids, and tree frogs take over once the air starts holding heat at dusk." },
-      { icon: "🍄", title: "Moisture brings fungi", note: "A wet stretch can wake up logs, stumps, and shaded banks almost overnight." },
-      { icon: "🌾", title: "Seed and grass season", note: "Field margins feed birds and small mammals even when the woods feel still." }
-    ],
-    8: [
-      { icon: "🦅", title: "Migration hints", note: "The first real sense of movement returns to the sky on cooler mornings." },
-      { icon: "🍂", title: "Light changes first", note: "Before the leaves turn, the angle of the sun starts changing the whole feel of the place." },
-      { icon: "🐟", title: "Creek clarity checks", note: "Early fall is a good time to notice where current, shade, and bottom color shift." }
-    ],
-    9: [
-      { icon: "🍁", title: "Leaf-color scouting", note: "Ridges usually start first, but creek bottoms hold their green a little longer." },
-      { icon: "🦃", title: "Field-edge mornings", note: "Open patches and oak edges can get active at first light." },
-      { icon: "🌰", title: "Mast season", note: "Acorns and nuts rearrange where wildlife spends its time." }
-    ],
-    10: [
-      { icon: "🪶", title: "Quiet woods, better visibility", note: "As leaves thin out, tracks, nests, and movement all get easier to read." },
-      { icon: "🍁", title: "Bottomland color", note: "The creek corridor often turns later, but it can be some of the prettiest color in the watershed." },
-      { icon: "🐦", title: "Mixed flock season", note: "Small birds bunch up and work through the woods together when the weather cools." }
-    ],
-    11: [
-      { icon: "❄️", title: "Open sightlines", note: "Bare structure makes it easier to understand the shape of the land and how water moves through it." },
-      { icon: "🦌", title: "Fresh sign after cold rain", note: "Tracks and crossings show up cleanly when the ground softens again." },
-      { icon: "🌙", title: "Long dark evenings", note: "Clear winter skies make the moon feel closer and the creek sound louder." }
-    ]
-  };
+  /* Everything below comes from the core rather than being defined twice. The
+     const bindings sit at the top of the closure so nothing reaches them
+     before they exist. */
+  const setText = FA.setText;
+  const setHTML = FA.setHTML;
+  const escapeHtml = FA.escapeHtml;
+  const iconHtml = FA.iconHtml;
+  const formatInches = FA.formatInches;
+  const formatTemp = FA.formatTemp;
+  const formatFeet = FA.formatFeet;
+  const formatCfs = FA.formatCfs;
+  const getSunTimes = FA.getSunTimes;
+  const getMoonPhase = FA.getMoonPhase;
+  const formatClock = FA.formatClock;
+  const directionFromDegrees = FA.directionFromDegrees;
+  const weatherCondition = FA.weatherCondition;
+  const conditionIcon = FA.conditionIcon;
+  const pressureNote = FA.pressureNote;
+  const groundCondition = FA.groundCondition;
+  const creekMood = FA.creekMood;
+  const trendEmoji = FA.trendEmoji;
 
   const ALMANAC_FACTS = [
     { kicker: "Five Mile Creek", title: "Creek bends make their own weather", body: "Creek bottoms often hold cooler dawn air, a touch more humidity, and a little extra growing time compared with the nearby ridges." },
-    { kicker: "Old Garden Sense", title: "Leaf mulch is future soil", body: "A pile of leaves on Cardiff ground is not clutter. It is moisture retention, weed suppression, and next season's garden structure." },
+    { kicker: "Old Garden Sense", title: "Leaf mulch is future soil", body: "A pile of leaves on the ground here is not clutter. It is moisture retention, weed suppression, and next season's garden structure." },
     { kicker: "Moon Lore", title: "Bright nights change movement", body: "People who hunt, fish, and garden all watch the moon because brighter nights can change feeding, visibility, and when the woods feel active." },
     { kicker: "Watershed Note", title: "Rain upstream still counts here", body: "A creek can rise from weather you never felt at home. Watching upstream rain is part of reading local water." },
     { kicker: "Fieldcraft", title: "Morning tells on the ground", body: "The first hour after sunrise shows dew lines, tracks, spider webs, and fresh disturbance better than the middle of the day does." },
     { kicker: "Season Marker", title: "Dogwoods are a clock", body: "People have long used bloom timing as a rough local calendar because plants respond to accumulated warmth, not just the date on paper." },
     { kicker: "Fishing Note", title: "Stable weather usually helps", body: "A few settled days often make creek fish more predictable than a sharp front swinging through overnight." }
   ];
-  const FALLBACK_SKY_GUIDE = {
-    0: {
-      tag: "Winter sky",
-      opening: "Long dark evenings still favor the big winter patterns. This is the time to learn bright anchor stars by shape, not by app.",
-      pattern: { icon: "🔺", title: "Winter Triangle", note: "Sirius, Procyon, and Betelgeuse make a giant bright triangle across the evening sky." },
-      planet: { icon: "🪐", title: "Planet alignment lane", note: "The planets stay on the sun's path through the sky, so any bright lineup will trace that same zodiac lane." },
-      calendar: { icon: "❄️", title: "Deep-night season", note: "Cold clear nights often give the sharpest star views of the year if haze stays off the bottoms." },
-      special: { icon: "✨", title: "Best naked-eye lesson", note: "Use the Winter Triangle first, then branch outward into Orion and the brighter winter stars around it." }
-    },
-    1: {
-      tag: "Late winter",
-      opening: "Winter stars still own the early evening, but the season is already pivoting. This is a handoff month in the sky.",
-      pattern: { icon: "🔺", title: "Winter Triangle holding strong", note: "The triangle is still easy after dark, especially with Sirius blazing low in the south." },
-      planet: { icon: "🪐", title: "Western dusk watch", note: "Any bright evening planet will sit low on the sunset side now, riding the same path the sun just took." },
-      calendar: { icon: "🌒", title: "Moon-and-star contrast", note: "Waxing-crescent evenings are especially good for pairing moonlight with bright stars and planets." },
-      special: { icon: "📍", title: "Good porch pointer month", note: "February is one of the friendliest months for teaching somebody three or four bright stars without overwhelming them." }
-    },
-    2: {
-      tag: "Spring turnover",
-      opening: "This is the month when the winter sky starts sliding west and the spring stars take over the open eastern sky.",
-      pattern: { icon: "🔺", title: "Winter Triangle fading west", note: "Look soon after dark; by late evening it is already giving ground to spring patterns." },
-      planet: { icon: "🪐", title: "Steeper planet lane", note: "Around the spring equinox the ecliptic stands taller after sunset, so planet pairings separate from the horizon more cleanly." },
-      calendar: { icon: "🌱", title: "Equinox sky shift", note: "The March equinox changes which constellations dominate the evening and how fast twilight gives way to stars." },
-      special: { icon: "⚖️", title: "Equinox effect", note: "March is when the evening sky starts feeling taller and cleaner, which helps any bright-planet alignment pull away from the sunset glow." }
-    },
-    3: {
-      tag: "Spring sky",
-      opening: "Spring rewards patience more than fireworks. The bright patterns are cleaner, farther apart, and easier to trace for beginners.",
-      pattern: { icon: "🔻", title: "Spring Triangle watch", note: "Arcturus, Spica, and Regulus start to define the season once the winter figures sink away." },
-      planet: { icon: "🪐", title: "High ecliptic evenings", note: "Spring is one of the friendlier seasons for spotting bright planets after sunset because the zodiac lane climbs higher." },
-      calendar: { icon: "☄️", title: "Lyrid lead-up", note: "Late April brings the Lyrids, so this is when the meteor desk wakes back up." },
-      special: { icon: "🔭", title: "Planet-pair month", note: "If bright planets crowd the evening sky at all, April is one of the cleaner months for reading their spacing by eye." }
-    },
-    4: {
-      tag: "Late spring",
-      opening: "Warmer nights bring shorter dark windows, so the trick is to know what you want to catch before full night arrives.",
-      pattern: { icon: "🔻", title: "Spring Triangle overhead", note: "Arcturus and Spica help you read the whole season once they stand high after dusk." },
-      planet: { icon: "🪐", title: "Twilight planet hunting", note: "Bright planets can linger in the last blue light this time of year, so start looking before the sky goes fully black." },
-      calendar: { icon: "🌌", title: "Milky Way season warming up", note: "The richer summer star fields are starting to push up later in the night." },
-      special: { icon: "🌆", title: "Twilight timing matters", note: "May rewards earlier sky-watching. A lot of the best planetary color and crescent-moon pairing happens before full dark." }
-    },
-    5: {
-      tag: "Summer opening",
-      opening: "The sky begins shifting from neat spring geometry to richer, busier summer star fields and later-night Milky Way country.",
-      pattern: { icon: "🔺", title: "Summer Triangle rising", note: "Vega, Deneb, and Altair begin taking over once the sky gets properly dark." },
-      planet: { icon: "🪐", title: "Low-bright planet watch", note: "Summer dusk can hide low planets in haze, so the cleanest views usually come after a dry front." },
-      calendar: { icon: "☀️", title: "Solstice light swing", note: "Near the June solstice, darkness comes late and leaves early, so timing matters more than usual." },
-      special: { icon: "🕘", title: "Late-start season", note: "June asks for patience. The best sky usually waits until later than your body wants to stay up on a work night." }
-    },
-    6: {
-      tag: "High summer",
-      opening: "This is the broadest, richest sky stretch of the year, with the Summer Triangle and Milky Way doing most of the work.",
-      pattern: { icon: "🔺", title: "Summer Triangle prime time", note: "Vega, Deneb, and Altair become the easiest big-shape lesson in the whole sky." },
-      planet: { icon: "🪐", title: "Southern planet lane", note: "Any bright planet near opposition tends to look best this time of year when it climbs higher before midnight." },
-      calendar: { icon: "🌌", title: "Milky Way window", note: "Truly dark summer nights are when the dense star river is easiest to explain to somebody standing beside you." },
-      special: { icon: "🫧", title: "Haze check", note: "July skies can look promising and still turn syrupy near the horizon. Dry air makes all the difference for planets and low objects." }
-    },
-    7: {
-      tag: "Meteor month",
-      opening: "August is less about one shape and more about staying out long enough for the sky to put on a show.",
-      pattern: { icon: "🔺", title: "Summer Triangle still leading", note: "Use Vega first, then walk the triangle out to Deneb and Altair." },
-      planet: { icon: "🪐", title: "Warm-night planet watch", note: "Good transparency matters now because humidity near the horizon can swallow low bright objects." },
-      calendar: { icon: "☄️", title: "Perseid season", note: "Mid-August is the annual reminder that meteor watching rewards patience more than equipment." },
-      special: { icon: "🌠", title: "Prime backyard spectacle", note: "August is when a plain lawn chair and a long look up can beat almost any telescope plan." }
-    },
-    8: {
-      tag: "Early fall",
-      opening: "The sky begins turning from summer richness toward cleaner autumn geometry, especially once the evening air starts drying out.",
-      pattern: { icon: "⬜", title: "Great Square on deck", note: "Pegasus begins to take shape in the east while the Summer Triangle still hangs on overhead." },
-      planet: { icon: "🪐", title: "Evening ecliptic flattening", note: "The sunset planet lane starts lying lower again, which can make horizon clutter matter more." },
-      calendar: { icon: "🍂", title: "Equinox approach", note: "The September equinox shifts the balance of daylight fast and helps autumn constellations take the evening stage." },
-      special: { icon: "🧭", title: "Cleaner horizon month", note: "September is often a better month than people expect for western-horizon planet watching because the air can finally settle down." }
-    },
-    9: {
-      tag: "Autumn sky",
-      opening: "Autumn evenings are cleaner and more architectural. The sky trades spectacle for structure, which makes it easy to teach.",
-      pattern: { icon: "⬜", title: "Great Square of Pegasus", note: "A big square standing high is one of the easiest fall landmarks to point out to anybody." },
-      planet: { icon: "🪐", title: "Planet pairings near the horizon", note: "Autumn can bunch evening planets lower, so a clean western horizon matters more than ever." },
-      calendar: { icon: "☄️", title: "Orionid season", note: "Late October is one of the first reminders that meteor watching is back in earnest." },
-      special: { icon: "🟦", title: "Geometry season", note: "October skies are excellent for teaching big clean shapes because the humidity drops and the constellations feel more spaced out." }
-    },
-    10: {
-      tag: "Late fall",
-      opening: "The sharpest nights of the year start showing up now, and the winter stars begin reclaiming the eastern sky.",
-      pattern: { icon: "⬜", title: "Pegasus to winter handoff", note: "The Great Square still rules overhead while Orion starts climbing into the picture." },
-      planet: { icon: "🪐", title: "Long-night planet watch", note: "With darkness arriving earlier, bright planets earn much more evening time if they are favorably placed." },
-      calendar: { icon: "🦁", title: "Leonid window", note: "November's Leonids are not always loud, but they keep the meteor desk worth checking." },
-      special: { icon: "⏰", title: "Early-dark bonus", note: "November is great for sky plans because you can get real observing time without staying up half the night." }
-    },
-    11: {
-      tag: "Winter return",
-      opening: "December is when the sky gets dramatic again. Big bright stars return, darkness comes early, and the winter figures feel close.",
-      pattern: { icon: "🔺", title: "Winter Triangle returning", note: "By the end of the month the triangle is back in force and easy to use as a sky lesson." },
-      planet: { icon: "🪐", title: "Cold-clear planet lane", note: "Winter transparency often gives the crispest naked-eye planet views when the air settles down." },
-      calendar: { icon: "❄️", title: "Solstice darkness", note: "The longest nights of the year give you the biggest possible observing window." },
-      special: { icon: "🎄", title: "Holiday sky payoff", note: "December is the easiest month to step outside for fifteen minutes and still feel like the sky gave you a full show." }
-    }
-  };
-  const METEOR_SHOWERS = [
-    { name: "Quadrantids", month: 0, day: 3, note: "A short, sharp peak that rewards a cold pre-dawn watch." },
-    { name: "Lyrids", month: 3, day: 22, note: "One of spring's dependable meteor checks when the sky stays dark enough." },
-    { name: "Eta Aquariids", month: 4, day: 5, note: "Best before dawn, with fast meteors and a low radiant from our latitude." },
-    { name: "Perseids", month: 7, day: 12, note: "The annual crowd favorite, best after midnight and before the first hint of dawn." },
-    { name: "Orionids", month: 9, day: 21, note: "A strong fall shower tied to Halley's Comet, often best in the late-night hours." },
-    { name: "Leonids", month: 10, day: 17, note: "Usually modest now, but still one of the named fall events worth a look." },
-    { name: "Geminids", month: 11, day: 13, note: "Often the steadiest rich shower of the whole year if the moon cooperates." }
-  ];
-  let skyGuide = JSON.parse(JSON.stringify(FALLBACK_SKY_GUIDE));
+
   let latestWeatherPayload = null;
-  let latestAirQualityPayload = null;
   let watershedLeadGauge = null;
   let watershedChartRange = 7;
-  let seasonWindowsExpanded = false;
-
-  // Seasonal pill priority: top-2 from [fish, plant, nature, hunt] by month (0=Jan).
-  // Always-shown: Weather, Watershed, Moon. Cap is 5 total.
-  const SEASONAL_PILL_PRIORITY = [
-    ["plant","fish"],  // Jan
-    ["plant","fish"],  // Feb
-    ["plant","fish"],  // Mar
-    ["plant","fish"],  // Apr
-    ["fish","plant"],  // May
-    ["fish","nature"], // Jun
-    ["fish","nature"], // Jul
-    ["fish","nature"], // Aug
-    ["fish","nature"], // Sep
-    ["hunt","fish"],   // Oct
-    ["hunt","fish"],   // Nov
-    ["hunt","plant"],  // Dec
-  ];
-
-  function applyPillCap() {
-    const month = new Date().getMonth();
-    const show = new Set(SEASONAL_PILL_PRIORITY[month]);
-    document.querySelectorAll(".today-pill[data-pill]").forEach(function(el) {
-      if (show.has(el.dataset.pill)) {
-        el.hidden = false;
-      } else {
-        el.hidden = true;
-      }
-    });
-  }
-
-  function setText(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  }
-
-  function setHTML(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = value;
-  }
 
   function showCard(id, visible) {
-    const el = document.getElementById(id);
-    if (el) el.style.display = visible ? "" : "none";
-  }
-
-  function iconHtml(icon) {
-    return '<span class="emoji">' + icon + "</span>";
+    const node = document.getElementById(id);
+    if (node) node.style.display = visible ? "" : "none";
   }
 
   function emojiText(icon, text) {
@@ -369,22 +91,6 @@
 
   function setMultiEmojiText(id, icons, text) {
     setHTML(id, multiEmojiText(icons, text));
-  }
-
-  function formatInches(value) {
-    return Number.isFinite(value) ? value.toFixed(value >= 1 ? 1 : 2) + '"' : "—";
-  }
-
-  function formatTemp(value) {
-    return Number.isFinite(value) ? Math.round(value) + "°F" : "—";
-  }
-
-  function formatFeet(value) {
-    return Number.isFinite(value) ? value.toFixed(2) + " ft" : "Waiting on gauge sync";
-  }
-
-  function formatCfs(value) {
-    return Number.isFinite(value) ? value.toFixed(value >= 100 ? 0 : 1) + " cfs" : "Discharge pending";
   }
 
   function numericOrNaN(value) {
@@ -448,42 +154,6 @@
     };
   }
 
-  function escapeHtml(value) {
-    return String(value || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  function seasonIcon(entry) {
-    const title = String(entry && entry.title || "").toLowerCase();
-    const lane = String(entry && entry.lane || "").toLowerCase();
-    if (title.includes("meteor")) return "✨";
-    if (title.includes("frost")) return title.includes("spring") ? "❄️" : "🍂";
-    if (title.includes("solstice")) return title.includes("summer") ? "☀️" : "❄️";
-    if (title.includes("equinox")) return "⚖️";
-    if (title.includes("fireflies")) return "🌟";
-    if (title.includes("ramps")) return "🌿";
-    if (title.includes("morels")) return "🍄";
-    if (title.includes("blackberries")) return "🫐";
-    if (title.includes("muscadines")) return "🍇";
-    if (title.includes("persimmons")) return "🧺";
-    if (title.includes("catfish")) return "🐟";
-    if (title.includes("dove")) return "🕊️";
-    if (title.includes("turkey")) return "🦃";
-    if (title.includes("squirrel")) return "🐿️";
-    if (title.includes("deer")) return "🦌";
-    if (lane === "celestial") return "🌠";
-    if (lane === "nature") return "🍃";
-    if (lane === "hunting") return "🏹";
-    if (title.includes("tornado siren")) return "🚨";
-    if (title.includes("city council") || title.includes("town council")) return "🏛️";
-    if (lane === "civic") return "🏛️";
-    return "📆";
-  }
-
   function relativeGaugeTime(value) {
     if (!value) return "Sync pending";
     const date = new Date(value);
@@ -533,28 +203,6 @@
     return (value > 0 ? "+" : "") + value.toFixed(2) + " ft";
   }
 
-  function creekMood(stage) {
-    if (!Number.isFinite(stage)) {
-      return { icon: "📡", label: "Gauge watch", boat: "Desk lamp only", note: "Waiting on a fresh creek read." };
-    }
-    if (stage < 1.5) {
-      return { icon: "🥾", label: "Low and wadable", boat: "Boot water", note: "More boots than boat at this level." };
-    }
-    if (stage < 2.25) {
-      return { icon: "🛶", label: "Creek-peeking level", boat: "Canoe daydream", note: "Enough water to look lively without feeling pushy." };
-    }
-    if (stage < 3.5) {
-      return { icon: "🚣", label: "Moving with purpose", boat: "Paddle craft energy", note: "The channel has more muscle and less loafing." };
-    }
-    return { icon: "🛟", label: "High-water caution", boat: "No joke boat water", note: "Fast, higher water deserves a respectful eye." };
-  }
-
-  function trendEmoji(trend) {
-    if (trend === "rising") return "📈";
-    if (trend === "falling") return "📉";
-    return "🟰";
-  }
-
   function findPointNear(points, hoursBack) {
     if (!points.length) return null;
     const lastTime = new Date(points[points.length - 1].at).getTime();
@@ -594,7 +242,7 @@
     if (points.length < 2) {
       return {
         meta: (label || "Lead gauge") + " · " + chartRangeLabel(watershedChartRange),
-        stats: '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">' + mood.icon + " " + mood.label + "</div></div>",
+        values: { current: formatFeet(stageNow), change: "Need more history", range: "—", mood: mood },
         chart: '<div class="watershed-chart-empty">A ' + (watershedChartRange >= 30 ? "thirty-day" : "seven-day") + ' stage chart will appear here after the live gauge file refreshes.</div>'
       };
     }
@@ -639,7 +287,7 @@
     const changeLabel = Number.isFinite(change24h) ? formatDeltaFeet(change24h) : "Need more history";
     const metaSuffix = availableDays >= watershedChartRange ? chartRangeLabel(watershedChartRange) : ("Last " + availableDays + " days loaded");
     const chartNote = stageRange.clippedTop || stageRange.clippedBottom
-      ? '<div style="margin-top:0.45rem;font-size:0.7rem;line-height:1.5;color:var(--ink3);">Scaled toward the everyday creek range so smaller rises stay readable. Big spikes still count in the stats above.</div>'
+      ? '<div class="watershed-note">Scaled toward the everyday creek range so smaller rises stay readable. Big spikes still count in the tiles above.</div>'
       : "";
 
     const dayMarkers = [];
@@ -673,12 +321,12 @@
 
     return {
       meta: (label || "Lead gauge") + " · " + metaSuffix,
-      stats: [
-        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Current</div><div class="watershed-chart-value">' + escapeHtml(formatFeet(stageNow)) + "</div></div>",
-        '<div class="watershed-chart-stat"><div class="watershed-chart-label">24h change</div><div class="watershed-chart-value">' + escapeHtml(changeLabel) + "</div></div>",
-        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Window range</div><div class="watershed-chart-value">' + escapeHtml(min.toFixed(2) + "–" + max.toFixed(2) + " ft") + "</div></div>",
-        '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">' + escapeHtml(mood.icon + " " + mood.boat) + "</div></div>"
-      ].join(""),
+      values: {
+        current: formatFeet(stageNow),
+        change: changeLabel,
+        range: min.toFixed(2) + "–" + max.toFixed(2) + " ft",
+        mood: mood
+      },
       chart: '<svg viewBox="0 0 ' + width + " " + height + '" role="img" aria-label="' + escapeHtml((label || "Lead gauge") + " creek stage history") + '">' +
         '<rect x="' + padLeft + '" y="' + padTop + '" width="' + (width - padLeft - padRight) + '" height="' + (height - padTop - padBottom) + '" rx="12" fill="rgba(49,120,72,0.12)"/>' +
         '<polygon points="' + topArea + '" fill="rgba(57,133,75,0.18)"/>' +
@@ -698,12 +346,39 @@
     };
   }
 
+  /* One pass paints the four gauge tiles and the line under them, so the tiles
+     and the chart can never disagree about what the creek is doing. */
   function renderWatershedChartPanel() {
     const gauge = watershedLeadGauge;
-    const chart = buildWatershedChart(gauge && gauge.stage_history ? gauge.stage_history : [], gauge ? (gauge.label || gauge.name || "Lead gauge") : "Lead gauge", gauge ? gauge.trend : "steady", gauge ? numericOrNaN(gauge.stage_ft) : NaN);
+    const stageNow = gauge ? numericOrNaN(gauge.stage_ft) : NaN;
+    const chart = buildWatershedChart(
+      gauge && gauge.stage_history ? gauge.stage_history : [],
+      gauge ? (gauge.label || gauge.name || "Lead gauge") : "Lead gauge",
+      gauge ? gauge.trend : "steady",
+      stageNow
+    );
     setText("watershedChartMeta", chart.meta);
-    setHTML("watershedChartStats", chart.stats);
     setHTML("watershedChart", chart.chart);
+
+    const values = chart.values || {};
+    const mood = values.mood || creekMood(stageNow);
+    const discharge = gauge ? numericOrNaN(gauge.discharge_cfs) : NaN;
+    const trend = gauge && gauge.trend ? gauge.trend : "steady";
+
+    paintTile("creekStage", values.current || formatFeet(stageNow), mood.label + ". " + mood.note);
+    paintTile("creekFlow", formatCfs(discharge), Number.isFinite(discharge)
+      ? "Cubic feet a second past the Republic gauge, running " + trend + "."
+      : "The gauge is not reporting a flow right now.");
+    paintTile("creekChange", values.change || "—", Number.isFinite(stageNow)
+      ? trendEmoji(trend) + " Stage against the same hour yesterday."
+      : "A day of history is needed before this reads anything.");
+  }
+
+  /* A gauge tile is a value and a sentence. Never one without the other: a
+     figure with nothing under it is a widget. */
+  function paintTile(id, value, sentence) {
+    setHTML(id + "Val", value == null ? "&mdash;" : escapeHtml(value));
+    setText(id + "Sub", sentence || "This reading is not coming through right now.");
   }
 
   function preferredGauge(gauges) {
@@ -721,723 +396,6 @@
       hour: "numeric",
       hour12: false
     }).format(new Date()));
-  }
-
-  function formatClock(date) {
-    return date.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit"
-    });
-  }
-
-  function dayOfYear(date) {
-    const start = new Date(date.getFullYear(), 0, 0);
-    return Math.floor((date - start) / 86400000);
-  }
-
-  function minutesToTime(date, minutes) {
-    const normalized = ((minutes % 1440) + 1440) % 1440;
-    const hours = Math.floor(normalized / 60);
-    const mins = Math.round(normalized % 60);
-    const out = new Date(date);
-    out.setHours(hours, mins, 0, 0);
-    return out;
-  }
-
-  function getSunTimes(date) {
-    const day = dayOfYear(date);
-    const gamma = 2 * Math.PI / 365 * (day - 1 + ((date.getHours() - 12) / 24));
-    const eqtime = 229.18 * (0.000075 + 0.001868 * Math.cos(gamma) - 0.032077 * Math.sin(gamma) - 0.014615 * Math.cos(2 * gamma) - 0.040849 * Math.sin(2 * gamma));
-    const decl = 0.006918 - 0.399912 * Math.cos(gamma) + 0.070257 * Math.sin(gamma) - 0.006758 * Math.cos(2 * gamma) + 0.000907 * Math.sin(2 * gamma) - 0.002697 * Math.cos(3 * gamma) + 0.00148 * Math.sin(3 * gamma);
-    const latRad = LAT * Math.PI / 180;
-    const hourAngle = Math.acos((Math.cos(90.833 * Math.PI / 180) / (Math.cos(latRad) * Math.cos(decl))) - Math.tan(latRad) * Math.tan(decl));
-    const timezoneOffsetHours = -date.getTimezoneOffset() / 60;
-    const solarNoonMinutes = 720 - (4 * LON) - eqtime + (timezoneOffsetHours * 60);
-    const sunriseMinutes = solarNoonMinutes - (hourAngle * 180 / Math.PI) * 4;
-    const sunsetMinutes = solarNoonMinutes + (hourAngle * 180 / Math.PI) * 4;
-    return {
-      rise: minutesToTime(date, sunriseMinutes),
-      set: minutesToTime(date, sunsetMinutes)
-    };
-  }
-
-  function directionFromDegrees(deg) {
-    if (!Number.isFinite(deg)) return "Calm";
-    return WDIRS[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16];
-  }
-
-  function getMoonPhase(date) {
-    const phases = [
-      { name: "New Moon", icon: "🌑", min: 0, max: 1.85, lore: "Dark nights make stars stronger and animal movement easier to hear than see.", science: "A new moon means the moon is roughly between Earth and the sun, so the lit side faces away from us." },
-      { name: "Waxing Crescent", icon: "🌒", min: 1.85, max: 7.38, lore: "Old almanac readers took the first light as a sign to start adding things back into the week.", science: "The illuminated fraction grows each evening, adding a little more moonlight after sunset." },
-      { name: "First Quarter", icon: "🌓", min: 7.38, max: 11.07, lore: "Half-lit nights are a good time to notice how moonlight changes the feel of fields and creek bends.", science: "From Earth we see half the near side lit because the moon has moved one quarter of the way around its orbit." },
-      { name: "Waxing Gibbous", icon: "🌔", min: 11.07, max: 14.77, lore: "This is when the moon begins to dominate the evening sky and stretch useful light later into the night.", science: "The moon is approaching full, so the visible illuminated portion keeps expanding toward a complete disk." },
-      { name: "Full Moon", icon: "🌕", min: 14.77, max: 16.61, lore: "Bright nights change how the woods look and how people move through them. Even the creek sounds different under a full moon.", science: "The Earth sits roughly between the sun and moon, so the moon's Earth-facing side is fully illuminated." },
-      { name: "Waning Gibbous", icon: "🌖", min: 16.61, max: 22.15, lore: "After full, the bright hours shift later into the night and toward dawn.", science: "The moon is still mostly lit, but the illuminated area shrinks a little each night after full." },
-      { name: "Last Quarter", icon: "🌗", min: 22.15, max: 25.84, lore: "Morning people notice this one first. It hangs over the early day rather than the evening.", science: "Again we see a half-lit moon, but now it is the opposite half compared with first quarter." },
-      { name: "Waning Crescent", icon: "🌘", min: 25.84, max: 29.53, lore: "The moon gives back the night a little at a time before the cycle resets.", science: "Only a thin illuminated slice remains visible before the moon returns to new." }
-    ];
-    const knownNew = new Date(2000, 0, 6, 18, 14, 0);
-    const moonDay = (((date - knownNew) / 86400000) % 29.53 + 29.53) % 29.53;
-    return phases.find((phase) => moonDay >= phase.min && moonDay < phase.max) || phases[0];
-  }
-
-  function plantActionClass(action) {
-    if (/plant|set out|start/i.test(action)) return "pa-plant";
-    if (/harvest/i.test(action)) return "pa-harvest";
-    return "pa-wait";
-  }
-
-  function buildPlanting(monthIndex) {
-    const guide = PLANTING_GUIDE[monthIndex];
-    setText("plantTag", guide.tag);
-    setText("pillPlant", guide.items[0].name);
-    setHTML("plantBody", guide.items.map((item) => (
-      '<div class="plant-item">' +
-        '<div class="plant-icon">' + item.icon + "</div>" +
-        "<div><div class=\"plant-name\">" + item.name + "</div><div class=\"plant-action " + plantActionClass(item.action) + "\">" + item.action + "</div><div class=\"plant-note\">" + item.note + "</div></div>" +
-      "</div>"
-    )).join(""));
-  }
-
-  function buildNature(monthIndex) {
-    const entries = NATURE_GUIDE[monthIndex];
-    setText("natureTag", "This week");
-    setText("pillNature", entries[0].title);
-    setHTML("natureBody", entries.map((entry) => (
-      '<div class="nature-row">' +
-        '<div class="nature-icon">' + entry.icon + "</div>" +
-        "<div><div class=\"nature-title\">" + entry.title + "</div><div class=\"nature-note\">" + entry.note + "</div></div>" +
-      "</div>"
-    )).join(""));
-  }
-
-  function buildFact(date) {
-    const fact = ALMANAC_FACTS[dayOfYear(date) % ALMANAC_FACTS.length];
-    setText("factKicker", fact.kicker);
-    setText("factTitle", fact.title);
-    setText("factBody", fact.body);
-  }
-
-  function buildHunting(date) {
-    const month = date.getMonth();
-    const springFrostNear = month === 2 || month === 3;
-    const fallFrostNear = month === 9 || month === 10;
-    const entries = [
-      {
-        icon: "🦃",
-        name: "Turkey",
-        dates: "Spring woods",
-        open: month >= 2 && month <= 4,
-        badge: month >= 2 && month <= 4 ? "on now" : "later",
-        note: "Gobblers, green-up, and early starts. The legal dates still live in the digest."
-      },
-      {
-        icon: "🐿️",
-        name: "Squirrel",
-        dates: "Long cool-weather run",
-        open: month >= 8 || month <= 1,
-        badge: month >= 8 || month <= 1 ? "good now" : "later",
-        note: "One of the friendlier seasons to learn because the sign is obvious and the rhythm is simple."
-      },
-      {
-        icon: "🦌",
-        name: "Deer",
-        dates: "Fall into winter",
-        open: month === 10 || month === 11 || month === 0,
-        badge: month === 10 || month === 11 || month === 0 ? "watch now" : "later",
-        note: "Still the big woods conversation once the leaves turn and the mornings sharpen up."
-      },
-      {
-        icon: "🍄",
-        name: "Morels",
-        dates: "Warm spring rain",
-        open: month >= 2 && month <= 3,
-        badge: month >= 2 && month <= 3 ? "worth a look" : "wait for spring",
-        note: "Check tulip poplar slopes, old orchards, and the first real run of warm wet days."
-      },
-      {
-        icon: "🐦",
-        name: "Snipe",
-        dates: "Wet-field foolishness",
-        open: month >= 10 || month <= 1,
-        badge: month >= 10 || month <= 1 ? "prime nonsense" : "off season",
-        note: "Half joke, half tradition. It still belongs in any proper almanac list."
-      },
-      {
-        icon: "❄️",
-        name: "Last spring frost",
-        dates: "Around March 20",
-        open: springFrostNear,
-        badge: springFrostNear ? "keep cover handy" : "mostly past",
-        note: "Creek-bottom gardens often squeeze out a few extra days, but late cold still likes to surprise people."
-      },
-      {
-        icon: "🍂",
-        name: "First fall frost",
-        dates: "Around November 15",
-        open: fallFrostNear,
-        badge: fallFrostNear ? "coming up" : "later on",
-        note: "The ridges feel it first. The bottoms often hold on a little longer before the first real nip."
-      }
-    ];
-
-    const summary = '<div class="hunt-summary"><strong>Cardiff season windows.</strong><div class="hunt-meta">A mix of legal hunting reminders, local foraging timing, and the frost dates people actually plan around.</div></div>';
-    const activeEntry = entries.find((entry) => entry.open) || entries[0];
-    setText("pillHunt", activeEntry.name);
-    setHTML("huntBody", summary + entries.map((entry) => (
-      '<div class="hunt-season">' +
-        '<div class="hs-top">' +
-          '<div><div class="hs-name">' + iconHtml(entry.icon) + " " + entry.name + "</div><div class=\"hs-dates\">" + entry.dates + "</div></div>" +
-          '<div class="' + (entry.open ? "hs-open" : "hs-closed") + '">' + entry.badge + "</div>" +
-        "</div>" +
-        '<div class="hunt-meta">' + entry.note + "</div>" +
-      "</div>"
-    )).join(""));
-  }
-
-  function buildSeasonWindows(date) {
-    const sharedSeasonData = window.CardiffSeasonData;
-    if (!sharedSeasonData || typeof sharedSeasonData.getSeasonEntries !== "function") {
-      buildHunting(date);
-      return;
-    }
-
-    const notCivic = (entry) => entry.lane !== "civic";
-    const previewEntries = sharedSeasonData.getSeasonEntries(date, 3).filter(notCivic);
-    const fullEntries = sharedSeasonData.getUpcomingCalendar(date).filter(notCivic);
-    const entries = seasonWindowsExpanded ? fullEntries : previewEntries;
-    const leadEntry = previewEntries.find((entry) => entry.active) || previewEntries[0] || fullEntries[0];
-    if (!leadEntry) {
-      buildHunting(date);
-      return;
-    }
-
-    setText("pillHunt", leadEntry.title);
-
-    const rows = entries.map((entry) => (
-      '<div class="hunt-season">' +
-        '<div class="hs-top">' +
-          '<div><div class="hs-name">' + iconHtml(seasonIcon(entry)) + " " + escapeHtml(entry.title) + '</div><div class="hs-dates">' + escapeHtml(entry.longDateLabel || entry.dateLabel || entry.windowLabel || "Watch the season") + '</div><div class="hs-category">' + escapeHtml(entry.category || "Season window") + "</div></div>" +
-          '<div class="' + (entry.active ? "hs-open" : "hs-closed") + '">' + escapeHtml(entry.badge) + "</div>" +
-        "</div>" +
-        '<div class="hunt-meta">' + escapeHtml(entry.summary) + "</div>" +
-      "</div>"
-    )).join("");
-
-    const shouldToggle = fullEntries.length > previewEntries.length;
-    const toggle = shouldToggle
-      ? '<button class="hunt-expand" id="huntToggle" type="button">' + (seasonWindowsExpanded ? "Show the three-month peek" : "Show the full run of seasons") + "</button>"
-      : "";
-
-    setHTML("huntBody", rows + toggle);
-
-    const toggleBtn = document.getElementById("huntToggle");
-    if (toggleBtn) {
-      toggleBtn.onclick = function () {
-        seasonWindowsExpanded = !seasonWindowsExpanded;
-        try {
-          window.localStorage.setItem("cardiff-season-windows-expanded", seasonWindowsExpanded ? "1" : "0");
-        } catch (error) {
-          // Storage is optional here.
-        }
-        buildSeasonWindows(date);
-      };
-    }
-  }
-
-  // Almanac-side content for each turning, keyed by the ids in turnings.json.
-  // The turning name, emoji, date range, and lore come from turnings.json;
-  // this layer adds the plain-language season name and the holler's seasonal signs.
-  const TURNING_CONTENT = {
-    yuletide: {
-      plainName: "Deep Winter",
-      signs: [
-        { icon: "❄️", text: "The coldest, clearest nights of the year — the sharpest star views if the haze stays off the bottoms." },
-        { icon: "🪵", text: "Wood heat and seed catalogs. Garden work is planning work now." },
-        { icon: "🦌", text: "Late deer season winds down; squirrel hunting stays good in the bare timber." },
-        { icon: "🌱", text: "Order seeds and start onions and leeks indoors toward the end of the stretch." }
-      ]
-    },
-    candlemas: {
-      plainName: "Late Winter",
-      signs: [
-        { icon: "🐸", text: "First spring peepers calling on warm evenings — the earliest sign of spring in the bottoms." },
-        { icon: "🧅", text: "Plant onions, potatoes, and English peas. Start brassicas indoors." },
-        { icon: "🌿", text: "Ramps and wild onions push up on the creek bottoms before anything else greens." },
-        { icon: "🎣", text: "Crappie start moving shallow as the water warms past the low forties." }
-      ]
-    },
-    quickening: {
-      plainName: "Early Spring",
-      signs: [
-        { icon: "🌸", text: "Dogwoods bloom — the old Southern signal it's safe to set out tender plants." },
-        { icon: "🍄", text: "Morels on the tulip-poplar slopes and old orchard ground after warm, wet days." },
-        { icon: "🦃", text: "Spring turkey season opens; gobblers work the green-up." },
-        { icon: "🐟", text: "Bass move up to spawn and the creek warms into good fishing." }
-      ],
-      littleWinters: [
-        { name: "Redbud winter", when: "Late March", note: "A cold snap that lands when the redbuds flush purple along the ridges." },
-        { name: "Dogwood winter", when: "Mid-April", note: "The reliable one — a chill that arrives while the dogwoods are still white." },
-        { name: "Locust winter", when: "Late April", note: "A last cool spell as the black locust blooms and the air goes sweet." }
-      ]
-    },
-    beltane: {
-      plainName: "Late Spring",
-      signs: [
-        { icon: "✨", text: "Fireflies rise in the creek bottoms — late May into June, the great early-summer show." },
-        { icon: "🐟", text: "Catfish noodling opens (legal May 1 – Aug 31). Half joke, half tradition." },
-        { icon: "🫐", text: "Mulberries drop and the first blackberries set along the field edges." },
-        { icon: "🌽", text: "The warm-season garden hits its stride — beans, squash, corn, and okra." }
-      ],
-      littleWinters: [
-        { name: "Blackberry winter", when: "Early-to-mid May", note: "The famous one — a cold snap right as the blackberries bloom." },
-        { name: "Whippoorwill winter", when: "Mid-to-late May", note: "A last chill about when the whippoorwills start calling at dusk." },
-        { name: "Britches winter", when: "Late May", note: "The final cool spell. The old saying is don't shed your winter britches till it passes." }
-      ]
-    },
-    midsummer: {
-      plainName: "High Summer",
-      signs: [
-        { icon: "☀️", text: "The summer solstice — the longest day and the year's high-water mark of light." },
-        { icon: "🐕", text: "The Dog Days run July 3 – Aug 11, when Sirius the Dog Star rises with the sun." },
-        { icon: "🍅", text: "Tomatoes, peppers, okra, and field peas come in hard. Keep everything watered." },
-        { icon: "🎣", text: "Fish early and late — midday heat pushes the bite deep and slow." }
-      ]
-    },
-    lammas: {
-      plainName: "Late Summer",
-      signs: [
-        { icon: "🌾", text: "The first-harvest turn, when summer's long labor starts paying back." },
-        { icon: "🦗", text: "Katydids begin; folk reckoning says first frost comes six weeks after the first call." },
-        { icon: "🍇", text: "Muscadines ripen wild along the creek edges and old fence lines." },
-        { icon: "🕊️", text: "Dove season opens September 1 — a rural fall touchstone." }
-      ]
-    },
-    michaelmas: {
-      plainName: "Early Fall",
-      signs: [
-        { icon: "⚖️", text: "The fall equinox — day and night in balance, the land leaning hard into autumn." },
-        { icon: "🌰", text: "Mast season — acorns and nuts rearrange where the wildlife spends its time." },
-        { icon: "🥬", text: "Plant fall greens, garlic, and cover crops; the cool-season garden returns." },
-        { icon: "🍂", text: "The first frost window opens late in the stretch — Cardiff's usually early November." }
-      ]
-    },
-    hallowtide: {
-      plainName: "Late Fall",
-      signs: [
-        { icon: "🍁", text: "First frost lands — the ridges feel it first, the bottoms hold on a little longer." },
-        { icon: "🦌", text: "Deer season becomes the big woods conversation once the mornings sharpen." },
-        { icon: "🟠", text: "Persimmons sweeten after frost. Worth the walk; the ridges hold them longest." },
-        { icon: "🌇", text: "Earliest sunsets land around December 7, a week before the solstice itself." }
-      ]
-    }
-  };
-
-  let turningsList = [];
-  let activeTurningIndex = 0;
-  let currentTurningIndex = 0;
-
-  function mmddToNum(mmdd) {
-    const parts = String(mmdd || "").split("-");
-    return (Number(parts[0]) || 0) * 100 + (Number(parts[1]) || 0);
-  }
-
-  function turningContainsDate(turning, date) {
-    const today = (date.getMonth() + 1) * 100 + date.getDate();
-    const start = mmddToNum(turning.start);
-    const end = mmddToNum(turning.end);
-    if (start <= end) return today >= start && today <= end;
-    return today >= start || today <= end; // wraps the year (e.g. Yuletide)
-  }
-
-  function formatTurningRange(turning) {
-    const fmt = (mmdd) => {
-      const parts = String(mmdd || "").split("-");
-      const d = new Date(2001, (Number(parts[0]) || 1) - 1, Number(parts[1]) || 1);
-      return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-    };
-    return fmt(turning.start) + " – " + fmt(turning.end);
-  }
-
-  function renderTurning() {
-    if (!turningsList.length) return;
-    const safeIndex = ((activeTurningIndex % turningsList.length) + turningsList.length) % turningsList.length;
-    const turning = turningsList[safeIndex];
-    const content = turning.content;
-    const isNow = safeIndex === currentTurningIndex;
-
-    const signsHtml = (content.signs || []).map((sign) => (
-      '<div class="turn-sign"><div class="turn-sign-icon">' + iconHtml(sign.icon) + '</div><div class="turn-sign-text">' + escapeHtml(sign.text) + "</div></div>"
-    )).join("");
-
-    const winters = content.littleWinters || [];
-    const wintersHtml = winters.length
-      ? '<div class="turn-section-label turn-section-gap">Little winters</div>' +
-        '<div class="turn-winters">' + winters.map((w) => (
-          '<div class="turn-winter"><div class="turn-winter-name">' + escapeHtml(w.name) + '</div><div class="turn-winter-when">' + escapeHtml(w.when) + '</div><div class="turn-winter-note">' + escapeHtml(w.note) + "</div></div>"
-        )).join("") + "</div>"
-      : "";
-
-    const html =
-      '<div class="turn-flip">' +
-        '<button class="turn-arrow" id="turnPrev" type="button" aria-label="Previous season">‹</button>' +
-        '<div class="turn-headline">' +
-          '<div class="turn-emoji">' + iconHtml(turning.emoji || "🌿") + "</div>" +
-          '<div>' +
-            '<div class="turn-plain">' + escapeHtml(content.plainName) + (isNow ? '<span class="turn-now">we’re here</span>' : "") + "</div>" +
-            '<div class="turn-sub">' + escapeHtml(turning.name) + " · " + escapeHtml(formatTurningRange(turning)) + "</div>" +
-          "</div>" +
-        "</div>" +
-        '<button class="turn-arrow" id="turnNext" type="button" aria-label="Next season">›</button>' +
-      "</div>" +
-      '<p class="turn-lore">' + escapeHtml(turning.explainer) + "</p>" +
-      '<div class="turn-section-label">In the holler</div>' +
-      '<div class="turn-signs">' + signsHtml + "</div>" +
-      wintersHtml;
-
-    setHTML("turningsBody", html);
-    setText("turningsNav", (safeIndex + 1) + " / " + turningsList.length);
-
-    const prevBtn = document.getElementById("turnPrev");
-    const nextBtn = document.getElementById("turnNext");
-    if (prevBtn) prevBtn.onclick = function () { activeTurningIndex = safeIndex - 1; renderTurning(); };
-    if (nextBtn) nextBtn.onclick = function () { activeTurningIndex = safeIndex + 1; renderTurning(); };
-  }
-
-  async function loadTurnings() {
-    let data;
-    try {
-      const resp = await fetch("turnings.json");
-      data = await resp.json();
-    } catch (error) {
-      console.error("Failed to load turnings.json", error);
-      return;
-    }
-    if (!data || !Array.isArray(data.turnings)) return;
-
-    turningsList = data.turnings
-      .filter((turning) => TURNING_CONTENT[turning.id])
-      .map((turning) => ({ ...turning, content: TURNING_CONTENT[turning.id] }));
-    if (!turningsList.length) return;
-
-    const now = new Date();
-    const found = turningsList.findIndex((turning) => turningContainsDate(turning, now));
-    currentTurningIndex = found >= 0 ? found : 0;
-    activeTurningIndex = currentTurningIndex;
-
-    showCard("turnings-card", true);
-    renderTurning();
-  }
-
-  function nextMeteorShower(date) {
-    const year = date.getFullYear();
-    const candidates = METEOR_SHOWERS.map((shower) => {
-      const peak = new Date(year, shower.month, shower.day, 2, 0, 0);
-      const nextPeak = peak < date ? new Date(year + 1, shower.month, shower.day, 2, 0, 0) : peak;
-      return {
-        ...shower,
-        peak: nextPeak
-      };
-    }).sort((a, b) => a.peak - b.peak);
-    return candidates[0];
-  }
-
-  function normalizeSkyEntry(entry, fallback) {
-    const safe = entry && typeof entry === "object" ? entry : {};
-    const base = fallback && typeof fallback === "object" ? fallback : FALLBACK_SKY_GUIDE[0];
-    const clean = {
-      tag: safe.tag || base.tag,
-      opening: safe.opening || base.opening,
-      pattern: {
-        icon: safe.pattern && safe.pattern.icon ? safe.pattern.icon : base.pattern.icon,
-        title: safe.pattern && safe.pattern.title ? safe.pattern.title : base.pattern.title,
-        note: safe.pattern && safe.pattern.note ? safe.pattern.note : base.pattern.note
-      },
-      planet: {
-        icon: safe.planet && safe.planet.icon ? safe.planet.icon : base.planet.icon,
-        title: safe.planet && safe.planet.title ? safe.planet.title : base.planet.title,
-        note: safe.planet && safe.planet.note ? safe.planet.note : base.planet.note
-      },
-      calendar: {
-        icon: safe.calendar && safe.calendar.icon ? safe.calendar.icon : base.calendar.icon,
-        title: safe.calendar && safe.calendar.title ? safe.calendar.title : base.calendar.title,
-        note: safe.calendar && safe.calendar.note ? safe.calendar.note : base.calendar.note
-      }
-    };
-    const specialSource = safe.special && typeof safe.special === "object" ? safe.special : (base.special || null);
-    if (specialSource) {
-      clean.special = {
-        icon: specialSource.icon || "✨",
-        title: specialSource.title || "Sky note",
-        note: specialSource.note || ""
-      };
-    }
-    return clean;
-  }
-
-  function mergeSkyGuide(payload) {
-    const source = payload && typeof payload === "object" ? (payload.months || payload) : {};
-    const merged = {};
-    for (let month = 0; month < 12; month += 1) {
-      merged[month] = normalizeSkyEntry(source[month], FALLBACK_SKY_GUIDE[month]);
-    }
-    return merged;
-  }
-
-  async function loadSkyGuide() {
-    try {
-      const response = await fetch(SKY_WATCH_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error("skywatch");
-      const data = await response.json();
-      skyGuide = mergeSkyGuide(data);
-    } catch (error) {
-      skyGuide = JSON.parse(JSON.stringify(FALLBACK_SKY_GUIDE));
-    }
-    const now = new Date();
-    buildSky(now, getSunTimes(now), getMoonPhase(now));
-  }
-
-  function skyMoonNote(moon) {
-    if (moon.name === "Full Moon") {
-      return "Bright moonlight will wash out the fainter star fields, so lean into the moon itself and the brightest planets or stars.";
-    }
-    if (moon.name === "New Moon") {
-      return "Dark-sky window. This is when the faint stuff earns a better chance if haze and porch lights stay polite.";
-    }
-    return "Moderate moonlight tonight. Bright patterns still read well, but the faintest stars will have to fight for it.";
-  }
-
-  function nextNightForecast(payload, date) {
-    const periods = payload && Array.isArray(payload.forecast) ? payload.forecast : [];
-    const now = date || new Date();
-    return periods.find((period) => !period.isDaytime && new Date(period.startTime || period.endTime || 0) >= now) ||
-      periods.find((period) => !period.isDaytime) ||
-      null;
-  }
-
-  function cloudScore(shortForecast) {
-    const text = String(shortForecast || "").toLowerCase();
-    if (!text) return 0;
-    if (/showers|thunder|storm|rain|fog/.test(text)) return -20;
-    if (/cloudy|overcast/.test(text) && /mostly/.test(text)) return -10;
-    if (/cloudy|overcast/.test(text)) return -16;
-    if (/partly cloudy|partly clear/.test(text)) return 2;
-    if (/mostly clear/.test(text)) return 10;
-    if (/clear|sunny/.test(text)) return 16;
-    return 0;
-  }
-
-  function moonScore(moon) {
-    switch (moon.name) {
-      case "New Moon":
-        return 16;
-      case "Waxing Crescent":
-      case "Waning Crescent":
-        return 10;
-      case "First Quarter":
-      case "Last Quarter":
-        return 3;
-      case "Waxing Gibbous":
-      case "Waning Gibbous":
-        return -8;
-      case "Full Moon":
-        return -18;
-      default:
-        return 0;
-    }
-  }
-
-  function airQualitySkyEffect(payload) {
-    const current = payload && payload.current ? payload.current : null;
-    if (!current) {
-      return {
-        delta: 0,
-        note: "No live haze read is folded into the score yet"
-      };
-    }
-
-    const aqi = Number(current.usAqi);
-    const pm25 = Number(current.pm25);
-    let delta = 0;
-
-    if (Number.isFinite(aqi)) {
-      if (aqi <= 35) delta += 4;
-      else if (aqi <= 50) delta += 2;
-      else if (aqi <= 100) delta -= 3;
-      else if (aqi <= 150) delta -= 8;
-      else if (aqi <= 200) delta -= 14;
-      else delta -= 18;
-    }
-
-    if (Number.isFinite(pm25)) {
-      if (pm25 <= 8) delta += 2;
-      else if (pm25 >= 35) delta -= 8;
-      else if (pm25 >= 20) delta -= 5;
-      else if (pm25 >= 12) delta -= 2;
-    }
-
-    let note = "Air clarity is not pushing the sky much one way or the other tonight";
-    if (delta >= 4) note = "The air looks pretty clean, so haze should mind its manners tonight";
-    else if (delta >= 1) note = "The air is giving the night sky a small helping hand";
-    else if (delta <= -12) note = "Smoke, particulates, or plain old haze could flatten the fainter stars tonight";
-    else if (delta <= -5) note = "A little haze may take some of the fine detail out of the sky tonight";
-    return { delta, note };
-  }
-
-  function airQualityLabel(payload) {
-    const current = payload && payload.current ? payload.current : null;
-    if (!current) return "🌫 Air desk pending";
-    const category = current.category || "Air snapshot";
-    const aqi = Number(current.usAqi);
-    return Number.isFinite(aqi) ? "🌿 " + category + " · AQI " + Math.round(aqi) : "🌫 " + category;
-  }
-
-  function skywatchSummary(date, moon, payload, airPayload) {
-    const baseline = 46;
-    const night = nextNightForecast(payload, date);
-    const airEffect = airQualitySkyEffect(airPayload);
-    let score = baseline + moonScore(moon) + cloudScore(night && night.shortForecast) + airEffect.delta;
-    const humidity = payload && payload.current ? Number(payload.current.humidity || 0) : NaN;
-    if (Number.isFinite(humidity) && humidity >= 85) score -= 4;
-    score = Math.max(8, Math.min(92, Math.round(score)));
-
-    const rating = score >= 74 ? "Great" : (score >= 60 ? "Good" : (score >= 44 ? "Fair" : (score >= 28 ? "Rough" : "Poor")));
-    const drivers = ["Cardiff already has a little Birmingham glow working against the darkest skies"];
-    if (moon.name === "Full Moon") drivers.push("the moon is doing real washout tonight");
-    else if (moon.name === "New Moon") drivers.push("moonlight is mostly staying out of the way");
-    if (night && night.shortForecast) drivers.push("the next night forecast reads " + night.shortForecast.toLowerCase());
-    if (airPayload && airPayload.current) drivers.push(airEffect.note.toLowerCase());
-
-    return {
-      score,
-      rating,
-      note: drivers.join(", ") + "."
-    };
-  }
-
-  function buildSky(date, sun, moon) {
-    const guide = skyGuide[date.getMonth()] || FALLBACK_SKY_GUIDE[0];
-    const meteor = nextMeteorShower(date);
-    const score = skywatchSummary(date, moon, latestWeatherPayload, latestAirQualityPayload);
-    const daysUntilMeteor = Math.ceil((meteor.peak - date) / 86400000);
-    const meteorLabel = daysUntilMeteor <= 3
-      ? meteor.name + " peak"
-      : (daysUntilMeteor <= 14 ? meteor.name + " soon" : "Next named shower");
-    const meteorNote = daysUntilMeteor <= 3
-      ? meteor.note
-      : (daysUntilMeteor <= 14
-        ? meteor.name + " peaks around " + meteor.peak.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ". " + meteor.note
-        : meteor.name + " is the next major stop on the meteor calendar, peaking around " + meteor.peak.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + ".");
-    const moonlightLabel = moon.name === "New Moon" ? "Dark-sky advantage" : (moon.name === "Full Moon" ? "Moonlight-heavy night" : "Moonlight factor");
-    setText("skyWatchTag", guide.tag);
-    setHTML("skyWatchBody",
-      '<div class="sky-event"><div class="sky-event-icon">🔭</div><div><div class="sky-event-title">Skywatch score: ' + score.score + '/100 · ' + score.rating + '</div><div class="sky-event-note">' + score.note + "</div></div></div>" +
-      '<div class="sky-callout">' + guide.opening + "</div>" +
-      '<div class="sky-event"><div class="sky-event-icon">' + guide.pattern.icon + '</div><div><div class="sky-event-title">' + guide.pattern.title + '</div><div class="sky-event-note">' + guide.pattern.note + "</div></div></div>" +
-      '<div class="sky-event"><div class="sky-event-icon">' + guide.planet.icon + '</div><div><div class="sky-event-title">' + guide.planet.title + '</div><div class="sky-event-note">' + guide.planet.note + "</div></div></div>" +
-      '<div class="sky-event"><div class="sky-event-icon">☄️</div><div><div class="sky-event-title">' + meteorLabel + '</div><div class="sky-event-note">' + meteorNote + "</div></div></div>" +
-      '<div class="sky-event"><div class="sky-event-icon">' + moon.icon + '</div><div><div class="sky-event-title">' + moonlightLabel + '</div><div class="sky-event-note">' + skyMoonNote(moon) + ' Sunset is around ' + formatClock(sun.set) + " local time.</div></div></div>" +
-      (guide.special ? '<div class="sky-event"><div class="sky-event-icon">' + guide.special.icon + '</div><div><div class="sky-event-title">' + guide.special.title + '</div><div class="sky-event-note">' + guide.special.note + "</div></div></div>" : "") +
-      '<div class="sky-event"><div class="sky-event-icon">' + guide.calendar.icon + '</div><div><div class="sky-event-title">' + guide.calendar.title + '</div><div class="sky-event-note">' + guide.calendar.note + "</div></div></div>"
-    );
-  }
-
-  function renderAirQuality(data) {
-    const current = data && data.current ? data.current : null;
-    const aqi = current ? Number(current.usAqi) : NaN;
-    const pm25 = current ? Number(current.pm25) : NaN;
-    const ozone = current ? Number(current.ozone) : NaN;
-    if (!current || (!Number.isFinite(aqi) && !Number.isFinite(pm25) && !Number.isFinite(ozone))) {
-      showCard("air-card", false);
-      return;
-    }
-
-    showCard("air-card", true);
-    setText("airUpdated", airQualityLabel(data));
-    setHTML("airBody",
-      '<div class="report-stack">' +
-        '<div class="report-row"><div class="report-label">🌫️ Air quality index</div><div class="report-value">' + escapeHtml((current.category || "Air snapshot") + (Number.isFinite(aqi) ? " · AQI " + Math.round(aqi) : "")) + '</div><div class="report-note">' + escapeHtml(current.label || current.note || "Live air-quality snapshot for the Cardiff area.") + "</div></div>" +
-        '<div class="report-row"><div class="report-label">🫁 Fine particles</div><div class="report-value">' + escapeHtml(Number.isFinite(pm25) ? pm25.toFixed(1) + " " + (current.pm25Unit || "μg/m³") : "—") + '</div><div class="report-note">PM2.5 often shows up as the kind of extra haze you feel in your chest and notice in the night sky.</div></div>' +
-        '<div class="report-row"><div class="report-label">☀️ Ozone</div><div class="report-value">' + escapeHtml(Number.isFinite(ozone) ? ozone.toFixed(1) + " " + (current.ozoneUnit || "μg/m³") : "—") + '</div><div class="report-note">' + escapeHtml(current.note || "Outdoor air can feel different when ozone or particulates start creeping up.") + "</div></div>" +
-      "</div>" +
-      '<div class="sci-box"><div class="sci-label">🔭 Sky desk crossover</div><p>Cleaner air usually means better transparency, while extra haze can flatten the faint-star contrast even when the clouds behave themselves.</p></div>'
-    );
-  }
-
-  async function loadAirQuality() {
-    try {
-      const response = await fetch(AIR_QUALITY_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error("air");
-      const data = await response.json();
-      latestAirQualityPayload = data;
-      renderAirQuality(data);
-      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
-    } catch (error) {
-      latestAirQualityPayload = null;
-      showCard("air-card", false);
-      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
-    }
-  }
-
-  function buildDateHero(date, sun, moon) {
-    const moonAge = Math.round((((date - new Date(2000, 0, 6, 18, 14, 0)) / 86400000) % 29.53 + 29.53) % 29.53);
-    const daylightHours = Math.round(((sun.set - sun.rise) / 3600000) * 10) / 10;
-    setText("dateDayName", DAYS_LONG[date.getDay()]);
-    setText("dateBig", String(date.getDate()));
-    setText("dateMonthName", MONTHS_LONG[date.getMonth()]);
-    setText("dateYearNum", String(date.getFullYear()));
-    setText("sunTimes", formatClock(sun.rise) + " · " + formatClock(sun.set));
-    setText("dayLength", daylightHours + " hours of daylight");
-    setText("heroMoon", moon.icon + " " + moon.name);
-    setText("heroMoonSub", "Moon age in cycle: " + moonAge + " days");
-    setText("moonIcon", moon.icon);
-    setText("moonName", moon.name);
-    setText("moonMeta", "Tonight over Five Mile Creek");
-    setText("moonLore", moon.lore);
-    setText("moonSci", moon.science);
-    setText("pillMoon", moon.name);
-  }
-
-  function buildStaticSections() {
-    const now = new Date();
-    const sun = getSunTimes(now);
-    const moon = getMoonPhase(now);
-    buildDateHero(now, sun, moon);
-    buildPlanting(now.getMonth());
-    buildNature(now.getMonth());
-    buildFact(now);
-    buildSeasonWindows(now);
-    buildSky(now, sun, moon);
-  }
-
-  function weatherCondition(cur) {
-    const temp = Number(cur.temp);
-    const humidity = Number(cur.humidity);
-    const hourlyRain = Number(cur.hourlyRain || cur.precipRate || 0);
-    const solar = Number(cur.solarRadiation || 0);
-    const wind = Number(cur.windSpeed || 0);
-    const hour = new Date().getHours();
-
-    if (hourlyRain > 0.05) return "Rain";
-    if (solar > 700) return "Sunny";
-    if (solar > 350) return "Partly cloudy";
-    if (solar < 30 && hour > 7 && hour < 19) return "Overcast";
-    if (temp > 90) return "Hot";
-    if (temp > 76) return humidity > 72 ? "Warm & humid" : "Warm";
-    if (temp > 58) return wind > 12 ? "Breezy" : "Mild";
-    return "Cold";
-  }
-
-  function conditionIcon(condition) {
-    if (condition === "Rain") return "🌧";
-    if (condition === "Sunny") return "☀️";
-    if (condition === "Hot") return "🌡";
-    if (condition === "Overcast") return "☁️";
-    if (condition === "Breezy") return "🌬";
-    if (condition === "Cold") return "🥶";
-    if (condition === "Warm & humid") return "💧";
-    return "🌤";
   }
 
   function windIcon(speed) {
@@ -1469,21 +427,6 @@
     return "Mostly still air";
   }
 
-  function pressureNote(pressureIn) {
-    if (!Number.isFinite(pressureIn)) return { label: "Steady", note: "No pressure signal available.", icon: "🧭" };
-    if (pressureIn >= 30.15) return { label: "High and settled", note: "Usually steadier skies and more predictable creek conditions.", icon: "📈" };
-    if (pressureIn >= 29.95) return { label: "Moderate", note: "A fair-weather middle ground with no strong front signal.", icon: "🧭" };
-    return { label: "Lower pressure", note: "Often means a front is near or the air is turning more unsettled.", icon: "🌦️" };
-  }
-
-  function groundCondition(precipTotal, humidity) {
-    if (precipTotal >= 0.3) return { title: "Soft and muddy", note: "The ground is taking on water right now.", icon: "🫧" };
-    if (precipTotal >= 0.05) return { title: "Freshly damp", note: "Good scent, soft tracks, and slick creek banks.", icon: "🥾" };
-    if (humidity >= 80) return { title: "Holding moisture", note: "Shade and bottoms will stay damp longer than open ground.", icon: "🌿" };
-    if (humidity >= 60) return { title: "Normal footing", note: "Neither baked out nor soupy in most spots.", icon: "🪵" };
-    return { title: "Dry on top", note: "Open ground will crust faster than shaded creek edges.", icon: "☀️" };
-  }
-
   function uvNote(uv) {
     if (!Number.isFinite(uv)) return "UV reading offline";
     if (uv >= 8) return "High exposure in open sun";
@@ -1505,77 +448,6 @@
     return isDaytime ? "☀️" : "🌙";
   }
 
-  function estimateWaterTemp(temp, monthIndex) {
-    const seasonalOffset = [-8, -8, -6, -4, -2, 0, 2, 2, 0, -2, -5, -7][monthIndex];
-    return Math.max(40, Math.min(86, Math.round(temp + seasonalOffset)));
-  }
-
-  function fishingRows(wx) {
-    const water = estimateWaterTemp(wx.temp, new Date().getMonth());
-    const pressure = pressureNote(wx.pressureIn);
-    const catfishScore = (wx.condition === "Rain" ? 3 : 2) + (water >= 58 ? 1 : 0);
-    const bassScore = (pressure.label === "High and settled" ? 3 : 2) + (water >= 55 && water <= 75 ? 1 : 0);
-    const breamScore = water >= 68 ? 3 : 2;
-
-    return [
-      {
-        icon: "🐟",
-        stars: catfishScore >= 4 ? "★★★" : "★★",
-        cls: catfishScore >= 4 ? "f-good" : "f-mid",
-        name: "Catfish",
-        note: wx.condition === "Rain" ? "Fresh color and moving water can make the creek feel alive for catfish." : "Stable warm water keeps catfish worth a try around deeper bends and cover."
-      },
-      {
-        icon: "🐠",
-        stars: bassScore >= 4 ? "★★★" : "★★",
-        cls: bassScore >= 4 ? "f-good" : "f-mid",
-        name: "Largemouth and spotted bass",
-        note: pressure.label === "High and settled" ? "Settled weather helps fish hold more predictable edges and ambush cover." : "A changing barometer can scatter bass, so slow down and fish the obvious structure."
-      },
-      {
-        icon: "🐡",
-        stars: breamScore >= 3 ? "★★★" : "★",
-        cls: breamScore >= 3 ? "f-good" : "f-low",
-        name: "Bream",
-        note: water >= 68 ? "Warm shallows and quiet banks make bluegill and shellcracker a solid bet." : "They are still around, but the bite usually improves once the water warms more."
-      }
-    ];
-  }
-
-  function buildFishing(wx, moon) {
-    const waterTemp = estimateWaterTemp(wx.temp, new Date().getMonth());
-    const pressure = pressureNote(wx.pressureIn);
-    const bestTime = wx.temp >= 82 ? "First light" : (wx.condition === "Rain" ? "Before the shower" : "Late afternoon");
-    const bestTimeNote = wx.temp >= 82 ? "Cooler water and softer light help." : (wx.condition === "Rain" ? "Pressure changes can wake things up briefly." : "A stable evening window looks strongest.");
-    const bestIcon = wx.temp >= 82 ? "🌅" : (wx.condition === "Rain" ? "🌦️" : "🌇");
-    const rows = fishingRows(wx);
-
-    setEmojiText("fishWater", "💧", waterTemp + "°F");
-    setEmojiText("fishPressure", pressure.icon, pressure.label);
-    setText("fishPNote", pressure.note);
-    setHTML("fishMoon", emojiText(moon.icon, moon.name));
-    setText("fishMoonNote", "Moonlight shifts feeding windows, especially overnight.");
-    setEmojiText("fishBest", bestIcon, bestTime);
-    setText("fishBestNote", bestTimeNote);
-    setText("pillFish", rows[0].name);
-
-    setHTML("fishBody", rows.map((row) => (
-      '<div class="fish-row">' +
-        '<div class="fish-icon">' + iconHtml(row.icon) + "</div>" +
-        '<div class="fish-main"><div class="fish-name-line"><div class="fish-stars ' + row.cls + '">' + row.stars + '</div><div class="fish-name">' + row.name + '</div></div><div class="fish-note">' + row.note + "</div></div>" +
-      "</div>"
-    )).join(""));
-  }
-
-  function buildSideSnapshot(wx, sun, moon, ground) {
-    setHTML("sideSnap",
-      '<div class="side-item"><div class="side-icon">' + conditionIcon(wx.condition) + '</div><div><div class="side-val">' + wx.temp + '°F and ' + wx.condition.toLowerCase() + '</div><div class="side-sub">' + wx.summary + "</div></div></div>" +
-      '<div class="side-item"><div class="side-icon">🌅</div><div><div class="side-val">Sunrise to sunset</div><div class="side-sub">' + formatClock(sun.rise) + " to " + formatClock(sun.set) + "</div></div></div>" +
-      '<div class="side-item"><div class="side-icon">' + moon.icon + '</div><div><div class="side-val">' + moon.name + '</div><div class="side-sub">Night light and animal movement can feel different under this phase.</div></div></div>' +
-      '<div class="side-item"><div class="side-icon">' + ground.icon + '</div><div><div class="side-val">' + ground.title + '</div><div class="side-sub">' + ground.note + "</div></div></div>"
-    );
-  }
-
   function refreshWeatherEmojiLayer(wx, ground, pressure) {
     setEmojiText("wxTemp", conditionIcon(wx.condition), wx.temp + "°F");
     setEmojiText("wxHum", "💧", wx.humidity + "%");
@@ -1592,17 +464,6 @@
       labels[3].textContent = "Ground";
       labels[4].textContent = "Pressure";
       labels[5].textContent = "UV Index";
-    }
-  }
-
-  function refreshFishingEmojiLayer(wx) {
-    const rows = fishingRows(wx);
-    const waterTemp = estimateWaterTemp(wx.temp, new Date().getMonth());
-    const pressure = pressureNote(wx.pressureIn);
-    setEmojiText("fishWater", "💧", waterTemp + "°F");
-    setEmojiText("fishPressure", pressure.icon, pressure.label);
-    if (rows.length) {
-      setText("pillFish", rows[0].name);
     }
   }
 
@@ -1642,7 +503,7 @@
     const lowTemp = Number(report.lowTemp);
     const windGust = Number(report.windGust || 0);
     const topLine = rainAmount >= 0.01
-      ? "Cardiff picked up " + formatInches(rainAmount) + " " + report.label.toLowerCase() + "."
+      ? "The Cardiff station picked up " + formatInches(rainAmount) + " " + report.label.toLowerCase() + "."
       : "No measurable rain " + report.label.toLowerCase() + ".";
     const note = rainAmount >= 0.2
       ? "Enough water fell to change footing, soften ground, and freshen the creek edges."
@@ -1659,20 +520,18 @@
     );
   }
 
-  function renderWatershedGauge(gauge) {
-    const trend = gauge && gauge.trend ? gauge.trend : "steady";
-    const role = gauge && gauge.role ? gauge.role : "watch";
-    const stage = numericOrNaN(gauge.stage_ft);
-    const discharge = numericOrNaN(gauge.discharge_cfs);
-    const mood = creekMood(stage);
-    return '<div class="watershed-stat">' +
-      '<div class="watershed-top"><div class="watershed-name">' + escapeHtml(mood.icon + " " + (gauge.label || gauge.name || "Gauge")) + '</div><div class="watershed-role">' + escapeHtml(role) + '</div></div>' +
-      '<div class="watershed-mainline"><div class="watershed-main">' + escapeHtml(formatFeet(stage)) + '</div><div class="watershed-boat">' + escapeHtml(mood.boat) + "</div></div>" +
-      '<div class="watershed-trend ' + escapeHtml(trend) + '">' + escapeHtml(trendEmoji(trend) + " " + trend) + '</div>' +
-      '<div class="watershed-sub">' + escapeHtml(formatCfs(discharge)) + '</div>' +
-      '<div class="watershed-sub">' + escapeHtml(mood.label + ". " + mood.note) + '</div>' +
-      '<div class="watershed-sub">' + escapeHtml(gauge.note || relativeGaugeTime(gauge.updated_at)) + '</div>' +
-      "</div>";
+  /* The rain tile reads the watershed file rather than the station file,
+     because the watershed run is the one that carries a month-to-date total
+     already reconciled against the gauge record. */
+  function paintRainTile(rainContext) {
+    if (!rainContext || !Number.isFinite(Number(rainContext.monthToDate))) {
+      paintTile("creekRain", null, "Waiting on the station file.");
+      return;
+    }
+    const total = Number(rainContext.monthToDate);
+    const label = rainContext.monthLabel || "this month";
+    paintTile("creekRain", total.toFixed(2) + '"',
+      "Rain measured at the Cardiff station so far in " + label + ".");
   }
 
   async function loadWatershed() {
@@ -1684,43 +543,31 @@
       const primary = preferredGauge(gauges);
       watershedLeadGauge = primary || null;
       setText("watershedUpdated", primary ? relativeGaugeTime(primary.updated_at) : "Gauge sync pending");
-      const displayGauges = gauges.filter((g) => g.role !== "upstream_watch");
-      setHTML("watershedGrid", displayGauges.length ? displayGauges.map(renderWatershedGauge).join("") : renderWatershedGauge({
-        label: "Republic live gauge",
-        role: "lead",
-        stage_ft: null,
-        discharge_cfs: null,
-        trend: "steady",
-        note: "Gauge values will appear here after the watershed file refreshes."
-      }));
       renderWatershedChartPanel();
-      setText("watershedScience", primary && Number.isFinite(numericOrNaN(primary.stage_ft))
-        ? "Stage, discharge, and the little boat cue are a quick local shorthand for whether the creek is whispering, moving along, or worth giving extra respect."
-        : "Live creek numbers will drop in here after the watershed file refreshes.");
-      if (primary && Number.isFinite(numericOrNaN(primary.stage_ft))) {
-        const mood = creekMood(numericOrNaN(primary.stage_ft));
-        setText("pillWatershed", mood.label);
+      paintRainTile(data.rainContext);
+
+      const stage = primary ? numericOrNaN(primary.stage_ft) : NaN;
+      if (Number.isFinite(stage)) {
+        const mood = creekMood(stage);
+        setText("watershedScience", data.summary ||
+          "Stage is the height of the water at the gauge. Flow is how much of it is going past. Read together they say whether the creek is loafing or working.");
+        FA.setRailSub("almanac", stage.toFixed(2) + " ft · " + mood.label);
         const creekPill = document.getElementById("mhCreekPill");
-        if (creekPill) creekPill.textContent = mood.icon + " " + numericOrNaN(primary.stage_ft).toFixed(2) + " ft · " + mood.label;
+        if (creekPill) creekPill.textContent = mood.icon + " " + stage.toFixed(2) + " ft · " + mood.label;
       } else {
-        setText("pillWatershed", "Gauge sync");
+        setText("watershedScience", "Live creek numbers drop in here after the watershed file refreshes.");
+        FA.setRailSub("almanac", "Gauge sync pending");
       }
     } catch (error) {
       watershedLeadGauge = null;
       setText("watershedUpdated", "Gauge sync offline");
-      setHTML("watershedGrid", renderWatershedGauge({
-        label: "Republic live gauge",
-        role: "lead",
-        stage_ft: null,
-        discharge_cfs: null,
-        trend: "steady",
-        note: "Gauge sync is temporarily offline."
-      }));
       setText("watershedChartMeta", "Lead gauge · Week view");
-      setHTML("watershedChartStats", '<div class="watershed-chart-stat"><div class="watershed-chart-label">Creek read</div><div class="watershed-chart-value">📡 Offline</div></div>');
       setHTML("watershedChart", '<div class="watershed-chart-empty">Creek depth is offline until the gauge file comes back.</div>');
-      setText("watershedScience", "Use the weather, rain totals, and creek color as backup clues until the gauge file comes back.");
-      setText("pillWatershed", "Offline");
+      setText("watershedScience", "Use the weather, the rain totals, and the color of the water as backup clues until the gauge file comes back.");
+      ["creekStage", "creekFlow", "creekChange", "creekRain"].forEach(function (id) {
+        paintTile(id, null, "The gauge file is not answering right now.");
+      });
+      FA.setRailSub("almanac", "Gauge sync offline");
     }
   }
 
@@ -1736,6 +583,24 @@
     if (code <= 82) return "🌧 Showers";
     if (code <= 86) return "❄️ Snow showers";
     return "⛈ Thunderstorms";
+  }
+
+  /* Graysville, Cardiff, Brookside. West to east, every time.
+
+     The generator writes the three points in that order and says in its own
+     comment that the page is expected to look them up by name rather than
+     trust the file. This page was not doing that, so a feed that came back in
+     a different order put the towns on screen in a different order. Sorting
+     here means the rule holds no matter what the file says. See DECISIONS.md 1
+     and the town order rule in CLAUDE.md. */
+  const TOWN_ORDER = ["Graysville", "Cardiff", "Brookside"];
+
+  function orderTowns(places) {
+    return places.slice().sort((a, b) => {
+      const ai = TOWN_ORDER.indexOf(a && a.place);
+      const bi = TOWN_ORDER.indexOf(b && b.place);
+      return (ai === -1 ? TOWN_ORDER.length : ai) - (bi === -1 ? TOWN_ORDER.length : bi);
+    });
   }
 
   function renderForecastPlace(place) {
@@ -1765,7 +630,7 @@
       const places = Array.isArray(data.places) ? data.places : [];
       if (!places.length) throw new Error("watershed forecast empty");
       setText("watershedForecastUpdated", "Today's high and low");
-      setHTML("watershedForecastGrid", places.map(renderForecastPlace).join(""));
+      setHTML("watershedForecastGrid", orderTowns(places).map(renderForecastPlace).join(""));
     } catch (error) {
       setText("watershedForecastUpdated", "Forecast sync offline");
       setHTML("watershedForecastGrid", renderForecastPlace({ place: "Cardiff", today: null }));
@@ -1775,7 +640,7 @@
   function lightningNote(alerts) {
     const thunderAlert = (alerts || []).find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
     if (thunderAlert) {
-      return '<div class="alert-banner"><strong>⚡ Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk around Cardiff.</div>';
+      return '<div class="alert-banner"><strong>⚡ Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk over these three towns.</div>';
     }
     return '<div class="alert-calm"><strong>⚡ Lightning desk:</strong> No lightning-related public alert is active right now. Direct strike tracking can come later if we add a dedicated source.</div>';
   }
@@ -1809,7 +674,7 @@
 
     const thunderAlert = alerts.find((alert) => /thunderstorm|tornado|lightning/i.test((alert.event || "") + " " + (alert.headline || "")));
     const lightning = thunderAlert
-      ? '<div class="alert-banner"><strong>Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk around Cardiff.</div>'
+      ? '<div class="alert-banner"><strong>Lightning caution:</strong> Any active thunderstorm warning, watch, or nearby thunder mention should be treated like real lightning risk over these three towns.</div>'
       : "";
 
     if (card) card.style.display = "";
@@ -1828,7 +693,7 @@
       return "Yesterday's weather summary will appear here after the daily station log compiles.";
     }
     const rain = Number.isFinite(y.rain) ? y.rain : 0;
-    let text = "Yesterday around Cardiff, temperatures ranged from " + y.low + "° to " + y.high + "°";
+    let text = "Yesterday along the creek, temperatures ranged from " + y.low + "° to " + y.high + "°";
     if (rain >= 0.01) {
       text += " with " + formatInches(rain) + " of rain recorded at the station.";
     } else {
@@ -1845,8 +710,6 @@
   }
 
   function buildWeather(wx, rain, dailySummary, rawData, prevDay) {
-    const moon = getMoonPhase(new Date());
-    const sun = getSunTimes(new Date());
     const ground = groundCondition(wx.precipTotal, wx.humidity);
     const ds = dailySummary || null;
 
@@ -1871,22 +734,17 @@
       dateLabel = yesterday.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
     }
     setText("wxUpdated", dateLabel);
+    setText("wxReadStamp", dateLabel);
 
-    // wx-grid: 3 yesterday cells
+    // The three yesterday readings.
     if (hasYesterday) {
       setText("wxYestHigh", yHigh + "°F");
-      setText("wxYestHighNote", "Peak temperature yesterday");
       setText("wxYestLow", yLow + "°F");
-      setText("wxYestLowNote", "Overnight low around Cardiff");
       setText("wxYestRain", formatInches(yRain));
-      setText("wxYestRainNote", "Total rainfall yesterday");
     } else {
       setText("wxYestHigh", "—");
-      setText("wxYestHighNote", "No summary yet");
       setText("wxYestLow", "—");
-      setText("wxYestLowNote", "First daily run compiles tonight");
       setText("wxYestRain", "—");
-      setText("wxYestRainNote", "—");
     }
 
     // hero conditions box: yesterday range
@@ -1902,18 +760,12 @@
     setHTML("heroRain", emojiText(ground.icon, ground.title));
     setText("heroRainSub", ground.note);
 
-    // pill
-    setText("pillWeather", hasYesterday ? yHigh + "°–" + yLow + "°" : "Yesterday");
-
     // narrative and science
     setText("wxNarrative", buildYesterdayNarrative({ high: yHigh, low: yLow, rain: yRain }));
     setText("wxScience", "Daily high, low, and total rainfall give a clear picture of what yesterday brought to the Five Mile Creek watershed.");
 
     buildRainSummary(yRain, rawData);
     buildMorningReport(rain && rain.morningReport ? rain.morningReport : null);
-    buildFishing(wx, moon);
-    buildSideSnapshot(wx, sun, moon, ground);
-    refreshFishingEmojiLayer(wx);
     refreshRainEmojiLayer(yRain, rawData);
   }
 
@@ -1924,7 +776,7 @@
     if (wx.windSpeed >= 4) pieces.push("wind around " + Math.round(wx.windSpeed) + " mph");
     if (wx.humidity >= 75) pieces.push("humid air in the bottoms");
     if (wx.precipRate > 0.05) pieces.push("active precipitation");
-    return "Right now around Cardiff it feels " + pieces.join(", ") + ".";
+    return "Right now along the creek it feels " + pieces.join(", ") + ".";
   }
 
   async function loadPrevDayFromArchive() {
@@ -1969,20 +821,15 @@
       const prevDay = await loadPrevDayFromArchive();
 
       buildWeather(wx, rain, summary, data, prevDay);
-      buildSky(new Date(), getSunTimes(new Date()), getMoonPhase(new Date()));
+      renderDesks(wx);
       return wx;
     } catch (error) {
       latestWeatherPayload = null;
-      setText("wxUpdated", "Weather offline");
-      setText("wxUpdated", "Offline");
+      setText("wxUpdated", "Station offline");
       setText("wxNarrative", "The weather station data did not load. The rest of the almanac is still available.");
-      setText("pillWeather", "Offline");
       setText("wxYestHigh", "—");
       setText("wxYestLow", "—");
       setText("wxYestRain", "—");
-      setText("wxYestHighNote", "Station offline");
-      setText("wxYestLowNote", "—");
-      setText("wxYestRainNote", "Yesterday's data will return when the station file loads.");
       setHTML("heroCond", emojiText("📡", "Station offline"));
       setText("heroCondSub", "Yesterday's range will return when the station data loads.");
       setHTML("heroRain", emojiText("🥾", "Check the ground"));
@@ -1992,12 +839,7 @@
       setText("rainMonthly", "—");
       setText("rainYearly", "—");
       buildMorningReport(null);
-      setHTML("sideSnap",
-        '<div class="side-item"><div class="side-icon">📡</div><div><div class="side-val">Station data offline</div><div class="side-sub">The page is working, but the weather station file did not respond right now.</div></div></div>'
-      );
-      setHTML("fishBody",
-        '<div class="fish-row"><div class="fish-icon">🎣</div><div class="fish-main"><div class="fish-name-line"><div class="fish-stars f-low">—</div><div class="fish-name">Station data unavailable</div></div><div class="fish-note">Fishing notes will repopulate when the weather file is back.</div></div></div>'
-      );
+      renderDesks(null);
       return null;
     }
   }
@@ -2078,27 +920,6 @@
     }
   }
 
-  async function loadForecast() {
-    try {
-      const response = await fetch(WX_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error("forecast");
-      const data = await response.json();
-      const periods = Array.isArray(data.forecast) ? data.forecast.slice(0, 6) : [];
-      if (!periods.length) throw new Error("forecast");
-
-      setHTML("weekBody", periods.map((period) => (
-        '<div class="side-item">' +
-          '<div class="side-icon">' + forecastIcon(period.shortForecast, period.isDaytime) + "</div>" +
-          "<div><div class=\"side-val\">" + period.name + " · " + period.temperature + "°" + period.temperatureUnit + "</div><div class=\"side-sub\">" + period.shortForecast + "</div></div>" +
-        "</div>"
-      )).join(""));
-    } catch (error) {
-      setHTML("weekBody",
-        '<div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Forecast temporarily unavailable.</div>'
-      );
-    }
-  }
-
   function setupWatershedRangeControls() {
     document.querySelectorAll(".watershed-range-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -2132,100 +953,158 @@
       })
       .catch(() => {
         setHTML("weekBody",
-          '<div style="font-family:var(--mono);font-size:0.62rem;color:var(--ink3);text-align:center;padding:0.5rem;">Forecast temporarily unavailable.</div>'
+          '<div class="empty">The forecast is not coming through right now.</div>'
         );
       });
   }
 
-  function initTopo() {
-    const canvas = document.getElementById("topo-canvas");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    let width = 0;
-    let height = 0;
-    let frame = 0;
-    let lines = [];
+  function airQualityLabel(payload) {
+    const current = payload && payload.current ? payload.current : null;
+    if (!current) return "🌫 Air desk pending";
+    const category = current.category || "Air snapshot";
+    const aqi = Number(current.usAqi);
+    return Number.isFinite(aqi) ? "🌿 " + category + " · AQI " + Math.round(aqi) : "🌫 " + category;
+  }
 
-    function build() {
-      lines = [];
-      for (let i = 0; i < 30; i++) {
-        const baseY = (height / 29) * i;
-        const pts = [];
-        for (let s = 0; s <= 26; s++) {
-          pts.push([
-            (width / 26) * s,
-            baseY + Math.sin(s * 0.41 + i * 0.63) * 15 + Math.sin(s * 0.18 + i * 1.1) * 30 + Math.sin(s * 0.07 + i * 0.35) * 46 + Math.cos(s * 0.55 + i * 0.82) * 11
-          ]);
-        }
-        const isIndex = i % 5 === 0;
-        lines.push({
-          pts: pts,
-          color: isIndex ? "rgba(80,44,8,0.11)" : "rgba(80,44,8,0.052)",
-          width: isIndex ? 1.2 : 0.6,
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.0004 + Math.random() * 0.0004
-        });
-      }
-
-      const creek = [];
-      for (let s = 0; s <= 52; s++) {
-        creek.push([
-          (width / 52) * s,
-          height * 0.72 + Math.sin(s * 0.22) * 58 + Math.sin(s * 0.13) * 88 + Math.cos(s * 0.35) * 26
-        ]);
-      }
-      lines.push({
-        pts: creek,
-        color: "rgba(150,40,20,0.11)",
-        width: 2.4,
-        phase: 0,
-        speed: 0.00025,
-        dash: [8, 10]
-      });
+  function renderAirQuality(data) {
+    const current = data && data.current ? data.current : null;
+    const aqi = current ? Number(current.usAqi) : NaN;
+    const pm25 = current ? Number(current.pm25) : NaN;
+    const ozone = current ? Number(current.ozone) : NaN;
+    if (!current || (!Number.isFinite(aqi) && !Number.isFinite(pm25) && !Number.isFinite(ozone))) {
+      showCard("air-card", false);
+      return;
     }
 
-    function draw() {
-      ctx.clearRect(0, 0, width, height);
-      lines.forEach((line) => {
-        ctx.beginPath();
-        ctx.strokeStyle = line.color;
-        ctx.lineWidth = line.width;
-        ctx.setLineDash(line.dash || []);
-        const tick = frame * line.speed + line.phase;
-        line.pts.forEach((point, index) => {
-          const y = point[1] + Math.sin(tick + index * 0.28) * 2.8 + Math.sin(tick * 1.7 + index * 0.14) * 1.2 + Math.cos(tick * 0.8 + index * 0.42) * 1.6;
-          if (index === 0) ctx.moveTo(point[0], y);
-          else ctx.lineTo(point[0], y);
-        });
-        ctx.stroke();
-      });
-      ctx.setLineDash([]);
-      frame += 1;
-      requestAnimationFrame(draw);
+    showCard("air-card", true);
+    setText("airUpdated", airQualityLabel(data));
+    setHTML("airBody",
+      '<div class="report-stack">' +
+        '<div class="report-row"><div class="report-label">🌫️ Air quality index</div><div class="report-value">' + escapeHtml((current.category || "Air snapshot") + (Number.isFinite(aqi) ? " · AQI " + Math.round(aqi) : "")) + '</div><div class="report-note">' + escapeHtml(current.label || current.note || "Live air quality snapshot for these three towns.") + "</div></div>" +
+        '<div class="report-row"><div class="report-label">🫁 Fine particles</div><div class="report-value">' + escapeHtml(Number.isFinite(pm25) ? pm25.toFixed(1) + " " + (current.pm25Unit || "μg/m³") : "—") + '</div><div class="report-note">PM2.5 often shows up as the kind of extra haze you feel in your chest and notice in the night sky.</div></div>' +
+        '<div class="report-row"><div class="report-label">☀️ Ozone</div><div class="report-value">' + escapeHtml(Number.isFinite(ozone) ? ozone.toFixed(1) + " " + (current.ozoneUnit || "μg/m³") : "—") + '</div><div class="report-note">' + escapeHtml(current.note || "Outdoor air can feel different when ozone or particulates start creeping up.") + "</div></div>" +
+      "</div>" +
+      '<div class="sci-box"><div class="sci-label">🔭 Sky desk crossover</div><p>Cleaner air usually means better transparency, while extra haze can flatten the faint-star contrast even when the clouds behave themselves.</p></div>'
+    );
+  }
+
+  async function loadAirQuality() {
+    try {
+      const response = await fetch(AIR_QUALITY_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("air");
+      const data = await response.json();
+      renderAirQuality(data);
+    } catch (error) {
+      showCard("air-card", false);
+    }
+  }
+
+  /* -------------------------------------------------------------------------
+     THE FOUR DESKS
+
+     One tab card each, carrying today's reading and opening the page that
+     explains it. The point of the split was that none of these four could be
+     any good as a card, so what stays here is only enough to tell a reader
+     whether it is worth the tap.
+     ------------------------------------------------------------------------- */
+  function renderDesks(wx) {
+    const now = new Date();
+    const month = now.getMonth();
+    const sun = getSunTimes(now);
+    const moon = getMoonPhase(now);
+    const stage = watershedLeadGauge ? numericOrNaN(watershedLeadGauge.stage_ft) : NaN;
+
+    /* Fishing. The reading a person wants off this card is whether it is worth
+       going, so the blurb is the best-rated species and why. */
+    if (wx) {
+      const water = FA.estimateWaterTemp(wx.temp, month);
+      const rows = FA.fishingRows(wx);
+      const window = FA.bestFishingWindow(wx);
+      const best = rows.slice().sort((a, b) => b.stars.length - a.stars.length)[0];
+      setText("deskFishTag", best ? best.name : "Creek conditions");
+      setText("deskFishWater", water + "°F");
+      setText("deskFishWindow", window.time);
+      setText("deskFishNote", best ? best.note : "Water, species, seasons, and the rules.");
+      FA.setRailSub("fishing", water + "°F water · " + window.time);
+    } else {
+      setText("deskFishTag", "Station offline");
+      setText("deskFishWater", "—");
+      setText("deskFishWindow", "—");
+      setText("deskFishNote", "The daily ratings come back when the weather station file loads.");
+    }
+    setText("deskFishCreek", Number.isFinite(stage) ? creekMood(stage).label : "—");
+
+    // Garden
+    const plant = FA.PLANTING_GUIDE[month];
+    if (plant) {
+      setText("deskGardenTag", MONTHS_LONG[month]);
+      setText("deskGardenJob", plant.items[0].name);
+      setText("deskGardenNote", plant.lead);
+      FA.setRailSub("garden", plant.items[0].action + " " + plant.items[0].name.toLowerCase());
+    }
+    const frost = FA.nextFrost(now);
+    setText("deskGardenFrost", frost.days + " days");
+    if (wx) {
+      setText("deskGardenGround", groundCondition(wx.precipTotal, wx.humidity).title);
     }
 
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      build();
-    }
+    // Night sky
+    const nextFull = FA.nextMoonPhase(now, "Full Moon");
+    const shower = FA.nextMeteorShower(now);
+    setText("deskSkyTag", Math.round(FA.moonAge(now)) + " days in");
+    setText("deskSkyMoon", moon.icon + " " + moon.name);
+    setText("deskSkyFull", nextFull ? FA.MONTHS_SHORT[nextFull.getMonth()] + " " + nextFull.getDate() : "—");
+    setText("deskSkyMeteor", shower ? shower.name : "—");
+    setText("deskSkyNote", moon.lore);
+    FA.setRailSub("sky", moon.name);
 
-    window.addEventListener("resize", resize);
-    resize();
-    draw();
+    // Nature watch
+    const nature = FA.NATURE_GUIDE[month];
+    if (nature) {
+      setText("deskNatureTag", MONTHS_LONG[month]);
+      setText("deskNatureLook", nature.items[0].title);
+      setText("deskNatureNote", nature.lead);
+      FA.setRailSub("nature", nature.items[0].title);
+    }
+    const windows = FA.seasonEntries(now, ["nature", "hunting", "frost", "tradition"], 3);
+    setText("deskNatureWindow", windows.length ? windows[0].title : "—");
+    setText("deskNatureLight", (Math.round(FA.dayLengthHours(sun) * 10) / 10) + " hours");
+  }
+
+  function buildFact(date) {
+    const fact = ALMANAC_FACTS[FA.dayOfYear(date) % ALMANAC_FACTS.length];
+    setText("factKicker", fact.kicker);
+    setText("factTitle", fact.title);
+    setText("factBody", fact.body);
+  }
+
+  function buildDateHero(date, sun, moon) {
+    const age = Math.round(FA.moonAge(date));
+    const daylight = Math.round(FA.dayLengthHours(sun) * 10) / 10;
+    setText("dateDayName", DAYS_LONG[date.getDay()]);
+    setText("dateBig", String(date.getDate()));
+    setText("dateMonthName", MONTHS_LONG[date.getMonth()]);
+    setText("dateYearNum", String(date.getFullYear()));
+    setText("almStamp", date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }));
+    setText("sunTimes", formatClock(sun.rise) + " · " + formatClock(sun.set));
+    setText("sunSpan", daylight + " hours");
+    setText("dayLength", daylight + " hours of daylight");
+    setText("heroMoon", moon.icon + " " + moon.name);
+    setText("heroMoonSub", "Moon age in cycle: " + age + " days");
+  }
+
+  function buildStaticSections() {
+    const now = new Date();
+    const sun = getSunTimes(now);
+    const moon = getMoonPhase(now);
+    buildDateHero(now, sun, moon);
+    buildFact(now);
+    renderDesks(null);
   }
 
   function boot() {
-    try {
-      seasonWindowsExpanded = window.localStorage.getItem("cardiff-season-windows-expanded") === "1";
-    } catch (error) {
-      seasonWindowsExpanded = false;
-    }
-    applyPillCap();
+    FA.renderRail("almanac");
     buildStaticSections();
-    loadTurnings();
-    loadSkyGuide();
-    initTopo();
     setupWatershedRangeControls();
     loadTicker();
     loadWatershed();

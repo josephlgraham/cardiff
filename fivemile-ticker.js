@@ -8,7 +8,7 @@
 
   var TICKER_URL = 'ticker.json';
   var REFRESH_MS = 5 * 60 * 1000;
-  var DEFAULT_MSG = 'Cardiff news desk · nearby towns · weather and roads · schools · public decisions · daily life around western Jefferson County';
+  var DEFAULT_MSG = 'FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County';
 
   var STRIP_COLORS = {
     extreme: '#8b0000',
