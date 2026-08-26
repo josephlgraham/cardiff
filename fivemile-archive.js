@@ -1,26 +1,34 @@
 /* ===========================================================================
    fivemile-archive.js
 
-   The archive family. Five pages share this file:
+   The archive family. Six pages share this file:
 
-     fivemile-archive.html          the hub, four panels and nothing else
-     fivemile-gallery.html          every photograph that has run
-     fivemile-weather-archive.html  every day the station has reported
-     fivemile-creek-archive.html    the creek at the Republic gauge, by the day
-     fivemile-news-archive.html     every story that has run, by month
+     fivemile-archive.html           the hub, five panels and nothing else
+     fivemile-gallery.html           every photograph that has run
+     fivemile-weather-archive.html   every day the station has reported
+     fivemile-creek-archive.html     the creek at the Republic gauge, by the day
+     fivemile-news-archive.html      every story that has run, by month
+     fivemile-calendar-archive.html  every date the calendar keeps, by the year
 
    One file rather than five, on the same footing as fivemile-almanac-core.js:
    the rooms are the same three moves over different numbers, and splitting
    them would mean keeping the reel and the day table in step across four
    copies. Each loader is gated on an element only its own page carries, so a
    room fetches its own file and nothing else. The hub is the exception and
-   reads all four, which is the point of a hub.
+   reads all five, which is the point of a hub.
+
+   The dates room is the one that reads no file of its own, because there is no
+   dates file. The calendar is two lists and a set of rules, so the room asks
+   fivemile-calendar-core.js for a month exactly the way the calendar page
+   does. Same rule kept a different way: there is still only one place the
+   answer comes from. See DECISIONS.md 50.
 
    Nothing here keeps a list of its own. Every room reads the same file the
    live page reads, so a photograph is archived by the act of being featured, a
-   day is archived by the station reporting it, and a story is archived by
-   running. There is no second list to fall out of step, which is the only way
-   an archive stays true without somebody minding it.
+   day is archived by the station reporting it, a story is archived by running,
+   and a date is archived by being on the calendar. There is no second list to
+   fall out of step, which is the only way an archive stays true without
+   somebody minding it.
    =========================================================================== */
 (function () {
   'use strict';
@@ -620,6 +628,165 @@
   }
 
   /* -------------------------------------------------------------------------
+     THE DATES
+
+     The calendar keeps one month on screen and this is the rest of it: every
+     month FIVEMILE has a calendar for, a year at a time, and a search across
+     all of them.
+
+     Nothing is stored here. There is no dates file to fall out of step with
+     the calendar, because the room asks the same engine the calendar asks, a
+     month at a time, and gets the same answer back. That is the rule the other
+     four rooms keep by reading the file the live page reads.
+     See DECISIONS.md 36 and 50.
+     ------------------------------------------------------------------------- */
+  var dateYears = [];      // [{ year, total, months: [{ month, items }] }]
+  var dateCurrentYear = 0;
+
+  function calendarEngine() { return window.FivemileCalendar; }
+
+  function buildYears(turnings) {
+    var C = calendarEngine();
+    var out = [];
+    for (var year = C.FIRST_YEAR; year <= C.lastYear(); year++) {
+      var months = [];
+      var total = 0;
+      for (var month = 1; month <= 12; month++) {
+        var items = C.monthItems(year, month, turnings, null);
+        total += items.length;
+        months.push({ month: month, items: items });
+      }
+      out.push({ year: year, total: total, months: months });
+    }
+    return out;
+  }
+
+  /* The reel holds a run of months everywhere else in the archive and a run of
+     years here. Same control, same 44px, same rule that a chip has to report
+     something under its own name rather than only naming itself. */
+  function buildYearReel(host, years, onPick) {
+    if (!host) return null;
+    host.innerHTML = years.map(function (row) {
+      return '<button type="button" class="reel-btn" data-year="' + row.year + '" aria-pressed="false">' +
+        row.year + '<small>' + row.total + '</small></button>';
+    }).join('');
+
+    host.addEventListener('click', function (event) {
+      var button = event.target.closest ? event.target.closest('.reel-btn') : null;
+      if (!button) return;
+      pick(Number(button.getAttribute('data-year')));
+    });
+
+    function pick(year) {
+      Array.prototype.forEach.call(host.querySelectorAll('.reel-btn'), function (button) {
+        button.setAttribute('aria-pressed', Number(button.getAttribute('data-year')) === year ? 'true' : 'false');
+      });
+      onPick(year);
+    }
+    return pick;
+  }
+
+  /* A month row, drawn as the event stub the calendar draws, doing the same
+     job: the thing worth scanning goes in the brown block and the body says
+     what is behind it.
+
+     Four titles and then a count. Somebody deciding whether August is worth a
+     tap wants to recognise something, not read eleven rows twice. */
+  function dateMonthRow(year, month, items) {
+    var C = calendarEngine();
+    var titles = items.slice(0, 4).map(function (item) { return esc(item.title); });
+    var rest = items.length - titles.length;
+    if (rest > 0) titles.push(rest + ' more');
+
+    return '<a class="card-stub" href="fivemile-calendar.html#' + C.monthId(year, month) + '">' +
+      '<div class="k-date">' +
+        '<span class="mo">' + C.MONTH_SHORT[month - 1] + '</span>' +
+        '<span class="dy">' + year + '</span>' +
+      '</div>' +
+      '<div class="k-bd">' +
+        '<div class="k-top"><span class="k-src">' + plural(items.length, 'date', 'dates') + '</span></div>' +
+        '<h3>' + esc(C.MONTH_FULL[month - 1]) + '</h3>' +
+        (titles.length ? '<div class="w">' + titles.join(' &middot; ') + '</div>' : '') +
+      '</div></a>';
+  }
+
+  function showYear(year) {
+    dateCurrentYear = year;
+    var row = dateYears.filter(function (y) { return y.year === year; })[0];
+    var host = byId('dateMonths');
+    var hits = byId('dateHits');
+    if (!row || !host) return;
+
+    if (hits) hits.innerHTML = '';
+    host.innerHTML = '<div class="rows">' + row.months.map(function (m) {
+      return dateMonthRow(year, m.month, m.items);
+    }).join('') + '</div>';
+    setText('dateCount', year + ' \u00b7 ' + plural(row.total, 'date', 'dates'));
+  }
+
+  /* Every date on file, not just the year on screen. Somebody looking for the
+     duck race does not know which year they are standing in. */
+  function runDateSearch(term) {
+    var C = calendarEngine();
+    var needle = term.trim().toLowerCase();
+    var host = byId('dateMonths');
+    var hits = byId('dateHits');
+    if (!hits) return;
+
+    if (!needle) {
+      showYear(dateCurrentYear);
+      return;
+    }
+
+    var found = [];
+    dateYears.forEach(function (row) {
+      row.months.forEach(function (m) {
+        m.items.forEach(function (item) {
+          var hay = [item.title, item.blurb, item.town, item.subject].join(' ').toLowerCase();
+          if (hay.indexOf(needle) > -1) found.push({ item: item, year: row.year, month: m.month });
+        });
+      });
+    });
+
+    if (host) host.innerHTML = '';
+    hits.innerHTML = found.length
+      ? '<div class="rows">' + found.map(function (hit) {
+          return C.stubHtml(hit.item, C.MONTH_FULL[hit.month - 1] + ' ' + hit.year);
+        }).join('') + '</div>'
+      : '<div class="empty">&mdash;</div>';
+    setText('dateCount', 'Every year \u00b7 ' + plural(found.length, 'match', 'matches'));
+  }
+
+  function loadDates() {
+    var reel = byId('dateReel');
+    if (!reel || !calendarEngine()) return;
+
+    calendarEngine().loadTurnings().then(function (turnings) {
+      dateYears = buildYears(turnings);
+      if (!dateYears.length) return;
+
+      var total = dateYears.reduce(function (sum, row) { return sum + row.total; }, 0);
+      setText('dateStamp', plural(total, 'date', 'dates') + ' on file \u00b7 back to January ' + dateYears[0].year);
+
+      /* The year a reader is standing in opens first, not the oldest one. */
+      var now = new Date().getFullYear();
+      var opening = dateYears.filter(function (row) { return row.year === now; })[0] || dateYears[0];
+      var pick = buildYearReel(reel, dateYears, showYear);
+      if (pick) pick(opening.year);
+
+      var find = byId('dateFind');
+      if (find) {
+        var timer = null;
+        find.addEventListener('input', function () {
+          window.clearTimeout(timer);
+          var value = find.value;
+          timer = window.setTimeout(function () { runDateSearch(value); }, 160);
+        });
+      }
+    });
+  }
+
+  /* -------------------------------------------------------------------------
      THE HUB
 
      Four panels, three readings and a line each. It reads all four files
@@ -689,12 +856,35 @@
     }).catch(function () { /* the panel keeps its em dashes */ });
   }
 
+  /* The dates panel is the one figure on the hub that is worked out rather
+     than read off a file, because the calendar has no file: it is two lists
+     and a set of rules. The principle holds all the same, since the sum is
+     counted with the engine the room and the calendar page both ask. */
+  function hubDates() {
+    var C = window.FivemileCalendar;
+    if (!C) return;
+    C.loadTurnings().then(function (turnings) {
+      var total = 0;
+      var months = 0;
+      for (var year = C.FIRST_YEAR; year <= C.lastYear(); year++) {
+        for (var month = 1; month <= 12; month++) {
+          total += C.monthItems(year, month, turnings, null).length;
+          months++;
+        }
+      }
+      setText('hubDateCount', String(total));
+      setText('hubDateMonths', String(months));
+      setText('hubDateSince', 'January ' + C.FIRST_YEAR);
+    });
+  }
+
   function loadHub() {
     if (!byId('hubPhotoCount')) return;
     hubPhotos();
     hubWeather();
     hubCreek();
     hubNews();
+    hubDates();
   }
 
   loadHub();
@@ -702,4 +892,5 @@
   loadWeather();
   loadCreek();
   loadNews();
+  loadDates();
 })();

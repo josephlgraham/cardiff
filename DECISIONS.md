@@ -1165,7 +1165,11 @@ to the reader like everything else.
 
 **The page is read, not scanned.** One column, 680px, no cards, no infoboxes, no
 data widgets. It is the only page on the site with no live data on it at all,
-and it should stay that way.
+and it should stay that way. Amended by decision 46 on two counts: the prose
+is mounted on panels now, because sitting straight on the paper it read as
+unfinished, and the measure is 1000px rather than 680px so that a panel here
+is the width of a card anywhere else. No live data still holds, and that was
+the part that mattered.
 
 **Footer nav only.** The top nav is for the working pages: News, Almanac,
 Calendar, Guide, Heritage. About does not go in it.
@@ -2319,3 +2323,562 @@ current whether anyone bumped anything or not.
 
 **Revisit if:** a second data file grows a code extension. The list is a list
 because there will probably be a second one.
+
+---
+
+## 44. One reader for the forecast file, in common.js
+**Decided:** August 2026
+
+`fivemile-weather.json` is read by three pages: the daily read on the
+homepage, the morning report on the news page, and the week ahead on the
+almanac. Each of them had grown its own copy of how to read it, and the copies
+had stopped agreeing.
+
+Three sky-word tables. The homepage and the news page shared seven marks. The
+almanac had its own nine, so a run of thunderstorms was one character on the
+homepage and a different one on the almanac, and "Cardiff, mostly sunny" in
+the watershed card came off a fourth table again, the one that reads
+Open-Meteo's numbered codes.
+
+Two ideas of what a day is called. The homepage and the news page build the
+label off `startTime`, because a file that has not refreshed still carries the
+name the weather service shipped with it. The almanac printed `period.name`
+straight out of the file.
+
+One page that never dropped a period that had been and gone. The homepage and
+the news page both filter on `endTime`. The almanac took the first six daylight
+periods off the top of the file whatever their dates were, so an evening reader
+got yesterday in the first cell.
+
+**What there is instead:** `window.FivemileWx` in `fivemile-common.js`, which
+every page already loads. It holds the seven marks and the two ways into them
+(a weather service sentence, an Open-Meteo code), `live()` for dropping what
+has finished, `label()` for naming a period off the clock in either the
+three-letter or the day-and-night style, and `days()` for folding periods into
+one entry per day with the high off the daylight half and the low off the night
+that follows it.
+
+The pages keep their own cards, their own markup, and their own copy. What they
+share is the reading of the file, which is the part that was never supposed to
+differ.
+
+**The forecast is sixteen periods now, not eight.** Eight periods is four days,
+and the almanac's week grid is seven columns wide. It was being asked to show a
+week it had never been sent. `detailedForecast` comes off on the way in: it is
+the biggest field in the file by a distance, nothing on the site reads it, and
+the file is rewritten and committed every ten minutes.
+
+**Revisit if:** a fourth page starts reading the weather file and wants
+something the module does not do. Add it to the module rather than to the page.
+
+---
+
+## 45. The creek chart measures its own box
+**Decided:** August 2026
+
+The stage chart was drawn into a fixed `viewBox` of 760 by 336 against a box
+that is 928 by 270 on a laptop. `preserveAspectRatio` did exactly what it is
+supposed to do with a mismatch that size: it scaled the whole drawing down to
+fit the shorter side and centred it. The chart came out 545 pixels wide inside
+a card 960 wide, with 383 pixels of nothing split either side of it, and the
+axis figures scaled down with everything else.
+
+The gutters made it worse. There were none: the plot ran to all four edges, so
+the two stage figures sat on top of the line they measure and the top one was
+clipped in half by the edge of the box.
+
+**What happens instead:** `chartBox()` measures the element the chart is about
+to be written into and sets the `viewBox` to it, so one unit is one pixel and
+there is no scaling to letterbox. Height comes from the same 560px breakpoint
+the stylesheet uses. The plot now sits inside real gutters: 68 left for the
+feet, 34 bottom for the dates, and the axis type went from 11px to 12.5px
+because it is no longer being shrunk on the way to the screen.
+
+**Do not put a height on `.watershed-chart svg`.** A second opinion in CSS
+about how tall the drawing is puts the letterboxing straight back. The
+stylesheet says `height:auto` and the script says how tall the box is.
+
+The chart redraws on resize, debounced, and only when the measured width has
+actually changed. Nothing else on the page needs that.
+
+**Revisit if:** the card ever holds two charts side by side, which would want
+the measurement per chart rather than per card.
+
+---
+
+## 46. The About page gets mounted, and comes onto the shared shell
+**Decided:** August 2026
+
+About was the last page where the copy sat straight on the paper. Joe read it
+and said the text felt like it was floating, which is the same complaint
+heritage answered in decision 37 with the same word: a run of sentences on the
+open background reads as a draft nobody finished.
+
+**It got the panel that already existed.** `.panel` in fivemile-heritage.css,
+the same values redeclared: card stock, a 1px `#DDCFB8` hairline, the site's
+14px radius, 22px by 24px of padding. Nothing new was drawn for this. The head
+block was mounted too, title and kicker above a hairline with the lede below,
+which is how a heritage chapter opens. That head block is gone now, and the
+paragraph below says why.
+
+**The section heads stay off the panel.** That is heritage's rule and the
+reason holds here: a `.hd` is a short label with an ink rule under it, which is
+furniture rather than a body of text, and a box drawn around a label is a box
+with a label in it.
+
+**The heads are `.hd` now, out of fivemile-cards.css.** About had been carrying
+a heading shape of its own, 1.22rem at weight 800 over a translucent rule,
+which no other page used. It is now the 15px uppercase label over a 2px ink
+rule that twenty two other pages use. About was one of five holdouts. It is
+four now: announce, civic, hollers, kitchen, all of them the other pages with
+their styles in an inline block.
+
+**And then the head block went, which is the last of the same argument.** It
+opened with a kicker reading ABOUT, over a title reading About FIVEMILE, over a
+lede starting with FIVEMILE: the same two words three times inside the first
+forty pixels of the page. Joe read it and said it looked weird. The kicker went
+first and the title became About the site. That left a display heading at
+2.6rem sitting above sections headed at 15px uppercase, on the one page whose
+own sections had just been brought onto `.hd`, and the top of the page read as
+a different page from the rest of it. So About opens the way the other twenty
+two do: `.hd` with an h1 in it, a panel under it, and the lede is an ordinary
+paragraph on that panel. `.about-head`, `.about-id`, `.about-kicker` and
+`.about-lede` are all out of the block, and the 38px of top air went with them,
+because `section.blk` already gives 34px like it does everywhere else.
+
+**Then the measure went, because mounting the prose exposed it.** About had
+been 680px, so its panels came out at 640px against the 960px a card runs on
+every other page. Nothing had made that visible before: a column of loose
+paragraphs has no edges to compare. Panels have edges, and Joe read one page
+after another and said so. About is 1000px now, the same as the other twenty
+two, and a panel on it is 960px like a card anywhere else.
+
+**It got there by loading fivemile-shell.css,** which is the only way a page is
+supposed to get that measure, and the note at the top of that file had already
+written down how this would go: if one of the narrow pages ever wants 1000px,
+it asks for the file by name. About had been first in that file's do-not-load
+list. It is in the who-loads-this list now and the note says why.
+
+**Which fixed About's load order as a side effect.** Its styles had sat in an
+inline block ahead of common.css, which is the arrangement fivemile-shell.css
+exists to work around. The block is a link after the other three now, so the
+documented order finally describes this page too: common, cards, shell, then
+the page's own. Everything the shell already carries came out of the block: the
+reset, the grain, the topo canvas, `.page`, and the measure. The 34px section
+rhythm is `section.blk` now rather than a rule of its own, so the sections are
+`class="blk abt"` and `.abt` is only the prose scope.
+
+**The prose runs the full panel and is not capped.** That is heritage's rule in
+decision 37 and the reasoning carries: text stopping a hundred and forty pixels
+short of a hairline reads as a box with a margin on one side. It does mean a
+long line on a wide screen, about 107 characters, which is what a heritage
+chapter has had since it shipped. If that reads long on this page in
+particular, the answer is a decision about the prose measure across both, not
+a cap on this one.
+
+**The closing band is `.src-note` by another name.** The disclaimer was a rule
+with type under it, which is exactly what heritage's closing band was before it
+got mounted. Same treatment, same muted ink.
+
+**The support block stopped being its own thing.** It had been the one element
+on the page already on card stock, which is why it read as an interruption
+rather than a section. Now that every section is on card stock it is just the
+last one, an `.abt` like the others, and it keeps only the chips and the
+buttons that are actually particular to it.
+
+Making it an `.abt` had one cost, and it shipped broken for a round before Joe
+spotted it. `.abt a` sets prose links red and bold, and it outweighs
+`.support-btn-primary`, so the Venmo button came out red type on a red fill and
+read as an empty block. The prose rule is `.abt a:not(.support-btn)` now. Any
+button that ever goes inside an `.abt` needs the same carve out, which is why
+the rule carries a comment saying so.
+
+**This amends decision 32,** which said About carries no cards and no
+infoboxes. That still holds in the sense it was written in: there are no data
+widgets on this page and there is no live data on it at all, and that is the
+part worth keeping. A mount under prose is not a card. Nothing on About counts,
+sorts, or refreshes.
+
+**Revisit if:** the 107 character line reads long to anybody who is not
+looking for it, or the four remaining inline-style pages are brought onto
+`.hd`, at which point the heading shape is site-wide and this note is just
+history.
+
+---
+
+## 47. The daily read always holds something, and the creek is what it holds
+
+The forecast strip on the homepage is fed by the weather service, and the card
+around it was built as though that feed always arrives. It does not. A failed
+run leaves yesterday's periods sitting in the file, every one of them already
+finished, and the shared reader drops them rather than relabel a day that has
+been and gone. That is the right call, and decision 44 is where it was made.
+
+What it left behind was a card holding one paragraph over about a hundred and
+fifty pixels of nothing, standing beside a Yesterday that filled its box to the
+bottom. Joe saw it on the homepage and it is the reason this entry exists.
+
+**The slot is always full.** Three days ahead when the weather service has
+filed them. The creek's last thirty days, drawn, when it has not. One slot, one
+position in the card, the same height either way, so nothing above or below it
+moves between visits and neither card is ever the one with the hole in it.
+
+**Why the creek and not more numbers.** Everything else the card could show is
+already said within a hundred pixels of it. The stage is in the Right now tile,
+the stage and the flow and the month's rain are all in the sentence directly
+above, and the 24 hour change is in Yesterday alongside. Thirty days of gauge
+history is the one thing on that part of the page that is not a repeat, and it
+comes out of the watershed file, which is written by a different job on a
+different schedule and does not go quiet when the weather service does.
+
+**It is the third instance of a chart this site already draws,** after the
+almanac's and the archive's: a viewBox, a polyline, no library. The creek green
+moved to `fivemile-shell.css` when this landed, because the homepage and the
+archive now draw the same creek and a colour written down twice is a colour
+that drifts.
+
+**Nothing is lettered inside the box.** Text in a viewBox scales with the box,
+and this box is half a card wide, so a label set inside it came out under seven
+pixels on a phone. The gauge, the range, and the dates are in the caption
+underneath as ordinary text at the size a cell label uses.
+
+**A missing reader lands in the same place.** `window.FivemileWx` loads at the
+foot of the page and the card paints off a fetch, so on a warm cache the
+readings can arrive first. That used to throw and take the whole card down. A
+card with no reader has no days to show, which is the case the creek already
+covers.
+
+**Revisit if:** the weather service feed stops failing for long enough that
+nobody has seen the creek in the slot, in which case this is doing nothing and
+the strip can stand on its own again.
+
+---
+
+## 48. Every page opens on card stock, and .panel is one rule
+
+Decision 46 put the About prose on card stock and left the question open of
+whether that was about About or about the site. It was about the site. The
+calendar opened with two paragraphs lying straight on the paper while every
+card below them was mounted, and stopping 187 pixels short of those cards
+because `.lede` carries a 64ch measure that a mounted paragraph should not.
+
+Heritage had already solved it and written down exactly what it looks like:
+"the left edge is set by the padding and the right edge stops short of it by a
+hundred and forty pixels, so the panel looks like it has a margin on one side
+only." That wording is now in `fivemile-cards.css` where the rule lives.
+
+**`.panel` was defined three times** before this: in a style block on About,
+again in `fivemile-heritage.css`, and nearly a third time when the calendar
+wanted it. One definition now, in `fivemile-cards.css`, which all three page
+families already load. Heritage keeps only what is particular to a chapter, the
+nested `.ch-fig` rules and a phone padding two pixels tighter each way, which
+is deliberate and is commented as such.
+
+**Nine pages open the same way now:** the calendar, the archive hub and its
+four rooms, the gallery, the field guide, and About. Heritage already did.
+
+**`.intro` is a modifier and not a rule on `.panel`.** The lede it replaces
+carried an 18px bottom margin, and mounting the prose took that margin with it,
+so an opening followed by a count line or a grid finished flush against it. The
+panels already on About and heritage sit against blocks that bring their own
+top margin, 22px and 20px, and putting the margin on `.panel` itself would
+have quietly doubled every one of those gaps. Nothing that was already mounted
+moved.
+
+**The measure went from 93 characters to 108,** which is the number decision 46
+flagged as worth watching. It is not a new number: heritage and About have been
+at that measure the whole time and the calendar was the outlier at 773px. This
+makes the prose measure uniform rather than making it longer.
+
+**Revisit if:** 108 characters reads long to anybody who is not looking for it.
+The answer then is two columns inside the panel, about 53 characters a line,
+and it is one rule in one file now rather than three.
+
+---
+
+## 49. A place name has to be a word, and it has to be the right place
+
+The news desk matched place names with `blob.includes(word)`. That is true of
+any run of letters inside a longer word, so `republic` matched the Republican
+in "won the Republican nomination", and a South Carolina Senate primary ran on
+this page with a Republic town badge on it. National party politics, which
+CLAUDE.md says we do not run at all, arrived through a gauge on Five Mile
+Creek.
+
+The second one had the boundary right and the entity wrong. Republic Services
+hauls garbage for a good part of Alabama, so a Helena council vote on its
+contract also came through badged Republic.
+
+**Two fixes, because they are two different faults.**
+
+`hits()` matches on a word boundary now, with an optional trailing s. The s
+matters: the old substring test was quietly catching plurals, and the beats
+depend on it, so `train` has to keep matching "trains".
+
+`NOT_A_PLACE` is a veto list for names that are also something else. Republic
+is the worst of them and it is ours, so it carries the most: the waste hauler,
+the airline, the bank, the form of government. **The gauge is carved out of the
+civics pattern**, because a story about the creek is the exact thing that word
+is in the list for.
+
+**The lists were never audited for this.** `corner` matched "the corner of
+Main and Fifth". `warrior` matched the Black Warrior River. `cardiff`
+matched Cardiff, Wales. `trafford` matched Old Trafford. Those are all vetoed
+now, and twelve cases are checked against the real feeds.
+
+**It is a list of what has come through, not of everything a word could mean.**
+It should grow when something new gets past it. Guessing at the rest in advance
+is how you end up vetoing a real story.
+
+**Two stories were pulled back out of the archive,** which is the one thing on
+this site that is supposed to keep everything. The rule that nothing scrolls
+away is about stories that belong here. A South Carolina primary badged as a
+town on Five Mile Creek was never one of them, and leaving it in would make the
+archive wrong rather than complete. August went from 33 to 31 and the index was
+recounted.
+
+**Revisit if:** a real local story gets vetoed. The veto is checked after the
+word boundary, so the fix is almost always a narrower pattern rather than
+dropping the entry.
+
+---
+
+## 50. The calendar is one month, and the rest of it is a room in the Archive
+**Decided:** August 2026
+
+Decision 41 rebuilt the calendar on the card system and gave it nineteen months
+at once: January of this year through twelve months forward, behind a rail of
+nineteen chips, with a Next up block above them. Every part of that was
+defensible on its own and the page was still wrong. Joe said so plainly: he did
+not like all the little buttons for every month.
+
+### What a reader actually opens a calendar for
+
+The month they are in. Everything else on that page was standing in front of
+it. Nineteen chips is a control that has to be read before it can be used, and
+above them Next up was a fourth copy of five rows that were already on the page
+in their own months. Decision 41 cut the Standing dates block for exactly that
+reason, one card per purpose, and then shipped Next up doing the same thing.
+
+So the page is one month now.
+
+- **The month is the hash.** `#m-2026-08`, the same anchor the accordion used,
+  so every link anybody has ever sent still lands where it did. A step is a
+  link, the back button works, and the address bar is something a reader can
+  send to somebody.
+- **The step control sits at the top of the month**, which is where Joe asked
+  for it. Three cells: back a month, the month itself, forward a month.
+- **Each step names its month and counts its dates.** That is decision 28
+  again. A control reading only September is a heading with an arrow beside it,
+  and without the count a reader has to spend a tap to find out whether
+  September holds anything at all.
+- **At the two walls the step is an empty transparent cell, not a dead
+  button.** The column keeps its width, so the month title does not slide
+  sideways in January.
+- **A Back to August line appears only when the reader is off this month**,
+  which is the only time it has anywhere to go. Without it, somebody who paged
+  out to 2027 has to count their way home.
+- **Stepping does not throw the page around.** A deep link from the archive
+  scrolls to the month. A step, with the control already under the reader's
+  thumb, changes the rows and leaves the control exactly where it was.
+
+**Next up came out and is not coming back.** The month is in date order with
+today's row in red, which is the same answer in the place a reader is already
+looking.
+
+### The walls are real, and they are January 2026 and the end of next year
+
+`FIRST_YEAR` is 2026 because that is the year FIVEMILE started and there is
+nothing behind it. The far end is the end of next year, which is sixteen months
+of room in August and a whole year in December.
+
+Both ends are enforced in `parseMonthId`, so a hash outside them falls back to
+this month rather than drawing it. A calendar that pages forever will happily
+draw somebody March 2043, where the moon table is empty and every council
+roster is a guess, and it will do it with a straight face.
+
+### Nothing scrolls away, so the year behind you got a room
+
+Cutting eighteen months off the page is exactly the move CLAUDE.md says to stop
+and fix rather than ship. Decision 41 had already been through this once, when
+Joe sent in a June duck race that had already happened and there was nowhere to
+put it.
+
+So the rest of the calendar is `fivemile-calendar-archive.html`, the fifth room
+in the Archive, and the hub says five things now instead of four.
+
+| The room holds | How it reads |
+|---|---|
+| every year between the walls | a reel of years, each counting its dates |
+| every month in the year on screen | twelve stub rows, each naming four of its dates and counting the rest |
+| every date on file | a search across every year, not just the one showing |
+
+Each month row links to `fivemile-calendar.html#m-YYYY-MM`. The room is the
+index and the calendar is the reader. Only one page draws a month.
+
+**The room reads no file, and that is not a break with decision 36.** The other
+four rooms read the file the live page reads, so nothing is archived by hand.
+There is no dates file to read: the calendar is two lists and a set of rules.
+The room asks `fivemile-calendar-core.js` for a month exactly the way the
+calendar page asks, which keeps the same guarantee by the same means. There is
+still only one place the answer comes from.
+
+**The counts on the hub panel are worked out, not read.** Same rule as every
+other figure on that hub: it is counted with the engine the room uses, so the
+number out front cannot drift from the number inside.
+
+**The fifth panel takes the full width of the hub grid.** Five panels in two
+columns otherwise leave a hole. It is also the room most people are looking
+for, so the wide slot is not a consolation prize.
+
+### The engine moved out into its own file
+
+`fivemile-calendar-core.js` is Easter, the eight dates hanging off it, the two
+sales tax holiday rules, the moon table, the seven subjects, the turnings
+reader, `monthItems`, and the event stub. Two pages ask it now.
+
+This is decision 41's own lesson applied one step further. That entry moved the
+recurrence rules into `fivemile-season-data.js` because two files holding the
+same rule meant only one of them could know about the Brookside holiday shift.
+Copying Easter into an archive room would have undone it the week after it was
+written.
+
+**Two stylesheet moves came with it, both by rules already in the files.**
+`fivemile-cards.css` says to move a rule in the moment a second page needs it,
+and its own note on the event stub said the same. So the seven subject colors
+went in, along with the word block for a date that is not a day, the source
+link, and the shift note. Garden was already declared there at the same value
+as a section tag, which is a good sign the palette was right.
+
+**The date block went from 78px to 94px in the card spec.** It was 94 on the
+calendar and 78 everywhere else, which meant the homepage and the news page
+drew a different stub from the calendar for the same kind of row. 94 is the
+number that fits THURSDAYS, and a block that can hold a word has to be wide
+enough for one on every page that draws it.
+
+### The two opening paragraphs came out, and a picker went in
+
+**Decided:** August 2026, on the same page, after living with it.
+
+This entry first kept those paragraphs, on the grounds that the second one is
+why Candlemas and Lammas are on a calendar for three towns in Jefferson County.
+Joe cut them both. A reader opening a calendar is looking for a date, and two
+paragraphs of preamble is the same mistake nineteen chips were: something to
+read standing in front of the thing they came for. The page opens on the month
+now, one heading and a stamp above it.
+
+The Welsh, Scottish, French, Sicilian, Slovak, and Carpatho Rusyn note is real
+and worth keeping. It is history, so it belongs on Heritage rather than at the
+top of a calendar. It is not written anywhere else yet.
+
+**Every month is one tap, not six.** The step control is right for the month
+either side and useless for next January, which was six taps away and gave a
+reader nothing on the way there. Under the step control there is now a picker
+holding every month between the walls, each one counting its dates the way a
+step does, so the count is on screen before the tap is spent. That is decision
+28 in a third place.
+
+- **It is a select and it is left looking like one.** On a phone that is the
+  native wheel, one thumb, no scrolling past thirty five months nobody wanted.
+  A grid of chips is what came out of this page in the first place.
+- **The year is the optgroup.** January 2027 is found by looking for 2027.
+- **It writes the hash and nothing else.** The hashchange draws the month, so
+  the picker goes down the same road a step goes down, and the back button and
+  a sent link keep working.
+- **The Back to August line moved onto the picker's row**, where it is the
+  other half of the same job.
+
+**Every month is counted once, at boot.** The step control, the picker, and the
+door panel all read the one table. Three passes over the same two sources is
+three answers waiting to disagree.
+
+### What stayed
+
+The send a date in form, because it is how dates arrive.
+The seven subjects, the town badges, the shift note, the source links, and the
+turnings staying invisible: all of decision 41 that was about what a row says
+rather than how many rows are on screen.
+
+**Revisit if:** a year ever holds enough one off events that twelve stub rows
+stop being a useful index of it. Right now a month row names four of its dates
+and counts the rest, which is enough to recognise August by. At three times the
+volume the room wants the month grouping the news archive has rather than a
+denser row.
+
+## 51. Every card carries a mark, and the marks are one vocabulary
+
+**Decided:** August 2026. Extends decisions 28 and 36.
+
+The homepage gauge tiles picked up emoji marks and nothing else did, so the
+almanac opened with five text-only rail tiles above four unmarked gauge tiles,
+directly under a masthead that had a marked creek pill in it. Joe read the two
+pages side by side and said the almanac felt inconsistent, which it was.
+
+**A mark is a scanning aid, never the reading.** It sits in the kicker on a
+gauge tile, ahead of the label in a cell, and ahead of the name on a rail item.
+The figure and the sentence underneath carry the meaning. A mark that is only
+decoration is `aria-hidden`. A mark that carries a reading of its own gets a
+`role="img"` and a label, because then it is saying something the words are
+not.
+
+**Where they are now.** All four homepage tiles, all twenty gauge tiles on the
+five almanac-family pages, all five rail items, and every `.d-cell` on the
+site. There is no card left that takes a mark and does not have one.
+
+**One vocabulary, and it holds across pages.** The creek is the wave, fishing
+the rod, the garden the seedling, the sky the moon, nature the leaf, rain the
+cloud, the ground the log, the barometer the compass, and how far a record goes
+back is the mantel clock. A subject gets the same mark everywhere it appears,
+which is the whole reason to have marks at all. Adding a new one means checking
+it is not already spoken for.
+
+**Rising and falling is one alphabet.** The creek trend was chart glyphs on the
+almanac and arrows on the homepage, for the same fact off the same gauge. It is
+arrows in both places now.
+
+**Marks that were already being worked out and never shown.** `creekMood`,
+`pressureNote` and `groundCondition` each computed an icon that no tile
+displayed, and two desks were pasting one onto the front of the sentence
+instead. Those are live marks on the kicker now, so the level tile shows the
+same object the masthead pill shows.
+
+**The face comes from `--emoji` in `fivemile-shell.css`.** It was duplicated in
+the almanac and guide stylesheets, which is how a mark ends up rendering as a
+flat glyph on one page and in color on the next. One token, and `.g-mark`,
+`.d-mark`, `.wx-mark` and `.desk-mark` all reach for it.
+
+**The rail was rebuilt to take the mark, and the first attempt was wrong.**
+Dropping a mark into a column of its own took 36px of every item's width away
+from the name and the live line. The row then ran 100px past the right edge of
+the measure with the fifth item sitting off screen, `flex:1 0 auto` had already
+been sizing each item to the longest word in it so they were five different
+widths, and three of the five live lines were being cut. All three of those
+landed in front of Joe at once.
+
+What fixed it:
+
+- **The mark and the arrow ride the name's line, not the item's.** The live
+  line then runs the full width of the tile underneath, which is the same stack
+  a gauge tile uses and for the same reason.
+- **`flex:1 1 0`, so the five divide the row instead of accumulating it.** One
+  width, always, and the row is exactly the measure.
+- **The live line wraps to two lines and stops truncating.** A fifth of a
+  1000px row is 160px and the line reports things like Harvest okra and
+  southern peas. At 10px, small enough that nobody here should have to read it,
+  eleven of the longest values were still being cut. Type size was never going
+  to fix it. The item holds the height for two lines whether this value needs
+  the second one or not, so the rail does not change height under the reader
+  when the standing description is replaced by a live reading.
+- **The rail scrolls below 1040px rather than below 560px.** That is the width
+  where the measure stops being the full 1000px, which is the width where five
+  items stop fitting. Below it they keep their size and the fifth sits half in
+  view, which is the only thing that has ever told a reader a row scrolls.
+
+**And it did get bigger.** 73px tall against 52, the name at 16px against 15.
+It was set at a size that suited chrome bolted under the masthead, which
+decision 28 had already established it is not.
+
+**Revisit if:** a card ever wants a mark that has to assert a fact the data
+does not support. A mark is a label for a subject, not a claim about it, which
+is why the rain totals rows are marked by the span they cover rather than by
+how hard it rained.

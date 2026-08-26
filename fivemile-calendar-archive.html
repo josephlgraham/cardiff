@@ -11,22 +11,22 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stories &middot; FIVEMILE</title>
-<meta name="description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
-<link rel="canonical" href="https://fivemile.now/fivemile-news-archive.html">
+<title>Dates &middot; FIVEMILE</title>
+<meta name="description" content="Every date FIVEMILE keeps, month by month and year by year, and searchable across all of them.">
+<link rel="canonical" href="https://fivemile.now/fivemile-calendar-archive.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Stories &middot; FIVEMILE">
-<meta property="og:description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
-<meta property="og:url" content="https://fivemile.now/fivemile-news-archive.html">
+<meta property="og:title" content="Dates &middot; FIVEMILE">
+<meta property="og:description" content="Every date FIVEMILE keeps, month by month and year by year, and searchable across all of them.">
+<meta property="og:url" content="https://fivemile.now/fivemile-calendar-archive.html">
 <meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
 <meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stories &middot; FIVEMILE">
-<meta name="twitter:description" content="Every story that has run on FIVEMILE, filed by the month it ran in and searchable across all of them.">
+<meta name="twitter:title" content="Dates &middot; FIVEMILE">
+<meta name="twitter:description" content="Every date FIVEMILE keeps, month by month and year by year, and searchable across all of them.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -40,6 +40,7 @@
      fivemile-common.css is measured against cap heights Georgia does not have.
      See DECISIONS.md 14. -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="fetch" href="turnings.json" crossorigin>
 <script src="fivemile-brand.js"></script>
 <!-- Masthead intro gate. Runs before the first paint. Same as every page.
      The stored value is a date, so the intro plays once a day. See index.html
@@ -83,29 +84,40 @@
 <main tabindex="-1" class="wrap" id="main">
 
   <section class="top">
-    <div class="hd"><h1>Stories</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
+    <div class="hd"><h1>Dates</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
     <div class="panel intro">
-      <p class="lede">Every story that has run on the news page, filed under the month it ran in and left
-        there. This is the whole reason for having a site instead of a group: a thing that mattered in March
-        is still findable in November.</p>
+      <p class="lede">The whole run of the calendar, a year at a time. Council meetings, collection days,
+        the market, the garden dates, and the feast days, from the year FIVEMILE started through the end of
+        next year. A workday that came and went in March is still on this page in November, which is more
+        than can be said for the place most of us saw it announced.</p>
     </div>
-    <p class="arc-count" id="newsStamp">&mdash;</p>
-    <div class="reel" id="newsReel" role="group" aria-label="Stories by month"></div>
+    <p class="arc-count" id="dateStamp">&mdash;</p>
+
+    <!-- Years rather than months. The reel holds a run of frames elsewhere in
+         the archive and it holds a run of years here, same control, same
+         44px. Each one reports how many dates are in it. -->
+    <div class="reel" id="dateReel" role="group" aria-label="Dates by year"></div>
+
     <div class="arc-find">
-      <input type="search" id="newsFind" placeholder="Search every story on file" aria-label="Search every story on file" autocomplete="off">
-      <span class="arc-count" id="newsCount">&mdash;</span>
+      <input type="search" id="dateFind" placeholder="Search every date on file" aria-label="Search every date on file" autocomplete="off">
+      <span class="arc-count" id="dateCount">&mdash;</span>
     </div>
-    <div id="newsRows">
-      <div class="empty">&mdash;</div>
-    </div>
+
+    <!-- One of these two holds something at a time. The year is twelve month
+         rows; a search is the dates themselves, drawn as the same stub the
+         calendar draws. -->
+    <div id="dateMonths"><div class="empty">&mdash;</div></div>
+    <div id="dateHits"></div>
   </section>
 
   <p class="src-note">
     <strong>Where this comes from</strong>
-    Headlines and summaries from the outlets that published them, gathered twice a day and written into the
-    month they belong to. Every row links back to the original, and the outlet is named on it. Nothing is
-    rewritten here and nothing is ever pruned. Obituaries run on the
-    <a href="fivemile-news.html">news page</a> and are kept the same way.
+    The same two files the calendar page reads, so nothing here is kept by hand and nothing can fall out of
+    step with what is on the <a href="fivemile-calendar.html">calendar</a>. The feasts, the garden dates,
+    and the signs in the woods are the site's own list. The council meetings, the county collection days,
+    and the market come from the towns and from Jefferson County, and the two Alabama sales tax holidays
+    are written as the rules the state sets them by rather than as a list of years, so they are right in
+    every year on this page. Where a date has a source worth reading, the row links out to it.
   </p>
 
 </main><!-- /wrap -->
@@ -114,6 +126,12 @@
 
 </div><!-- /page -->
 
+<script src="fivemile-season-data.js"></script>
+<!-- The calendar engine, shared with fivemile-calendar.html. Every date on
+     this page is worked out by the same code that works out the calendar,
+     which is the only way the index and the page it indexes stay in step.
+     See DECISIONS.md 50. -->
+<script src="fivemile-calendar-core.js"></script>
 <script src="fivemile-common.js"></script>
 <script src="fivemile-archive.js"></script>
 <script src="/fivemile-pwa.js"></script>

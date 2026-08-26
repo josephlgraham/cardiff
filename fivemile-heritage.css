@@ -90,9 +90,10 @@ section.blk[id]{scroll-margin-top:18px}
    note are all already panels of their own and must not be nested inside a
    second one.
    --------------------------------------------------------------------------- */
-.panel{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
-  padding:22px 24px}
-.panel > .lede:last-child,.panel > p:last-child{margin-bottom:0}
+/* .panel itself, and the rule dropping the lede's measure inside it, are in
+   fivemile-cards.css, which every heritage page loads ahead of this one. They
+   were written here and moved when the calendar needed the same card stock
+   under its opening. Only the parts particular to a chapter are left below. */
 
 /* A plate inside a panel is already on card paper, so it drops its own mount
    and keeps the hairline that divides the picture from its credit. Two nested
@@ -148,7 +149,16 @@ section.blk[id]{scroll-margin-top:18px}
    --------------------------------------------------------------------------- */
 .hub-chapters{display:grid;gap:16px;margin-top:22px}
 
-.hub-ch{position:relative;display:grid;gap:14px 26px;align-items:start;
+/* WHY THE COLUMNS ARE CENTRED. The plate is the tallest thing on a rung and
+   it is taller than either column of type beside it. Top aligned, all of that
+   difference collected at the bottom of the rung as a block of empty paper,
+   and on a mirrored rung it collected under the title and the numeral, which
+   put the hole on the outside edge where it was impossible to miss. Centred,
+   the same difference splits above and below and reads as air rather than as
+   a column that ran out. The plate crop is 3:2 for the same reason: it is the
+   shape most of these photographs already are, and it takes twenty five
+   pixels of that difference out before the centring has to hide any of it. */
+.hub-ch{position:relative;display:grid;gap:14px 26px;align-items:center;
   grid-template-columns:minmax(0,168px) minmax(0,296px) minmax(0,1fr);
   grid-template-areas:"id plate body";
   background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
@@ -200,7 +210,7 @@ section.blk[id]{scroll-margin-top:18px}
    trimmed: the chapter page shows all of it. Anchored to the centre unless
    the picture says otherwise, which the drawing does, because its heading and
    its oven batteries are along the top. */
-.hub-plate .ch-fig img{aspect-ratio:4 / 3;object-fit:cover;object-position:center;
+.hub-plate .ch-fig img{aspect-ratio:3 / 2;object-fit:cover;object-position:center;
   height:auto;border-radius:6px}
 .hub-plate .ch-fig img.crop-top{object-position:center top}
 
@@ -261,7 +271,7 @@ section.blk[id]{scroll-margin-top:18px}
    this is the paragraph doing the teaching and a reader should be able to
    stay in it. */
 .ch-note{font-size:17px;line-height:1.68;color:var(--ink2);max-width:58ch;margin:0}
-.ch-open.noplate .ch-note{max-width:64ch}
+.ch-open.noplate .ch-note{max-width:none}
 
 /* A plate. Paper mount, hairline, caption and credit under the picture as
    real text. See DECISIONS.md 18 on why a credit is never a title attribute. */
@@ -442,7 +452,7 @@ section.blk[id]{scroll-margin-top:18px}
 .src-note{margin-top:40px;padding:22px 24px;background:var(--card);
   border:1px solid var(--fm-rule);border-radius:var(--fm-card-r,14px);
   font-size:16px;line-height:1.6;color:var(--fm-muted)}
-.src-note > p{max-width:72ch}
+.src-note > p{max-width:none}
 .src-note strong{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink);margin-bottom:9px;font-weight:500}
 .src-note p{margin:0 0 12px}
@@ -513,6 +523,9 @@ section.blk[id]{scroll-margin-top:18px}
   .hz-gap{padding:15px 16px}
   .hz-panel > .empty{padding:18px 16px}
   .src-note{padding:18px 16px}
+  /* Two pixels tighter each way than the shared panel's phone padding in
+     fivemile-cards.css. A chapter page is mostly panel, so the gutters add up
+     here in a way they do not on About or the calendar. Deliberate, not drift. */
   .panel{padding:18px 16px}
   .ch-nav.top .chn,.ch-nav.top .chn-hub{padding:10px 11px}
   .hz-title{font-size:17.5px}

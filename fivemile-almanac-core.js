@@ -51,16 +51,31 @@
      standing description until the page replaces it with something live.
      ------------------------------------------------------------------------- */
   const DESKS = [
-    { key: "almanac", href: "fivemile-almanac.html",  name: "Almanac",      sub: "The creek and the weather" },
-    { key: "fishing", href: "fivemile-fishing.html",  name: "Fishing",      sub: "The water and the fish" },
-    { key: "garden",  href: "fivemile-garden.html",   name: "Garden",       sub: "What to plant now" },
-    { key: "sky",     href: "fivemile-nightsky.html", name: "Night Sky",    sub: "The moon and the stars" },
-    { key: "nature",  href: "fivemile-nature.html",   name: "Nature Watch", sub: "What to look for" }
+    { key: "almanac", href: "fivemile-almanac.html",  mark: "🌊", name: "Almanac",      sub: "The creek and the weather" },
+    { key: "fishing", href: "fivemile-fishing.html",  mark: "🎣", name: "Fishing",      sub: "The water and the fish" },
+    { key: "garden",  href: "fivemile-garden.html",   mark: "🌱", name: "Garden",       sub: "What to plant now" },
+    { key: "sky",     href: "fivemile-nightsky.html", mark: "🌙", name: "Night Sky",    sub: "The moon and the stars" },
+    { key: "nature",  href: "fivemile-nature.html",   mark: "🍃", name: "Nature Watch", sub: "What to look for" }
   ];
 
   /* Every item carries an arrow. The first pass did not, and five tiles that
      named a page without pointing anywhere read as headings rather than as
      doors, which is exactly how they were treated.
+
+     Every item also carries a mark, the same idiom the gauge tiles and the
+     cells inside a department panel use. Five text-only tiles in a row are
+     five things a reader has to read before they can pick one. The marks are
+     the site's own: the creek is the wave, fishing the rod, the garden the
+     seedling, the sky the moon, nature the leaf. Decoration only, so they are
+     hidden from a screen reader, and never the only place a subject is named.
+
+     The mark and the arrow ride the name's line, not the item's. Five items
+     have one row of 1000px to share, and a mark in a column of its own took
+     36px of that row away from every name and every live line, which put the
+     fifth item past the right edge and clipped three of the five lines. The
+     head holds the mark, the name and the arrow; the live line runs the full
+     width underneath. Same stack a gauge tile uses, and the reason it is the
+     right one here is the same: the small line gets the whole width.
 
      On a desk page the almanac entry leads with a left arrow instead. That is
      the way back up, and a reader who has opened Fishing needs the way home to
@@ -75,9 +90,14 @@
       return '<a class="desk-item' + (isBack ? " back" : "") + '" data-desk="' + desk.key + '" href="' + desk.href + '"' +
         (current ? ' aria-current="page"' : "") + ">" +
         '<span class="desk-text">' +
-          '<span class="desk-name">' + escapeHtml(desk.name) + "</span>" +
+          '<span class="desk-head">' +
+            (isBack ? arrow : "") +
+            '<i class="desk-mark" aria-hidden="true">' + desk.mark + "</i>" +
+            '<span class="desk-name">' + escapeHtml(desk.name) + "</span>" +
+            (isBack ? "" : arrow) +
+          "</span>" +
           '<span class="desk-sub" data-desk-sub="' + desk.key + '">' + escapeHtml(desk.sub) + "</span>" +
-        "</span>" + arrow + "</a>";
+        "</span></a>";
     }).join("");
   }
 
@@ -91,6 +111,24 @@
       '<span class="a" aria-hidden="true">&larr;</span>' +
       "<span><b>Almanac</b><i>The creek at Republic, yesterday's weather, and the week ahead.</i></span>" +
       "</a>";
+  }
+
+  /* The mark on a gauge tile, where the mark itself carries a reading: the
+     creek at its level, the creek rising or falling, the moon at its phase.
+     The five pages each keep their own paintTile for the value and sentence,
+     and this is the one part of a tile that has to agree with the homepage,
+     so it lives here rather than in five copies. Silent when the tile is not
+     on the page. Decoration by default, labelled when the mark says something
+     the tile does not say in words underneath. */
+  function setTileMark(id, char, label) {
+    const node = document.querySelector("#" + id + "Tile .g-mark");
+    if (!node || !char) return;
+    node.textContent = char;
+    if (label) {
+      node.setAttribute("role", "img");
+      node.setAttribute("aria-label", label);
+      node.removeAttribute("aria-hidden");
+    }
   }
 
   /* A desk reporting its own live line into the rail. Silent when the rail is
@@ -354,9 +392,12 @@
     return { icon: "🛟", label: "High-water caution", boat: "No joke boat water", note: "Fast, higher water deserves a respectful eye." };
   }
 
+  /* Rising, falling, holding. The arrows rather than the chart glyphs, because
+     the homepage marks the creek the same way on its own gauge tile and one
+     creek should not be going up in two different alphabets. */
   function trendEmoji(trend) {
-    if (trend === "rising") return "📈";
-    if (trend === "falling") return "📉";
+    if (trend === "rising") return "⬆️";
+    if (trend === "falling") return "⬇️";
     return "🟰";
   }
 
@@ -799,6 +840,7 @@
     renderRail: renderRail,
     renderBackLink: renderBackLink,
     setRailSub: setRailSub,
+    setTileMark: setTileMark,
     setText: setText,
     setHTML: setHTML,
     escapeHtml: escapeHtml,

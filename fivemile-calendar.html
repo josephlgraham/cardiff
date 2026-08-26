@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendar · FIVEMILE</title>
-<meta name="description" content="Meetings, events, and gatherings in Graysville, Cardiff, and Brookside, with the garden dates, the feast days, and twelve months ahead. Send us a date and it goes on the board.">
+<meta name="description" content="Meetings, events, and gatherings in Graysville, Cardiff, and Brookside, with the garden dates and the feast days people here still keep. Send us a date and it goes on the board.">
 <link rel="canonical" href="https://fivemile.now/fivemile-calendar.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
@@ -89,30 +89,41 @@
   <!-- HEAD ------------------------------------------------------------------ -->
   <section class="top reveal">
     <div class="hd"><h1>Calendar</h1><time id="calStamp">&mdash;</time></div>
-    <p class="lede">Council meetings, county collection days, the market, the garden dates, and the feast days people here still keep. Twelve months of it, and everything on it stays where you can find it again.</p>
-    <p class="lede">A few of these days will look unfamiliar, and they got here the way nearly everything here got here. The mines hired from home, so home came with them. Welsh and Scottish families came to Cardiff in the 1880s. Slovak and Ukrainian families came to Brookside, better than a third of the town by 1910, and built St. Nicholas so they would have somewhere to keep their own year in. Every one of those families was an immigrant, and what they carried was a calendar: days worth marking, food to cook on them, a reason to get everybody in one room. A hundred years on, those are not anybody's foreign customs. They are just what people here do in February and in August.</p>
   </section>
 
-  <!-- NEXT UP ---------------------------------------------------------------
-       The answer to the question most people open a calendar with. Five rows,
-       dated, nearest first.
+  <!-- THE MONTH --------------------------------------------------------------
+       One month, and the step control at the top of it goes to the month
+       either side. This page held nineteen months behind a rail of nineteen
+       chips and a Next up block above them, and every one of those rows
+       appeared twice. See DECISIONS.md 50.
+
+       The month is the hash, so a step is a link, the back button works, and
+       the address bar is something a reader can send to somebody.
        ---------------------------------------------------------------------- -->
-  <section class="blk reveal">
-    <div class="hd"><h2 id="next-up">Next up</h2><span class="hd-note">Nearest first</span></div>
-    <div id="calNext"><div class="empty">&mdash;</div></div>
+  <section class="blk reveal" id="the-month-block">
+    <div id="calNav"></div>
+    <div id="calMonth"><div class="empty">&mdash;</div></div>
   </section>
 
-  <!-- THE MONTHS -------------------------------------------------------------
-       There was a Standing dates block here, three tab cards restating when
-       each council meets. Every one of them appeared again as a row a few
-       hundred pixels below, in the month it falls in. One card per purpose,
-       and the months are the purpose. See DECISIONS.md 41.
+  <!-- THE DOOR ---------------------------------------------------------------
+       Built the way the archive hub builds a door: three readings and a line,
+       counted off the same two sources the room itself counts, so the figure
+       out here cannot drift from the figure in there. See DECISIONS.md 36.
        ---------------------------------------------------------------------- -->
   <section class="blk reveal">
-    <div class="hd"><h2 id="the-year">The year ahead</h2><span class="hd-note">Twelve months</span></div>
-    <div id="calRail"></div>
+    <a class="card-dept" href="fivemile-calendar-archive.html">
+      <div class="d-bar"><h3>Every date on file</h3><span class="r">Archive</span></div>
+      <div class="d-body">
+        <div class="d-rows list">
+          <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📅</i>Dates</em><b id="calArcDates">&mdash;</b></div>
+          <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🗓️</i>Months</em><b id="calArcMonths">&mdash;</b></div>
+          <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="calArcSince">&mdash;</b></div>
+        </div>
+        <p class="d-tip">Nothing on it is ever taken down, so a workday in March is still there in November.</p>
+        <p class="d-go">Date index <span aria-hidden="true">&rarr;</span></p>
+      </div>
+    </a>
   </section>
-  <div id="calMonths"></div>
 
   <!-- There was a section here called The old names, eight tab cards for the
        eight turnings in turnings.json, and the month heads carried the name of
@@ -186,6 +197,9 @@ function submitCalendarDate(){
 }
 </script>
 <script defer src="fivemile-season-data.js"></script>
+<!-- The engine, shared with the archive room. It has to be in front of the
+     page script, which is why neither carries `async`. See DECISIONS.md 50. -->
+<script defer src="fivemile-calendar-core.js"></script>
 <script defer src="fivemile-calendar.js"></script>
 <script defer src="fivemile-common.js"></script>
 <script defer src="/fivemile-pwa.js"></script>

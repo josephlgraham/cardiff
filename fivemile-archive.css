@@ -28,23 +28,23 @@
   --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
   --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
 
-  /* The two charted holdings. Rain is the blue the news page already gives a
-     weather story and the creek is the green it gives a creek story, so a
-     reader who has seen those tags meets the same two colors here. The two
-     unpainted holdings, photographs and stories, have nothing to color: a
-     photograph brings its own and a headline is ink.
-
-     The charts read these straight off the page. An inline SVG is part of the
-     document, so fill="var(--hold-creek)" resolves the same as it would on a
-     div, and neither of these values is written twice. */
-  --hold-weather:#2E86AB;
-  --hold-creek:#4A7C59;
+  /* --hold-weather and --hold-creek are in fivemile-shell.css, which every
+     archive page loads ahead of this one. They started here, and moved when
+     the homepage began drawing the creek in the same green. The two unpainted
+     holdings, photographs and stories, have nothing to color: a photograph
+     brings its own and a headline is ink. */
 }
 
 /* The reset, the measure, the grids, .lede and .empty are in
    fivemile-shell.css. The archive puts its top gap on the wrap rather than on
    a first section, which is the one place it disagrees with the shell. */
 .wrap{padding-top:26px}
+
+/* Five rooms in a two column grid leaves one on its own with a hole beside it.
+   The fifth takes the whole row instead. It is the newest room and the one
+   most people are actually looking for, so the wide slot is not a consolation
+   prize. Below 821px the grid is one column anyway and this does nothing. */
+.two-eq > .card-dept.span2{grid-column:1/-1}
 
 /* The line under a room's opening paragraph saying how much is in it. It is
    the same object as the count beside the search box, so it is the same class:

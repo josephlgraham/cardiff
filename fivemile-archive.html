@@ -84,10 +84,13 @@
 
   <section class="top">
     <div class="hd"><h1>Archive</h1><a href="index.html">Front page &rarr;</a></div>
-    <p class="lede">Four things get kept here and none of them go anywhere: the photographs that have run
-      on the front page, every day the weather station has reported, the creek at the Republic gauge, and
-      every story that has run, filed under the month it ran in. A library keeps its old papers on
-      microfiche and makes you wind a spool to find March. This is that, without the spool.</p>
+    <div class="panel intro">
+      <p class="lede">Five things get kept here and none of them go anywhere: the photographs that have run
+        on the front page, every day the weather station has reported, the creek at the Republic gauge,
+        every story that has run, filed under the month it ran in, and every date the calendar has carried.
+        A library keeps its old papers on microfiche and makes you wind a spool to find March. This is that,
+        without the spool.</p>
+    </div>
 
     <!-- Each panel reports what is behind it before a reader opens it. Every
          figure is read off the file the room itself reads, so a number here
@@ -98,9 +101,9 @@
         <div class="d-bar"><h3>Gallery</h3><span class="r">Front page</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em>Pictures</em><b id="hubPhotoCount">&mdash;</b></div>
-            <div class="d-cell"><em>Most recent</em><b id="hubPhotoNewest">&mdash;</b></div>
-            <div class="d-cell"><em>Oldest</em><b id="hubPhotoOldest">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📷</i>Pictures</em><b id="hubPhotoCount">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🆕</i>Most recent</em><b id="hubPhotoNewest">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Oldest</em><b id="hubPhotoOldest">&mdash;</b></div>
           </div>
           <p class="d-tip" id="hubPhotoNote">&mdash;</p>
           <p class="d-go">Gallery <span aria-hidden="true">&rarr;</span></p>
@@ -111,9 +114,9 @@
         <div class="d-bar"><h3>Weather</h3><span class="r">Cardiff station</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em>Days on file</em><b id="hubWeatherDays">&mdash;</b></div>
-            <div class="d-cell"><em>Back to</em><b id="hubWeatherSince">&mdash;</b></div>
-            <div class="d-cell"><em>Hottest</em><b id="hubWeatherHot">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📊</i>Days on file</em><b id="hubWeatherDays">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubWeatherSince">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>Hottest</em><b id="hubWeatherHot">&mdash;</b></div>
           </div>
           <p class="d-tip" id="hubWeatherNote">&mdash;</p>
           <p class="d-go">Weather log <span aria-hidden="true">&rarr;</span></p>
@@ -124,9 +127,9 @@
         <div class="d-bar"><h3>The creek</h3><span class="r">USGS 02457595</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em>Days on file</em><b id="hubCreekDays">&mdash;</b></div>
-            <div class="d-cell"><em>Back to</em><b id="hubCreekSince">&mdash;</b></div>
-            <div class="d-cell"><em>Highest</em><b id="hubCreekHigh">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📊</i>Days on file</em><b id="hubCreekDays">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubCreekSince">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌊</i>Highest</em><b id="hubCreekHigh">&mdash;</b></div>
           </div>
           <p class="d-tip" id="hubCreekNote">&mdash;</p>
           <p class="d-go">Creek log <span aria-hidden="true">&rarr;</span></p>
@@ -137,12 +140,32 @@
         <div class="d-bar"><h3>Stories</h3><span class="r">News page</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em>Stories</em><b id="hubNewsCount">&mdash;</b></div>
-            <div class="d-cell"><em>Months</em><b id="hubNewsMonths">&mdash;</b></div>
-            <div class="d-cell"><em>Back to</em><b id="hubNewsSince">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📰</i>Stories</em><b id="hubNewsCount">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🗓️</i>Months</em><b id="hubNewsMonths">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubNewsSince">&mdash;</b></div>
           </div>
           <p class="d-tip" id="hubNewsNote">&mdash;</p>
           <p class="d-go">Story index <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+      <!-- The fifth room, and the one with no file behind it. The calendar is
+           two lists and a set of rules, so the count is worked out with the
+           same engine the room and the calendar page both ask, which keeps
+           decision 36's rule that a figure out front cannot drift from the
+           figure inside. It takes the full width because five panels in two
+           columns otherwise leave a hole. -->
+      <a class="card-dept span2" href="fivemile-calendar-archive.html">
+        <div class="d-bar"><h3>Dates</h3><span class="r">Calendar</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📅</i>Dates</em><b id="hubDateCount">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🗓️</i>Months</em><b id="hubDateMonths">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubDateSince">&mdash;</b></div>
+          </div>
+          <p class="d-tip">The council meetings and the two sales tax holidays are worked out from the rules
+            that set them, so they are right in every year on it.</p>
+          <p class="d-go">Date index <span aria-hidden="true">&rarr;</span></p>
         </div>
       </a>
 
@@ -156,7 +179,8 @@
     the Ambient Weather station in Cardiff. The creek is the
     <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge
     on Fivemile Creek near Republic</a>, station 02457595. Stories are headlines and summaries from the
-    outlets that published them, kept with a link back to the original. Nothing here is ever deleted.
+    outlets that published them, kept with a link back to the original. Dates are the same two lists the
+    <a href="fivemile-calendar.html">calendar</a> reads. Nothing here is ever deleted.
   </p>
 
 </main><!-- /wrap -->
@@ -166,6 +190,11 @@
 </div><!-- /page -->
 
 <script src="fivemile-common.js"></script>
+<!-- The hub reports on all five rooms, and the dates room has no file to read.
+     Its two figures are counted with the calendar engine, so the hub carries it
+     the way it carries the four JSON fetches. See DECISIONS.md 50. -->
+<script src="fivemile-season-data.js"></script>
+<script src="fivemile-calendar-core.js"></script>
 <script src="fivemile-archive.js"></script>
 <script src="/fivemile-pwa.js"></script>
 </body>

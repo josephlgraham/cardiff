@@ -216,6 +216,47 @@ const RING_NEARBY = [
   'minor high', 'mortimer jordan', 'west jefferson', 'western jefferson', 'north jefferson'
 ];
 
+/* Names that are also something else.
+
+   A place name in these lists is matched against the headline and the first
+   sentence, and several of them are ordinary English or somebody else's proper
+   noun. Republic is the worst of them: it is a gauge on Five Mile Creek, it is
+   a form of government, and it is a waste hauler that half the towns in
+   Alabama contract with. A South Carolina primary runoff and a Helena garbage
+   contract both ran on this page filed under Republic before this existed.
+
+   Each entry lists the patterns that mean the word is not our place. They are
+   checked after the word boundary test, so anything already ruled out by being
+   part of a longer word, Republican for one, is not repeated here.
+
+   This is not a list of everything a word could mean. It is a list of what has
+   actually come through or is likely to, and it should grow when something new
+   gets past it rather than be guessed at in advance. */
+const NOT_A_PLACE = {
+  republic: [
+    /republic services/, /republic waste/, /republic airways/, /republic steel/,
+    /republic bank/, /republic finance/, /banana republic/, /republic of /,
+    /democratic republic/, /people's republic/, /american republic/, /republic day/,
+    /* The civics sense. Our own gauge is carved out of it, because a story
+       about the creek is the exact thing this word is in the list for. */
+    /\bthe republic\b(?! gauge)/
+  ],
+  corner: [
+    /corner of/, /street corner/, /four corners/, /corner store/, /corner market/,
+    /around the corner/, /corner kick/, /corner office/
+  ],
+  warrior: [/black warrior/, /warrior river/, /warrior met/, /warrior coal/, /road warrior/],
+  trafford: [/old trafford/],
+  morris: [/philip morris/, /morris county/, /morris brown/, /morris chestnut/],
+  kimberly: [/kimberly.clark/],
+  cardiff: [/cardiff, wales/, /cardiff city/, /cardiff university/, /cardiff bay/, /\bwales\b/],
+  sandusky: [/sandusky, ohio/, /cedar point/, /jerry sandusky/],
+  edgewater: [/edgewater, (florida|new jersey|colorado|maryland|illinois)/],
+  'pleasant grove': [/pleasant grove, (utah|texas|california)/],
+  graysville: [/graysville, (tennessee|georgia|ohio|indiana)/],
+  brookside: [/brookside, (new jersey|delaware|pennsylvania)/]
+};
+
 /* The outer ring is two rings, because the county and the city are not the
    same thing to a reader in Graysville.
 
@@ -560,8 +601,38 @@ async function imageFromPage(url) {
 function blobOf(story) {
   return `${story.title} ${story.summary} ${story.outlet}`.toLowerCase();
 }
+/* A term has to read as a whole word and not as a run of letters sitting
+   inside a longer one. blob.includes('republic') is true of 'Republican
+   nomination', which is how a South Carolina Senate primary came to be filed
+   as news from a gauge on Five Mile Creek.
+
+   A trailing s is allowed, because the plain substring test was quietly
+   catching plurals and the beats depend on it: 'train' has to keep matching
+   'trains'.
+
+   Written without escape characters on purpose. The only regex metacharacter
+   any term in this file carries is the period, in 'st. clair county' and
+   'bid no.', and [.] handles that on its own. A term with a bracket or a plus
+   in it would need more than this, and there is no reason to add one. */
+const TERM_RE = new Map();
+function termRe(term) {
+  let re = TERM_RE.get(term);
+  if (!re) {
+    const safe = term.split('.').join('[.]');
+    re = new RegExp('(^|[^a-z0-9])' + safe + 's?(?![a-z0-9])');
+    TERM_RE.set(term, re);
+  }
+  return re;
+}
+
+/* A term is a hit only if it reads as a word and nothing else in the story
+   says it is the other thing that goes by the same name. */
 function hits(blob, list) {
-  return list.filter((word) => blob.includes(word));
+  return list.filter((term) => {
+    if (!termRe(term).test(blob)) return false;
+    const vetoes = NOT_A_PLACE[term];
+    return !vetoes || !vetoes.some((pattern) => pattern.test(blob));
+  });
 }
 function properCase(word) {
   return word.replace(/(^|\s)\S/g, (c) => c.toUpperCase());

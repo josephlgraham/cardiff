@@ -107,7 +107,10 @@
 
     setText("skyStamp", now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }));
 
-    paintTile("skyMoon", moon.name, moon.icon + " " + moon.science);
+    /* The phase glyph used to lead the sentence under the reading. It is a
+       mark, and the tile now has the place marks go, which is the kicker. */
+    paintTile("skyMoon", moon.name, moon.science);
+    FA.setTileMark("skyMoon", moon.icon, moon.name);
     paintTile("skyAge", age + " days", "Days into a cycle that runs twenty nine and a half from one new moon to the next.");
     paintTile("skyDark", dark + " hours",
       "Sun down at " + FA.formatClock(sun.set) + " and up again at " + FA.formatClock(sun.rise) + ". True darkness starts later than sunset.");

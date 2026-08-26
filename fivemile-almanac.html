@@ -155,27 +155,27 @@
     </div>
 
     <div class="four-eq" id="creekTiles">
-      <a class="card-gauge" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
+      <a class="card-gauge" id="creekStageTile" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Stage &middot; Republic</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌊</i><span class="g-lbl">Stage &middot; Republic</span></p>
         <div class="g-val" id="creekStageVal">&mdash;</div>
         <div class="g-sub" id="creekStageSub">Waiting on the gauge file.</div>
       </a>
-      <a class="card-gauge" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
+      <a class="card-gauge" id="creekFlowTile" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Flow &middot; Republic</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">💧</i><span class="g-lbl">Flow &middot; Republic</span></p>
         <div class="g-val" id="creekFlowVal">&mdash;</div>
         <div class="g-sub" id="creekFlowSub">Waiting on the gauge file.</div>
       </a>
-      <a class="card-gauge" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
+      <a class="card-gauge" id="creekChangeTile" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Change &middot; 24 hours</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🟰</i><span class="g-lbl">Change &middot; 24 hours</span></p>
         <div class="g-val" id="creekChangeVal">&mdash;</div>
         <div class="g-sub" id="creekChangeSub">Waiting on the gauge file.</div>
       </a>
-      <a class="card-gauge" href="fivemile-almanac.html#weather">
+      <a class="card-gauge" id="creekRainTile" href="fivemile-almanac.html#weather">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Rain &middot; This month</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌧️</i><span class="g-lbl">Rain &middot; This month</span></p>
         <div class="g-val" id="creekRainVal">&mdash;</div>
         <div class="g-sub" id="creekRainSub">Waiting on the station file.</div>
       </a>
@@ -222,9 +222,9 @@
         <div class="d-bar"><h3>Yesterday</h3><span class="r">Local station</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌡️</i>High</em><b id="wxYestHigh">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌙</i>Low</em><b id="wxYestLow">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌧️</i>Rain</em><b id="wxYestRain">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>High</em><b id="wxYestHigh">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i>Low</em><b id="wxYestLow">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i>Rain</em><b id="wxYestRain">&mdash;</b></div>
           </div>
         </div>
       </div>
@@ -243,10 +243,10 @@
         <div class="d-bar"><h3>Rain totals</h3><span class="r">Cardiff station</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em>Yesterday</em><b id="rainYesterday">&mdash;</b></div>
-            <div class="d-cell"><em>Past week</em><b id="rainWeekly">&mdash;</b></div>
-            <div class="d-cell"><em>This month</em><b id="rainMonthly">&mdash;</b></div>
-            <div class="d-cell"><em>This year</em><b id="rainYearly">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i>Yesterday</em><b id="rainYesterday">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📅</i>Past week</em><b id="rainWeekly">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🗓️</i>This month</em><b id="rainMonthly">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📆</i>This year</em><b id="rainYearly">&mdash;</b></div>
           </div>
         </div>
       </div>
@@ -266,8 +266,11 @@
     </div>
 
     <div class="stack" style="margin-top:12px">
+      <!-- .brief because this card holds one or two short alert rows and the
+           214px panel height was holding a hole open under them. Same case as
+           the rowless tab card in DECISIONS.md 15. -->
       <div id="alerts-card" style="display:none">
-        <div class="card-dept">
+        <div class="card-dept brief">
           <div class="d-bar"><h3>Hydrologic alerts</h3><span class="r">Weather desk</span></div>
           <div class="d-body" id="alertsBody">
             <div class="alert-banner"><strong>Active alert.</strong> The weather desk will post Jefferson County alerts here when one is active.</div>
@@ -285,7 +288,7 @@
       </div>
 
       <div class="card-dept" id="week-card">
-        <div class="d-bar"><h3>The week ahead</h3><span class="r">Seven days</span></div>
+        <div class="d-bar"><h3>The week ahead</h3><span class="r" id="weekSpan">&mdash;</span></div>
         <div class="d-body" id="weekBody">&mdash;</div>
       </div>
     </div>
@@ -305,9 +308,9 @@
         <div class="d-bar"><h3>Fishing today</h3><span class="r" id="deskFishTag">&mdash;</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">💧</i>Water</em><b id="deskFishWater">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🕗</i>Best time</em><b id="deskFishWindow">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌊</i>Creek</em><b id="deskFishCreek">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">💧</i>Water</em><b id="deskFishWater">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕗</i>Best time</em><b id="deskFishWindow">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌊</i>Creek</em><b id="deskFishCreek">&mdash;</b></div>
           </div>
           <p class="d-tip" id="deskFishNote">&mdash;</p>
           <p class="d-go">Fishing page <span aria-hidden="true">&rarr;</span></p>
@@ -318,9 +321,9 @@
         <div class="d-bar"><h3>Garden this month</h3><span class="r" id="deskGardenTag">&mdash;</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌱</i>Plant now</em><b id="deskGardenJob">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">❄️</i>Next frost</em><b id="deskGardenFrost">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🪵</i>Ground</em><b id="deskGardenGround">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌱</i>Plant now</em><b id="deskGardenJob">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">❄️</i>Next frost</em><b id="deskGardenFrost">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🪵</i>Ground</em><b id="deskGardenGround">&mdash;</b></div>
           </div>
           <p class="d-tip" id="deskGardenNote">&mdash;</p>
           <p class="d-go">Garden page <span aria-hidden="true">&rarr;</span></p>
@@ -331,9 +334,9 @@
         <div class="d-bar"><h3>The sky tonight</h3><span class="r" id="deskSkyTag">&mdash;</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌙</i>Moon</em><b id="deskSkyMoon">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🌕</i>Next full moon</em><b id="deskSkyFull">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">☄️</i>Next meteors</em><b id="deskSkyMeteor">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i>Moon</em><b id="deskSkyMoon">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌕</i>Next full moon</em><b id="deskSkyFull">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">☄️</i>Next meteors</em><b id="deskSkyMeteor">&mdash;</b></div>
           </div>
           <p class="d-tip" id="deskSkyNote">&mdash;</p>
           <p class="d-go">Night sky page <span aria-hidden="true">&rarr;</span></p>
@@ -344,9 +347,9 @@
         <div class="d-bar"><h3>Nature this month</h3><span class="r" id="deskNatureTag">&mdash;</span></div>
         <div class="d-body">
           <div class="d-rows list">
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">🍃</i>Look for</em><b id="deskNatureLook">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">📅</i>Next season</em><b id="deskNatureWindow">&mdash;</b></div>
-            <div class="d-cell"><em><i class="d-mark emoji" aria-hidden="true">☀️</i>Daylight</em><b id="deskNatureLight">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🍃</i>Look for</em><b id="deskNatureLook">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📅</i>Next season</em><b id="deskNatureWindow">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">☀️</i>Daylight</em><b id="deskNatureLight">&mdash;</b></div>
           </div>
           <p class="d-tip" id="deskNatureNote">&mdash;</p>
           <p class="d-go">Nature watch page <span aria-hidden="true">&rarr;</span></p>

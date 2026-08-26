@@ -670,6 +670,177 @@
   window.FivemileDrawTicks = drawTicks;
 
 
+  // ─── READING THE FORECAST ──────────────────────────────────────
+  // One weather file, read on the homepage, the news page, and the almanac.
+  // The rules for reading it live here so those three can never drift apart,
+  // which they had: three sky-word tables, three ideas of what a day was
+  // called, and only two pages that dropped a period once it had been and
+  // gone. See DECISIONS.md 44.
+  //
+  // Marks are emoji because the reader's phone already has them, they carry a
+  // sky condition faster than any word, and there is nothing to draw or load.
+  // The mark is never the only place a reading appears: the cell around it
+  // always states the temperature.
+  var WX_MARKS = {
+    sun: '\u2600\uFE0F', part: '\u26C5', cloud: '\u2601\uFE0F', rain: '\uD83C\uDF27\uFE0F',
+    storm: '\u26C8\uFE0F', snow: '\uD83C\uDF28\uFE0F', fog: '\uD83C\uDF2B\uFE0F'
+  };
+  var WX_WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  // Open-Meteo hands back a numbered code where the weather service hands back
+  // a sentence. Both land on the same seven marks.
+  var WX_CODES = [
+    { max: 0,  key: 'sun',   word: 'Clear' },
+    { max: 2,  key: 'part',  word: 'Partly cloudy' },
+    { max: 3,  key: 'cloud', word: 'Overcast' },
+    { max: 48, key: 'fog',   word: 'Fog' },
+    { max: 57, key: 'rain',  word: 'Drizzle' },
+    { max: 67, key: 'rain',  word: 'Rain' },
+    { max: 77, key: 'snow',  word: 'Snow' },
+    { max: 82, key: 'rain',  word: 'Showers' },
+    { max: 86, key: 'snow',  word: 'Snow showers' }
+  ];
+
+  function wxEsc(value) {
+    return String(value === null || value === undefined ? '' : value)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function wxNum(value) {
+    var n = Number(value);
+    return Number.isFinite(n) ? n : NaN;
+  }
+
+  function wxDate(value) {
+    if (!value) return null;
+    var d = new Date(value);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+
+  function wxMarkKey(text) {
+    var sky = String(text || '').toLowerCase();
+    if (/thunder|tstorm|tornado/.test(sky)) return 'storm';
+    if (/snow|sleet|ice|wintry|freezing/.test(sky)) return 'snow';
+    if (/rain|shower|drizzle/.test(sky)) return 'rain';
+    if (/fog|haze|smoke|mist/.test(sky)) return 'fog';
+    if (/partly|mostly sunny|mostly clear/.test(sky)) return 'part';
+    if (/sunny|clear/.test(sky)) return 'sun';
+    return 'cloud';
+  }
+
+  // The bare character, for a slot that already has its own markup.
+  function wxMarkChar(text) {
+    return WX_MARKS[wxMarkKey(text)];
+  }
+
+  // The character wrapped so a screen reader says Sunny rather than reading
+  // out the name of the character.
+  function wxMark(text) {
+    return '<span class="wx-mark" role="img" aria-label="' + wxEsc(text || 'Forecast') + '">' +
+      wxMarkChar(text) + '</span>';
+  }
+
+  function wxCodeEntry(code) {
+    var n = wxNum(code);
+    if (!Number.isFinite(n)) return null;
+    for (var i = 0; i < WX_CODES.length; i++) {
+      if (n <= WX_CODES[i].max) return WX_CODES[i];
+    }
+    return { max: Infinity, key: 'storm', word: 'Thunderstorms' };
+  }
+
+  function wxCodeChar(code) {
+    var entry = wxCodeEntry(code);
+    return entry ? WX_MARKS[entry.key] : '';
+  }
+
+  function wxCodeWord(code) {
+    var entry = wxCodeEntry(code);
+    return entry ? entry.word : '';
+  }
+
+  // The chance of rain, which arrives either as a number or as an object with
+  // the number inside it depending on how the file was written.
+  function wxPop(period) {
+    var p = period && period.probabilityOfPrecipitation;
+    return wxNum(p && typeof p === 'object' ? p.value : p);
+  }
+
+  // A forecast file that has not refreshed still carries yesterday in it, and
+  // yesterday's high is not a forecast. Anything already finished is dropped
+  // rather than relabelled, because we would rather show two days than show a
+  // day that has been and gone.
+  function wxLive(periods, now) {
+    var cutoff = (now instanceof Date ? now.getTime() : Date.now());
+    return (Array.isArray(periods) ? periods : []).filter(function (p) {
+      if (!p || !Number.isFinite(wxNum(p.temperature))) return false;
+      var ends = wxDate(p.endTime);
+      return !ends || ends.getTime() > cutoff;
+    });
+  }
+
+  // The weather service ships a name with every period, and a stale file ships
+  // a stale name. The label is built from the clock instead. 'short' is three
+  // letters for a strip of days, 'slot' says which half of the day it is for a
+  // strip that runs day, night, day.
+  function wxLabel(period, now, style) {
+    var start = wxDate(period && period.startTime);
+    var today = (now instanceof Date ? now : new Date());
+    if (!start) return String((period && period.name) || '').slice(0, 9);
+    var sameDay = start.toDateString() === today.toDateString();
+    if (style === 'slot') {
+      if (sameDay) return period.isDaytime ? 'Today' : 'Tonight';
+      var name = WX_WEEKDAYS[start.getDay()].slice(0, 3);
+      return period.isDaytime ? name : name + ' night';
+    }
+    if (sameDay) return 'Today';
+    return WX_WEEKDAYS[start.getDay()].slice(0, 3);
+  }
+
+  // One entry per calendar day, built off the live periods: the daylight half
+  // carries the high and the sky, the night that follows it carries the low.
+  // A day whose daylight has already run out is not the week ahead, so it
+  // drops off the front rather than showing with a hole where its high was.
+  function wxDays(periods, now) {
+    var live = wxLive(periods, now);
+    var order = [];
+    var byDate = {};
+    live.forEach(function (p) {
+      var start = wxDate(p.startTime);
+      if (!start) return;
+      var key = p.isDaytime
+        ? start.toDateString()
+        : new Date(start.getTime() - 12 * 3600000).toDateString();
+      if (!byDate[key]) {
+        byDate[key] = { key: key, day: null, night: null, start: start };
+        order.push(byDate[key]);
+      }
+      if (p.isDaytime) {
+        if (!byDate[key].day) { byDate[key].day = p; byDate[key].start = start; }
+      } else if (!byDate[key].night) {
+        byDate[key].night = p;
+      }
+    });
+    return order.filter(function (entry) { return entry.day; });
+  }
+
+  window.FivemileWx = {
+    marks: WX_MARKS,
+    weekdays: WX_WEEKDAYS,
+    markKey: wxMarkKey,
+    markChar: wxMarkChar,
+    mark: wxMark,
+    codeChar: wxCodeChar,
+    codeWord: wxCodeWord,
+    pop: wxPop,
+    live: wxLive,
+    label: wxLabel,
+    days: wxDays
+  };
+
+
+
   // ─────────────────────────────────────────────────────────────────
   //  BOOT
   // ─────────────────────────────────────────────────────────────────

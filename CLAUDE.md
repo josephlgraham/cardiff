@@ -27,12 +27,18 @@ Facebook groups are fine for talking and useless for remembering. This site
 keeps things. Nothing here scrolls away.
 
 The Archive is where that promise is kept and where it can be checked. It is a
-hub, `fivemile-archive.html`, and four rooms: the gallery, the weather log, the
-creek log, and the story index. Each room reads the same file the live page
-reads, so nothing is archived by hand and nothing can fall out of step. If you
-add something the site keeps, give it a room. If you add a rolling window that
-overwrites itself, you have added something that scrolls away, and the creek
-archive in DECISIONS.md 36 is the pattern for fixing it.
+hub, `fivemile-archive.html`, and five rooms: the gallery, the weather log, the
+creek log, the story index, and the date index. Each room reads the same file
+the live page reads, so nothing is archived by hand and nothing can fall out of
+step. The date index is the one exception and only in form: the calendar has no
+file, so the room asks the same engine the calendar page asks and gets the same
+answer. If you add something the site keeps, give it a room. If you add a
+rolling window that overwrites itself, you have added something that scrolls
+away, and the creek archive in DECISIONS.md 36 is the pattern for fixing it.
+
+The calendar page itself holds one month, with a step to the month either side.
+It is not a rolling window: everything behind and ahead of it is in the date
+index, reachable from a door under the month. See DECISIONS.md 50.
 
 ## Stack
 

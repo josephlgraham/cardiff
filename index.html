@@ -190,25 +190,25 @@
     <div class="now-grid" id="nowGrid">
       <a class="card-gauge" href="fivemile-almanac.html#the-creek">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Creek &middot; Republic</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌊</i><span class="g-lbl">Creek &middot; Republic</span></p>
         <div class="g-val">&mdash;</div>
         <div class="g-sub">This reading is not coming through right now.</div>
       </a>
       <a class="card-gauge" href="fivemile-almanac.html">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Weather &middot; Area</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌡️</i><span class="g-lbl">Weather &middot; Area</span></p>
         <div class="g-val">&mdash;</div>
         <div class="g-sub">This reading is not coming through right now.</div>
       </a>
       <a class="card-gauge" href="fivemile-almanac.html">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Air &middot; Area</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">💨</i><span class="g-lbl">Air &middot; Area</span></p>
         <div class="g-val">&mdash;</div>
         <div class="g-sub">This reading is not coming through right now.</div>
       </a>
       <a class="card-gauge event" href="fivemile-calendar.html">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick">Next up</p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">📅</i><span class="g-lbl">Next up</span></p>
         <div class="g-val">&mdash;</div>
         <div class="g-sub">This reading is not coming through right now.</div>
       </a>
@@ -221,7 +221,8 @@
           <div class="d-bar"><h3>The daily read</h3><span class="r" id="readStamp">&mdash;</span></div>
           <div class="d-body">
             <p id="readBody">&mdash;</p>
-            <div class="d-rows three" id="readForecast" hidden></div>
+            <div class="d-rows three fill" id="readForecast" hidden></div>
+            <figure class="d-trace" id="readTrace" hidden></figure>
             <p class="d-tip" id="readTip" hidden></p>
           </div>
         </div>
@@ -359,7 +360,24 @@ function paintTile(index, value, unit, sentence){
 }
 function setKicker(index, text){
   var tile = document.querySelectorAll('#nowGrid .card-gauge')[index];
-  if(tile) tile.querySelector('.g-kick').textContent = text;
+  var label = tile && tile.querySelector('.g-lbl');
+  if(label) label.textContent = text;
+}
+/* The mark on a gauge tile. It sits ahead of the kicker, the same way the
+   label marks sit ahead of a reading in Yesterday, and it is never the only
+   place a reading appears: the tile states the figure underneath it and says
+   in words what it means. Marks that carry a reading of their own get a
+   label, the rest are decoration and stay hidden from a screen reader. */
+function setMark(index, char, label){
+  var tile = document.querySelectorAll('#nowGrid .card-gauge')[index];
+  var mark = tile && tile.querySelector('.g-mark');
+  if(!mark || !char) return;
+  mark.textContent = char;
+  if(label){
+    mark.setAttribute('role', 'img');
+    mark.setAttribute('aria-label', label);
+    mark.removeAttribute('aria-hidden');
+  }
 }
 
 function inchWord(feet){
@@ -385,6 +403,7 @@ function paintCreek(watershed){
 
   setKicker(0, 'Creek · ' + (lead.place || lead.label || 'Republic'));
   var change = stageChange24h(lead);
+  setMark(0, change >= 0.02 ? '⬆️' : change <= -0.02 ? '⬇️' : '🌊');
   var sentence;
   if(change === null){
     sentence = 'That is the reading at the ' + esc(lead.label || 'Republic gauge') + '.';
@@ -406,6 +425,10 @@ function paintWeather(weather){
   var forecast = weather && Array.isArray(weather.forecast) ? weather.forecast : [];
   var day = forecast.filter(function(p){return p.isDaytime})[0] || null;
   var high = day ? num(day.temperature) : NaN;
+  /* Guarded, because the temperature is the point of this tile and the mark
+     is not: a reader whose forecast file failed still gets the reading. */
+  var sky = current.condition || (day && day.shortForecast) || '';
+  if(sky && forecastReader()) setMark(1, forecastReader().markChar(sky), sky);
   var humidity = num(current.humidity);
   var sentence;
   if(Number.isFinite(high)){
@@ -434,6 +457,11 @@ function paintAir(air){
   var sentence = current.label
     ? esc(current.label)
     : (current.category ? 'That is <b>' + esc(current.category.toLowerCase()) + '</b> air.' : NO_READING);
+  /* The bands are the EPA's, and so are the colours. A reader who has seen an
+     air quality map anywhere else already knows what the dot is saying, and
+     the category it stands for is written out in the sentence under it. */
+  setMark(2, aqi <= 50 ? '🟢' : aqi <= 100 ? '🟡' : aqi <= 150 ? '🟠' : aqi <= 200 ? '🔴' : '🟣',
+    current.category ? esc(current.category) + ' air' : '');
   paintTile(2, Math.round(aqi), ' AQI', sentence);
 }
 
@@ -473,6 +501,7 @@ function paintNextUp(){
   if(!entry){paintTile(3, null, '', NO_READING); return}
 
   setKicker(3, 'Next up · ' + WEEKDAYS[entry.start.getDay()]);
+  setMark(3, String(entry.lane || '').toLowerCase() === 'civic' ? '🏛️' : '🎉');
   var value, unit;
   if(entry.hour !== undefined && entry.hour !== null && !entry.timeTBD){
     var hour12 = entry.hour % 12 === 0 ? 12 : entry.hour % 12;
@@ -518,45 +547,18 @@ function paintNotice(alerts){
 }
 
 /* --- the daily read ------------------------------------------------------ */
-/* Weather marks. Emoji, because the reader's phone already has them, they
-   carry a sky condition faster than any word, and there is nothing to draw or
-   load. One per cell at the size of the type around it.
-
-   The mark is never the only place a reading appears: the cell states the
-   temperature and the chance of rain underneath. It carries the forecast's own
-   wording as its label, so a screen reader says Sunny rather than reading out
-   the name of the character. */
-var WX_MARKS = {
-  sun:'☀️', part:'⛅', cloud:'☁️', rain:'🌧️',
-  storm:'⛈️', snow:'🌨️', fog:'🌫️'
-};
-function wxMark(text){
-  var sky = String(text || '').toLowerCase(), key = 'cloud';
-  if(/thunder|tstorm/.test(sky)) key = 'storm';
-  else if(/snow|sleet|ice|wintry|freezing/.test(sky)) key = 'snow';
-  else if(/rain|shower|drizzle/.test(sky)) key = 'rain';
-  else if(/fog|haze|smoke/.test(sky)) key = 'fog';
-  else if(/partly|mostly sunny|partly sunny|mostly clear/.test(sky)) key = 'part';
-  else if(/sunny|clear/.test(sky)) key = 'sun';
-  return '<span class="wx-mark" role="img" aria-label="' + esc(text || 'Forecast') + '">' +
-    WX_MARKS[key] + '</span>';
-}
+/* The marks, the labels, and the rule about a period that has been and gone
+   all live in fivemile-common.js, because the news page and the almanac read
+   the same file and used to each have their own copy. See DECISIONS.md 44. */
+function forecastReader(){ return window.FivemileWx; }
 
 /* --- the daily read ------------------------------------------------------- */
 /* The creek sentence, then the next three days, then at most one suggestion.
    The suggestion is read off the forecast numbers and nothing else, and it
    always says the number it came from, so a reader who disagrees with the
    advice still has the fact it was drawn from. */
-function popOf(period){
-  var p = period && period.probabilityOfPrecipitation;
-  return num(p && typeof p === 'object' ? p.value : p);
-}
-function periodLabel(period, now){
-  var start = parseDate(period.startTime);
-  if(!start) return String(period.name || '').slice(0, 3);
-  if(start.toDateString() === now.toDateString()) return 'Today';
-  return WEEKDAYS[start.getDay()].slice(0, 3);
-}
+function popOf(period){ return forecastReader().pop(period); }
+function periodLabel(period, now){ return forecastReader().label(period, now, 'short'); }
 function readTip(day, night){
   var pop = day ? popOf(day) : NaN;
   var high = day ? num(day.temperature) : NaN;
@@ -573,6 +575,72 @@ function readTip(day, night){
   if(/sunny|clear/.test(sky) && Number.isFinite(high) && high >= 72) return 'Clear and ' + high + ', which is sunglasses weather.';
   return '';
 }
+/* The creek's last thirty days, for the slot the days ahead sit in when there
+   are days ahead to sit there.
+
+   The forecast comes from the weather service and the card was built as
+   though it always arrives. It does not. A run that fails leaves yesterday's
+   periods in the file, every one of them already finished, and the strip drops
+   out rather than show a day that has been and gone. That is the right call
+   for the strip and it left the card as a paragraph over a hundred and fifty
+   pixels of nothing, standing beside a Yesterday that filled its box.
+
+   So the slot always holds something. The creek history is in the watershed
+   file, which is written by a different job on a different schedule and does
+   not go quiet when the weather service does, and thirty days of stage is the
+   one thing on this card that is not already said in the sentence above it or
+   in the tiles above that. Same construction as the creek chart on the almanac
+   and the one in the archive: a viewBox, a polyline, mono labels at the edges,
+   no library. */
+function creekTrace(watershed){
+  var gauges = watershed && Array.isArray(watershed.gauges) ? watershed.gauges : [];
+  var lead = gauges.filter(function(g){return g.role === 'lead'})[0] || gauges[0] || null;
+  var history = (lead && Array.isArray(lead.stage_history)) ? lead.stage_history : [];
+  var points = history.map(function(entry){
+    return {at: parseDate(entry.at), ft: num(entry.stage_ft)};
+  }).filter(function(p){return p.at && Number.isFinite(p.ft)});
+  if(points.length < 4) return '';
+
+  /* The viewBox is 700 by 150 so the drawn trace lands at the height the days
+     ahead occupy. The card is then the same height whichever of the two the
+     slot is holding, and nothing above or below it moves between visits.
+
+     Nothing is lettered inside the box. Text in a viewBox scales with the box,
+     and this box is as wide as half a card, so a label set here came out at
+     under seven pixels on a phone. The figures are in the caption underneath
+     instead, where they are ordinary text at an ordinary size. */
+  var W = 700, H = 150, left = 8, right = 692, top = 14, floor = 138;
+  var values = points.map(function(p){return p.ft});
+  var low = Math.min.apply(null, values), high = Math.max.apply(null, values);
+  var span = (high - low) || 1;
+  var step = (right - left) / (points.length - 1);
+  function x(i){return left + i * step}
+  function y(v){return floor - ((v - low) / span) * (floor - top)}
+
+  var line = points.map(function(p, i){return x(i).toFixed(1) + ',' + y(p.ft).toFixed(1)}).join(' ');
+  var area = line + ' ' + right.toFixed(1) + ',' + floor + ' ' + left.toFixed(1) + ',' + floor;
+  var lastX = x(points.length - 1), lastY = y(points[points.length - 1].ft);
+  var day = function(date){return MONTHS[date.getMonth()] + ' ' + date.getDate()};
+  var place = lead.label || 'Republic gauge';
+  /* Not 'span': that name is already the stage range this chart is scaled by. */
+  var dateSpan = esc(day(points[0].at)) + ' &ndash; ' + esc(day(points[points.length - 1].at));
+
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' +
+      esc(place + ' stage, ' + day(points[0].at) + ' to ' + day(points[points.length - 1].at) + ', ' +
+        low.toFixed(2) + ' to ' + high.toFixed(2) + ' feet') + '">' +
+    '<line x1="' + left + '" y1="' + floor + '" x2="' + right + '" y2="' + floor +
+      '" stroke="rgba(80,44,8,0.18)" stroke-width="1"/>' +
+    '<polygon points="' + area + '" fill="var(--hold-creek)" fill-opacity="0.22"/>' +
+    '<polyline fill="none" stroke="var(--hold-creek)" stroke-width="2.5" stroke-linecap="round" ' +
+      'stroke-linejoin="round" points="' + line + '"/>' +
+    '<circle cx="' + lastX.toFixed(1) + '" cy="' + lastY.toFixed(1) + '" r="5" fill="var(--hold-creek)" ' +
+      'stroke="var(--card)" stroke-width="2.5"/>' +
+    '</svg>' +
+    '<figcaption><em>' + esc(place) + '</em>' +
+      '<b>' + esc(low.toFixed(2)) + '&ndash;' + esc(high.toFixed(2)) + ' ft</b>' +
+      '<em>' + dateSpan + '</em></figcaption>';
+}
+
 function paintRead(watershed, weather){
   var body = document.getElementById('readBody');
   var stamp = document.getElementById('readStamp');
@@ -581,39 +649,45 @@ function paintRead(watershed, weather){
   stamp.textContent = when ? clock(when) : '—';
 
   var grid = document.getElementById('readForecast');
+  var trace = document.getElementById('readTrace');
   var tip = document.getElementById('readTip');
-  /* A forecast file that has not refreshed still carries yesterday in it, and
-     yesterday's high is not a forecast. Anything already finished is dropped
-     rather than relabelled, because we would rather show two days than show a
-     day that has been and gone. */
-  var cutoff = Date.now();
-  var periods = ((weather && Array.isArray(weather.forecast)) ? weather.forecast : [])
-    .filter(function(p){
-      var ends = parseDate(p.endTime);
-      return Number.isFinite(num(p.temperature)) && (!ends || ends.getTime() > cutoff);
-    });
-  var days = periods.filter(function(p){return p.isDaytime}).slice(0, 3);
-  var night = periods.filter(function(p){return !p.isDaytime})[0] || null;
+  /* The shared reader is loaded at the foot of the page and this runs off a
+     fetch, so on a warm cache the readings can arrive before it does. It used
+     to throw here and take the whole card with it. A card with no reader has
+     no days to show, which is the case the creek already covers. */
+  var reader = forecastReader();
+  var days = reader ? reader.days(weather && weather.forecast).slice(0, 3) : [];
 
+  /* No days ahead means the weather service run is behind, not that there is
+     nothing to show. The creek takes the slot instead of the card emptying. */
   if(!days.length){
     grid.hidden = true;
     tip.hidden = true;
+    var drawn = creekTrace(watershed);
+    trace.innerHTML = drawn;
+    trace.hidden = !drawn;
     return;
   }
+  trace.hidden = true;
+  trace.innerHTML = '';
 
   var now = new Date();
-  grid.innerHTML = days.map(function(period){
+  grid.innerHTML = days.map(function(entry){
+    var period = entry.day;
     var pop = popOf(period);
+    var low = entry.night ? num(entry.night.temperature) : NaN;
     return '<div class="d-cell">' +
       '<em>' + esc(periodLabel(period, now)) + '</em>' +
-      wxMark(period.shortForecast) +
-      '<b>' + num(period.temperature) + '&deg;</b>' +
+      forecastReader().mark(period.shortForecast) +
+      '<b>' + num(period.temperature) + '&deg;' +
+        (Number.isFinite(low) ? '<span class="wx-lo">' + Math.round(low) + '&deg;</span>' : '') +
+      '</b>' +
       '<i class="wx-pop">' + (Number.isFinite(pop) ? pop + '% rain' : '&mdash;') + '</i>' +
       '</div>';
   }).join('');
   grid.hidden = false;
 
-  var line = readTip(days[0], night);
+  var line = readTip(days[0].day, days[0].night);
   tip.textContent = line;
   tip.hidden = !line;
 }

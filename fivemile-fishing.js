@@ -198,6 +198,10 @@
     paintTile("fishPressure", pressure.label, pressure.note);
     paintTile("fishWindow", window.time, window.note);
 
+    /* pressureNote has always worked out a mark for the barometer and nothing
+       was showing it. The tile has the place for it now. */
+    FA.setTileMark("fishPressure", pressure.icon, pressure.label);
+
     renderRatings(rows);
     renderSpecies(water, pressure.label);
     setText("fishNarrative", narrative(water, pressure, mood, stage));

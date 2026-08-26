@@ -36,7 +36,14 @@
 // v28 also moves fivemile-season-data.js to network-first, which is the fix for
 // a returning reader seeing half a calendar. Read the note in the fetch handler
 // before touching the routing there. See DECISIONS.md 43.
-const CACHE_NAME = 'fivemile-v28';
+// v35 simplifies the calendar to one month and opens the dates room. The
+// calendar page, its stylesheet, its script, fivemile-cards.css and
+// fivemile-archive.js all changed, the engine moved into a new file, and
+// fivemile-calendar-archive.html is new. Every one of those is served
+// cache-first, so without this bump a returning reader gets a page built for
+// the old markup. fivemile-calendar-core.js is code rather than data and stays
+// cache-first with the rest of the scripts. See DECISIONS.md 50.
+const CACHE_NAME = 'fivemile-v39';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -76,7 +83,7 @@ const PRECACHE_URLS = [
   '/fivemile-nightsky.html',
   '/fivemile-nature.html',
   '/fivemile-kitchen.html',
-  // The archive hub and its four rooms. Same footing as the almanac desks: a
+  // The archive hub and its five rooms. Same footing as the almanac desks: a
   // reader who opened one and lost signal should get the page rather than the
   // offline card.
   '/fivemile-archive.html',
@@ -84,6 +91,7 @@ const PRECACHE_URLS = [
   '/fivemile-weather-archive.html',
   '/fivemile-creek-archive.html',
   '/fivemile-news-archive.html',
+  '/fivemile-calendar-archive.html',
   '/offline.html',
   '/fivemile-common.css',
   '/fivemile-cards.css',
@@ -103,9 +111,12 @@ const PRECACHE_URLS = [
   // runtime cache picks up the ones a reader actually opens.
   '/fivemile-guide.json',
   '/fivemile-common.js',
-  // The calendar is the only page that reads turnings.json, and the page is
-  // precached above, so the file it draws itself from comes with it.
+  // The calendar and the dates room both read turnings.json through the shared
+  // engine, and both pages are precached above, so the file they draw
+  // themselves from comes with them. The hub loads the engine too, to count
+  // the figures on its fifth panel.
   '/fivemile-calendar.js',
+  '/fivemile-calendar-core.js',
   '/fivemile-season-data.js',
   '/turnings.json',
   '/fivemile-almanac-core.js',

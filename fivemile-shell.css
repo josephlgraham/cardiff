@@ -18,10 +18,10 @@
    So this is a separate file, and only the pages that actually share the shell
    load it. Nothing about anyone's load order had to change.
 
-   WHO LOADS THIS  (22 pages)
+   WHO LOADS THIS  (23 pages)
 
      index.html, fivemile-news.html, fivemile-guide.html
-     fivemile-calendar.html
+     fivemile-calendar.html, fivemile-about.html
      the almanac and its four desks
      the archive and its four rooms
      heritage and its seven chapters
@@ -34,10 +34,17 @@
 
    WHO DOES NOT, AND MUST NOT
 
-     about (680px), announce (760px), hollers (860px), civic (1100px),
-     kitchen (1120px). Five pages, five measures, all of them deliberate. If
-     one of them ever wants the 1000px measure, it gets this file. It never
-     gets it by default.
+     announce (760px), hollers (860px), civic (1100px), kitchen (1120px).
+     Four pages, four measures, all of them deliberate. If one of them ever
+     wants the 1000px measure, it gets this file. It never gets it by default.
+
+   ABOUT IS THE OTHER ONE THAT MOVED, and it moved the way this note said it
+   would. It had been in the list above at 680px, and its panels came out a
+   hundred and sixty pixels narrower than a card on any other page, which is
+   visible the moment you click between them. It asked for this file by name.
+   Its own block is now a link after this one, which is the load order the
+   whole file is built on and which About had never had, because its styles
+   used to sit inline ahead of common.css. See DECISIONS.md 46.
 
    LOAD ORDER IS  common, cards, shell, then the page's own file.
 
@@ -79,7 +86,23 @@
   --paper:#F2E8D5;--card:#FAF6EE;
   --ink:#1C1208;--ink2:#4a3418;
   --sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  /* The marks on cards are emoji, and a browser that has not been told to
+     reach for a color emoji face will render some of them as flat glyphs in
+     the body face instead. fivemile-almanac.css and fivemile-guide.css each
+     kept a copy of this; it belongs with the other two families. */
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
   --fm-rule:#DDCFB8;--fm-muted:#6B6156;
+
+  /* The two charted holdings. Rain is the blue the news page already gives a
+     weather story and the creek is the green it gives a creek story, so a
+     reader who has seen those tags meets the same two colors on every chart.
+
+     They sit here rather than in the archive stylesheet that first needed
+     them, because the daily read on the homepage draws the creek in the same
+     green and a colour written down twice is a colour that drifts. The charts
+     read these straight off the page: an inline SVG is part of the document,
+     so fill="var(--hold-creek)" resolves the same as it would on a div. */
+  --hold-weather:#2E86AB;--hold-creek:#4A7C59;
 }
 
 /* ---------------------------------------------------------------------------

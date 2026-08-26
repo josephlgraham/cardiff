@@ -113,6 +113,25 @@
 .tag[data-beat="publicsafety"]{--accent:#C8102E}
 .tag[data-beat="history"]     {--accent:#7A5838}
 .tag[data-beat="obituary"]    {--accent:#4A3418}
+
+/* The calendar subjects. Same story as the beats above: they lived in
+   fivemile-calendar.css until a second page needed them, and two pages render
+   an event stub now, the calendar and the date index in the archive.
+
+   A subject answers what kind of date this is rather than which page it lives
+   on. Civic borrows Government's purple and Garden is already declared above
+   as a section tag at the same value, so a reader who has learned the palette
+   on the news page and the garden desk does not have to learn it twice.
+
+   Civic and Community are separate on purpose. A council meeting and a duck
+   race are both worth turning up to and they are not the same errand, and the
+   data keeps them in separate lanes for the same reason. See DECISIONS.md 41. */
+.tag.civic     {--accent:#6B4C9A}
+.tag.community {--accent:#B23A2E}
+.tag.season    {--accent:#4E6E58}
+.tag.tradition {--accent:#8A6D3B}
+.tag.sky       {--accent:#2E86AB}
+.tag.market    {--accent:#8B6914}
 a.tag:hover{border-color:var(--masthead);text-decoration:none}
 
 /* ---------------------------------------------------------------------------
@@ -148,7 +167,15 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    The graduations become the perforation down the edge of a ticket stub,
    which is the right object for something you turn up to. */
 .card-gauge.event .g-ticks i{left:6px;width:6px;height:6px;border-radius:50%;opacity:.55}
-.g-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);margin:0}
+.g-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fm-muted);margin:0;
+  display:flex;align-items:center;gap:6px}
+/* The mark on a tile. It rides the kicker line rather than the figure, so the
+   three rows of the tile stay the three rows the subgrid is built on, and it
+   is set at 15px: big enough to catch an eye scanning four tiles, small
+   enough that the reading is still the loudest thing in the box. Letter
+   spacing is cleared because the kicker's tracking pushes an emoji off its
+   own centre. Same idiom as .d-mark inside a cell. */
+.g-mark{font-family:var(--emoji);font-style:normal;font-size:15px;line-height:1;letter-spacing:0;flex:none}
 .g-val{font-family:var(--mono);font-size:30px;line-height:1;letter-spacing:-.03em;font-weight:500;margin-top:10px}
 .g-val span{font-size:13px;color:var(--fm-muted);letter-spacing:0}
 .g-sub{font-size:13.5px;color:var(--fm-muted);margin-top:7px;line-height:1.4;align-self:start}
@@ -201,6 +228,17 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
 .d-body > .d-rows:only-child{flex:1}
 .d-body > .d-rows:only-child .d-cell{display:flex;flex-direction:column;justify-content:center}
 
+/* .d-rows.fill  ·  the same again, for a grid sharing the body with prose
+
+   The daily read carries a sentence, then the days, then at most one
+   suggestion, and the suggestion only shows on a day there is one to make. On
+   the days it is missing the card ended with a hole under the last day while
+   Yesterday, standing beside it, filled its box to the bottom. The grid takes
+   the slack instead, and the cells centre what they hold so the extra height
+   reads as room around the days rather than a gap beneath them. */
+.d-body > .d-rows.fill{flex:1}
+.d-body > .d-rows.fill .d-cell{display:flex;flex-direction:column;justify-content:center}
+
 /* .d-rows.list  ·  one reading per row, label and value on the same line
 
    Four short readings in a two by two grid, stretched to stand level with a
@@ -221,10 +259,26 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    written to fix. */
 .d-body > .d-rows.list .d-cell{display:flex;flex-direction:row;align-items:center;
   justify-content:space-between;gap:14px;padding:9px 14px}
-.d-body > .d-rows.list .d-cell em{margin-bottom:0}
+.d-body > .d-rows.list .d-cell em{margin-bottom:0;font-size:12px;letter-spacing:.07em}
+/* The label grows with the figure. 9.5px is a caption size, set for a label
+   stacked over a reading in a narrow cell where it has to stay out of the
+   way. On its own row it has a whole line to itself and is one of two things
+   a reader is reading, so it is set to be read. */
+.d-body > .d-rows.list .d-cell .d-mark{font-size:14px;margin-right:6px}
 .d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em}
 .d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
 .d-body p:last-child{margin-bottom:0}
+
+/* .card-dept.brief  ·  height from contents
+
+   The panel height is there so two or three panels standing side by side come
+   out level. A panel running full width on its own has nothing to stand level
+   with, and when it holds a sentence or two the 214px holds a hole open under
+   them. Same case as .card-tab.brief, and DECISIONS.md 15 has the reasoning.
+
+   Do not put it on a panel sharing a row. There the height is doing the work
+   it was written for. */
+.card-dept.brief{min-height:0}
 /* A department panel that is a link to somewhere else.
 
    The same addition .card-tab and .card-post already carry, for the same
@@ -259,10 +313,82 @@ a.card-dept:hover .d-go{color:var(--masthead)}
    The label mark is the smaller cousin, sitting inline ahead of a cell's
    label to say what is being measured. Both are aria-hidden or labelled at
    the call site, so nothing gets read out twice. */
-.d-cell .wx-mark{display:block;margin:4px 0 2px;font-size:21px;line-height:1.2}
-.d-cell .d-mark{font-style:normal;font-size:12px;margin-right:5px;vertical-align:-1px}
+.d-cell .wx-mark{font-family:var(--emoji);display:block;margin:4px 0 2px;font-size:21px;line-height:1.2}
+.d-cell .d-mark{font-family:var(--emoji);font-style:normal;font-size:12px;margin-right:5px;vertical-align:-1px}
 .d-cell .wx-pop{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
   letter-spacing:.02em;color:var(--fm-muted);margin-top:3px}
+/* The low, set behind the high on the same line. A day is a high and a low
+   and the chance of rain, and a strip carrying only the high asks a reader to
+   go somewhere else for the half of it they dress by. Muted and a size down,
+   because the high is the number the day is remembered as. Same pairing the
+   week strip on the almanac already shows. */
+.d-cell .wx-lo{font-size:13px;color:var(--fm-muted);margin-left:5px}
+
+/* ---------------------------------------------------------------------------
+   05  PROSE PANEL  .panel  ·  card stock under a run of writing
+
+   Not a card in the sense the four above are: it counts nothing, sorts
+   nothing, and refreshes nothing. It is the paper a section of prose sits on,
+   so a page does not open with type lying straight on the background while
+   every card below it is mounted.
+
+   It started life in a style block on the About page, which is where decision
+   46 put the prose on card stock and is where the shape was settled. It moved
+   here when the calendar wanted the same thing, because a panel drawn twice is
+   a panel that drifts. About keeps the pointer where the rule used to be.
+   --------------------------------------------------------------------------- */
+.panel{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:22px 24px}
+.panel > p:last-child,.panel > ul:last-child,.panel > div:last-child{margin-bottom:0}
+
+/* Prose alone in a mounted panel runs the panel's width, and the 24px padding
+   is its measure. The 64ch in fivemile-shell.css is for a paragraph sitting on
+   the open page, where nothing but the line length is holding it in. Inside a
+   hairline it reads as a box somebody forgot to fill: the left edge is set by
+   the padding and the right edge stops short of it by a hundred and forty
+   pixels, so the panel looks like it has a margin on one side only. Nothing
+   changes on a phone, where the panel has never been as wide as the cap.
+
+   That wording is heritage's, because heritage hit this first and wrote it
+   down. The calendar had the same box with the same one sided margin in it
+   until this rule reached the shared file. */
+.panel > .lede{max-width:none}
+
+/* .panel.intro  ·  the panel a page or a section opens with
+
+   The lede it replaced carried an 18px bottom margin, and mounting the prose
+   took that margin with it, so on the pages where the opening is followed by a
+   count line or a grid the panel finished flush against it. This gives the
+   margin back, and only where something actually follows.
+
+   It is a modifier rather than a rule on .panel because the panels already on
+   About and heritage sit against blocks that bring their own top margin, 22px
+   and 20px, and a blanket rule would have quietly doubled every one of those
+   gaps. Nothing that was already mounted moves. */
+.panel.intro:not(:last-child){margin-bottom:18px}
+
+@media(max-width:760px){.panel{padding:20px 18px}}
+
+/* .d-trace  ·  a chart standing in the slot the readings stand in
+
+   The daily read draws the creek here on the days the weather service has not
+   filed a forecast. It is sized to land at the height the three days occupy,
+   so the card does not change height between the two, and it takes the slack
+   the same way .d-rows.fill does when the suggestion line is missing.
+
+   The colours are the two chart tokens in fivemile-shell.css, read straight
+   off the page by the inline SVG. The caption names the gauge, because a line
+   with no source is a drawing rather than a reading. */
+.d-body > .d-trace{flex:1;display:flex;flex-direction:column;justify-content:center;margin:0}
+.d-trace svg{display:block;width:100%;height:auto;border:1px solid var(--fm-rule);
+  border-radius:8px;background:var(--card);padding:1px}
+/* The caption carries every figure the drawing does not: whose gauge it is,
+   what the line ran between, and the days it covers. Set at the size and
+   tracking a cell label uses, because that is what it is. */
+.d-trace figcaption{display:flex;justify-content:space-between;align-items:baseline;
+  gap:10px;margin-top:8px}
+.d-trace figcaption em,.d-trace figcaption b{font-style:normal;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--fm-muted)}
+.d-trace figcaption b{font-weight:500;color:var(--ink)}
 
 /* The suggestion under the forecast. Ruled off, because it is the one line on
    the card telling a reader to do something rather than reporting a number. */
@@ -319,10 +445,22 @@ a.card-tab:hover .t-title{color:var(--red)}
 .card-stub{display:flex;background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
   overflow:hidden;text-decoration:none;color:inherit;min-height:var(--h-strip);margin-bottom:10px}
 .card-stub:hover{border-color:var(--masthead);text-decoration:none}
-.k-date{background:var(--masthead);color:var(--paper);padding:10px 13px;text-align:center;min-width:78px;
+/* 94px, not the 78 a two digit day needs. Some of what a calendar keeps has
+   no day of its own: the soil is ready when it crumbles, the fall garden goes
+   in through September, the market is every Thursday. Those rows carry a short
+   word in the block instead of a number, and 94px is what the longest of them
+   needs. Every block is the same width either way, so a month with THURSDAYS
+   in it still reads straight down its left edge. */
+.k-date{background:var(--masthead);color:var(--paper);padding:10px 13px;text-align:center;min-width:94px;
   display:flex;flex-direction:column;justify-content:center;flex:none}
 .k-date .mo{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;opacity:.8}
 .k-date .dy{font-family:var(--mono);font-size:26px;line-height:1.12;font-weight:500}
+/* .card-stub.window  ·  a date that is not a day. ALL MONTH, THURSDAYS. */
+.k-date .wd{font-family:var(--mono);font-size:11px;line-height:1.3;letter-spacing:.09em;
+  text-transform:uppercase;padding-top:3px}
+/* .card-stub.today  ·  the date block goes red. One row on a page can have it,
+   and only on the day itself. */
+.card-stub.today .k-date{background:var(--red)}
 .k-bd{padding:10px 14px;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
 .k-top{display:flex;gap:7px;align-items:center;margin-bottom:4px;flex-wrap:wrap}
 .k-bd h3{margin:0 0 3px;font-size:15.5px;font-weight:700;line-height:1.3}
@@ -345,6 +483,25 @@ a.card-tab:hover .t-title{color:var(--red)}
 
    Do not use it for anything carrying a date worth scanning. That is the stub
    above, and the difference between the two is the whole point of both. */
+/* The source line at the foot of a stub body. A reader who wants to know what
+   Michaelmas is gets one link out, and nothing else on the row is a link, so
+   tapping a row never takes anybody off the site by surprise. Mirrors the .d-go
+   line on a department panel.
+
+   align-self, because .k-bd is a column flex container and without it the link
+   stretches the width of the card and a reader gets a 300px hit area on a 60px
+   word. 44px tall, which is the floor in CLAUDE.md. */
+.k-more{display:inline-flex;align-self:flex-start;align-items:center;gap:5px;
+  min-height:44px;padding-top:6px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--red);
+  text-decoration:none}
+.k-more:hover{text-decoration:underline}
+
+/* A note on a stub that has moved off its usual date. Small, ruled off, and it
+   says why. The Brookside council meeting is the one that does this. */
+.k-shift{margin-top:6px;padding-top:6px;border-top:1px solid var(--fm-rule);
+  font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--fm-muted)}
+
 .card-stub.story .k-bd{padding:12px 16px}
 .card-stub.story .k-top{gap:10px;margin-bottom:6px}
 .card-stub.story h3{margin:0;font-size:16.5px;line-height:1.34}

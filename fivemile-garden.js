@@ -183,6 +183,7 @@
     if (wx) {
       const ground = FA.groundCondition(wx.precipTotal, wx.humidity);
       paintTile("gardenGround", ground.title, ground.note);
+      FA.setTileMark("gardenGround", ground.icon, ground.title);
     } else {
       paintTile("gardenGround", null, "The station file is not answering, so walk the beds and judge it yourself.");
     }

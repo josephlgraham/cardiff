@@ -80,24 +80,55 @@
 .desk-rail-inner{max-width:1000px;margin:0 auto;padding:16px 20px 0;display:flex;gap:8px;
   overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .desk-rail-inner::-webkit-scrollbar{display:none}
-.desk-item{display:flex;align-items:center;gap:10px;flex:1 0 auto;min-width:158px;min-height:52px;
-  background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r);padding:8px 12px 8px 0;
+/* Every item is the same width, and the five of them are exactly the row.
+   flex:1 0 auto sized each one to the longest word in it, so Nature Watch came
+   out 35px wider than Garden and the five together ran 100px past the right
+   edge of the measure, where the fifth one sat off screen with nothing to say
+   it was there. 1 1 0 divides the row instead of accumulating it. */
+.desk-item{display:flex;align-items:stretch;gap:9px;flex:1 1 0;min-width:0;min-height:73px;
+  background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r);padding:0 11px 0 0;
   text-decoration:none;color:inherit;overflow:hidden;transition:border-color var(--ease),background var(--ease)}
 .desk-item::before{content:"";width:4px;align-self:stretch;background:var(--accent,#6B6156);flex:none}
 .desk-item:hover{border-color:var(--masthead);background:#fff;text-decoration:none}
-.desk-item > .desk-text{min-width:0;flex:1}
-.desk-name{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
-.desk-sub{display:block;font-family:var(--mono);font-size:10.5px;color:#6B6156;line-height:1.4;margin-top:2px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:19ch}
+.desk-item > .desk-text{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;padding:9px 0}
+/* The name's line: the mark leads it, the arrow closes it. Both ride this line
+   rather than the item, which is what leaves the live line underneath the full
+   width of the tile to say something in. */
+.desk-head{display:flex;align-items:center;gap:7px;min-width:0}
+/* The mark. Sized against the name, so it holds its own in a row being scanned
+   at arm's length without shouting over the word it belongs to. Same idiom as
+   .g-mark on a gauge tile and .d-mark inside a cell. */
+.desk-mark{font-family:var(--emoji);font-size:17px;line-height:1;flex:none}
+.desk-name{font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.25;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* The live line wraps rather than truncating, and it is always two lines tall.
+
+   One line and an ellipsis is what was there, and it could not work: a fifth
+   of a 1000px row is 160px, the line reports things like Harvest okra and
+   southern peas and 12.34 ft · Creek-peeking level, and at 10px, small enough
+   that nobody here should have to read it, eleven of the longest values were
+   still being cut. A line that reports half of what it knows is worse than a
+   line set one size down.
+
+   Two is also the ceiling, and the item holds the height for both of them
+   whether this value needs the second line or not. The line starts as a
+   standing description and is replaced by a live reading once the file lands,
+   and a rail that changes height under the reader as that happens is the page
+   moving while it is being read. Reserving it on the item rather than on the
+   line is what keeps a one line value centred instead of sitting on top of a
+   blank one. */
+.desk-sub{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  font-family:var(--mono);font-size:10.5px;color:#6B6156;line-height:1.4;margin-top:3px;
+  overflow:hidden}
 /* The arrow. This is the whole fix for the first pass, which had five items
    that named a page and gave a reader nothing to tell them the name was a
    door. An arrow is not copy and it does not explain the interface: it points.
    Red, because red is what this site uses for a link that leaves. */
-.desk-go{font-size:17px;line-height:1;color:var(--red);flex:none}
+.desk-go{font-size:17px;line-height:1;color:var(--red);flex:none;margin-left:auto}
 .desk-item:hover .desk-go{color:var(--masthead)}
 /* Going back up to the almanac. The arrow leads instead of following, which is
    the one difference a reader needs between the way home and the way onward. */
-.desk-item.back .desk-go{order:-1;margin-left:12px}
+.desk-item.back .desk-go{margin-left:0;margin-right:-1px}
 .desk-item.back{border-color:var(--masthead)}
 /* The current page. Recessed, arrowless, and still a link so a tap reloads and
    nothing dead-ends. */
@@ -198,10 +229,14 @@ section.top{padding:24px 0 0}
 .watershed-range-btn:hover{color:var(--ink)}
 .watershed-range-btn.active{background:rgba(200,16,46,.12);color:var(--red-mid)}
 .watershed-range-btn:disabled{opacity:.45;cursor:not-allowed}
+/* The height is the viewBox height, set in fivemile-almanac.js off the same
+   560px breakpoint below. Do not put a height on the svg here: it is measured
+   into its box so one viewBox unit is one pixel, and a second opinion in CSS
+   would put the letterboxing back. See DECISIONS.md 45. */
 .watershed-chart{min-height:270px}
-.watershed-chart svg{display:block;width:100%;height:270px}
+.watershed-chart svg{display:block;width:100%;height:auto}
 .watershed-chart-empty{font-size:15px;line-height:1.55;color:#6B6156;padding:20px 0}
-.watershed-axis{font-family:var(--mono);font-size:11px;fill:#6B6156}
+.watershed-axis{font-family:var(--mono);font-size:12.5px;fill:#6B6156}
 .watershed-upstream{margin-top:11px;padding:11px 13px;background:var(--paper);border:1px solid #DDCFB8;
   border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:15px;line-height:1.55;color:var(--ink2)}
 
@@ -354,15 +389,22 @@ section.top{padding:24px 0 0}
   .hero-date{min-width:0;padding:14px 20px}
   .month-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* Below the full measure the row cannot give five items the 186px they need to
+   hold a name and two lines, and dividing what is there instead took them down
+   to 147px and started cutting lines again. So the rail stops dividing and
+   starts scrolling, at the width where the measure stops being 1000px rather
+   than at some phone size. Items keep their size, the fifth one sits half in
+   view, and half an item at the edge is the only thing that has ever told a
+   reader a row scrolls. Full width items would be five rows of nav above every
+   page on the desk. */
+@media(max-width:1040px){
+  .desk-item{flex:0 0 auto;width:186px}
+}
 @media(max-width:760px){
   .desk-rail-inner{padding:10px 16px}
 }
 @media(max-width:560px){
   .week-grid{grid-template-columns:repeat(2,1fr)}
   .month-grid{grid-template-columns:1fr}
-  .watershed-chart,.watershed-chart svg{height:230px;min-height:230px}
-  /* The rail stops stretching and starts scrolling. Full width items on a
-     phone would be five rows of nav above every page on the desk. */
-  .desk-item{flex:0 0 auto;min-width:0}
-  .desk-sub{max-width:15ch}
+  .watershed-chart{min-height:230px}
 }

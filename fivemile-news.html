@@ -83,7 +83,7 @@
 
 /* Highs across the three towns, west to east. One line, monospaced, so it
    reads as a set of readings rather than a sentence. */
-.mr-towns{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);
+.mr-towns{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);
   font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink3)}
 .mr-towns b{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:0;margin-left:5px}
 
@@ -156,7 +156,12 @@
             <div class="d-bar"><h3>Yesterday and ahead</h3><span class="r" id="mrStamp">&mdash;</span></div>
             <div class="d-body">
               <p id="mrLede">&mdash;</p>
-              <div class="d-rows list" id="mrYesterday">
+              <!-- .fill so the four readings take the slack. The card finishes
+                   level with the Coming up column beside it, and on a day the
+                   weather service has not filed a forecast the strip below is
+                   hidden, which used to leave a hundred pixels of nothing under
+                   the last line. Same modifier the homepage uses. -->
+              <div class="d-rows list fill" id="mrYesterday">
                 <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>High</em><b id="mrHigh">&mdash;</b></div>
                 <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i>Low</em><b id="mrLow">&mdash;</b></div>
                 <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i>Rain</em><b id="mrRain">&mdash;</b></div>
@@ -374,34 +379,17 @@ function firstSentence(text){
    news page in the morning wants to know what happened overnight, and it
    carries tonight as well as tomorrow for the same reason.
    ===================================================================== */
-var WX_MARKS = {sun:'☀️', part:'⛅', cloud:'☁️', rain:'🌧️', storm:'⛈️', snow:'🌨️', fog:'🌫️'};
-function wxMark(text){
-  var sky = String(text || '').toLowerCase(), key = 'cloud';
-  if(/thunder|tstorm/.test(sky)) key = 'storm';
-  else if(/snow|sleet|ice|wintry|freezing/.test(sky)) key = 'snow';
-  else if(/rain|shower|drizzle/.test(sky)) key = 'rain';
-  else if(/fog|haze|smoke/.test(sky)) key = 'fog';
-  else if(/partly|mostly sunny|partly sunny|mostly clear/.test(sky)) key = 'part';
-  else if(/sunny|clear/.test(sky)) key = 'sun';
-  return '<span class="wx-mark" role="img" aria-label="' + esc(text || 'Forecast') + '">' + WX_MARKS[key] + '</span>';
-}
-function popOf(period){
-  var p = period && period.probabilityOfPrecipitation;
-  return num(p && typeof p === 'object' ? p.value : p);
-}
-/* This card runs three periods in a row rather than three days, so two of
-   them can fall on the same date: Saturday and Saturday night. The weather
-   service names those "Saturday" and "Saturday Night", and trimming a name to
-   fit the cell turned both into Saturday, which is a forecast that reads as a
-   mistake. The label is built from the period instead: the day is shortened,
-   the night says so, and today and tonight are named rather than dated. */
-function slotLabel(period, now){
-  var start = parseDate(period.startTime);
-  if(!start) return String(period.name || '').slice(0, 9);
-  if(start.toDateString() === now.toDateString()) return period.isDaytime ? 'Today' : 'Tonight';
-  var day = WEEKDAYS[start.getDay()].slice(0, 3);
-  return period.isDaytime ? day : day + ' night';
-}
+/* The marks, the labels, and the rule about a period that has been and gone
+   all live in fivemile-common.js, because the homepage and the almanac read
+   the same file and used to each have their own copy. See DECISIONS.md 44.
+
+   This card runs three periods in a row rather than three days, so two of
+   them can fall on the same date: Saturday and Saturday night. That is what
+   the 'slot' label style is for: the day is shortened, the night says so, and
+   today and tonight are named rather than dated. */
+function forecastReader(){ return window.FivemileWx; }
+function popOf(period){ return forecastReader().pop(period); }
+function slotLabel(period, now){ return forecastReader().label(period, now, 'slot'); }
 function stageChange24h(gauge){
   if(!gauge || !Array.isArray(gauge.stage_history) || !gauge.stage_history.length) return null;
   var target = Date.now() - 24*60*60*1000, closest = null, best = Infinity;
@@ -469,12 +457,7 @@ function paintMorning(weather, watershed, towns){
 
   /* Anything already finished is dropped rather than relabelled, so a stale
      file shows two periods instead of one that has been and gone. */
-  var cutoff = Date.now();
-  var periods = ((weather && Array.isArray(weather.forecast)) ? weather.forecast : [])
-    .filter(function(p){
-      var ends = parseDate(p.endTime);
-      return Number.isFinite(num(p.temperature)) && (!ends || ends.getTime() > cutoff);
-    });
+  var periods = forecastReader().live(weather && weather.forecast);
   var slots = periods.slice(0, 3);
   var grid = document.getElementById('mrForecast');
   var now = new Date();
@@ -482,7 +465,7 @@ function paintMorning(weather, watershed, towns){
     grid.innerHTML = slots.map(function(period){
       var pop = popOf(period);
       return '<div class="d-cell">' +
-        '<em>' + esc(slotLabel(period, now)) + '</em>' + wxMark(period.shortForecast) +
+        '<em>' + esc(slotLabel(period, now)) + '</em>' + forecastReader().mark(period.shortForecast) +
         '<b>' + num(period.temperature) + '&deg;</b>' +
         '<i class="wx-pop">' + (Number.isFinite(pop) ? pop + '% rain' : '&mdash;') + '</i>' +
         '</div>';

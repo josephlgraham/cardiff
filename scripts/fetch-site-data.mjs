@@ -438,7 +438,13 @@ async function updateWeatherFile() {
   }
 
   const forecastPeriods = await fetchForecast();
-  const forecast = forecastPeriods.slice(0, 8);
+  // Sixteen periods is eight days of day/night pairs, which is what the
+  // almanac's week card needs to fill its seven columns. It was eight, which
+  // is four days, and the card had no way to show a week it was never sent.
+  // detailedForecast is dropped on the way in: it is the biggest field in the
+  // file by some way, nothing on the site reads it, and this file is rewritten
+  // and committed every ten minutes.
+  const forecast = forecastPeriods.slice(0, 16).map(({ detailedForecast, ...period }) => period);
   const weekly = buildWeekly(forecastPeriods);
 
   const payload = {

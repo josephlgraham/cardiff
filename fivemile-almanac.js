@@ -71,6 +71,7 @@
   let latestWeatherPayload = null;
   let watershedLeadGauge = null;
   let watershedChartRange = 7;
+  let chartDrawnWidth = -1;
 
   function showCard(id, visible) {
     const node = document.getElementById(id);
@@ -233,6 +234,26 @@
     });
   }
 
+  /* The box the chart is drawn into, in CSS pixels, measured off the element
+     it is about to be written into. The viewBox used to be a fixed 760 by 336
+     against a box that is 928 by 270 on a laptop, and preserveAspectRatio did
+     what it is supposed to do with the mismatch: it scaled the whole drawing
+     down to fit the shorter side and centred it, so the chart came out 545
+     wide inside a card 960 wide with 383 pixels of nothing on either side of
+     it. Measuring means one viewBox unit is one pixel and none of that
+     happens. Height comes from the same breakpoint the stylesheet uses.
+     See DECISIONS.md 45. */
+  function chartBox() {
+    const node = document.getElementById("watershedChart");
+    const measured = node ? Math.round(node.clientWidth) : 0;
+    const narrow = window.matchMedia && window.matchMedia("(max-width:560px)").matches;
+    return {
+      measured: measured,
+      width: Math.max(measured || 760, 300),
+      height: narrow ? 230 : 270
+    };
+  }
+
   function buildWatershedChart(history, label, trend, stageNow) {
     const allPoints = sanitizeGaugeHistory(history);
     const availableDays = historySpanDays(allPoints);
@@ -247,12 +268,20 @@
       };
     }
 
-    const width = 760;
-    const height = 336;
-    const padLeft = 12;
-    const padRight = 12;
-    const padTop = 4;
-    const padBottom = 16;
+    /* The gutters. The plot used to run to all four edges of the box, which
+       left the two stage figures sitting on top of the line they measure and
+       the top one clipped in half by the edge of the box, and it left the
+       dates along the bottom crowded against the baseline. Each axis has room
+       of its own now: feet down the left, dates across the bottom. */
+    const box = chartBox();
+    chartDrawnWidth = box.measured;
+    const width = box.width;
+    const height = box.height;
+    const padLeft = 68;
+    const padRight = 26;
+    const padTop = 22;
+    const padBottom = 34;
+    const axisBaseline = height - 12;
     const stageRange = displayStageRange(points, stageNow);
     const min = stageRange.rawMin;
     const max = stageRange.rawMax;
@@ -308,15 +337,15 @@
       .join("");
     let lastDayLabelX = -100;
     const dayLabels = dayMarkers
-      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + 40 && marker.x <= usableRight - 40)
+      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + 54 && marker.x <= usableRight - 54)
       .filter((marker) => {
-        if (marker.x - lastDayLabelX >= 24) {
+        if (marker.x - lastDayLabelX >= 30) {
           lastDayLabelX = marker.x;
           return true;
         }
         return false;
       })
-      .map((marker) => '<text class="watershed-axis" x="' + marker.x.toFixed(1) + '" y="' + (height - 8) + '" text-anchor="middle">' + escapeHtml(marker.label) + "</text>")
+      .map((marker) => '<text class="watershed-axis" x="' + marker.x.toFixed(1) + '" y="' + axisBaseline + '" text-anchor="middle">' + escapeHtml(marker.label) + "</text>")
       .join("");
 
     return {
@@ -337,11 +366,11 @@
         dayGridlines +
         '<polyline fill="none" stroke="#0f5c6d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
         '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
-        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - 8) + '">' + escapeHtml(firstLabel) + "</text>" +
-        '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + (height - 8) + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
+        '<text class="watershed-axis" x="' + padLeft + '" y="' + axisBaseline + '">' + escapeHtml(firstLabel) + "</text>" +
+        '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + axisBaseline + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
         dayLabels +
-        '<text class="watershed-axis" x="' + padLeft + '" y="' + (padTop - 1) + '">' + escapeHtml(displayMax.toFixed(2) + " ft") + "</text>" +
-        '<text class="watershed-axis" x="' + padLeft + '" y="' + (height - padBottom - 4) + '">' + escapeHtml(displayMin.toFixed(2) + " ft") + "</text>" +
+        '<text class="watershed-axis" x="' + (padLeft - 10) + '" y="' + (padTop + 4) + '" text-anchor="end">' + escapeHtml(displayMax.toFixed(2) + " ft") + "</text>" +
+        '<text class="watershed-axis" x="' + (padLeft - 10) + '" y="' + (height - padBottom + 4) + '" text-anchor="end">' + escapeHtml(displayMin.toFixed(2) + " ft") + "</text>" +
         "</svg>" + chartNote
     };
   }
@@ -370,8 +399,19 @@
       ? "Cubic feet a second past the Republic gauge, running " + trend + "."
       : "The gauge is not reporting a flow right now.");
     paintTile("creekChange", values.change || "—", Number.isFinite(stageNow)
-      ? trendEmoji(trend) + " Stage against the same hour yesterday."
+      ? "Stage against the same hour yesterday."
       : "A day of history is needed before this reads anything.");
+
+    /* Two of the four marks carry a reading of their own, the way the creek
+       mark on the homepage does. The level tile takes the mark the masthead
+       pill is already showing, so a reader who saw the pill on the way down
+       the page meets the same object at the gauge. The change tile takes the
+       arrow. Both are labelled, because a mark that reads is not decoration.
+
+       Flow and rain keep the marks set in the page. Neither has a second
+       state, so there is nothing for a live one to say. */
+    FA.setTileMark("creekStage", mood.icon, mood.label);
+    if (Number.isFinite(stageNow)) FA.setTileMark("creekChange", trendEmoji(trend), "Creek " + trend);
   }
 
   /* A gauge tile is a value and a sentence. Never one without the other: a
@@ -435,17 +475,12 @@
     return "Low UV right now";
   }
 
-  function forecastIcon(text, isDaytime) {
-    const lower = (text || "").toLowerCase();
-    if (/tornado|severe/.test(lower)) return "🚨";
-    if (/thunder|storm/.test(lower)) return "⛈️";
-    if (/snow|sleet|ice/.test(lower)) return "❄️";
-    if (/rain|shower|drizzle/.test(lower)) return isDaytime ? "🌦️" : "🌧️";
-    if (/fog|mist|haze/.test(lower)) return "🌫️";
-    if (/wind|breezy|gust/.test(lower)) return "💨";
-    if (/partly|mostly sunny/.test(lower)) return isDaytime ? "⛅" : "🌙";
-    if (/cloud/.test(lower) || /overcast/.test(lower)) return "☁️";
-    return isDaytime ? "☀️" : "🌙";
+  /* The sky marks, the day labels, and the rule about a period that has been
+     and gone are all fivemile-common.js now. The homepage, the news page, and
+     this one read the same weather file, and each used to keep its own table
+     of sky words. See DECISIONS.md 44. */
+  function forecastReader() {
+    return window.FivemileWx;
   }
 
   function refreshWeatherEmojiLayer(wx, ground, pressure) {
@@ -573,16 +608,8 @@
 
   function forecastCondition(code) {
     if (!Number.isFinite(code)) return "";
-    if (code === 0) return "☀️ Clear";
-    if (code <= 2) return "🌤 Partly cloudy";
-    if (code === 3) return "☁️ Overcast";
-    if (code <= 48) return "🌫 Fog";
-    if (code <= 57) return "🌦 Drizzle";
-    if (code <= 67) return "🌧 Rain";
-    if (code <= 77) return "❄️ Snow";
-    if (code <= 82) return "🌧 Showers";
-    if (code <= 86) return "❄️ Snow showers";
-    return "⛈ Thunderstorms";
+    const word = forecastReader().codeWord(code);
+    return word ? forecastReader().codeChar(code) + " " + word : "";
   }
 
   /* Graysville, Cardiff, Brookside. West to east, every time.
@@ -931,6 +958,74 @@
     });
   }
 
+  /* The viewBox is measured, so anything that changes the width of the box
+     wants the chart drawn again rather than stretched to fit. A phone turned
+     on its side is the obvious one. The one that actually bites is the first
+     load of the day: the masthead intro gate can still be holding the page
+     when the gauge file lands, the box measures zero, and the chart draws
+     against the fallback width. Watching the box catches both, and it costs
+     nothing on a load where the width never moves. */
+  function setupWatershedChartSizing() {
+    const node = document.getElementById("watershedChart");
+    if (!node) return;
+    let timer = 0;
+    const redraw = () => {
+      const width = chartBox().measured;
+      if (!width || width === chartDrawnWidth || !watershedLeadGauge) return;
+      renderWatershedChartPanel();
+    };
+    const schedule = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(redraw, 120);
+    };
+    /* Both, on purpose. The observer is the one that catches the box coming
+       back from zero width when the intro gate lets the page go, and the
+       resize event is the one that still works if the observer is missing or
+       is not delivering. The redraw is a no-op unless the measured width has
+       actually moved, so hearing about the same change twice costs nothing. */
+    if (window.ResizeObserver) {
+      new ResizeObserver(schedule).observe(node);
+    }
+    window.addEventListener("resize", schedule);
+  }
+
+  const DAY_COUNTS = ["No days", "One day", "Two days", "Three days", "Four days",
+    "Five days", "Six days", "Seven days"];
+
+  /* One cell a day for as far ahead as the file reaches. The grid is seven
+     wide, and it used to be fed six daylight periods off the top of the file
+     without checking whether any of them had already been and gone, so an
+     evening reader got yesterday in the first cell and a Wednesday reader got
+     four days of a week. Days come off the shared reader now: the daylight
+     half of each day carries the high and the sky, the night that follows it
+     carries the low, and a day whose daylight has run out drops off the front
+     rather than showing with a hole where its high was. */
+  function renderWeek(forecastPeriods) {
+    const days = forecastReader().days(forecastPeriods).slice(0, 7);
+    if (!days.length) {
+      setText("weekSpan", "—");
+      setHTML("weekBody", "—");
+      return;
+    }
+
+    const now = new Date();
+    setText("weekSpan", DAY_COUNTS[days.length] || days.length + " days");
+    setHTML("weekBody", '<div class="week-grid">' + days.map((entry) => {
+      const day = entry.day;
+      const hi = Number(day.temperature);
+      const lo = entry.night ? Number(entry.night.temperature) : NaN;
+      const temp = Number.isFinite(lo)
+        ? Math.round(hi) + "° / " + Math.round(lo) + "°"
+        : Math.round(hi) + "°";
+      return '<div class="week-item">' +
+        '<div class="week-item-icon">' + escapeHtml(forecastReader().markChar(day.shortForecast)) + "</div>" +
+        '<div class="week-item-day">' + escapeHtml(forecastReader().label(day, now, "short")) + "</div>" +
+        '<div class="week-item-temp">' + escapeHtml(temp) + "</div>" +
+        '<div class="week-item-note">' + escapeHtml(day.shortForecast || "—") + "</div>" +
+        "</div>";
+    }).join("") + "</div>");
+  }
+
   function loadForecast() {
     fetch(WX_URL, { cache: "no-store" })
       .then((response) => {
@@ -938,23 +1033,11 @@
         return response.json();
       })
       .then((data) => {
-        const forecastPeriods = Array.isArray(data.forecast) ? data.forecast : [];
-        const daytimePeriods = forecastPeriods.filter((period) => period && period.isDaytime).slice(0, 6);
-        const periods = daytimePeriods.length ? daytimePeriods : forecastPeriods.slice(0, 6);
-        if (!periods.length) throw new Error("forecast");
-        setHTML("weekBody", '<div class="week-grid">' + periods.map((period) => (
-          '<div class="week-item">' +
-            '<div class="week-item-icon">' + forecastIcon(period.shortForecast, period.isDaytime) + "</div>" +
-            '<div class="week-item-day">' + period.name + "</div>" +
-            '<div class="week-item-temp">' + period.temperature + "°" + period.temperatureUnit + "</div>" +
-            '<div class="week-item-note">' + period.shortForecast + "</div>" +
-          "</div>"
-        )).join("") + "</div>");
+        renderWeek(Array.isArray(data.forecast) ? data.forecast : []);
       })
       .catch(() => {
-        setHTML("weekBody",
-          '<div class="empty">The forecast is not coming through right now.</div>'
-        );
+        setText("weekSpan", "—");
+        setHTML("weekBody", "—");
       });
   }
 
@@ -1106,6 +1189,7 @@
     FA.renderRail("almanac");
     buildStaticSections();
     setupWatershedRangeControls();
+    setupWatershedChartSizing();
     loadTicker();
     loadWatershed();
     loadWatershedForecast();
