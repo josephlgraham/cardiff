@@ -1,22 +1,41 @@
 {
-  "updatedAt": "2026-08-26T21:32:15.532Z",
+  "updatedAt": "2026-08-26T22:21:53.580Z",
   "places": [
+    {
+      "place": "Graysville",
+      "lat": 33.6228,
+      "lon": -86.9573,
+      "today": {
+        "date": "2026-08-26",
+        "hi": 93,
+        "lo": 71,
+        "precipChance": 41,
+        "weatherCode": 81
+      },
+      "tomorrow": {
+        "date": "2026-08-27",
+        "hi": 94,
+        "lo": 73,
+        "precipChance": 23,
+        "weatherCode": 3
+      }
+    },
     {
       "place": "Cardiff",
       "lat": 33.64,
       "lon": -86.87,
       "today": {
         "date": "2026-08-26",
-        "hi": 94,
+        "hi": 93,
         "lo": 71,
-        "precipChance": 32,
-        "weatherCode": 51
+        "precipChance": 44,
+        "weatherCode": 82
       },
       "tomorrow": {
         "date": "2026-08-27",
         "hi": 91,
-        "lo": 73,
-        "precipChance": 19,
+        "lo": 74,
+        "precipChance": 21,
         "weatherCode": 3
       }
     },
@@ -26,17 +45,17 @@
       "lon": -86.9167,
       "today": {
         "date": "2026-08-26",
-        "hi": 95,
+        "hi": 93,
         "lo": 72,
-        "precipChance": 27,
-        "weatherCode": 53
+        "precipChance": 41,
+        "weatherCode": 81
       },
       "tomorrow": {
         "date": "2026-08-27",
         "hi": 95,
         "lo": 74,
-        "precipChance": 17,
-        "weatherCode": 61
+        "precipChance": 22,
+        "weatherCode": 3
       }
     }
   ]
