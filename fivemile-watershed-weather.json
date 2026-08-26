@@ -1,23 +1,42 @@
 {
-  "updatedAt": "2026-08-21T17:31:43.314Z",
+  "updatedAt": "2026-08-26T04:46:23.102Z",
   "places": [
+    {
+      "place": "Graysville",
+      "lat": 33.6228,
+      "lon": -86.9573,
+      "today": {
+        "date": "2026-08-25",
+        "hi": 94,
+        "lo": 66,
+        "precipChance": 1,
+        "weatherCode": 0
+      },
+      "tomorrow": {
+        "date": "2026-08-26",
+        "hi": 95,
+        "lo": 71,
+        "precipChance": 28,
+        "weatherCode": 65
+      }
+    },
     {
       "place": "Cardiff",
       "lat": 33.64,
       "lon": -86.87,
       "today": {
-        "date": "2026-08-21",
-        "hi": 95,
-        "lo": 75,
-        "precipChance": 22,
-        "weatherCode": 3
+        "date": "2026-08-25",
+        "hi": 93,
+        "lo": 67,
+        "precipChance": 1,
+        "weatherCode": 2
       },
       "tomorrow": {
-        "date": "2026-08-22",
-        "hi": 98,
-        "lo": 74,
-        "precipChance": 6,
-        "weatherCode": 3
+        "date": "2026-08-26",
+        "hi": 95,
+        "lo": 70,
+        "precipChance": 27,
+        "weatherCode": 61
       }
     },
     {
@@ -25,37 +44,18 @@
       "lat": 33.6379,
       "lon": -86.9167,
       "today": {
-        "date": "2026-08-21",
-        "hi": 96,
-        "lo": 76,
-        "precipChance": 21,
-        "weatherCode": 81
+        "date": "2026-08-25",
+        "hi": 94,
+        "lo": 67,
+        "precipChance": 1,
+        "weatherCode": 0
       },
       "tomorrow": {
-        "date": "2026-08-22",
-        "hi": 99,
-        "lo": 75,
-        "precipChance": 5,
-        "weatherCode": 3
-      }
-    },
-    {
-      "place": "Graysville",
-      "lat": 33.6228,
-      "lon": -86.9573,
-      "today": {
-        "date": "2026-08-21",
+        "date": "2026-08-26",
         "hi": 96,
-        "lo": 75,
-        "precipChance": 21,
-        "weatherCode": 82
-      },
-      "tomorrow": {
-        "date": "2026-08-22",
-        "hi": 99,
-        "lo": 75,
-        "precipChance": 5,
-        "weatherCode": 3
+        "lo": 71,
+        "precipChance": 27,
+        "weatherCode": 65
       }
     }
   ]

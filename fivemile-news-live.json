@@ -1,297 +1,52 @@
 {
-  "updatedAt": "2026-08-22T22:28:12.409Z",
+  "updatedAt": "2026-08-26T05:48:50.898Z",
   "counts": {
-    "county": 6,
-    "nearby": 2,
-    "towns": 2
+    "county": 2,
+    "obituaries": 1
   },
   "sections": {
-    "towns": [
-      "news-5-abc-33-40-man-charged-in-deadly-graysville-shooting-after-dispute-invo",
-      "news-6-wvtm-13-65-year-old-man-shot-killed-in-graysville-argument-identifie"
-    ],
-    "nearby": [
-      "news-2-abc-33-40-hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-",
-      "news-3-cbs-42-hanceville-woman-identified-in-fatal-fultondale-i-65-crash"
-    ],
+    "towns": [],
+    "nearby": [],
     "creek": [],
     "county": [
-      "news-1-birminghamwatch-freshwater-land-trust-celebrates-30-years-with-new-home-alon",
-      "news-4-al-com-what-to-know-about-alabama-s-new-hunting-and-fishing-license",
-      "news-7-abc-33-40-crews-respond-to-water-main-break-in-north-birmingham",
-      "news-8-abc-33-40-aldot-seeks-public-input-on-i-59-bridge-replacements-over-bi",
-      "news-9-bham-now-4-big-takeaways-from-downtown-birmingham-mid-year-report",
-      "news-10-bham-now-these-new-books-are-making-environmental-education-fun-for-l"
+      "news-1-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she",
+      "news-2-cbs-42-2-killed-in-crash-on-i-65-south-near-green-springs-avenue-in"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-3-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a"
+    ]
   },
   "stories": [
     {
-      "id": "news-1-birminghamwatch-freshwater-land-trust-celebrates-30-years-with-new-home-alon",
+      "id": "news-1-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she",
       "section": "county",
-      "why": "birmingham, the creek",
-      "town": "Birmingham",
-      "tags": [
-        "The creek",
-        "Land"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/08/8-18-2026-FLT-sign-on-The-Hardwick-Building-on-Rotary-Trail.jpg",
-        "from": "feed",
-        "width": 1204,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 37,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "Freshwater Land Trust celebrates 30 years with new home along Rotary Trail",
-      "summary": "The land conservation and trail-building nonprofit now operates from the heart of one of the city's most recognizable public spaces. The post Freshwater Land Trust celebrates 30 years with new home along Rotary Trail appeared first on BirminghamWatch .",
-      "description": "The land conservation and trail-building nonprofit now operates from the heart of one of the city's most recognizable public spaces. The post Freshwater Land Trust celebrates 30 years with new home along Rotary Trail appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/08/20/freshwater-land-trust-celebrates-30-years-with-new-home-along-rotary-trail/",
-      "link": "https://birminghamwatch.org/2026/08/20/freshwater-land-trust-celebrates-30-years-with-new-home-along-rotary-trail/",
-      "published_at": "2026-08-20T07:57:47.000Z",
-      "date": "2026-08-20T07:57:47.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "the-creek",
-        "land"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/08/8-18-2026-FLT-sign-on-The-Hardwick-Building-on-Rotary-Trail.jpg"
-    },
-    {
-      "id": "news-2-abc-33-40-hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/718/986/0x1/90/352dcc91-8405-4336-9227-1d9c9b2ff613-ellison.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 33,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Hueytown man convicted in deadly hit and run that killed 18-year-old",
-      "summary": "A Hueytown man has been convicted in the 2024 hit-and-run death of 18-year-old Gabriel Demorris Edwards. A Jefferson County jury found 73-year-old Walter Lee El",
-      "description": "A Hueytown man has been convicted in the 2024 hit-and-run death of 18-year-old Gabriel Demorris Edwards. A Jefferson County jury found 73-year-old Walter Lee El",
-      "url": "https://abc3340.com/news/local/hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-year-old",
-      "link": "https://abc3340.com/news/local/hueytown-man-convicted-in-deadly-hit-and-run-that-killed-18-year-old",
-      "published_at": "2026-08-22T17:43:02.000Z",
-      "date": "2026-08-22T17:43:02.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/718/986/0x1/90/352dcc91-8405-4336-9227-1d9c9b2ff613-ellison.png"
-    },
-    {
-      "id": "news-3-cbs-42-hanceville-woman-identified-in-fatal-fultondale-i-65-crash",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/wmbb-FATAL-TRAFFIC-CRASH.png?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Hanceville woman identified in fatal Fultondale I-65 crash",
-      "summary": "FULTONDALE, Ala. (WIAT) -- A 35-year-old woman who was killed in a crash on I-65 South in Fultondale was identified Thursday. Katherine England, of Hanceville, was the sole occupant of a vehicle involved in a multi-vehicle crash around 6:50 p.m. on I-65 South near Exit 267. England was pronounced dead at the scene. The",
-      "description": "FULTONDALE, Ala. (WIAT) -- A 35-year-old woman who was killed in a crash on I-65 South in Fultondale was identified Thursday. Katherine England, of Hanceville, was the sole occupant of a vehicle involved in a multi-vehicle crash around 6:50 p.m. on I-65 South near Exit 267. England was pronounced dead at the scene. The",
-      "url": "https://www.cbs42.com/traffic/hanceville-woman-identified-in-fatal-fultondale-i-65-crash/",
-      "link": "https://www.cbs42.com/traffic/hanceville-woman-identified-in-fatal-fultondale-i-65-crash/",
-      "published_at": "2026-08-20T14:57:39.000Z",
-      "date": "2026-08-20T14:57:39.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/wmbb-FATAL-TRAFFIC-CRASH.png?w=900"
-    },
-    {
-      "id": "news-4-al-com-what-to-know-about-alabama-s-new-hunting-and-fishing-license",
-      "section": "county",
-      "why": "alabama department, land",
-      "town": "Regional",
-      "tags": [
-        "Land"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/ZK4FSIEBDBG4PCN5A4X36QUR4Y.jpg?auth=1ecd705cfd34621de869612622f6b5041972958c7e094c1058a88fe0d3d03972&smart=true&height=1200",
-        "from": "feed",
-        "width": 4157,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "What to Know About Alabama’s New Hunting and Fishing License System",
-      "summary": "The Alabama Department of Conservation and Natural Resources is launching a new licensing platform designed to simplify license purchases and account management.",
-      "description": "The Alabama Department of Conservation and Natural Resources is launching a new licensing platform designed to simplify license purchases and account management.",
-      "url": "https://www.al.com/news/2026/08/what-to-know-about-alabamas-new-hunting-and-fishing-license-system.html",
-      "link": "https://www.al.com/news/2026/08/what-to-know-about-alabamas-new-hunting-and-fishing-license-system.html",
-      "published_at": "2026-08-22T18:20:42.000Z",
-      "date": "2026-08-22T18:20:42.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "land"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/ZK4FSIEBDBG4PCN5A4X36QUR4Y.jpg?auth=1ecd705cfd34621de869612622f6b5041972958c7e094c1058a88fe0d3d03972&smart=true&height=1200"
-    },
-    {
-      "id": "news-5-abc-33-40-man-charged-in-deadly-graysville-shooting-after-dispute-invo",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Man charged in deadly Graysville shooting after dispute involving suspect’s relative",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQVgwS2NpY204WUVuX3JzZEN4VkJJRjhNZGpLSXRfamxEdHFkTzhCbGlDVHF4allMYnVqREJ1bm1ZWmE5UjgtWkJGVVVIcmJXM2w1YjlWLXkzTERLR0ZfSXlGTWczRXUtYXZBTkhYT29LVkVNeXN3SmM3LVBtUWxpWm5uWmZNQQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNQVgwS2NpY204WUVuX3JzZEN4VkJJRjhNZGpLSXRfamxEdHFkTzhCbGlDVHF4allMYnVqREJ1bm1ZWmE5UjgtWkJGVVVIcmJXM2w1YjlWLXkzTERLR0ZfSXlGTWczRXUtYXZBTkhYT29LVkVNeXN3SmM3LVBtUWxpWm5uWmZNQQ?oc=5",
-      "published_at": "2026-08-17T03:49:39.000Z",
-      "date": "2026-08-17T03:49:39.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-wvtm-13-65-year-old-man-shot-killed-in-graysville-argument-identifie",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "65-year-old man shot, killed in Graysville argument identified; Suspect in custody",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPS0dBeG5sZ3VtbzlsN01aVHJVRF90NHhCVVNJV0w1RkRNdThWSjRKS0xENGk3cmZIcDVGVGVYT2ZkOVFncHRHWXhSR0x6elJJaHVVQTFDVEJMM0N1UHlzZHYtV3ZoTXRxcDVHSmZjdE9PT2lFQmJ6S3oxaV9vYXdSbXVoRkRBemY5eEp4QlYtZWFITERt?oc=5",
-      "published_at": "2026-08-18T17:09:00.000Z",
-      "date": "2026-08-18T17:09:00.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-7-abc-33-40-crews-respond-to-water-main-break-in-north-birmingham",
-      "section": "county",
-      "why": "birmingham, utilities",
-      "town": "Birmingham",
+      "why": "jefferson county, utilities",
+      "town": "Jefferson County",
       "tags": [
         "Utilities"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "Bham Now",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/27e58e27-efef-4cf2-bb9a-73d442cbe5bf-Px8.jpg",
+        "url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "Bham Now"
       },
       "obit": null,
-      "score": 23,
+      "score": 24,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Crews Respond to Water Main Break in North Birmingham",
-      "summary": "Crews responded Thursday evening to a water main break near 24th Avenue and 24th Street North in Birmingham.Workers were actively addressing the break around 6:",
-      "description": "Crews responded Thursday evening to a water main break near 24th Avenue and 24th Street North in Birmingham.Workers were actively addressing the break around 6:",
-      "url": "https://abc3340.com/news/local/alabama-crews-responded-to-water-main-break-in-birmingham-august-2026",
-      "link": "https://abc3340.com/news/local/alabama-crews-responded-to-water-main-break-in-birmingham-august-2026",
-      "published_at": "2026-08-21T01:04:28.000Z",
-      "date": "2026-08-21T01:04:28.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "$412K+ in recycling grants awarded to Birmingham, Jefferson + Shelby counties",
+      "summary": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
+      "description": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
+      "url": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
+      "link": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
+      "published_at": "2026-08-25T21:13:24.000Z",
+      "date": "2026-08-25T21:13:24.000Z",
       "location_tags": [
-        "birmingham"
+        "jefferson-county"
       ],
       "topic_tags": [
         "utilities"
@@ -302,78 +57,36 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/27e58e27-efef-4cf2-bb9a-73d442cbe5bf-Px8.jpg"
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg"
     },
     {
-      "id": "news-8-abc-33-40-aldot-seeks-public-input-on-i-59-bridge-replacements-over-bi",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1079/986/0x354/90/a02b370d-3b3c-4c57-a5f6-e18a91bcc35b-081426I59BRMUCKLEROYCREEK.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "ALDOT seeks public input on I-59 bridge replacements over Big Canoe, Muckleroy creeks",
-      "summary": "Drivers who travel Interstate 59 between Springville and Ashville could see major bridge work starting in 2027, and the Alabama Department of Transportation is",
-      "description": "Drivers who travel Interstate 59 between Springville and Ashville could see major bridge work starting in 2027, and the Alabama Department of Transportation is",
-      "url": "https://abc3340.com/news/local/aldot-seeks-public-input-on-i-59-bridge-replacements-over-big-canoe-muckleroy-creeks",
-      "link": "https://abc3340.com/news/local/aldot-seeks-public-input-on-i-59-bridge-replacements-over-big-canoe-muckleroy-creeks",
-      "published_at": "2026-08-20T21:28:59.000Z",
-      "date": "2026-08-20T21:28:59.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x354/90/a02b370d-3b3c-4c57-a5f6-e18a91bcc35b-081426I59BRMUCKLEROYCREEK.png"
-    },
-    {
-      "id": "news-9-bham-now-4-big-takeaways-from-downtown-birmingham-mid-year-report",
+      "id": "news-2-cbs-42-2-killed-in-crash-on-i-65-south-near-green-springs-avenue-in",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
       "tags": [
         "Roads"
       ],
-      "outlet": "Bham Now",
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_8854-scaled-e1787334096580-1200x628.jpeg",
+        "url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/03/police-lights-crime-criminal-generic-2-1-1-1-e1743012814538_9ed1ee_b49d23.jpg?w=800",
         "from": "feed",
         "width": null,
-        "credit": "Bham Now"
+        "credit": "CBS 42"
       },
       "obit": null,
       "score": 23,
       "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "4 big takeaways from downtown Birmingham mid-year report",
-      "summary": "🚨 DOWNTOWN BIRMINGHAM IS GROWING: The new mid-year economic report just dropped — and the numbers are impressive. Downtown accounts for 35% of Birmingham's jobs, residential occupancy jumped to 84%, and foot traffic is up across the board. Here's what you need to know.",
-      "description": "🚨 DOWNTOWN BIRMINGHAM IS GROWING: The new mid-year economic report just dropped — and the numbers are impressive. Downtown accounts for 35% of Birmingham's jobs, residential occupancy jumped to 84%, and foot traffic is up across the board. Here's what you need to know.",
-      "url": "https://bhamnow.com/2026/08/21/4-big-takeaways-from-this-downtown-birmingham-mid-year-report/#utm_source=rss&utm_medium=rss&utm_campaign=4-big-takeaways-from-this-downtown-birmingham-mid-year-report",
-      "link": "https://bhamnow.com/2026/08/21/4-big-takeaways-from-this-downtown-birmingham-mid-year-report/#utm_source=rss&utm_medium=rss&utm_campaign=4-big-takeaways-from-this-downtown-birmingham-mid-year-report",
-      "published_at": "2026-08-21T17:54:27.000Z",
-      "date": "2026-08-21T17:54:27.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "2 killed in crash on I-65 South near Green Springs Avenue in Birmingham",
+      "summary": "",
+      "description": "",
+      "url": "https://www.cbs42.com/traffic/2-killed-in-crash-on-i-65-south-near-green-springs-avenue-in-birmingham/",
+      "link": "https://www.cbs42.com/traffic/2-killed-in-crash-on-i-65-south-near-green-springs-avenue-in-birmingham/",
+      "published_at": "2026-08-24T15:03:32.000Z",
+      "date": "2026-08-24T15:03:32.000Z",
       "location_tags": [
         "birmingham"
       ],
@@ -386,49 +99,51 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_8854-scaled-e1787334096580-1200x628.jpeg"
+      "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/03/police-lights-crime-criminal-generic-2-1-1-1-e1743012814538_9ed1ee_b49d23.jpg?w=800"
     },
     {
-      "id": "news-10-bham-now-these-new-books-are-making-environmental-education-fun-for-l",
-      "section": "county",
-      "why": "jefferson county, schools",
-      "town": "Jefferson County",
+      "id": "news-3-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
       "tags": [
-        "Schools"
+        "Obituary"
       ],
-      "outlet": "Bham Now",
+      "outlet": "Tribute Archive",
       "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/08/08-14-2026-Reilly-and-Hana-4aRS-M-edited.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
+      "image": null,
+      "obit": {
+        "name": "Rosemary Carlene Mills Obituary",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Tribute Archive",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 21,
+      "score": 16,
       "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "These new books are making environmental education fun for local students",
-      "summary": "🌏 Jefferson County just turned environmental ed into something kids want to do: new activity books use characters, games, and coloring pages to teach kids why clean water starts with them. 👇NowPartner",
-      "description": "🌏 Jefferson County just turned environmental ed into something kids want to do: new activity books use characters, games, and coloring pages to teach kids why clean water starts with them. 👇NowPartner",
-      "url": "https://bhamnow.com/2026/08/20/these-new-books-are-making-environmental-education-fun-for-local-students/#utm_source=rss&utm_medium=rss&utm_campaign=these-new-books-are-making-environmental-education-fun-for-local-students",
-      "link": "https://bhamnow.com/2026/08/20/these-new-books-are-making-environmental-education-fun-for-local-students/#utm_source=rss&utm_medium=rss&utm_campaign=these-new-books-are-making-environmental-education-fun-for-local-students",
-      "published_at": "2026-08-20T14:16:20.000Z",
-      "date": "2026-08-20T14:16:20.000Z",
+      "source_name": "Tribute Archive",
+      "source": "Tribute Archive",
+      "title": "Rosemary Carlene Mills Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
+      "published_at": "2026-08-23T07:00:00.000Z",
+      "date": "2026-08-23T07:00:00.000Z",
       "location_tags": [
-        "jefferson-county"
+        "adamsville"
       ],
       "topic_tags": [
-        "schools"
+        "obituary"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/08-14-2026-Reilly-and-Hana-4aRS-M-edited.jpg"
+      "image_url": ""
     }
   ]
 }
