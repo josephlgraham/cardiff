@@ -222,3 +222,46 @@ export function trendFrom(readings, threshold = 0.12, windowMinutes = 90) {
   if (change <= -threshold) return 'falling';
   return 'steady';
 }
+
+/* Annual peak stage, the highest the creek reached in each water year.
+
+   This is the only thing on the site that can honestly put a number in
+   context. Nobody has surveyed what floods at Republic: the gauge has no
+   Real-Time Flood Impact reference points and NWS does not carry it as a
+   forecast point, so there is no sourced flood stage to quote. What there is
+   is the gauge's own record back to 1989, which supports a true sentence:
+   the creek is higher than it got in so many of the last so many years.
+
+   Peaks change once a year at most, so this belongs on the twice daily job. */
+export async function fetchAnnualPeaks(gaugeId, options = {}) {
+  const features = await fetchFeatures(buildUrl('peaks', {
+    monitoring_location_id: siteId(gaugeId),
+    parameter_code: PARAM.STAGE,
+    limit: '500'
+  }), options);
+  const peaks = [];
+  for (const feature of features) {
+    const props = (feature && feature.properties) || {};
+    const value = Number(props.value);
+    if (!Number.isFinite(value) || !props.time) continue;
+    peaks.push({
+      water_year: Number(props.water_year) || null,
+      date: String(props.time).slice(0, 10),
+      stage_ft: Number(value.toFixed(2))
+    });
+  }
+  peaks.sort((a, b) => a.date.localeCompare(b.date));
+  return peaks;
+}
+
+/* How many years on record crested lower than the reading in hand. Returned as
+   counts rather than a percentile so the sentence can name real numbers: not
+   "the 81st percentile" but "higher than it got in thirty of the last
+   thirty-seven years". */
+export function rankAgainstPeaks(stageFt, peaks) {
+  if (!Number.isFinite(stageFt) || !peaks || !peaks.length) return null;
+  const years = peaks.length;
+  const below = peaks.filter((peak) => peak.stage_ft < stageFt).length;
+  const highest = peaks.reduce((top, peak) => (peak.stage_ft > top.stage_ft ? peak : top), peaks[0]);
+  return { years, below, highest, first: peaks[0], last: peaks[peaks.length - 1] };
+}

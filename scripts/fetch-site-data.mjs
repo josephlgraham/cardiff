@@ -5,6 +5,7 @@ import {
   GAUGES,
   PARAM,
   fetchSeries,
+  fetchAnnualPeaks,
   readingsFor,
   latestOf,
   riseRatePerHour,
@@ -24,6 +25,7 @@ const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'fivemile-community-snapshot.jso
 const WEATHER_ARCHIVE_DIR = path.join(ROOT, 'fivemile-weather-archive');
 const WATERSHED_FORECAST_FILE = path.join(ROOT, 'fivemile-watershed-weather.json');
 const CREEK_ARCHIVE_DIR = path.join(ROOT, 'fivemile-creek-archive');
+const CREEK_PEAKS_FILE = path.join(ROOT, 'fivemile-creek-peaks.json');
 
 /* West to east, which is the order every list of the three towns is written
    in. See DECISIONS.md 1. The pages that read this file look their town up by
@@ -711,6 +713,39 @@ async function updateCreekArchive(daily, gauge) {
   return payload;
 }
 
+/* The gauge's own high water record, one row per water year.
+
+   There is no sourced flood stage for this gauge. It has no Real-Time Flood
+   Impact reference points and NWS does not carry it as a forecast point, so
+   the honest way to tell a reader that the creek is high is to say how the
+   reading compares to the years behind it. That is what this file is for.
+
+   Peaks move once a year at most, so this runs on the twice daily job and the
+   file sits still the rest of the time. */
+async function updateCreekPeaksFile() {
+  const lead = GAUGES.find((gauge) => gauge.role === 'lead');
+  const peaks = await fetchAnnualPeaks(lead.id);
+  if (!peaks.length) {
+    console.log('No annual peaks returned, leaving the peaks file alone.');
+    return null;
+  }
+  const highest = peaks.reduce((top, peak) => (peak.stage_ft > top.stage_ft ? peak : top), peaks[0]);
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    gaugeId: lead.id,
+    gaugeName: lead.name,
+    source: 'USGS annual peak streamflow',
+    years: peaks.length,
+    first: peaks[0].date,
+    last: peaks[peaks.length - 1].date,
+    highest,
+    peaks
+  };
+  await writeJson(CREEK_PEAKS_FILE, payload);
+  console.log(`Updated ${path.basename(CREEK_PEAKS_FILE)}: ${peaks.length} years, highest ${highest.stage_ft} ft on ${highest.date}`);
+  return payload;
+}
+
 async function updateWatershedFile(weatherPayload = null, options = {}) {
   /* The thirty day pull is the expensive call and it exists to feed the
      permanent archive and the sparkline, neither of which changes between one
@@ -1175,6 +1210,11 @@ async function main() {
     await updateWatershedFile(weather);
   } catch (error) {
     console.error('Watershed update failed (continuing):', error.message);
+  }
+  try {
+    await updateCreekPeaksFile();
+  } catch (error) {
+    console.error('Creek peaks update failed (continuing):', error.message);
   }
   try {
     await updateWatershedForecastFile();

@@ -143,43 +143,74 @@ async function fetchSpcOutlookLines() {
 
 
 // ─────────────────────────────────────────────────────────────────────
-//  USGS gauge thresholds, Five Mile Creek near Republic
+//  The creek at Republic
 //
 //  Readings come from the modernized Water Data API through
-//  scripts/fetch/usgs-gauge.mjs. The legacy WaterServices host this used to
-//  call is being decommissioned in early 2027 and starts throttling before
-//  then, which is not a thing to discover during high water.
+//  scripts/fetch/usgs-gauge.mjs.
 //
-//  Verify thresholds at:
-//    USGS: https://waterdata.usgs.gov/monitoring-location/02457595/
-//    NWS:  https://water.noaa.gov/gauges/RPBAL
+//  THERE IS NO FLOOD STAGE FOR THIS GAUGE, and that is a finding, not an
+//  oversight. Checked 2026-08-27: the Real-Time Flood Impact API returns 404
+//  for 02457595, meaning nobody has surveyed what floods here, and the gauge
+//  does not appear in the NWS to USGS crosswalk for Alabama, meaning NWS does
+//  not carry it as a forecast point. The ID this file used to name as its NWS
+//  source, RPBAL, does not exist. Locust Fork at Sayre came back 404 as well.
 //
-//  NEEDS-CONFIRMATION: actionStage and floodStage below are inherited and have
-//  never been checked against NWS. For context, 37 years of annual peaks at
-//  this gauge (1989 to 2025) put the median annual peak at 11.85 ft, which is
-//  above the 10.0 ft action stage, so that line is crossed in most years. The
-//  record is 25.41 ft on 2003-05-07. Flood stage is a damage threshold set by
-//  NWS, not a percentile, so these numbers want confirming rather than
-//  recalculating.
+//  This file used to carry an actionStage of 10.0 ft and a floodStage of 14.0
+//  ft, labelled as NWS figures. They were not. Both are gone rather than
+//  corrected, because a stage that means somebody should move a truck is a
+//  survey result and we do not have one. Inventing it would be inventing the
+//  most consequential fact on the site.
+//
+//  What is left are two things that are true. How fast the creek is climbing,
+//  which is measured. And how the reading compares to the gauge's own annual
+//  peaks back to 1989, which is sourced, from fivemile-creek-peaks.json.
+//  Neither says anything about whose yard floods, because nobody knows.
+//
+//  If ADEM or Jefferson County EMA ever survey impact heights here, that is
+//  the day this gets a real threshold. See DECISIONS.md.
 // ─────────────────────────────────────────────────────────────────────
 
 const GAUGE = {
-  id:          '02457595',
-  label:       'Five Mile Creek at Republic',
-  actionStage: 10.0,  // ft, low-lying areas begin to flood
-  floodStage:  14.0,  // ft, NWS flood stage (verify at the links above)
+  id:    '02457595',
+  label: 'Five Mile Creek at Republic',
 
   /* Republic sits upstream of Brookside, Cardiff, and Graysville, so a fast
      climb here is the earliest warning this site can give. The creek is
      flashy: at their steepest the last three events on record climbed 4.51,
      5.38, and 3.11 ft an hour, against well under a tenth of a foot an hour in
      quiet weather. One foot an hour sits clear of an ordinary day and well
-     under a peak, which is where a warning belongs.
+     under a peak, which is where a warning belongs. Backtested against the
+     four most recent events: all four caught, two to five hours before crest.
 
-     NEEDS-CONFIRMATION: calibrated from three events. Worth revisiting after
+     NEEDS-CONFIRMATION: calibrated from those events. Worth revisiting after
      the next high water. */
   rapidRiseFtPerHour: 1.0
 };
+
+const PEAKS_FILE = 'fivemile-creek-peaks.json';
+
+/* The peaks file is written by the twice daily job. If it is missing the
+   comparison is simply skipped: no peaks, no sentence about them. */
+function readPeaks() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, PEAKS_FILE), 'utf8'));
+  } catch (_) {
+    return null;
+  }
+}
+
+/* True when the reading is above the creek's yearly high in at least half the
+   years on record. That is a level it reaches in well under half of years, so
+   the line stays rare enough to mean something. The threshold is derived from
+   the record rather than chosen, so it moves as the record grows. */
+function peakComparison(stage, peaks) {
+  const rows = (peaks && peaks.peaks) || [];
+  if (!rows.length || !Number.isFinite(stage)) return null;
+  const years = rows.length;
+  const below = rows.filter(function (row) { return row.stage_ft < stage; }).length;
+  if (below < years / 2) return null;
+  return { years: years, below: below, record: below >= years };
+}
 
 async function fetchGaugeAlertLines() {
   const lines = [];
@@ -208,36 +239,41 @@ async function fetchGaugeAlertLines() {
 
     const stage = latest.value;
     const rate = usgs.riseRatePerHour(rows);
-    const rising = usgs.trendFrom(rows) === 'rising';
-
     console.log(`   Gauge: ${GAUGE.label}, ${stage.toFixed(2)} ft, ${rate === null ? 'rate unknown' : rate.toFixed(2) + ' ft/hr'}`);
 
-    if (stage >= GAUGE.floodStage) {
-      lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, at or above flood stage`);
-    } else if (rate !== null && rate >= GAUGE.rapidRiseFtPerHour) {
+    if (rate !== null && rate >= GAUGE.rapidRiseFtPerHour) {
       lines.push(`🌊 ${GAUGE.label} climbing fast upstream · ${stage.toFixed(1)} ft, up ${rate.toFixed(1)} ft an hour`);
-    } else if (stage >= GAUGE.actionStage && rising) {
-      lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
+    }
+
+    /* Both lines can run. During real high water a reader wants to know it is
+       still rising and how bad it already is, and each sentence is true on its
+       own. */
+    const rank = peakComparison(stage, readPeaks());
+    if (rank && rank.record) {
+      lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, higher than any yearly peak in ${rank.years} years of record`);
+    } else if (rank) {
+      lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, higher than it reached in ${rank.below} of the last ${rank.years} years`);
     }
 
     if (lines.length) console.log(`   Gauge alert: ${lines[0]}`);
   } catch (err) {
     console.log(`   ✗ USGS gauge unavailable: ${err.message}`);
-    // Fall back to the watershed file if the live query fails
+    /* Fall back to the watershed file, which the twice daily job keeps. */
     try {
-      const watershedPath = path.join(__dirname, 'fivemile-watershed.json');
-      const watershed = JSON.parse(fs.readFileSync(watershedPath, 'utf8'));
+      const watershed = JSON.parse(fs.readFileSync(path.join(__dirname, 'fivemile-watershed.json'), 'utf8'));
       const lead = (watershed.gauges || []).find(g => g.id === GAUGE.id);
-      if (lead?.stage_ft != null) {
+      if (lead && lead.stage_ft != null) {
         const stage = lead.stage_ft;
         const rate = lead.rise_rate_ft_per_hr;
-        const rising = (lead.trend || '').toLowerCase() === 'rising';
-        if (stage >= GAUGE.floodStage)
-          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, at or above flood stage`);
-        else if (rate != null && rate >= GAUGE.rapidRiseFtPerHour)
+        if (rate != null && rate >= GAUGE.rapidRiseFtPerHour) {
           lines.push(`🌊 ${GAUGE.label} climbing fast upstream · ${stage.toFixed(1)} ft, up ${rate.toFixed(1)} ft an hour`);
-        else if (stage >= GAUGE.actionStage && rising)
-          lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
+        }
+        const rank = peakComparison(stage, readPeaks());
+        if (rank && rank.record) {
+          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, higher than any yearly peak in ${rank.years} years of record`);
+        } else if (rank) {
+          lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, higher than it reached in ${rank.below} of the last ${rank.years} years`);
+        }
       }
     } catch (_) { /* watershed file missing too, skip */ }
   }
