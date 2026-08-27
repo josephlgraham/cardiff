@@ -83,13 +83,29 @@ function approvedRows(records, label) {
 }
 
 /* The target files carry their own schema notes, written by hand, which the
-   sheet has no column for. Only the rows are replaced. */
-async function mergeIntoTarget(targetPath, key, rows) {
+   sheet has no column for. Only the rows are replaced.
+
+   `sawRows` says whether the sheet had any data rows at all, which is not the
+   same question as whether any were approved. Observed on 2026-08-27: the
+   published CSV can answer 200 with the header line and nothing under it, on a
+   tab that definitely had a row in it. Nothing in the response says it is
+   wrong, so the only defence is refusing to empty a board that currently has
+   something on it off the back of a sheet that appears to have nothing in it.
+
+   That does mean deleting every row in the spreadsheet will not clear the
+   board. Setting them to draft will, which is the intended way to unpublish
+   anyway and is what the status column is for. */
+async function mergeIntoTarget(targetPath, key, rows, sawRows) {
   let existing = {};
   try {
     existing = JSON.parse(await fs.readFile(targetPath, 'utf8'));
   } catch (error) {
     console.warn(`   ${path.basename(targetPath)} did not exist or would not parse, writing a fresh one.`);
+  }
+  const held = Array.isArray(existing[key]) ? existing[key].length : 0;
+  if (!sawRows && held) {
+    console.error(`   ${path.basename(targetPath)}: the sheet came back with no rows at all while the file holds ${held}. Treating that as a bad read and keeping the file.`);
+    return false;
   }
   const next = { ...existing, updated: new Date().toISOString().slice(0, 10), [key]: rows };
   const text = JSON.stringify(next, null, 2) + '\n';
@@ -114,7 +130,7 @@ export async function refreshCms() {
       const text = await fetchCsv(csvUrl(config.token, tab.gid));
       const { records } = parseCsvRows(text);
       const rows = approvedRows(records, label);
-      const wrote = await mergeIntoTarget(targetPath, tab.key, rows);
+      const wrote = await mergeIntoTarget(targetPath, tab.key, rows, records.length > 0);
       console.log(`   ${label}: ${records.length} row(s) read, ${rows.length} approved, ${wrote ? 'written' : 'unchanged'}.`);
     } catch (error) {
       /* The last good file stays exactly where it is. */
