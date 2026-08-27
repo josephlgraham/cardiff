@@ -4,9 +4,16 @@
 # do not wait for an edition.
 #
 # Alerts, weather, and the gauge share one workflow and make ONE commit on
-# purpose. Every push to main rebuilds GitHub Pages, and Pages throttles at
-# roughly ten builds an hour. Three separate ten minute workflows would push
-# eighteen times an hour and start losing builds. One pushes six.
+# purpose: a reader gets one coherent update rather than three partial ones,
+# and the history stays legible.
+#
+# This comment used to say the single commit was holding back a flood of Pages
+# builds. It is not, and the real numbers are worth knowing before anyone
+# changes the schedule. GitHub throttles a dense cron hard and honors a sparse
+# one exactly. The */10 below asks for 144 runs a day and gets about thirty, a
+# median of 38 minutes apart. So this pushes roughly 1.6 times an hour against
+# a Pages limit of about ten an hour. The build ceiling is not what shapes this
+# file. Conditions on the site are about forty minutes old, not ten.
 #
 # The heavier work, the station history backfill, the forecast, air quality, and
 # the civic snapshot, stays in refresh-site-data.yml on its twice daily run.

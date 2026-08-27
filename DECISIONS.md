@@ -1020,12 +1020,37 @@ the evening Central. A morning edition and an evening edition.
 in it: the station history backfill, the watershed forecast, air quality, and
 the civic snapshot.
 
-**Alerts, weather, and the gauge share one workflow and make one commit.** This
-is the load bearing part. Every push to `main` rebuilds GitHub Pages, and Pages
-throttles at roughly ten builds an hour. Three separate ten minute workflows
-would push eighteen times an hour and start losing builds. One pushes six.
-Actions minutes are not the constraint: the repo is public, so minutes are free
-and unlimited. The build limit is the constraint.
+**Alerts, weather, and the gauge share one workflow and make one commit.** A
+reader gets one coherent update rather than three partial ones, and the history
+stays legible. Actions minutes are not the constraint either way: the repo is
+public, so minutes are free and unlimited.
+
+The original reason written here was that Pages throttles at roughly ten builds
+an hour, that three separate ten minute workflows would push eighteen times an
+hour and start losing builds, and that one pushes six. **That arithmetic never
+happened, and it is corrected here so nobody builds on it.**
+
+**Measured, August 2026: the ten minute cron does not run every ten minutes.**
+GitHub honors a sparse schedule exactly and throttles a dense one hard. Over
+four days `refresh-alerts.yml`, on this same `*/10` cron, got 119 runs. That is
+about thirty a day, not 144. The median gap between runs was 38 minutes, the
+ninetieth percentile 55, and the worst 107. Across those same days `0 */6` and
+`0 5,17` delivered four runs and two runs a day, every day, exactly as written.
+
+So one workflow pushes about 1.6 times an hour, not six, and three would push
+about five, not eighteen. Neither is anywhere near the build limit. Keeping the
+three in one commit is still right, for the reasons in the paragraph above, but
+it is not holding back a flood of builds and should not be defended that way.
+
+What a reader actually gets is worth stating plainly: conditions on this site
+are about forty minutes old, not ten. That is still well inside the useful
+window for a creek that takes three hours to crest, and every card carries its
+own timestamp, so nothing is claiming otherwise. The options are all worse. A
+denser cron is throttled harder. An hourly cron would be honored exactly but
+would make the common case worse, sixty minutes instead of thirty-eight, to buy
+back a tail this site can already absorb. Anything better needs something
+outside GitHub doing the triggering, and that is a dependency this site does not
+take. See CLAUDE.md on preferring the simpler option.
 
 The commit step stages each file only if something other than its own
 `updatedAt` stamp moved, so a quiet night does not rebuild the site 144 times
