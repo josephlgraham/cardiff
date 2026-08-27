@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-26T20:39:38.968Z",
+  "updatedAt": "2026-08-27T04:13:26.244Z",
   "counts": {
     "county": 3,
-    "obituaries": 3
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
@@ -10,13 +10,11 @@
     "creek": [],
     "county": [
       "news-1-wbrc-man-woman-killed-in-sunday-morning-crash-on-i-65-in-birmingh",
-      "news-2-abc-33-40-two-killed-in-crash-on-i-65-south-near-green-springs-avenue",
-      "news-3-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she"
+      "news-2-wvtm-13-bessemer-election-results-still-delayed-a-day-later-no-word-",
+      "news-3-abc-33-40-two-killed-in-crash-on-i-65-south-near-green-springs-avenue"
     ],
     "obituaries": [
-      "news-4-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
-      "news-5-trussville-tribune-robert-l-posey-march-10-1957-august-13-2026",
-      "news-6-trussville-tribune-frances-ethel-glidewell-august-14-1939-august-20-2026"
+      "news-4-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a"
     ]
   },
   "stories": [
@@ -37,7 +35,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -63,7 +61,49 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4KE5522BLJACNDNXS4G2HYBTFA.jpg?auth=0463bf440af907866db9323447751ac44774cd21ebc09a81bff0532dfbf6e164&smart=false"
     },
     {
-      "id": "news-2-abc-33-40-two-killed-in-crash-on-i-65-south-near-green-springs-avenue",
+      "id": "news-2-wvtm-13-bessemer-election-results-still-delayed-a-day-later-no-word-",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/vidthumb/3ab62fc7-b49b-4026-b18f-a8c83c4b48dd/37012248-dcf6-4c33-8e2d-463ea920dc91.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Bessemer election results still delayed a day later, no word on when results will be finalized",
+      "summary": "Final election results in Bessemer remain delayed after encrypted thumb drives were mistakenly sealed inside an election records box, according to the chairman of the Jefferson County Board of Registrars.",
+      "description": "Final election results in Bessemer remain delayed after encrypted thumb drives were mistakenly sealed inside an election records box, according to the chairman of the Jefferson County Board of Registrars.",
+      "url": "https://www.wvtm13.com/article/bessemer-election-results-still-delayed/73536800",
+      "link": "https://www.wvtm13.com/article/bessemer-election-results-still-delayed/73536800",
+      "published_at": "2026-08-27T01:01:00.000Z",
+      "date": "2026-08-27T01:01:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/vidthumb/3ab62fc7-b49b-4026-b18f-a8c83c4b48dd/37012248-dcf6-4c33-8e2d-463ea920dc91.jpg"
+    },
+    {
+      "id": "news-3-abc-33-40-two-killed-in-crash-on-i-65-south-near-green-springs-avenue",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -79,7 +119,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -103,48 +143,6 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/471/986/0x5/90/8355b79b-52da-43a2-b9c5-e0269a9b00d4-Ambulance1.jpg"
-    },
-    {
-      "id": "news-3-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she",
-      "section": "county",
-      "why": "jefferson county, utilities",
-      "town": "Jefferson County",
-      "tags": [
-        "Utilities"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "$412K+ in recycling grants awarded to Birmingham, Jefferson + Shelby counties",
-      "summary": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
-      "description": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
-      "url": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
-      "link": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
-      "published_at": "2026-08-25T21:13:24.000Z",
-      "date": "2026-08-25T21:13:24.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "utilities"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg"
     },
     {
       "id": "news-4-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
@@ -178,94 +176,6 @@
       "date": "2026-08-23T07:00:00.000Z",
       "location_tags": [
         "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-5-trussville-tribune-robert-l-posey-march-10-1957-august-13-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Robert L. Posey (March 10, 1957 — August 13, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Robert L. Posey (March 10, 1957 — August 13, 2026)",
-      "summary": "In Loving Memory of Robert L. Posey Robert L. Posey, a beloved son, brother, friend, and cherished member of his family, was born on March 10, 1957, in Gadsden, Alabama. He peacefully departed this life on August 13, 2026. Robert was a man whose presence brought joy wherever he went. He had a remarkable gift […]",
-      "description": "In Loving Memory of Robert L. Posey Robert L. Posey, a beloved son, brother, friend, and cherished member of his family, was born on March 10, 1957, in Gadsden, Alabama. He peacefully departed this life on August 13, 2026. Robert was a man whose presence brought joy wherever he went. He had a remarkable gift […]",
-      "url": "https://www.trussvilletribune.com/2026/08/26/robert-l-posey-march-10-1957-august-13-2026/",
-      "link": "https://www.trussvilletribune.com/2026/08/26/robert-l-posey-march-10-1957-august-13-2026/",
-      "published_at": "2026-08-26T14:07:52.000Z",
-      "date": "2026-08-26T14:07:52.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-trussville-tribune-frances-ethel-glidewell-august-14-1939-august-20-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Frances Ethel Glidewell (August 14, 1939 — August 20, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": "Wednesday, August 26"
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Frances Ethel Glidewell (August 14, 1939 — August 20, 2026)",
-      "summary": "Graveside services will be held on Wednesday, August 26th, 2026, at 10:00 a.m. at Jefferson Memorial Gardens for Frances Ethel Glidewell, age 87, of Roebuck area, who passed away on Thursday, August 20th, 2026. Frances cherished sharing moments with her son Dean over jigsaw puzzles and found comfort in reading the Bibl",
-      "description": "Graveside services will be held on Wednesday, August 26th, 2026, at 10:00 a.m. at Jefferson Memorial Gardens for Frances Ethel Glidewell, age 87, of Roebuck area, who passed away on Thursday, August 20th, 2026. Frances cherished sharing moments with her son Dean over jigsaw puzzles and found comfort in reading the Bibl",
-      "url": "https://www.trussvilletribune.com/2026/08/26/frances-ethel-glidewell-august-14-1939-august-20-2026/",
-      "link": "https://www.trussvilletribune.com/2026/08/26/frances-ethel-glidewell-august-14-1939-august-20-2026/",
-      "published_at": "2026-08-26T14:01:53.000Z",
-      "date": "2026-08-26T14:01:53.000Z",
-      "location_tags": [
-        "regional"
       ],
       "topic_tags": [
         "obituary"
