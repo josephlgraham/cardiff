@@ -1,4 +1,4 @@
-// Backfill fivemile-weather-archive.json from an Ambient Weather Network CSV export.
+// Backfill fivemile-weather-archive/ from an Ambient Weather Network CSV export.
 //
 //   node scripts/import-awn-csv.mjs <path-to-AWN-export.csv>
 //
@@ -10,11 +10,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const ARCHIVE_FILE = path.join(ROOT, 'fivemile-weather-archive.json');
+const ARCHIVE_DIR = path.join(ROOT, 'fivemile-weather-archive');
 
 function findColumn(headers, predicate) {
   const index = headers.findIndex(predicate);
@@ -77,7 +78,7 @@ async function main() {
   const sortedDates = [...byDate.keys()].sort();
   const partialDay = sortedDates[sortedDates.length - 1];
 
-  const archive = JSON.parse(await fs.readFile(ARCHIVE_FILE, 'utf8').catch(() => '{"days":[]}'));
+  const archive = await readYearArchive(ARCHIVE_DIR, { days: [] });
   const days = new Map((archive.days || []).map((d) => [d.date, d]));
 
   // Drop a stale partial-day entry unless something authoritative already owns it.
@@ -105,7 +106,7 @@ async function main() {
 
   const merged = [...days.values()].sort((a, b) => a.date.localeCompare(b.date));
   const payload = { updatedAt: new Date().toISOString(), days: merged };
-  await fs.writeFile(ARCHIVE_FILE, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+  await writeYearArchive(ARCHIVE_DIR, payload);
 
   console.log(`Imported ${written} complete day(s) from ${path.basename(csvPath)}.`);
   console.log(`Skipped partial export day: ${partialDay}.`);

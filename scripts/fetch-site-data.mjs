@@ -10,6 +10,7 @@ import {
   riseRatePerHour,
   trendFrom
 } from './fetch/usgs-gauge.mjs';
+import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,9 +21,9 @@ const RAIN_LOG_FILE = path.join(ROOT, 'fivemile-rain-log.json');
 const WATERSHED_FILE = path.join(ROOT, 'fivemile-watershed.json');
 const AIR_QUALITY_FILE = path.join(ROOT, 'fivemile-air-quality.json');
 const COMMUNITY_SNAPSHOT_FILE = path.join(ROOT, 'fivemile-community-snapshot.json');
-const WEATHER_ARCHIVE_FILE = path.join(ROOT, 'fivemile-weather-archive.json');
+const WEATHER_ARCHIVE_DIR = path.join(ROOT, 'fivemile-weather-archive');
 const WATERSHED_FORECAST_FILE = path.join(ROOT, 'fivemile-watershed-weather.json');
-const CREEK_ARCHIVE_FILE = path.join(ROOT, 'fivemile-creek-archive.json');
+const CREEK_ARCHIVE_DIR = path.join(ROOT, 'fivemile-creek-archive');
 
 /* West to east, which is the order every list of the three towns is written
    in. See DECISIONS.md 1. The pages that read this file look their town up by
@@ -412,7 +413,7 @@ async function updateWeatherFile() {
   // Patch yesterday's rain with local station data. The regional model (Open-Meteo)
   // often underreports convective rainfall. The AWN archive is the authoritative source.
   try {
-    const archive = await readJson(WEATHER_ARCHIVE_FILE, { days: [] });
+    const archive = await readYearArchive(WEATHER_ARCHIVE_DIR, { days: [] });
     const yesterdayKey = shiftDayKey(localDateKey(obsDate), -1);
     const archiveDay = (archive.days || []).find((d) => d.date === yesterdayKey);
     if (archiveDay && Number.isFinite(archiveDay.rain)) {
@@ -689,7 +690,7 @@ async function updateCreekArchive(daily, gauge) {
     console.log('No completed creek days to archive this run.');
     return null;
   }
-  const archive = await readJson(CREEK_ARCHIVE_FILE, { updatedAt: '', gaugeId: '', gaugeName: '', days: [] });
+  const archive = await readYearArchive(CREEK_ARCHIVE_DIR, { updatedAt: '', gaugeId: '', gaugeName: '', days: [] });
   const days = new Map((archive.days || []).map((day) => [day.date, day]));
   let written = 0;
   for (const [dateKey, record] of daily) {
@@ -705,8 +706,8 @@ async function updateCreekArchive(daily, gauge) {
     gaugeName: gauge?.name || '',
     days: merged
   };
-  await writeJson(CREEK_ARCHIVE_FILE, payload);
-  console.log(`Updated ${path.basename(CREEK_ARCHIVE_FILE)}: ${written} day(s) written, ${merged.length} total`);
+  const result = await writeYearArchive(CREEK_ARCHIVE_DIR, payload);
+  console.log(`Updated ${path.basename(CREEK_ARCHIVE_DIR)}/: ${written} day(s) written, ${merged.length} total, year file(s) touched: ${result.written.join(', ') || 'none'}`);
   return payload;
 }
 
@@ -716,7 +717,7 @@ async function updateWatershedFile(weatherPayload = null, options = {}) {
      ten minute run and the next. Running it on the ten minute job fetched
      about four megabytes 144 times a day to learn nothing the short window
      does not already say. It runs on the twice daily job now, where
-     fivemile-creek-archive.json is already committed. A missed run still
+     fivemile-creek-archive/ is already committed. A missed run still
      heals, at the slower cadence. See DECISIONS.md 36. */
   const withArchive = options.archive !== false;
   const weather = weatherPayload || await readJson(WEATHER_FILE, { rain: null });
@@ -1059,7 +1060,7 @@ async function updateWeatherArchiveFromHistory(obsDate) {
     return;
   }
 
-  const archive = await readJson(WEATHER_ARCHIVE_FILE, { updatedAt: '', days: [] });
+  const archive = await readYearArchive(WEATHER_ARCHIVE_DIR, { updatedAt: '', days: [] });
   const days = new Map((archive.days || []).map((d) => [d.date, d]));
   const todayKey = localDateKey(obsDate);
 
@@ -1086,8 +1087,8 @@ async function updateWeatherArchiveFromHistory(obsDate) {
 
   const merged = [...days.values()].sort((a, b) => a.date.localeCompare(b.date));
   const payload = { updatedAt: new Date().toISOString(), days: merged };
-  await writeJson(WEATHER_ARCHIVE_FILE, payload);
-  console.log(`Updated ${path.basename(WEATHER_ARCHIVE_FILE)}: ${written} day(s) refreshed, ${merged.length} total`);
+  const archiveResult = await writeYearArchive(WEATHER_ARCHIVE_DIR, payload);
+  console.log(`Updated ${path.basename(WEATHER_ARCHIVE_DIR)}/: ${written} day(s) refreshed, ${merged.length} total, year file(s) touched: ${archiveResult.written.join(', ') || 'none'}`);
   return payload;
 }
 
@@ -1143,7 +1144,7 @@ async function main() {
     } catch (error) {
       console.error('Weather update failed (continuing):', error.message);
     }
-    await patchYesterdayFromArchive(live, await readJson(WEATHER_ARCHIVE_FILE, { days: [] }));
+    await patchYesterdayFromArchive(live, await readYearArchive(WEATHER_ARCHIVE_DIR, { days: [] }));
     try {
       await updateWatershedFile(live, { archive: false });
     } catch (error) {

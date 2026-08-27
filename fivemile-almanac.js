@@ -20,7 +20,7 @@
   if (!FA) return;
 
   const WX_URL = "fivemile-weather.json";
-  const ARCHIVE_URL = "fivemile-weather-archive.json";
+  const ARCHIVE_DIR = "fivemile-weather-archive";
   const AIR_QUALITY_URL = "fivemile-air-quality.json";
   const WATERSHED_URL = "fivemile-watershed.json";
   const WATERSHED_FORECAST_URL = "fivemile-watershed-weather.json";
@@ -808,9 +808,7 @@
 
   async function loadPrevDayFromArchive() {
     try {
-      const response = await fetch(ARCHIVE_URL, { cache: "no-store" });
-      if (!response.ok) return null;
-      const data = await response.json();
+      const data = await window.FivemileYearArchive(ARCHIVE_DIR);
       const days = Array.isArray(data.days) ? data.days : [];
       if (!days.length) return null;
       const todayKey = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date());

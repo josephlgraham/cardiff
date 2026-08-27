@@ -78,7 +78,7 @@ jobs:
           # whole batch: the rain log is 50 KB and only gains a sample once an
           # hour, so without this it would ride along on the weather file's
           # coat-tails 144 times a day. See DECISIONS.md 30.
-          for f in ticker.json fivemile-weather.json fivemile-watershed.json fivemile-rain-log.json fivemile-creek-archive.json; do
+          for f in ticker.json fivemile-weather.json fivemile-watershed.json fivemile-rain-log.json; do
             [ -f "$f" ] || continue
             git add "$f"
             moved=$(git diff --cached -U0 -- "$f" | grep -E '^[+-]' | grep -Ev '^(\+\+\+|---)' | grep -v '"updatedAt"' | head -1)

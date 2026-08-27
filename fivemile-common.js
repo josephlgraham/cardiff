@@ -872,3 +872,54 @@
   }
 
 })();
+
+
+// ─────────────────────────────────────────────────────────────────────
+//  Year archives
+//
+//  The weather and creek archives are stored one file per year under a
+//  directory, with an index.json naming the years, because a day that closed
+//  in March never changes again and rewriting it every night put a fresh copy
+//  of the whole record in git history each time. See scripts/lib/year-archive.mjs.
+//
+//  Pages want the whole record as one object, so this puts it back together.
+//  A year that will not load is treated as a gap rather than as an empty
+//  archive: better to draw eleven months than none.
+// ─────────────────────────────────────────────────────────────────────
+(function () {
+  function grab(url) {
+    return fetch(url, { cache: 'no-cache' }).then(function (response) {
+      if (!response.ok) throw new Error(String(response.status));
+      return response.json();
+    });
+  }
+
+  window.FivemileYearArchive = function (dir) {
+    return grab(dir + '/index.json').then(function (index) {
+      var years = (index && index.years) || [];
+      var out = {};
+      Object.keys(index || {}).forEach(function (key) {
+        if (key !== 'years') out[key] = index[key];
+      });
+      if (!years.length) {
+        out.days = [];
+        return out;
+      }
+      return Promise.all(years.map(function (entry) {
+        return grab(dir + '/' + entry.year + '.json').catch(function () {
+          return { days: [] };
+        });
+      })).then(function (parts) {
+        var days = [];
+        parts.forEach(function (part) {
+          if (part && part.days && part.days.length) days = days.concat(part.days);
+        });
+        days.sort(function (a, b) {
+          return String(a.date).localeCompare(String(b.date));
+        });
+        out.days = days;
+        return out;
+      });
+    });
+  };
+})();

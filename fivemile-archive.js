@@ -37,8 +37,8 @@
   var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   var PHOTO_FILE = 'fivemile-home-anchor.json';
-  var WEATHER_FILE = 'fivemile-weather-archive.json';
-  var CREEK_FILE = 'fivemile-creek-archive.json';
+  var WEATHER_DIR = 'fivemile-weather-archive';
+  var CREEK_DIR = 'fivemile-creek-archive';
   var NEWS_INDEX = 'news-archive/index.json';
 
   function esc(value) {
@@ -52,6 +52,12 @@
       if (!response.ok) throw new Error(String(response.status));
       return response.json();
     });
+  }
+
+  /* Year archives come back through the shared loader in fivemile-common.js,
+     which stitches the year files back into one object. */
+  function loadArchive(dir) {
+    return window.FivemileYearArchive(dir);
   }
 
   function byId(id) { return document.getElementById(id); }
@@ -435,7 +441,7 @@
   function loadWeather() {
     var reel = byId('weatherReel');
     if (!reel) return;
-    loadJson(WEATHER_FILE).then(function (data) {
+    loadArchive(WEATHER_DIR).then(function (data) {
       var days = sortedDays(data);
       if (!days.length) return;
       var months = groupByMonth(days, function (day) { return day.date; });
@@ -505,7 +511,7 @@
   function loadCreek() {
     var reel = byId('creekReel');
     if (!reel) return;
-    loadJson(CREEK_FILE).then(function (data) {
+    loadArchive(CREEK_DIR).then(function (data) {
       var days = sortedDays(data);
       if (!days.length) return;
       var months = groupByMonth(days, function (day) { return day.date; });
@@ -810,7 +816,7 @@
   }
 
   function hubWeather() {
-    loadJson(WEATHER_FILE).then(function (data) {
+    loadArchive(WEATHER_DIR).then(function (data) {
       var days = sortedDays(data);
       if (!days.length) return;
       var sum = weatherSummary(days);
@@ -824,7 +830,7 @@
   }
 
   function hubCreek() {
-    loadJson(CREEK_FILE).then(function (data) {
+    loadArchive(CREEK_DIR).then(function (data) {
       var days = sortedDays(data);
       if (!days.length) return;
       var sum = creekSummary(days);
