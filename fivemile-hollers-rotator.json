@@ -1,235 +1,122 @@
 {
-  "updatedAt": "2026-04-11T00:00:00-05:00",
+  "updated": "2026-08-27",
+  "about": "The jokebox and the quiz. Jokes and riddles are written for this site, so there is no licensing question hanging over them. Quiz questions come out of fivemile-heritage.json and every answer names the fact it came from, so a reader who doubts one can go and check it. Add a joke by adding a row. Nothing here needs a build step.",
   "jokes": [
-    {
-      "id": "joke-atoms",
-      "title": "Trust issues",
-      "body": "Why don't scientists trust atoms? Because they make up everything.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-eyebrows",
-      "title": "High expectations",
-      "body": "I told my wife she was drawing her eyebrows too high. She looked surprised.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-two-tired",
-      "title": "Road trouble",
-      "body": "Why did the bicycle fall over? It was two-tired.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-anti-gravity",
-      "title": "Good read",
-      "body": "I'm reading a book about anti-gravity. It's impossible to put down.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-scarecrow",
-      "title": "Employee of the month",
-      "body": "Why did the scarecrow win an award? Because he was outstanding in his field.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-facial-hair",
-      "title": "Grew on me",
-      "body": "I used to hate facial hair. But it grew on me.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-eggs",
-      "title": "Hard crowd",
-      "body": "Why don't eggs tell jokes? They'd crack each other up.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-astronaut",
-      "title": "Just a little space",
-      "body": "Did you hear about the claustrophobic astronaut? He just needed a little space.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-coffee-mugged",
-      "title": "Rough morning",
-      "body": "Why did the coffee file a police report? It got mugged.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-25-letters",
-      "title": "Missing one",
-      "body": "I only know 25 letters of the alphabet. I don't know y.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-fish-no-eyes",
-      "title": "Spelling problem",
-      "body": "What do you call a fish without eyes? A fsh.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-construction",
-      "title": "Work in progress",
-      "body": "I have a joke about construction. I'm still working on it.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-cow-bells",
-      "title": "Technical difficulty",
-      "body": "Why do cows wear bells? Because their horns don't work.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-nacho-cheese",
-      "title": "Disputed property",
-      "body": "What do you call cheese that isn't yours? Nacho cheese.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-seafood-diet",
-      "title": "Strict regimen",
-      "body": "I'm on a seafood diet. I see food and I eat it.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-nose-foot",
-      "title": "Measurements",
-      "body": "Why can't a nose be 12 inches long? Because then it'd be a foot.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-ocean-waved",
-      "title": "Brief conversation",
-      "body": "What did the ocean say to the beach? Nothing, it just waved.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-dino-snore",
-      "title": "Prehistoric nap",
-      "body": "What do you call a sleeping dinosaur? A dino-snore.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-hole-in-one",
-      "title": "Prepared",
-      "body": "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-impasta",
-      "title": "Not who they say",
-      "body": "What do you call a fake noodle? An impasta.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-negative-numbers",
-      "title": "Stop at nothing",
-      "body": "Did you hear about the mathematician afraid of negative numbers? He'll stop at nothing to avoid them.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-mood-ring",
-      "title": "Hard to say",
-      "body": "Someone stole my mood ring. I don't know how I feel about that.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-baseball-hit-me",
-      "title": "Late realization",
-      "body": "I couldn't figure out why the baseball kept getting bigger. Then it hit me.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-flamingo",
-      "title": "Firm stance",
-      "body": "My wife told me to stop acting like a flamingo. I had to put my foot down.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-paper-tearable",
-      "title": "Bad material",
-      "body": "I would tell a joke about paper, but it's tearable.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-gym-closed",
-      "title": "Out of business",
-      "body": "Why did the gym close down? It just didn't work out.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-gummy-bear",
-      "title": "Dental work",
-      "body": "What do you call a bear with no teeth? A gummy bear.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-cant-opener",
-      "title": "Product recall",
-      "body": "What do you call a can opener that doesn't work? A can't opener.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-teleportation",
-      "title": "Good book",
-      "body": "I'm reading a book about teleportation. It's bound to take me somewhere.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    },
-    {
-      "id": "joke-cardiff-traffic-report",
-      "title": "Cardiff traffic report",
-      "body": "Traffic was rough this morning. I had to wait on a dog, a mower, and a neighbor wanting to talk.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
-    }
+    { "id": "joke-fine-print", "title": "Fine print", "body": "I read an entire terms of service once. As far as I can tell I now own a boat, and I cannot find it." },
+    { "id": "joke-bagging-area", "title": "Bagging area", "body": "The self checkout asked if I needed help. I said yes. It said unexpected item in the bagging area." },
+    { "id": "joke-percentages", "title": "Percentages", "body": "The forecast said zero percent chance of rain. That is how I learned percentages are just a mood." },
+    { "id": "joke-shy-and-mean", "title": "Shy and mean", "body": "The printer only jams when somebody is watching. It is shy, and it is mean." },
+    { "id": "joke-battery", "title": "Battery life", "body": "My phone drops from 100 to 99 in four seconds, then sits on 1 percent for an hour. That is not a battery, that is a personality." },
+    { "id": "joke-sign-off", "title": "Sign off", "body": "I ended an email with the word best and then thought about it for the rest of the day." },
+    { "id": "joke-season-to-taste", "title": "Season to taste", "body": "The recipe said season to taste. I tasted it. It needs a different recipe." },
+    { "id": "joke-closer", "title": "Closer", "body": "I bought a treadmill so I would quit making excuses. Now the excuse is closer." },
+    { "id": "joke-backup-alarms", "title": "Backup", "body": "I set eight alarms. The first seven are only there to warn the eighth." },
+    { "id": "joke-in-for-milk", "title": "In for milk", "body": "I went in for milk and came out with eighty dollars of things that are not milk. And no milk." },
+    { "id": "joke-gifted", "title": "Gifted", "body": "I have killed four succulents. They are supposed to be impossible to kill. I am not proud, I am gifted." },
+    { "id": "joke-extra-screws", "title": "Two left over", "body": "The instructions had eleven steps and there are two screws left over. I have decided the screws are a test and that I am passing." },
+    { "id": "joke-later", "title": "Later", "body": "I said I would get to it later. Later has been fully booked since about 2019." },
+    { "id": "joke-agenda", "title": "Agenda", "body": "That meeting could have been an email. That email could have been a shrug." },
+    { "id": "joke-directions", "title": "Directions", "body": "Everybody here gives directions by what used to be there. Turn where the store was. I have never seen the store. I turn anyway." },
+    { "id": "joke-rooster", "title": "Rooster", "body": "The smoke alarm only wants a battery at three in the morning. That is not a safety device, that is a rooster." },
+    { "id": "joke-helpful", "title": "Helpful", "body": "I asked the smart speaker to turn the lights off and it ordered a lamp." },
+    { "id": "joke-legal-u-turn", "title": "Legal U turn", "body": "The GPS told me to make a legal U turn, which felt like a lot of pressure to go and find a lawyer." }
   ],
   "riddles": [
+    { "id": "riddle-creek", "body": "I run five miles and never get tired. I have a mouth but I never speak, and a bed I never sleep in.", "answer": "A creek." },
+    { "id": "riddle-gauge", "body": "I go up when the rain comes down.", "answer": "The creek gauge." },
+    { "id": "riddle-forecast", "body": "I am read every morning and wrong by the afternoon.", "answer": "The forecast." },
+    { "id": "riddle-phone", "body": "I have keys but I open nothing, and I go everywhere with you without ever leaving your pocket.", "answer": "A phone." },
+    { "id": "riddle-moon", "body": "I am full once a month and I have never eaten a thing.", "answer": "The moon." },
+    { "id": "riddle-fog", "body": "The more of me there is, the less you can see.", "answer": "Fog." }
+  ],
+  "quiz": [
     {
-      "id": "riddle-runs-all-through-cardiff",
-      "question": "What runs all through Cardiff but never wears a shoe?",
-      "answer": "Five Mile Creek.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-cardiff-named",
+      "fact": "cardiff-named",
+      "q": "Cardiff took its name from what?",
+      "choices": ["A coal company owner", "A town in Wales", "A bend in the creek", "A railroad stop"],
+      "answer": 1,
+      "note": "Isaac Price named the mine for Cardiff in Wales, and the town took the mine's name. It is one of four places in Jefferson County named for somewhere in Britain."
     },
     {
-      "id": "riddle-shows-up-after-a-rain",
-      "question": "What shows up after a rain, tells the truth, and never says a word?",
-      "answer": "Tracks in the mud.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-gintown",
+      "fact": "graysville-gintown",
+      "q": "What did people call Graysville before it was Graysville?",
+      "choices": ["Grays Mill", "Gin Town", "Cotton Bend", "Five Mile"],
+      "answer": 1,
+      "note": "There was one cotton gin for miles and it was here, so Gin Town is what people called it. Who the Grays were, and when the name changed, nobody seems to have written down."
     },
     {
-      "id": "riddle-belongs-to-the-whole-town",
-      "question": "What belongs to the whole town but gets used one porch at a time?",
-      "answer": "Good neighbor advice.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-first-charter",
+      "fact": "graysville-incorporated",
+      "q": "Which of the three towns incorporated first?",
+      "choices": ["Graysville", "Cardiff", "Brookside"],
+      "answer": 0,
+      "note": "Graysville incorporated in 1897, Brookside in 1898, and Cardiff in January 1900."
     },
     {
-      "id": "riddle-gets-louder-the-stiller-it-gets",
-      "question": "What gets louder the stiller the woods get?",
-      "answer": "A barred owl after dark.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-slovak-share",
+      "fact": "brookside-slovak-share",
+      "q": "By 1910, roughly how much of Brookside was Slovak?",
+      "choices": ["About 5 percent", "About 15 percent", "About 37 percent", "About 60 percent"],
+      "answer": 2,
+      "note": "By 1910 Slovak families made up roughly 37 percent of Brookside."
     },
     {
-      "id": "riddle-more-you-take",
-      "question": "The more you take, the more you leave behind. What am I?",
-      "answer": "Footsteps.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-ovens",
+      "fact": "brookside-ovens",
+      "q": "How many beehive coke ovens did Sloss run at Brookside?",
+      "choices": ["48", "112", "288", "640"],
+      "answer": 2,
+      "note": "Sloss ran 288 domed brick ovens at Brookside, built shoulder to shoulder so they would hold each other's heat."
     },
     {
-      "id": "riddle-speak-without-mouth",
-      "question": "I speak without a mouth and hear without ears. I have no body but come alive with the wind. What am I?",
-      "answer": "An echo.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-primrose",
+      "fact": "cardiff-primrose",
+      "q": "The Cardiff miners put together a football club called the Primrose. What did it win in 1898?",
+      "choices": ["The Alabama Foot Ball Association Cup", "A county fair ribbon", "A brass band contest", "A coal output prize"],
+      "answer": 0,
+      "note": "The Welsh and Scottish miners at Cardiff put together a football club and called it the Primrose. In 1898 it won the Alabama Foot Ball Association Cup."
     },
     {
-      "id": "riddle-full-of-holes",
-      "question": "I'm full of holes but still hold water. What am I?",
-      "answer": "A sponge.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-mine-closes",
+      "fact": "brookside-mine-closes",
+      "q": "What shut the Brookside mine in 1920?",
+      "choices": ["A fire underground", "A strike and a collapse in coal prices", "The creek flooding the works", "The seam running out"],
+      "answer": 1,
+      "note": "A United Mine Workers strike and a worldwide collapse in coal prices shut the mine in 1920. The strike was settled in 1921 and the mine never went back to work."
     },
     {
-      "id": "riddle-always-before-you",
-      "question": "What is always in front of you but can't be seen?",
-      "answer": "The future.",
-      "feedback": { "laugh": 0, "grin": 0, "helpful": 0 }
+      "id": "q-charter-pulled",
+      "fact": "graysville-charter-pulled",
+      "q": "Alabama revoked the Graysville charter in 1927 on what grounds?",
+      "choices": ["Unpaid debts", "A boundary dispute", "Inactivity", "Failure to hold an election"],
+      "answer": 2,
+      "note": "The state revoked the charter in 1927 on the grounds of inactivity. For the next eighteen years there was no town government here."
+    },
+    {
+      "id": "q-reincorporated",
+      "fact": "graysville-reincorporated",
+      "q": "Graysville reincorporated in 1945 mainly so it could do what?",
+      "choices": ["Build and run its own water system", "Start a police force", "Pave the roads", "Open a school"],
+      "answer": 0,
+      "note": "Graysville reincorporated on November 17, 1945, mainly so it could build and run its own water system."
+    },
+    {
+      "id": "q-cardiff-2020",
+      "fact": "cardiff-fifty-two",
+      "q": "How many people did the 2020 census count in Cardiff?",
+      "choices": ["52", "146", "562", "1,409"],
+      "answer": 0,
+      "note": "The 2020 census counted 52 people in Cardiff, on 0.21 square miles. In 1900 it was 562."
+    },
+    {
+      "id": "q-cardiff-fire",
+      "fact": "cardiff-fire",
+      "q": "What happened in Cardiff on July 20, 1919?",
+      "choices": ["The mine flooded", "Downtown burned", "The charter was pulled", "The railroad pulled out"],
+      "answer": 1,
+      "note": "The Cardiff downtown burned on July 20, 1919, and the fortunes of the town turned down with it."
     }
   ]
 }

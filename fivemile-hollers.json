@@ -1,0 +1,19 @@
+{
+  "updated": "2026-08-27",
+  "about": "The board. One row per notice. Somebody sends in the details, we type them here, and the page does the rest. The text is what a reader gets: it is what a screen reader reads out and what shows on a phone, so it has to carry the notice on its own. An image, if there is one, sits underneath and is never the only place the details live. runsUntil is the last day the notice shows, in YYYY-MM-DD. After that the page stops showing it and the row stays here, because a supper that already happened is still a record of a supper. Set paid to true on anything that was paid for and the card says so on its face.",
+  "fields": {
+    "id": "Short slug, unique, never reused.",
+    "title": "What it is, in a few words.",
+    "town": "Graysville, Cardiff, Brookside, or leave it out if it is none of the three.",
+    "kind": "Free label. Church, Business, Neighbor, Town.",
+    "body": "A sentence or two in plain language. What is happening and why somebody would care.",
+    "when": "Date and time as a person would say it. Leave out if there is no date.",
+    "where": "Place a person could drive to. Leave out if there is no place.",
+    "contact": "Phone, email, or a name. Whatever the sender wants printed.",
+    "runsUntil": "YYYY-MM-DD. The last day it shows.",
+    "paid": "true or false.",
+    "image": "Optional path under fivemile_photos. Never the only place the details live.",
+    "imageAlt": "Required whenever image is set. Describe the flyer, do not repeat the body."
+  },
+  "notices": []
+}
