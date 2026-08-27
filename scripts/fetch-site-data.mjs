@@ -12,6 +12,7 @@ import {
   trendFrom
 } from './fetch/usgs-gauge.mjs';
 import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
+import { refreshCms } from './fetch/sheets-cms.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1210,6 +1211,16 @@ async function main() {
     await updateWatershedFile(weather);
   } catch (error) {
     console.error('Watershed update failed (continuing):', error.message);
+  }
+  /* The sheet is the editorial surface. It runs on the twice daily job
+     because a notice typed at the kitchen table does not need to be live in
+     ten minutes, and because the published CSV endpoint is flaky enough that
+     asking it 144 times a day would be rude as well as pointless. */
+  try {
+    console.log('Reading the Google Sheet:');
+    await refreshCms();
+  } catch (error) {
+    console.error('Sheet refresh failed (continuing):', error.message);
   }
   try {
     await updateCreekPeaksFile();

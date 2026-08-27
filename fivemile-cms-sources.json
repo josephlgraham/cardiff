@@ -1,0 +1,13 @@
+{
+  "_readme": {
+    "what": "Where the Google Sheet CMS lives. One published tab per entry. These are committed rather than kept as GitHub secrets on purpose: a published-to-web URL is public and read only, so it is not a secret and treating it like one would only make it harder to find when something breaks.",
+    "howToChange": "File > Share > Publish to web in the sheet, expand Published content & settings, tick the tab, then read its gid out of the link the dialog gives you. The token is the same for every tab in one document.",
+    "sheet": "https://docs.google.com/spreadsheets/d/1DSEftjrDTDoIrDT9rpuj7v2K3BZCqwP9jaI_kNVTY4g/edit",
+    "publishing": "Only rows with status set to approved are written to the site. Anything else, including a blank status, stays off. Note that the published CSV itself carries every row, drafts included, so nothing typed into this sheet should be treated as private."
+  },
+  "token": "2PACX-1vSRP-41lnTgOTFecjp96CHlNHZizVBjTsQcv0r_TQPjJNHacRCz3kz8I4dNpALcVCw53mL2eBu0-Fys",
+  "tabs": {
+    "notices": { "gid": "0", "target": "fivemile-hollers.json", "key": "notices" },
+    "announcements": { "gid": "950133181", "target": "announcements.json", "key": "announcements" }
+  }
+}
