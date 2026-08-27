@@ -511,6 +511,15 @@ function historyPoints(readings, maxPoints = 120) {
    rebuilds the whole line from the full pull, so any drift this introduces is
    corrected twice a day rather than accumulating.
 
+   The thinning walks even steps in TIME, not every nth reading. Both charts
+   that draw this line place a point by its position in the array rather than
+   by its timestamp, so a day holding more points than its neighbours is drawn
+   wider than them. Striding by index kept every fresh fifteen minute reading
+   for today against six hour gaps for every day before it, and today swelled
+   to a fifth of the chart. Even steps in time put every day back on the same
+   footing. The last step lands exactly on the newest reading, so the right
+   edge of the chart stays current.
+
    Timestamps are compared as instants, not strings: the file on disk carries a
    local offset from the legacy API and the modernized one answers in UTC, so
    the same reading can be written two ways. */
@@ -527,17 +536,31 @@ function mergeHistory(previous, freshRows, maxPoints = 120, windowDays = 30) {
   const cutoff = Date.now() - windowDays * 24 * 3600 * 1000;
   const ordered = [...byInstant.entries()]
     .filter(([stamp]) => stamp >= cutoff)
-    .sort((a, b) => a[0] - b[0])
-    .map(([, entry]) => entry);
-  if (ordered.length <= maxPoints) return ordered;
+    .sort((a, b) => a[0] - b[0]);
+  if (ordered.length <= maxPoints) return ordered.map(([, entry]) => entry);
 
-  const stride = (ordered.length - 1) / (maxPoints - 1);
-  const trimmed = [];
+  const first = ordered[0][0];
+  const last = ordered[ordered.length - 1][0];
+  const span = last - first;
+  if (span <= 0) return ordered.slice(-maxPoints).map(([, entry]) => entry);
+
+  const step = span / (maxPoints - 1);
+  const picked = [];
+  let cursor = 0;
   for (let index = 0; index < maxPoints; index += 1) {
-    const entry = ordered[Math.round(index * stride)];
-    if (entry) trimmed.push(entry);
+    const target = first + index * step;
+    while (
+      cursor + 1 < ordered.length &&
+      Math.abs(ordered[cursor + 1][0] - target) <= Math.abs(ordered[cursor][0] - target)
+    ) {
+      cursor += 1;
+    }
+    const entry = ordered[cursor][1];
+    /* A stretch with no readings in it lands on the same one twice. Keep it
+       once: a repeated point would draw a flat run the gauge never reported. */
+    if (!picked.length || picked[picked.length - 1] !== entry) picked.push(entry);
   }
-  return trimmed;
+  return picked;
 }
 
 /* The permanent creek record.
