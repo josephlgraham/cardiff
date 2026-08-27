@@ -50,6 +50,37 @@ There is no backend. No database, no Supabase, no serverless functions, no
 third party form services, no ad networks. If a feature seems to need one, say
 so and stop rather than adding one.
 
+Nothing on a page talks to the outside world. The browser reads JSON files
+committed to this repo and nothing else. No third party API is called at
+runtime, and no API key ever appears in browser code. If a page needs a number
+from somewhere else, a scheduled job fetches it and commits it, and the page
+reads the file.
+
+Prefer the simpler option. If a flat file does the job, use a flat file rather
+than a service.
+
+## Data
+
+Every fetch happens at build time, in GitHub Actions, on a schedule. The job
+writes a plain JSON file into the repo and commits it. A visitor waits on this
+repo and never on someone else's server, so a bad day at USGS or the EPA is not
+a bad day for the site.
+
+Google Sheets is the editorial surface. Joe types into a spreadsheet, the next
+scheduled run picks it up, and the site updates. No admin login, no database,
+no deploy step.
+
+Conventions:
+
+- ES modules, `.mjs`, Node 20.
+- Fetchers live in `/scripts`. New ones are one file per source. The older
+  combined scripts get split the same way as we touch them, not in one pass.
+- Output is a committed `fivemile-*.json` at the repo root, alongside the rest.
+  There is no `/data` directory, and adding one would strand every fetch path
+  in the front end and every entry in the service worker cache list.
+- One source being down never fails the run. Catch it, keep the last good file,
+  log what happened, and let every other source finish.
+
 ## Hard rules
 
 **Town order is Graysville, Cardiff, Brookside.** West to east. Every list,

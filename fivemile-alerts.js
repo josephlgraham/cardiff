@@ -143,49 +143,81 @@ async function fetchSpcOutlookLines() {
 
 
 // ─────────────────────────────────────────────────────────────────────
-//  USGS gauge flood stage thresholds — Five Mile Creek near Republic
+//  USGS gauge thresholds, Five Mile Creek near Republic
 //
-//  Verify / update thresholds at:
-//    USGS: https://waterdata.usgs.gov/nwis/uv?site_no=02457595
+//  Readings come from the modernized Water Data API through
+//  scripts/fetch/usgs-gauge.mjs. The legacy WaterServices host this used to
+//  call is being decommissioned in early 2027 and starts throttling before
+//  then, which is not a thing to discover during high water.
+//
+//  Verify thresholds at:
+//    USGS: https://waterdata.usgs.gov/monitoring-location/02457595/
 //    NWS:  https://water.noaa.gov/gauges/RPBAL
 //
-//  Reads from fivemile-watershed.json (updated every 6 hours by the
-//  watershed workflow) — no extra API call needed here.
+//  NEEDS-CONFIRMATION: actionStage and floodStage below are inherited and have
+//  never been checked against NWS. For context, 37 years of annual peaks at
+//  this gauge (1989 to 2025) put the median annual peak at 11.85 ft, which is
+//  above the 10.0 ft action stage, so that line is crossed in most years. The
+//  record is 25.41 ft on 2003-05-07. Flood stage is a damage threshold set by
+//  NWS, not a percentile, so these numbers want confirming rather than
+//  recalculating.
 // ─────────────────────────────────────────────────────────────────────
 
 const GAUGE = {
   id:          '02457595',
   label:       'Five Mile Creek at Republic',
-  actionStage: 10.0,  // ft — low-lying areas begin to flood
-  floodStage:  14.0   // ft — NWS flood stage (verify at links above)
+  actionStage: 10.0,  // ft, low-lying areas begin to flood
+  floodStage:  14.0,  // ft, NWS flood stage (verify at the links above)
+
+  /* Republic sits upstream of Brookside, Cardiff, and Graysville, so a fast
+     climb here is the earliest warning this site can give. The creek is
+     flashy: at their steepest the last three events on record climbed 4.51,
+     5.38, and 3.11 ft an hour, against well under a tenth of a foot an hour in
+     quiet weather. One foot an hour sits clear of an ordinary day and well
+     under a peak, which is where a warning belongs.
+
+     NEEDS-CONFIRMATION: calibrated from three events. Worth revisiting after
+     the next high water. */
+  rapidRiseFtPerHour: 1.0
 };
 
 async function fetchGaugeAlertLines() {
   const lines = [];
   try {
-    // Query USGS Instantaneous Values directly — gives a fresh reading every run
-    // rather than relying on the 6-hour watershed file, which matters during fast-rising events
-    const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${GAUGE.id}&parameterCd=00065&siteStatus=all&period=PT3H`;
-    const data = await fetchJson(url);
+    /* Queried directly rather than read from fivemile-watershed.json, because
+       alerts run first in the workflow and a rising creek is the one thing
+       worth nothing if it is six hours old. */
+    const usgs = await import('./scripts/fetch/usgs-gauge.mjs');
+    const now = new Date();
+    const readings = await usgs.fetchSeries(
+      [GAUGE.id],
+      [usgs.PARAM.STAGE],
+      new Date(now.getTime() - 3 * 3600 * 1000),
+      now
+    );
+    const rows = usgs.readingsFor(readings, GAUGE.id, usgs.PARAM.STAGE);
 
-    const timeSeries = data?.value?.timeSeries || [];
-    const stageSeries = timeSeries.find(s => s?.variable?.variableCode?.[0]?.value === '00065');
-    const values = (stageSeries?.values?.[0]?.value || [])
-      .map(v => Number(v.value))
-      .filter(v => Number.isFinite(v));
+    /* latestOf returns null on a stale timestamp, which is how a dead gauge
+       now announces itself. The gauge downstream at Sayre has been answering
+       with a year old reading since 2025-07-07. */
+    const latest = usgs.latestOf(rows);
+    if (!latest) {
+      console.log('   Gauge returned nothing current.');
+      return lines;
+    }
 
-    if (!values.length) return lines;
+    const stage = latest.value;
+    const rate = usgs.riseRatePerHour(rows);
+    const rising = usgs.trendFrom(rows) === 'rising';
 
-    const latest  = values[values.length - 1];
-    const earlier = values[0];
-    const rising  = (values.length >= 2) && (latest - earlier) >= 0.05; // ≥ 0.05 ft rise over 3 hrs
+    console.log(`   Gauge: ${GAUGE.label}, ${stage.toFixed(2)} ft, ${rate === null ? 'rate unknown' : rate.toFixed(2) + ' ft/hr'}`);
 
-    console.log(`   Gauge: ${GAUGE.label} — ${latest.toFixed(2)} ft, ${rising ? 'rising' : 'steady/falling'}`);
-
-    if (latest >= GAUGE.floodStage) {
-      lines.push(`🌊 ${GAUGE.label} at ${latest.toFixed(1)} ft, at or above flood stage`);
-    } else if (latest >= GAUGE.actionStage && rising) {
-      lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${latest.toFixed(1)} ft and climbing`);
+    if (stage >= GAUGE.floodStage) {
+      lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, at or above flood stage`);
+    } else if (rate !== null && rate >= GAUGE.rapidRiseFtPerHour) {
+      lines.push(`🌊 ${GAUGE.label} climbing fast upstream · ${stage.toFixed(1)} ft, up ${rate.toFixed(1)} ft an hour`);
+    } else if (stage >= GAUGE.actionStage && rising) {
+      lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
     }
 
     if (lines.length) console.log(`   Gauge alert: ${lines[0]}`);
@@ -197,14 +229,17 @@ async function fetchGaugeAlertLines() {
       const watershed = JSON.parse(fs.readFileSync(watershedPath, 'utf8'));
       const lead = (watershed.gauges || []).find(g => g.id === GAUGE.id);
       if (lead?.stage_ft != null) {
-        const stage  = lead.stage_ft;
+        const stage = lead.stage_ft;
+        const rate = lead.rise_rate_ft_per_hr;
         const rising = (lead.trend || '').toLowerCase() === 'rising';
         if (stage >= GAUGE.floodStage)
           lines.push(`🌊 ${GAUGE.label} at ${stage.toFixed(1)} ft, at or above flood stage`);
+        else if (rate != null && rate >= GAUGE.rapidRiseFtPerHour)
+          lines.push(`🌊 ${GAUGE.label} climbing fast upstream · ${stage.toFixed(1)} ft, up ${rate.toFixed(1)} ft an hour`);
         else if (stage >= GAUGE.actionStage && rising)
           lines.push(`🌊 ${GAUGE.label} rising toward flood stage · ${stage.toFixed(1)} ft and climbing`);
       }
-    } catch (_) { /* watershed file missing too — skip */ }
+    } catch (_) { /* watershed file missing too, skip */ }
   }
   return lines;
 }

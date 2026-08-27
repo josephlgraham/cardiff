@@ -1,6 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  GAUGES,
+  PARAM,
+  fetchSeries,
+  readingsFor,
+  latestOf,
+  riseRatePerHour,
+  trendFrom
+} from './fetch/usgs-gauge.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,7 +46,6 @@ const CARDIFF_CENSUS_MEDIAN_INCOME_FALLBACK_URL = 'https://api.census.gov/data/2
 const LOCAL_TIME_ZONE = 'America/Chicago';
 const MAX_RAIN_SAMPLES = 2500;
 const RAIN_SAMPLE_GAP_MS = 55 * 60 * 1000;
-const USGS_IV_BASE_URL = 'https://waterservices.usgs.gov/nwis/iv/';
 const AW_HISTORY_BASE = 'https://rt.ambientweather.net/v1/devices';
 /* How far back the twice daily run will walk to rebuild a missing day from the
    station's own five minute record. The loop skips any day already owned by
@@ -73,16 +81,6 @@ const TZ_PARTS_FORMATTER = new Intl.DateTimeFormat('en-US', {
   hourCycle: 'h23'
 });
 
-const WATERSHED_GAUGES = [
-  {
-    id: '02457595',
-    label: 'Republic gauge',
-    name: 'Fivemile Creek near Republic, Ala',
-    place: 'Republic',
-    role: 'lead',
-    locationTags: ['five_mile_creek', 'jefferson_county']
-  }
-];
 
 
 async function fetchJson(url, init = {}) {
@@ -490,83 +488,81 @@ async function updateWeatherFile() {
    The end of month rain story went with it. Do not add a second writer for
    that file here. See DECISIONS.md 17. */
 
-function findSeries(data, parameterCode) {
-  return (data.value?.timeSeries || []).find((series) => {
-    const code = series.variable?.variableCode?.[0]?.value || '';
-    return code === parameterCode;
-  });
-}
-
-function latestPoint(series) {
-  const values = series?.values?.[0]?.value || [];
-  const filtered = values
-    .map((entry) => ({
-      value: Number(entry.value),
-      dateTime: entry.dateTime || ''
-    }))
-    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime);
-  return filtered.length ? filtered[filtered.length - 1] : null;
-}
-
-function historyPoints(series, maxPoints = 120) {
-  const values = series?.values?.[0]?.value || [];
-  const filtered = values
-    .map((entry) => ({
-      value: Number(entry.value),
-      dateTime: entry.dateTime || ''
-    }))
-    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime)
-    .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
-  if (!filtered.length) return [];
-  if (filtered.length <= maxPoints) {
-    return filtered.map((entry) => ({
-      at: entry.dateTime,
-      stage_ft: Number(entry.value.toFixed(2))
-    }));
-  }
-  const stride = (filtered.length - 1) / (maxPoints - 1);
+/* Thin the stage series down to what the sparkline on the page needs. The
+   archive below keeps every completed day; this is only the picture. */
+function historyPoints(readings, maxPoints = 120) {
+  if (!readings.length) return [];
+  const point = (row) => ({ at: row.time, stage_ft: Number(row.value.toFixed(2)) });
+  if (readings.length <= maxPoints) return readings.map(point);
+  const stride = (readings.length - 1) / (maxPoints - 1);
   const trimmed = [];
   for (let index = 0; index < maxPoints; index += 1) {
-    const sourceIndex = Math.round(index * stride);
-    const entry = filtered[sourceIndex];
-    if (!entry) continue;
-    trimmed.push({
-      at: entry.dateTime,
-      stage_ft: Number(entry.value.toFixed(2))
-    });
+    const row = readings[Math.round(index * stride)];
+    if (row) trimmed.push(point(row));
+  }
+  return trimmed;
+}
+
+/* Keep the thirty day sparkline current without refetching thirty days.
+
+   The ten minute job only pulls a six hour window, so on its own it would cut
+   the chart on the homepage down to six hours. Instead it folds its fresh
+   readings into the history already on disk and re-thins. The twice daily job
+   rebuilds the whole line from the full pull, so any drift this introduces is
+   corrected twice a day rather than accumulating.
+
+   Timestamps are compared as instants, not strings: the file on disk carries a
+   local offset from the legacy API and the modernized one answers in UTC, so
+   the same reading can be written two ways. */
+function mergeHistory(previous, freshRows, maxPoints = 120, windowDays = 30) {
+  const byInstant = new Map();
+  const add = (at, stage) => {
+    const stamp = new Date(at).getTime();
+    if (!Number.isFinite(stamp) || !Number.isFinite(stage)) return;
+    byInstant.set(stamp, { at, stage_ft: Number(stage.toFixed(2)) });
+  };
+  (previous || []).forEach((entry) => add(entry.at, Number(entry.stage_ft)));
+  (freshRows || []).forEach((row) => add(row.time, row.value));
+
+  const cutoff = Date.now() - windowDays * 24 * 3600 * 1000;
+  const ordered = [...byInstant.entries()]
+    .filter(([stamp]) => stamp >= cutoff)
+    .sort((a, b) => a[0] - b[0])
+    .map(([, entry]) => entry);
+  if (ordered.length <= maxPoints) return ordered;
+
+  const stride = (ordered.length - 1) / (maxPoints - 1);
+  const trimmed = [];
+  for (let index = 0; index < maxPoints; index += 1) {
+    const entry = ordered[Math.round(index * stride)];
+    if (entry) trimmed.push(entry);
   }
   return trimmed;
 }
 
 /* The permanent creek record.
 
-   `stage_history` in fivemile-watershed.json is a thirty day window that
+   `stage_history` in fivemile-watershed.json is a rolling window that
    overwrites itself, so before this the creek was the one thing on the site
-   that did scroll away. USGS hands back thirty days of fifteen minute readings
-   on every call, which means this fills a month on its first run and quietly
-   repairs whatever a missed run or an outage left behind, the same way the
-   weather archive heals itself off the station history. See DECISIONS.md 36.
+   that did scroll away. A thirty day pull fills a month on its first run and
+   quietly repairs whatever a missed run or an outage left behind, the same way
+   the weather archive heals itself off the station history. See DECISIONS.md 36.
 
    Completed days only. Today is still moving and is already on the almanac
    from the live file, and writing a day that changes every ten minutes would
    put a fresh blob in git history 144 times over for one row. */
-function dailyGaugeRecords(stageSeries, dischargeSeries, todayKey) {
+function dailyGaugeRecords(stageRows, flowRows, todayKey) {
   const buckets = new Map();
-  const collect = (series, key) => {
-    const values = series?.values?.[0]?.value || [];
-    values.forEach((entry) => {
-      const value = Number(entry.value);
-      /* USGS writes its no-value sentinel as -999999. A gauge that has died
-         answers 200 with zeros instead, which is caught below. */
-      if (!Number.isFinite(value) || value <= -999 || !entry.dateTime) return;
-      const dateKey = localDateKey(entry.dateTime);
+  const collect = (rows, key) => {
+    rows.forEach((row) => {
+      const dateKey = localDateKey(row.time);
       if (dateKey >= todayKey) return;
       if (!buckets.has(dateKey)) buckets.set(dateKey, { stage: [], cfs: [] });
-      buckets.get(dateKey)[key].push(value);
+      buckets.get(dateKey)[key].push(row.value);
     });
   };
-  collect(stageSeries, 'stage');
-  collect(dischargeSeries, 'cfs');
+  collect(stageRows, 'stage');
+  collect(flowRows, 'cfs');
 
   const days = new Map();
   const mean = (list) => list.reduce((sum, n) => sum + n, 0) / list.length;
@@ -584,30 +580,15 @@ function dailyGaugeRecords(stageSeries, dischargeSeries, todayKey) {
       mean: Number(mean(bucket.stage).toFixed(2)),
       cfs: bucket.cfs.length ? Number(mean(bucket.cfs).toFixed(1)) : null,
       readings: bucket.stage.length,
-      source: 'usgs-iv'
+      source: 'usgs-ogc'
     });
   }
-  /* A dead gauge answers with a full series of zeros rather than an error, and
-     a month of 0.00 ft written into a permanent file is worse than a gap. */
+  /* A dead gauge is now caught upstream by its timestamp rather than by its
+     value, which is the honest test and the one the modernized API supports.
+     This stays as cheap insurance on a permanent file: a month of 0.00 ft is
+     worse than a gap, whatever produced it. */
   const allFlat = [...days.values()].every((day) => day.low === 0 && day.high === 0);
   return allFlat ? new Map() : days;
-}
-
-function gaugeTrend(series) {
-  const values = series?.values?.[0]?.value || [];
-  const filtered = values
-    .map((entry) => ({
-      value: Number(entry.value),
-      dateTime: entry.dateTime || ''
-    }))
-    .filter((entry) => Number.isFinite(entry.value) && entry.dateTime);
-  if (filtered.length < 2) return 'steady';
-  const latest = filtered[filtered.length - 1];
-  const earlier = filtered[Math.max(0, filtered.length - 7)];
-  const diff = latest.value - earlier.value;
-  if (diff >= 0.12) return 'rising';
-  if (diff <= -0.12) return 'falling';
-  return 'steady';
 }
 
 function gaugeNote(gauge) {
@@ -623,48 +604,39 @@ function gaugeNote(gauge) {
   return 'This reach looks fairly steady right now.';
 }
 
-async function fetchGaugeSnapshot(gauge) {
-  const params = new URLSearchParams({
-    format: 'json',
-    sites: gauge.id,
-    parameterCd: '00060,00065',
-    siteStatus: 'all',
-    period: 'P30D'
-  });
-  const url = `${USGS_IV_BASE_URL}?${params.toString()}`;
-  const data = await fetchJson(url, { headers: { Accept: 'application/json' } });
-  const stageSeries = findSeries(data, '00065');
-  const dischargeSeries = findSeries(data, '00060');
-  const trend = gaugeTrend(stageSeries);
-  const stagePoint = latestPoint(stageSeries);
-  const dischargePoint = latestPoint(dischargeSeries);
-  /* The lead gauge is the only one with a stage history and the only one worth
-     archiving. Kept out of the returned snapshot because that object is written
-     to fivemile-watershed.json whole. */
-  const daily = gauge.role === 'lead'
-    ? dailyGaugeRecords(stageSeries, dischargeSeries, localDateKey(new Date()))
-    : new Map();
-  const snapshot = {
+function buildGaugeSnapshot(gauge, readings, stageHistory = []) {
+  const stageRows = readingsFor(readings, gauge.id, PARAM.STAGE);
+  const flowRows = readingsFor(readings, gauge.id, PARAM.DISCHARGE);
+  const tempRows = readingsFor(readings, gauge.id, PARAM.WATER_TEMP);
+  const stage = latestOf(stageRows);
+  const flow = latestOf(flowRows);
+  const temp = latestOf(tempRows);
+  const trend = trendFrom(stageRows);
+  const rate = riseRatePerHour(stageRows);
+  return {
     id: gauge.id,
     label: gauge.label,
     name: gauge.name,
     place: gauge.place,
     role: gauge.role,
+    reach: gauge.reach,
     location_tags: gauge.locationTags,
     source_name: 'USGS',
     source_type: 'watershed_gauge',
-    stage_ft: stagePoint ? Number(stagePoint.value.toFixed(2)) : null,
-    discharge_cfs: dischargePoint ? Number(dischargePoint.value.toFixed(1)) : null,
+    stage_ft: stage ? Number(stage.value.toFixed(2)) : null,
+    discharge_cfs: flow ? Number(flow.value.toFixed(1)) : null,
+    /* The station reports Celsius. Everything else on the site is Fahrenheit. */
+    water_temp_f: temp ? Number((temp.value * 9 / 5 + 32).toFixed(1)) : null,
     trend,
-    updated_at: stagePoint?.dateTime || dischargePoint?.dateTime || '',
-    stage_history: gauge.role === 'lead' ? historyPoints(stageSeries) : [],
+    rise_rate_ft_per_hr: rate === null ? null : Number(rate.toFixed(3)),
+    updated_at: stage?.time || flow?.time || '',
+    stage_history: stageHistory,
     note: gaugeNote({
-      stage_ft: stagePoint ? Number(stagePoint.value) : null,
-      discharge_cfs: dischargePoint ? Number(dischargePoint.value) : null,
+      stage_ft: stage ? stage.value : null,
+      discharge_cfs: flow ? flow.value : null,
       trend
     })
   };
-  return { snapshot, daily };
 }
 
 function summarizeWatershed(gauges, rain) {
@@ -715,44 +687,86 @@ async function updateCreekArchive(daily, gauge) {
   return payload;
 }
 
-async function updateWatershedFile(weatherPayload = null) {
+async function updateWatershedFile(weatherPayload = null, options = {}) {
+  /* The thirty day pull is the expensive call and it exists to feed the
+     permanent archive and the sparkline, neither of which changes between one
+     ten minute run and the next. Running it on the ten minute job fetched
+     about four megabytes 144 times a day to learn nothing the short window
+     does not already say. It runs on the twice daily job now, where
+     fivemile-creek-archive.json is already committed. A missed run still
+     heals, at the slower cadence. See DECISIONS.md 36. */
+  const withArchive = options.archive !== false;
   const weather = weatherPayload || await readJson(WEATHER_FILE, { rain: null });
-  const results = await Promise.allSettled(WATERSHED_GAUGES.map((gauge) => fetchGaugeSnapshot(gauge)));
-  let leadDaily = null;
-  const gauges = results.map((result, index) => {
-    if (result.status === 'fulfilled') {
-      if (result.value.snapshot.role === 'lead') leadDaily = result.value.daily;
-      return result.value.snapshot;
+  const previous = await readJson(WATERSHED_FILE, { gauges: [] });
+  const previousHistory = new Map(
+    (previous.gauges || []).map((gauge) => [gauge.id, gauge.stage_history || []])
+  );
+  const ids = GAUGES.map((gauge) => gauge.id);
+  const lead = GAUGES.find((gauge) => gauge.role === 'lead');
+  const now = new Date();
+
+  /* One request for every gauge and every parameter. The modernized API takes
+     comma lists, so a second gauge costs nothing extra in round trips. Six
+     hours is enough to place the current reading, the trend, and the rate of
+     rise the upstream warning reads. */
+  let readings = new Map();
+  try {
+    readings = await fetchSeries(
+      ids,
+      [PARAM.STAGE, PARAM.DISCHARGE, PARAM.WATER_TEMP],
+      new Date(now.getTime() - 6 * 3600 * 1000),
+      now
+    );
+  } catch (error) {
+    console.error('USGS gauge fetch failed (continuing):', error.message);
+  }
+
+  let history = null;
+  if (withArchive) {
+    try {
+      history = await fetchSeries(
+        [lead.id],
+        [PARAM.STAGE, PARAM.DISCHARGE],
+        new Date(now.getTime() - 30 * 24 * 3600 * 1000),
+        now
+      );
+    } catch (error) {
+      console.error('Creek history fetch failed (continuing):', error.message);
     }
-    const gauge = WATERSHED_GAUGES[index];
-    return {
-      id: gauge.id,
-      label: gauge.label,
-      name: gauge.name,
-      place: gauge.place,
-      role: gauge.role,
-      location_tags: gauge.locationTags,
-      source_name: 'USGS',
-      source_type: 'watershed_gauge',
-      stage_ft: null,
-      discharge_cfs: null,
-      trend: 'steady',
-      updated_at: '',
-      stage_history: [],
-      note: 'Gauge sync missed this cycle.'
-    };
+  }
+
+  const leadFullRows = history ? readingsFor(history, lead.id, PARAM.STAGE) : null;
+  const gauges = GAUGES.map((gauge) => {
+    if (gauge.role !== 'lead') return buildGaugeSnapshot(gauge, readings, []);
+    /* A clean rebuild when the full pull is in hand, a merge otherwise. */
+    const stageHistory = leadFullRows && leadFullRows.length
+      ? historyPoints(leadFullRows)
+      : mergeHistory(
+          previousHistory.get(gauge.id),
+          readingsFor(readings, gauge.id, PARAM.STAGE)
+        );
+    return buildGaugeSnapshot(gauge, readings, stageHistory);
   });
+
   const payload = {
     updatedAt: new Date().toISOString(),
-    leadGaugeId: '02457595',
+    leadGaugeId: lead?.id || '',
     summary: summarizeWatershed(gauges, weather?.rain || null),
     rainContext: weather?.rain || null,
     gauges
   };
   await writeJson(WATERSHED_FILE, payload);
   console.log(`Updated ${path.basename(WATERSHED_FILE)}`);
+
+  if (!history) return payload;
+
   try {
-    await updateCreekArchive(leadDaily, WATERSHED_GAUGES.find((gauge) => gauge.role === 'lead'));
+    const daily = dailyGaugeRecords(
+      readingsFor(history, lead.id, PARAM.STAGE),
+      readingsFor(history, lead.id, PARAM.DISCHARGE),
+      localDateKey(now)
+    );
+    await updateCreekArchive(daily, lead);
   } catch (error) {
     console.error('Creek archive update failed (continuing):', error.message);
   }
@@ -1108,7 +1122,7 @@ async function main() {
     }
     await patchYesterdayFromArchive(live, await readJson(WEATHER_ARCHIVE_FILE, { days: [] }));
     try {
-      await updateWatershedFile(live);
+      await updateWatershedFile(live, { archive: false });
     } catch (error) {
       console.error('Watershed update failed (continuing):', error.message);
     }
