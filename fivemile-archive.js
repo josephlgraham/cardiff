@@ -39,6 +39,7 @@
   var PHOTO_FILE = 'fivemile-home-anchor.json';
   var WEATHER_DIR = 'fivemile-weather-archive';
   var CREEK_DIR = 'fivemile-creek-archive';
+  var CREEK_PEAKS = 'fivemile-creek-peaks.json';
   var NEWS_INDEX = 'news-archive/index.json';
 
   function esc(value) {
@@ -508,6 +509,21 @@
       table;
   }
 
+  /* The high water mark. The record this page keeps starts the day it was
+     built, but the gauge goes back to 1989, and the single most telling number
+     about this creek is how far it has come. USGS publishes one peak per water
+     year and scripts/fetch-site-data.mjs writes them to the peaks file. */
+  function loadCreekRecord() {
+    if (!byId('creekRecord')) return;
+    loadJson(CREEK_PEAKS).then(function (data) {
+      var high = data && data.highest;
+      if (!high || num(high.stage_ft) == null || !high.date) return;
+      setText('creekRecord',
+        'Across ' + plural(data.years, 'year', 'years') + ' of record the highest the creek has come is ' +
+        num(high.stage_ft).toFixed(2) + ' feet, on ' + longDate(high.date) + '.');
+    }).catch(function () { /* the em dash is already on the page */ });
+  }
+
   function loadCreek() {
     var reel = byId('creekReel');
     if (!reel) return;
@@ -897,6 +913,7 @@
   loadPhotos();
   loadWeather();
   loadCreek();
+    loadCreekRecord();
   loadNews();
   loadDates();
 })();
