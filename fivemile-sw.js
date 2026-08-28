@@ -43,7 +43,7 @@
 // cache-first, so without this bump a returning reader gets a page built for
 // the old markup. fivemile-calendar-core.js is code rather than data and stays
 // cache-first with the rest of the scripts. See DECISIONS.md 50.
-const CACHE_NAME = 'fivemile-v43';
+const CACHE_NAME = 'fivemile-v44';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -90,6 +90,7 @@ const PRECACHE_URLS = [
   '/fivemile-gallery.html',
   '/fivemile-weather-archive.html',
   '/fivemile-creek-archive.html',
+  '/fivemile-discharges.html',
   '/fivemile-news-archive.html',
   '/fivemile-calendar-archive.html',
   '/offline.html',

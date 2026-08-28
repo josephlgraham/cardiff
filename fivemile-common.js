@@ -64,6 +64,7 @@
       { href: 'fivemile-guide.html',    label: 'Field Guide' },
       { href: 'fivemile-heritage.html', label: 'Heritage' },
       { href: 'fivemile-gallery.html',  label: 'Gallery' },
+      { href: 'fivemile-discharges.html', label: 'What goes in' },
       // The hub. Its other three rooms, the weather log, the creek log, and
       // the story index, are one tap in from here rather than four more rows.
       { href: 'fivemile-archive.html',  label: 'Archive' }
