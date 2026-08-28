@@ -13,6 +13,8 @@ import {
 } from './fetch/usgs-gauge.mjs';
 import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 import { refreshCms } from './fetch/sheets-cms.mjs';
+import { updateEchoFile } from './fetch/echo-watershed.mjs';
+import { parseCsvRows } from './lib/csv.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1221,6 +1223,15 @@ async function main() {
     await refreshCms();
   } catch (error) {
     console.error('Sheet refresh failed (continuing):', error.message);
+  }
+  /* Who is permitted to discharge into the creek, and what EPA says about
+     their record. Weekly would do, but the twice daily job is already the slow
+     lane and one more quarter megabyte fetch on it costs nothing. */
+  try {
+    console.log('Reading EPA ECHO:');
+    await updateEchoFile({ parseCsvRows });
+  } catch (error) {
+    console.error('ECHO update failed (continuing):', error.message);
   }
   try {
     await updateCreekPeaksFile();

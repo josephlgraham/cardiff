@@ -1,0 +1,1005 @@
+{
+  "updatedAt": "2026-08-28T00:54:51.962Z",
+  "source": "US EPA ECHO, Clean Water Act facility search",
+  "source_url": "https://echo.epa.gov/",
+  "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
+  "watershed": {
+    "basin_huc8": "03160111",
+    "units": [
+      {
+        "code": "031601110406",
+        "name": "Upper Fivemile Creek"
+      },
+      {
+        "code": "031601110407",
+        "name": "Lower Fivemile Creek"
+      }
+    ]
+  },
+  "counts": {
+    "basin_rows_scanned": 1931,
+    "in_watershed_active": 49,
+    "in_watershed_terminated": 77
+  },
+  "facilities": [
+    {
+      "name": "JORDAN MACHINE COMPANY",
+      "permit": "ALG120453",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 12,
+      "quarters_in_significant_noncompliance": 12,
+      "violation_status": "Yes",
+      "last_inspection": "02/03/2026",
+      "lat": 33.59826,
+      "lon": -86.77437,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120453"
+    },
+    {
+      "name": "TOMLIN EXCAVATING CO., INC.",
+      "permit": "ALG180917",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 12,
+      "quarters_in_significant_noncompliance": 12,
+      "violation_status": "Yes",
+      "last_inspection": "01/29/2026",
+      "lat": 33.58945,
+      "lon": -86.76989,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180917"
+    },
+    {
+      "name": "BLUESTONE COKE, LLC - BIRMINGHAM",
+      "permit": "AL0003247",
+      "city": "BIRMINGHAM",
+      "status": "Admin Continued",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 9,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "Yes",
+      "last_inspection": "03/25/2025",
+      "lat": 33.557464,
+      "lon": -86.799671,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247"
+    },
+    {
+      "name": "SAIIA CONSTRUCTION COMPANY LLC",
+      "permit": "ALG141045",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 7,
+      "quarters_in_significant_noncompliance": 4,
+      "violation_status": "Yes",
+      "last_inspection": "10/15/2020",
+      "lat": 33.570983,
+      "lon": -86.813765,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141045"
+    },
+    {
+      "name": "ABC COKE",
+      "permit": "AL0003417",
+      "city": "BIRMINGHAM",
+      "status": "Admin Continued",
+      "receiving_water": "FIVE MILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 5,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "Yes",
+      "last_inspection": "10/16/2024",
+      "lat": 33.5827,
+      "lon": -86.7816,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003417"
+    },
+    {
+      "name": "RAINDROP CAR WASH ROEBUCK, AL",
+      "permit": "ALG141147",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 5,
+      "quarters_in_significant_noncompliance": 4,
+      "violation_status": "No",
+      "last_inspection": "11/05/2025",
+      "lat": 33.607095,
+      "lon": -86.689445,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141147"
+    },
+    {
+      "name": "ALLWORTH LLC",
+      "permit": "AL0032298",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 4,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/10/2024",
+      "lat": 33.59459,
+      "lon": -86.77125,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0032298"
+    },
+    {
+      "name": "ABC AUTO PARTS, INC.",
+      "permit": "ALG180021",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 3,
+      "quarters_in_significant_noncompliance": 2,
+      "violation_status": "No",
+      "last_inspection": "11/07/2024",
+      "lat": 33.580241,
+      "lon": -86.777242,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180021"
+    },
+    {
+      "name": "BOYLES YARD",
+      "permit": "ALG140084",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK, VILLAGE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 3,
+      "quarters_in_significant_noncompliance": 3,
+      "violation_status": "No",
+      "last_inspection": "06/01/2022",
+      "lat": 33.56309,
+      "lon": -86.7834,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140084"
+    },
+    {
+      "name": "NUTEC METAL FINISHING, LLC",
+      "permit": "ALG120205",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 2,
+      "quarters_in_significant_noncompliance": 1,
+      "violation_status": "No",
+      "last_inspection": "05/10/2017",
+      "lat": 33.61017,
+      "lon": -86.75327,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120205"
+    },
+    {
+      "name": "117TH AIR REFUELING WING",
+      "permit": "ALG140587",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK, VILLAGE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/15/2020",
+      "lat": 33.56931,
+      "lon": -86.75589,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140587"
+    },
+    {
+      "name": "BIRMINGHAM AUTOMOTIVE TERMINAL",
+      "permit": "ALG140939",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/18/2024",
+      "lat": 33.563684,
+      "lon": -86.785252,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140939"
+    },
+    {
+      "name": "BIRMINGHAM TRANSFLO TERMINAL",
+      "permit": "ALG140474",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "VILLAGE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "06/24/2020",
+      "lat": 33.56369,
+      "lon": -86.78579,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140474"
+    },
+    {
+      "name": "FIVE MILE CREEK WRF",
+      "permit": "AL0026913",
+      "city": "FULTONDALE",
+      "status": "Admin Continued",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 30,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/30/2025",
+      "lat": 33.5937,
+      "lon": -86.8619,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0026913"
+    },
+    {
+      "name": "FORESTDALE MOBILE HOME PARK",
+      "permit": "AL0027642",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0.03,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 1,
+      "violation_status": "No",
+      "last_inspection": "04/19/2024",
+      "lat": 33.611441,
+      "lon": -86.889984,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0027642"
+    },
+    {
+      "name": "PRUDES CREEK WRF",
+      "permit": "AL0056120",
+      "city": "GRAYSVILLE",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110407",
+          "name": "Lower Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0.9,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "02/10/2026",
+      "lat": 33.63184,
+      "lon": -86.94616,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0056120"
+    },
+    {
+      "name": "WASTE MANAGEMENT - BIRMINGHAM",
+      "permit": "ALG140062",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 1,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "Yes",
+      "last_inspection": "01/12/2018",
+      "lat": 33.59629,
+      "lon": -86.77093,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140062"
+    },
+    {
+      "name": "BOSTIC TRUCKING",
+      "permit": "ALR10C3X5",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "10/27/2025",
+      "lat": 33.60872,
+      "lon": -86.890192,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALR10C3X5"
+    },
+    {
+      "name": "BROOKSIDE SQUARE CWF",
+      "permit": "AL0084271",
+      "city": "BROOKSIDE",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0.045,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "08/23/2024",
+      "lat": 33.625814,
+      "lon": -86.874208,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0084271"
+    },
+    {
+      "name": "CAMP KETONA",
+      "permit": "ALG140982",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "10/09/2024",
+      "lat": 33.608408,
+      "lon": -86.766275,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140982"
+    },
+    {
+      "name": "CHERRY AVENUE AUTO PARTS, LLC",
+      "permit": "ALG180871",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "12/30/2020",
+      "lat": 33.60587,
+      "lon": -86.89647,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180871"
+    },
+    {
+      "name": "CITY OF FULTONDALE MS4 PH II",
+      "permit": "ALR040037",
+      "city": "FULTONDALE",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "03/21/2022",
+      "lat": 33.607882,
+      "lon": -86.800552,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALR040037"
+    },
+    {
+      "name": "CITY OF TARRANT MS4 PH I",
+      "permit": "ALS000020",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "08/12/2025",
+      "lat": 33.583056,
+      "lon": -86.77187,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALS000020"
+    },
+    {
+      "name": "DOLCITO QUARRY",
+      "permit": "AL0023892",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "12/06/2022",
+      "lat": 33.58936,
+      "lon": -86.76533,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0023892"
+    },
+    {
+      "name": "FULTONDALE WASTE COMPLEX",
+      "permit": "ALG160156",
+      "city": "FULTONDALE",
+      "status": "Effective",
+      "receiving_water": "BLACK CREEK, FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "05/28/2025",
+      "lat": 33.599386,
+      "lon": -86.845624,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG160156"
+    },
+    {
+      "name": "HEIDELBERG MATERIALS SOUTHEAST AGG LLC - GARDENDALE PLANT",
+      "permit": "ALG110158",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "BLACK CREEK, FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/06/2023",
+      "lat": 33.626825,
+      "lon": -86.781321,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG110158"
+    },
+    {
+      "name": "HEIDELBERG MATERIALS SOUTHEAST AGG LLC - TARRANT PLANT",
+      "permit": "ALG110518",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/06/2023",
+      "lat": 33.5791,
+      "lon": -86.77865,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG110518"
+    },
+    {
+      "name": "JEFFERSON COUNTY SHERRIF'S DEPARTMENT EVIDENCE STORAGE BUILDING",
+      "permit": "ALR10C7HU",
+      "city": "FULTONDALE",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": null,
+      "lat": 33.601549,
+      "lon": -86.863706,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALR10C7HU"
+    },
+    {
+      "name": "MAX COATING INC.",
+      "permit": "ALP000208",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "04/02/2026",
+      "lat": 33.60971,
+      "lon": -86.75363,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALP000208"
+    },
+    {
+      "name": "NEW GEORGIA LANDFILL",
+      "permit": "ALG160151",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "01/20/2023",
+      "lat": 33.56848,
+      "lon": -86.77453,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG160151"
+    },
+    {
+      "name": "NORTH BIRMINGHAM QUARRY",
+      "permit": "AL0077658",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/27/2022",
+      "lat": 33.57778,
+      "lon": -86.79083,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0077658"
+    },
+    {
+      "name": "NUTEC METAL FINISHING, LLC",
+      "permit": "ALP000136",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "04/01/2026",
+      "lat": 33.61017,
+      "lon": -86.75327,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALP000136"
+    },
+    {
+      "name": "OLD DOMINION FREIGHT LINE BIRMINGHAM",
+      "permit": "ALG140908",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/16/2020",
+      "lat": 33.564092,
+      "lon": -86.856907,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140908"
+    },
+    {
+      "name": "PUTNAM FILTER PLANT",
+      "permit": "ALG640033",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "02/08/2022",
+      "lat": 33.571916,
+      "lon": -86.76663,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG640033"
+    },
+    {
+      "name": "READY MIX USA - TARRANT PLANT",
+      "permit": "ALG110517",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "10/27/2023",
+      "lat": 33.570687,
+      "lon": -86.790747,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG110517"
+    },
+    {
+      "name": "RYDER  0315A",
+      "permit": "ALG340792",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "VILLAGE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": null,
+      "lat": 33.56437,
+      "lon": -86.7834,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG340792"
+    },
+    {
+      "name": "SHARON HEIGHTS MOBILE HOME PARK",
+      "permit": "AL0057827",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0.03,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "02/08/2023",
+      "lat": 33.6268,
+      "lon": -86.91081,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0057827"
+    },
+    {
+      "name": "SOUTHEASTERN FREIGHT LINES-BHM",
+      "permit": "ALG140217",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "BARTON BRANCH",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "01/12/2018",
+      "lat": 33.64161,
+      "lon": -86.73607,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140217"
+    },
+    {
+      "name": "TARRANT ASPHALT PLANT",
+      "permit": "ALG020004",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/03/2017",
+      "lat": 33.5884,
+      "lon": -86.7651,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG020004"
+    },
+    {
+      "name": "TARRANT PLANT",
+      "permit": "ALG020033",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "01/14/2021",
+      "lat": 33.59154,
+      "lon": -86.76375,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG020033"
+    },
+    {
+      "name": "TARRANT SHOP",
+      "permit": "ALG140035",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "12/06/2022",
+      "lat": 33.596144,
+      "lon": -86.773244,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140035"
+    },
+    {
+      "name": "THINK PINK, INC. COALBURG ROAD LANDFILL",
+      "permit": "ALG160195",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "01/31/2023",
+      "lat": 33.584856,
+      "lon": -86.847465,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG160195"
+    },
+    {
+      "name": "THOMPSON FABRICATING, LLC",
+      "permit": "ALG120097",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/02/2021",
+      "lat": 33.585017,
+      "lon": -86.774831,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120097"
+    },
+    {
+      "name": "THOMPSON TRACTOR COMPANY - TARRANT",
+      "permit": "ALG141079",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "11/07/2023",
+      "lat": 33.593933,
+      "lon": -86.762002,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141079"
+    },
+    {
+      "name": "TOWN OF BROOKSIDE MS4 PH I",
+      "permit": "ALS000024",
+      "city": "BROOKSIDE",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110407",
+          "name": "Lower Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "05/19/2025",
+      "lat": 33.6389,
+      "lon": -86.91726,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALS000024"
+    },
+    {
+      "name": "UPS - ROEBUCK",
+      "permit": "ALG140339",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "10/23/2024",
+      "lat": 33.56824,
+      "lon": -86.76577,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG140339"
+    },
+    {
+      "name": "VENTURA FOODS, LLC - BIRMINGHAM",
+      "permit": "ALP000146",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "04/30/2026",
+      "lat": 33.56117,
+      "lon": -86.78339,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALP000146"
+    },
+    {
+      "name": "VENTURA FOODS, LLC - BIRMINGHAM",
+      "permit": "ALG150122",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "07/09/2025",
+      "lat": 33.56117,
+      "lon": -86.78339,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG150122"
+    },
+    {
+      "name": "WATSON CLEAN WATER FACILITY",
+      "permit": "AL0084511",
+      "city": "BROOKSIDE",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0.07,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": null,
+      "lat": 33.625092,
+      "lon": -86.889226,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0084511"
+    }
+  ]
+}
