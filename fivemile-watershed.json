@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-28T04:05:54.314Z",
+  "updatedAt": "2026-08-28T04:20:42.272Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -47,17 +47,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.18,
       "discharge_cfs": 21.6,
-      "water_temp_f": 78.8,
-      "dissolved_oxygen_mgl": 6.9,
-      "specific_conductance_uscm": 467,
+      "water_temp_f": 78.4,
+      "dissolved_oxygen_mgl": 6.5,
+      "specific_conductance_uscm": 458,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-08-28T03:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.007,
+      "updated_at": "2026-08-28T04:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-07-29T04:15:00+00:00",
-          "stage_ft": 1.39
-        },
         {
           "at": "2026-07-29T10:15:00+00:00",
           "stage_ft": 1.4
@@ -527,11 +523,11 @@
           "stage_ft": 1.28
         },
         {
-          "at": "2026-08-27T21:00:00+00:00",
-          "stage_ft": 1.2
+          "at": "2026-08-27T22:30:00+00:00",
+          "stage_ft": 1.18
         },
         {
-          "at": "2026-08-28T03:00:00+00:00",
+          "at": "2026-08-28T04:00:00+00:00",
           "stage_ft": 1.18
         }
       ],
