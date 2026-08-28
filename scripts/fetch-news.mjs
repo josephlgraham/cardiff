@@ -346,6 +346,16 @@ const OBIT_WORDS = [
 const NEVER = [
   'football', 'basketball', 'baseball', 'softball', 'two-a-days', 'touchdown',
   'quarterback', 'playoff', 'scrimmage', 'varsity', 'recruiting',
+  /* A sports story does not have to say football. A piece about Nick Saban
+     playing the card game bridge came through tagged Roads, because it never
+     used a word on this list and the word bridge was on another one. These are
+     the names and the furniture that turn up in sports writing here when the
+     sport itself goes unnamed. The emoji earn their place: the outlet that sent
+     that story leads every sports post with one. */
+  'saban', 'crimson tide', 'auburn tigers', 'heisman', 'sec championship',
+  'bowl game', 'kickoff', 'halftime', 'tailgate', 'athletics director',
+  'head coach', 'signing day', 'nfl', 'nba', 'espn',
+  '🏈', '🏀', '⚾', '⚽',
   'horoscope', 'crossword', 'lottery', 'powerball', 'sweepstakes', 'celebrity',
   'best deals', 'shop now', 'sponsored content', 'promo code',
   /* County procurement. The News Flash feed carries the county's bid notices
@@ -362,7 +372,13 @@ const NEVER = [
 const BEATS = [
   ['Beltline',      ['northern beltline', 'i-422', 'i-222', 'beltline']],
   ['Trains',        ['train', 'railroad crossing', 'csx', 'norfolk southern', 'rail line']],
-  ['Roads',         ['road closure', 'highway', 'paving', 'pothole', 'detour', 'traffic', 'bridge', 'aldot', 'crash', 'wreck', 'road work']],
+  /* `bridge` on its own used to be here, and it matched a card game, a figure
+     of speech, and a street name before it matched a bridge. The road sense of
+     the word nearly always arrives with a second word attached, so it is asked
+     for that way now. */
+  ['Roads',         ['road closure', 'highway', 'paving', 'pothole', 'detour', 'traffic', 'aldot',
+                     'crash', 'wreck', 'road work', 'bridge closure', 'bridge work', 'bridge out',
+                     'bridge replacement', 'bridge inspection', 'lane bridge', 'bridge over']],
   ['The creek',     ['five mile creek', 'fivemile creek', 'watershed', 'locust fork', 'greenway', 'water quality', 'trail']],
   ['Weather',       ['tornado', 'severe storm', 'flash flood', 'flooding', 'hail', 'heat advisory', 'drought', 'winter storm', 'ice storm']],
   ['Land',          ['acres', 'timber', 'logging', 'strip mine', 'coal mine', 'quarry', 'easement', 'conservation', 'annexation']],
@@ -774,14 +790,35 @@ async function readSource(source) {
     return [];
   }
 
+/* True for "August 27", "8/27/2026", "August 27, 2026" and the like: a title
+   that is only a date carries no information at all. */
+const DATE_ONLY = /^(?:\d{1,2}[\/.-]\d{1,2}(?:[\/.-]\d{2,4})?|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:,?\s+\d{4})?)$/i;
+
+function titleFromSummary(title, summary) {
+  if (!DATE_ONLY.test(title.trim())) return title;
+  const first = String(summary || '').split(/(?<=[.!?])\s+/)[0];
+  const trimmed = (first || '').trim().replace(/\s+/g, ' ');
+  /* Only worth swapping for something that reads like a sentence. If the
+     summary is short or missing, the date is at least honest. */
+  if (trimmed.length < 25 || trimmed.length > 140) return title;
+  return trimmed.replace(/[.]$/, '');
+}
+
   return entries.slice(0, 40).map((entryXml) => {
     const rawTitle = tagText(entryXml, 'title');
     /* Google News suffixes the outlet onto the headline. Take it off the
        title and use it as the outlet name, which is more honest than
        printing "Google News" over somebody else's reporting. */
     const suffix = source.viaGoogle ? (rawTitle.match(/\s+-\s+([^-]+)$/) || [])[1] : '';
-    const title = rawTitle.replace(/\s+-\s+[^-]+$/, '').trim() || 'Untitled';
+    const cleanTitle = rawTitle.replace(/\s+-\s+[^-]+$/, '').trim() || 'Untitled';
     const summary = stripTags(tagText(entryXml, 'description') || tagText(entryXml, 'summary')).slice(0, 320);
+    /* Some feeds headline a post with nothing but its date. The county News
+       Flash does it on every commission writeup, so a story about a hundred and
+       one resolutions arrived on the page called "August 27", which tells a
+       reader nothing and is the same headline every week. Where the title is
+       only a date, the first sentence of the summary is the headline instead,
+       because that is where the feed put the actual news. */
+    const title = titleFromSummary(cleanTitle, summary);
     return {
       title,
       outlet: source.viaGoogle
