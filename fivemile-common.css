@@ -919,3 +919,42 @@ main:focus{outline:none;}
   white-space:nowrap;
   border:0;
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Share row
+   Built by fivemile-common.js at the foot of every page that has a main.
+   The buttons take the shared .btn treatment above, so the only work here
+   is the row itself and the line that reports back after a copy.
+   ───────────────────────────────────────────────────────────────────── */
+.fm-share{
+  margin:40px 0 0;
+  padding-top:24px;
+  border-top:1px solid var(--rule,#DDCFB8);
+}
+.fm-share-lede{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink3);
+  margin:0 0 12px;
+}
+.fm-share-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+/* The shared .btn rule sets its own padding with !important, so the tap floor
+   from CLAUDE.md is set here as a minimum rather than by overriding it. */
+.fm-share-row .btn{min-height:44px;font-size:15px;}
+.fm-share-said{
+  margin:10px 0 0;
+  min-height:1.2em;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--ink3);
+}
+@media(max-width:420px){
+  /* Two across at the narrowest, rather than one long column of buttons. */
+  .fm-share-row .btn{flex:1 1 auto;}
+}

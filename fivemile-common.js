@@ -923,3 +923,140 @@
     });
   };
 })();
+
+// ─────────────────────────────────────────────────────────────────────
+//  Share row
+//
+//  Most people arrive here from a link somebody posted, so the way the site
+//  grows is somebody passing a page on. This puts the same row at the foot of
+//  every page rather than on a chosen few, because a control that appears in
+//  some places and not others reads as broken rather than as considered.
+//
+//  Three things it does not do. It loads no third party script, so nothing
+//  here is watching a reader who never touches it: the Facebook control is an
+//  ordinary link and Facebook learns nothing until it is clicked. It does not
+//  explain itself, because the buttons say what they are. And it does not
+//  appear on a page that asks it not to, which is what data-no-share is for.
+// ─────────────────────────────────────────────────────────────────────
+(function () {
+  'use strict';
+
+  function canonicalUrl() {
+    var tag = document.querySelector('link[rel="canonical"]');
+    var href = tag && tag.getAttribute('href');
+    /* Strip a hash so two people sharing the same page do not post two links. */
+    return (href || window.location.href).split('#')[0];
+  }
+
+  function shareTitle() {
+    var og = document.querySelector('meta[property="og:title"]');
+    return (og && og.getAttribute('content')) || document.title || 'FIVEMILE';
+  }
+
+  function say(host, words) {
+    host.textContent = words;
+    window.clearTimeout(host._clear);
+    host._clear = window.setTimeout(function () { host.textContent = ''; }, 4000);
+  }
+
+  function copyLink(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(url);
+    }
+    /* Older phones. A hidden field and execCommand is ugly and it works. */
+    return new Promise(function (resolve, reject) {
+      try {
+        var field = document.createElement('textarea');
+        field.value = url;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.top = '-1000px';
+        document.body.appendChild(field);
+        field.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(field);
+        ok ? resolve() : reject(new Error('copy refused'));
+      } catch (error) { reject(error); }
+    });
+  }
+
+  function build() {
+    var main = document.querySelector('main');
+    if (!main) return;
+    if (document.body.hasAttribute('data-no-share')) return;
+    if (document.querySelector('.fm-share')) return;
+
+    var url = canonicalUrl();
+    var title = shareTitle();
+
+    var row = document.createElement('div');
+    row.className = 'fm-share';
+
+    var label = document.createElement('p');
+    label.className = 'fm-share-lede';
+    label.textContent = 'Pass this along';
+    row.appendChild(label);
+
+    var controls = document.createElement('div');
+    controls.className = 'fm-share-row';
+
+    var main_btn = document.createElement('button');
+    main_btn.type = 'button';
+    main_btn.className = 'btn';
+    /* The label matches what will actually happen. On a phone this opens the
+       system sheet; on a laptop there is usually no sheet, so it copies. */
+    var canSheet = typeof navigator.share === 'function';
+    main_btn.textContent = canSheet ? 'Share' : 'Copy link';
+    controls.appendChild(main_btn);
+
+    var fb = document.createElement('a');
+    fb.className = 'btn';
+    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    fb.target = '_blank';
+    fb.rel = 'noopener';
+    fb.textContent = 'Facebook';
+    controls.appendChild(fb);
+
+    if (canSheet) {
+      var copy = document.createElement('button');
+      copy.type = 'button';
+      copy.className = 'btn';
+      copy.textContent = 'Copy link';
+      controls.appendChild(copy);
+      copy.addEventListener('click', function () {
+        copyLink(url).then(function () { say(status, 'Link copied.'); })
+          .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
+      });
+    }
+
+    row.appendChild(controls);
+
+    var status = document.createElement('p');
+    status.className = 'fm-share-said';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    row.appendChild(status);
+
+    main_btn.addEventListener('click', function () {
+      if (canSheet) {
+        navigator.share({ title: title, url: url }).catch(function (error) {
+          /* Closing the sheet is a choice, not a failure. */
+          if (error && error.name === 'AbortError') return;
+          copyLink(url).then(function () { say(status, 'Link copied.'); })
+            .catch(function () { say(status, 'Could not share from this browser.'); });
+        });
+        return;
+      }
+      copyLink(url).then(function () { say(status, 'Link copied.'); })
+        .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
+    });
+
+    main.appendChild(row);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build);
+  } else {
+    build();
+  }
+})();
