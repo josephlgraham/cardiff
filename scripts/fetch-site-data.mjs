@@ -6,6 +6,8 @@ import {
   PARAM,
   fetchSeries,
   fetchAnnualPeaks,
+  fetchDailyStat,
+  STAT,
   readingsFor,
   latestOf,
   riseRatePerHour,
@@ -637,9 +639,13 @@ function buildGaugeSnapshot(gauge, readings, stageHistory = []) {
   const stageRows = readingsFor(readings, gauge.id, PARAM.STAGE);
   const flowRows = readingsFor(readings, gauge.id, PARAM.DISCHARGE);
   const tempRows = readingsFor(readings, gauge.id, PARAM.WATER_TEMP);
+  const oxygenRows = readingsFor(readings, gauge.id, PARAM.DISSOLVED_OXYGEN);
+  const conductanceRows = readingsFor(readings, gauge.id, PARAM.CONDUCTANCE);
   const stage = latestOf(stageRows);
   const flow = latestOf(flowRows);
   const temp = latestOf(tempRows);
+  const oxygen = latestOf(oxygenRows);
+  const conductance = latestOf(conductanceRows);
   const trend = trendFrom(stageRows);
   const rate = riseRatePerHour(stageRows);
   return {
@@ -656,6 +662,9 @@ function buildGaugeSnapshot(gauge, readings, stageHistory = []) {
     discharge_cfs: flow ? Number(flow.value.toFixed(1)) : null,
     /* The station reports Celsius. Everything else on the site is Fahrenheit. */
     water_temp_f: temp ? Number((temp.value * 9 / 5 + 32).toFixed(1)) : null,
+    /* Only the lead gauge carries these sensors. */
+    dissolved_oxygen_mgl: oxygen ? Number(oxygen.value.toFixed(1)) : null,
+    specific_conductance_uscm: conductance ? Number(conductance.value.toFixed(0)) : null,
     trend,
     rise_rate_ft_per_hr: rate === null ? null : Number(rate.toFixed(3)),
     updated_at: stage?.time || flow?.time || '',
@@ -775,7 +784,7 @@ async function updateWatershedFile(weatherPayload = null, options = {}) {
   try {
     readings = await fetchSeries(
       ids,
-      [PARAM.STAGE, PARAM.DISCHARGE, PARAM.WATER_TEMP],
+      [PARAM.STAGE, PARAM.DISCHARGE, PARAM.WATER_TEMP, PARAM.DISSOLVED_OXYGEN, PARAM.CONDUCTANCE],
       new Date(now.getTime() - 6 * 3600 * 1000),
       now
     );
@@ -810,9 +819,45 @@ async function updateWatershedFile(weatherPayload = null, options = {}) {
     return buildGaugeSnapshot(gauge, readings, stageHistory);
   });
 
+  /* The oxygen record. EPA lists the creek impaired partly for oxygen
+     depletion, so how it is actually doing is worth stating with numbers. The
+     daily minimum is the honest measure: a creek can average comfortably and
+     still run low before dawn. Archive runs only, since it is a second call
+     and it moves once a day. */
+  let oxygen = null;
+  if (withArchive) {
+    try {
+      const rows = await fetchDailyStat(
+        lead.id, PARAM.DISSOLVED_OXYGEN, STAT.MIN,
+        new Date(now.getTime() - 90 * 24 * 3600 * 1000), now
+      );
+      if (rows.length) {
+        const values = rows.map((row) => row.value);
+        const lowest = Math.min(...values);
+        oxygen = {
+          parameter: 'Dissolved oxygen, daily minimum',
+          unit: 'mg/l',
+          days: rows.length,
+          lowest,
+          lowest_on: rows.find((row) => row.value === lowest).date,
+          highest: Math.max(...values),
+          days_under_5: values.filter((value) => value < 5).length,
+          days_under_4: values.filter((value) => value < 4).length,
+          first: rows[0].date,
+          last: rows[rows.length - 1].date
+        };
+      }
+    } catch (error) {
+      console.error('Oxygen record fetch failed (continuing):', error.message);
+    }
+  } else {
+    oxygen = (previous && previous.oxygenRecord) || null;
+  }
+
   const payload = {
     updatedAt: new Date().toISOString(),
     leadGaugeId: lead?.id || '',
+    oxygenRecord: oxygen,
     summary: summarizeWatershed(gauges, weather?.rain || null),
     rainContext: weather?.rain || null,
     gauges

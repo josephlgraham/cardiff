@@ -34,8 +34,13 @@ const API_KEY = process.env.USGS_API_KEY || '';
 export const PARAM = {
   STAGE: '00065',
   DISCHARGE: '00060',
-  WATER_TEMP: '00010'
+  WATER_TEMP: '00010',
+  DISSOLVED_OXYGEN: '00300',
+  CONDUCTANCE: '00095'
 };
+
+/* USGS statistic codes on the daily collection. */
+export const STAT = { MAX: '00001', MIN: '00002', MEAN: '00003' };
 
 /* Five Mile Creek runs past Republic, then the three towns, then Sayre. The
    gauge on the creek at Sayre died on 2025-07-07 and the one at Ketona died in
@@ -264,4 +269,31 @@ export function rankAgainstPeaks(stageFt, peaks) {
   const below = peaks.filter((peak) => peak.stage_ft < stageFt).length;
   const highest = peaks.reduce((top, peak) => (peak.stage_ft > top.stage_ft ? peak : top), peaks[0]);
   return { years, below, highest, first: peaks[0], last: peaks[peaks.length - 1] };
+}
+
+/* Daily minimums for a parameter, straight off the daily collection rather
+   than rolled up here, so the numbers are the ones USGS publishes.
+
+   Dissolved oxygen is the reason this exists. EPA lists the creek as impaired
+   partly for oxygen depletion, and the honest way to say how it is doing now
+   is the daily low, not the daily average: a creek can average comfortably and
+   still suffocate at four in the morning. */
+export async function fetchDailyStat(gaugeId, parameterCode, statisticId, from, to, options = {}) {
+  const window = new Date(from).toISOString() + '/' + new Date(to).toISOString();
+  const features = await fetchFeatures(buildUrl('daily', {
+    monitoring_location_id: siteId(gaugeId),
+    parameter_code: parameterCode,
+    datetime: window,
+    limit: String(options.limit || 2000)
+  }), options);
+  const rows = [];
+  for (const feature of features) {
+    const props = (feature && feature.properties) || {};
+    if (String(props.statistic_id) !== statisticId) continue;
+    const value = Number(props.value);
+    if (!Number.isFinite(value) || !props.time) continue;
+    rows.push({ date: String(props.time).slice(0, 10), value });
+  }
+  rows.sort((a, b) => a.date.localeCompare(b.date));
+  return rows;
 }

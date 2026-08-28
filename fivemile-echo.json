@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-28T00:54:51.962Z",
+  "updatedAt": "2026-08-28T01:07:20.411Z",
   "source": "US EPA ECHO, Clean Water Act facility search",
   "source_url": "https://echo.epa.gov/",
   "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
@@ -15,6 +15,29 @@
         "name": "Lower Fivemile Creek"
       }
     ]
+  },
+  "assessment": {
+    "assessment_unit": "AL03160111-0407-102",
+    "waterbody_name": "Fivemile Creek",
+    "condition": "Impaired - With Restoration Plan",
+    "reporting_cycle": "2022",
+    "causes_impaired": [
+      "AMMONIA",
+      "METALS (OTHER THAN MERCURY)",
+      "ORGANIC ENRICHMENT/OXYGEN DEPLETION",
+      "TOXIC INORGANICS",
+      "TOXIC ORGANICS"
+    ],
+    "designated_uses": {
+      "AquaticLifeUse": "Not Supporting",
+      "FishConsumptionUse": "Not Supporting",
+      "RecreationUse": "Not Supporting",
+      "EcologicalUse": "Not Supporting",
+      "DrinkingWaterUse": null,
+      "OtherUse": "Insufficient Information"
+    },
+    "epa_url": "https://mywaterway.epa.gov/waterbody-report/21AWIC/AL03160111-0407-102",
+    "read_from_permit": "ALG120453"
   },
   "counts": {
     "basin_rows_scanned": 1931,

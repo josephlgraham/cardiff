@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WVRM4E0C4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WVRM4E0C4X');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What goes in &middot; FIVEMILE</title>
+<meta name="description" content="Who holds a permit to discharge into Five Mile Creek, what EPA says about their compliance record, and what the water has measured lately.">
+<!-- Shelved pending Joe's review. This page names real businesses and quotes
+     EPA's compliance record for each one. Everything on it is sourced and
+     linked, and none of it is characterised, but a page like this should go
+     live because somebody decided to publish it, not because a build put it
+     there. Nothing links here and it is out of the sitemap.
+     To go live: take this line out, add it to FOOTER_NAV under This site, add
+     its url to sitemap.xml, add /fivemile-discharges.html to PRECACHE_URLS,
+     and bump CACHE_NAME. Not the masthead nav, which is full. -->
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://fivemile.now/fivemile-discharges.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FIVEMILE">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="What goes in &middot; FIVEMILE">
+<meta property="og:description" content="Who holds a permit to discharge into Five Mile Creek, what EPA says about their compliance record, and what the water has measured lately.">
+<meta property="og:url" content="https://fivemile.now/fivemile-discharges.html">
+<meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
+<meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What goes in &middot; FIVEMILE">
+<meta name="twitter:description" content="Who holds a permit to discharge into Five Mile Creek, what EPA says about their compliance record, and what the water has measured lately.">
+<meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#3d2810">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="fivemile-brand.js"></script>
+<script>(function(){var d=document.documentElement;try{var t=new Date();var k=t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate();var seen=localStorage.getItem('fivemile-intro-seen')===k;var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.setAttribute('data-intro',(seen||rm)?'done':'pending');}catch(e){d.setAttribute('data-intro','done');}setTimeout(function(){if(d.getAttribute('data-intro')==='pending'){d.setAttribute('data-intro','done');}},2600);})();</script>
+<link rel="stylesheet" href="fivemile-common.css">
+<link rel="stylesheet" href="fivemile-cards.css">
+<link rel="stylesheet" href="fivemile-shell.css">
+<link rel="stylesheet" href="fivemile-archive.css">
+<style>
+/* Verdict panel. The one place on the page with EPA's finding in its own
+   words, so it gets the weight and nothing else on the page competes. */
+.verdict{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.3rem 1.2rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
+.verdict-kick{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem;}
+.verdict-state{font-family:var(--sans);font-size:clamp(1.35rem,3.4vw,1.85rem);font-weight:800;line-height:1.2;color:var(--ink);margin-bottom:.6rem;}
+.verdict-sub{font-size:.9rem;line-height:1.72;color:var(--ink2);}
+.verdict-uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-top:1.1rem;}
+.use{background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);padding:.7rem .75rem;}
+.use-name{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.25rem;}
+.use-val{font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.35;}
+.causes{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
+.cause{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;padding:.3rem .55rem;border-radius:999px;background:rgba(200,16,46,.07);border:1px solid rgba(200,16,46,.2);color:var(--ink2);}
+
+/* Oxygen strip. Numbers only, and the caption does the explaining. */
+.ox{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:.75rem;}
+.ox-cell{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.85rem .9rem;}
+.ox-k{font-family:var(--mono);font-size:.57rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem;}
+.ox-v{font-family:var(--sans);font-size:1.5rem;font-weight:800;color:var(--ink);line-height:1;}
+.ox-u{font-family:var(--mono);font-size:.62rem;color:var(--ink3);margin-left:.15rem;}
+.ox-note{font-size:.8rem;line-height:1.65;color:var(--ink3);margin-top:.2rem;}
+
+/* .arc-count is nowrap in fivemile-archive.css, which suits a short stamp like
+   "33 days" and not this one. Overridden by id so the shared class is left
+   alone for the archive rooms that rely on it. */
+#dcStamp{white-space:normal;line-height:1.6;}
+
+/* The list. A table on a laptop, stacked cards on a phone, because six
+   columns at 390px is a column of confetti. */
+.fac-table{width:100%;border-collapse:collapse;font-size:.84rem;}
+.fac-table th{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:.5rem .5rem;border-bottom:1px solid var(--rule);white-space:nowrap;}
+.fac-table td{padding:.6rem .5rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;}
+.fac-name{font-weight:700;color:var(--ink);}
+.fac-permit{font-family:var(--mono);font-size:.72rem;color:var(--ink3);}
+.fac-nc{font-family:var(--mono);font-weight:500;white-space:nowrap;}
+.fac-nc.flag{color:var(--red-mid,#a80d26);font-weight:700;}
+.fac-cards{display:none;}
+@media(max-width:700px){
+  .fac-table{display:none;}
+  .fac-cards{display:grid;gap:.75rem;}
+  .fac-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.85rem .9rem;}
+  .fac-card .fac-name{display:block;margin-bottom:.15rem;}
+  .fac-row{display:flex;justify-content:space-between;gap:.75rem;font-size:.78rem;line-height:1.6;color:var(--ink2);}
+  .fac-row span:first-child{color:var(--ink3);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.2rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="cardiff-masthead">
+  <div class="mh-identity">
+    <div class="mh-left-info"><button type="button" class="mh-left-btn" aria-label="About the Five Mile Creek watershed" onclick="window.open('https://freshwaterlandtrust.org/what-we-do/about-red-rock-trail-system/five-mile-creek/','_blank','noopener')">Five Mile Creek Watershed<br>Jefferson County, Alabama</button></div>
+    <div class="mh-brand"><a href="index.html" class="mh-brand-link" aria-label="FIVEMILE. Graysville, Cardiff, Brookside. Home."><div class="mh-brand-name" id="mhWordmark">FIVEMILE</div><span class="mh-brand-sub" id="mhTagline">Graysville &middot; Cardiff &middot; Brookside</span></a></div>
+    <div class="mh-right-info"><a href="fivemile-almanac.html#the-creek" class="mh-wx-link"><span class="wx-hi" id="mhCreekStage">🌊 Creek</span> &nbsp;&middot;&nbsp; <span id="mhCreekCond">&mdash;</span></a><br><span id="mhCreekSrc">Five Mile Creek</span></div>
+    <div class="mh-mobile-pills">
+      <a href="fivemile-almanac.html#the-creek" class="mh-pill" id="mhCreekPill">🌊 Creek</a>
+    </div>
+  </div>
+  <nav class="mh-tabs">
+    <a href="index.html" id="tab-home">Home</a>
+    <a href="fivemile-news.html" id="tab-news">News</a>
+    <a href="fivemile-calendar.html" id="tab-calendar">Calendar</a>
+    <a href="fivemile-almanac.html" id="tab-almanac">Almanac</a>
+    <a href="fivemile-guide.html" id="tab-guide">Field Guide</a>
+    <a href="fivemile-heritage.html" id="tab-heritage">Heritage</a>
+    <a href="fivemile-about.html" id="tab-about">About</a>
+  </nav>
+  <div class="announce-strip">
+    <div class="announce-strip-scroll"><span class="announce-strip-text"></span></div>
+  </div>
+</header>
+<script src="fivemile-intro.js"></script>
+
+<div class="page">
+<main tabindex="-1" class="wrap" id="main">
+
+  <section class="top">
+    <div class="hd"><h1>What goes in</h1><a href="fivemile-creek-archive.html">The creek &rarr;</a></div>
+    <div class="panel intro">
+      <p class="lede">The creek that carried the mine waste is the one being cleaned up and walked along
+        now. It is not finished. The EPA lists Fivemile Creek as impaired, a restoration plan is on the
+        books, and a number of permits currently allow something to be put into the water upstream of these
+        three towns. This page is the record of who holds one, what the EPA says about their compliance, and
+        what the water itself has measured lately. Every figure on it belongs to the EPA or the USGS, and
+        every line of it links back to them.</p>
+    </div>
+  </section>
+
+  <div class="s-rule"><h2>The finding</h2><hr></div>
+  <section>
+    <div class="verdict">
+      <p class="verdict-kick" id="dcKick">&mdash;</p>
+      <p class="verdict-state" id="dcCondition">&mdash;</p>
+      <p class="verdict-sub" id="dcConditionSub">&mdash;</p>
+      <div class="causes" id="dcCauses"></div>
+      <div class="verdict-uses" id="dcUses"></div>
+    </div>
+  </section>
+
+  <div class="s-rule"><h2>What the water measures</h2><hr></div>
+  <section>
+    <div class="ox" id="dcOxygen"><div class="empty">&mdash;</div></div>
+    <p class="ox-note" id="dcOxygenNote">&mdash;</p>
+  </section>
+
+  <div class="s-rule"><h2>Who holds a permit</h2><hr></div>
+  <section>
+    <div class="panel intro">
+      <p>A permit here is a National Pollutant Discharge Elimination System permit, which is the ordinary
+        way anything is allowed to be released into a waterway in this country. Holding one is not a
+        finding against anybody. Most of the list below is car washes, freight terminals, quarries, and
+        stormwater coverage, and the permit is the part that makes it legal and measurable.</p>
+      <p>The column worth reading is the last one. The EPA scores every permit holder quarter by quarter and
+        counts how many of the last twelve it was in noncompliance. A zero is the ordinary case. A twelve
+        means every quarter for three years.</p>
+    </div>
+    <p class="arc-count" id="dcStamp">&mdash;</p>
+    <div class="card-dept">
+      <div class="d-bar"><h3>Currently permitted</h3><span class="r" id="dcSourceTag">EPA ECHO</span></div>
+      <div class="d-body" id="dcList">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <p class="src-note">
+    <strong>Where this comes from</strong>
+    Permits, inspection dates, and compliance quarters are from the
+    <a href="https://echo.epa.gov/" target="_blank" rel="noopener">EPA Enforcement and Compliance History
+    Online</a> database, refreshed twice a day. The impairment finding and the designated uses are the
+    EPA's own words from its assessment of this waterbody, and the link on that panel goes to the EPA page
+    the wording is taken from. Oxygen and conductance are measured by the
+    <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS
+    gauge near Republic</a>. Five Mile Creek is two hydrologic units, Upper and Lower Fivemile Creek, and a
+    facility is listed here when the EPA places it in one of them or names this creek as the water it
+    discharges to. The town a business sits in is not used, because a business in one of these towns may
+    discharge somewhere else entirely. Nothing on this page characterises any facility. It reports what the
+    EPA published and links to it, and if a number here looks wrong, the link beside it is the place to
+    check.
+  </p>
+
+</main><!-- /wrap -->
+
+<!-- Footer is injected by fivemile-common.js, same as every other page. -->
+
+</div><!-- /page -->
+
+<script src="fivemile-common.js"></script>
+<script src="fivemile-discharges.js"></script>
+<script src="/fivemile-pwa.js"></script>
+</body>
+</html>

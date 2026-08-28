@@ -163,12 +163,72 @@ export async function fetchWatershedFacilities({ parseCsvRows }) {
   return { facilities, terminated, scanned: records.length };
 }
 
+/* EPA's own verdict on the creek, read off the detailed facility report of a
+   facility that discharges here, because that is where ECHO exposes it.
+
+   A wrong turn worth recording. The WBD12 block on the same report carries a
+   field called PossibleImpairingParameters, and it is tempting, because it
+   returns a long list of chemicals. It is not the creek's impairment causes.
+   It is what that particular facility could impair with, so ABC Coke returns
+   coke chemistry and a metal finisher returns metals. Publishing it as the
+   creek's problem would have been a serious misrepresentation of a real place
+   and of the businesses on it.
+
+   The creek level answer is on the assessment unit: CauseGroupsImpaired, the
+   designated uses, and EPA's own condition wording. Those are the fields used
+   here, and every one of them is quoted rather than summarised. */
+async function fetchAssessment(permit) {
+  const text = await getText(
+    `https://echodata.epa.gov/echo/dfr_rest_services.get_dfr?output=JSON&p_id=${encodeURIComponent(permit)}`,
+    45000
+  );
+  const results = JSON.parse(text).Results || {};
+  const unit = ((results.AssessedWaters || {}).AssessmentUnits || [])[0];
+  if (!unit || !clean(unit.WaterCondition)) return null;
+
+  const causes = String(unit.CauseGroupsImpaired || '')
+    .split('|').map((x) => x.trim()).filter(Boolean);
+
+  /* Kept as EPA words them. "Not Supporting" is a term of art and softening it
+     into plain English here would be putting our voice on EPA's finding. The
+     page explains what it means alongside, without changing it. */
+  const uses = {};
+  for (const key of ['AquaticLifeUse', 'FishConsumptionUse', 'RecreationUse',
+                     'EcologicalUse', 'DrinkingWaterUse', 'OtherUse']) {
+    uses[key] = clean(unit[key]);
+  }
+
+  return {
+    assessment_unit: clean(unit.AssessmentUnitIdentifier),
+    waterbody_name: clean(unit.AssessmentUnitName),
+    condition: clean(unit.WaterCondition),
+    reporting_cycle: clean(unit.ReportingCycle),
+    causes_impaired: causes,
+    designated_uses: uses,
+    epa_url: clean(unit.AUURL),
+    read_from_permit: permit
+  };
+}
+
 export async function updateEchoFile(deps) {
   const { facilities, terminated, scanned } = await fetchWatershedFacilities(deps);
   if (!facilities.length) {
     console.log('   ECHO returned no watershed facilities, keeping the file on disk.');
     return null;
   }
+  /* Any facility on the creek reports the same assessment unit, so the first
+     one that answers is enough. A failure here loses the verdict, not the
+     list. */
+  let assessment = null;
+  for (const candidate of facilities.slice(0, 4)) {
+    try {
+      assessment = await fetchAssessment(candidate.permit);
+      if (assessment && assessment.condition) break;
+    } catch (error) {
+      console.warn(`   ECHO assessment lookup failed on ${candidate.permit}, trying the next.`);
+    }
+  }
+
   const payload = {
     updatedAt: new Date().toISOString(),
     source: 'US EPA ECHO, Clean Water Act facility search',
@@ -178,6 +238,7 @@ export async function updateEchoFile(deps) {
       basin_huc8: BASIN_HUC8,
       units: Object.entries(CREEK_HUC12).map(([code, name]) => ({ code, name }))
     },
+    assessment,
     counts: {
       basin_rows_scanned: scanned,
       in_watershed_active: facilities.length,
