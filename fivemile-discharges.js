@@ -116,6 +116,7 @@
       return Number(p) > 0;
     }).length;
 
+    setText('dcLeadStamp', spell(late.length) + ' ' + plural(late.length, 'business', 'businesses'));
     setText('dcLeadLine',
       spell(late.length).charAt(0).toUpperCase() + spell(late.length).slice(1) + ' ' +
       plural(late.length, 'business', 'businesses') + ' upstream of these three towns ' +
@@ -153,15 +154,17 @@
     var a = echo && echo.assessment;
     if (!a) return;
 
-    setText('dcKick', 'US EPA assessment, ' + (a.reporting_cycle || '') + ' reporting cycle');
+    setText('dcKick', (a.reporting_cycle || '') + ' reporting cycle');
     setText('dcCondition', a.condition || '');
+    setText('dcUnit', a.assessment_unit || '');
 
     var sub = byId('dcConditionSub');
     if (sub) {
       var name = a.waterbody_name || 'This creek';
-      var bits = name + ' is assessment unit ' + (a.assessment_unit || '') +
-        '. That wording is the EPA’s, and a restoration plan being on the books means a cleanup ' +
-        'target has been set for it rather than that the work is finished.';
+      var bits = 'That is the wording the EPA uses for ' + name + '. A restoration plan being on the ' +
+        'books means somebody has set a cleanup target for this water, not that the work is finished. ' +
+        'The four lines below are the uses the EPA measures a creek against, and what it found for ' +
+        'this one.';
       sub.innerHTML = esc(bits) +
         (a.epa_url ? ' <a href="' + esc(a.epa_url) + '" target="_blank" rel="noopener">Read the EPA report on this waterbody</a>.' : '');
     }
@@ -243,7 +246,7 @@
 
     var head = '<table class="fac-table"><thead><tr>' +
       '<th>Facility</th><th>Permit</th><th class="opt">Discharges to</th>' +
-      '<th class="opt">Last inspected</th><th>Quarters in noncompliance</th>' +
+      '<th class="opt">Last inspected</th><th class="num">Quarters out of compliance</th>' +
       '</tr></thead><tbody>';
 
     var body = rows.map(function (f) {
@@ -253,7 +256,7 @@
         '<td class="fac-permit">' + esc(f.permit) + '</td>' +
         '<td class="opt">' + esc(f.receiving_water || '—') + '</td>' +
         '<td class="opt fac-permit">' + esc(f.last_inspection || 'none recorded') + '</td>' +
-        '<td>' + ncCell(f) + '</td>' +
+        '<td class="num">' + ncCell(f) + '</td>' +
         '</tr>';
     }).join('');
 

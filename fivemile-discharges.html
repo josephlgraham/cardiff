@@ -52,57 +52,57 @@
 <link rel="stylesheet" href="fivemile-shell.css">
 <link rel="stylesheet" href="fivemile-archive.css">
 <style>
-/* Verdict panel. The one place on the page with EPA's finding in its own
-   words, so it gets the weight and nothing else on the page competes. */
-.verdict{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.3rem 1.2rem;box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);}
-.verdict-kick{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem;}
-.verdict-state{font-family:var(--sans);font-size:clamp(1.35rem,3.4vw,1.85rem);font-weight:800;line-height:1.2;color:var(--ink);margin-bottom:.6rem;}
-.verdict-sub{font-size:.9rem;line-height:1.72;color:var(--ink2);}
-.verdict-uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-top:1.1rem;}
-.use{background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);padding:.7rem .75rem;}
+/* This page uses the house furniture: section.blk, .hd with an .hd-note,
+   .card-dept over .d-bar and .d-body, and .panel.intro for a run of writing.
+   What is below is only the things that do not already exist, which is the
+   designated use tiles, the cause chips, the oxygen figures, and the list. */
+
+/* EPA's designated uses, four small tiles inside a .d-body. */
+.use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-top:1rem;}
+.use{background:rgba(255,255,255,.42);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:.7rem .75rem;}
 .use-name{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.25rem;}
 .use-val{font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.35;}
-.causes{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
+
+.causes{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;}
 .cause{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;padding:.3rem .55rem;border-radius:999px;background:rgba(200,16,46,.07);border:1px solid rgba(200,16,46,.2);color:var(--ink2);}
 
-/* Oxygen strip. Numbers only, and the caption does the explaining. */
+/* The oxygen figures. */
 .ox{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:.75rem;}
-.ox-cell{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.85rem .9rem;}
+.ox-cell{background:rgba(255,255,255,.42);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:.85rem .9rem;}
 .ox-k{font-family:var(--mono);font-size:.57rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem;}
 .ox-v{font-family:var(--sans);font-size:1.5rem;font-weight:800;color:var(--ink);line-height:1;}
-.ox-u{font-family:var(--mono);font-size:.62rem;color:var(--ink3);margin-left:.15rem;}
-.ox-note{font-size:.8rem;line-height:1.65;color:var(--ink3);margin-top:.2rem;}
+.ox-u{font-family:var(--mono);font-size:.62rem;color:var(--ink3);margin-left:.2rem;}
+.ox-note{font-size:.82rem;line-height:1.65;color:var(--ink3);margin-top:.9rem;}
 
-/* .arc-count is nowrap in fivemile-archive.css, which suits a short stamp like
-   "33 days" and not this one. Overridden by id so the shared class is left
-   alone for the archive rooms that rely on it. */
-#dcStamp{white-space:normal;line-height:1.6;}
-
-/* The list. A table on a laptop, stacked cards on a phone, because six
+/* The list. A table on a laptop, stacked cards on a phone, because five
    columns at 390px is a column of confetti. */
-.fac-table{width:100%;border-collapse:collapse;font-size:.84rem;}
-.fac-table th{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:.5rem .5rem;border-bottom:1px solid var(--rule);white-space:nowrap;}
-.fac-table td{padding:.6rem .5rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;}
+.fac-table{width:100%;border-collapse:collapse;font-size:.86rem;}
+.fac-table th{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:.5rem .5rem;border-bottom:1px solid var(--fm-rule);white-space:nowrap;}
+.fac-table td{padding:.6rem .5rem;border-bottom:1px solid var(--fm-rule);vertical-align:top;line-height:1.5;}
 .fac-name{font-weight:700;color:var(--ink);}
 .fac-permit{font-family:var(--mono);font-size:.72rem;color:var(--ink3);}
+
+/* The quarters column is a count, and a count reads as a count when it sits
+   under its own heading rather than drifting off to the left of a wide cell.
+   Centred in both the header and the body so the two stay lined up. */
+.fac-table th.num,.fac-table td.num{text-align:center;width:1%;white-space:nowrap;}
 .fac-nc{font-family:var(--mono);font-weight:500;white-space:nowrap;}
-.fac-nc.flag{color:var(--red-mid,#a80d26);font-weight:700;}
+.fac-nc.flag{color:var(--red);font-weight:700;}
+
 .fac-cards{display:none;}
-/* The lead cards show at every width. There are only ever a couple of them and
-   they are the point of the page, so they do not wait for a phone. */
-.lead-cards{display:grid !important;gap:.7rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
-.lead-cards .fac-card{background:rgba(255,255,255,.42);border:1px solid var(--border);border-radius:var(--r);padding:.85rem .9rem;}
+/* The lead cards show at every width. There are only ever a couple and they
+   are the point of the page, so they do not wait for a phone. */
+.lead-cards{display:grid !important;gap:.7rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.lead-cards .fac-card{background:rgba(255,255,255,.42);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:.85rem .9rem;}
 .lead-cards .fac-name{display:block;margin-bottom:.3rem;}
-.lead-cards .fac-row{display:flex;justify-content:space-between;gap:.75rem;font-size:.78rem;line-height:1.6;color:var(--ink2);}
-.lead-cards .fac-row span:first-child{color:var(--ink3);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.2rem;}
 @media(max-width:700px){
   .fac-table{display:none;}
   .fac-cards{display:grid;gap:.75rem;}
-  .fac-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.85rem .9rem;}
-  .fac-card .fac-name{display:block;margin-bottom:.15rem;}
-  .fac-row{display:flex;justify-content:space-between;gap:.75rem;font-size:.78rem;line-height:1.6;color:var(--ink2);}
-  .fac-row span:first-child{color:var(--ink3);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.2rem;}
 }
+.fac-card{background:rgba(255,255,255,.42);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:.85rem .9rem;}
+.fac-card .fac-name{display:block;margin-bottom:.15rem;}
+.fac-row{display:flex;justify-content:space-between;gap:.75rem;font-size:.78rem;line-height:1.6;color:var(--ink2);}
+.fac-row span:first-child{color:var(--ink3);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.2rem;}
 </style>
 </head>
 <body>
@@ -136,7 +136,10 @@
 <main tabindex="-1" class="wrap" id="main">
 
   <section class="top">
-    <div class="hd"><h1>What goes in</h1><a href="fivemile-creek-archive.html">The creek &rarr;</a></div>
+    <div class="hd">
+      <h1>What goes in</h1>
+      <a href="fivemile-creek-archive.html">The creek &rarr;</a>
+    </div>
     <div class="panel intro">
       <p class="lede">Most people here know what this creek used to carry. The mines and the coke ovens put
         their waste straight into it for the better part of a century, and getting it back out has taken a
@@ -148,18 +151,20 @@
     </div>
   </section>
 
-  <div class="s-rule"><h2>The part that has not held</h2><hr></div>
-  <section>
-    <div class="verdict">
-      <p class="verdict-kick">Reports that were never filed</p>
-      <p class="verdict-state" id="dcLeadLine">&mdash;</p>
-      <p class="verdict-sub" id="dcLeadSub">&mdash;</p>
-      <div id="dcLeadList"></div>
+  <section class="blk">
+    <div class="hd"><h2>The part that has not held</h2><span class="hd-note" id="dcLeadStamp">&mdash;</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>Reports that were never filed</h3><span class="r">US EPA</span></div>
+      <div class="d-body">
+        <p id="dcLeadLine">&mdash;</p>
+        <p id="dcLeadSub">&mdash;</p>
+        <div id="dcLeadList"></div>
+      </div>
     </div>
   </section>
 
-  <div class="s-rule"><h2>How this is meant to work</h2><hr></div>
-  <section>
+  <section class="blk">
+    <div class="hd"><h2>How this is meant to work</h2><span class="hd-note">Plainly put</span></div>
     <div class="panel intro">
       <p>A permit here is the ordinary paperwork that lets a business put something into a waterway. Holding
         one is not a mark against anybody. There are a good many of them in force along this creek, and most
@@ -176,32 +181,37 @@
     </div>
   </section>
 
-  <div class="s-rule"><h2>What the EPA says about the creek</h2><hr></div>
-  <section>
-    <div class="verdict">
-      <p class="verdict-kick" id="dcKick">&mdash;</p>
-      <p class="verdict-state" id="dcCondition">&mdash;</p>
-      <p class="verdict-sub" id="dcConditionSub">&mdash;</p>
-      <div class="causes" id="dcCauses"></div>
-      <div class="verdict-uses" id="dcUses"></div>
+  <section class="blk">
+    <div class="hd"><h2>What the EPA says about the creek</h2><span class="hd-note" id="dcKick">&mdash;</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3 id="dcCondition">&mdash;</h3><span class="r" id="dcUnit">&mdash;</span></div>
+      <div class="d-body">
+        <p id="dcConditionSub">&mdash;</p>
+        <div class="causes" id="dcCauses"></div>
+        <div class="use-grid" id="dcUses"></div>
+      </div>
     </div>
   </section>
 
-  <div class="s-rule"><h2>What the water measures</h2><hr></div>
-  <section>
-    <div class="ox" id="dcOxygen"><div class="empty">&mdash;</div></div>
-    <p class="ox-note" id="dcOxygenNote">&mdash;</p>
+  <section class="blk">
+    <div class="hd"><h2>What the water measures</h2><span class="hd-note">USGS gauge near Republic</span></div>
+    <div class="card-dept">
+      <div class="d-bar"><h3>Oxygen in the creek</h3><span class="r">USGS 02457595</span></div>
+      <div class="d-body">
+        <div class="ox" id="dcOxygen"><div class="empty">&mdash;</div></div>
+        <p class="ox-note" id="dcOxygenNote">&mdash;</p>
+      </div>
+    </div>
   </section>
 
-  <div class="s-rule"><h2>Everyone who holds a permit</h2><hr></div>
-  <section>
+  <section class="blk">
+    <div class="hd"><h2>Everyone who holds a permit</h2><span class="hd-note" id="dcStamp">&mdash;</span></div>
     <div class="panel intro">
       <p>Here is the whole list, sorted so that the records worth a second look come first. The last column
         counts how many of the last twelve quarters the EPA marked that permit as being out of compliance.
         A zero is the ordinary case and most of this list is zeros. Every name links to that business's own
         page on the EPA site, so you can check anything here against the source in one click.</p>
     </div>
-    <p class="arc-count" id="dcStamp">&mdash;</p>
     <div class="card-dept">
       <div class="d-bar"><h3>Currently permitted</h3><span class="r" id="dcSourceTag">EPA ECHO</span></div>
       <div class="d-body" id="dcList">
