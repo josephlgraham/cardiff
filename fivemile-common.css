@@ -922,39 +922,53 @@ main:focus{outline:none;}
 
 /* ─────────────────────────────────────────────────────────────────────
    Share row
-   Built by fivemile-common.js at the foot of every page that has a main.
-   The buttons take the shared .btn treatment above, so the only work here
-   is the row itself and the line that reports back after a copy.
+   Built by fivemile-common.js and placed under the page intro.
+
+   Deliberately not the red .btn treatment. That is the call to action
+   style and it belongs on the thing a page is asking you to do. This is
+   a utility sitting near the top of every page, so it reads quieter
+   than the writing under it and louder than nothing.
    ───────────────────────────────────────────────────────────────────── */
 .fm-share{
-  margin:40px 0 0;
-  padding-top:24px;
-  border-top:1px solid var(--rule,#DDCFB8);
-}
-.fm-share-lede{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  margin:0 0 12px;
-}
-.fm-share-row{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  align-items:center;
+  gap:8px;
+  margin:0 0 18px;
 }
-/* The shared .btn rule sets its own padding with !important, so the tap floor
-   from CLAUDE.md is set here as a minimum rather than by overriding it. */
-.fm-share-row .btn{min-height:44px;font-size:15px;}
-.fm-share-said{
-  margin:10px 0 0;
-  min-height:1.2em;
+.fm-share-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:.5rem .95rem;
+  border:1px solid var(--border2,#DDCFB8);
+  border-radius:999px;
+  background:var(--paper,#F2E8D5);
+  color:var(--ink2);
+  font-family:var(--sans,inherit);
   font-size:14px;
-  line-height:1.5;
+  font-weight:700;
+  line-height:1.2;
+  text-decoration:none;
+  cursor:pointer;
+  transition:border-color .18s ease,color .18s ease,background .18s ease;
+}
+.fm-share-btn:hover{
+  border-color:var(--red);
+  color:var(--red);
+  background:#fff;
+}
+.fm-share-btn:focus-visible{
+  outline:2px solid var(--red);
+  outline-offset:2px;
+}
+.fm-share-said{
+  font-size:13.5px;
+  line-height:1.4;
   color:var(--ink3);
 }
 @media(max-width:420px){
-  /* Two across at the narrowest, rather than one long column of buttons. */
-  .fm-share-row .btn{flex:1 1 auto;}
+  .fm-share-btn{flex:1 1 auto;}
+  .fm-share-said{flex:1 0 100%;}
 }

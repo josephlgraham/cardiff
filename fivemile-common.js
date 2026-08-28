@@ -928,16 +928,18 @@
 // ─────────────────────────────────────────────────────────────────────
 //  Share row
 //
-//  Most people arrive here from a link somebody posted, so the way the site
-//  grows is somebody passing a page on. This puts the same row at the foot of
-//  every page rather than on a chosen few, because a control that appears in
-//  some places and not others reads as broken rather than as considered.
+//  Most people arrive here from a link somebody posted, so the way this site
+//  grows is somebody passing a page on.
 //
-//  Three things it does not do. It loads no third party script, so nothing
-//  here is watching a reader who never touches it: the Facebook control is an
-//  ordinary link and Facebook learns nothing until it is clicked. It does not
-//  explain itself, because the buttons say what they are. And it does not
-//  appear on a page that asks it not to, which is what data-no-share is for.
+//  It sits under the page intro rather than at the foot. At the foot it was
+//  thousands of pixels down on the field guide and never seen, which made it
+//  an afterthought in fact as well as in feel. Under the intro is where a
+//  newspaper puts it, and where somebody is when they decide to pass a thing
+//  on, which is often before they have finished reading it.
+//
+//  It loads no third party script. The Facebook control is an ordinary link,
+//  so Facebook learns nothing about a reader who never clicks it. And it stays
+//  off a page that asks it to, which is what data-no-share is for.
 // ─────────────────────────────────────────────────────────────────────
 (function () {
   'use strict';
@@ -981,6 +983,14 @@
     });
   }
 
+  function control(kind, text) {
+    var el = document.createElement(kind);
+    el.className = 'fm-share-btn';
+    if (kind === 'button') el.type = 'button';
+    el.textContent = text;
+    return el;
+  }
+
   function build() {
     var main = document.querySelector('main');
     if (!main) return;
@@ -989,56 +999,20 @@
 
     var url = canonicalUrl();
     var title = shareTitle();
+    var canSheet = typeof navigator.share === 'function';
 
     var row = document.createElement('div');
     row.className = 'fm-share';
 
-    var label = document.createElement('p');
-    label.className = 'fm-share-lede';
-    label.textContent = 'Pass this along';
-    row.appendChild(label);
-
-    var controls = document.createElement('div');
-    controls.className = 'fm-share-row';
-
-    var main_btn = document.createElement('button');
-    main_btn.type = 'button';
-    main_btn.className = 'btn';
-    /* The label matches what will actually happen. On a phone this opens the
-       system sheet; on a laptop there is usually no sheet, so it copies. */
-    var canSheet = typeof navigator.share === 'function';
-    main_btn.textContent = canSheet ? 'Share' : 'Copy link';
-    controls.appendChild(main_btn);
-
-    var fb = document.createElement('a');
-    fb.className = 'btn';
-    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
-    fb.target = '_blank';
-    fb.rel = 'noopener';
-    fb.textContent = 'Facebook';
-    controls.appendChild(fb);
-
-    if (canSheet) {
-      var copy = document.createElement('button');
-      copy.type = 'button';
-      copy.className = 'btn';
-      copy.textContent = 'Copy link';
-      controls.appendChild(copy);
-      copy.addEventListener('click', function () {
-        copyLink(url).then(function () { say(status, 'Link copied.'); })
-          .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
-      });
-    }
-
-    row.appendChild(controls);
-
-    var status = document.createElement('p');
+    var status = document.createElement('span');
     status.className = 'fm-share-said';
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
-    row.appendChild(status);
 
-    main_btn.addEventListener('click', function () {
+    /* The label says what will actually happen. On a phone this opens the
+       system sheet; on a laptop there usually is none, so it copies. */
+    var first = control('button', canSheet ? 'Share' : 'Copy link');
+    first.addEventListener('click', function () {
       if (canSheet) {
         navigator.share({ title: title, url: url }).catch(function (error) {
           /* Closing the sheet is a choice, not a failure. */
@@ -1051,8 +1025,51 @@
       copyLink(url).then(function () { say(status, 'Link copied.'); })
         .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
     });
+    row.appendChild(first);
 
-    main.appendChild(row);
+    if (canSheet) {
+      var copy = control('button', 'Copy link');
+      copy.addEventListener('click', function () {
+        copyLink(url).then(function () { say(status, 'Link copied.'); })
+          .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
+      });
+      row.appendChild(copy);
+    }
+
+    var fb = control('a', 'Facebook');
+    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    fb.target = '_blank';
+    fb.rel = 'noopener';
+    row.appendChild(fb);
+
+    /* Text and email are plain links to whatever the reader already has open.
+       No script, no account, nothing watching. Plenty of people here will pass
+       a page on by texting it to one person rather than posting it to
+       everybody, and that is worth a button of its own. */
+    var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (coarse) {
+      var sms = control('a', 'Text');
+      /* iOS wants sms:& and Android wants sms:?. sms:?& is read correctly by
+         both, which is the only reason it is written that way. */
+      sms.href = 'sms:?&body=' + encodeURIComponent(title + ' ' + url);
+      row.appendChild(sms);
+    }
+
+    var mail = control('a', 'Email');
+    mail.href = 'mailto:?subject=' + encodeURIComponent(title) +
+      '&body=' + encodeURIComponent(title) + '%0A%0A' + encodeURIComponent(url);
+    row.appendChild(mail);
+
+    row.appendChild(status);
+
+    /* Under the opening block, which every page has. Falling back to the top
+       of main covers anything built differently later. */
+    var top = main.querySelector('section.top');
+    if (top && top.parentNode) {
+      top.parentNode.insertBefore(row, top.nextSibling);
+    } else {
+      main.insertBefore(row, main.firstChild);
+    }
   }
 
   if (document.readyState === 'loading') {
