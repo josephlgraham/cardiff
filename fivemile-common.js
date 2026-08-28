@@ -983,11 +983,43 @@
     });
   }
 
-  function control(kind, text) {
+  /* Icons drawn as inline SVG rather than loaded from anywhere, because a
+     share row that fetches its own artwork from a CDN is the tracking this
+     site does not do, wearing a different hat.
+
+     They are one colour and take currentColor, so they pick up the ink and
+     turn red on hover with the tile instead of sitting in it as a coloured
+     blob. A row of brand blues and greens would fight the paper and red the
+     rest of the site is built on. */
+  var ICONS = {
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>' +
+           '<line x1="8.6" y1="10.7" x2="15.4" y2="6.3"/><line x1="8.6" y1="13.3" x2="15.4" y2="17.7"/>',
+    link:  '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/>' +
+           '<path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+    mail:  '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2.5 6.5 12 13l9.5-6.5"/>',
+    text:  '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.9 9.9 0 0 1-2.8-.4L3 21l1.4-4.1A8.2 8.2 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4z"/>',
+    /* The Facebook mark. If it ever looks a shade off against their brand
+       page, replace this one path with the official SVG and nothing else
+       changes. */
+    facebook: '<path fill="currentColor" stroke="none" d="M15.12 5.32H17V2.14A26.11 26.11 0 0 0 14.26 2C11.54 2 9.68 3.66 9.68 6.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.05.28-1.73 1.76-1.73z"/>'
+  };
+
+  function icon(name) {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ' +
+      'fill="none" stroke="currentColor" stroke-width="1.7" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' + ICONS[name] + '</svg>';
+  }
+
+  /* `text` is what a screen reader gets. `short` is what fits in a tile at
+     375px without wrapping onto a second line and making one tile taller than
+     the rest. */
+  function control(kind, text, iconName, short) {
     var el = document.createElement(kind);
     el.className = 'fm-share-btn';
     if (kind === 'button') el.type = 'button';
-    el.textContent = text;
+    el.innerHTML = icon(iconName) + '<span class="fm-share-lbl"></span>';
+    el.querySelector('.fm-share-lbl').textContent = short || text;
+    el.setAttribute('aria-label', text);
     return el;
   }
 
@@ -1004,6 +1036,11 @@
     var row = document.createElement('div');
     row.className = 'fm-share';
 
+    var kick = document.createElement('span');
+    kick.className = 'fm-share-kick';
+    kick.textContent = 'Share';
+    row.appendChild(kick);
+
     var status = document.createElement('span');
     status.className = 'fm-share-said';
     status.setAttribute('role', 'status');
@@ -1011,7 +1048,7 @@
 
     /* The label says what will actually happen. On a phone this opens the
        system sheet; on a laptop there usually is none, so it copies. */
-    var first = control('button', canSheet ? 'Share' : 'Copy link');
+    var first = control('button', canSheet ? 'Share' : 'Copy link', canSheet ? 'share' : 'link', canSheet ? 'Share' : 'Copy');
     first.addEventListener('click', function () {
       if (canSheet) {
         navigator.share({ title: title, url: url }).catch(function (error) {
@@ -1028,7 +1065,7 @@
     row.appendChild(first);
 
     if (canSheet) {
-      var copy = control('button', 'Copy link');
+      var copy = control('button', 'Copy link', 'link', 'Copy');
       copy.addEventListener('click', function () {
         copyLink(url).then(function () { say(status, 'Link copied.'); })
           .catch(function () { say(status, 'Could not copy. The link is in the address bar.'); });
@@ -1036,7 +1073,7 @@
       row.appendChild(copy);
     }
 
-    var fb = control('a', 'Facebook');
+    var fb = control('a', 'Facebook', 'facebook');
     fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
     fb.target = '_blank';
     fb.rel = 'noopener';
@@ -1048,14 +1085,14 @@
        everybody, and that is worth a button of its own. */
     var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
     if (coarse) {
-      var sms = control('a', 'Text');
+      var sms = control('a', 'Text', 'text');
       /* iOS wants sms:& and Android wants sms:?. sms:?& is read correctly by
          both, which is the only reason it is written that way. */
       sms.href = 'sms:?&body=' + encodeURIComponent(title + ' ' + url);
       row.appendChild(sms);
     }
 
-    var mail = control('a', 'Email');
+    var mail = control('a', 'Email', 'mail');
     mail.href = 'mailto:?subject=' + encodeURIComponent(title) +
       '&body=' + encodeURIComponent(title) + '%0A%0A' + encodeURIComponent(url);
     row.appendChild(mail);
