@@ -210,12 +210,74 @@ async function fetchAssessment(permit) {
   };
 }
 
+/* For a facility EPA has flagged, what kind of noncompliance it is and what
+   anybody has done about it.
+
+   This is a second request per flagged facility, so it only runs for the ones
+   the summary already flagged, which is a handful rather than all forty nine.
+
+   It matters because "twelve quarters in noncompliance" covers two completely
+   different situations. Saiia Construction went over an effluent limit, which
+   means too much of something measured went into the creek. Jordan Machine
+   failed to file the report at all, which means nobody knows what went in.
+   Both are serious and they are not the same sentence, and a page that blurs
+   them is unfair to one of the two. */
+async function fetchViolationDetail(permit) {
+  const text = await getText(
+    `https://echodata.epa.gov/echo/dfr_rest_services.get_dfr?output=JSON&p_id=${encodeURIComponent(permit)}`,
+    45000
+  );
+  const results = JSON.parse(text).Results || {};
+
+  const kinds = new Map();
+  for (const source of ((results.CWARNCCompliance || {}).Sources || [])) {
+    for (const row of (source.Status || [])) {
+      for (const [key, value] of Object.entries(row)) {
+        if (!key.endsWith('Status') || !value) continue;
+        kinds.set(value, (kinds.get(value) || 0) + 1);
+      }
+    }
+  }
+  const ranked = [...kinds.entries()].sort((a, b) => b[1] - a[1]);
+
+  let inspections = null;
+  let formalActions = null;
+  let penalties = null;
+  for (const row of ((results.InspectionEnforcementSummary || {}).Source || [])) {
+    if (row.Statute !== 'CWA' || row.SourceID !== permit) continue;
+    inspections = number(row.InspectionCount);
+    formalActions = number(row.FormalEnfActCount);
+    penalties = clean(row.TotalPenalties);
+  }
+
+  return {
+    /* EPA's wording, kept whole. */
+    main_violation: ranked.length ? ranked[0][0] : null,
+    main_violation_quarters: ranked.length ? ranked[0][1] : null,
+    violation_kinds: ranked.map(([kind, count]) => ({ kind, quarters: count })),
+    inspections,
+    formal_enforcement_actions: formalActions,
+    total_penalties: penalties
+  };
+}
+
 export async function updateEchoFile(deps) {
   const { facilities, terminated, scanned } = await fetchWatershedFacilities(deps);
   if (!facilities.length) {
     console.log('   ECHO returned no watershed facilities, keeping the file on disk.');
     return null;
   }
+  /* Detail for the flagged ones only. A failure here costs the detail on one
+     facility, not the page. */
+  for (const facility of facilities) {
+    if ((facility.quarters_in_noncompliance || 0) < 4) continue;
+    try {
+      Object.assign(facility, await fetchViolationDetail(facility.permit));
+    } catch (error) {
+      console.warn(`   ECHO violation detail failed for ${facility.permit}.`);
+    }
+  }
+
   /* Any facility on the creek reports the same assessment unit, so the first
      one that answers is enough. A failure here loses the verdict, not the
      list. */

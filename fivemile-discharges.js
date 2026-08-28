@@ -78,6 +78,77 @@
     });
   }
 
+  /* Spell small numbers, because "Two businesses" reads like a sentence and
+     "2 businesses" reads like a spreadsheet. */
+  var WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
+               'eight', 'nine', 'ten', 'eleven', 'twelve'];
+  function spell(n) { return WORDS[n] !== undefined ? WORDS[n] : String(n); }
+
+  function plural(n, one, many) { return n === 1 ? one : many; }
+
+  /* Quarters into something a person says out loud. Twelve quarters is three
+     years, and three years is the number that lands. */
+  function spanFromQuarters(q) {
+    if (!q) return '';
+    if (q % 4 === 0 && q >= 4) {
+      var years = q / 4;
+      return spell(years) + ' ' + plural(years, 'year', 'years');
+    }
+    return spell(q) + ' ' + plural(q, 'quarter', 'quarters');
+  }
+
+  /* The lead. Built from the file rather than written down, so that the day one
+     of these businesses files its paperwork the sentence changes with it and
+     nobody has to remember to come back and edit this page. */
+  function renderLead(echo) {
+    var rows = (echo && echo.facilities) || [];
+    var late = rows.filter(function (f) {
+      return /failure to report/i.test(String(f.main_violation || '')) &&
+        num(f.main_violation_quarters) >= 4;
+    }).sort(function (a, b) {
+      return num(b.main_violation_quarters) - num(a.main_violation_quarters);
+    });
+    if (!late.length) return;
+
+    var longest = num(late[0].main_violation_quarters);
+    var fined = late.filter(function (f) {
+      var p = String(f.total_penalties || '').replace(/[^0-9.]/g, '');
+      return Number(p) > 0;
+    }).length;
+
+    setText('dcLeadLine',
+      spell(late.length).charAt(0).toUpperCase() + spell(late.length).slice(1) + ' ' +
+      plural(late.length, 'business', 'businesses') + ' upstream of these three towns ' +
+      plural(late.length, 'has', 'have') + ' a permit to put something into Five Mile Creek, and ' +
+      plural(late.length, 'has', 'have') + ' not filed a report saying what.');
+
+    var sub = byId('dcLeadSub');
+    if (sub) {
+      sub.textContent =
+        'The longest of them has gone ' + spanFromQuarters(longest) + ' without sending in the paperwork ' +
+        'the permit asks for, and the EPA has marked it every quarter of that time. ' +
+        (fined === 0
+          ? 'Not one of them has been fined a dollar over it.'
+          : spell(fined) + ' of them ' + plural(fined, 'has', 'have') + ' been fined.') +
+        ' This does not mean anything harmful went into the creek. It means that for as long as those ' +
+        'reports have been missing, nobody has been in a position to say either way.';
+    }
+
+    var host = byId('dcLeadList');
+    if (!host) return;
+    host.innerHTML = '<div class="fac-cards lead-cards">' + late.map(function (f) {
+      return '<div class="fac-card">' +
+        '<a class="fac-name" href="' + esc(f.echo_url) + '" target="_blank" rel="noopener">' + esc(f.name) + '</a>' +
+        '<div class="fac-row"><span>Missing reports</span><span>' +
+          esc(spanFromQuarters(num(f.main_violation_quarters))) + '</span></div>' +
+        '<div class="fac-row"><span>Times inspected</span><span>' +
+          esc(f.inspections == null ? 'not recorded' : String(f.inspections)) + '</span></div>' +
+        '<div class="fac-row"><span>Fines</span><span>' +
+          esc(f.total_penalties || 'none recorded') + '</span></div>' +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
   function renderVerdict(echo) {
     var a = echo && echo.assessment;
     if (!a) return;
@@ -209,6 +280,7 @@
 
   function boot() {
     loadJson(ECHO_URL).then(function (echo) {
+      renderLead(echo);
       renderVerdict(echo);
       renderList(echo);
     }).catch(function () { /* the em dashes are already on the page */ });
