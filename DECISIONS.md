@@ -2907,3 +2907,81 @@ decision 28 had already established it is not.
 does not support. A mark is a label for a subject, not a claim about it, which
 is why the rain totals rows are marked by the span they cover rather than by
 how hard it rained.
+
+---
+
+## 52. The nature desk shows what people are actually finding
+**Decided:** August 2026. Extends decision 39.
+
+iNaturalist has been in this repo since the field guide got real photographs,
+but only as a build time picture source. The guide says what lives here. It has
+never said what anybody saw last Tuesday.
+
+`fivemile-observations.json` is the other half. A scheduled run asks
+iNaturalist for research grade records inside a box over the lower creek and
+writes them to a file, the same way every other number on this site arrives.
+Nothing on the page calls anybody.
+
+**It is a section on Nature Watch, not a page of its own.** A reader who has
+opened Nature Watch is already asking what is moving right now, and this is the
+answer to that question with names and dates on it. A sixth desk would have
+been more shell than content.
+
+**Research grade only.** An observation is research grade when other people
+looked at it and agreed on the identification. Below that it is one person's
+best guess, and a species name printed on this site has to be a fact. It costs
+a little over half the volume, which for this box is still about twenty five
+records a month, and it keeps the hard rule about not inventing a fact intact.
+
+**Identified to species or finer.** A research grade record can stop at the
+genus when the community agrees it will not go further. "Halysidota" tells a
+reader here nothing, and carrying those would also make the species count on
+the roll a count of something else.
+
+**No photographs, and that follows from the stack rather than from taste.**
+Nothing on a page talks to the outside world, so hotlinking iNaturalist's photo
+CDN was never available. Committing a thumbnail per record was, and it was
+turned down because the repo would then grow every week forever to decorate a
+list that reads perfectly well as a list. The species name is the link, and the
+photograph is one tap away on iNaturalist where it lives.
+
+**Two rules about place, and both are hard.**
+
+*No streets.* iNaturalist's place field routinely reads "Avery Ln, Mount Olive,
+AL, US", which is somebody's yard. It is stripped to the town before it is
+written to the file, so a street never reaches the repo at all. That is a
+privacy matter for the person who filed the record, and it is also the site's
+standing rule that a sighting never comes with a spot.
+
+*No town on an obscured record.* Over half of these are obscured. iNaturalist
+blurs the location of a threatened species, and a user can blur their own, so
+the public coordinate is randomised inside a cell that can be twenty kilometres
+across. Those records are kept and marked "Location withheld" rather than
+dropped, because obscuring falls hardest on the snakes, the turtles, and the
+salamanders, which are exactly what a reader here wants to see. Dropping them
+would have quietly turned this into a list of bugs and weeds without saying so.
+Naming a town for one would be inventing the single fact iNaturalist
+deliberately withheld.
+
+**The file keeps a roll, so this is not a rolling window.** The page shows the
+most recent forty eight records, but the file also carries every species the
+feed has ever seen, with the first date, the last date, and the observation ids
+behind the count. Old entries are never dropped and never rewritten except to
+be extended. That is what lets a row say "First one recorded here", which only
+starts appearing on the second run, because on a first run everything is new
+and saying so would be true and useless.
+
+**The Archive room is not built and it is the open item.** CLAUDE.md says
+anything the site keeps gets a room, and the roll is something the site keeps.
+It reads off one file like the other rooms do, so it is a page and a loader
+rather than a data change, and it can be added without touching anything here.
+
+**Where a species is in the field guide, the row says so.** The guide already
+carries an iNaturalist taxon id on sixty eight of its seventy entries, so the
+match is exact, with a walk up the ancestor list for a guide entry written
+above species level. That is the join the two halves were always missing.
+
+**Revisit if:** the box needs moving. It runs from Graysville down toward the
+Locust Fork and catches Adamsville and the Mount Olive side, which is correct,
+they are on this water, but every row names its own town so nobody is ever told
+a Mount Olive frog was a Cardiff frog.

@@ -286,6 +286,16 @@ section.top{padding:24px 0 0}
 .alm-open{background:rgba(42,122,58,.12);color:var(--green);border:1px solid rgba(42,122,58,.28)}
 .alm-closed{background:rgba(80,44,8,.06);color:#6B6156;border:1px solid #DDCFB8}
 .alm-when{font-family:var(--mono);font-size:11.5px;color:#6B6156;margin-top:2px}
+/* Observation rows are the only list on a desk page where every row leads
+   somewhere off the site, so the species name is the link. It sits in a flex
+   line, so it is only as wide as the word and only as tall as the type, which
+   is a 20px tap target on a page whose readers are outdoors holding a phone.
+   The padding takes it to 44px and the matching negative margin gives the
+   height back, so the target is thumb sized and the list keeps its rhythm. */
+.obs-name{display:inline-block;padding:12px 0;margin:-12px 0;color:var(--ink);
+  text-decoration-color:#DDCFB8;text-underline-offset:3px}
+.obs-name:hover{text-decoration-color:var(--red)}
+
 .alm-expand{margin-top:14px;width:100%;min-height:46px;padding:0 14px;border-radius:var(--r);
   border:1px solid #DDCFB8;background:var(--paper);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--ink2);cursor:pointer;transition:border-color var(--ease),color var(--ease)}
@@ -406,5 +416,15 @@ section.top{padding:24px 0 0}
 @media(max-width:560px){
   .week-grid{grid-template-columns:repeat(2,1fr)}
   .month-grid{grid-template-columns:1fr}
-  .watershed-chart{min-height:230px}
+  .watershed-chart{min-height:250px}
+  /* The range toggle was wrapping onto a line of its own, which spent 98px of
+     a phone screen on a heading and two buttons and left the chart underneath
+     looking squeezed into what was left. Two buttons and a label fit on one
+     row; the label is what gives, not the row. */
+  .watershed-chart-head{flex-wrap:nowrap;align-items:center;gap:10px}
+  .watershed-chart-head > div:first-child{min-width:0}
+  .watershed-range-toggle{flex:0 0 auto}
+  /* Smaller type, so the feet figures fit the tighter gutter the chart draws
+     itself at this width. See chartBox in fivemile-almanac.js. */
+  .watershed-axis{font-size:11px}
 }

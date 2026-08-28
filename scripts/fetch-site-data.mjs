@@ -16,6 +16,7 @@ import {
 import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 import { refreshCms } from './fetch/sheets-cms.mjs';
 import { updateEchoFile } from './fetch/echo-watershed.mjs';
+import { updateObservationsFile } from './fetch/inat-observations.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -342,16 +343,58 @@ async function fetchPlaceForecast(point) {
   };
 }
 
+/* Every town, every run, in the order CLAUDE.md sets.
+
+   This used to fire all three at once and keep whatever came back, which meant
+   one timeout deleted a town from the file and the card came up with two rows
+   in it. That is exactly what happened to Graysville. A forecast that is a run
+   old is worth having; a town that has silently vanished is not, and nobody
+   watching the page can tell the difference between a town that failed and a
+   town somebody removed on purpose.
+
+   So: one at a time with a breath between, because three parallel calls off one
+   runner is what draws a rate limit in the first place, one retry, and a fall
+   back to whatever that town said last time. A town that has never answered at
+   all still gets a row, with no reading in it, and the page draws the em dash
+   the empty state calls for. */
 async function updateWatershedForecastFile() {
-  const results = await Promise.allSettled(WATERSHED_FORECAST_POINTS.map(fetchPlaceForecast));
-  const places = results
-    .map((r) => (r.status === 'fulfilled' && r.value ? r.value : null))
-    .filter(Boolean);
+  const previous = await readJson(WATERSHED_FORECAST_FILE, { places: [] });
+  const lastGood = new Map((previous.places || []).map((place) => [place.place, place]));
+
+  const places = [];
+  const carried = [];
+  for (const point of WATERSHED_FORECAST_POINTS) {
+    let forecast = null;
+    for (let attempt = 1; attempt <= 2 && !forecast; attempt += 1) {
+      try {
+        forecast = await fetchPlaceForecast(point);
+      } catch (error) {
+        console.warn(`   ${point.place} forecast failed (attempt ${attempt}): ${error.message}`);
+      }
+      if (!forecast && attempt === 1) await new Promise((resolve) => setTimeout(resolve, 1200));
+    }
+    if (forecast) {
+      places.push(forecast);
+      continue;
+    }
+    /* Last good reading, or a named row with nothing in it. Either way the
+       town keeps its place in the list. */
+    carried.push(point.place);
+    places.push(lastGood.get(point.place) || {
+      place: point.place,
+      lat: point.lat,
+      lon: point.lon,
+      today: null,
+      tomorrow: null
+    });
+  }
+
   await writeJson(WATERSHED_FORECAST_FILE, {
     updatedAt: new Date().toISOString(),
     places
   });
-  console.log(`Updated ${path.basename(WATERSHED_FORECAST_FILE)} with ${places.length} place${places.length === 1 ? '' : 's'}`);
+  console.log(`Updated ${path.basename(WATERSHED_FORECAST_FILE)} with ${places.length} places`
+    + (carried.length ? `, carrying ${carried.join(' and ')} forward from the last run` : ''));
 }
 
 async function updateWeatherFile() {
@@ -1277,6 +1320,15 @@ async function main() {
     await updateEchoFile({ parseCsvRows });
   } catch (error) {
     console.error('ECHO update failed (continuing):', error.message);
+  }
+  /* What people have recorded along the creek. iNaturalist is already in this
+     repo as the field guide's photograph source; this is the live half of it.
+     Twice a day is plenty for a feed whose fastest unit is a day. */
+  try {
+    console.log('Reading iNaturalist:');
+    await updateObservationsFile();
+  } catch (error) {
+    console.error('Observation feed failed (continuing):', error.message);
   }
   try {
     await updateCreekPeaksFile();

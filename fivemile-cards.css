@@ -265,7 +265,13 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
    way. On its own row it has a whole line to itself and is one of two things
    a reader is reading, so it is set to be read. */
 .d-body > .d-rows.list .d-cell .d-mark{font-size:14px;margin-right:6px}
-.d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em}
+/* Right aligned, because the row is a lookup and the figure is the right hand
+   column of it. Without this a value short enough to stay on one line looked
+   aligned and a value long enough to wrap did not, so the nature card read as
+   broken next to the three cards beside it whose values happen to be shorter.
+   The flex box was already flush right; it was the text inside it that was
+   not. */
+.d-body > .d-rows.list .d-cell b{font-size:19px;letter-spacing:-.01em;text-align:right}
 .d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
 .d-body p:last-child{margin-bottom:0}
 

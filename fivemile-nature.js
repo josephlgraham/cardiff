@@ -27,7 +27,16 @@
   const LANES = ["nature", "hunting", "frost", "tradition"];
   const STORAGE_KEY = "cardiff-season-windows-expanded";
 
+  /* What people have actually recorded along the lower creek, from
+     iNaturalist, gathered by scripts/fetch/inat-observations.mjs. The file is
+     the whole contract: this reads it and asks nobody anything at runtime.
+     Twelve rows before the reader opens the rest, same as the season windows
+     below. */
+  const OBS_URL = "fivemile-observations.json";
+  const OBS_PREVIEW = 12;
+
   let expanded = false;
+  let obsExpanded = false;
 
   function paintTile(id, value, sentence) {
     setHTML(id + "Val", value == null ? "&mdash;" : escapeHtml(value));
@@ -99,6 +108,94 @@
     };
   }
 
+  /* "2026-08-25" is a calendar day, not an instant. Handing it to Date() reads
+     it as UTC midnight and prints the day before in Central time. */
+  function observedLabel(value) {
+    const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || ""));
+    if (!parts) return null;
+    const date = new Date(Number(parts[1]), Number(parts[2]) - 1, Number(parts[3]));
+    return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+  }
+
+  function observationRow(entry) {
+    const when = observedLabel(entry.observedOn);
+    /* An obscured record has no town on it and is not given one. iNaturalist
+       withheld the location and this page does not guess at it. */
+    const where = entry.place || (entry.obscured ? "Location withheld" : null);
+    const line = [when, entry.group, where].filter(Boolean).join(" \u00b7 ");
+
+    const sentence = [];
+    if (entry.latin && entry.observer) {
+      sentence.push(escapeHtml(entry.latin) + ", recorded by " + escapeHtml(entry.observer) + ".");
+    } else if (entry.observer) {
+      sentence.push("Recorded by " + escapeHtml(entry.observer) + ".");
+    } else if (entry.latin) {
+      sentence.push(escapeHtml(entry.latin) + ".");
+    }
+    if (entry.guide) {
+      sentence.push('It is in the <a href="fivemile-guide.html#' + escapeHtml(entry.guide) + '">field guide</a>.');
+    }
+
+    return '<div class="alm-row">' +
+      '<div class="alm-mark">' + iconHtml(entry.icon || "🍃") + "</div>" +
+      "<div>" +
+        '<div class="alm-head-line">' +
+          '<a class="alm-name obs-name" href="' + escapeHtml(entry.url) + '" target="_blank" rel="noopener">' +
+            escapeHtml(entry.name) + "</a>" +
+          (entry.firstRecord ? '<span class="alm-open">First one recorded here</span>' : "") +
+        "</div>" +
+        (line ? '<div class="alm-when">' + escapeHtml(line) + "</div>" : "") +
+        (sentence.length ? '<div class="alm-note">' + sentence.join(" ") + "</div>" : "") +
+      "</div></div>";
+  }
+
+  function renderObservations(data) {
+    const host = document.getElementById("obsList");
+    if (!host) return;
+
+    const entries = (data && data.observations) || [];
+    if (!entries.length) {
+      setHTML("obsList", '<div class="empty">&mdash;</div>');
+      setHTML("obsStamp", "&mdash;");
+      return;
+    }
+
+    const counts = data.counts || {};
+    const months = Math.round((counts.window_days || 120) / 30);
+    const species = counts.species_in_window || 0;
+    setText("obsStamp", species + " species in the last " + months + " months");
+
+    const shown = obsExpanded ? entries : entries.slice(0, OBS_PREVIEW);
+    setHTML("obsList", shown.map(observationRow).join(""));
+
+    const toggle = document.getElementById("obsExpand");
+    if (!toggle) return;
+    if (entries.length <= OBS_PREVIEW) {
+      toggle.hidden = true;
+      return;
+    }
+    toggle.hidden = false;
+    toggle.textContent = obsExpanded
+      ? "Show the last " + OBS_PREVIEW
+      : "Show all " + entries.length;
+    toggle.onclick = function () {
+      obsExpanded = !obsExpanded;
+      renderObservations(data);
+    };
+  }
+
+  async function loadObservations() {
+    try {
+      const response = await fetch(OBS_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("observations unavailable");
+      renderObservations(await response.json());
+    } catch (error) {
+      /* The file is not answering. An em dash and nothing else. */
+      setHTML("obsList", '<div class="empty">&mdash;</div>');
+      setHTML("obsStamp", "&mdash;");
+    }
+  }
+
   function narrative(now, guide, sun, wx) {
     const parts = [guide.lead];
     const daylight = Math.round(FA.dayLengthHours(sun) * 10) / 10;
@@ -138,6 +235,8 @@
     } else {
       paintTile("natureWindow", null, "Nothing is queued in the next three months.");
     }
+
+    loadObservations();
 
     const wx = await FA.readWeather();
     setText("natureReadStamp", wx ? "Station reading" : "Station offline");

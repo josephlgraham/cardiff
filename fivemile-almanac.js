@@ -249,8 +249,9 @@
     const narrow = window.matchMedia && window.matchMedia("(max-width:560px)").matches;
     return {
       measured: measured,
+      narrow: narrow,
       width: Math.max(measured || 760, 300),
-      height: narrow ? 230 : 270
+      height: narrow ? 250 : 270
     };
   }
 
@@ -277,10 +278,27 @@
     chartDrawnWidth = box.measured;
     const width = box.width;
     const height = box.height;
-    const padLeft = 68;
-    const padRight = 26;
+    /* The gutters are a share of the box, not a fixed number of pixels. Set at
+       68 and 26 they cost 94px, which is a sixth of a desktop card and well
+       over a quarter of a phone. On a 390px screen that left 232px of actual
+       creek. The phone gets tighter gutters and smaller axis type, which is
+       what fivemile-almanac.css sets at the same breakpoint. */
+    const narrow = box.narrow;
+    const padLeft = narrow ? 44 : 68;
+    const padRight = narrow ? 14 : 26;
     const padTop = 22;
     const padBottom = 34;
+    /* How far the feet figures sit off the plot. */
+    const axisGap = narrow ? 6 : 10;
+    /* "1.38 ft" is 52px of mono even at 11px, which does not fit a phone
+       gutter and was hanging off the left edge of the box. The phone gets the
+       bare figure and the unit moves to the line above the chart, where it is
+       said once instead of twice. */
+    const feet = (value) => value.toFixed(2) + (narrow ? "" : " ft");
+    /* How close a day number may come to either end before it is dropped, so
+       it never collides with the two dates already on the baseline. It scales
+       with the type, or a narrow chart loses most of its days. */
+    const dayCuff = narrow ? 34 : 54;
     const axisBaseline = height - 12;
     const stageRange = displayStageRange(points, stageNow);
     const min = stageRange.rawMin;
@@ -337,7 +355,7 @@
       .join("");
     let lastDayLabelX = -100;
     const dayLabels = dayMarkers
-      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + 54 && marker.x <= usableRight - 54)
+      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + dayCuff && marker.x <= usableRight - dayCuff)
       .filter((marker) => {
         if (marker.x - lastDayLabelX >= 30) {
           lastDayLabelX = marker.x;
@@ -349,7 +367,7 @@
       .join("");
 
     return {
-      meta: (label || "Lead gauge") + " · " + metaSuffix,
+      meta: (label || "Lead gauge") + " · " + metaSuffix + (narrow ? " · Feet" : ""),
       values: {
         current: formatFeet(stageNow),
         change: changeLabel,
@@ -369,8 +387,8 @@
         '<text class="watershed-axis" x="' + padLeft + '" y="' + axisBaseline + '">' + escapeHtml(firstLabel) + "</text>" +
         '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + axisBaseline + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
         dayLabels +
-        '<text class="watershed-axis" x="' + (padLeft - 10) + '" y="' + (padTop + 4) + '" text-anchor="end">' + escapeHtml(displayMax.toFixed(2) + " ft") + "</text>" +
-        '<text class="watershed-axis" x="' + (padLeft - 10) + '" y="' + (height - padBottom + 4) + '" text-anchor="end">' + escapeHtml(displayMin.toFixed(2) + " ft") + "</text>" +
+        '<text class="watershed-axis" x="' + (padLeft - axisGap) + '" y="' + (padTop + 4) + '" text-anchor="end">' + escapeHtml(feet(displayMax)) + "</text>" +
+        '<text class="watershed-axis" x="' + (padLeft - axisGap) + '" y="' + (height - padBottom + 4) + '" text-anchor="end">' + escapeHtml(feet(displayMin)) + "</text>" +
         "</svg>" + chartNote
     };
   }
@@ -622,12 +640,20 @@
      and the town order rule in CLAUDE.md. */
   const TOWN_ORDER = ["Graysville", "Cardiff", "Brookside"];
 
+  /* Three rows, always, whatever the file happens to hold. Sorting what
+     arrived was not enough: a run that lost a town wrote a file with two towns
+     in it and the card came up with two rows, which reads as a decision rather
+     than as a gap. A town with no reading gets its name and an em dash, which
+     is the empty state this site uses everywhere else. The fetcher no longer
+     drops a town either; this is the half that does not need a data run to
+     take effect. */
   function orderTowns(places) {
-    return places.slice().sort((a, b) => {
-      const ai = TOWN_ORDER.indexOf(a && a.place);
-      const bi = TOWN_ORDER.indexOf(b && b.place);
-      return (ai === -1 ? TOWN_ORDER.length : ai) - (bi === -1 ? TOWN_ORDER.length : bi);
-    });
+    const byName = new Map((places || []).map((place) => [place && place.place, place]));
+    const rows = TOWN_ORDER.map((name) => byName.get(name) || { place: name, today: null });
+    for (const place of places || []) {
+      if (place && TOWN_ORDER.indexOf(place.place) === -1) rows.push(place);
+    }
+    return rows;
   }
 
   function renderForecastPlace(place) {
@@ -660,7 +686,8 @@
       setHTML("watershedForecastGrid", orderTowns(places).map(renderForecastPlace).join(""));
     } catch (error) {
       setText("watershedForecastUpdated", "Forecast sync offline");
-      setHTML("watershedForecastGrid", renderForecastPlace({ place: "Cardiff", today: null }));
+      /* All three, not Cardiff standing in for the watershed. See CLAUDE.md. */
+      setHTML("watershedForecastGrid", orderTowns([]).map(renderForecastPlace).join(""));
     }
   }
 
