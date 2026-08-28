@@ -1099,11 +1099,24 @@
 
     row.appendChild(status);
 
-    /* Under the opening block, which every page has. Falling back to the top
-       of main covers anything built differently later. */
-    var top = main.querySelector('section.top');
-    if (top && top.parentNode) {
-      top.parentNode.insertBefore(row, top.nextSibling);
+    /* Where it goes, in order of preference.
+
+       A page can say exactly where by marking an element data-share-here, and
+       the row lands directly after it. index.html uses that to put it under
+       the featured photograph rather than above it.
+
+       Otherwise it goes after the first section, so it sits under the opening
+       block rather than being the first thing a reader meets. That selector
+       used to ask for section.top, which the home page does not have, so on
+       the home page it fell through and ended up above everything. Asking for
+       the first section of any class is what fixes that.
+
+       Prepending is the last resort and should never be reached by a page
+       built the way the rest of them are. */
+    var anchor = main.querySelector('[data-share-here]');
+    if (!anchor) anchor = main.querySelector(':scope > section');
+    if (anchor && anchor.parentNode) {
+      anchor.parentNode.insertBefore(row, anchor.nextSibling);
     } else {
       main.insertBefore(row, main.firstChild);
     }
