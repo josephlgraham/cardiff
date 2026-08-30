@@ -51,7 +51,11 @@
 // cached copy is the one carrying the markers rather than the one without them.
 // The prerendered figures inside those markers go stale every ten minutes by
 // design and are not what the cache is being versioned for. See DECISIONS.md 61.
-const CACHE_NAME = 'fivemile-v63';
+// v64 takes the instrument and the polling interval out of the two source notes
+// that still named them, on fivemile-archive.html and fivemile-weather-archive.html.
+// Both are precached and served cache-first, so a returning reader would keep
+// reading the old wording until the cache turned over. See DECISIONS.md 58.
+const CACHE_NAME = 'fivemile-v64';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

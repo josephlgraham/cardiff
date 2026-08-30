@@ -3346,11 +3346,29 @@ was in prose on five pages, on six labels, in three sentences built by script,
 and in the search and social descriptions on the weather archive, which are the
 lines that show under a Google result and in a shared link.
 
-**One wording now.** "The FIVEMILE weather station" in prose, "Our station" on a
-label, and "the site's own Ambient Weather station" where the instrument is
-being named. The homepage and the almanac had already drifted to "Local
+**One wording now.** "The FIVEMILE weather station" in prose and "Our station"
+on a label. The homepage and the almanac had already drifted to "Local
 station", which is not a leak but is a second name for one instrument, so it
 went the same way.
+
+**The instrument carve-out is closed, and this paragraph used to contain it.**
+As first written, this decision also allowed "the site's own Ambient Weather
+station" where the instrument itself was being named, and two source notes were
+written on that basis: the Archive hub and the weather archive. That was the
+wrong call. The veil in CLAUDE.md does not stop at the town. It says there is no
+sentence about how the site is kept, and it names the instrument and the schedule
+in the same breath, so a carve-out for the instrument was reading half the rule.
+
+The weather archive proved the point by walking straight through the gap. Its
+note had grown to "read every ten minutes and rolled up at the end of each day
+from its own five minute record", which is the build schedule printed out for
+somebody who came to look at how much rain fell in June. Nothing about the box or
+the clock is in either note now.
+
+What a reader actually needs from a source note survived, and it is the sentence
+worth keeping: the weather here is one rain gauge on this ground rather than a
+regional model, which is why it can speak for all three towns. That is a claim
+about the reading. The brand on the housing was never one.
 
 **An HTML comment is served.** `fivemile-civic.html` carried a comment marking
 one tile as the thing Joe is most worried about. It never rendered and anybody
