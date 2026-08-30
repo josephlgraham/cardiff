@@ -406,6 +406,13 @@ a.card-dept:hover .d-go{color:var(--masthead)}
    gaps. Nothing that was already mounted moves. */
 .panel.intro:not(:last-child){margin-bottom:18px}
 
+/* On the four desk pages the readings row runs above the opening, because a
+   reader who came for the water temperature should not have to get past a
+   paragraph to reach it. That puts the row in the position the panel used to
+   be in, so it takes the same 18px the panel takes when it is the one on top,
+   and the panel drops its own margin on its own by being last. */
+.top > .four-eq:not(:last-child){margin-bottom:18px}
+
 @media(max-width:760px){.panel{padding:20px 18px}}
 
 /* .d-trace  ·  a chart standing in the slot the readings stand in

@@ -3367,3 +3367,58 @@ and where he is, not over who publishes this.
 **Revisit if:** the station is ever cited in a way where a reader genuinely
 needs to know how far from them it is. The answer then is the watershed, which
 is four miles end to end, and never a town.
+
+## 59. The readings run above the opening
+**Decided:** August 2026. Extends decision 54.
+
+The almanac opened with a prose panel and put the sun, moon, date and
+yesterday row underneath it, so a reader arriving for today's numbers read a
+description of the site first. That got swapped, and then the same thing was
+obviously true of the four desks: Fishing, Garden, Nature Watch and Night Sky
+each opened with a paragraph and hid four gauge tiles below it. On a phone
+that is most of a screen of prose before the first number, and the number is
+what the reader came for. Somebody opening the fishing page at six in the
+morning wants the water temperature and the stage, not an explanation of why
+water temperature matters.
+
+The row now sits directly under the h1 and the opening follows it. All five
+pages read the same way, because a rule that holds on four of them and not
+the fifth is worse than no rule.
+
+**The Archive did not change, and that is not an oversight.** Its top section
+has the same shape, a panel over a card row, but the cards there are the five
+rooms rather than five readings. They are doors, and the paragraph above them
+is what tells a reader what is behind a door. Nothing is being read off
+anything, so there is no number being buried.
+
+**The spacing keys off position, not off page name.**
+`.panel.intro:not(:last-child)` gives the panel its 18px only when something
+follows, so the panel drops it by itself now that it is last. The gap is
+handed to whatever is on top instead: `.hero-row:not(:last-child)` on the
+almanac, `.top > .four-eq:not(:last-child)` on the desks. Same number, same
+idiom, and a page that puts the two blocks back the old way still spaces
+correctly. The desk rule carries the `.top >` scope that the almanac rule does
+not need, because `.hero-row` exists in one place and `.four-eq` is a shared
+four column grid that some later page will reasonably use somewhere else.
+
+**The share row went with the opening.** It is injected into
+`[data-share-in]`, which is the prose panel, so it is still at the foot of the
+block a reader has just finished rather than stranded between the numbers and
+the words.
+
+**This changed nothing about what a crawler gets, in either direction.** The
+opening prose was already hard coded in the HTML and still is. The numbers
+were never in the HTML and still are not: the tiles ship an em dash and the
+page fills them from the committed JSON. Moving two blocks past each other
+does not make static text less findable, and it does not make a live reading
+any more findable either.
+
+**Revisit if:** the measured tiles get prerendered. Water, stage and oxygen
+come straight out of `fivemile-watershed.json` and could be written into the
+HTML the way the heritage prose is in decision 53, which would put real
+numbers in front of a crawler and in the first paint instead of four dashes.
+The tiles worked out from today's date must not be: the solunar window, dark
+hours, daylight and moon age are all computed from now, and a build time
+snapshot of today is wrong by tomorrow and would sit in the HTML claiming
+otherwise. Prerendering the measured three and leaving the computed one alone
+is the shape of it, and the split is the whole difficulty.
