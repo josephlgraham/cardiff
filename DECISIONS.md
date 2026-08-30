@@ -3772,3 +3772,77 @@ from the two closest rings the morning report is the first block under the
 opening and the page reads the way it used to. If that turns out to be most
 days rather than a few, the lead is not the right thing to be leading with and
 the question is what is.
+
+## 63. What goes in puts its finding in the markup, and leaves the names out
+**Decided:** August 2026. Extends decision 61.
+
+Joe said most of this page needed to be hardcoded and that he needed it visible
+to search, and guessed the dumping figures were already updating themselves. He
+was right twice and there was a hole underneath both answers.
+
+**The prose was already hardcoded.** The opening panel, the whole of How this is
+meant to work, the permit list intro and the source note are real HTML and
+always have been. That is about six hundred words a crawler could read.
+
+**The figures were already updating, in the reader browser only.** The page
+shipped four em dashes where the finding goes and filled them from
+`fivemile-echo.json` on load. So a page that spends three paragraphs explaining
+why a report that never arrives is worth as much attention as a number over the
+line then showed a search engine nothing at all where the count of them goes.
+The best sentence on it was the one part nothing could read, which is decision
+61 word for word, on a page decision 61 did not cover.
+
+`scripts/build-gauge-tiles.mjs` now covers it. Twelve nodes: the lead count and
+its two sentences, the EPA condition, unit, reporting cycle, causes and
+designated uses, the oxygen record and its note, and the permit tally. Six
+hundred and thirty six words became nine hundred and forty two.
+
+### The names are deliberately not in it
+
+This was the one call worth stopping to ask about, and Joe made it: findings and
+numbers, no names. `dcLeadList`, the cards for the businesses that have not
+filed, and `dcList`, the forty nine row permit table, both stay client side.
+
+Prerendering a name is not the same act as rendering it. The page has named
+these businesses since it was built and goes to some trouble to name them
+fairly: it reports the record, links every row to EPA, and never characterises
+anybody. Writing those names into the file makes the page findable *by* company
+name, which puts a small business one search away from a page about permits it
+has not filed under. The record is public and the page is fair, and that is
+still a heavier thing to do to somebody than showing the same table to a person
+who came here to read it. The headline reads in full without a name in it:
+three businesses upstream hold a permit and have not filed a report saying what.
+
+**The exclusion is structural, not careful.** The renderer builds both lists on
+every build run. Neither is named in `NODES`, so neither is read, which is the
+same guarantee decision 61 relies on to keep a clock computed value out of the
+markup. Adding a line is the only way in, and that line is where the thinking
+has to happen.
+
+### What the script grew
+
+`NODES` beside `TILES`, harvested off the shim element map that already existed
+and already tracked whether a renderer wrote to a node. A page can appear in
+either map or both. `innerHTML` is read for every one of them, which covers a
+node written as text and a node written as markup, because the shim textContent
+setter escapes into the same store a browser serialises a text node out of.
+
+Verified by diffing what the file ships against what the page holds after its
+own script has run: every one of the twelve matches exactly, the only difference
+being the marker comments the runtime overwrites. That is the property worth
+having. A prerender that disagreed with the runtime would change under the
+reader a second after the page painted.
+
+**The churn is the homepage churn.** Oxygen right now comes off the gauge, so
+the page moves whenever that moves, which is what `index.html` has done since
+decision 61. `refresh-live.yml` stages it with the other five.
+
+**The build script is still called build-gauge-tiles.mjs** and it writes things
+that are not gauge tiles. Renaming it means touching the workflow that calls it
+for no gain a reader of the site would ever see. The header comment says what it
+does; the filename says what it did first.
+
+**Revisit if:** Joe changes his mind about the names. It is one line in `NODES`
+each for `dcLeadList` and `dcList`, and the markers are the only other thing
+needed. Nothing about the decision is baked into the machinery, which is how it
+should be for a call that is a publishing judgment rather than a technical one.

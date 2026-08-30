@@ -64,8 +64,11 @@ jobs:
           AW_API_KEY: ${{ secrets.AW_API_KEY }}
           AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
 
-      # The measured readings, written into the five pages that carry them, so a
+      # The measured readings, written into the six pages that carry them, so a
       # crawler and the first paint get the creek stage instead of an em dash.
+      # What goes in is the sixth: its finding is read out of fivemile-echo.json,
+      # which the twice daily job writes, so it catches up on the next run after
+      # that one rather than on the same one. See DECISIONS.md 63.
       # It runs here rather than on the twice daily job because a snapshot of a
       # live gauge is worth what its age makes it worth, and twelve hours is not
       # much. It reads nothing from the network: the files the step above just
@@ -102,7 +105,7 @@ jobs:
           # their own, so a page only differs when a reading printed on it
           # actually moved, and git stages nothing when it did not. No revert
           # arm is needed here for the same reason.
-          git add index.html fivemile-almanac.html fivemile-fishing.html fivemile-garden.html fivemile-nature.html
+          git add index.html fivemile-almanac.html fivemile-fishing.html fivemile-garden.html fivemile-nature.html fivemile-discharges.html
           if git diff --cached --quiet; then
             echo "Nothing moved but timestamps; skipping commit."
             exit 0

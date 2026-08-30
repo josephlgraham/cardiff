@@ -1,4 +1,4 @@
-/* Writes the measured gauge readings into the HTML.
+/* Writes the measured readings into the HTML.
  *
  *   node scripts/build-gauge-tiles.mjs
  *   node scripts/build-gauge-tiles.mjs --check     report, write nothing
@@ -10,6 +10,12 @@
  * so the creek stage, the water temperature and the air quality were the one
  * part of these five pages that a crawler, a social preview bot, and the first
  * paint never saw. The best thing on the page was the part nothing could read.
+ *
+ * What goes in is the sixth page and it is here for the same reason with the
+ * volume turned up. It explains at length what a discharge monitoring report is
+ * and why one that never arrives matters, and then showed a crawler em dashes
+ * where the finding goes. Its nodes are ordinary elements reached by id rather
+ * than gauge tiles, which is what NODES below is for.
  *
  * THE SPLIT THIS FILE IS BUILT AROUND. A reading that is MEASURED and sits in
  * a committed file can be written into the HTML: it is a fact with a source,
@@ -27,18 +33,23 @@
  * wrong inside a month: two copies of one renderer drift, and the copy nobody
  * looks at is the one a crawler reads. Every script the page loads is loaded
  * and run here, in the page's own order, against the DOM shim below. Then only
- * the tiles named in TILES are harvested and everything else the run produced
+ * what TILES and NODES name is harvested and everything else the run produced
  * is thrown away. That is what makes it structurally impossible for a time
  * dependent value to reach the markup: it is not that this file is careful,
- * it is that it never looks at those tiles.
+ * it is that it never looks at those nodes.
+ *
+ * The same throwing away is what keeps the business names off the discharges
+ * page. The renderer builds the lead cards and the forty nine row permit table
+ * on every run here, and neither is named, so neither is read.
  *
  * WHERE IT WRITES. Between the markers, and nowhere else:
  *
  *   <!--PRERENDER:creekStageVal--> ... <!--/PRERENDER-->
  *
- * A tile without markers is left alone, so adding a pair is how you opt a
+ * A node without markers is left alone, so adding a pair is how you opt a
  * reading in and deleting them is how you opt it out. Nothing here parses HTML.
- * Same contract as scripts/build-heritage-pages.mjs. See DECISIONS.md 53 and 61.
+ * Same contract as scripts/build-heritage-pages.mjs.
+ * See DECISIONS.md 53, 61 and 63.
  */
 
 import fs from 'node:fs/promises';
@@ -91,6 +102,34 @@ const TILES = {
   ]
 };
 
+/* -------------------------------------------------------------------------
+   NAMED NODES
+
+   The same job on a page that has no gauge tiles. What goes in is a page of
+   hardcoded prose with the finding it is written around painted into it by
+   fivemile-discharges.js, so a crawler read six hundred words explaining what
+   a discharge monitoring report is and then four em dashes where the answer
+   goes. These are ordinary elements reached by id rather than tiles, so they
+   are listed separately and harvested off the shim's element map.
+
+   THE NAMES ARE DELIBERATELY NOT HERE. The lead cards and the permit table
+   both name real businesses, and putting those names in the markup makes the
+   page findable by company name, which is a different posture from rendering
+   them in the reader's browser. Joe's call, and the call was findings and
+   numbers only. dcLeadList and dcList stay client side. See DECISIONS.md 63.
+
+   Nothing in here is worked out from the build clock either. Every line is
+   read out of fivemile-echo.json or fivemile-watershed.json, both committed.
+   ------------------------------------------------------------------------- */
+const NODES = {
+  'fivemile-discharges.html': [
+    'dcLeadStamp', 'dcLeadLine', 'dcLeadSub',
+    'dcKick', 'dcCondition', 'dcUnit', 'dcConditionSub', 'dcCauses', 'dcUses',
+    'dcOxygen', 'dcOxygenNote',
+    'dcStamp'
+  ]
+};
+
 /* The scripts each page loads, in the order the page loads them.
    fivemile-intro.js and fivemile-pwa.js are left out: one splits the wordmark
    and one registers a service worker, and neither writes a reading. */
@@ -99,7 +138,8 @@ const SCRIPTS = {
   'fivemile-almanac.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-season-data.js', 'fivemile-app.js', 'fivemile-almanac-core.js', 'fivemile-almanac.js'],
   'fivemile-fishing.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-season-data.js', 'fivemile-app.js', 'fivemile-almanac-core.js', 'fivemile-sky.js', 'fivemile-fishing.js'],
   'fivemile-garden.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-season-data.js', 'fivemile-app.js', 'fivemile-almanac-core.js', 'fivemile-garden.js'],
-  'fivemile-nature.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-season-data.js', 'fivemile-app.js', 'fivemile-almanac-core.js', 'fivemile-nature.js']
+  'fivemile-nature.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-season-data.js', 'fivemile-app.js', 'fivemile-almanac-core.js', 'fivemile-nature.js'],
+  'fivemile-discharges.html': ['fivemile-brand.js', 'fivemile-common.js', 'fivemile-discharges.js']
 };
 
 /* -------------------------------------------------------------------------
@@ -363,7 +403,7 @@ function makeShim(page, files) {
   windowShim.window = windowShim;
   windowShim.self = windowShim;
 
-  return { documentShim, windowShim, gridTiles, tiles, unknownSelectors };
+  return { documentShim, windowShim, gridTiles, tiles, elements, unknownSelectors };
 }
 
 /* The one inline script on the site that paints a reading. It is the homepage,
@@ -446,7 +486,7 @@ function harvest(file, shim) {
   const blocks = new Map();
   const skipped = [];
 
-  for (const entry of TILES[file]) {
+  for (const entry of TILES[file] || []) {
     const tile = entry.from.grid !== undefined
       ? shim.gridTiles[entry.from.grid]
       : shim.tiles.get(entry.from.tile);
@@ -475,6 +515,25 @@ function harvest(file, shim) {
       }
       blocks.set(id, content);
     }
+  }
+
+  /* The named nodes. Same three tests as a tile part, against the node the
+     page's own getElementById handed the renderer, so a harvest cannot read
+     one element while the renderer wrote another. innerHTML covers both ways
+     a node gets written: the shim's textContent setter escapes and stores the
+     result here, which is what a browser serialises back out of a text node. */
+  for (const id of NODES[file] || []) {
+    const node = shim.elements.get(id);
+    if (!node || !node.touched) {
+      skipped.push(id + ' (not written)');
+      continue;
+    }
+    const content = node.innerHTML;
+    if (!content || content === '&mdash;' || content === DASH) {
+      skipped.push(id + ' (no reading)');
+      continue;
+    }
+    blocks.set(id, content);
   }
 
   return { blocks, skipped };
@@ -549,7 +608,12 @@ async function main() {
   let wrote = 0;
   let behind = 0;
 
-  for (const file of Object.keys(TILES)) {
+  /* Both maps, in one pass, with a page that appears in each visited once.
+     TILES first so the five pages that were here before this file learned
+     about named nodes still report in the order they always did. */
+  const pages = [...new Set([...Object.keys(TILES), ...Object.keys(NODES)])];
+
+  for (const file of pages) {
     const filePath = path.join(ROOT, file);
     const html = await fs.readFile(filePath, 'utf8');
     const ids = markedIds(html);

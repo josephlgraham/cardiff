@@ -66,7 +66,13 @@
 // the calendar put its own in v65 and where the other sixteen have had theirs
 // since decision 54. fivemile-news.html and fivemile-common.js both changed and
 // both are precached and served cache-first. See DECISIONS.md 62.
-const CACHE_NAME = 'fivemile-v66';
+// v67 writes the finding on fivemile-discharges.html into its markup: the lead
+// count and sentences, the EPA condition and uses, the oxygen record and the
+// permit tally. The page is precached and served cache-first, so a returning
+// reader would keep the copy that ships em dashes there. The business names are
+// deliberately not in the markup and still render in the browser.
+// See DECISIONS.md 63.
+const CACHE_NAME = 'fivemile-v67';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
