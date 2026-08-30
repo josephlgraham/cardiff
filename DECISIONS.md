@@ -3153,8 +3153,9 @@ page grew an opening panel of its own. It marks that now and the row sits in the
 copy card the way it does on the other fifteen pages. See decision 60.
 
 *Amended by decision 62. The news page and the calendar both have opening
-panels now, so the reason given here for those two, that there was no panel to
-mark, no longer holds. They still use `data-share-here`, and 62 says why.*
+panels now, and both mark them. `data-share-here` is unused: every one of the
+eighteen pages takes `data-share-in`, which is the whole rule and no longer has
+a two page exception attached to it.*
 
 ### Structured data on ten more pages
 
@@ -3690,8 +3691,9 @@ the ones that move without the data moving.
 Joe asked for three things on the news page and the same treatment on the
 calendar: put the lead story directly under the heading, say in the heading
 what the page is for so a search engine has something to read, and put the
-share row on the lead card. The calendar half of that came back once the
-measurements were in, and the answer there is different. See below.
+share row on the lead card. The share row half of that came back twice, once on
+a measurement and once on Joe, and both pages ended up putting it where the
+other seventeen already had it. See below.
 
 ### These were the last two pages opening on a bare heading
 
@@ -3727,42 +3729,46 @@ The `padding-top:14px` the morning report block carried inline went with the
 move. It was there to tighten the gap under a bare News heading, and there is
 no bare heading above it any more. It takes the standard 34px.
 
-### The share row stayed with the lead, and the calendar went back in the panel
+### The share row went in the opening on both, after two rounds of not
 
 Decision 54 moved the row inside the opening panel on fifteen pages and left
 the news page and the calendar on `data-share-here` because neither had a
-panel. Both have one now, so that reason is gone. On the news page the row
-stayed where it was anyway for a better one, and on the calendar it did not.
+panel. Both have one now, so that reason was gone, and both were kept on
+`data-share-here` anyway for what looked like a better one: anchor the row to
+the block a reader actually came for, the lead card on the news page and the
+month on the calendar. Neither survived.
 
-On a desk page the opening is the page: a reader who has read the paragraph at
-the top of the fishing desk has read the argument for passing it on. On the
-news page the opening is a description and the argument is one block further
-down. The lead is what somebody came for, it is a single card, and a reader
-reaches the end of it and decides there. So the news page keeps
-`data-share-here` on `#leadBlock`, and its panel deliberately carries no
-`data-share-in`, which wins in `fivemile-common.js` and would silently undo
-this. The panel carries an HTML comment saying so, because the attribute that
-has to be absent is the one nobody thinks to check.
+**The calendar went first, on a measurement.** At 1200px it looked right. At
+390px the month grid is a little over two thousand pixels tall, which put the
+row 2600px down the page, 400px better than the archive door it used to sit
+under and still somewhere nobody scrolls. A month is a grid a reader picks a
+date out of rather than a thing they finish, so there was no point below it
+that meant anything.
 
-**The calendar was built the same way for a day and it did not survive
-measurement.** Marking `#the-month-block` was the obvious parallel, and at
-1200px it looked right. At 390px the month grid is a little over two thousand
-pixels tall, which put the row 2600px down the page. That is 400px better than
-the archive door it used to sit under and still somewhere nobody scrolls, so
-the parallel was the wrong thing to be preserving.
+**The news page went second, on Joe.** He asked for the buttons in the top
+copy. The argument for keeping them on the lead was real, that the lead is one
+card with an end to reach and finishing it is the moment somebody decides to
+pass the page on, and it lost to a plainer fact: every other page on this site
+ends its opening with that row. One page doing it a block further down is not a
+rule with an exception, it is a reader having to find the thing twice. The
+consistency is worth more than the argument was.
 
-The difference is that a lead is one card with an end to reach and a month is
-a grid a reader picks a date out of. There is no moment of finishing a month,
-so there is no point below it that means anything. The calendar takes
-`data-share-in` on its panel like the other sixteen pages.
+**So `data-share-in` is the only marker in use.** Eighteen pages, one place,
+ruled off at the foot of the opening. `data-share-here` stays in
+`fivemile-common.js` because it is three lines and it is what the fallback
+below it is ordered against, but nothing marks it. A future page reaching for
+it should answer why its opening is not the right place first.
 
-The rule this leaves is about shape rather than about which page it is:
-`data-share-here` is for a page whose reason to be passed on is one card a
-reader finishes. Everything else marks its opening.
+This is the same lesson as the `.p-kick` label in decision 54, arrived at from
+the other direction. That was a good argument for adding something to fourteen
+pages; this was a good argument for one page keeping something the other
+seventeen do differently. Both were right about the page in front of them and
+wrong about the site.
 
-**Revisit if:** the lead is empty often enough to notice. `#leadBlock` ships
-`hidden` and the page unhides it, so on a day nothing filed from the two
-closest rings the share row is the first thing under the opening and the
-morning report follows it. That reads fine and it is not what the row was
-placed for. If it turns out to be most days rather than a few, the answer is
-to move the marker rather than to move the lead back.
+**Revisit if:** nothing here needs revisiting on the share row, which is the
+point of finally having one rule for it. The lead is the part worth watching.
+`#leadBlock` ships `hidden` and the page unhides it, so on a day nothing filed
+from the two closest rings the morning report is the first block under the
+opening and the page reads the way it used to. If that turns out to be most
+days rather than a few, the lead is not the right thing to be leading with and
+the question is what is.

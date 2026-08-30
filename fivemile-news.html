@@ -171,10 +171,13 @@
          says what it covers. Card stock and a paragraph now, the same opening
          every other page has. See DECISIONS.md 54.
 
-         No data-share-in on this panel. The share row belongs to the lead card
-         below it, and data-share-in would take precedence and pull it up here.
-         -->
-    <div class="panel intro">
+         The share row goes inside this panel, ruled off at the foot of it, the
+         way it does on all seventeen of the others. It was anchored to the lead
+         card below for a round, on the argument that the lead is what somebody
+         came for. Every page on this site puts the row at the end of its
+         opening, and one page doing it a page further down is not a rule, it is
+         an exception a reader has to learn. See DECISIONS.md 62. -->
+    <div class="panel intro" data-share-in>
       <p class="lede">The news from Graysville, Cardiff, and Brookside, and from the rest of west
         Jefferson County: town and county business, the creek and the weather, obituaries, and the
         votes and hearings that change the ground here. Nothing is taken down once it has run, so a
@@ -183,16 +186,12 @@
   </section>
 
   <!-- THE LEAD --------------------------------------------------------------
-       First block under the heading. The biggest thing to have happened along
+       First block under the opening. The biggest thing to have happened along
        the creek is what somebody came here for, and it used to sit below the
        morning report and the week ahead, where a reader on a phone had to get
        past two full cards to reach it.
-
-       The share row lands after this block and moved up with it. A reader who
-       has just read the lead is the one with something to pass on. See
-       fivemile-common.js.
        ---------------------------------------------------------------------- -->
-  <section class="blk reveal" id="leadBlock" hidden data-share-here>
+  <section class="blk reveal" id="leadBlock" hidden>
     <div class="hd"><h2>The lead</h2><span class="hd-note" id="leadStamp"></span></div>
     <div id="leadSlot"></div>
   </section>
