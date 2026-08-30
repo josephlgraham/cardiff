@@ -288,6 +288,22 @@
     const padRight = narrow ? 14 : 26;
     const padTop = 22;
     const padBottom = 34;
+    /* The nose. The plot frame runs the full width between the gutters, and
+       the readings stop short of it, so the dot on today's level sits inside
+       the chart instead of straddling the edge with half of it outside. It was
+       drawn at exactly the right hand edge before, which is where a 4.2 radius
+       circle with a 2px collar has nowhere to go.
+
+       Half a day cell, which is what it looks like on the month view and is
+       where the idea came from. Clamped at both ends because a day cell on the
+       week view is a hundred and twenty pixels and half of that is a hole, and
+       because ten pixels is the least that clears the dot. The frame, the
+       gridlines and the baseline all still run to the true edge, so what is
+       left over reads as an empty cell at the end rather than as a chart that
+       has been cropped. */
+    const plotWidth = width - padLeft - padRight;
+    const padNose = Math.max(10, Math.min(24, plotWidth / Math.max(watershedChartRange, 1) / 2));
+    const dataRight = width - padRight - padNose;
     /* How far the feet figures sit off the plot. */
     const axisGap = narrow ? 6 : 10;
     /* "1.38 ft" is 52px of mono even at 11px, which does not fit a phone
@@ -308,22 +324,24 @@
     const range = Math.max(displayMax - displayMin, 0.2);
     const lastIndex = Math.max(points.length - 1, 1);
     const coords = points.map((point, index) => {
-      const x = padLeft + (index / lastIndex) * (width - padLeft - padRight);
+      const x = padLeft + (index / lastIndex) * (dataRight - padLeft);
       const stage = Math.max(displayMin, Math.min(displayMax, point.stage_ft));
       const y = padTop + ((displayMax - stage) / range) * (height - padTop - padBottom);
       return { x, y };
     });
     const polyline = coords.map((point) => point.x.toFixed(1) + "," + point.y.toFixed(1)).join(" ");
+    /* The two shaded bands stop with the readings rather than running on to
+       the frame, or the last value would be smeared flat across the nose. */
     const topArea = ([
       [padLeft, padTop],
-      [width - padRight, padTop],
+      [dataRight, padTop],
       ...coords.slice().reverse().map((point) => [point.x, point.y]),
       [coords[0].x, coords[0].y]
     ]).map((point) => point[0].toFixed(1) + "," + point[1].toFixed(1)).join(" ");
     const bottomArea = ([
       [coords[0].x, coords[0].y],
       ...coords.map((point) => [point.x, point.y]),
-      [width - padRight, height - padBottom],
+      [dataRight, height - padBottom],
       [padLeft, height - padBottom]
     ]).map((point) => point[0].toFixed(1) + "," + point[1].toFixed(1)).join(" ");
     const latest = points[points.length - 1];
@@ -348,7 +366,7 @@
         prevDayKey = dayKey;
       }
     });
-    const usableRight = width - padRight;
+    const usableRight = dataRight;
     const dayGridlines = dayMarkers
       .filter((marker) => marker.index !== 0)
       .map((marker) => '<line x1="' + marker.x.toFixed(1) + '" y1="' + padTop + '" x2="' + marker.x.toFixed(1) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.1)" stroke-width="1"/>')
@@ -385,7 +403,7 @@
         '<polyline fill="none" stroke="#0f5c6d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="' + polyline + '"/>' +
         '<circle cx="' + coords[coords.length - 1].x.toFixed(1) + '" cy="' + coords[coords.length - 1].y.toFixed(1) + '" r="4.2" fill="#0f5c6d" stroke="#faf6ee" stroke-width="2"/>' +
         '<text class="watershed-axis" x="' + padLeft + '" y="' + axisBaseline + '">' + escapeHtml(firstLabel) + "</text>" +
-        '<text class="watershed-axis" x="' + (width - padRight) + '" y="' + axisBaseline + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
+        '<text class="watershed-axis" x="' + dataRight.toFixed(1) + '" y="' + axisBaseline + '" text-anchor="end">' + escapeHtml(lastLabel) + "</text>" +
         dayLabels +
         '<text class="watershed-axis" x="' + (padLeft - axisGap) + '" y="' + (padTop + 4) + '" text-anchor="end">' + escapeHtml(feet(displayMax)) + "</text>" +
         '<text class="watershed-axis" x="' + (padLeft - axisGap) + '" y="' + (height - padBottom + 4) + '" text-anchor="end">' + escapeHtml(feet(displayMin)) + "</text>" +
