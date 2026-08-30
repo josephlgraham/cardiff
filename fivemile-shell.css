@@ -173,6 +173,24 @@ section.blk{padding:34px 0 0}
    person can read outdoors on a phone. */
 .lede{font-size:16.5px;line-height:1.62;color:var(--ink2);max-width:64ch;margin:0 0 18px}
 
+/* The name, set in running text. It is the publication talking about
+   itself, and in plain body weight it read as a shouted word rather than
+   as a masthead. Bold and the masthead brown give it the personality it
+   has at the top of the page without borrowing the serif, which stays the
+   masthead's alone under decision 14.
+
+   Not in headings, not in the masthead, and never on the announcement
+   strip: that ground is red and a dark brown on it would be close to
+   unreadable. Wrap the word only, so a possessive keeps its apostrophe
+   outside the mark.
+
+   The selector carries the element because .p-list b in fivemile-cards.css
+   sets a color at the same specificity, and the name turns up inside one of
+   those rows on the About page. This file loads after that one on every
+   page today. If that order ever changes, this rule loses and the name goes
+   back to ink without anything appearing to be broken. */
+b.fm-name{font-weight:700;color:var(--hdr-bg)}
+
 /* The standfirst. An intro panel was one flat grey slab of 16.5px with no
    entry point: the eye had nowhere to land and every line looked like every
    other line, which is what makes a good paragraph tiring to read. The first
