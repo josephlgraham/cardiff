@@ -191,6 +191,12 @@ section.top{padding:24px 0 0}
    object as everything under it.
    --------------------------------------------------------------------------- */
 .hero-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+/* The hero row leads the page and the opening panel follows it, so the gap
+   between them is the row's now rather than the panel's. Same not-last-child
+   guard and the same 18px as .panel.intro in fivemile-cards.css, because they
+   are the same gap and they used to be the same rule with the two blocks the
+   other way round. */
+.hero-row:not(:last-child){margin-bottom:18px}
 .hero-date{background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r-lg);
   min-width:186px;padding:16px 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .hero-day{font-size:18px;font-weight:800;color:var(--red);letter-spacing:-.01em}
