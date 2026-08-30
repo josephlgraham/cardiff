@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Archive &middot; FIVEMILE">
 <meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, and every story that has run.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-archive.html#webpage",
+  "url": "https://fivemile.now/fivemile-archive.html",
+  "name": "Archive",
+  "description": "Everything FIVEMILE keeps: the photographs, the weather log, the creek log, every story that has run, and every date the calendar has carried.",
+  "keywords": "Five Mile Creek archive, Graysville Alabama history, Cardiff Alabama records, Brookside Alabama, weather records Jefferson County, creek gauge history",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -84,7 +107,8 @@
 
   <section class="top">
     <div class="hd"><h1>Archive</h1><a href="index.html">Front page &rarr;</a></div>
-    <div class="panel intro">
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🕰️</i>The archive</p>
       <p class="lede">Five things get kept here and none of them go anywhere: the photographs that have run
         on the front page, every day the weather station has reported, the creek at the Republic gauge,
         every story that has run, filed under the month it ran in, and every date the calendar has carried.

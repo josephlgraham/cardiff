@@ -942,6 +942,13 @@ main:focus{outline:none;}
    against the rules this site is built on, and a count of three would
    read worse than no count at all.
    ───────────────────────────────────────────────────────────────────── */
+/* The row inside the panel it belongs to, which is where data-share-in puts
+   it. Ruled off so it reads as the foot of the opening rather than as another
+   paragraph, and the panel's own last-child margin reset does not apply to it
+   because the row carries its own bottom margin for the pages that still take
+   it standing on the paper. */
+.panel > .fm-share{margin:17px 0 0;padding-top:15px;border-top:1px solid var(--fm-rule,#DDCFB8)}
+
 .fm-share{
   display:flex;
   flex-wrap:wrap;

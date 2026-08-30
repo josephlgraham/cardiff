@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Garden &middot; FIVEMILE">
 <meta name="twitter:description" content="The planting year for zone 7b and 8a creek bottomland: what goes in this month, the two frost dates, and twelve months at a glance.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a desk page and the site
+     containing it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-garden.html#webpage",
+  "url": "https://fivemile.now/fivemile-garden.html",
+  "name": "Garden",
+  "description": "Month by month planting for zone 7b and 8a creek bottomland in Graysville, Cardiff, and Brookside, hung off the last spring frost and the first fall frost.",
+  "keywords": "Alabama planting calendar, zone 7b planting, zone 8a garden, central Alabama vegetable garden, last spring frost Alabama, first fall frost, Jefferson County gardening, collards, okra, southern peas, fall garden",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -87,9 +110,18 @@
       <h1>Garden</h1>
       <a href="https://www.aces.edu/blog/topics/lawn-garden/planting-guide-for-home-gardening-in-alabama/" target="_blank" rel="noopener">Extension guide &rarr;</a>
     </div>
-    <p class="desk-intro">Zone 7b running into 8a, on creek bottomland that drains unevenly and holds a
-      little more frost-free time than the ridges above it. The whole year hangs off two dates: the last
-      spring frost around March 20 and the first fall frost around November 15.</p>
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🌱</i>The garden desk</p>
+      <p class="lede">Two dates run the whole garden year here. The last spring frost lands around
+        March 20 and the first fall frost around November 15, and nearly every planting date in
+        between is counted forward or back from one of them.</p>
+      <p>This is zone 7b running into 8a, on creek bottomland that drains unevenly and holds a little
+        more frost-free time than the ridges above it. Potatoes and English peas go in in February,
+        the big warm-season planting is April, okra and southern peas want May heat, and the fall
+        greens go in through August and cut all winter. The month by month timing follows the Alabama
+        Extension planting guide for Central Alabama, because a planting date with nothing behind it
+        is somebody's opinion.</p>
+    </div>
   <div class="four-eq">
       <div class="card-gauge" id="gardenMonthTile">
         <span class="g-ticks" data-ticks></span>
@@ -156,8 +188,9 @@
   </section>
 
   <section class="blk">
-    <div class="hd"><h2>The planting year</h2><span class="hd-note">Twelve months, one line each</span></div>
+    <div class="hd"><h2>The planting year</h2><span class="hd-note" id="gardenYearStamp">&mdash;</span></div>
     <div class="month-grid" id="gardenYear"></div>
+    <button class="alm-expand" id="gardenYearExpand" type="button" hidden>Show the rest of the year</button>
   </section>
 
   <section class="blk">

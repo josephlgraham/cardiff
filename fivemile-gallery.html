@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Gallery &middot; FIVEMILE">
 <meta name="twitter:description" content="Every photograph that has run on the front page of FIVEMILE, with the name of whoever made it and the month it was taken.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-gallery.html#webpage",
+  "url": "https://fivemile.now/fivemile-gallery.html",
+  "name": "Gallery",
+  "description": "Every photograph that has run on the front page of FIVEMILE, kept with the name of whoever made it.",
+  "keywords": "Graysville Alabama photos, Cardiff Alabama photographs, Brookside Alabama, Five Mile Creek pictures",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -84,7 +107,8 @@
 
   <section class="top">
     <div class="hd"><h1>Gallery</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
-    <div class="panel intro">
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">📷</i>The gallery</p>
       <p class="lede">Every photograph that has run on the front page, kept with the name of whoever made it
         and the month it was taken. A picture leaves the front page after a while. It does not leave here.</p>
     </div>

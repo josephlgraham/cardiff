@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="News · FIVEMILE">
 <meta name="twitter:description" content="What is being reported this week in Graysville, Cardiff, and Brookside, and in the rest of west Jefferson County.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-news.html#webpage",
+  "url": "https://fivemile.now/fivemile-news.html",
+  "name": "News",
+  "description": "Local news for Graysville, Cardiff, and Brookside, Alabama, with the morning report, what is coming up, and the sky over the creek.",
+  "keywords": "Graysville Alabama news, Cardiff Alabama news, Brookside Alabama news, west Jefferson County news, Five Mile Creek, local obituaries, city council",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -232,6 +255,35 @@
     <div class="rows" id="recentRows"></div>
   </section>
 
+  <!-- THE SKY ---------------------------------------------------------------
+       Where a newspaper puts its almanac strip: after the news has run and
+       before the standing links. Everything in it is worked out in the page
+       from the date by fivemile-sky.js, so it costs no fetch and it is right
+       whether or not anything else on the page loaded.
+
+       Astronomy only. Where the planets are is a fact and what they portend is
+       not this site's business.
+       ---------------------------------------------------------------------- -->
+  <section class="blk reveal" id="the-sky">
+    <div class="hd"><h2>The sky over the creek</h2><span class="hd-note" data-skynow-stamp>&mdash;</span></div>
+    <div class="two-eq">
+      <div class="card-dept">
+        <div class="d-bar"><h3>Up tonight</h3><span class="r">Naked eye</span></div>
+        <div class="d-body">
+          <p data-skynow-lede>&mdash;</p>
+          <div data-skynow-planets><div class="empty">&mdash;</div></div>
+        </div>
+      </div>
+      <div class="card-dept">
+        <div class="d-bar"><h3>Where the year is</h3><span class="r">Moon and season</span></div>
+        <div class="d-body">
+          <div data-skynow-season><div class="empty">&mdash;</div></div>
+          <p class="d-tip" data-skynow-tip hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STANDING LINKS --------------------------------------------------------
        Not news. These are the places worth going back to when weather turns,
        roads shift, county business moves, or somebody needs the clean source.
@@ -319,6 +371,8 @@
 </div>
 
 <script src="fivemile-season-data.js"></script>
+<script src="fivemile-sky.js"></script>
+<script src="fivemile-skynow.js"></script>
 <script>
 /* ===========================================================================
    News. Everything on this page is read from a JSON file in the repo or

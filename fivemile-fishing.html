@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Fishing &middot; FIVEMILE">
 <meta name="twitter:description" content="Water temperature, creek level, and what is worth trying on Five Mile Creek today, plus species, seasons, limits, and the state fish advisory.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a desk page and the site
+     containing it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-fishing.html#webpage",
+  "url": "https://fivemile.now/fivemile-fishing.html",
+  "name": "Fishing on Five Mile Creek",
+  "description": "Water temperature, creek level, solunar times, and what is worth trying on Five Mile Creek, with the fish that live in the lower creek and how to target them.",
+  "keywords": "Five Mile Creek fishing, fishing Graysville Alabama, Cardiff Alabama fishing, Brookside Alabama fishing, Jefferson County creek fishing, channel catfish, blue catfish, largemouth bass, spotted bass, rock bass, bluegill, redear sunfish, longear sunfish, green sunfish, pumpkinseed, longnose gar, creek chub, Alabama fishing license, creel limits, fish consumption advisory",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -87,28 +110,37 @@
       <h1>Fishing</h1>
       <a href="https://www.outdooralabama.com/fishing/freshwater-fishing" target="_blank" rel="noopener">Outdoor Alabama &rarr;</a>
     </div>
-    <p class="desk-intro">Five Mile Creek is a small water. What it holds, and whether any of it is
-      interested today, comes down to water temperature, how much is moving through the channel, and
-      whether the weather has settled down. All three are on this page.</p>
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🎣</i>The fishing desk</p>
+      <p class="lede">Five Mile Creek is small water, and small water tells on itself. Three things
+        decide whether anything in it is interested today: how warm the water is, how much of it is
+        moving through the channel, and whether the weather has made its mind up.</p>
+      <p>Catfish, bass, and bream all live in the lower creek through Graysville, Cardiff, and
+        Brookside, along with gar, creek chub, and half a dozen kinds of sunfish, and they do not all
+        want the same day. Water temperature sets what is feeding, the USGS gauge at Republic says
+        whether the channel is pushing, and the barometer decides how far any of it will move to eat.
+        Alabama sets the licenses and the creel limits, and it tests the fish once a year. That last
+        one counts for more on this creek than it does on most.</p>
+    </div>
   <div class="four-eq">
-      <div class="card-gauge" id="fishWaterTile">
+      <a class="card-gauge" id="fishWaterTile" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick"><i class="g-mark" aria-hidden="true">💧</i><span class="g-lbl">Water &middot; Estimated</span></p>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌡️</i><span class="g-lbl">Water &middot; Republic</span></p>
         <div class="g-val" id="fishWaterVal">&mdash;</div>
         <div class="g-sub" id="fishWaterSub">This reading is not coming through right now.</div>
-      </div>
+      </a>
       <a class="card-gauge" id="fishCreekTile" href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">
         <span class="g-ticks" data-ticks></span>
         <p class="g-kick"><i class="g-mark" aria-hidden="true">🌊</i><span class="g-lbl">Creek &middot; Republic</span></p>
         <div class="g-val" id="fishCreekVal">&mdash;</div>
         <div class="g-sub" id="fishCreekSub">This reading is not coming through right now.</div>
       </a>
-      <div class="card-gauge" id="fishPressureTile">
+      <a class="card-gauge" id="fishOxygenTile" href="fivemile-discharges.html">
         <span class="g-ticks" data-ticks></span>
-        <p class="g-kick"><i class="g-mark" aria-hidden="true">🧭</i><span class="g-lbl">Pressure &middot; Station</span></p>
-        <div class="g-val" id="fishPressureVal">&mdash;</div>
-        <div class="g-sub" id="fishPressureSub">This reading is not coming through right now.</div>
-      </div>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🫧</i><span class="g-lbl">Oxygen &middot; Republic</span></p>
+        <div class="g-val" id="fishOxygenVal">&mdash;</div>
+        <div class="g-sub" id="fishOxygenSub">This reading is not coming through right now.</div>
+      </a>
       <div class="card-gauge" id="fishWindowTile">
         <span class="g-ticks" data-ticks></span>
         <p class="g-kick"><i class="g-mark" aria-hidden="true">🕗</i><span class="g-lbl">Best window &middot; Today</span></p>
@@ -122,7 +154,7 @@
     <div class="hd"><h2>Today on the creek</h2><span class="hd-note" id="fishStamp">&mdash;</span></div>
     <div class="two-eq">
       <div class="card-dept">
-        <div class="d-bar"><h3>What is worth trying</h3><span class="r">Three stars is the ceiling</span></div>
+        <div class="d-bar"><h3>What is worth trying</h3><span class="r" id="fishTargetStamp">&mdash;</span></div>
         <div class="d-body">
           <div class="alm-list" id="fishRatings">
             <div class="empty">&mdash;</div>
@@ -130,41 +162,357 @@
         </div>
       </div>
       <div class="card-dept">
-        <div class="d-bar"><h3>Reading the water</h3><span class="r" id="fishReadStamp">&mdash;</span></div>
+        <div class="d-bar"><h3>What the creek is telling you</h3><span class="r" id="fishReadStamp">&mdash;</span></div>
         <div class="d-body">
-          <p class="wx-narrative" id="fishNarrative">&mdash;</p>
+          <div class="alm-list" id="fishFactors">
+            <div class="empty">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-dept" style="margin-top:12px">
+      <div class="d-bar"><h3>Reading the water</h3><span class="r">The fishing desk</span></div>
+      <div class="d-body">
+        <p class="wx-narrative" id="fishNarrative">&mdash;</p>
+        <div class="sci-box">
+          <div class="sci-label">Water temperature runs the whole thing, and oxygen decides the rest</div>
+          <p>Fish are cold blooded, so the temperature of the water sets how fast they digest, how much they
+            have to eat, and how far they will move to get it. That is why the same creek feels empty in
+            February and busy in June. What most fishing pages leave out is the other half: warm water holds
+            less dissolved oxygen than cold water does, and a fish short of oxygen stops feeding long before
+            it is in any danger. It is why the worst fishing of the year here is not the coldest week but the
+            hottest, stillest one in August.</p>
+          <p>Both numbers on this page are measured rather than guessed. The gauge at Republic reports the
+            water temperature and the dissolved oxygen along with the stage, which is a good deal more than
+            most creeks this size get.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUNAR ------------------------------------------------------------
+       Worked out on the page by fivemile-sky.js. It is a prediction and the
+       copy says so: no gauge on this creek measures a feeding period and this
+       site does not imply one does.
+       ------------------------------------------------------------------- -->
+  <section class="blk" id="solunar">
+    <div class="hd"><h2>The times the moon says</h2><span class="hd-note" id="solStamp">&mdash;</span></div>
+    <div class="two-eq">
+      <div class="card-dept">
+        <div class="d-bar"><h3>Today's periods</h3><span class="r">Solunar</span></div>
+        <div class="d-body">
+          <div class="alm-list" id="solList">
+            <div class="empty">&mdash;</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dept">
+        <div class="d-bar"><h3>What this is</h3><span class="r" id="solMoonStamp">&mdash;</span></div>
+        <div class="d-body">
+          <p class="wx-narrative">The moon passes overhead once a day and directly underfoot once a day, and
+            it rises and sets in between. Anglers have fished those four times since John Alden Knight put
+            the tables together in 1926: the two overhead passes are the major periods and run about two
+            hours, and moonrise and moonset are the minor ones and run about one.</p>
           <div class="sci-box">
-            <div class="sci-label">Why water temperature runs the whole thing</div>
-            <p>Fish are cold blooded, so the temperature of the water sets how fast they digest, how much
-              they need to eat, and how far they will move to get it. That is why the same creek can feel
-              empty in February and busy in June. The figure in the tile above is an estimate built from
-              air temperature and the time of year, not a thermometer in the water.</p>
+            <div class="sci-label">What it is, and what it is not</div>
+            <p>The times are astronomy and they are exact. Whether the fish agree is a prediction, not a
+              measurement. Nothing on this creek reports a feeding period and this page is not pretending
+              otherwise. What is worth knowing is that the two strongest periods of a month land near the
+              new moon and the full moon, when the sun and the moon are pulling together, and that a period
+              landing on top of first or last light counts for more than the same period at noon.</p>
+            <p>If you only get one trip, take the one where a major period and a sunrise or a sunset arrive
+              within an hour of each other. That is the best this creek offers.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE THREE THAT MATTER -----------------------------------------------
-       Brass check cards. Rare on purpose across the site, and this is the
-       page they were drawn for: a specimen with a name, a latin name, and a
-       line about how it lives. See DECISIONS.md on the card spec.
+  <!-- WHEN THE CREEK COMES UP ---------------------------------------------
+       Always on the page rather than shown only on a rise. Writing that
+       appears for six hours a month is writing nobody reads, and the Archive
+       rule in CLAUDE.md is that nothing here scrolls away. What is live is
+       the marker: the stage the creek is actually at is the row that gets
+       ruled, and a notice comes up above it when the gauge says rising.
        ------------------------------------------------------------------- -->
-  <section class="blk">
-    <div class="hd"><h2>The three that matter here</h2><span class="hd-note">Warrior basin creek fish</span></div>
-    <div class="three-eq" id="fishSpecies"></div>
-    <div class="card-notice info" style="margin-top:12px">
-      <p class="n-kick">Species list</p>
-      <h3>What actually lives in this stretch has never been written down here</h3>
-      <p>The three above are the ones anybody who fishes this creek will recognize, and the general run of
-        Warrior basin sunfish and catfish goes well beyond them. A proper species list for the lower end of
-        Five Mile Creek would need a survey, not a guess.
-        <!-- NEEDS-CONFIRMATION: a sourced species list for Five Mile Creek below Republic.
-             Candidates are an ADEM or Freshwater Land Trust stream assessment, or a state
-             fisheries survey. Do not fill this in from general knowledge. -->
-        If you know of a survey, or you fish it and want to say what you catch,
-        <a href="mailto:fivemilec@gmail.com?subject=Five%20Mile%20Creek%20fishing">send it in</a>.</p>
+  <section class="blk" id="rising">
+    <div class="hd"><h2>When the creek comes up</h2><span class="hd-note" id="riseStamp">&mdash;</span></div>
+    <div class="card-notice" id="riseNotice" hidden>
+      <p class="n-kick">Right now</p>
+      <h3 id="riseNoticeHead">&mdash;</h3>
+      <p id="riseNoticeBody">&mdash;</p>
     </div>
+    <div class="card-dept" style="margin-top:12px">
+      <div class="d-bar"><h3>Four stages, and the fish do something different in each</h3><span class="r" id="riseStageStamp">&mdash;</span></div>
+      <div class="d-body">
+        <div class="alm-list" id="riseStages">
+          <div class="empty">&mdash;</div>
+        </div>
+        <div class="sci-box">
+          <div class="sci-label">Why a rise turns the fishing on before it turns it off</div>
+          <p>Rain running off the bank carries worms, grubs, and everything else that was living in the top
+            inch of soil straight into the channel. For the first few hours of a rise the creek is carrying
+            more food than it has all week, and the fish move to the edges to take it. That is the window.</p>
+          <p>What ends it is the current. Past a certain speed a fish spends more energy holding station than
+            it gets back from feeding, so it drops out of the main channel and into whatever slack water it
+            can find, and it stops eating until the water lets it start again. On the way back down the creek
+            is still full of what the rain brought and no longer running hard, which is why the falling side
+            of a rise is usually better than the rising side.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FISH -------------------------------------------------------------
+       Thirteen species, written into the HTML rather than drawn by script, so
+       what a crawler and a reader with no JavaScript get is the whole thing
+       and not an empty grid. The photographs come from fivemile-guide.json at
+       runtime: one store of species pictures on this site, one set of credits,
+       and no second copy of a file path to go stale. See DECISIONS.md.
+       ------------------------------------------------------------------- -->
+  <section class="blk" id="the-fish">
+    <div class="hd"><h2>The fish in this creek</h2><span class="hd-note">Thirteen, and counting</span></div>
+    <div class="panel intro">
+      <p class="lede">This list is not a survey. It is what Joe Graham and the people he fishes with have
+        caught or seen in the lower creek over the years, written down for the first time.</p>
+      <p>That makes it a first hand record rather than a complete one, and the difference matters. A state
+        fisheries survey of Five Mile Creek below Republic would almost certainly turn up species nobody
+        here has ever had on a hook, and it would settle the two entries below that are still stuck at the
+        genus. If you fish this creek and catch something that is not here,
+        <a href="mailto:fivemilec@gmail.com?subject=Five%20Mile%20Creek%20fish">send it in</a>, and if
+        you know of a survey, send that.
+        <!-- NEEDS-CONFIRMATION: a sourced species list for Five Mile Creek below Republic.
+             Candidates are an ADEM or Freshwater Land Trust stream assessment, or an Alabama
+             DCNR fisheries survey. Do not fill this in from general knowledge. The list above
+             is attributed to Joe and must stay attributed to Joe until something sourced
+             replaces it. -->
+        Every one of them has a fuller entry in the field guide.</p>
+    </div>
+
+      <p class="fx-group"><b>Catfish</b><i>Two of them, and they are not the same fish</i></p>
+      <div class="fish-grid">
+        <article class="card-fish" id="fish-channelcatfish" data-fish="channelcatfish" data-best-from="72" data-best-to="86" data-from="55" data-to="88">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Channel catfish</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Ictalurus punctatus</p>
+            <p class="fh-also">Also called Channel cat, blue channel, fiddler</p>
+            <p class="fh-line">Works by smell and touch rather than sight, which is why it keeps feeding in colored water that shuts every other fish down.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>The deep bends and under cover through the day, out on the shallow edges to feed after dark.</dd></div>
+            <div><dt>Bait</dt><dd>Anything that smells. Cut bait, chicken liver, a nightcrawler fished on the bottom.</dd></div>
+            <div><dt>When</dt><dd>After dark, and the first few hours of a rise while the water is coloring up.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#channelcatfish">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-bluecat" data-fish="bluecat" data-best-from="62" data-best-to="82" data-from="45" data-to="88">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Blue catfish</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Ictalurus furcatus</p>
+            <p class="fh-also">Also called Blue cat, blues</p>
+            <p class="fh-line">Bigger than the channel cat and it holds differently: out in the moving water rather than tucked under a bank.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>The main channel, in the deepest water you can reach with current going over it.</dd></div>
+            <div><dt>Bait</dt><dd>Fresh cut bait on the bottom, and bigger than feels reasonable.</dd></div>
+            <div><dt>When</dt><dd>Through the winter as well as the summer, which is what separates it from the channel cat.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#bluecat">In the field guide &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="fx-group"><b>Bass</b><i>Three of them here, and the creek suits the small ones</i></p>
+      <div class="fish-grid">
+        <article class="card-fish" id="fish-bass" data-fish="bass" data-best-from="58" data-best-to="78" data-from="55" data-to="82">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Largemouth bass</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Micropterus salmoides</p>
+            <p class="fh-also">Also called Largemouth, black bass, trout</p>
+            <p class="fh-line">The top predator in the creek, and the fish everybody is really after. It does not patrol open water, it waits against something.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Where a bend, a deep hole, and a fallen tree meet. In the slack water beside cover, not out in the current.</dd></div>
+            <div><dt>Bait</dt><dd>A live crayfish or a creek minnow. A soft plastic worked slowly along the bottom.</dd></div>
+            <div><dt>When</dt><dd>The pre-spawn weeks in March, and the fall feed in October. First and last light through the summer.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#bass">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-spottedbass" data-fish="spottedbass" data-best-from="62" data-best-to="78" data-from="58" data-to="82">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Spotted bass</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Micropterus punctulatus</p>
+            <p class="fh-also">Also called Spot, Kentucky bass</p>
+            <p class="fh-line">The bass that suits a creek. It takes current better than a largemouth and turns up in water too small and too fast for one.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>The seam where fast water meets slow, over gravel bars and rock ledges. Usually within a rod length of the bank.</dd></div>
+            <div><dt>Bait</dt><dd>Smaller than you would throw at a largemouth. A live crayfish, or something small worked on the bottom.</dd></div>
+            <div><dt>When</dt><dd>All day through spring and fall. First light in July and August.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#spottedbass">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-rockbass" data-fish="rockbass" data-best-from="58" data-best-to="74" data-from="55" data-to="80">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Rock bass</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Ambloplites sp.</p>
+            <p class="fh-also">Also called Goggle eye, red eye</p>
+            <p class="fh-line">Short, deep, red eyed, and it fights above its weight. Which rock bass this creek holds has never been settled.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Rocky runs and root wads in moving water, tight to the stone rather than out in the pool.</dd></div>
+            <div><dt>Bait</dt><dd>A small live bait or a tiny jig, worked slowly along the bottom.</dd></div>
+            <div><dt>When</dt><dd>Overcast days, and the low light at either end of one.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#rockbass">In the field guide &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="fx-group"><b>Bream</b><i>Five kinds of sunfish, and most people call all of them bream</i></p>
+      <div class="fish-grid">
+        <article class="card-fish" id="fish-bream" data-fish="bream" data-best-from="72" data-best-to="86" data-from="65" data-to="88">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Bluegill</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepomis macrochirus</p>
+            <p class="fh-also">Also called Bream, brim, sun perch</p>
+            <p class="fh-line">The fish nearly everybody here caught first. It beds in colonies from late spring right through summer, so a few yards of bank can hold dozens at once.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Shallow bank, shade, and anything hanging over the water. On the beds all summer.</dd></div>
+            <div><dt>Bait</dt><dd>A cricket under a bobber on a cane pole, and nothing has improved on it. Red worms work.</dd></div>
+            <div><dt>When</dt><dd>Late spring through summer, and all day long while they are bedding.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#bream">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-redear" data-fish="redear" data-best-from="64" data-best-to="78" data-from="60" data-to="84">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Redear sunfish</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepomis microlophus</p>
+            <p class="fh-also">Also called Shellcracker, red ear</p>
+            <p class="fh-line">Eats snails and crushes the shells, which is a food almost nothing else in the creek is competing for. Heavier than a bluegill and far less willing to come up for a bait.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>On the bottom over hard ground, and deeper than you would fish for bluegill.</dd></div>
+            <div><dt>Bait</dt><dd>Red worm on the bottom with no float, in about four feet of water.</dd></div>
+            <div><dt>When</dt><dd>Spring, and earlier in it than the bluegill. The shellcracker run is usually over before the bream run starts.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#redear">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-longear" data-fish="longear" data-best-from="72" data-best-to="86" data-from="65" data-to="88">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Longear sunfish</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepomis megalotis</p>
+            <p class="fh-also">Also called Longear, red belly</p>
+            <p class="fh-line">The most colored fish in the creek and one of the smallest. Orange and blue with a long dark ear flap, and rarely bigger than a hand.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Shallow gravel with a little current running over it. More current than a bluegill wants.</dd></div>
+            <div><dt>Bait</dt><dd>Anything small. Most of them are caught by somebody fishing for something else.</dd></div>
+            <div><dt>When</dt><dd>Summer. Look at it properly before you unhook it, because it is worth looking at.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#longear">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-greensunfish" data-fish="greensunfish" data-best-from="70" data-best-to="90" data-from="55" data-to="90">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Green sunfish</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepomis cyanellus</p>
+            <p class="fh-also">Also called Green perch, black perch</p>
+            <p class="fh-line">The toughest sunfish here. Bigger mouthed than a bluegill and stubborn about water that has gone too warm, too still, and too low for anything else.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Cut banks, small feeder branches, and the pools that have shrunk to almost nothing by August.</dd></div>
+            <div><dt>Bait</dt><dd>Small hook tight to the bank. It will also take a lure meant for a bass and sometimes hold on to it.</dd></div>
+            <div><dt>When</dt><dd>The hot low weeks when nothing else is cooperating. That is the whole point of this fish.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#greensunfish">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-pumpkinseed" data-fish="pumpkinseed" data-best-from="64" data-best-to="78" data-from="58" data-to="82">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Pumpkinseed</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepomis gibbosus</p>
+            <p class="fh-also">Also called Punkinseed, sunny</p>
+            <p class="fh-line">Small, round, and covered in orange spotting, with a red dot at the back of the ear flap that a bluegill does not have.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Quiet weedy edges rather than current. The opposite water from a longear.</dd></div>
+            <div><dt>Bait</dt><dd>Worm under a float, kept moving along the edge rather than left sitting.</dd></div>
+            <div><dt>When</dt><dd>Spring and early summer. Scarce enough here that one coming up is worth a second look.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#pumpkinseed">In the field guide &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="fx-group"><b>The rest of it</b><i>Three you will meet whether you were fishing for them or not</i></p>
+      <div class="fish-grid">
+        <article class="card-fish" id="fish-gar" data-fish="gar" data-best-from="78" data-best-to="92" data-from="70" data-to="92">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Gar</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Lepisosteus sp.</p>
+            <p class="fh-also">Also called Garfish, needle nose</p>
+            <p class="fh-line">Long, armored, and unmistakable. It hangs just under the surface of slow water and holds so still that it reads as a sunken branch until it moves.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>The long flat pools, near the top of the water, in the low light at either end of a hot day.</dd></div>
+            <div><dt>Bait</dt><dd>This is a fish to watch rather than a fish to catch. The mouth is bone and needle teeth and it does not take a hook the way anything else does.</dd></div>
+            <div><dt>When</dt><dd>High summer. It gulps air at the surface, so it is still there in warm low water that has driven everything else deep.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#gar">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-creekchub" data-fish="creekchub" data-best-from="52" data-best-to="74" data-from="40" data-to="84">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Creek chub</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Semotilus atromaculatus</p>
+            <p class="fh-also">Also called Chub, horny head</p>
+            <p class="fh-line">The fish most people here caught first without ever learning its name. Stout, striped, and willing to take almost anything.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Riffles and the heads of pools, in the smallest water that holds fish at all.</dd></div>
+            <div><dt>Bait</dt><dd>A bare hook and a scrap of worm. Nothing else is needed and nothing else is better.</dd></div>
+            <div><dt>When</dt><dd>All year. A creek that holds chub is a creek that holds food, which is most of what a bass is looking for.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#creekchub">In the field guide &rarr;</a>
+          </div>
+        </article>
+        <article class="card-fish" id="fish-shiner" data-fish="shiner" data-best-from="58" data-best-to="80" data-from="45" data-to="88">
+          <div class="fh-photo" data-fish-photo></div>
+          <div class="fh-body">
+            <div class="fh-head"><h4 class="fh-name">Shiners</h4><span class="fh-state" data-fish-state></span></div>
+            <p class="fh-latin">Cyprinella and Notropis</p>
+            <p class="fh-also">Also called Minnows, shiner minnows</p>
+            <p class="fh-line">The silver minnows that flash in a shallow run when the light catches them. Several species, not easily separated in a bucket, and the middle of the whole food web here.</p>
+            <dl class="fh-rows">
+            <div><dt>Where</dt><dd>Open shallow runs in the light. Stand still on a bright day and watch the bottom.</dd></div>
+            <div><dt>Bait</dt><dd>Not a target. What may be caught and used as bait is set by the state and it changes, so read the current rules first.</dd></div>
+            <div><dt>When</dt><dd>All year, and at their best in spring, when the males of some of them turn blue, gold, or orange.</dd></div>
+            </dl>
+            <p class="fh-credit" data-fish-credit hidden></p>
+            <a class="fh-more" href="fivemile-guide.html#shiner">In the field guide &rarr;</a>
+          </div>
+        </article>
+      </div>
   </section>
 
   <section class="blk">
@@ -173,6 +521,7 @@
       <div class="d-bar"><h3>Month by month</h3><span class="r" id="fishYearStamp">&mdash;</span></div>
       <div class="d-body">
         <div class="month-grid" id="fishYear"></div>
+        <button class="alm-expand" id="fishYearExpand" type="button" hidden>Show the rest of the year</button>
       </div>
     </div>
   </section>
@@ -229,9 +578,15 @@
 
   <p class="src-note">
     <strong>Where this comes from</strong>
-    Creek stage and flow: <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge 02457595, Fivemile Creek near Republic</a>.
-    Air temperature and barometric pressure: the weather station in Cardiff. Water temperature on this page is
-    an estimate from air temperature and season, not a measured reading.
+    Creek stage, flow, water temperature, and dissolved oxygen: <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge 02457595, Fivemile Creek near Republic</a>.
+    When the gauge does not report a water temperature, the page estimates one from air temperature and the
+    season and says on the tile that it has done so.
+    Air temperature and barometric pressure: the weather station in Cardiff.
+    Sun, moon, and the solunar periods are worked out in the page from the date, using the method described
+    in fivemile-sky.js. They are astronomy, not a forecast, and no gauge on this creek measures a feeding
+    period.
+    The fish and their photographs are the <a href="fivemile-guide.html">field guide's</a>, and every
+    photograph carries the name of whoever took it.
     Regulations and licenses: <a href="https://www.outdooralabama.com/fishing/freshwater-fishing" target="_blank" rel="noopener">Alabama Department of Conservation and Natural Resources</a>.
     Consumption advisories: <a href="https://www.alabamapublichealth.gov/tox/fish-advisories.html" target="_blank" rel="noopener">Alabama Department of Public Health</a>.
   </p>
@@ -246,6 +601,7 @@
 <script src="fivemile-season-data.js"></script>
 <script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
 <script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-sky.js"></script>
 <script src="fivemile-fishing.js"></script>
 <script src="/fivemile-pwa.js"></script>
 </body>

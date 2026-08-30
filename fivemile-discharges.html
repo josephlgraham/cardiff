@@ -35,6 +35,29 @@
 <meta name="twitter:title" content="What goes in &middot; FIVEMILE">
 <meta name="twitter:description" content="Who holds a permit to discharge into Five Mile Creek, what EPA says about their compliance record, and what the water has measured lately.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-discharges.html#webpage",
+  "url": "https://fivemile.now/fivemile-discharges.html",
+  "name": "What goes into the creek",
+  "description": "Every permit in force to discharge into Five Mile Creek, and what the EPA compliance record says about each one.",
+  "keywords": "Five Mile Creek pollution, NPDES permits Alabama, Jefferson County water quality, EPA compliance, creek discharge Graysville Cardiff Brookside",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -138,7 +161,8 @@
       <h1>What goes in</h1>
       <a href="fivemile-creek-archive.html">The creek &rarr;</a>
     </div>
-    <div class="panel intro">
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">📋</i>The permit record</p>
       <p class="lede">Most people here know what this creek used to carry. The mines and the coke ovens put
         their waste straight into it for the better part of a century, and getting it back out has taken a
         good deal longer than putting it in ever did. A fair amount of that work has held. The creek has

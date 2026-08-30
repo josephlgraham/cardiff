@@ -359,6 +359,24 @@ a.card-dept:hover .d-go{color:var(--masthead)}
    until this rule reached the shared file. */
 .panel > .lede{max-width:none}
 
+/* .p-kick  ·  the label at the top of a prose panel
+
+   Every other card in this file opens with one. A gauge has .g-kick, a notice
+   has .n-kick, an index tab has .t-tab, a department panel has its bar. The
+   prose panel was the only card stock on the site with nothing at the top of
+   it, so a page opening read as a paragraph that happened to have a border
+   round it rather than as what it is, which is the section label a newspaper
+   sets above a standfirst.
+
+   The mark comes from the one vocabulary in decision 51, so a page names its
+   subject with the same object the rail and the tiles use for it. It is
+   decoration and hidden from a screen reader, because the words beside it say
+   the same thing. Brown rather than red: red on this site means something has
+   to be acted on, and a section label does not. */
+.p-kick{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--masthead);margin:0 0 9px;display:flex;align-items:center;gap:7px}
+.p-mark{font-family:var(--emoji);font-style:normal;font-size:14px;line-height:1;letter-spacing:0;flex:none}
+
 /* .panel.intro  ·  the panel a page or a section opens with
 
    The lede it replaced carried an 18px bottom margin, and mounting the prose

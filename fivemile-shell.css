@@ -183,13 +183,17 @@ section.blk{padding:34px 0 0}
    One rule, every page that has a .panel intro, because a treatment that
    appears on some of them and not others is worse than not having it. The
    selector is first-child rather than first-of-type because the markup is the
-   same everywhere: a .panel whose first child is the lede.
+   same everywhere: a .panel whose first child is the lede. The second half of
+   it is the same panel with a .p-kick label above the lede, which is now the
+   commoner of the two shapes and must not lose the standfirst by gaining a
+   heading.
 
    No measure on it. A lede inside a panel takes the panel width on purpose,
    for the reason written against .panel > .lede in fivemile-cards.css, and a
    cap here would put the one sided margin back into the box. The size, the
    leading and the ink do the work instead. */
-.panel .lede:first-child{font-size:19px;line-height:1.55;color:var(--ink);
+.panel .lede:first-child,
+.panel > .p-kick + .lede{font-size:19px;line-height:1.55;color:var(--ink);
   letter-spacing:-.006em}
 
 /* An empty state is an em dash and nothing else. CLAUDE.md is explicit about
@@ -217,7 +221,8 @@ section.blk{padding:34px 0 0}
   .wrap{padding:0 16px 20px}
   /* A phone is already narrow enough to break the slab up. The
      standfirst only has to stay a step above the body, not shout. */
-  .panel .lede:first-child{font-size:18px}
+  .panel .lede:first-child,
+  .panel > .p-kick + .lede{font-size:18px}
 }
 @media(max-width:560px){
   .four-eq{grid-template-columns:1fr}

@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Nature Watch &middot; FIVEMILE">
 <meta name="twitter:description" content="What is moving, blooming, and calling along Five Mile Creek this month, plus the season windows and frost dates the year turns on.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a desk page and the site
+     containing it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-nature.html#webpage",
+  "url": "https://fivemile.now/fivemile-nature.html",
+  "name": "Nature Watch",
+  "description": "What is moving, blooming, and calling along the lower end of Five Mile Creek, month by month, with season windows and what people have recorded here.",
+  "keywords": "Five Mile Creek wildlife, nature Graysville Alabama, Cardiff Alabama nature, Brookside Alabama nature, Jefferson County wildlife, iNaturalist Five Mile Creek, birds, wildflowers, frost dates, season windows, hunting season dates Alabama",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -84,9 +107,17 @@
 
   <section class="top">
     <div class="hd"><h1>Nature Watch</h1><span class="hd-note" id="natureStamp">&mdash;</span></div>
-    <p class="desk-intro">What is moving, blooming, calling, and changing along the lower end of Five Mile
-      Creek, plus the season windows the year actually turns on. Everything here is something you can walk
-      outside and check.</p>
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🍃</i>The nature desk</p>
+      <p class="lede">Every month along the lower end of Five Mile Creek has a handful of things worth
+        walking outside to look at, and most of them are gone again in three weeks.</p>
+      <p>Frogs calling in February, the dawn chorus at its loudest in April, fireflies in the wet
+        ground in June, goldenrod and the first southbound birds in September. The creek bottoms
+        through Graysville, Cardiff, and Brookside keep their own calendar, because water holds heat:
+        the bottoms green up after the fence lines do and hold their color after the ridges have
+        dropped. Season windows, frost dates, hunting season dates, and the plants and animals people
+        around here have actually recorded on iNaturalist are all kept here.</p>
+    </div>
   <div class="four-eq">
       <div class="card-gauge" id="natureMonthTile">
         <span class="g-ticks" data-ticks></span>
@@ -189,8 +220,9 @@
   </section>
 
   <section class="blk">
-    <div class="hd"><h2>The nature year</h2><span class="hd-note">Twelve months, one line each</span></div>
+    <div class="hd"><h2>The nature year</h2><span class="hd-note" id="natureYearStamp">&mdash;</span></div>
     <div class="month-grid" id="natureYear"></div>
+    <button class="alm-expand" id="natureYearExpand" type="button" hidden>Show the rest of the year</button>
   </section>
 
   <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk

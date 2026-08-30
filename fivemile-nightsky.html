@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Night Sky &middot; FIVEMILE">
 <meta name="twitter:description" content="The moon tonight over Five Mile Creek, the next four phases, what the sky is doing this month, and the seven meteor showers worth a look.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a desk page and the site
+     containing it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-nightsky.html#webpage",
+  "url": "https://fivemile.now/fivemile-nightsky.html",
+  "name": "Night Sky",
+  "description": "The moon, the bright planets, and the meteor showers over Graysville, Cardiff, and Brookside, all of it visible without a telescope.",
+  "keywords": "night sky Alabama, moon phase tonight, meteor shower Alabama, Perseids, Geminids, stargazing Jefferson County, dark hours, planets tonight",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -84,9 +107,16 @@
 
   <section class="top">
     <div class="hd"><h1>Night Sky</h1><span class="hd-note" id="skyStamp">&mdash;</span></div>
-    <p class="desk-intro">What is over the creek tonight, and what is worth staying up for. Nothing on this
-      page needs a telescope. Jefferson County carries enough light that the faint things are gone, but the
-      moon, the bright planets, and the good meteor showers all still work from a dark yard.</p>
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🌙</i>The night sky desk</p>
+      <p class="lede">Nothing here needs a telescope. Jefferson County throws enough light that the
+        faint things are gone, but the moon, the bright planets, and the good meteor showers all
+        still work from a dark yard.</p>
+      <p>What is over Graysville, Cardiff, and Brookside tonight, what phase the moon is in and how
+        much of the night it leaves properly dark, and which meteor shower comes next. The Perseids in
+        August and the Geminids in December are the two most people here can name, and the Geminids
+        are usually the better of the pair on a night the moon stays out of the way.</p>
+    </div>
   <div class="four-eq">
       <div class="card-gauge" id="skyMoonTile">
         <span class="g-ticks" data-ticks></span>
@@ -185,6 +215,26 @@
     </div>
   </section>
 
+  <section class="blk" id="the-planets">
+    <div class="hd"><h2>The sky over the creek</h2><span class="hd-note" data-skynow-stamp>&mdash;</span></div>
+    <div class="two-eq">
+      <div class="card-dept">
+        <div class="d-bar"><h3>Up tonight</h3><span class="r">Naked eye</span></div>
+        <div class="d-body">
+          <p class="wx-narrative" data-skynow-lede>&mdash;</p>
+          <div data-skynow-planets><div class="empty">&mdash;</div></div>
+        </div>
+      </div>
+      <div class="card-dept">
+        <div class="d-bar"><h3>Where the year is</h3><span class="r">Moon and season</span></div>
+        <div class="d-body">
+          <div data-skynow-season><div class="empty">&mdash;</div></div>
+          <p class="d-tip" data-skynow-tip hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- The way back up. Rendered by fivemile-almanac-core.js so the four desk
        pages do not each keep their own copy of the markup. -->
   <div data-desk-back></div>
@@ -208,6 +258,8 @@
 <script src="fivemile-season-data.js"></script>
 <script src="fivemile-app.js" data-cardiff-app-layer="true"></script>
 <script src="fivemile-almanac-core.js"></script>
+<script src="fivemile-sky.js"></script>
+<script src="fivemile-skynow.js"></script>
 <script src="fivemile-nightsky.js"></script>
 <script src="/fivemile-pwa.js"></script>
 </body>

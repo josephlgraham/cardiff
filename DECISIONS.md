@@ -3096,3 +3096,204 @@ increase.
 in `fivemile-guide.json` and have the same problem, and the shim generalises.
 It was left alone here because the guide's front door is a search box and a
 grid rather than prose, so the win is smaller and the markup is more of it.
+
+---
+
+## 54. Every page opens on a labelled panel, and the share row goes inside it
+**Decided:** August 2026. Extends decisions 48 and 51.
+
+Decision 48 put every page opening on card stock and missed five: the almanac
+and its four desks were still opening with a bare paragraph lying on the paper,
+under a class of their own called `.desk-intro`. Joe read the fishing page and
+said the first block of text was not formatted right and ran the full width,
+which is exactly what a 64ch paragraph with nothing under it looks like beside
+four mounted gauge tiles.
+
+**All five are `.panel.intro` now**, and `.desk-intro` survives only on the one
+sub-section intro that is not a page opening.
+
+**`.p-kick` is new, and it fills a hole in the card system.** Every other card
+in `fivemile-cards.css` opens with a label: `.g-kick` on a gauge, `.n-kick` on a
+notice, `.t-tab` on an index tab, the bar on a department panel. The prose panel
+was the only card stock on the site with nothing at the top of it, so a page
+opening read as a paragraph that happened to have a border round it rather than
+as the section label a newspaper sets above a standfirst. It carries a mark from
+the one vocabulary in decision 51, in masthead brown rather than red, because
+red on this site means something has to be acted on and a section label does
+not.
+
+**Thirteen pages have one.** The five almanac pages, the field guide, the
+archive hub and its four rooms, the gallery, heritage, and the discharge record.
+The calendar deliberately has no opening prose at all, which decision 50
+settled, and it did not get one here.
+
+**The standfirst rule had to learn about it.** `.panel .lede:first-child` stops
+matching the moment a kicker goes in front of the lede, which would have
+silently dropped the 19px standfirst off every page that gained a label. The
+selector in `fivemile-shell.css` now names both shapes.
+
+### The share row moved inside the panel
+
+It was landing after the first `<section>`, which on the desk pages put it
+between the intro and the four gauge tiles, where a row of small bordered tiles
+reads as a fifth row of readings rather than as the end of the intro. It is
+inside the opening panel now, ruled off at the foot of it, which is both what
+Joe asked for and where somebody actually is when they decide to pass a page on.
+
+`data-share-in` is the new attribute and it appends inside the marked element.
+`data-share-here`, which inserts after, is still what `index.html` uses to sit
+under the featured photograph.
+
+### Structured data on ten more pages
+
+The heritage pages got a `@graph` in decision 53 and nothing else on the site
+had any. Ten pages now carry a `WebPage` node naming what the page is, what
+place it is about, and its keywords, all of it pointing at the `#website` and
+`#place` nodes `index.html` already declares, so a desk page and the site
+containing it are one thing rather than two.
+
+This is the cheap half of being findable. The expensive half was already done:
+every one of these openings is hardcoded HTML and always has been.
+
+---
+
+## 55. The fishing desk reads the gauge instead of guessing at it
+**Decided:** August 2026.
+
+Joe said the fishing conditions needed real work and that three stars left a lot
+to be desired. Both were true and the second was the smaller problem.
+
+**The stars could only ever return two or three.** `fishingRows` scored catfish,
+bass, and bream out of a ceiling of three, and the arithmetic was built so that
+nothing ever came back with one. A reader saw two stars on a cold February
+afternoon and two stars on a June evening and correctly concluded the page was
+not telling them anything. Each target gets a word now, from four, and the word
+never appears without the sentence that earned it. A verdict with no reason
+under it is a horoscope.
+
+**The Republic gauge has been measuring the water temperature the whole time.**
+`fivemile-watershed.json` has carried `water_temp_f` and `dissolved_oxygen_mgl`
+on the lead gauge since the fetcher was written, and nothing on this site read
+either of them. The fishing page was estimating water temperature from air
+temperature and a seasonal offset, and presenting the estimate without saying
+so. It reads the measurement now, keeps the estimate as the fallback for days
+the gauge does not send one, and the tile says which of the two it is showing.
+
+**Dissolved oxygen is the reading that explains August.** Warm water holds less
+of it, so the hardest fishing of the year here is the hottest week rather than
+the coldest, and that is a thing a person can be told rather than left to work
+out. Nothing else local publishes it. It replaced the barometer on the fourth
+gauge tile, and the barometer moved into the factor panel, because the barometer
+is the one reading in that row that the creek itself does not measure.
+
+**Thirteen fish, and the list is attributed.** The page carried three species
+and a note saying a proper list would need a survey. The list is now what Joe
+and the people he fishes with have caught or seen over the years, said to be
+exactly that: a first hand record and not a survey. The NEEDS-CONFIRMATION for a
+sourced survey stays, because a first hand list does not answer it. Two entries
+stop at the genus, the rock bass and the gar, because nobody has put a species
+name to the ones out of this creek and the page says so instead of picking one.
+
+**The fish went into the field guide rather than into a second file.** All ten
+new ones are `fivemile-guide.json` entries with photographs pulled by the two
+scripts decision 39 built, which is why the guide went from seventy species to
+eighty in the same pass. The fishing page reads its pictures from that file at
+runtime. One store of species photographs on this site, one set of credits, and
+no file path written down twice to go stale when a pick changes. The cards
+themselves are written into the HTML, so what a crawler and a reader with no
+JavaScript get is the whole thing rather than an empty grid.
+
+**The band marker had to be narrowed twice.** Marking every fish whose feeding
+range today's water falls inside lit up twelve cards out of thirteen on an
+August afternoon, which is the same as marking none. There are two bands now:
+the range a fish will feed in at all, and the narrower one it is actually best
+in, and only the second gets the border.
+
+**What a rise does is on the page all the time.** Joe asked for it when the
+creek rises. It is written as four stages with the one the creek is actually in
+ruled, and a notice above it when the gauge says rising, rather than a block
+that appears for six hours a month. Writing nobody can find is writing nobody
+reads, and CLAUDE.md is explicit that nothing here scrolls away.
+
+---
+
+## 56. The sky is arithmetic, and it is not astrology
+**Decided:** August 2026.
+
+`fivemile-sky.js` works out where the sun, the moon, and the five naked eye
+planets are from the date and nothing else. No fetch, no key, no third party
+script, which means it is the one thing on this site that cannot be broken by
+somebody else having a bad day.
+
+**The method is Paul Schlyter's**, mean orbital elements as linear functions of
+the day number with the larger lunar perturbations added back. Good to about two
+arcminutes on the planets and better than a tenth of a degree on the moon.
+
+**It was checked against the code already here.** Sunrise and sunset computed
+through the new machinery agree with the NOAA routine in
+`fivemile-almanac-core.js` to within 2.6 minutes across four hundred days. That
+was the point of doing it: the sun is the one body whose answer this repo
+already knew, so it is the one that can prove the rise and set arithmetic before
+the moon and the planets are trusted to it.
+
+**Three bugs came out of that checking and all three are the same shape.** A
+Saturn magnitude a whole magnitude too bright, from feeding right ascension and
+declination to a formula that wanted ecliptic longitude and latitude, which
+opened the rings to twenty five degrees in a year they are nearly edge on. A
+moon illumination of two per cent on the day after a full moon, from taking the
+cosine of the wrong angle. And a moon underfoot an hour out on the fourth of
+September and on no other day of the year, because a UT day does not always
+contain the crossing being looked for and the wrap in `rev()` hands back a value
+that never settles. Each of them looks right on the day you happen to test.
+There is now a convergence check, and the count of days with no moonrise in four
+hundred comes out at fourteen, which is the number the moon's own 24h50m period
+says it should be.
+
+**Solunar is a prediction and the page says so.** The four periods are moonrise,
+moonset, and the two meridian crossings, which is what anglers have fished since
+1926. The times are exact astronomy. Whether the fish agree is not a
+measurement, no gauge on this creek reports one, and the copy does not imply
+otherwise.
+
+**The window tile shows a period somebody can reach.** The strongest period of a
+day is often the moon overhead at two in the morning. The tile shows the
+strongest one falling within ninety minutes of the sun, and the sentence says
+where the outright best one is when it is somewhere else.
+
+**No horoscopes, and that is a rule and not an oversight.** Joe asked for
+astrological events and meant astronomical ones. Where a planet is, is a fact.
+What it portends is not this site's business, and `fivemile-skynow.js` says so
+at the top of the file so the next person to open it does not have to guess.
+
+**Naming the constellation a planet sits in was refused.** It needs the IAU
+boundary table, which is a data file this site has no other use for. A planet
+here is described the way somebody standing in a yard would describe it: what
+time it comes up, which way to look, and how bright it is against the stars. The
+magnitude decides the wording and then gets out of the way, because a magnitude
+is a number that runs backwards and almost nobody outside astronomy reads it.
+
+**The dog days are on the page with their provenance.** They are the one named
+stretch of the year everybody says and almost nobody can source. July 3 to
+August 11 is the old reckoning of when Sirius rose and set with the sun, which
+is where the name comes from, and Sirius has drifted since. The entry says that
+rather than repeating the dates as though they were a forecast.
+
+---
+
+## 57. The year tables read from where the reader is standing
+**Decided:** August 2026.
+
+The fishing, garden, and nature desks each drew a twelve month table in January
+to December order with the current month outlined somewhere in the middle. In
+August that is seven months already gone before a reader reaches the one they
+are standing in, which is a reference table pretending to be a page.
+
+All three now open on this month and the two ahead, in that order, with the rest
+of the year behind one button. Three copies of a twelve month loop became one
+function in `fivemile-almanac-core.js`, because three copies is how the three of
+them would have drifted apart.
+
+**It is not persisted.** The season windows on the nature desk remember whether
+they were opened and this does not, deliberately: that list is a thing a reader
+works through, and this is reference material whose useful default is the three
+months in front of them.

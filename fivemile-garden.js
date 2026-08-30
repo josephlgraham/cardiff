@@ -45,16 +45,10 @@
   }
 
   function renderYear(month) {
-    const cells = [];
-    for (let i = 0; i < 12; i += 1) {
+    FA.renderMonthYear("gardenYear", "gardenYearExpand", month, function (i) {
       const guide = FA.PLANTING_GUIDE[i];
-      cells.push('<div class="month-cell' + (i === month ? " on" : "") + '">' +
-        '<div class="month-name">' + escapeHtml(FA.MONTHS_LONG[i]) + "</div>" +
-        '<div class="month-lead">' + escapeHtml(guide.tag) + "</div>" +
-        '<div class="month-note">' + escapeHtml(guide.note) + "</div>" +
-        "</div>");
-    }
-    setHTML("gardenYear", cells.join(""));
+      return { lead: guide.tag, note: guide.note };
+    }, { stampId: "gardenYearStamp" });
   }
 
   /* The photographs the packet windows hold. Written by

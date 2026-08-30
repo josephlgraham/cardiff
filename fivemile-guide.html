@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Field Guide &middot; FIVEMILE">
 <meta name="twitter:description" content="Seventy plants, animals, fish, and fungi you can find along the lower end of Five Mile Creek, with a photograph of each one and what to look for.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-guide.html#webpage",
+  "url": "https://fivemile.now/fivemile-guide.html",
+  "name": "Field Guide",
+  "description": "The plants, animals, fish, and fungi of the lower end of Five Mile Creek, with real photographs and what each one gets mistaken for.",
+  "keywords": "Alabama field guide, Five Mile Creek wildlife, identify Alabama snake, Alabama fish identification, Jefferson County plants, bluegill, copperhead, crawdad, chanterelle",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -80,7 +103,8 @@
 
   <section class="top">
     <div class="hd"><h1>Field Guide</h1><span class="hd-note" id="gdStamp">&mdash;</span></div>
-    <div class="panel intro">
+    <div class="panel intro" data-share-in>
+      <p class="p-kick"><i class="p-mark" aria-hidden="true">🔍</i>The field guide</p>
       <p class="lede">The plants, animals, fish, and fungi of the lower end of Five Mile Creek, with
         what to look for, what it gets mistaken for, and what the old people said about it. Every
         photograph is a real one with a name on it, and most of them were taken in Alabama.</p>

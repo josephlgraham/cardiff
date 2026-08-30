@@ -301,6 +301,96 @@ section.top{padding:24px 0 0}
   text-transform:uppercase;color:var(--ink2);cursor:pointer;transition:border-color var(--ease),color var(--ease)}
 .alm-expand:hover{border-color:var(--masthead);color:var(--ink)}
 
+/* A row that is the one being pointed at. The solunar period running now and
+   the stage the creek is actually at both use it. Ruled down the left rather
+   than filled, because a filled row in a list of five reads as a different
+   kind of thing rather than as the same thing marked. */
+.alm-row.on{border-left:3px solid var(--red);padding-left:11px;margin-left:-14px}
+.alm-row.on .alm-name{color:var(--ink)}
+
+/* ---------------------------------------------------------------------------
+   THE VERDICT CHIP  ·  the fishing desk
+
+   Four words rather than three stars. The stars went because the arithmetic
+   behind them could only ever return two or three of them, so a reader saw
+   the same two stars on a February afternoon and a June evening and correctly
+   concluded the page was not telling them anything.
+
+   The chip is the same object as .alm-open next to it, in four states, and it
+   never appears without the sentence that explains it. A verdict with no
+   reason under it is a horoscope.
+   --------------------------------------------------------------------------- */
+.fx-verdict{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;white-space:nowrap;border:1px solid transparent}
+.fx-good{background:rgba(42,122,58,.12);color:var(--green);border-color:rgba(42,122,58,.28)}
+.fx-fair{background:rgba(176,124,20,.12);color:var(--amber);border-color:rgba(176,124,20,.30)}
+.fx-slow{background:rgba(80,44,8,.06);color:#6B6156;border-color:#DDCFB8}
+.fx-tough{background:rgba(200,16,46,.08);color:var(--red);border-color:rgba(200,16,46,.24)}
+
+/* ---------------------------------------------------------------------------
+   THE FISH CARD  ·  .card-fish  ·  the fishing desk only
+
+   The precedent for a card living on one page is .card-species in the field
+   guide and .card-plat in heritage, and the argument is the same one. A fish
+   here is a photograph, a name, a latin name, and three lines telling somebody
+   how to go and catch it. No card in fivemile-cards.css is that shape: the
+   brass check has no picture, the postcard crops 16:9 and takes the top off a
+   held fish, and the index tab is a table of figures.
+
+   The photograph is filled in by the page from fivemile-guide.json rather than
+   written into the HTML, so there is one store of species pictures on this
+   site and the credits cannot drift from the guide's. The card is complete
+   without it: everything a reader needs is in the markup, and the picture is
+   the part that makes it pleasant.
+   --------------------------------------------------------------------------- */
+.fish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fx-group{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--masthead);margin:18px 0 9px;display:flex;align-items:baseline;gap:9px}
+.fx-group:first-child{margin-top:0}
+.fx-group b{font-weight:500}
+.fx-group i{font-style:normal;font-family:var(--body);font-size:13.5px;letter-spacing:0;
+  text-transform:none;color:#6B6156}
+
+.card-fish{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column}
+/* Marked when today's water is in the band this fish feeds in. It is a hairline
+   and a word, not a color wash, because eleven of the thirteen are in band for
+   most of the summer and a page of highlighted cards highlights nothing. */
+.card-fish.on{border-color:var(--masthead)}
+
+/* 4:3, the shape the guide's grid thumbnails were cut to, so the same file
+   serves both without a second derivative. Paper colored until it loads, which
+   is also what it stays as when a species has no photograph. */
+.fh-photo{aspect-ratio:4/3;background:var(--paper);border-bottom:1px solid var(--fm-rule);
+  overflow:hidden;position:relative}
+.fh-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.fh-body{padding:13px 15px 14px;display:flex;flex-direction:column;flex:1}
+.fh-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.fh-name{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.fh-state{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--green);white-space:nowrap;flex:none}
+.fh-state.fx-quiet{color:#6B6156}
+.fh-state.fx-off{color:#6B6156;opacity:.7}
+.fh-latin{font-family:var(--mono);font-size:11px;color:#6B6156;margin:3px 0 0}
+.fh-also{font-family:var(--mono);font-size:11px;color:#6B6156;margin:2px 0 0}
+.fh-line{font-size:15.5px;line-height:1.55;color:var(--ink2);margin:9px 0 0}
+.fh-rows{margin:10px 0 0;display:grid;gap:6px}
+.fh-rows > div{display:grid;grid-template-columns:58px minmax(0,1fr);gap:9px;align-items:baseline}
+.fh-rows dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#6B6156}
+.fh-rows dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink2)}
+.fh-more{margin-top:auto;padding-top:11px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--masthead);text-decoration:none;
+  display:inline-flex;align-items:center;min-height:44px}
+.fh-more:hover{color:var(--red)}
+.fh-credit{font-family:var(--mono);font-size:10px;color:#6B6156;margin:8px 0 0;line-height:1.45}
+/* The whole credit is the link out to the observation, and at 10px that is a
+   thirteen pixel tap target on a page read outdoors on a phone. Padded to 44
+   and given the height back in negative margin, which is the same trick and
+   the same reason as .obs-name on the nature desk. */
+.fh-credit a{color:inherit;display:inline-block;padding:15px 0;margin:-15px 0;
+  text-decoration-color:#DDCFB8;text-underline-offset:3px}
+.fh-credit a:hover{text-decoration-color:var(--red)}
+
 /* ---------------------------------------------------------------------------
    THE MOON
    --------------------------------------------------------------------------- */
@@ -398,6 +488,7 @@ section.top{padding:24px 0 0}
   .hero-row{grid-template-columns:1fr}
   .hero-date{min-width:0;padding:14px 20px}
   .month-grid{grid-template-columns:repeat(2,1fr)}
+  .fish-grid{grid-template-columns:repeat(2,1fr)}
 }
 /* Below the full measure the row cannot give five items the 186px they need to
    hold a name and two lines, and dividing what is there instead took them down
@@ -416,6 +507,7 @@ section.top{padding:24px 0 0}
 @media(max-width:560px){
   .week-grid{grid-template-columns:repeat(2,1fr)}
   .month-grid{grid-template-columns:1fr}
+  .fish-grid{grid-template-columns:1fr}
   .watershed-chart{min-height:250px}
   /* The range toggle was wrapping onto a line of its own, which spent 98px of
      a phone screen on a heading and two buttons and left the chart underneath

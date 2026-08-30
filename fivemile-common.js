@@ -1101,9 +1101,16 @@
 
     /* Where it goes, in order of preference.
 
-       A page can say exactly where by marking an element data-share-here, and
-       the row lands directly after it. index.html uses that to put it under
-       the featured photograph rather than above it.
+       data-share-in puts the row inside the marked element, at its foot. That
+       is the intro panel on every page that opens with one. Under the opening
+       paragraph is where somebody decides to pass a page on, and on the five
+       almanac desks the row was landing between the panel and the four gauge
+       tiles, where a row of small bordered tiles read as a fifth row of
+       readings rather than as the end of the intro. Inside the panel and ruled
+       off, it is plainly part of the opening.
+
+       data-share-here puts it directly after the marked element instead.
+       index.html uses that to sit under the featured photograph.
 
        Otherwise it goes after the first section, so it sits under the opening
        block rather than being the first thing a reader meets. That selector
@@ -1113,6 +1120,11 @@
 
        Prepending is the last resort and should never be reached by a page
        built the way the rest of them are. */
+    var inside = main.querySelector('[data-share-in]');
+    if (inside) {
+      inside.appendChild(row);
+      return;
+    }
     var anchor = main.querySelector('[data-share-here]');
     if (!anchor) anchor = main.querySelector(':scope > section');
     if (anchor && anchor.parentNode) {

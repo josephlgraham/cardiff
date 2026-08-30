@@ -55,16 +55,10 @@
   }
 
   function renderYear(month) {
-    const cells = [];
-    for (let i = 0; i < 12; i += 1) {
+    FA.renderMonthYear("natureYear", "natureYearExpand", month, function (i) {
       const guide = FA.NATURE_GUIDE[i];
-      cells.push('<div class="month-cell' + (i === month ? " on" : "") + '">' +
-        '<div class="month-name">' + escapeHtml(FA.MONTHS_LONG[i]) + "</div>" +
-        '<div class="month-lead">' + escapeHtml(guide.tag) + "</div>" +
-        '<div class="month-note">' + escapeHtml(guide.lead) + "</div>" +
-        "</div>");
-    }
-    setHTML("natureYear", cells.join(""));
+      return { lead: guide.tag, note: guide.lead };
+    }, { stampId: "natureYearStamp" });
   }
 
   function renderWindows(now) {

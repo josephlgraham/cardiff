@@ -362,6 +362,18 @@
         stage: Number(lead.stage_ft),
         discharge: Number(lead.discharge_cfs),
         trend: lead.trend || "steady",
+        /* Feet an hour, signed. The gauge reports it and nothing was reading
+           it, which left the fishing desk calling a creek coming up an inch a
+           day and one coming up a foot an hour by the same word. */
+        riseRate: Number(lead.rise_rate_ft_per_hr),
+        /* Republic reports both of these alongside the stage and Sayre does
+           not, so either can come back as NaN and every caller has to cope
+           with that rather than assume a number. A water temperature measured
+           in the water is worth a great deal more than one worked out from the
+           air, and nothing on this site was reading it. */
+        waterTemp: Number(lead.water_temp_f),
+        oxygen: Number(lead.dissolved_oxygen_mgl),
+        history: Array.isArray(lead.stage_history) ? lead.stage_history : [],
         summary: data.summary || "",
         rain: data.rainContext || null,
         updatedAt: data.updatedAt || lead.updated_at || null,
@@ -390,6 +402,36 @@
       return { icon: "🚣", label: "Moving with purpose", boat: "Paddle craft energy", note: "The channel has more muscle and less loafing." };
     }
     return { icon: "🛟", label: "High-water caution", boat: "No joke boat water", note: "Fast, higher water deserves a respectful eye." };
+  }
+
+  /* What a dissolved oxygen reading means to a fish, and to somebody deciding
+     whether to bother going. Milligrams per litre, straight off the Republic
+     gauge, which is a measurement almost no creek this size gets published.
+
+     The bands are the ordinary fisheries ones: above 7 nothing is limited by
+     oxygen, 5 to 7 is comfortable, 4 to 5 is where feeding falls off, and
+     under 4 warm water fish are under real stress. Cold water holds more
+     oxygen than warm water can, which is why the worst reading of the year
+     here lands in an August calm rather than in January, and why the hardest
+     month to catch anything is the hottest one and not the coldest.
+
+     The mark is the bubbles. groundCondition uses the same character for soft
+     muddy ground, and that is not the collision decision 51 is about: this is
+     a subject mark on a gauge tile and that is a state icon inside a sentence,
+     which is the same distinction as the creek being the wave on a tile and an
+     arrow when it is rising.
+
+     A reading about the water is never a clearance to eat what comes out of
+     it. The advisory says that and it is a block of its own. */
+  function oxygenNote(mgl) {
+    if (!Number.isFinite(mgl)) {
+      return { label: "Not reporting", verdict: "fair", icon: "🫧", note: "The gauge is not sending an oxygen reading right now." };
+    }
+    if (mgl >= 7) return { label: "Plenty", verdict: "good", icon: "🫧", note: "Nothing in this creek is short of oxygen at that level." };
+    if (mgl >= 5) return { label: "Comfortable", verdict: "good", icon: "🫧", note: "Enough for everything here to feed normally." };
+    if (mgl >= 4) return { label: "Getting thin", verdict: "fair", icon: "🫧", note: "Low enough that fish feed less and hold where the water is moving." };
+    if (mgl >= 3) return { label: "Low", verdict: "slow", icon: "🫧", note: "Warm water fish are working for breath at this level and they are not eating much." };
+    return { label: "Very low", verdict: "tough", icon: "🫧", note: "That is stress rather than fishing weather. What is left will be in the riffles." };
   }
 
   /* Rising, falling, holding. The arrows rather than the chart glyphs, because
@@ -446,6 +488,61 @@
     if (wx.temp >= 82) return { time: "First light", icon: "🌅", note: "Cooler water and softer light help." };
     if (wx.condition === "Rain") return { time: "Before the shower", icon: "🌦️", note: "Pressure changes can wake things up briefly." };
     return { time: "Late afternoon", icon: "🌇", note: "A stable evening window looks strongest." };
+  }
+
+  /* -------------------------------------------------------------------------
+     THE YEAR GRID
+
+     The fishing, garden, and nature desks each carry a twelve month table, and
+     each of them drew it in January to December order with the current month
+     outlined somewhere in the middle. That is a reference table pretending to
+     be a page: in August a reader met seven months that had already gone
+     before reaching the one they are standing in.
+
+     It reads from where the reader is now. This month first, then forward
+     round the year, and only three of them until the rest is asked for. The
+     three are this month and the two coming, which is the horizon anybody
+     plans a garden or a fishing trip on.
+
+     One function, three desks, because three copies of a twelve month loop is
+     how the three of them drifted apart in the first place. A desk hands over
+     its host, its button, and a function that turns a month index into a lead
+     and a note.
+     ------------------------------------------------------------------------- */
+  const YEAR_PREVIEW = 3;
+
+  function renderMonthYear(hostId, toggleId, monthIndex, entryFor, options) {
+    const host = document.getElementById(hostId);
+    if (!host) return;
+    const opts = options || {};
+    const order = [];
+    for (let step = 0; step < 12; step += 1) order.push((monthIndex + step) % 12);
+
+    function draw(expanded) {
+      const shown = expanded ? order : order.slice(0, YEAR_PREVIEW);
+      host.innerHTML = shown.map(function (i) {
+        const entry = entryFor(i) || {};
+        return '<div class="month-cell' + (i === monthIndex ? " on" : "") + '">' +
+          '<div class="month-name">' + escapeHtml(MONTHS_LONG[i]) + "</div>" +
+          '<div class="month-lead">' + escapeHtml(entry.lead || "") + "</div>" +
+          '<div class="month-note">' + escapeHtml(entry.note || "") + "</div>" +
+          "</div>";
+      }).join("");
+
+      const toggle = document.getElementById(toggleId);
+      if (!toggle) return;
+      toggle.hidden = false;
+      toggle.textContent = expanded ? "Show this month and the two ahead" : "Show the rest of the year";
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      toggle.onclick = function () { draw(!expanded); };
+      if (opts.stampId) {
+        setText(opts.stampId, expanded
+          ? "All twelve, from " + MONTHS_LONG[monthIndex]
+          : MONTHS_LONG[monthIndex] + " and the two ahead");
+      }
+    }
+
+    draw(false);
   }
 
   /* -------------------------------------------------------------------------
@@ -839,6 +936,7 @@
 
     renderRail: renderRail,
     renderBackLink: renderBackLink,
+    renderMonthYear: renderMonthYear,
     setRailSub: setRailSub,
     setTileMark: setTileMark,
     setText: setText,
@@ -868,6 +966,7 @@
     readWeather: readWeather,
     readCreek: readCreek,
     creekMood: creekMood,
+    oxygenNote: oxygenNote,
     trendEmoji: trendEmoji,
     estimateWaterTemp: estimateWaterTemp,
     fishingRows: fishingRows,
