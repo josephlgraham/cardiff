@@ -359,6 +359,40 @@ a.card-dept:hover .d-go{color:var(--masthead)}
    until this rule reached the shared file. */
 .panel > .lede{max-width:none}
 
+/* .p-list  ·  a short run of named things inside a prose panel
+
+   A page opening that lists four subjects inside one paragraph is a slab. On
+   the almanac that slab was 110 words and 474 pixels tall on a phone, which is
+   most of a screen with nothing in it for the eye to hold on to, and a reader
+   who does not read easily gets nothing out of it at all.
+
+   Broken into rows it is shorter, not longer, because the wrapping stops
+   fighting the line breaks. The mark is from the vocabulary in decision 51, so
+   the row for fishing carries the same rod the desk rail and the gauge tiles
+   carry, and a reader who has seen one has seen all of them.
+
+   Not links. The desk rail directly above these openings is the way to those
+   pages and it is already four marked, tappable items. A second set under it
+   would be the same four doors drawn twice, and four more 44px targets is the
+   real estate this was meant to save.
+
+   The mark is decoration and hidden from a screen reader: the bold name beside
+   it says the same thing. */
+/* The bottom margin is for a line that follows the list. .panel > ul:last-child
+   already zeroes it when nothing does, so the list closing a panel does not
+   hang a margin off the end of it. */
+.p-list{list-style:none;margin:13px 0 14px;padding:0;display:grid;gap:10px}
+.p-list li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;
+  font-size:16.5px;line-height:1.5;color:var(--ink2)}
+.p-list i{font-family:var(--emoji);font-style:normal;font-size:18px;line-height:1.4;letter-spacing:0}
+.p-list b{font-weight:700;color:var(--ink)}
+@media(max-width:760px){
+  /* The mark column tightens but the type does not. The whole point of this
+     block is the reader who finds a paragraph hard, and shrinking it on the
+     screen most of them are holding would undo it. */
+  .p-list li{grid-template-columns:23px minmax(0,1fr);gap:9px}
+}
+
 /* .panel.intro  ·  the panel a page or a section opens with
 
    The lede it replaced carried an 18px bottom margin, and mounting the prose
