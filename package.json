@@ -2,7 +2,9 @@
   "scripts": {
     "generate-assets": "node generate-assets.js",
     "build-heritage": "node scripts/build-heritage-pages.mjs",
-    "check-heritage": "node scripts/build-heritage-pages.mjs --check"
+    "check-heritage": "node scripts/build-heritage-pages.mjs --check",
+    "build-gauges": "node scripts/build-gauge-tiles.mjs",
+    "check-gauges": "node scripts/build-gauge-tiles.mjs --check"
   },
   "dependencies": {
     "qrcode": "^1.5.4"

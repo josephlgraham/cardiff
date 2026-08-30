@@ -64,6 +64,17 @@ jobs:
           AW_API_KEY: ${{ secrets.AW_API_KEY }}
           AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
 
+      # The measured readings, written into the five pages that carry them, so a
+      # crawler and the first paint get the creek stage instead of an em dash.
+      # It runs here rather than on the twice daily job because a snapshot of a
+      # live gauge is worth what its age makes it worth, and twelve hours is not
+      # much. It reads nothing from the network: the files the step above just
+      # wrote are the whole of its input. A bug in it must not cost the run its
+      # gauge reading, hence continue-on-error. See DECISIONS.md 61.
+      - name: Write the measured readings into the pages
+        continue-on-error: true
+        run: node scripts/build-gauge-tiles.mjs
+
       - name: Commit live data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -87,6 +98,11 @@ jobs:
               git checkout -- "$f"
             fi
           done
+          # The prerendered pages, staged plainly. They carry no updatedAt of
+          # their own, so a page only differs when a reading printed on it
+          # actually moved, and git stages nothing when it did not. No revert
+          # arm is needed here for the same reason.
+          git add index.html fivemile-almanac.html fivemile-fishing.html fivemile-garden.html fivemile-nature.html
           if git diff --cached --quiet; then
             echo "Nothing moved but timestamps; skipping commit."
             exit 0

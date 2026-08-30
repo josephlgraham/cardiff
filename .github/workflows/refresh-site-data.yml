@@ -52,7 +52,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html announcements.json fivemile-echo.json
+          # sitemap.xml is staged because the heritage build writes the lastmod
+          # dates into it off fivemile-heritage.json. Without it those dates
+          # would be regenerated every run and never committed.
+          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0

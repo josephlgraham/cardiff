@@ -43,7 +43,15 @@
 // cache-first, so without this bump a returning reader gets a page built for
 // the old markup. fivemile-calendar-core.js is code rather than data and stays
 // cache-first with the rest of the scripts. See DECISIONS.md 50.
-const CACHE_NAME = 'fivemile-v62';
+// v63 writes the measured readings into the markup of index.html, the almanac,
+// and the fishing, garden and nature desks. All five are precached and served
+// cache-first, so a returning reader would otherwise keep the copy installed
+// before the markers went in. Nothing a reader sees depends on this: the page
+// still redraws from the JSON on load, and always did. The bump is so the
+// cached copy is the one carrying the markers rather than the one without them.
+// The prerendered figures inside those markers go stale every ten minutes by
+// design and are not what the cache is being versioned for. See DECISIONS.md 61.
+const CACHE_NAME = 'fivemile-v63';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

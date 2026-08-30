@@ -3481,3 +3481,183 @@ readings rather than over them per decision 59, naming the three towns, the
 creek, the county and the state. It does not say where the readings come from.
 Decision 58 took that talk out and it is not coming back in through the front
 door.
+
+## 61. The measured readings are written into the HTML, and only the measured ones
+**Decided:** August 2026. Answers the revisit note on decision 59, extends decision 53.
+
+Decision 59 ended by saying the measured tiles could be prerendered the way the
+heritage prose is, that the tiles worked out from today's date must not be, and
+that the split was the whole difficulty. This is that job done.
+`scripts/build-gauge-tiles.mjs` now writes fourteen readings into five pages:
+the three live tiles on the home page, the four creek tiles on the almanac, and
+the ground, rain, water, stage, oxygen and month tiles across Fishing, Garden
+and Nature Watch.
+
+Before this, the most useful thing on those pages was the one part a crawler, a
+social preview bot and the first paint never saw. A gauge tile ships an em dash
+and is filled from a committed JSON file the moment the script runs, so anything
+that does not execute JavaScript got a dash where the creek stage should be.
+
+**The split is the whole of it, and it is not a matter of care.** A reading that
+is measured and sits in a committed file can go into the markup: it is a fact
+with a source, and it goes stale exactly the way the file does. A reading
+computed from now cannot, because a build time snapshot of today is wrong by
+tomorrow and would sit in the HTML asserting otherwise. That is the hard rule
+about never inventing a fact, with a timestamp on it.
+
+Eleven tiles are therefore left shipping a dash on purpose: the solunar window
+on Fishing, the frost countdown on Garden, daylight and the next season window
+on Nature Watch, and all four on Night Sky. The reader's own browser fills them
+from the reader's own clock, which is the only place that question can be
+answered honestly. **Night Sky gets nothing at all and was not touched.**
+
+**The guarantee is structural rather than careful.** The build runs the page's
+own scripts and then harvests only the fourteen tiles named in `TILES`.
+Everything else the run produced is thrown away without being looked at. So a
+time dependent value cannot reach the markup even if somebody later adds one:
+not because the script is careful about it, but because it never reads those
+nodes. Adding a line to `TILES` is the only way to opt a reading in, and that
+line is where the thinking has to happen.
+
+**It runs the site's own renderers, for decision 53's reason.** Reimplementing a
+gauge tile in Node would be wrong inside a month, because two copies of one
+renderer drift and the copy nobody looks at is the one a crawler reads. Every
+script the page loads is loaded and run here, in the page's own order, against a
+DOM shim. There is still one definition of how a stage is formatted and this
+build script does not contain it.
+
+**The shim is the window, not a set of parameters.** Heritage hands its two
+renderers `window` and `document` as arguments. That does not survive here: these
+scripts reach for `innerWidth`, `matchMedia`, `localStorage`, `ResizeObserver` and
+a canvas context as bare globals, and a parameter list naming all of them goes
+out of date the first time a script grows one more. The shim object is made the
+VM context's global instead, which is what a browser does. Anything not on it
+throws a ReferenceError naming exactly what is missing, so a renderer that grows
+a new dependency fails the build rather than quietly writing a page with a hole
+in it. That is heritage's habit kept, by a different mechanism.
+
+**One bug worth writing down, because it was invisible.** The first version read
+each script off the disk inside the loop that ran them. Reading a file yields to
+the microtask queue, so the home page's fetch callbacks fired while
+`fivemile-common.js` was still being read, and the weather tile's mark was
+painted before `window.FivemileWx` existed. The tile simply came out of the
+harvest missing, with nothing reported wrong. A browser never loses that race,
+because a plain script tag blocks the parser and common.js has run long before a
+JSON fetch comes back. Every source is now read before any of them runs, and they
+run back to back with nothing awaited in between.
+
+**The markers are the contract, same as heritage.** The build writes between
+`<!--PRERENDER:creekStageVal-->` and `<!--/PRERENDER-->` and nowhere else. Forty
+of them across the five pages. Adding a pair opts a reading in, deleting one opts
+it out, and nothing in the script parses HTML. A marker the renderer had nothing
+for is reported and left holding whatever the page already had, rather than
+blanked: a quiet gauge should leave the page's own empty state in place.
+
+Unlike heritage, these blocks are written inline rather than on lines of their
+own. A newline either side of a gauge value would be a text node the browser
+paints, and the tile would not look the same.
+
+**Proved against a browser, not assumed.** All forty blocks were compared against
+what the same page's DOM holds after its scripts have run, served over a local
+static server. Thirty nine are byte for byte identical. The fortieth is the rain
+value, where the build writes `1.34&quot;` and the browser's `innerHTML` getter
+hands back `1.34"`. That is a serialisation difference and not a content one:
+the baked markup parses to exactly the live node, and a reader sees the same
+inches either way. It is left alone, because the string the build writes is
+precisely what the site's own `escapeHtml` produced.
+
+**It runs on the ten minute job, and the churn argument that was made against
+that is wrong.** The case for putting it on the twice daily job was that
+`refresh-live.yml` fires every ten minutes and would rewrite five HTML files up
+to 144 times a day. It would not. Decision 30 already measured that the `*/10`
+cron is throttled to about thirty runs a day, and the per file content guard
+filters most of those: over the five days to 30 August, `data: live refresh`
+made 1, 3, 2, 6 and 4 commits. The real cost is nearer five HTML rewrites a day
+than 144, so the argument for accepting a twelve hour old snapshot never had to
+be made.
+
+**One honest caveat on that number, which is an estimate and not a measurement.**
+The change tiles compare the stage against the same hour yesterday, and which
+history sample counts as "yesterday" moves as the clock does. So a page can
+change when no JSON file did, and HTML rewrites may run closer to the thirty
+runs a day than to the five commits a day. Still nowhere near 144, and worth
+watching rather than worrying about.
+
+**Two tiles measure over a window defined by now, and that is deliberate.** The
+rain tiles are measured rainfall totalled since the first of the month, and the
+change tiles are measured stage against a sample twenty four hours back. Both
+are real readings from committed files, so both belong on the measured side of
+the split, but their windows move. The rain figure is the awkward one: at one
+minute past midnight on the first of the month the page still says last month's
+total until the next run. On a ten minute cadence that is minutes. On a twice
+daily cadence it would have been up to twelve hours claiming a month's rain that
+had not fallen, which is the other half of why this is not on that job.
+
+**The stale snapshot is a known trade and it was taken deliberately.** A human
+always gets the live number, because the page redraws from the JSON on load
+exactly as it always did. A crawler can index a stage reading and show it in a
+result weeks later. Set against a crawler indexing an em dash, a dated real
+reading is the better of the two, and every tile sits next to a card that stamps
+its own time.
+
+**There is no CI gate on it, and that is the difference from heritage.**
+`npm run check-gauges` reports without writing, but nothing fails a build on it.
+The heritage pages are prose and can only be stale if somebody forgot to run the
+build; these pages are expected to sit behind the gauge between runs. That is
+what snapshotting a live reading means, and a check that fails by design is a
+check nobody reads.
+
+**Three things went in alongside it, and one of them is a rule about lastmod.**
+
+`sitemap.xml` had no `<lastmod>` on any of its twenty eight entries. Eight of
+them have one now, and they are the eight heritage pages, written by
+`scripts/build-heritage-pages.mjs` off the `published` and `updated` dates
+already in `fivemile-heritage.json`. The rest deliberately still have none.
+
+A lastmod is worth something to a crawler exactly to the extent that it is
+accurate, and most of this site cannot be accurate about it. The almanac and the
+four desks are now rewritten every ten minutes by the prerender above, so a
+truthful lastmod on them would move constantly while the page a reader came for
+said the same thing it said yesterday. That is churn dressed up as a signal, and
+a crawler that learns to distrust one date on a site distrusts the rest of them.
+Heritage is the opposite case: it is the most durable writing here, it is why
+somebody lands on this domain from a search about a coal camp, and the dates are
+already written down rather than guessed. So the rule is that a page gets a
+lastmod when the date is already known and stable, and gets none otherwise.
+
+It uses the same `modified()` the structured data uses, so a chapter cannot tell
+the sitemap one date and its own JSON-LD another. That was checked: all eight
+agree. `sitemap.xml` joined the staged files on `refresh-site-data.yml`, because
+a date regenerated every run and never committed is no date at all.
+
+**The ground tiles stopped naming the station's town.** Garden and Nature Watch
+both carried `Ground &middot; Cardiff` on the kicker, which is the weather
+station's location in copy and is what decision 58 and the veil section of
+CLAUDE.md exist to prevent. Both now read `Ground &middot; Our station`, which is
+the wording CLAUDE.md gives for exactly this label.
+
+The pattern came from the card spec, which is where it was fixed as well.
+`docs/fivemile-card-spec.html` demonstrated the gauge tile with a kicker reading
+`Weather &middot; Cardiff`, so anybody building a card from the reference started
+from the wrong example. It now reads `Weather &middot; Area`, which is what the
+home page actually uses. `robots.txt` disallows `/docs/`, so this was never an
+indexing problem; it was a copy that would keep being made. Nothing on the site
+or in the spec now names a town on a reading's kicker.
+
+**The home page stopped saying the creek dropped nothing.** The creek tile
+compared the stage against yesterday and printed the move in whole inches, with
+the boundary between moving and holding set at 0.02 ft. An inch is 0.083 ft, so
+any move between 0.02 and 0.042 rounded to zero and the tile said "It has dropped
+0 inches since yesterday", which is not a sentence anybody would say. The
+boundary is now `CREEK_MOVE_FT`, half an inch, the smallest move the wording can
+print as a whole inch. Under that the creek is holding. The arrow reads off the
+same constant as the sentence, so the mark and the words can no longer disagree
+about which it is.
+
+That one was worth catching before this decision landed rather than after. The
+sentence had always been there; prerendering it is what would have written it
+into the markup where a crawler reads it.
+
+**Revisit if:** the history churn turns out to matter after all, in which case
+the change tiles come out of `TILES` before anything else does, since they are
+the ones that move without the data moving.

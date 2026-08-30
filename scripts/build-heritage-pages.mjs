@@ -242,6 +242,73 @@ function modified(published, updated) {
   return updated >= published ? updated : published;
 }
 
+/* -------------------------------------------------------------------------
+   The sitemap dates
+
+   Only the heritage pages get a <lastmod>, and that is a decision rather than
+   a first instalment. A lastmod is worth something to a crawler exactly to the
+   extent that it is accurate, and most of this site cannot be accurate about
+   it: the almanac and the four desks are rewritten every ten minutes by the
+   gauge prerender, so a truthful lastmod on them would move constantly while
+   the page a reader came for said the same thing it said yesterday. That is
+   noise dressed up as a signal, and a crawler that learns to distrust one
+   lastmod on a site distrusts all of them.
+
+   Heritage is the opposite case. It is the most durable writing here, it is
+   the reason somebody lands on this domain from a search for a coal camp, and
+   the day each chapter was published and last revised is already written down
+   in fivemile-heritage.json. So the date is real, it is already known, and
+   nothing has to be remembered by hand to keep it real.
+
+   The same modified() the structured data uses, so a chapter cannot tell the
+   sitemap one date and its own JSON-LD another. See DECISIONS.md 61.
+   ------------------------------------------------------------------------- */
+const SITEMAP = path.join(ROOT, 'sitemap.xml');
+
+function sitemapDates(data) {
+  const dates = new Map();
+  dates.set(HUB, modified(data.published, data.updated));
+  for (const chapter of data.chapters || []) {
+    dates.set(chapter.page, modified(chapter.published, data.updated));
+  }
+  return dates;
+}
+
+/* Writes into the <url> block that already carries the page, and nowhere else.
+   A page with no entry in the sitemap is left alone rather than added: what
+   belongs in the sitemap is an editorial question and this is not the place
+   it gets answered. */
+function writeSitemap(xml, dates) {
+  const nl = newlineOf(xml);
+  let next = xml;
+
+  for (const [page, date] of dates) {
+    if (!date) continue;
+    const loc = '<loc>' + SITE + page + '</loc>';
+    const at = next.indexOf(loc);
+    if (at === -1) {
+      console.warn('   sitemap.xml has no entry for ' + page + ', skipped.');
+      continue;
+    }
+    /* The indent the file already uses for the tags inside a <url>. */
+    const lineStart = next.lastIndexOf(nl, at);
+    const indent = next.slice(lineStart + nl.length, at);
+    const after = at + loc.length;
+    const closeUrl = next.indexOf('</url>', after);
+    const block = next.slice(after, closeUrl);
+    const tag = '<lastmod>' + date + '</lastmod>';
+
+    if (/<lastmod>[^<]*<\/lastmod>/.test(block)) {
+      const fixed = block.replace(/<lastmod>[^<]*<\/lastmod>/, tag);
+      next = next.slice(0, after) + fixed + next.slice(closeUrl);
+    } else {
+      next = next.slice(0, after) + nl + indent + tag + next.slice(after);
+    }
+  }
+
+  return { xml: next, changed: next !== xml };
+}
+
 function chapterImages(chapter, data) {
   return (chapter.images || [])
     .map((key) => (data.images || {})[key])
@@ -478,6 +545,24 @@ async function main() {
     await fs.writeFile(filePath, html, 'utf8');
     wrote += 1;
     console.log('   ' + page.file + ': written.');
+  }
+
+  /* The sitemap dates come off the same file as the prose, so they are written
+     in the same pass. A sitemap that disagreed with the JSON-LD on the page it
+     points at would be worse than no date at all. */
+  const sitemapXml = await fs.readFile(SITEMAP, 'utf8');
+  const sitemap = writeSitemap(sitemapXml, sitemapDates(data));
+  if (sitemap.changed) {
+    if (check) {
+      stale += 1;
+      console.log('   sitemap.xml: STALE, run the build.');
+    } else {
+      await fs.writeFile(SITEMAP, sitemap.xml, 'utf8');
+      wrote += 1;
+      console.log('   sitemap.xml: heritage dates written.');
+    }
+  } else {
+    console.log('   sitemap.xml: up to date.');
   }
 
   if (check && stale) {
