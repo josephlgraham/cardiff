@@ -3422,3 +3422,59 @@ hours, daylight and moon age are all computed from now, and a build time
 snapshot of today is wrong by tomorrow and would sit in the HTML claiming
 otherwise. Prerendering the measured three and leaving the computed one alone
 is the shape of it, and the split is the whole difficulty.
+
+## 60. The name is set in the masthead brown when it appears in copy
+**Decided:** August 2026. Extends decision 14.
+
+FIVEMILE written out in body copy was plain body weight in body ink, which
+made it read as a shouted word rather than as the publication naming itself.
+It now takes bold and `var(--hdr-bg)`, the exact brown the masthead sits on,
+through `b.fm-name` in `fivemile-shell.css`.
+
+**The token, not a shade near it.** `--hdr-bg` is the masthead's own value.
+A hand picked brown that looked close would drift the moment the masthead
+changed, and the whole point is that the two are the same brown.
+
+**It does not borrow the serif.** Playfair belongs to the masthead wordmark
+and to nothing else, which is decision 14 and is unchanged. The name in copy
+stays in Plus Jakarta Sans and gets its personality from weight and color.
+
+**Where it goes.** Running prose, small print source notes included. Nine
+places today: three on About, one each on the Almanac, Fishing, Garden,
+Nature Watch, the Dates archive, and the home page opening.
+
+**Where it does not.** Not in the masthead, which is the wordmark itself.
+Not in any heading, where it would fight type that is already doing the
+work. Never on the announcement strip: that ground is red and a dark brown
+on it would be close to unreadable. Not in a `mailto:` subject or a ticker
+default, because those are strings rather than something a reader sees set
+in type.
+
+**Not in the announcement footer either, and that one is a judgment.**
+`fivemile-common.js` falls back to "the FIVEMILE desk" when a notice has no
+`postedBy`. That line is DM Mono at 10.9px with letterspacing, in a muted
+ink on paper2, and it is a byline rather than running prose. A byline is
+closer to a label than to copy, and the rule above is about copy. It would
+also appear only on the notices that have no other attribution, so the name
+would come and go down a column of cards. Revisit if that reads as an
+omission rather than as restraint.
+
+**The selector carries its element on purpose.** `.p-list b` in
+`fivemile-cards.css` sets a color at the same specificity, and the name turns
+up inside one of those rows on About. `b.fm-name` ties with it and wins on
+source order, because `fivemile-shell.css` loads after `fivemile-cards.css`
+on every page. If that order ever changes, this rule silently loses and the
+name goes back to ink with nothing appearing to be broken. The comment on the
+rule says so.
+
+Wrap the word and nothing else, so a possessive keeps its apostrophe outside
+the mark.
+
+**The home page opening is decision 54 catching up.** Every page opens on
+card stock, and the home page was the one that never did. It carried no prose
+at all, which left the page most likely to be found by a stranger with nothing
+on it saying what this is or where. It now opens the same way, under the
+readings rather than over them per decision 59, naming the three towns, the
+creek, the county and the state. It does not say where the readings come from.
+Decision 58 took that talk out and it is not coming back in through the front
+door.
