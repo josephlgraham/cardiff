@@ -28,6 +28,29 @@
 <meta name="twitter:title" content="Calendar · FIVEMILE">
 <meta name="twitter:description" content="Meetings, events, and gatherings in Graysville, Cardiff, and Brookside. Send us a date and it goes on the board.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
+<!-- What this page is and what place it is about, for the crawlers that
+     read it and the answer engines that read them. The website and the
+     place are the nodes index.html declares, so a page and the site that
+     contains it are one thing rather than two. See DECISIONS.md 54. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://fivemile.now/fivemile-calendar.html#webpage",
+  "url": "https://fivemile.now/fivemile-calendar.html",
+  "name": "Calendar",
+  "description": "Meetings, events, and dates for Graysville, Cardiff, and Brookside, Alabama, with the garden dates and the feast days people here still keep.",
+  "keywords": "Graysville Alabama events, Cardiff Alabama city council, Brookside Alabama meetings, west Jefferson County calendar, Five Mile Creek, council meeting dates, community events",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@id": "https://fivemile.now/#website"
+  },
+  "about": {
+    "@id": "https://fivemile.now/#place"
+  },
+  "primaryImageOfPage": "https://fivemile.now/fivemile-share.jpg"
+}
+</script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="manifest" href="/manifest.json">
@@ -89,6 +112,22 @@
   <!-- HEAD ------------------------------------------------------------------ -->
   <section class="top reveal">
     <div class="hd"><h1>Calendar</h1><time id="calStamp">&mdash;</time></div>
+    <!-- The page opened on a bare heading and said nothing anywhere about what
+         kind of dates go on it, which is a poor showing for the page somebody
+         lands on after searching for when a council meets. Card stock and a
+         paragraph, the same opening every other page has. See DECISIONS.md 54.
+
+         The share row goes inside this panel, the way it does on the other
+         sixteen. It was tried under the month first, to match the news page
+         putting it under the lead, and a month is two thousand pixels of grid
+         on a phone, so it landed somewhere nobody scrolls. A lead is one card
+         with an end to reach. See DECISIONS.md 62. -->
+    <div class="panel intro" data-share-in>
+      <p class="lede">Every date worth knowing about in Graysville, Cardiff, and Brookside: the
+        council meetings and what is on the agenda, the workdays and the church suppers, the garden
+        dates, and the old feast days people here still keep. If it has a date on it and it happens
+        along Five Mile Creek, it belongs here.</p>
+    </div>
   </section>
 
   <!-- THE MONTH --------------------------------------------------------------
@@ -110,9 +149,7 @@
        counted off the same two sources the room itself counts, so the figure
        out here cannot drift from the figure in there. See DECISIONS.md 36.
        ---------------------------------------------------------------------- -->
-  <!-- The share row lands after this block, so it sits below the month and
-       the door rather than on top of the month somebody came here to read. -->
-  <section class="blk reveal" data-share-here>
+  <section class="blk reveal">
     <a class="card-dept" href="fivemile-calendar-archive.html">
       <div class="d-bar"><h3>Every date on file</h3><span class="r">Archive</span></div>
       <div class="d-body">

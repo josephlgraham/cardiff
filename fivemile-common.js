@@ -1109,11 +1109,17 @@
        readings rather than as the end of the intro. Inside the panel and ruled
        off, it is plainly part of the opening.
 
-       data-share-here puts it directly after the marked element instead.
-       The calendar and the news page still use it, because what a reader has
-       just finished there is a block rather than a panel. index.html used it
-       too, under the featured photograph, until the home page grew an opening
-       panel of its own and could mark that instead.
+       data-share-here puts it directly after the marked element instead. The
+       news page is the only page left using it, and not because it has no
+       panel to mark: it grew one, and the row still belongs to the lead card
+       under it. The lead is what somebody came for and it is one card with an
+       end to reach, so finishing it and finding the row there is the whole
+       argument. Its panel deliberately carries no data-share-in, which would
+       win over this. The calendar was built the same way for a day and moved
+       back into its panel, because a month is two thousand pixels of grid on a
+       phone and the row was landing somewhere nobody scrolls. index.html used
+       data-share-here too, under the featured photograph, until the home page
+       grew an opening panel of its own and could mark that instead.
 
        Otherwise it goes after the first section, so it sits under the opening
        block rather than being the first thing a reader meets. That selector

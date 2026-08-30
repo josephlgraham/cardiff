@@ -166,10 +166,43 @@
   <!-- HEAD ---------------------------------------------------------------- -->
   <section class="top reveal">
     <div class="hd"><h1>News</h1><time id="newsStamp">&mdash;</time></div>
+    <!-- The page opened on a bare heading, which left the one page most likely
+         to be found by somebody searching a town name with nothing on it that
+         says what it covers. Card stock and a paragraph now, the same opening
+         every other page has. See DECISIONS.md 54.
+
+         No data-share-in on this panel. The share row belongs to the lead card
+         below it, and data-share-in would take precedence and pull it up here.
+         -->
+    <div class="panel intro">
+      <p class="lede">The news from Graysville, Cardiff, and Brookside, and from the rest of west
+        Jefferson County: town and county business, the creek and the weather, obituaries, and the
+        votes and hearings that change the ground here. Nothing is taken down once it has run, so a
+        story from March is still here in November.</p>
+    </div>
   </section>
 
-  <!-- NOTICE + MORNING REPORT + COMING UP ---------------------------------- -->
-  <section class="blk reveal" style="padding-top:14px">
+  <!-- THE LEAD --------------------------------------------------------------
+       First block under the heading. The biggest thing to have happened along
+       the creek is what somebody came here for, and it used to sit below the
+       morning report and the week ahead, where a reader on a phone had to get
+       past two full cards to reach it.
+
+       The share row lands after this block and moved up with it. A reader who
+       has just read the lead is the one with something to pass on. See
+       fivemile-common.js.
+       ---------------------------------------------------------------------- -->
+  <section class="blk reveal" id="leadBlock" hidden data-share-here>
+    <div class="hd"><h2>The lead</h2><span class="hd-note" id="leadStamp"></span></div>
+    <div id="leadSlot"></div>
+  </section>
+
+  <!-- NOTICE + MORNING REPORT + COMING UP ----------------------------------
+       The inline padding-top of 14px this block used to carry went with the
+       move. It was tightening the gap under the News heading, and this is not
+       the block under the heading any more. It takes the standard 34px like
+       every other block on the page. -->
+  <section class="blk reveal">
     <div class="stack">
       <div id="newsNotice" hidden></div>
       <div class="two-eq">
@@ -202,14 +235,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- THE LEAD -------------------------------------------------------------- -->
-  <!-- The share row lands after this block. A reader who has just read the
-       lead is the one with something to pass on. See fivemile-common.js. -->
-  <section class="blk reveal" id="leadBlock" hidden data-share-here>
-    <div class="hd"><h2>The lead</h2><span class="hd-note" id="leadStamp"></span></div>
-    <div id="leadSlot"></div>
   </section>
 
   <!-- THREE TOWNS ----------------------------------------------------------- -->

@@ -3152,6 +3152,10 @@ panel. `index.html` used it too, under the featured photograph, until the home
 page grew an opening panel of its own. It marks that now and the row sits in the
 copy card the way it does on the other fifteen pages. See decision 60.
 
+*Amended by decision 62. The news page and the calendar both have opening
+panels now, so the reason given here for those two, that there was no panel to
+mark, no longer holds. They still use `data-share-here`, and 62 says why.*
+
 ### Structured data on ten more pages
 
 The heritage pages got a `@graph` in decision 53 and nothing else on the site
@@ -3679,3 +3683,86 @@ into the markup where a crawler reads it.
 **Revisit if:** the history churn turns out to matter after all, in which case
 the change tiles come out of `TILES` before anything else does, since they are
 the ones that move without the data moving.
+
+## 62. The news page and the calendar open on card stock, and the lead goes on top
+**Decided:** August 2026. Extends decisions 48 and 54, and amends 54.
+
+Joe asked for three things on the news page and the same treatment on the
+calendar: put the lead story directly under the heading, say in the heading
+what the page is for so a search engine has something to read, and put the
+share row on the lead card. The calendar half of that came back once the
+measurements were in, and the answer there is different. See below.
+
+### These were the last two pages opening on a bare heading
+
+Decision 48 put every page opening on card stock and decision 54 caught the
+five it missed. It missed seven. The news page and the calendar opened on an
+`h1`, a rule, and a timestamp, then went straight into cards. They were easy
+to overlook because neither ever had a `.lede` lying on the paper to look
+wrong: there was nothing there at all.
+
+That is the worse version of the same problem. These are the two pages a
+stranger is most likely to land on, because the searches that reach a place
+this size are for a town name and a word like news or council meeting, and
+both pages answered with a heading reading News and a card that is filled in
+by script after the page loads. A crawler got the masthead, one word, and a
+set of empty divs. Both now carry hardcoded prose naming the three towns, the
+county, and what actually runs on the page.
+
+The `WebPage` node the news page already had from decision 54 was doing this
+job on its own. Structured data is a claim about a page. Prose in the page is
+the page. The calendar had neither and now has both: the node decision 54 gave
+ten pages and skipped this one, and the prose, which is the half that matters
+more.
+
+### The lead runs first
+
+It sat below the morning report and the week ahead, which on a phone is two
+full cards before the biggest thing to have happened along the creek. The
+weather is on the home page, the almanac, and the masthead. The lead is only
+here. It goes directly under the opening now and the morning report follows
+it.
+
+The `padding-top:14px` the morning report block carried inline went with the
+move. It was there to tighten the gap under a bare News heading, and there is
+no bare heading above it any more. It takes the standard 34px.
+
+### The share row stayed with the lead, and the calendar went back in the panel
+
+Decision 54 moved the row inside the opening panel on fifteen pages and left
+the news page and the calendar on `data-share-here` because neither had a
+panel. Both have one now, so that reason is gone. On the news page the row
+stayed where it was anyway for a better one, and on the calendar it did not.
+
+On a desk page the opening is the page: a reader who has read the paragraph at
+the top of the fishing desk has read the argument for passing it on. On the
+news page the opening is a description and the argument is one block further
+down. The lead is what somebody came for, it is a single card, and a reader
+reaches the end of it and decides there. So the news page keeps
+`data-share-here` on `#leadBlock`, and its panel deliberately carries no
+`data-share-in`, which wins in `fivemile-common.js` and would silently undo
+this. The panel carries an HTML comment saying so, because the attribute that
+has to be absent is the one nobody thinks to check.
+
+**The calendar was built the same way for a day and it did not survive
+measurement.** Marking `#the-month-block` was the obvious parallel, and at
+1200px it looked right. At 390px the month grid is a little over two thousand
+pixels tall, which put the row 2600px down the page. That is 400px better than
+the archive door it used to sit under and still somewhere nobody scrolls, so
+the parallel was the wrong thing to be preserving.
+
+The difference is that a lead is one card with an end to reach and a month is
+a grid a reader picks a date out of. There is no moment of finishing a month,
+so there is no point below it that means anything. The calendar takes
+`data-share-in` on its panel like the other sixteen pages.
+
+The rule this leaves is about shape rather than about which page it is:
+`data-share-here` is for a page whose reason to be passed on is one card a
+reader finishes. Everything else marks its opening.
+
+**Revisit if:** the lead is empty often enough to notice. `#leadBlock` ships
+`hidden` and the page unhides it, so on a day nothing filed from the two
+closest rings the share row is the first thing under the opening and the
+morning report follows it. That reads fine and it is not what the row was
+placed for. If it turns out to be most days rather than a few, the answer is
+to move the marker rather than to move the lead back.

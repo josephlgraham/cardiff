@@ -55,7 +55,14 @@
 // that still named them, on fivemile-archive.html and fivemile-weather-archive.html.
 // Both are precached and served cache-first, so a returning reader would keep
 // reading the old wording until the cache turned over. See DECISIONS.md 58.
-const CACHE_NAME = 'fivemile-v64';
+// v65 rebuilds the top of fivemile-news.html and fivemile-calendar.html: both
+// gained an opening panel, the lead story moved above the morning report on the
+// news page and took the share row with it, and the calendar moved its share
+// row up into the new panel. fivemile-common.js changed too, in a comment only.
+// All three are precached and served cache-first, so without this bump a
+// returning reader keeps the old order and never sees the opening prose.
+// See DECISIONS.md 62.
+const CACHE_NAME = 'fivemile-v65';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
