@@ -186,7 +186,7 @@
     if (creek && creek.rain && Number.isFinite(Number(creek.rain.monthToDate))) {
       const total = Number(creek.rain.monthToDate);
       paintTile("gardenRain", total.toFixed(2) + '"',
-        "Rain measured at the Cardiff station so far in " + (creek.rain.monthLabel || "this month") + ".");
+        "Rain measured at our own station so far in " + (creek.rain.monthLabel || "this month") + ".");
     } else {
       paintTile("gardenRain", null, "Waiting on the station file.");
     }

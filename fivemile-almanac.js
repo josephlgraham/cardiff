@@ -574,7 +574,7 @@
     const lowTemp = Number(report.lowTemp);
     const windGust = Number(report.windGust || 0);
     const topLine = rainAmount >= 0.01
-      ? "The Cardiff station picked up " + formatInches(rainAmount) + " " + report.label.toLowerCase() + "."
+      ? "Our station picked up " + formatInches(rainAmount) + " " + report.label.toLowerCase() + "."
       : "No measurable rain " + report.label.toLowerCase() + ".";
     const note = rainAmount >= 0.2
       ? "Enough water fell to change footing, soften ground, and freshen the creek edges."
@@ -602,7 +602,7 @@
     const total = Number(rainContext.monthToDate);
     const label = rainContext.monthLabel || "this month";
     paintTile("creekRain", total.toFixed(2) + '"',
-      "Rain measured at the Cardiff station so far in " + label + ".");
+      "Rain measured at our own station so far in " + label + ".");
   }
 
   async function loadWatershed() {

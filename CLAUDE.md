@@ -11,6 +11,25 @@ Joe's personal address never appears on the site. Every contact point, every
 mailto, and every form target is the site address. If you are copying a form
 from an older page, check the address before you paste it.
 
+**There is a veil between Joe and the publication.** The site reports; it does
+not narrate the person running it or where he keeps his things. The address is
+the obvious case and it is not the only one:
+
+- **The weather station has no location in copy.** It is "the FIVEMILE weather
+  station" in prose and "Our station" on a label. Never a town, never a road,
+  never a house. A station's town is an address with extra steps.
+- **No sentence about how the site is kept.** Which instrument, which schedule,
+  which service, what gets committed where. That is interesting to whoever
+  built it and to nobody standing on a bank deciding whether to go out.
+- **Nothing the site knows is attributed to Joe personally.** What readers have
+  caught, seen, or reported is attributed to readers. See DECISIONS.md 55.
+- **HTML comments are served.** A comment is not rendered but anybody can read
+  it in the source, so a private opinion or a personal note does not go in one.
+
+His name on a photograph he took is a byline and stays. His name on the About
+page as the person running it stays. The veil is over what he does and where he
+is, not over who publishes this.
+
 ## The point
 
 **Get people informed and interested in what is going on locally.** That is the
@@ -165,9 +184,10 @@ If a `cardiff-` **filename** turns up anywhere other than those stubs and the
 two tombstones, it is a bug from the rename pass.
 
 **Cardiff never stands in for the whole watershed in copy.** Naming Cardiff is
-right when Cardiff is what is meant: its council, its charter, its history, the
-weather station that sits there and is cited as the source of a reading. It is
-wrong as shorthand for the area. "Yesterday around Cardiff" and "the most
+right when Cardiff is what is meant: its council, its charter, its history, its
+part of the creek. It is wrong as shorthand for the area, and it is wrong as
+the location of the weather station, which is behind the veil above and used to
+be cited this way on nine pages. "Yesterday around Cardiff" and "the most
 visible large mammal in Cardiff" both tell a reader in Graysville that this site
 is about somewhere else. Write these three towns, along the creek, here, or this
 part of Jefferson County. See DECISIONS.md 42.

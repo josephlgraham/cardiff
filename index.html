@@ -227,7 +227,7 @@
           </div>
         </div>
         <div class="card-dept">
-          <div class="d-bar"><h3>Yesterday</h3><span class="r">Local station</span></div>
+          <div class="d-bar"><h3>Yesterday</h3><span class="r">Our station</span></div>
           <div class="d-body">
             <div class="d-rows list">
               <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>High</em><b id="yHigh">&mdash;</b></div>
@@ -442,7 +442,7 @@ function paintWeather(weather){
   }else if(Number.isFinite(humidity)){
     sentence = 'The humidity is sitting at <b>' + Math.round(humidity) + ' percent</b>.';
   }else{
-    sentence = 'That is the reading from the local station.';
+    sentence = 'That is the reading from our own station.';
   }
   paintTile(1, Math.round(temp), ' °F', sentence);
 }

@@ -3318,3 +3318,52 @@ them would have drifted apart.
 they were opened and this does not, deliberately: that list is a thing a reader
 works through, and this is reference material whose useful default is the three
 months in front of them.
+
+---
+
+## 58. There is a veil between Joe and the publication
+**Decided:** August 2026. Extends decision 42.
+
+The almanac opened by explaining that the creek reading comes off the USGS gauge
+at Republic and the weather off a station in Cardiff rather than an airport
+thirty miles away. Joe asked for the station talk to come out, and then for the
+principle behind it: "there does need to be a sort of veil between me and what I
+do and the website and what it does."
+
+**A station's town is an address with extra steps.** CLAUDE.md has always said
+his personal address never appears here. A weather station sits at a house, so
+naming the town it is in narrows a private address to a few hundred people in a
+place where a good many of them would know exactly which house. The rule had
+even blessed it: decision 42's list of correct uses of the word Cardiff named
+"the weather station that sits there and is cited as the source of a reading."
+That line was wrong and is gone.
+
+**Sixteen places, and three of them were search results.** The station's town
+was in prose on five pages, on six labels, in three sentences built by script,
+and in the search and social descriptions on the weather archive, which are the
+lines that show under a Google result and in a shared link.
+
+**One wording now.** "The FIVEMILE weather station" in prose, "Our station" on a
+label, and "the site's own Ambient Weather station" where the instrument is
+being named. The homepage and the almanac had already drifted to "Local
+station", which is not a leak but is a second name for one instrument, so it
+went the same way.
+
+**An HTML comment is served.** `fivemile-civic.html` carried a comment marking
+one tile as the thing Joe is most worried about. It never rendered and anybody
+could read it in the source. A comment is a note to the next person editing the
+file, not a private channel, and nothing goes in one that could not run as copy.
+
+### What the veil does not cover
+
+**His name on a photograph he took.** That is a byline and every photograph on
+this site carries one, which decision 39 settled for the field guide and which
+the About page promises to anybody who sends a picture in.
+
+**His name on the About page as the person running it.** A publication with no
+named person behind it is worth less, not more. The veil is over what he does
+and where he is, not over who publishes this.
+
+**Revisit if:** the station is ever cited in a way where a reader genuinely
+needs to know how far from them it is. The answer then is the watershed, which
+is four miles end to end, and never a town.
