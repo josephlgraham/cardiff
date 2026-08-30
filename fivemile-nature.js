@@ -149,16 +149,22 @@
       "</div></div>";
   }
 
+  /* The block stays out of the page until there is something to put in it. */
+  function showObservations(on) {
+    const block = document.getElementById("obsBlock");
+    if (block) block.hidden = !on;
+  }
+
   function renderObservations(data) {
     const host = document.getElementById("obsList");
     if (!host) return;
 
     const entries = (data && data.observations) || [];
     if (!entries.length) {
-      setHTML("obsList", '<div class="empty">&mdash;</div>');
-      setHTML("obsStamp", "&mdash;");
+      showObservations(false);
       return;
     }
+    showObservations(true);
 
     const counts = data.counts || {};
     const months = Math.round((counts.window_days || 120) / 30);
@@ -190,9 +196,8 @@
       if (!response.ok) throw new Error("observations unavailable");
       renderObservations(await response.json());
     } catch (error) {
-      /* The file is not answering. An em dash and nothing else. */
-      setHTML("obsList", '<div class="empty">&mdash;</div>');
-      setHTML("obsStamp", "&mdash;");
+      /* The file is not answering, so there is nothing to say. */
+      showObservations(false);
     }
   }
 
