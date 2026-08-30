@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-29T15:28:58.669Z",
+  "updatedAt": "2026-08-30T01:03:11.912Z",
   "counts": {
-    "nearby": 3,
-    "county": 6,
+    "nearby": 4,
+    "county": 5,
     "obituaries": 4
   },
   "sections": {
@@ -10,20 +10,20 @@
     "nearby": [
       "news-1-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
       "news-2-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
-      "news-5-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si"
+      "news-3-trussville-tribune-griffin-gets-first-win-at-center-point",
+      "news-6-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si"
     ],
     "creek": [],
     "county": [
-      "news-3-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
-      "news-4-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
-      "news-6-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
-      "news-7-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
-      "news-8-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
-      "news-10-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she"
+      "news-4-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "news-5-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "news-8-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "news-9-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo"
     ],
     "obituaries": [
-      "news-9-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
-      "news-11-al-com-ohio-church-plans-special-dolly-parton-memorial-service",
+      "news-10-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
+      "news-11-wvtm-13-services-announced-for-longtime-birmingham-radio-host-binnie",
       "news-12-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
       "news-13-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a"
     ]
@@ -46,7 +46,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -110,7 +110,45 @@
       "image_url": "https://abc3340.com/resources/media2/15x19/330/986/0x0/90/87cf496c-fca7-4f5b-9260-4ea540c61243-Screenshot20260827195836.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-3-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "id": "news-3-trussville-tribune-griffin-gets-first-win-at-center-point",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/CP-FB-G2-Dontarius-Acoff-Catch-200x300.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Griffin gets first win at Center Point",
+      "summary": "By Johnny Sanders, Sports Editor CENTER POINT – The Center Point Eagles picked up a 21-20 victory over the Fultondale Wildcats on Friday night to get Grady Griffin his first win at the school. The game was plagued with penalties and some missed opportunities, but Griffin’s Eagles seemingly gained some offensive footing",
+      "description": "By Johnny Sanders, Sports Editor CENTER POINT – The Center Point Eagles picked up a 21-20 victory over the Fultondale Wildcats on Friday night to get Grady Griffin his first win at the school. The game was plagued with penalties and some missed opportunities, but Griffin’s Eagles seemingly gained some offensive footing",
+      "url": "https://www.trussvilletribune.com/2026/08/29/griffin-gets-first-win-at-center-point/",
+      "link": "https://www.trussvilletribune.com/2026/08/29/griffin-gets-first-win-at-center-point/",
+      "published_at": "2026-08-29T15:51:35.000Z",
+      "date": "2026-08-29T15:51:35.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/CP-FB-G2-Dontarius-Acoff-Catch-200x300.jpg"
+    },
+    {
+      "id": "news-4-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -126,7 +164,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -152,7 +190,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/08/Animal-Car-Control-Facility-8-27-2026-.jpg"
     },
     {
-      "id": "news-4-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "id": "news-5-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -168,7 +206,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -194,7 +232,7 @@
       "image_url": "https://abc3340.com/resources/media/768f71ab-00ba-4486-923d-4040c70ab2b5-large16x9_GBHSadoption.jpg?1653076779359"
     },
     {
-      "id": "news-5-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si",
+      "id": "news-6-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si",
       "section": "nearby",
       "why": "names mortimer jordan",
       "town": "Mortimer Jordan",
@@ -232,7 +270,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/IMG_3039-1024x768.jpeg"
     },
     {
-      "id": "news-6-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "id": "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -269,7 +307,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "id": "news-8-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -311,7 +349,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/2958/986/893x521/90/ed082ed9-a716-4fbf-9299-a39ddc3fae67-012763998e8f446ca884141728fe2fdaGettyImages1189256905.jpg"
     },
     {
-      "id": "news-8-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
+      "id": "news-9-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
       "section": "county",
       "why": "birmingham, weather",
       "town": "Birmingham",
@@ -353,7 +391,7 @@
       "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/08/7DD8AC9FF640CCDFDC19B5089F9233ED.jpg?w=800"
     },
     {
-      "id": "news-9-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
+      "id": "news-10-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -371,7 +409,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 19,
+      "score": 18,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -397,79 +435,37 @@
       "image_url": ""
     },
     {
-      "id": "news-10-bham-now-412k-in-recycling-grants-awarded-to-birmingham-jefferson-she",
-      "section": "county",
-      "why": "jefferson county, utilities",
-      "town": "Jefferson County",
-      "tags": [
-        "Utilities"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 19,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "$412K+ in recycling grants awarded to Birmingham, Jefferson + Shelby counties",
-      "summary": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
-      "description": "♻️ BIG RECYCLING WINS FOR THE BIRMINGHAM AREA: Jefferson County is getting 5 recycling trailers, while the city of Birmingham is expanding glass recycling efforts.",
-      "url": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
-      "link": "https://bhamnow.com/2026/08/25/412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties/#utm_source=rss&utm_medium=rss&utm_campaign=412k-in-recycling-grants-awarded-to-birmingham-jefferson-shelby-counties",
-      "published_at": "2026-08-25T21:13:24.000Z",
-      "date": "2026-08-25T21:13:24.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "utilities"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/08/IMG_2227-Copy-1200x615.jpeg"
-    },
-    {
-      "id": "news-11-al-com-ohio-church-plans-special-dolly-parton-memorial-service",
+      "id": "news-11-wvtm-13-services-announced-for-longtime-birmingham-radio-host-binnie",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Regional",
+      "town": "Birmingham",
       "tags": [
         "Obituary"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "WVTM 13",
+      "paywall": false,
       "image": null,
       "obit": {
-        "name": "Ohio church plans special Dolly Parton memorial service",
+        "name": "Services announced for longtime Birmingham radio host Binnie Myles",
         "age": null,
         "town": "",
-        "home": "AL.com",
+        "home": "WVTM 13",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 16,
+      "score": 18,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Ohio church plans special Dolly Parton memorial service",
-      "summary": "An Ohio church will honor Dolly Parton with prayer, live music, a rewritten sermon and pink butterflies during a special memorial service in Newark.",
-      "description": "An Ohio church will honor Dolly Parton with prayer, live music, a rewritten sermon and pink butterflies during a special memorial service in Newark.",
-      "url": "https://www.al.com/life/2026/08/an-ohio-church-is-planning-an-unusual-farewell-to-dolly-parton.html",
-      "link": "https://www.al.com/life/2026/08/an-ohio-church-is-planning-an-unusual-farewell-to-dolly-parton.html",
-      "published_at": "2026-08-29T14:33:32.000Z",
-      "date": "2026-08-29T14:33:32.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Services announced for longtime Birmingham radio host Binnie Myles",
+      "summary": "Celebration of life services announced for Binnie Myles, a longtime fixture in Birmingham’s radio and public relations industries, who died Thursday at the age of 81.",
+      "description": "Celebration of life services announced for Binnie Myles, a longtime fixture in Birmingham’s radio and public relations industries, who died Thursday at the age of 81.",
+      "url": "https://www.wvtm13.com/article/birmingham-radio-host-binnie-myles-funeral-service/73560371",
+      "link": "https://www.wvtm13.com/article/birmingham-radio-host-binnie-myles-funeral-service/73560371",
+      "published_at": "2026-08-30T00:07:00.000Z",
+      "date": "2026-08-30T00:07:00.000Z",
       "location_tags": [
-        "regional"
+        "birmingham"
       ],
       "topic_tags": [
         "obituary"
