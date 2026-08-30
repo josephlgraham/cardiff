@@ -353,13 +353,15 @@ function structuredData(page, data) {
 /* A closing script tag inside one of these values would end the block early.
    There is none in the file today, and escaping the angle bracket means there
    never can be. */
-function structuredDataBlock(page, data) {
+function structuredDataBlock(page, data, nl) {
   const json = JSON.stringify(
     { '@context': 'https://schema.org', '@graph': structuredData(page, data) },
     null,
     2
   ).replace(/</g, '\\u003c');
-  return '<script type="application/ld+json">\n' + json + '\n</script>';
+  /* JSON.stringify indents with a bare \n. Real newlines inside a value are
+     escaped by then, so this only ever touches the ones between lines. */
+  return '<script type="application/ld+json">' + nl + json.split('\n').join(nl) + nl + '</script>';
 }
 
 /* -------------------------------------------------------------------------
@@ -378,6 +380,14 @@ function markedIds(html) {
   return ids;
 }
 
+/* The break the file already uses. A Windows checkout of this repo is CRLF,
+   and writing a bare \n around every block put two line endings into one
+   file. Git normalised the difference away so nothing ever showed in a diff,
+   but the script rewrote those bytes on every run and --check called eight
+   current pages stale every time. A check that always fails is a check
+   nobody reads. */
+const newlineOf = (html) => (html.includes('\r\n') ? '\r\n' : '\n');
+
 function replaceBetween(html, id, content) {
   const { open, close } = markerFor(id);
   const start = html.indexOf(open);
@@ -385,9 +395,10 @@ function replaceBetween(html, id, content) {
   const from = start + open.length;
   const end = html.indexOf(close, from);
   if (end === -1) throw new Error('Marker ' + open + ' has no closing marker.');
+  const nl = newlineOf(html);
   const before = html.slice(0, from);
   const after = html.slice(end);
-  const next = before + '\n' + content + '\n' + after;
+  const next = before + nl + content + nl + after;
   return { html: next, changed: next !== html };
 }
 
@@ -428,7 +439,7 @@ async function main() {
     /* One block that is not the site's own renderer writing prose. The
        structured data has no on-page markup to reuse, so it is built from the
        same file here and dropped into the map the loop below reads. */
-    elements.set('structuredData', { innerHTML: structuredDataBlock(page, data), className: null });
+    elements.set('structuredData', { innerHTML: structuredDataBlock(page, data, newlineOf(html)), className: null });
 
     let changed = false;
     const missing = [];
