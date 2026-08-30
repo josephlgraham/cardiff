@@ -1110,7 +1110,10 @@
        off, it is plainly part of the opening.
 
        data-share-here puts it directly after the marked element instead.
-       index.html uses that to sit under the featured photograph.
+       The calendar and the news page still use it, because what a reader has
+       just finished there is a block rather than a panel. index.html used it
+       too, under the featured photograph, until the home page grew an opening
+       panel of its own and could mark that instead.
 
        Otherwise it goes after the first section, so it sits under the opening
        block rather than being the first thing a reader meets. That selector

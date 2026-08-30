@@ -3146,8 +3146,11 @@ inside the opening panel now, ruled off at the foot of it, which is both what
 Joe asked for and where somebody actually is when they decide to pass a page on.
 
 `data-share-in` is the new attribute and it appends inside the marked element.
-`data-share-here`, which inserts after, is still what `index.html` uses to sit
-under the featured photograph.
+`data-share-here`, which inserts after, is what the calendar and the news page
+use, because what a reader has just finished on those is a block rather than a
+panel. `index.html` used it too, under the featured photograph, until the home
+page grew an opening panel of its own. It marks that now and the row sits in the
+copy card the way it does on the other fifteen pages. See decision 60.
 
 ### Structured data on ten more pages
 
