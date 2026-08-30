@@ -72,7 +72,12 @@
 // reader would keep the copy that ships em dashes there. The business names are
 // deliberately not in the markup and still render in the browser.
 // See DECISIONS.md 63.
-const CACHE_NAME = 'fivemile-v67';
+// v68 gives the news page report an afternoon and an evening shape and swaps
+// them on the clock here, and moves the hour-here helper into
+// fivemile-common.js so the almanac and the news page agree about noon.
+// fivemile-news.html, fivemile-common.js and fivemile-almanac.js all changed
+// and all three are precached and served cache-first. See DECISIONS.md 64.
+const CACHE_NAME = 'fivemile-v68';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

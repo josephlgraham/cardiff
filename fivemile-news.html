@@ -206,9 +206,20 @@
       <div id="newsNotice" hidden></div>
       <div class="two-eq">
         <div>
+          <!-- The heading, the bar, and the four labels are all written by
+               paintMorning off the clock here. What ships is the morning
+               wording, because that is the honest thing for the half of the
+               day it is right for and it is what a reader sees if the script
+               never runs.
+
+               The id stays morning-report though the heading stops saying
+               morning at noon. It is an anchor somebody may have sent to
+               somebody, and a shared link has to keep working. Same reasoning
+               that left the cardiff- class names alone in DECISIONS.md 10.
+               -->
           <div class="hd"><h2 id="morning-report">The morning report</h2><a href="fivemile-almanac.html">Almanac &rarr;</a></div>
           <div class="card-dept">
-            <div class="d-bar"><h3>Yesterday and ahead</h3><span class="r" id="mrStamp">&mdash;</span></div>
+            <div class="d-bar"><h3 id="mrBar">Yesterday and ahead</h3><span class="r" id="mrStamp">&mdash;</span></div>
             <div class="d-body">
               <p id="mrLede">&mdash;</p>
               <!-- .fill so the four readings take the slack. The card finishes
@@ -217,9 +228,9 @@
                    hidden, which used to leave a hundred pixels of nothing under
                    the last line. Same modifier the homepage uses. -->
               <div class="d-rows list fill" id="mrYesterday">
-                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i>High</em><b id="mrHigh">&mdash;</b></div>
-                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i>Low</em><b id="mrLow">&mdash;</b></div>
-                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i>Rain</em><b id="mrRain">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌡️</i><span id="mrHighLbl">High</span></em><b id="mrHigh">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌙</i><span id="mrLowLbl">Low</span></em><b id="mrLow">&mdash;</b></div>
+                <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌧️</i><span id="mrRainLbl">Rain</span></em><b id="mrRain">&mdash;</b></div>
                 <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🌊</i>Creek, 24h</em><b id="mrCreek">&mdash;</b></div>
               </div>
               <div class="d-rows three" id="mrForecast" hidden></div>
@@ -480,6 +491,36 @@ function stageChange24h(gauge){
   if(!closest || !Number.isFinite(num(closest.stage_ft))) return null;
   return gauge.stage_ft - closest.stage_ft;
 }
+/* Which report this is. Three names off the clock here, and two shapes: before
+   noon the card reads yesterday, after noon it reads the day so far. The names
+   split again at six because a card headed The afternoon report at nine at
+   night is a card arguing with the window.
+
+   Noon is the boundary the almanac already uses to hide its own morning card,
+   and both now ask fivemile-common.js what hour it is here rather than each
+   keeping a copy. The almanac can hide; this one cannot, because it is half of
+   a two column row that finishes level with Coming up beside it, and half a
+   row of nothing is worse than a card that has moved on with the day.
+
+   The data file has a boundary of its own at eleven, for the label on the rain
+   figure, and this deliberately does not read it. Two clocks disagreeing by an
+   hour inside one card is worse than either of them being wrong.
+   See DECISIONS.md 64. */
+function reportBand(){
+  var hour = window.FivemileClock ? window.FivemileClock.centralHour() : new Date().getHours();
+  if(hour < 12) return "morning";
+  if(hour < 18) return "afternoon";
+  return "evening";
+}
+var REPORT_WORDING = {
+  morning:   { head: "The morning report",   bar: "Yesterday and ahead",
+               high: "High", low: "Low", rain: "Rain" },
+  afternoon: { head: "The afternoon report", bar: "Today and ahead",
+               high: "High so far", low: "Low overnight", rain: "Rain so far" },
+  evening:   { head: "The evening report",   bar: "Today and ahead",
+               high: "High so far", low: "Low overnight", rain: "Rain so far" }
+};
+
 /* One plain sentence about the day that has just finished, built from the
    numbers underneath it so the sentence and the rows can never disagree. */
 function morningLede(summary, rain){
@@ -492,6 +533,31 @@ function morningLede(summary, rain){
     line += ' ' + fell.toFixed(2) + ' inches of rain fell.';
   }else if(Number.isFinite(fell)){
     line += ' No rain was measured.';
+  }
+  var month = rain && Number.isFinite(num(rain.monthToDate)) ? num(rain.monthToDate) : NaN;
+  if(Number.isFinite(month)) line += ' The month stands at ' + month.toFixed(2) + ' inches.';
+  return line;
+}
+/* The same sentence for the other half of the day, off the station readings for
+   today rather than the archive figures for yesterday. It opens on the
+   temperature now, because that is the one number a reader can check against
+   the air on their own arm, and then gives the day the range it has run.
+   The high and the low are one walk through the same samples, so on a still
+   afternoon they can be the same figure, and the sentence reads correctly when
+   they are. */
+function afternoonLede(weather, rain){
+  var report = rain && rain.morningReport ? rain.morningReport : null;
+  var now  = weather && weather.current ? num(weather.current.temp) : NaN;
+  var high = report ? num(report.highTemp) : NaN;
+  var low  = report ? num(report.lowTemp) : NaN;
+  var fell = report ? num(report.amount) : NaN;
+  if(!Number.isFinite(now) && !Number.isFinite(high)) return 'Today has not come off the station yet.';
+  var line = Number.isFinite(now) ? 'It is ' + now + ' out there now.' : '';
+  if(Number.isFinite(high) && Number.isFinite(low)){
+    line += (line ? ' ' : '') + 'Today has run from ' + low + ' up to ' + high;
+    line += Number.isFinite(fell) && fell >= 0.01
+      ? ', and ' + fell.toFixed(2) + ' inches of rain has fallen.'
+      : ', and no rain has been measured.';
   }
   var month = rain && Number.isFinite(num(rain.monthToDate)) ? num(rain.monthToDate) : NaN;
   if(Number.isFinite(month)) line += ' The month stands at ' + month.toFixed(2) + ' inches.';
@@ -516,12 +582,29 @@ function readTip(day, night){
   return '';
 }
 function paintMorning(weather, watershed, towns){
-  var summary = weather && weather.dailySummary ? weather.dailySummary : null;
-  var high = summary ? num(summary.yesterdayHigh) : NaN;
-  var low = summary ? num(summary.yesterdayLow) : NaN;
-  var rain = summary ? num(summary.yesterdayRain) : NaN;
+  var band = reportBand();
+  var word = REPORT_WORDING[band];
+  var wet  = weather && weather.rain ? weather.rain : null;
+  var today = wet && wet.morningReport ? wet.morningReport : null;
 
-  document.getElementById('mrLede').textContent = morningLede(summary, weather && weather.rain);
+  document.getElementById('morning-report').textContent = word.head;
+  document.getElementById('mrBar').textContent = word.bar;
+  document.getElementById('mrHighLbl').textContent = word.high;
+  document.getElementById('mrLowLbl').textContent  = word.low;
+  document.getElementById('mrRainLbl').textContent = word.rain;
+
+  /* Yesterday comes off the archive figures and today comes off the station
+     samples, so the two shapes read different fields rather than the same
+     field meaning different things. */
+  var summary = weather && weather.dailySummary ? weather.dailySummary : null;
+  var morning = band === "morning";
+  var high = morning ? (summary ? num(summary.yesterdayHigh) : NaN) : (today ? num(today.highTemp) : NaN);
+  var low  = morning ? (summary ? num(summary.yesterdayLow)  : NaN) : (today ? num(today.lowTemp)  : NaN);
+  var rain = morning ? (summary ? num(summary.yesterdayRain) : NaN) : (today ? num(today.amount)   : NaN);
+
+  document.getElementById('mrLede').textContent = morning
+    ? morningLede(summary, wet)
+    : afternoonLede(weather, wet);
   document.getElementById('mrHigh').innerHTML = Number.isFinite(high) ? high + '°F' : '&mdash;';
   document.getElementById('mrLow').innerHTML  = Number.isFinite(low) ? low + '°F' : '&mdash;';
   document.getElementById('mrRain').innerHTML = Number.isFinite(rain) ? rain.toFixed(2) + ' in' : '&mdash;';
@@ -1103,6 +1186,24 @@ settle([
   paintNotice(r[5]);
   paintMorning(r[2], r[4], r[3]);
   paintNews(r[0], r[1]);
+
+  /* The card has to survive noon with the page still open. Somebody leaves the
+     news up on the kitchen counter and comes back after lunch, and a heading
+     reading The morning report at two in the afternoon is the page telling them
+     it stopped paying attention.
+
+     A minute is often enough to catch a boundary that moves twice a day, and
+     the check is two comparisons: it only repaints when the band has actually
+     changed, so this costs nothing on the 1438 minutes it has nothing to do.
+     No refetch either. The band decides which of the numbers already in hand
+     the card reads, so the same three files answer both shapes. */
+  var band = reportBand();
+  setInterval(function(){
+    var next = reportBand();
+    if(next === band) return;
+    band = next;
+    paintMorning(r[2], r[4], r[3]);
+  }, 60000);
 });
 </script>
 <script src="fivemile-common.js"></script>

@@ -3846,3 +3846,92 @@ does; the filename says what it did first.
 each for `dcLeadList` and `dcList`, and the markers are the only other thing
 needed. Nothing about the decision is baked into the machinery, which is how it
 should be for a call that is a publishing judgment rather than a technical one.
+
+## 64. The report on the news page changes with the day
+**Decided:** August 2026.
+
+Joe asked whether there should be a report for the afternoon as well, and said
+it should change on its own. Both halves of that were right and the second is
+the harder one.
+
+The card was headed The morning report and opened "Yesterday reached 93 and fell
+to 65" at every hour of the day. On a page that reports the weather every ten
+minutes, the one card a reader looks at first spent two thirds of its life
+talking about a day that finished before they woke up.
+
+### Three names, two shapes
+
+The names split at noon and again at six: morning, afternoon, evening. The
+content splits once, at noon. Before it the card reads yesterday off the archive
+figures, exactly as it always did. After it the card reads the day so far off
+the station samples: high so far, low overnight, rain so far, and a sentence
+that opens on the temperature right now.
+
+The second split is only wording and it earns its keep. A card headed The
+afternoon report at nine at night is a card arguing with the window, and the
+numbers under it are the same numbers either way.
+
+**The sentence opens on now on purpose.** It is the one figure on the card a
+reader can check against the air on their own arm, and a card that agrees with
+the porch is a card they will believe about the creek. The day range follows it,
+and it reads correctly when the high and the temperature now are the same
+number, which on a still afternoon they will be.
+
+### The almanac already had this boundary and hid instead
+
+`fivemile-almanac.js` hides its own morning card at noon. That is the right
+answer there and the wrong one here: this card is half of a two column row that
+finishes level with Coming up beside it, and half a row of nothing is worse than
+a card that has moved on with the day.
+
+**But they have to agree about when noon is.** Both now ask
+`window.FivemileClock.centralHour()` in `fivemile-common.js`. It was written
+once in the almanac and nowhere else, which is how the news page came to have no
+opinion about the time of day at all. A reader with both pages open should not
+see one of them still think it is morning.
+
+**Central, not the reader own clock.** This is a paper about three towns in
+Alabama. The morning it reports is the morning here, and somebody reading from
+another state is reading about this place rather than about their own afternoon.
+
+**There is a third boundary and it is deliberately not read.**
+`scripts/fetch-site-data.mjs` flips a rain label at eleven, in
+`morningReport.label`. The card ignores it and writes its own labels. Two clocks
+disagreeing by an hour inside one card is worse than either being wrong.
+
+### The high the file did not have
+
+The station block carried `lowTemp` for today and no high, so the fetch script
+now walks the same samples the other way and writes `highTemp` beside it. Same
+expression, same filter, so the two cannot disagree about which samples count as
+today. `dailySummary.todayHigh` has existed as a hardcoded null since it was
+written and is still not the answer: it is filled from an archive that lags days
+behind, which is why yesterday comes from there and today does not.
+
+The value was seeded by hand into `fivemile-weather.json` in the same commit,
+computed off the committed rain log with the expression the script now runs, so
+the card works the hour it ships rather than after the next run. The next run
+overwrites it, as it does every other figure in that file.
+
+### It changes with the page open
+
+A minute interval, two comparisons, and a repaint only when the band has
+actually changed. No refetch: the band decides which of the numbers already in
+hand the card reads, so the same three files answer both shapes. Somebody leaves
+the news up on the kitchen counter and comes back after lunch, and the card has
+kept up.
+
+**Nothing here is prerendered and nothing here may be.** The whole card is
+worked out from the reader clock, which is the exact case decision 61 refuses.
+The news page is in neither `TILES` nor `NODES` and this is a reason to keep it
+out of both.
+
+**The id stayed `morning-report`** while the heading stopped saying morning. It
+is an anchor somebody may have sent to somebody and a shared link has to keep
+working, which is the reasoning that left the `cardiff-` class names alone in
+decision 10.
+
+**Revisit if:** the afternoon shape wants the forecast trimmed. The strip below
+the readings drops periods that have been and gone already, so by evening it is
+showing tonight and tomorrow, which is right. It has not been touched here and
+it did not need to be.

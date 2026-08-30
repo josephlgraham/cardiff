@@ -466,7 +466,12 @@
       || null;
   }
 
+  /* One definition, in fivemile-common.js, because the news page swaps its
+     report at the same moment this card hides itself and the two must not
+     disagree about when noon is. The fallback is the old body, kept for the
+     case where this file runs before common.js has defined it. */
   function centralHourNow() {
+    if (window.FivemileClock) return window.FivemileClock.centralHour();
     return Number(new Intl.DateTimeFormat("en-US", {
       timeZone: "America/Chicago",
       hour: "numeric",

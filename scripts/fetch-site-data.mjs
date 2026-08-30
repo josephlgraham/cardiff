@@ -231,6 +231,11 @@ async function updateRainLog(current, obsDate) {
   const todaySamples = trimmedSamples.filter((entry) => entry.localDate === currentDateKey);
   const rainToday = todaySamples.reduce((max, entry) => Math.max(max, Number(entry.dailyTotal || 0)), Number(current.precipTotal || 0));
   const overnightLow = todaySamples.length ? todaySamples.reduce((min, entry) => Math.min(min, Number(entry.temp || current.temp || 0)), Number(current.temp || 0)) : Number(current.temp || 0);
+  /* The other end of the same walk. The news page reports the day so far once
+     the morning is over, and a low with no high beside it is half a reading.
+     Same shape as the line above so the two cannot disagree about which
+     samples count as today. See DECISIONS.md 64. */
+  const daytimeHigh = todaySamples.length ? todaySamples.reduce((max, entry) => Math.max(max, Number(entry.temp || current.temp || 0)), Number(current.temp || 0)) : Number(current.temp || 0);
   const overnightWindGust = todaySamples.reduce((max, entry) => Math.max(max, Number(entry.windGust || 0)), Number(current.windGust || 0));
 
   const updatedLog = {
@@ -252,6 +257,7 @@ async function updateRainLog(current, obsDate) {
     morningReport: {
       amount: rainToday,
       lowTemp: overnightLow,
+      highTemp: daytimeHigh,
       windGust: overnightWindGust,
       label: currentHour < 11 ? 'Since midnight' : 'So far today',
       isMorning: currentHour < 11,

@@ -840,6 +840,34 @@
     days: wxDays
   };
 
+  /* ─────────────────────────────────────────────────────────────────
+     THE CLOCK HERE
+
+     What hour it is along the creek, 0 to 23, whatever clock the reader is
+     carrying. Two pages ask this and they have to agree: the almanac hides its
+     morning card at noon, and the news page swaps its report for the afternoon
+     one at the same moment. A reader who has both open should not see one of
+     them think it is still morning.
+
+     Central rather than the reader own clock on purpose. This is a paper about
+     three towns in Alabama, so the morning it reports is the morning here, and
+     somebody reading it from another state is reading about this place rather
+     than about their own afternoon.
+
+     It was written twice before this, once in fivemile-almanac.js and once
+     nowhere, which is how the news page came to have no opinion about the time
+     of day at all. One definition, and the almanac now asks this one.
+     ───────────────────────────────────────────────────────────────── */
+  function centralHour() {
+    return Number(new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Chicago",
+      hour: "numeric",
+      hour12: false
+    }).format(new Date()));
+  }
+
+  window.FivemileClock = { centralHour: centralHour };
+
 
 
   // ─────────────────────────────────────────────────────────────────
