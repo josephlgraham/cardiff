@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T10:26:14.894Z",
+  "updatedAt": "2026-08-30T19:43:05.195Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 74,
-    "species_in_window": 64,
-    "window_total": 79,
-    "species_recorded": 65,
-    "observations_recorded": 76,
-    "area_total": 1080,
+    "in_window": 75,
+    "species_in_window": 65,
+    "window_total": 80,
+    "species_recorded": 66,
+    "observations_recorded": 77,
+    "area_total": 1081,
     "guide_links": 0
   },
   "observations": [
+    {
+      "id": 395699452,
+      "taxon": 226221,
+      "name": "Narrow-winged Tree Cricket",
+      "latin": "Oecanthus niveus",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-08-29",
+      "place": null,
+      "obscured": true,
+      "observer": "Kristin A. Bakkegard",
+      "observerLogin": "kbakkegard",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/395699452",
+      "firstRecord": true
+    },
     {
       "id": 394427437,
       "taxon": 68264,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/376445156",
       "firstRecord": false
-    },
-    {
-      "id": 377649474,
-      "taxon": 98895,
-      "name": "Alabama Shiner",
-      "latin": "Cyprinella callistia",
-      "rank": "species",
-      "group": "Fish",
-      "icon": "🐟",
-      "observedOn": "2026-06-26",
-      "place": null,
-      "obscured": true,
-      "observer": "vyts666",
-      "observerLogin": "vyts666",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/377649474",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -1364,6 +1364,19 @@
       "count": 1,
       "ids": [
         393365510
+      ]
+    },
+    {
+      "taxon": 226221,
+      "name": "Narrow-winged Tree Cricket",
+      "latin": "Oecanthus niveus",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-08-29",
+      "last": "2026-08-29",
+      "count": 1,
+      "ids": [
+        395699452
       ]
     },
     {
