@@ -351,25 +351,41 @@
      twelve cards out of thirteen, which is the same as marking none of them.
      The narrower band is the water each fish is actually best in, and only
      that one gets the border. */
+  /* How many are in their best water, said out loud. Ten green chips out of
+     thirteen is noise if the reader has to count them and information if the
+     page does it for them, and on a February afternoon the same line reads two
+     of thirteen, which is the more useful day to be told. */
   function markFishBands(water) {
+    let prime = 0;
+    let total = 0;
     Array.prototype.forEach.call(document.querySelectorAll(".card-fish"), function (card) {
+      total += 1;
       const state = card.querySelector("[data-fish-state]");
       if (!Number.isFinite(water)) {
         card.classList.remove("on");
-        if (state) { state.textContent = ""; state.className = "fh-state"; }
+        if (state) { state.textContent = ""; state.className = "fh-state fx-quiet"; }
         return;
       }
       const from = Number(card.getAttribute("data-from"));
       const to = Number(card.getAttribute("data-to"));
-      const prime = water >= Number(card.getAttribute("data-best-from")) &&
+      const best = water >= Number(card.getAttribute("data-best-from")) &&
         water <= Number(card.getAttribute("data-best-to"));
       const feeding = water >= from && water <= to;
-      card.classList.toggle("on", prime);
+      card.classList.toggle("on", best);
+      if (best) prime += 1;
       if (state) {
-        state.textContent = prime ? "Prime now" : feeding ? "Will feed" : "Out of season";
-        state.className = "fh-state" + (prime ? "" : feeding ? " fx-quiet" : " fx-off");
+        state.textContent = best ? "Prime now" : feeding ? "Will feed" : "Out of season";
+        state.className = "fh-state" + (best ? "" : feeding ? " fx-quiet" : " fx-off");
       }
     });
+
+    const words = ["none", "one", "two", "three", "four", "five", "six",
+      "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen"];
+    const count = words[prime] || prime;
+    setText("fishCountStamp", Number.isFinite(water)
+      ? count.charAt(0).toUpperCase() + count.slice(1) + " of " + (words[total] || total) +
+        " are in their best water today"
+      : "Thirteen, and counting");
   }
 
   async function fillFishPhotos() {

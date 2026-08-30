@@ -3099,7 +3099,7 @@ grid rather than prose, so the win is smaller and the markup is more of it.
 
 ---
 
-## 54. Every page opens on a labelled panel, and the share row goes inside it
+## 54. Every page opens on card stock, and the share row goes inside it
 **Decided:** August 2026. Extends decisions 48 and 51.
 
 Decision 48 put every page opening on card stock and missed five: the almanac
@@ -3112,25 +3112,30 @@ four mounted gauge tiles.
 **All five are `.panel.intro` now**, and `.desk-intro` survives only on the one
 sub-section intro that is not a page opening.
 
-**`.p-kick` is new, and it fills a hole in the card system.** Every other card
-in `fivemile-cards.css` opens with a label: `.g-kick` on a gauge, `.n-kick` on a
-notice, `.t-tab` on an index tab, the bar on a department panel. The prose panel
-was the only card stock on the site with nothing at the top of it, so a page
-opening read as a paragraph that happened to have a border round it rather than
-as the section label a newspaper sets above a standfirst. It carries a mark from
-the one vocabulary in decision 51, in masthead brown rather than red, because
-red on this site means something has to be acted on and a section label does
-not.
+### A label above the standfirst was tried and taken out
 
-**Thirteen pages have one.** The five almanac pages, the field guide, the
-archive hub and its four rooms, the gallery, heritage, and the discharge record.
-The calendar deliberately has no opening prose at all, which decision 50
-settled, and it did not get one here.
+`.p-kick` put a small brown label at the top of each opening panel, on the
+argument that every other card in `fivemile-cards.css` opens with one: `.g-kick`
+on a gauge, `.n-kick` on a notice, `.t-tab` on an index tab, the bar on a
+department panel. Fourteen pages got one. The fishing desk read "The fishing
+desk", the archive read "The archive", and so on down.
 
-**The standfirst rule had to learn about it.** `.panel .lede:first-child` stops
-matching the moment a kicker goes in front of the lede, which would have
-silently dropped the 19px standfirst off every page that gained a label. The
-selector in `fivemile-shell.css` now names both shapes.
+**Joe had it removed the same day.** He called it nice and said to take it out,
+and he is right about the thing the argument missed: a gauge tile needs a label
+because a bare number means nothing without one, and a notice needs a kicker
+because the colour of the border is doing work that a word has to confirm. A
+page opening under an `h1` that already says Fishing does not need a line
+underneath saying the fishing desk. It was the card system's logic applied
+somewhere the card system's problem does not exist.
+
+**Do not add it back.** If a future page opening genuinely needs a label, the
+thing to check first is whether the `h1` above it is missing.
+
+**One trap it leaves behind.** `.panel .lede:first-child` is what puts the 19px
+standfirst on an opening, and it stops matching the moment anything is put above
+the lede. Adding a kicker silently dropped the standfirst off every page that
+gained one, and the selector had to be widened to compensate. It is back to the
+single shape now, and the comment in `fivemile-shell.css` says so.
 
 ### The share row moved inside the panel
 
@@ -3186,13 +3191,18 @@ out. Nothing else local publishes it. It replaced the barometer on the fourth
 gauge tile, and the barometer moved into the factor panel, because the barometer
 is the one reading in that row that the creek itself does not measure.
 
-**Thirteen fish, and the list is attributed.** The page carried three species
-and a note saying a proper list would need a survey. The list is now what Joe
-and the people he fishes with have caught or seen over the years, said to be
-exactly that: a first hand record and not a survey. The NEEDS-CONFIRMATION for a
-sourced survey stays, because a first hand list does not answer it. Two entries
-stop at the genus, the rock bass and the gar, because nobody has put a species
-name to the ones out of this creek and the page says so instead of picking one.
+**Thirteen fish, and the list is attributed to the readers.** The page carried
+three species and a note saying a proper list would need a survey. It now
+carries what readers of this site have caught or seen in the lower creek over
+the years, said on the page to be exactly that: a first hand record and not a
+survey. It came from Joe in the first instance and the copy does not say so,
+because he asked for it to read as the readers' list rather than as his, which
+is also the version most likely to bring in the next person's additions.
+
+The NEEDS-CONFIRMATION for a sourced survey stays, because a first hand list
+does not answer it. Two entries stop at the genus, the rock bass and the gar,
+because nobody has put a species name to the ones out of this creek and the page
+says so instead of picking one.
 
 **The fish went into the field guide rather than into a second file.** All ten
 new ones are `fivemile-guide.json` entries with photographs pulled by the two
@@ -3203,11 +3213,22 @@ no file path written down twice to go stale when a pick changes. The cards
 themselves are written into the HTML, so what a crawler and a reader with no
 JavaScript get is the whole thing rather than an empty grid.
 
-**The band marker had to be narrowed twice.** Marking every fish whose feeding
-range today's water falls inside lit up twelve cards out of thirteen on an
-August afternoon, which is the same as marking none. There are two bands now:
-the range a fish will feed in at all, and the narrower one it is actually best
-in, and only the second gets the border.
+**The band marker was wrong twice, and the second time is the one worth
+remembering.** Marking every fish whose feeding range today's water falls inside
+lit up twelve cards out of thirteen on an August afternoon, which is the same as
+marking none. Two bands fixed that: the range a fish will feed in at all, and
+the narrower one it is actually best in.
+
+But the marking itself was still wrong, because it darkened the card's own
+border. With twelve of thirteen cards marked, the one card left carrying the
+site's ordinary hairline did not read as unmarked, it read as broken, and that
+is exactly how Joe reported it: the rock bass card is missing its stroke. **A
+state that most cards are in must never be drawn by changing the thing that
+makes a card look like a card.** Every fish card carries the same border now and
+the state is a chip inside it.
+
+The same pass caught the fish cards sitting at `--r`, the 8px button radius,
+which made them the only cards on the site not at the 14px CLAUDE.md calls for.
 
 **What a rise does is on the page all the time.** Joe asked for it when the
 creek rises. It is written as four stages with the one the creek is actually in

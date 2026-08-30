@@ -351,12 +351,23 @@ section.top{padding:24px 0 0}
 .fx-group i{font-style:normal;font-family:var(--body);font-size:13.5px;letter-spacing:0;
   text-transform:none;color:#6B6156}
 
-.card-fish{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--r);
+.card-fish{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);
   overflow:hidden;display:flex;flex-direction:column}
-/* Marked when today's water is in the band this fish feeds in. It is a hairline
-   and a word, not a color wash, because eleven of the thirteen are in band for
-   most of the summer and a page of highlighted cards highlights nothing. */
-.card-fish.on{border-color:var(--masthead)}
+
+/* EVERY CARD KEEPS THE SAME STROKE. The first pass marked the fish in their
+   best water by darkening the card's own border to the masthead brown, and on
+   an August afternoon that is twelve cards out of thirteen. The one card left
+   with the site's ordinary hairline did not read as unmarked, it read as
+   broken, and Joe spotted the rock bass sitting there with no stroke on it.
+
+   A state that most cards are in must never be drawn by changing the thing
+   that makes a card look like a card. The marking moved inside: the state word
+   at the top right is a green chip when the fish is in its best water and
+   quiet grey otherwise, so nothing about the card's outline depends on it.
+
+   Radius is --fm-card-r with everything else. It was --r, which is the 8px
+   button radius, and it made these thirteen the only cards on the site that
+   were not 14px. */
 
 /* 4:3, the shape the guide's grid thumbnails were cut to, so the same file
    serves both without a second derivative. Paper colored until it loads, which
@@ -368,9 +379,12 @@ section.top{padding:24px 0 0}
 .fh-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .fh-name{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
 .fh-state{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--green);white-space:nowrap;flex:none}
-.fh-state.fx-quiet{color:#6B6156}
-.fh-state.fx-off{color:#6B6156;opacity:.7}
+  white-space:nowrap;flex:none;padding:3px 8px;border-radius:99px;
+  background:rgba(42,122,58,.12);color:var(--green);border:1px solid rgba(42,122,58,.28)}
+/* Not in its best water. A plain word rather than a second chip, so one chip
+   in a row of three is the thing that catches the eye. */
+.fh-state.fx-quiet,.fh-state.fx-off{background:none;border-color:transparent;color:#6B6156;padding:3px 0}
+.fh-state.fx-off{opacity:.75}
 .fh-latin{font-family:var(--mono);font-size:11px;color:#6B6156;margin:3px 0 0}
 .fh-also{font-family:var(--mono);font-size:11px;color:#6B6156;margin:2px 0 0}
 .fh-line{font-size:15.5px;line-height:1.55;color:var(--ink2);margin:9px 0 0}
