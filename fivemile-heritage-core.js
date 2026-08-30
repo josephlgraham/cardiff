@@ -143,13 +143,24 @@
     var label = (topics || {})[fact.topic];
     var tag = label ? '<span class="tag">' + esc(label) + '</span>' : '';
 
-    return '<li class="hz-row"' + (fact.topic ? ' data-topic="' + esc(fact.topic) + '"' : '') + '>' +
+    /* The row carries the fact's own id from the file, so every entry in the
+       record has an address of its own: a chapter page plus #the-fact. That
+       is what a link in an email, a Facebook comment, or a search result can
+       point at, and none of that is possible when the only address on the
+       page is the chapter. The title is an h3 for the same reason. It sits
+       under the h2 the section already has, it is the name of the thing the
+       row is about, and a heading is what a crawler reads as one. The class
+       does all the styling either way, and the global reset zeroes the
+       heading's margins, so nothing about it looks different. */
+    return '<li class="hz-row"' +
+      (fact.id ? ' id="' + esc(fact.id) + '"' : '') +
+      (fact.topic ? ' data-topic="' + esc(fact.topic) + '"' : '') + '>' +
       '<div class="hz-top">' +
         '<span class="hz-when">' + esc(fact.when) + '</span>' +
         '<span class="town-badge">' + esc(fact.town) + '</span>' +
         tag +
       '</div>' +
-      '<b class="hz-title">' + esc(fact.title) + '</b>' +
+      '<h3 class="hz-title">' + esc(fact.title) + '</h3>' +
       '<p class="hz-note">' + esc(fact.note) + '</p>' +
       src +
     '</li>';

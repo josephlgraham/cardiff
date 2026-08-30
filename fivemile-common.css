@@ -13,6 +13,12 @@ a:hover{text-decoration:underline;}
 [hidden]{display:none !important;}
 [id]{scroll-margin-top:var(--masthead-offset,150px);}
 .cardiff-masthead{background:var(--hdr-bg)!important;border-bottom:3px solid var(--red)!important;position:sticky!important;top:0!important;z-index:100!important;}
+/* The masthead is sticky and its bottom edge is the red strip, so a card
+   scrolling under it used to meet the strip with nothing between them and the
+   two read as one band. This is a 6px shadow hanging below the red border,
+   painted by the masthead so it sits above the page. Purely a separator: it
+   never darkens the strip itself. */
+.cardiff-masthead::after{content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;height:6px!important;background:linear-gradient(to bottom,rgba(28,18,8,0.20),rgba(28,18,8,0))!important;pointer-events:none!important;}
 /* No rule under the identity bar. The old hairline was cream at 9%, which over
    the masthead brown came out light enough to read as a pale strip above the
    nav rather than a separator. The masthead is one uniform brown from the top

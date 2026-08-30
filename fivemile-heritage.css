@@ -270,7 +270,13 @@ section.blk[id]{scroll-margin-top:18px}
 /* The opening. Longer than it used to be and set looser to carry it, because
    this is the paragraph doing the teaching and a reader should be able to
    stay in it. */
-.ch-note{font-size:17px;line-height:1.68;color:var(--ink2);max-width:58ch;margin:0}
+/* The same standfirst as .panel .lede:first-child in fivemile-shell.css, and
+   deliberately the same numbers. This is the opening paragraph of a chapter
+   and it is the longest single block of prose on the site, so it is the one
+   that most needed an entry point. If the standfirst scale changes in the
+   shell, change it here too. */
+.ch-note{font-size:19px;line-height:1.55;color:var(--ink);letter-spacing:-.006em;
+  max-width:58ch;margin:0}
 .ch-open.noplate .ch-note{max-width:none}
 
 /* A plate. Paper mount, hairline, caption and credit under the picture as
@@ -529,4 +535,6 @@ section.blk[id]{scroll-margin-top:18px}
   .panel{padding:18px 16px}
   .ch-nav.top .chn,.ch-nav.top .chn-hub{padding:10px 11px}
   .hz-title{font-size:17.5px}
+  /* Steps with the standfirst in fivemile-shell.css. */
+  .ch-note{font-size:18px}
 }

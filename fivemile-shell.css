@@ -173,6 +173,25 @@ section.blk{padding:34px 0 0}
    person can read outdoors on a phone. */
 .lede{font-size:16.5px;line-height:1.62;color:var(--ink2);max-width:64ch;margin:0 0 18px}
 
+/* The standfirst. An intro panel was one flat grey slab of 16.5px with no
+   entry point: the eye had nowhere to land and every line looked like every
+   other line, which is what makes a good paragraph tiring to read. The first
+   one in a panel is now set larger, tighter, and in full ink, so the block
+   opens with something to start on and the paragraphs after it read as the
+   detail they are.
+
+   One rule, every page that has a .panel intro, because a treatment that
+   appears on some of them and not others is worse than not having it. The
+   selector is first-child rather than first-of-type because the markup is the
+   same everywhere: a .panel whose first child is the lede.
+
+   No measure on it. A lede inside a panel takes the panel width on purpose,
+   for the reason written against .panel > .lede in fivemile-cards.css, and a
+   cap here would put the one sided margin back into the box. The size, the
+   leading and the ink do the work instead. */
+.panel .lede:first-child{font-size:19px;line-height:1.55;color:var(--ink);
+  letter-spacing:-.006em}
+
 /* An empty state is an em dash and nothing else. CLAUDE.md is explicit about
    it: no "loading", no "no data available", no "check back soon". This rule is
    only here to give that dash room to sit in. */
@@ -196,6 +215,9 @@ section.blk{padding:34px 0 0}
 }
 @media(max-width:760px){
   .wrap{padding:0 16px 20px}
+  /* A phone is already narrow enough to break the slab up. The
+     standfirst only has to stay a step above the body, not shout. */
+  .panel .lede:first-child{font-size:18px}
 }
 @media(max-width:560px){
   .four-eq{grid-template-columns:1fr}

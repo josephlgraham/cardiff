@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "generate-assets": "node generate-assets.js"
+    "generate-assets": "node generate-assets.js",
+    "build-heritage": "node scripts/build-heritage-pages.mjs",
+    "check-heritage": "node scripts/build-heritage-pages.mjs --check"
   },
   "dependencies": {
     "qrcode": "^1.5.4"

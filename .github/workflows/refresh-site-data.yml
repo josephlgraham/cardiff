@@ -34,6 +34,17 @@ jobs:
           AW_API_KEY: ${{ secrets.AW_API_KEY }}
           AW_APP_KEY: ${{ secrets.AW_APP_KEY }}
 
+      # Heritage is prose, not a feed, so this reads nothing from the network
+      # and only rewrites the eight heritage pages when fivemile-heritage.json
+      # has moved under them. It is here rather than in a workflow of its own so
+      # the prerender can never sit stale behind a hand edit to the JSON: the
+      # next scheduled run catches it whether anybody remembered or not. A bug
+      # in it must not cost the run its weather, hence continue-on-error.
+      # See DECISIONS.md 53.
+      - name: Write the heritage prose into the heritage pages
+        continue-on-error: true
+        run: node scripts/build-heritage-pages.mjs
+
       - name: Commit refreshed data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,7 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-observations.json fivemile-hollers.json announcements.json fivemile-echo.json
+          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html announcements.json fivemile-echo.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0
