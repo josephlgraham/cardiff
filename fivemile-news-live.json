@@ -1,31 +1,36 @@
 {
-  "updatedAt": "2026-08-31T01:05:32.940Z",
+  "updatedAt": "2026-08-31T17:52:55.842Z",
   "counts": {
-    "towns": 1,
-    "nearby": 4,
-    "county": 5,
-    "obituaries": 1
+    "towns": 2,
+    "nearby": 3,
+    "county": 8,
+    "obituaries": 3
   },
   "sections": {
     "towns": [
-      "news-1-fivemile-august-2026-finished-with-1-34-inches-of-rain"
+      "news-1-fivemile-august-2026-finished-with-1-34-inches-of-rain",
+      "news-2-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville"
     ],
     "nearby": [
-      "news-2-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
-      "news-3-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
-      "news-4-trussville-tribune-griffin-gets-first-win-at-center-point",
-      "news-7-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si"
+      "news-3-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga",
+      "news-5-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
+      "news-6-cbs-42-37-year-old-man-killed-in-warrior-crash"
     ],
     "creek": [],
     "county": [
-      "news-5-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
-      "news-6-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
-      "news-8-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
-      "news-9-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
-      "news-10-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo"
+      "news-4-wbrc-trainfo-alert-system-aims-to-reduce-train-delays-for-birming",
+      "news-7-abc-33-40-i-20-westbound-lanes-blocked-in-jefferson-county-after-multi",
+      "news-8-abc-33-40-woman-dies-after-hit-and-run-crash-in-birmingham",
+      "news-9-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "news-10-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "news-11-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "news-12-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "news-13-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo"
     ],
     "obituaries": [
-      "news-11-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026"
+      "news-14-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
+      "news-15-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a",
+      "news-16-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026"
     ]
   },
   "stories": [
@@ -50,8 +55,8 @@
       "description": "That is the total the local station measured across August 2026.",
       "url": "fivemile-almanac.html",
       "link": "fivemile-almanac.html",
-      "published_at": "2026-08-31T01:05:32.938Z",
-      "date": "2026-08-31T01:05:32.938Z",
+      "published_at": "2026-08-31T17:52:55.840Z",
+      "date": "2026-08-31T17:52:55.840Z",
       "location_tags": [
         "cardiff"
       ],
@@ -67,49 +72,133 @@
       "image_url": ""
     },
     {
-      "id": "news-2-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
+      "id": "news-2-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/203x307/406/986/0x0/90/99ea700b-f02b-4ce8-9e05-c57de7adf459-JULIUSGAMBLIN.png?crop_fill=1&size=984x553",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 45,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "New Chief of Police selected for the City of Graysville",
+      "summary": "Graysville, Ala (WBMA) - The City of Graysville has a new Chief of Police.Julius Gamblin takes over the top role following the retirement of Chief Marbury.Gambl",
+      "description": "Graysville, Ala (WBMA) - The City of Graysville has a new Chief of Police.Julius Gamblin takes over the top role following the retirement of Chief Marbury.Gambl",
+      "url": "https://abc3340.com/news/local/new-chief-of-police-selected-for-the-city-of-graysville",
+      "link": "https://abc3340.com/news/local/new-chief-of-police-selected-for-the-city-of-graysville",
+      "published_at": "2026-08-31T16:49:00.000Z",
+      "date": "2026-08-31T16:49:00.000Z",
+      "location_tags": [
+        "graysville"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/203x307/406/986/0x0/90/99ea700b-f02b-4ce8-9e05-c57de7adf459-JULIUSGAMBLIN.png?crop_fill=1&size=984x553"
+    },
+    {
+      "id": "news-3-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga",
       "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
+      "why": "names mulga",
+      "town": "Mulga",
       "tags": [
         "Roads"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png",
+        "url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 37,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Hayden man killed in single-vehicle crash in Warrior",
-      "summary": "A Hayden man was killed in a single-vehicle crash in Warrior early Wednesday morning, according to the Jefferson County Coroner’s Office.Jordan Alex Wilhite, 37",
-      "description": "A Hayden man was killed in a single-vehicle crash in Warrior early Wednesday morning, according to the Jefferson County Coroner’s Office.Jordan Alex Wilhite, 37",
-      "url": "https://abc3340.com/news/local/hayden-man-killed-in-single-vehicle-crash-in-warrior",
-      "link": "https://abc3340.com/news/local/hayden-man-killed-in-single-vehicle-crash-in-warrior",
-      "published_at": "2026-08-27T12:48:25.000Z",
-      "date": "2026-08-27T12:48:25.000Z",
+      "title": "Bessemer man dies after single-vehicle crash in Mulga",
+      "summary": "A Bessemer man died after a single-vehicle crash in Mulga Friday night, according to the Jefferson County Coroner’s Office.Cameron Dakota Brown, 33, was the dri",
+      "description": "A Bessemer man died after a single-vehicle crash in Mulga Friday night, according to the Jefferson County Coroner’s Office.Cameron Dakota Brown, 33, was the dri",
+      "url": "https://abc3340.com/news/local/bessemer-man-dies-after-single-vehicle-crash-in-mulga",
+      "link": "https://abc3340.com/news/local/bessemer-man-dies-after-single-vehicle-crash-in-mulga",
+      "published_at": "2026-08-31T13:48:10.000Z",
+      "date": "2026-08-31T13:48:10.000Z",
       "location_tags": [
-        "warrior"
+        "mulga"
       ],
       "topic_tags": [
         "roads"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 5,
+      "priority": 5,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png"
+      "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-3-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
+      "id": "news-4-wbrc-trainfo-alert-system-aims-to-reduce-train-delays-for-birming",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CRVGDAKNBBHP7FROC3SRYIWRVM.bmp?auth=ecff7538aa5eb4c52f388cac30a6a765913ea168ba3270da42abf15fb3eb11b8&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Trainfo alert system aims to reduce train delays for Birmingham drivers",
+      "summary": "A new railroad crossing alert system is helping Birmingham drivers avoid some delays caused by stopped or approaching trains, city leaders say.",
+      "description": "A new railroad crossing alert system is helping Birmingham drivers avoid some delays caused by stopped or approaching trains, city leaders say.",
+      "url": "https://www.wbrc.com/2026/08/31/trainfo-alert-system-aims-reduce-train-delays-birmingham-drivers/",
+      "link": "https://www.wbrc.com/2026/08/31/trainfo-alert-system-aims-reduce-train-delays-birmingham-drivers/",
+      "published_at": "2026-08-31T15:21:00.000Z",
+      "date": "2026-08-31T15:21:00.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CRVGDAKNBBHP7FROC3SRYIWRVM.bmp?auth=ecff7538aa5eb4c52f388cac30a6a765913ea168ba3270da42abf15fb3eb11b8&smart=false"
+    },
+    {
+      "id": "news-5-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -123,7 +212,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -138,8 +227,8 @@
         "kimberly"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -147,45 +236,133 @@
       "image_url": "https://abc3340.com/resources/media2/15x19/330/986/0x0/90/87cf496c-fca7-4f5b-9260-4ea540c61243-Screenshot20260827195836.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-4-trussville-tribune-griffin-gets-first-win-at-center-point",
+      "id": "news-6-cbs-42-37-year-old-man-killed-in-warrior-crash",
       "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "Trussville Tribune",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/CP-FB-G2-Dontarius-Acoff-Catch-200x300.jpg",
+        "url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/GettyImages-1481901238_90c474.jpg?w=788",
         "from": "feed",
         "width": null,
-        "credit": "Trussville Tribune"
+        "credit": "CBS 42"
       },
       "obit": null,
       "score": 27,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Griffin gets first win at Center Point",
-      "summary": "By Johnny Sanders, Sports Editor CENTER POINT – The Center Point Eagles picked up a 21-20 victory over the Fultondale Wildcats on Friday night to get Grady Griffin his first win at the school. The game was plagued with penalties and some missed opportunities, but Griffin’s Eagles seemingly gained some offensive footing",
-      "description": "By Johnny Sanders, Sports Editor CENTER POINT – The Center Point Eagles picked up a 21-20 victory over the Fultondale Wildcats on Friday night to get Grady Griffin his first win at the school. The game was plagued with penalties and some missed opportunities, but Griffin’s Eagles seemingly gained some offensive footing",
-      "url": "https://www.trussvilletribune.com/2026/08/29/griffin-gets-first-win-at-center-point/",
-      "link": "https://www.trussvilletribune.com/2026/08/29/griffin-gets-first-win-at-center-point/",
-      "published_at": "2026-08-29T15:51:35.000Z",
-      "date": "2026-08-29T15:51:35.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "37-year-old man killed in Warrior crash",
+      "summary": "A 37-year-old man who was killed in a crash on Warrior-Jasper Road was identified Thursday.",
+      "description": "A 37-year-old man who was killed in a crash on Warrior-Jasper Road was identified Thursday.",
+      "url": "https://www.cbs42.com/traffic/37-year-old-man-killed-in-warrior-crash/",
+      "link": "https://www.cbs42.com/traffic/37-year-old-man-killed-in-warrior-crash/",
+      "published_at": "2026-08-27T13:28:55.000Z",
+      "date": "2026-08-27T13:28:55.000Z",
       "location_tags": [
-        "fultondale"
+        "warrior"
       ],
-      "topic_tags": [],
+      "topic_tags": [
+        "roads"
+      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/CP-FB-G2-Dontarius-Acoff-Catch-200x300.jpg"
+      "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/07/GettyImages-1481901238_90c474.jpg?w=788"
     },
     {
-      "id": "news-5-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "id": "news-7-abc-33-40-i-20-westbound-lanes-blocked-in-jefferson-county-after-multi",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/786/986/0x8/90/4849c036-4054-4f64-a9fd-24ef9b1bf31a-Screenshot20260831085747.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "I-20 westbound lanes blocked in Jefferson County after multi-vehicle crash",
+      "summary": "A multi-vehicle crash has blocked both westbound lanes of Interstate 20 near the 143 mile marker in Jefferson County.The crash happened around 7:18 a.m. Monday.",
+      "description": "A multi-vehicle crash has blocked both westbound lanes of Interstate 20 near the 143 mile marker in Jefferson County.The crash happened around 7:18 a.m. Monday.",
+      "url": "https://abc3340.com/news/local/i-20-westbound-lanes-blocked-in-jefferson-county-after-multi-vehicle-crash",
+      "link": "https://abc3340.com/news/local/i-20-westbound-lanes-blocked-in-jefferson-county-after-multi-vehicle-crash",
+      "published_at": "2026-08-31T14:02:28.000Z",
+      "date": "2026-08-31T14:02:28.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/786/986/0x8/90/4849c036-4054-4f64-a9fd-24ef9b1bf31a-Screenshot20260831085747.png"
+    },
+    {
+      "id": "news-8-abc-33-40-woman-dies-after-hit-and-run-crash-in-birmingham",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/e08496a2-da13-4cd6-a474-3b7e2d78c64c-BirminghamPolice.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Woman dies after hit-and-run crash in Birmingham",
+      "summary": "An unidentified woman died after she was hit by a vehicle Sunday night in Birmingham, according to the Jefferson County Coroner’s Office.The woman was a pedestr",
+      "description": "An unidentified woman died after she was hit by a vehicle Sunday night in Birmingham, according to the Jefferson County Coroner’s Office.The woman was a pedestr",
+      "url": "https://abc3340.com/news/local/woman-dies-after-hit-and-run-crash-in-birmingham",
+      "link": "https://abc3340.com/news/local/woman-dies-after-hit-and-run-crash-in-birmingham",
+      "published_at": "2026-08-31T13:50:41.000Z",
+      "date": "2026-08-31T13:50:41.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/e08496a2-da13-4cd6-a474-3b7e2d78c64c-BirminghamPolice.png"
+    },
+    {
+      "id": "news-9-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -201,7 +378,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -227,7 +404,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/08/Animal-Car-Control-Facility-8-27-2026-.jpg"
     },
     {
-      "id": "news-6-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "id": "news-10-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -243,7 +420,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -269,45 +446,7 @@
       "image_url": "https://abc3340.com/resources/media/768f71ab-00ba-4486-923d-4040c70ab2b5-large16x9_GBHSadoption.jpg?1653076779359"
     },
     {
-      "id": "news-7-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si",
-      "section": "nearby",
-      "why": "names mortimer jordan",
-      "town": "Mortimer Jordan",
-      "tags": [],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/IMG_3039-1024x768.jpeg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 22,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Mortimer Jordan tops Shades Valley 24-14 in first meeting since 1949",
-      "summary": "By Shane Paschal, For the Tribune IRONDALE- Shades Valley entered its second straight home game to open the season facing an old county rival the Mounties had not met in 77 years. The Mounties led the all-time series with Mortimer Jordan 20-1-3, with the Blue Devils’ only victory coming in 1939. The teams last met […]",
-      "description": "By Shane Paschal, For the Tribune IRONDALE- Shades Valley entered its second straight home game to open the season facing an old county rival the Mounties had not met in 77 years. The Mounties led the all-time series with Mortimer Jordan 20-1-3, with the Blue Devils’ only victory coming in 1939. The teams last met […]",
-      "url": "https://www.trussvilletribune.com/2026/08/29/mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-since-1949/",
-      "link": "https://www.trussvilletribune.com/2026/08/29/mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-since-1949/",
-      "published_at": "2026-08-29T07:12:09.000Z",
-      "date": "2026-08-29T07:12:09.000Z",
-      "location_tags": [
-        "mortimer-jordan"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/IMG_3039-1024x768.jpeg"
-    },
-    {
-      "id": "news-8-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "id": "news-11-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -318,7 +457,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -344,7 +483,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "id": "news-12-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -360,7 +499,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -386,7 +525,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/2958/986/893x521/90/ed082ed9-a716-4fbf-9299-a39ddc3fae67-012763998e8f446ca884141728fe2fdaGettyImages1189256905.jpg"
     },
     {
-      "id": "news-10-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
+      "id": "news-13-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
       "section": "county",
       "why": "birmingham, weather",
       "town": "Birmingham",
@@ -402,7 +541,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -428,7 +567,95 @@
       "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/08/7DD8AC9FF640CCDFDC19B5089F9233ED.jpg?w=800"
     },
     {
-      "id": "news-11-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026",
+      "id": "news-14-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Tribute Archive",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Rosemary Carlene Mills Obituary",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Tribute Archive",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 12,
+      "source_type": "media_feed",
+      "source_name": "Tribute Archive",
+      "source": "Tribute Archive",
+      "title": "Rosemary Carlene Mills Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
+      "published_at": "2026-08-23T07:00:00.000Z",
+      "date": "2026-08-23T07:00:00.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-15-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Tribute Archive",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Charles Andrews Obituary",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Tribute Archive",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 12,
+      "source_type": "media_feed",
+      "source_name": "Tribute Archive",
+      "source": "Tribute Archive",
+      "title": "Charles Andrews Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
+      "published_at": "2026-08-21T07:00:00.000Z",
+      "date": "2026-08-21T07:00:00.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-16-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
