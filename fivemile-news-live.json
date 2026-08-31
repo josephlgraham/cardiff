@@ -1,35 +1,73 @@
 {
-  "updatedAt": "2026-08-30T15:10:16.328Z",
+  "updatedAt": "2026-08-31T01:05:32.940Z",
   "counts": {
+    "towns": 1,
     "nearby": 4,
     "county": 5,
-    "obituaries": 3
+    "obituaries": 1
   },
   "sections": {
-    "towns": [],
+    "towns": [
+      "news-1-fivemile-august-2026-finished-with-1-34-inches-of-rain"
+    ],
     "nearby": [
-      "news-1-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
-      "news-2-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
-      "news-3-trussville-tribune-griffin-gets-first-win-at-center-point",
-      "news-6-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si"
+      "news-2-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
+      "news-3-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
+      "news-4-trussville-tribune-griffin-gets-first-win-at-center-point",
+      "news-7-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si"
     ],
     "creek": [],
     "county": [
-      "news-4-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
-      "news-5-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
-      "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
-      "news-8-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
-      "news-9-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo"
+      "news-5-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "news-6-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "news-8-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "news-9-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "news-10-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo"
     ],
     "obituaries": [
-      "news-10-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
-      "news-11-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
-      "news-12-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a"
+      "news-11-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
+      "id": "news-1-fivemile-august-2026-finished-with-1-34-inches-of-rain",
+      "section": "towns",
+      "why": "filed by the desk",
+      "town": "Cardiff",
+      "tags": [
+        "Weather"
+      ],
+      "outlet": "FIVEMILE",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 40,
+      "source_type": "media_feed",
+      "source_name": "FIVEMILE",
+      "source": "FIVEMILE",
+      "title": "August 2026 finished with 1.34 inches of rain",
+      "summary": "That is the total the local station measured across August 2026.",
+      "description": "That is the total the local station measured across August 2026.",
+      "url": "fivemile-almanac.html",
+      "link": "fivemile-almanac.html",
+      "published_at": "2026-08-31T01:05:32.938Z",
+      "date": "2026-08-31T01:05:32.938Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [
+        "weather"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-2-abc-33-40-hayden-man-killed-in-single-vehicle-crash-in-warrior",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -45,7 +83,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -71,7 +109,7 @@
       "image_url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png"
     },
     {
-      "id": "news-2-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
+      "id": "news-3-abc-33-40-longtime-birmingham-radio-personality-binnie-myles-dies",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -85,7 +123,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -109,7 +147,7 @@
       "image_url": "https://abc3340.com/resources/media2/15x19/330/986/0x0/90/87cf496c-fca7-4f5b-9260-4ea540c61243-Screenshot20260827195836.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-3-trussville-tribune-griffin-gets-first-win-at-center-point",
+      "id": "news-4-trussville-tribune-griffin-gets-first-win-at-center-point",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -147,7 +185,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/CP-FB-G2-Dontarius-Acoff-Catch-200x300.jpg"
     },
     {
-      "id": "news-4-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
+      "id": "news-5-birminghamwatch-gbhs-to-move-into-new-oxmoor-area-animal-control-facility",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -163,7 +201,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -189,7 +227,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/08/Animal-Car-Control-Facility-8-27-2026-.jpg"
     },
     {
-      "id": "news-5-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
+      "id": "news-6-abc-33-40-jefferson-county-commission-approves-agreement-for-new-anima",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -231,7 +269,7 @@
       "image_url": "https://abc3340.com/resources/media/768f71ab-00ba-4486-923d-4040c70ab2b5-large16x9_GBHSadoption.jpg?1653076779359"
     },
     {
-      "id": "news-6-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si",
+      "id": "news-7-trussville-tribune-mortimer-jordan-tops-shades-valley-24-14-in-first-meeting-si",
       "section": "nearby",
       "why": "names mortimer jordan",
       "town": "Mortimer Jordan",
@@ -245,7 +283,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -269,7 +307,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/08/IMG_3039-1024x768.jpeg"
     },
     {
-      "id": "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
+      "id": "news-8-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-101-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -280,7 +318,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -306,7 +344,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
+      "id": "news-9-abc-33-40-bessemer-candidate-files-lawsuit-questioning-opponents-resid",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -322,7 +360,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -348,7 +386,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/2958/986/893x521/90/ed082ed9-a716-4fbf-9299-a39ddc3fae67-012763998e8f446ca884141728fe2fdaGettyImages1189256905.jpg"
     },
     {
-      "id": "news-9-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
+      "id": "news-10-cbs-42-alabama-chef-with-ties-to-nepal-collecting-donations-for-flo",
       "section": "county",
       "why": "birmingham, weather",
       "town": "Birmingham",
@@ -364,7 +402,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -390,131 +428,43 @@
       "image_url": "https://www.cbs42.com/wp-content/uploads/sites/81/2026/08/7DD8AC9FF640CCDFDC19B5089F9233ED.jpg?w=800"
     },
     {
-      "id": "news-10-wbrc-authorities-ozark-funeral-home-theft-suspect-arrested-connec",
+      "id": "news-11-wolfefuneralhomes-com-james-reily-allen-obituary-aug-24-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
       "tags": [
         "Obituary"
       ],
-      "outlet": "WBRC",
+      "outlet": "wolfefuneralhomes.com",
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Authorities: Ozark funeral home theft suspect arrested, connected to other cases across southeastern US",
+        "name": "James Reily Allen Obituary Aug 24, 2026",
         "age": null,
         "town": "",
-        "home": "WBRC",
+        "home": "wolfefuneralhomes.com",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 17,
+      "score": 1,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Authorities: Ozark funeral home theft suspect arrested, connected to other cases across southeastern US",
-      "summary": "Investigators were able to uncover what was described as a sophisticated ring of crimes targeting mortuaries in Alabama, Georgia, Florida and South Carolina, among other states.",
-      "description": "Investigators were able to uncover what was described as a sophisticated ring of crimes targeting mortuaries in Alabama, Georgia, Florida and South Carolina, among other states.",
-      "url": "https://www.wbrc.com/2026/08/28/authorities-ozark-funeral-home-theft-suspect-arrested-connected-other-cases-across-southeastern-us/",
-      "link": "https://www.wbrc.com/2026/08/28/authorities-ozark-funeral-home-theft-suspect-arrested-connected-other-cases-across-southeastern-us/",
-      "published_at": "2026-08-28T20:29:43.000Z",
-      "date": "2026-08-28T20:29:43.000Z",
+      "source_name": "wolfefuneralhomes.com",
+      "source": "wolfefuneralhomes.com",
+      "title": "James Reily Allen Obituary Aug 24, 2026",
+      "summary": "James Reily Allen Obituary Aug 24, 2026 wolfefuneralhomes.com",
+      "description": "James Reily Allen Obituary Aug 24, 2026 wolfefuneralhomes.com",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8wUllNRTRMMHRjeUtfTjRaeFBJTWsyRl9kQVVFYXBkaUtXR09PSXRyc3J4bDZPeUQ5NmJaNmh1Mk9SQ2Qwa0FvTTFUYnJXV2E5SnJibXVLN2dkV3FJbERMVmZnOTlGSnM?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8wUllNRTRMMHRjeUtfTjRaeFBJTWsyRl9kQVVFYXBkaUtXR09PSXRyc3J4bDZPeUQ5NmJaNmh1Mk9SQ2Qwa0FvTTFUYnJXV2E5SnJibXVLN2dkV3FJbERMVmZnOTlGSnM?oc=5",
+      "published_at": "2026-08-24T07:00:00.000Z",
+      "date": "2026-08-24T07:00:00.000Z",
       "location_tags": [
         "regional"
       ],
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Rosemary Carlene Mills Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Rosemary Carlene Mills Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
-      "published_at": "2026-08-23T07:00:00.000Z",
-      "date": "2026-08-23T07:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Charles Andrews Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Charles Andrews Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
-      "published_at": "2026-08-21T07:00:00.000Z",
-      "date": "2026-08-21T07:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
