@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T19:43:05.195Z",
+  "updatedAt": "2026-08-31T11:31:25.462Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 75,
-    "species_in_window": 65,
-    "window_total": 80,
-    "species_recorded": 66,
-    "observations_recorded": 77,
-    "area_total": 1081,
-    "guide_links": 0
+    "in_window": 76,
+    "species_in_window": 66,
+    "window_total": 81,
+    "species_recorded": 67,
+    "observations_recorded": 78,
+    "area_total": 1082,
+    "guide_links": 1
   },
   "observations": [
+    {
+      "id": 395923395,
+      "taxon": 50001,
+      "name": "Eastern Box Turtle",
+      "latin": "Terrapene carolina carolina",
+      "rank": "subspecies",
+      "group": "Reptile",
+      "icon": "🐍",
+      "observedOn": "2026-08-30",
+      "place": null,
+      "obscured": true,
+      "observer": "Kay Dantzler",
+      "observerLogin": "kaydantzler",
+      "guide": "boxturt",
+      "url": "https://www.inaturalist.org/observations/395923395",
+      "firstRecord": true
+    },
     {
       "id": 395699452,
       "taxon": 226221,
@@ -37,7 +54,7 @@
       "observerLogin": "kbakkegard",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/395699452",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 394427437,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/376445375",
       "firstRecord": false
-    },
-    {
-      "id": 376445156,
-      "taxon": 147030,
-      "name": "Davis' Tree Cricket",
-      "latin": "Oecanthus exclamationis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-06-26",
-      "place": null,
-      "obscured": true,
-      "observer": "brianbeverage",
-      "observerLogin": "brianbeverage",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/376445156",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -1129,6 +1129,19 @@
       "count": 1,
       "ids": [
         376445156
+      ]
+    },
+    {
+      "taxon": 50001,
+      "name": "Eastern Box Turtle",
+      "latin": "Terrapene carolina carolina",
+      "group": "Reptile",
+      "rank": "subspecies",
+      "first": "2026-08-30",
+      "last": "2026-08-30",
+      "count": 1,
+      "ids": [
+        395923395
       ]
     },
     {
