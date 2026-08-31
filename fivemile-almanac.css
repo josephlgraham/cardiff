@@ -333,6 +333,28 @@ section.top{padding:24px 0 0}
 .fx-slow{background:rgba(80,44,8,.06);color:#6B6156;border-color:#DDCFB8}
 .fx-tough{background:rgba(200,16,46,.08);color:var(--red);border-color:rgba(200,16,46,.24)}
 
+/* On the red bar the four states above are unreadable. Dark green at twelve
+   percent over red is the chip Joe could not read, and a red Tough chip on a
+   red bar would be worse than unreadable, it would be invisible. So on the bar
+   the chip takes the bar own colour.
+
+   It keeps the pill. What sits in that slot everywhere else on the site is a
+   source, Our station or US EPA, and this one is a verdict. The shape is what
+   says which it is, and dropping to plain text to solve a colour problem would
+   have cost that.
+
+   Nothing is lost by taking the colour off it either. This chip is a summary of
+   the four factor rows in the body below, each of which carries its own
+   coloured chip on card stock and reads correctly there, and the word in this
+   one says what it means without help.
+
+   The fill is darker than the bar rather than lighter. A white wash lightens
+   the red under the white letters and takes the contrast down to 4.9, which
+   scrapes AA and is not enough for ten pixel uppercase mono in front of the
+   readers this site has. Sinking the pill instead puts it at 7.9.
+   See DECISIONS.md 65. */
+.d-bar .fx-verdict{background:rgba(0,0,0,.18);color:#fff;border-color:rgba(255,255,255,.38)}
+
 /* ---------------------------------------------------------------------------
    THE FISH CARD  ·  .card-fish  ·  the fishing desk only
 

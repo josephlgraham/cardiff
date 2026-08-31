@@ -77,7 +77,12 @@
 // fivemile-common.js so the almanac and the news page agree about noon.
 // fivemile-news.html, fivemile-common.js and fivemile-almanac.js all changed
 // and all three are precached and served cache-first. See DECISIONS.md 64.
-const CACHE_NAME = 'fivemile-v68';
+// v69 makes the overall verdict chip readable on the red bar of the fishing
+// desk read card, and stops the slot it sits in fading its own children.
+// fivemile-cards.css and fivemile-almanac.css both changed, and stylesheets are
+// the thing this cache is most cache-first about: without the bump a returning
+// reader keeps the unreadable chip. See DECISIONS.md 65.
+const CACHE_NAME = 'fivemile-v69';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

@@ -3935,3 +3935,64 @@ decision 10.
 the readings drops periods that have been and gone already, so by evening it is
 showing tonight and tomorrow, which is right. It has not been touched here and
 it did not need to be.
+
+## 65. A verdict chip on the red bar takes the bar colour
+**Decided:** August 2026.
+
+Joe read the whole site and found one thing: the chip on the right of the
+"What the creek is telling you" bar on the fishing desk was impossible to read.
+He was right, and it was worse than it looked.
+
+`.fx-verdict` has four states drawn for card stock: green, amber, grey and red,
+each a coloured word on a twelve percent wash of itself. On the cream body of a
+card they are correct. The overall verdict is the only one of the six chips on
+that page that does not sit on card stock. It sits in the `.r` slot of a
+`.d-bar`, which is solid red with white text, so a dark green word on a pale
+green wash was being laid over red and then faded.
+
+**And the state that would have been worst has never shipped.** `fx-tough` is
+red on a red wash. On a red bar that chip is not hard to read, it is invisible,
+and the day the creek is in a state to earn it is the day a reader most needs
+the word. The fix had to cover four states rather than the one in the
+screenshot.
+
+### The chip takes the bar colour, and keeps its shape
+
+On a `.d-bar` the chip is white on a darkened pill. There is no version of the
+four colours that works here: green on red is a vibration and red on red is
+nothing.
+
+**It stays a pill.** What sits in that slot on the other fifty three bars is a
+source, Our station or US EPA or USGS 02457595. This one is a verdict, and the
+shape is what tells a reader which it is. Dropping to plain text would have
+solved a colour problem by throwing away the distinction.
+
+**No information is lost with the colour.** The chip is a summary of four factor
+rows in the body underneath, and every one of those keeps its coloured chip on
+card stock where it reads correctly. The word in this one says what it means
+without a colour helping.
+
+**The fill sinks rather than lifts.** A white wash was tried first and lightens
+the red under white letters, which lands at 4.9 to 1. That scrapes AA and is not
+enough for ten pixel uppercase mono in front of readers who skew older. Black at
+eighteen percent darkens it instead and measures 7.9.
+
+### The real bug was one line above
+
+`.d-bar .r` carried `opacity:.88`. Opacity on a container fades everything
+inside it, so the chip background and its border were being faded too, and no
+rule on the chip could undo it: a child cannot opt out of a parent opacity.
+
+It is `color:rgba(255,255,255,.88)` now. On all fifty three bars where that slot
+holds nothing but text the two are the same pixels, which was checked rather
+than assumed, and on the one bar where it holds an element the child is free to
+set its own colours.
+
+**Opacity on a container is a blunt instrument and this is the reason why.** It
+reads as a way to soften text and it is actually a way to soften a subtree. When
+the thing being faded is text, fade the text.
+
+**Revisit if:** a second chip ever lands on a bar. The rule is on `.d-bar
+.fx-verdict` rather than on an id, so it already covers one, and that is the
+right shape: the rule is about where the chip is standing, not about which page
+it is on.

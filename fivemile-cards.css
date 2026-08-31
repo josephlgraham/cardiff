@@ -218,7 +218,13 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
 .d-bar{background:var(--red);color:#fff;padding:9px 15px;display:flex;justify-content:space-between;
   align-items:center;gap:10px}
 .d-bar h3{margin:0;font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-.d-bar .r{font-family:var(--mono);font-size:10.5px;opacity:.88}
+/* The slot on the right of the bar. It held opacity:.88, which dims whatever is
+   inside it rather than just the words, and on the fishing desk what is inside
+   it is a verdict chip with its own background and border. Fading the colour
+   instead leaves every other bar on the site pixel for pixel where it was,
+   because on all fifty three of them this slot holds nothing but text.
+   See DECISIONS.md 65. */
+.d-bar .r{font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.88)}
 .d-body{padding:15px;flex:1;display:flex;flex-direction:column}
 /* A body holding nothing but the hairline grid gives the grid all of it. Two
    panels side by side stretch to the taller one, and without this the shorter
