@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-09-01T06:40:49.102Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-09-01T16:36:36.157Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": true,
   "calendarReminderCount": 1,
-  "ticker": "🚨 Tomorrow: Jefferson County tornado siren test · Sirens test at 10:00 AM, no action needed",
+  "ticker": "🌡️ Heat Advisory · Through Sunday 1 AM    ·    🚨 Tomorrow: Jefferson County tornado siren test · Sirens test at 10:00 AM, no action needed",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Heat Advisory",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "🌡️",
+      "ends": "2026-09-05T20:00:00-05:00",
+      "endsShort": "Sunday 1 AM",
+      "headline": "Heat Advisory",
+      "description": "* WHAT...Heat index values up to 107 expected.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0646ad9576a3ab0469dedebf8494771bb0ecc921.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": [
