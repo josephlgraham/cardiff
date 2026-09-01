@@ -148,13 +148,15 @@
       weekday: 4,
       hour: 9,
       endHour: 13,
-      place: "857 Main Street, Gardendale",
+      /* It runs May through September and is not a date at all the rest of the
+         year, so the months are on the entry rather than only in the sentence.
+         A month outside the window prints no row. */
+      seasonStartMonth: 5,
+      seasonEndMonth: 9,
+      place: "Bill Noble Park, 5895 Bill Noble Drive, Gardendale",
       windowLabel: "Thursdays, 9:00 AM to 1:00 PM",
       calendarLabel: "Thursdays",
-      /* NEEDS-CONFIRMATION: which months it runs. The aggregators disagree and
-         none of them agree with the market, so the calendar says Thursdays and
-         stops there. */
-      summary: "Growers set up on Thursday mornings at 857 Main Street in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one."
+      summary: "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September."
     },
     {
       id: "great-horned-owls",
@@ -784,10 +786,29 @@
     return out.sort(function (a, b) { return a.start - b.start; });
   }
 
-  /* The next time a weekly entry comes round, on or after the reference day. */
+  /* A weekly entry can keep a season. The market runs May through September and
+     is not a date at all the rest of the year, so a month outside the window
+     gets no row and the next occurrence in October is next May. An entry with
+     no season months set runs the year round, which is what the councils and
+     the siren test want. */
+  function inWeeklySeason(entry, date) {
+    if (!entry.seasonStartMonth || !entry.seasonEndMonth) return true;
+    const month = date.getMonth() + 1;
+    if (entry.seasonStartMonth <= entry.seasonEndMonth) {
+      return month >= entry.seasonStartMonth && month <= entry.seasonEndMonth;
+    }
+    return month >= entry.seasonStartMonth || month <= entry.seasonEndMonth;
+  }
+
+  /* The next time a weekly entry comes round, on or after the reference day.
+     Out of season it steps a week at a time until it is back inside the window,
+     and fifty three steps is a whole year, so it cannot run away. */
   function buildWeeklyOccurrence(entry, today) {
     const ahead = (entry.weekday - today.getDay() + 7) % 7;
-    const start = addDays(today, ahead);
+    let start = addDays(today, ahead);
+    for (let step = 0; step < 53 && !inWeeklySeason(entry, start); step++) {
+      start = addDays(start, 7);
+    }
     return { start: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()), end: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()) };
   }
 
@@ -1062,6 +1083,7 @@
         return;
       }
       if (entry.kind === "weekly") {
+        if (!inWeeklySeason(entry, monthStart)) return;
         /* One row a month, not four or five. A market that comes round every
            Thursday is a standing arrangement, and printing it five times turns
            the month into a list of the same sentence. */

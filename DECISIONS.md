@@ -2176,8 +2176,8 @@ to remember to extend a list every year.
 **The market is weekly and it is not in the civic lane.** The homepage takes the
 next three civic dates and nothing else. A market that comes round every Thursday
 would win all three and push the council meetings off the front page. It shows
-on the calendar as one standing row a month rather than four rows of the same
-sentence, and on the news page, which takes anything inside ten days regardless
+on the calendar as one standing row in each month it runs, rather than four rows
+of the same sentence, and on the news page, which takes anything inside ten days regardless
 of lane, it earns its row like anything else happening this week.
 
 ### The reminders knew about one council out of three
@@ -2219,10 +2219,16 @@ time and place are his too, given the day after the first pass shipped without
 them. Where the web could confirm something it was checked, and the two sales
 tax holiday rules are the state's own.
 
-**One thing is deliberately not written down**, with a NEEDS-CONFIRMATION
-comment in `fivemile-season-data.js` where it would go: which months the market
-runs. The aggregators disagree with each other and one of them prints a start
-date that is not a Thursday. The calendar says Thursdays and stops there.
+**One thing was deliberately not written down** for a while, with a
+NEEDS-CONFIRMATION comment in `fivemile-season-data.js` where it would go: which
+months the market runs. The aggregators disagreed with each other and one of
+them printed a start date that was not a Thursday, so the calendar said
+Thursdays and stopped there. Joe supplied the answer in September 2026, with the
+move to Bill Noble Park: it runs May through September. The entry carries
+`seasonStartMonth` and `seasonEndMonth` now, a month outside that window prints
+no row, and out of season the next occurrence is the first Thursday back inside
+it rather than this coming one. A weekly entry with no season months set still
+runs the year round.
 
 ### Copy that had never been read
 
