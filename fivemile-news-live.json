@@ -1,30 +1,23 @@
 {
-  "updatedAt": "2026-09-02T00:49:10.919Z",
+  "updatedAt": "2026-09-02T14:58:38.841Z",
   "counts": {
     "towns": 2,
-    "nearby": 1,
-    "county": 4,
-    "obituaries": 3
+    "county": 1,
+    "obituaries": 2
   },
   "sections": {
     "towns": [
       "news-1-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
       "news-2-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
     ],
-    "nearby": [
-      "news-3-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga"
-    ],
+    "nearby": [],
     "creek": [],
     "county": [
-      "news-4-wbrc-birmingham-neighbors-divided-over-permanent-east-lake-safety",
-      "news-5-wbrc-jefferson-county-plans-magnet-school-expansion-that-may-halt",
-      "news-6-abc-33-40-i-20-westbound-lanes-blocked-in-jefferson-county-after-multi",
-      "news-7-abc-33-40-54-year-old-woman-dies-after-hit-and-run-crash-in-birmingham"
+      "news-3-wbrc-birmingham-neighbors-divided-over-permanent-east-lake-safety"
     ],
     "obituaries": [
-      "news-8-trussville-tribune-maryanne-humphries-october-11-1942-august-26-2026",
-      "news-9-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
-      "news-10-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a"
+      "news-4-trussville-tribune-maryanne-humphries-october-11-1942-august-26-2026",
+      "news-5-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a"
     ]
   },
   "stories": [
@@ -45,7 +38,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 43,
+      "score": 42,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -77,81 +70,34 @@
       "town": "Graysville",
       "tags": [],
       "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/IYSYDMS54NAJXJJ7PRP7BF3GFE.jpg?auth=99691be67cb9989d2005dc2c241024c3f1b9a8310e939faa03eab95badd78c64&smart=true&height=1200",
-        "from": "feed",
-        "width": 1500,
-        "credit": "AL.com"
-      },
+      "paywall": false,
+      "image": null,
       "obit": null,
-      "score": 42,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
       "title": "2 indicted after man found shot dead in burning Graysville house",
-      "summary": "The men are charged in the May 25, 2025, killing of Nelson Angel Hilario-Doblon.",
-      "description": "The men are charged in the May 25, 2025, killing of Nelson Angel Hilario-Doblon.",
-      "url": "https://www.al.com/news/2026/09/2-indicted-after-man-found-shot-dead-in-burning-graysville-house.html",
-      "link": "https://www.al.com/news/2026/09/2-indicted-after-man-found-shot-dead-in-burning-graysville-house.html",
-      "published_at": "2026-09-01T22:25:39.000Z",
-      "date": "2026-09-01T22:25:39.000Z",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
+      "published_at": "2026-09-01T22:25:00.000Z",
+      "date": "2026-09-01T22:25:00.000Z",
       "location_tags": [
         "graysville"
       ],
       "topic_tags": [],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/IYSYDMS54NAJXJJ7PRP7BF3GFE.jpg?auth=99691be67cb9989d2005dc2c241024c3f1b9a8310e939faa03eab95badd78c64&smart=true&height=1200"
-    },
-    {
-      "id": "news-3-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga",
-      "section": "nearby",
-      "why": "names mulga",
-      "town": "Mulga",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 35,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Bessemer man dies after single-vehicle crash in Mulga",
-      "summary": "A Bessemer man died after a single-vehicle crash in Mulga Friday night, according to the Jefferson County Coroner’s Office.Cameron Dakota Brown, 33, was the dri",
-      "description": "A Bessemer man died after a single-vehicle crash in Mulga Friday night, according to the Jefferson County Coroner’s Office.Cameron Dakota Brown, 33, was the dri",
-      "url": "https://abc3340.com/news/local/bessemer-man-dies-after-single-vehicle-crash-in-mulga",
-      "link": "https://abc3340.com/news/local/bessemer-man-dies-after-single-vehicle-crash-in-mulga",
-      "published_at": "2026-08-31T13:48:10.000Z",
-      "date": "2026-08-31T13:48:10.000Z",
-      "location_tags": [
-        "mulga"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
       "priority_level": 4,
       "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
+      "image_url": ""
     },
     {
-      "id": "news-4-wbrc-birmingham-neighbors-divided-over-permanent-east-lake-safety",
+      "id": "news-3-wbrc-birmingham-neighbors-divided-over-permanent-east-lake-safety",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -167,7 +113,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -193,133 +139,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//3Y7PJAAGNZDGJF4N5BVJSUKE5U.jpg?auth=10a6d1f5ab58ab19544655a49fcbe714cbaa19016d40879bdf910f21b0e8c270&smart=false"
     },
     {
-      "id": "news-5-wbrc-jefferson-county-plans-magnet-school-expansion-that-may-halt",
-      "section": "county",
-      "why": "jefferson county, schools",
-      "town": "Jefferson County",
-      "tags": [
-        "Schools"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J4XBIEZMLFGWNAPKLLQ3FF63TM.png?auth=5d0c4a40f420d2d4517ab034d1047d51d409d8ded8c1693294b4f8f03895875c&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Jefferson County plans magnet school expansion that may halt plans for Irondale school system",
-      "summary": "Jefferson County Schools Superintendent Dr. Walter Gonsoulin announced plans Monday to expand magnet schools within the district, a move that keeps all three public schools in the city of Irondale under county control.",
-      "description": "Jefferson County Schools Superintendent Dr. Walter Gonsoulin announced plans Monday to expand magnet schools within the district, a move that keeps all three public schools in the city of Irondale under county control.",
-      "url": "https://www.wbrc.com/2026/08/31/jefferson-county-plans-magnet-school-expansion-that-may-halt-plans-irondale-school-system/",
-      "link": "https://www.wbrc.com/2026/08/31/jefferson-county-plans-magnet-school-expansion-that-may-halt-plans-irondale-school-system/",
-      "published_at": "2026-09-01T14:19:07.000Z",
-      "date": "2026-09-01T14:19:07.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "schools"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J4XBIEZMLFGWNAPKLLQ3FF63TM.png?auth=5d0c4a40f420d2d4517ab034d1047d51d409d8ded8c1693294b4f8f03895875c&smart=false"
-    },
-    {
-      "id": "news-6-abc-33-40-i-20-westbound-lanes-blocked-in-jefferson-county-after-multi",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/786/986/0x8/90/4849c036-4054-4f64-a9fd-24ef9b1bf31a-Screenshot20260831085747.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "I-20 westbound lanes blocked in Jefferson County after multi-vehicle crash",
-      "summary": "A multi-vehicle crash has blocked both westbound lanes of Interstate 20 near the 143 mile marker in Jefferson County.The crash happened around 7:18 a.m. Monday.",
-      "description": "A multi-vehicle crash has blocked both westbound lanes of Interstate 20 near the 143 mile marker in Jefferson County.The crash happened around 7:18 a.m. Monday.",
-      "url": "https://abc3340.com/news/local/i-20-westbound-lanes-blocked-in-jefferson-county-after-multi-vehicle-crash",
-      "link": "https://abc3340.com/news/local/i-20-westbound-lanes-blocked-in-jefferson-county-after-multi-vehicle-crash",
-      "published_at": "2026-08-31T14:02:28.000Z",
-      "date": "2026-08-31T14:02:28.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/786/986/0x8/90/4849c036-4054-4f64-a9fd-24ef9b1bf31a-Screenshot20260831085747.png"
-    },
-    {
-      "id": "news-7-abc-33-40-54-year-old-woman-dies-after-hit-and-run-crash-in-birmingham",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/e08496a2-da13-4cd6-a474-3b7e2d78c64c-BirminghamPolice.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "54-year-old woman dies after hit-and-run crash in Birmingham",
-      "summary": "A 54-year-old woman died after she was hit by a vehicle Sunday night in Birmingham, according to the Jefferson County Coroner’s Office.The coroner has identifie",
-      "description": "A 54-year-old woman died after she was hit by a vehicle Sunday night in Birmingham, according to the Jefferson County Coroner’s Office.The coroner has identifie",
-      "url": "https://abc3340.com/news/local/woman-dies-after-hit-and-run-crash-in-birmingham",
-      "link": "https://abc3340.com/news/local/woman-dies-after-hit-and-run-crash-in-birmingham",
-      "published_at": "2026-08-31T13:50:41.000Z",
-      "date": "2026-08-31T13:50:41.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/e08496a2-da13-4cd6-a474-3b7e2d78c64c-BirminghamPolice.png"
-    },
-    {
-      "id": "news-8-trussville-tribune-maryanne-humphries-october-11-1942-august-26-2026",
+      "id": "news-4-trussville-tribune-maryanne-humphries-october-11-1942-august-26-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -363,7 +183,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
+      "id": "news-5-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -392,50 +212,6 @@
       "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
       "published_at": "2026-08-23T07:00:00.000Z",
       "date": "2026-08-23T07:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-tribute-archive-charles-andrews-obituary-crestview-memorial-gardens-and-fh-a",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Charles Andrews Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Charles Andrews Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE94aE5BeElUUUdxUHIzVDJBZ0xjT09FbFVmUUlmYmF2QUxzSFBaWVF4SkhNeUUyUFlqQVlDQVJaS0h3dC1Zb19YeHhBWktFYXhPNDVWdnowbE9Va1lNS1p3TElCQ3ctTVJwOVdhX240MEpMd083?oc=5",
-      "published_at": "2026-08-21T07:00:00.000Z",
-      "date": "2026-08-21T07:00:00.000Z",
       "location_tags": [
         "adamsville"
       ],
