@@ -1,90 +1,45 @@
 {
-  "updatedAt": "2026-09-03T00:56:31.389Z",
+  "updatedAt": "2026-09-03T14:52:07.738Z",
   "counts": {
-    "nearby": 2,
-    "towns": 2,
-    "county": 1,
-    "obituaries": 4
+    "towns": 1,
+    "county": 4,
+    "obituaries": 3
   },
   "sections": {
     "towns": [
-      "news-2-wbrc-6-news-graysville-names-new-police-chief",
-      "news-3-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
+      "news-1-wbrc-graysville-names-new-police-chief"
     ],
-    "nearby": [
-      "news-1-wbrc-hoover-police-welcome-new-k-9-lili",
-      "news-5-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga"
-    ],
+    "nearby": [],
     "creek": [],
     "county": [
-      "news-4-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo"
+      "news-2-wbrc-north-carolina-man-hit-killed-by-vehicle-in-jefferson-county",
+      "news-3-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "news-4-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
+      "news-5-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont"
     ],
     "obituaries": [
       "news-6-trussville-tribune-vera-stol-milton-july-3-1928-august-13-2026",
       "news-7-trussville-tribune-pastor-jim-hill-january-5-1952-august-30-2026",
-      "news-8-trussville-tribune-virginia-loftin-phillips-september-29-1930-august-28-2026",
-      "news-9-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a"
+      "news-8-trussville-tribune-virginia-loftin-phillips-september-29-1930-august-28-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-hoover-police-welcome-new-k-9-lili",
-      "section": "nearby",
-      "why": "names republic",
-      "town": "Republic",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//GT6Y65GCBNFNLPPXLOZFILMY6Y.png?auth=276812985b502200fdf3220b0536e7ec49ea7f0e0734c8e5e53e6b41fd8ea85d&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 35,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Hoover Police welcome new K-9 Lili",
-      "summary": "According to police, K-9 Lili officially started her Hoover watch on May 6, 2026, but National Police K-9 Day was the perfect time to announce her presence on the force. She’s a 60-pound Dutch Shepard mix and was born in the Czech Republic on Oct. 26, 2024.",
-      "description": "According to police, K-9 Lili officially started her Hoover watch on May 6, 2026, but National Police K-9 Day was the perfect time to announce her presence on the force. She’s a 60-pound Dutch Shepard mix and was born in the Czech Republic on Oct. 26, 2024.",
-      "url": "https://www.wbrc.com/2026/09/02/hoover-police-welcome-new-k-9-lili/",
-      "link": "https://www.wbrc.com/2026/09/02/hoover-police-welcome-new-k-9-lili/",
-      "published_at": "2026-09-02T18:22:51.000Z",
-      "date": "2026-09-02T18:22:51.000Z",
-      "location_tags": [
-        "republic"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//GT6Y65GCBNFNLPPXLOZFILMY6Y.png?auth=276812985b502200fdf3220b0536e7ec49ea7f0e0734c8e5e53e6b41fd8ea85d&smart=false"
-    },
-    {
-      "id": "news-2-wbrc-6-news-graysville-names-new-police-chief",
+      "id": "news-1-wbrc-graysville-names-new-police-chief",
       "section": "towns",
       "why": "names graysville",
       "town": "Graysville",
       "tags": [
         "Public safety"
       ],
-      "outlet": "WBRC 6 News",
+      "outlet": "WBRC",
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
-      "source_name": "WBRC 6 News",
-      "source": "WBRC 6 News",
+      "source_name": "WBRC",
+      "source": "WBRC",
       "title": "Graysville names new police chief",
       "summary": "",
       "description": "",
@@ -107,37 +62,88 @@
       "image_url": ""
     },
     {
-      "id": "news-3-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "2 indicted after man found shot dead in burning Graysville house",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
-      "published_at": "2026-09-01T22:25:00.000Z",
-      "date": "2026-09-01T22:25:00.000Z",
-      "location_tags": [
-        "graysville"
+      "id": "news-2-wbrc-north-carolina-man-hit-killed-by-vehicle-in-jefferson-county",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "North Carolina man hit, killed by vehicle in Jefferson County following crash",
+      "summary": "The victim has been identified as Ira Gerald Tillman-Murphey. He was 65.",
+      "description": "The victim has been identified as Ira Gerald Tillman-Murphey. He was 65.",
+      "url": "https://www.wbrc.com/2026/09/03/north-carolina-man-hit-killed-by-vehicle-jefferson-county-following-crash/",
+      "link": "https://www.wbrc.com/2026/09/03/north-carolina-man-hit-killed-by-vehicle-jefferson-county-following-crash/",
+      "published_at": "2026-09-03T12:50:18.000Z",
+      "date": "2026-09-03T12:50:18.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false"
+    },
+    {
+      "id": "news-3-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/8667/986/0x447/90/89eb8b43-f9b4-46e8-af16-655da2ebfe0e-GettyImages2290345537.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Record Labor Day gas prices expected as Alabama drivers hit the road",
+      "summary": "BIRMINGHAM, Ala. (WBMA) - Drivers heading out for Labor Day weekend road trips will face record-high gas prices, even as traffic is expected to clog Alabama int",
+      "description": "BIRMINGHAM, Ala. (WBMA) - Drivers heading out for Labor Day weekend road trips will face record-high gas prices, even as traffic is expected to clog Alabama int",
+      "url": "https://abc3340.com/news/local/gas-prices-increases-holiday-weekend",
+      "link": "https://abc3340.com/news/local/gas-prices-increases-holiday-weekend",
+      "published_at": "2026-09-03T12:10:02.000Z",
+      "date": "2026-09-03T12:10:02.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/8667/986/0x447/90/89eb8b43-f9b4-46e8-af16-655da2ebfe0e-GettyImages2290345537.jpg"
     },
     {
       "id": "news-4-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
@@ -156,7 +162,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -182,30 +188,35 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x362/90/fc6883f2-3bb8-4b5d-825f-5143fa0c291a-090226WIDENED280OPENING.png"
     },
     {
-      "id": "news-5-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga",
-      "section": "nearby",
-      "why": "names mulga",
-      "town": "Mulga",
+      "id": "news-5-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
       "tags": [
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": null,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2022/08/AdobeStock_476922984-1024x683.jpeg",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
       "obit": null,
       "score": 21,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Bessemer man dies after single-vehicle crash in Mulga",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNakpPOUZCMllvNGdqTTR0UUtNRU94MExhR3dXM2Zkc0IzN2R2bTREd011MERpRlQwU2x3MTdLM3FZWU1YWWRDZVFzZmQxSzVzMVFLQ0xfX0oxVmI3SHN2amVqQVAwZl9PdHZTbEhJalduSVN2cU41MGVQRUpJbFFvSTh1bHhoZWZPeTNJSA?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNakpPOUZCMllvNGdqTTR0UUtNRU94MExhR3dXM2Zkc0IzN2R2bTREd011MERpRlQwU2x3MTdLM3FZWU1YWWRDZVFzZmQxSzVzMVFLQ0xfX0oxVmI3SHN2amVqQVAwZl9PdHZTbEhJalduSVN2cU41MGVQRUpJbFFvSTh1bHhoZWZPeTNJSA?oc=5",
-      "published_at": "2026-08-31T13:50:39.000Z",
-      "date": "2026-08-31T13:50:39.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "North Carolina man killed after crashing car and walking onto I-22 near Dora",
+      "summary": "DORA, Ala. — A North Carolina man was killed after being hit by a car on I-22 near Dora on Wednesday night. 65-year-old Ira Gerald Tillman-Murphey, of Concord, N.C., was involved in a single-vehicle crash on I-22 East at Snowville Brent Road around 8:20 p.m., Sept. 2, according to the Jefferson County Coroner’s Office.",
+      "description": "DORA, Ala. — A North Carolina man was killed after being hit by a car on I-22 near Dora on Wednesday night. 65-year-old Ira Gerald Tillman-Murphey, of Concord, N.C., was involved in a single-vehicle crash on I-22 East at Snowville Brent Road around 8:20 p.m., Sept. 2, according to the Jefferson County Coroner’s Office.",
+      "url": "https://www.trussvilletribune.com/2026/09/03/north-carolina-man-killed-after-crashing-car-and-walking-onto-i-22-near-dora/",
+      "link": "https://www.trussvilletribune.com/2026/09/03/north-carolina-man-killed-after-crashing-car-and-walking-onto-i-22-near-dora/",
+      "published_at": "2026-09-03T14:28:41.000Z",
+      "date": "2026-09-03T14:28:41.000Z",
       "location_tags": [
-        "mulga"
+        "jefferson-county"
       ],
       "topic_tags": [
         "roads"
@@ -216,7 +227,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2022/08/AdobeStock_476922984-1024x683.jpeg"
     },
     {
       "id": "news-6-trussville-tribune-vera-stol-milton-july-3-1928-august-13-2026",
@@ -281,7 +292,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -325,7 +336,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -338,50 +349,6 @@
       "date": "2026-09-02T15:39:59.000Z",
       "location_tags": [
         "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-9-tribute-archive-rosemary-carlene-mills-obituary-crestview-memorial-gardens-a",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Rosemary Carlene Mills Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Rosemary Carlene Mills Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82TldFWW40SEUyQWwtLUp5ZFY0aFZ3cWU2aHRPbmM3RG1fMml0MUNMYmJ2bTE1MmFVWHNOQTE2M2tIYVA1NU03ZGx0VHlXLUxKZlBOMjhTWVJrNUJTcjlXcGM3YWt3NVF2aVZWQkNub2tkQjBndG9ZdDlCejlSUQ?oc=5",
-      "published_at": "2026-08-23T07:00:00.000Z",
-      "date": "2026-08-23T07:00:00.000Z",
-      "location_tags": [
-        "adamsville"
       ],
       "topic_tags": [
         "obituary"
