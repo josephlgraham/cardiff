@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-09-02T20:01:13.742Z",
+  "updatedAt": "2026-09-03T05:05:19.576Z",
   "hasAlerts": true,
   "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
-  "hasCalendarReminders": true,
-  "calendarReminderCount": 1,
-  "ticker": "🌡️ Heat Advisory · Through Sunday 1 AM    ·    🏛️ Tomorrow: Graysville City Council meeting · Graysville City Hall · 6:00 PM",
+  "hasCalendarReminders": false,
+  "calendarReminderCount": 0,
+  "ticker": "🌡️ Heat Advisory · Through Sunday 1 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -18,13 +18,11 @@
       "ends": "2026-09-05T20:00:00-05:00",
       "endsShort": "Sunday 1 AM",
       "headline": "Heat Advisory",
-      "description": "* WHAT...Heat index values up to 108 expected.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3a22322ab656b6e67a5c58a186a2c410d0206d1d.001.1"
+      "description": "* WHAT...Heat index values up to 108.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.248eb1e098a6feb4f6df3e4db3b18ca5fd716bda.001.1"
     }
   ],
   "spcOutlook": [],
   "gaugeAlerts": [],
-  "calendarReminders": [
-    "🏛️ Tomorrow: Graysville City Council meeting · Graysville City Hall · 6:00 PM"
-  ]
+  "calendarReminders": []
 }

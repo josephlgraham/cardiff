@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T00:39:06.304Z",
+  "updatedAt": "2026-09-03T05:05:22.006Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -24,12 +24,12 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 71,
-      "highTemp": 95,
+      "lowTemp": 75,
+      "highTemp": 75,
       "windGust": 0,
       "label": "So far today",
       "isMorning": false,
-      "coverageStart": "2026-09-02"
+      "coverageStart": "2026-09-03"
     }
   },
   "gauges": [
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.16,
       "discharge_cfs": 20,
-      "water_temp_f": 83.3,
-      "dissolved_oxygen_mgl": 7.5,
-      "specific_conductance_uscm": 550,
+      "water_temp_f": 81.7,
+      "dissolved_oxygen_mgl": 6.4,
+      "specific_conductance_uscm": 548,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0.013,
-      "updated_at": "2026-09-03T00:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.013,
+      "updated_at": "2026-09-03T04:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-08-04T01:45:00+00:00",
-          "stage_ft": 1.36
-        },
         {
           "at": "2026-08-04T07:45:00+00:00",
           "stage_ft": 1.42
@@ -528,11 +524,11 @@
           "stage_ft": 1.13
         },
         {
-          "at": "2026-09-02T18:45:00+00:00",
-          "stage_ft": 1.13
+          "at": "2026-09-02T23:15:00+00:00",
+          "stage_ft": 1.14
         },
         {
-          "at": "2026-09-03T00:00:00+00:00",
+          "at": "2026-09-03T04:00:00+00:00",
           "stage_ft": 1.16
         }
       ],
@@ -557,8 +553,8 @@
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-03T00:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-09-03T04:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
