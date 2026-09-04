@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03",
+  "updated": "2026-09-04",
   "about": "The board. One row per notice. Somebody sends in the details, we type them here, and the page does the rest. The text is what a reader gets: it is what a screen reader reads out and what shows on a phone, so it has to carry the notice on its own. An image, if there is one, sits underneath and is never the only place the details live. runsUntil is the last day the notice shows, in YYYY-MM-DD. After that the page stops showing it and the row stays here, because a supper that already happened is still a record of a supper. Set paid to true on anything that was paid for and the card says so on its face.",
   "fields": {
     "id": "Short slug, unique, never reused.",
