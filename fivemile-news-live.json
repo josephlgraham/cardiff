@@ -1,58 +1,141 @@
 {
-  "updatedAt": "2026-09-03T14:52:07.738Z",
+  "updatedAt": "2026-09-04T00:46:26.802Z",
   "counts": {
+    "nearby": 3,
     "towns": 1,
     "county": 4,
     "obituaries": 3
   },
   "sections": {
     "towns": [
-      "news-1-wbrc-graysville-names-new-police-chief"
+      "news-3-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
     ],
-    "nearby": [],
+    "nearby": [
+      "news-1-wbrc-fultondale-police-asking-if-you-know-anything-about-hit-and-",
+      "news-2-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "news-8-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga"
+    ],
     "creek": [],
     "county": [
-      "news-2-wbrc-north-carolina-man-hit-killed-by-vehicle-in-jefferson-county",
-      "news-3-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
-      "news-4-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
-      "news-5-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont"
+      "news-4-jefferson-county-testing-public-commentary",
+      "news-5-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "news-6-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
+      "news-7-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont"
     ],
     "obituaries": [
-      "news-6-trussville-tribune-vera-stol-milton-july-3-1928-august-13-2026",
-      "news-7-trussville-tribune-pastor-jim-hill-january-5-1952-august-30-2026",
-      "news-8-trussville-tribune-virginia-loftin-phillips-september-29-1930-august-28-2026"
+      "news-9-trussville-tribune-joseph-raymond-williamson-october-26-1946-august-28-2026",
+      "news-10-trussville-tribune-bertha-dean-strickland-september-7-1937-september-1-2026",
+      "news-11-trussville-tribune-shirley-fay-king-may-5-1941-august-26-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-graysville-names-new-police-chief",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
+      "id": "news-1-wbrc-fultondale-police-asking-if-you-know-anything-about-hit-and-",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
       "tags": [
+        "Roads",
         "Public safety"
       ],
       "outlet": "WBRC",
       "paywall": false,
-      "image": null,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//QSW2L4QGB5D3TEWXO236LNH6HM.png?auth=1d503d08e061762544af135e4538479a664b542cf1f0b1bd50f6437e886dcb8d&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
       "obit": null,
-      "score": 32,
+      "score": 39,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Graysville names new police chief",
+      "title": "Fultondale Police asking if you know anything about hit-and-run that happened in August",
+      "summary": "According to police, on Wednesday, Aug. 5, around 10 p.m., a motorcyclist was hit by a black, four-door sedan, which left the scene. The accident happened on Highway 31 Northbound in front of Domino’s.",
+      "description": "According to police, on Wednesday, Aug. 5, around 10 p.m., a motorcyclist was hit by a black, four-door sedan, which left the scene. The accident happened on Highway 31 Northbound in front of Domino’s.",
+      "url": "https://www.wbrc.com/2026/09/03/fultondale-police-asking-if-you-know-anything-about-hit-and-run-that-happened-august/",
+      "link": "https://www.wbrc.com/2026/09/03/fultondale-police-asking-if-you-know-anything-about-hit-and-run-that-happened-august/",
+      "published_at": "2026-09-03T22:08:34.000Z",
+      "date": "2026-09-03T22:08:34.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [
+        "roads",
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//QSW2L4QGB5D3TEWXO236LNH6HM.png?auth=1d503d08e061762544af135e4538479a664b542cf1f0b1bd50f6437e886dcb8d&smart=false"
+    },
+    {
+      "id": "news-2-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "section": "nearby",
+      "why": "names corner",
+      "town": "Corner",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Meet the Birmingham vets helping pets have more good days",
+      "summary": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
+      "description": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
+      "url": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "link": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "published_at": "2026-09-03T19:26:20.000Z",
+      "date": "2026-09-03T19:26:20.000Z",
+      "location_tags": [
+        "corner"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
+    },
+    {
+      "id": "news-3-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "2 indicted after man found shot dead in burning Graysville house",
       "summary": "",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGZiOFAyVXJCQk50UHBJUjJnSkdXZzBmT3dCSXViclBFM19uZ0tQZkZGem1ZTWtNaHRmSUNEMGd3T1UyZk1ZU1pURHJmQVdrT0hkaFBZaGY3UjF1cUhhREJSOC16RE5ZLXBCOFdMTXl5aTlnRXV2QlRCNWJVcEgxTHF5Y3FEQmtS0gGIAUFVX3lxTE84ZmI4UDJVckJCTnRQcElSMmdKR1dnMGZPd0JJdWJyUEUzX25nS1BmRkZ6bVlNa01odGZJQ0QwZ3dPVTJmTVlTWlREcmZBV2tPSGRoUFloZjdSMXVxSGFEQlI4LXpETlktcEI4V0xNeXlpOWdFdXZCVEI1YlVwSDFMcXljcURCa1I?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGZiOFAyVXJCQk50UHBJUjJnSkdXZzBmT3dCSXViclBFM19uZ0tQZkZGem1ZTWtNaHRmSUNEMGd3T1UyZk1ZU1pURHJmQVdrT0hkaFBZaGY3UjF1cUhhREJSOC16RE5ZLXBCOFdMTXl5aTlnRXV2QlRCNWJVcEgxTHF5Y3FEQmtS0gGIAUFVX3lxTE84ZmI4UDJVckJCTnRQcElSMmdKR1dnMGZPd0JJdWJyUEUzX25nS1BmRkZ6bVlNa01odGZJQ0QwZ3dPVTJmTVlTWlREcmZBV2tPSGRoUFloZjdSMXVxSGFEQlI4LXpETlktcEI4V0xNeXlpOWdFdXZCVEI1YlVwSDFMcXljcURCa1I?oc=5",
-      "published_at": "2026-08-31T23:02:00.000Z",
-      "date": "2026-08-31T23:02:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhJNmdzcnIzZHdCS3pUUE5xZzhkWFdfUVJ4Q3NSX1V0d3Y2RFRJbEFTZ1dJbmZvamV1bU1EbUxXTWpIOTctNms1YzZxcnlBN0IyYlJqQUhYOV9ZYmxjdTFpblhZU0h6SjFscFZrbFNyWUVoOUJRMHFlTks0enRBWC1SM1djQk1mYVptczNScGxZSlFjUzU2cV9VRldpbVdtLWh0VVdORFZ3VHE2aDB0OGJpT3dMaknSAbcBQVVfeXFMUG5ISTZnc3JyM2R3Qkt6VFBOcWc4ZFhXX1FSeENzUl9VdHd2NkRUSWxBU2dXSW5mb2pldW1NRG1MV01qSDk3LTZrNWM2cXJ5QTdCMmJSakFIWDlfWWJsY3UxaW5YWVNIekoxbHBWa2xTcllFaDlCUTBxZU5LNHp0QVgtUjNXY0JNZmFabXMzUnBsWUpRY1M1NnFfVUZXaW1XbS1odFVXTkRWd1RxNmgwdDhiaU93TGpJ?oc=5",
+      "published_at": "2026-09-01T22:25:00.000Z",
+      "date": "2026-09-01T22:25:00.000Z",
       "location_tags": [
         "graysville"
       ],
-      "topic_tags": [
-        "public-safety"
-      ],
+      "topic_tags": [],
       "priority_level": 4,
       "priority": 4,
       "section_target": "news",
@@ -62,38 +145,33 @@
       "image_url": ""
     },
     {
-      "id": "news-2-wbrc-north-carolina-man-hit-killed-by-vehicle-in-jefferson-county",
+      "id": "news-4-jefferson-county-testing-public-commentary",
       "section": "county",
-      "why": "jefferson county, roads",
+      "why": "jefferson county, utilities",
       "town": "Jefferson County",
       "tags": [
-        "Roads"
+        "Utilities"
       ],
-      "outlet": "WBRC",
+      "outlet": "Jefferson County",
       "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
+      "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "North Carolina man hit, killed by vehicle in Jefferson County following crash",
-      "summary": "The victim has been identified as Ira Gerald Tillman-Murphey. He was 65.",
-      "description": "The victim has been identified as Ira Gerald Tillman-Murphey. He was 65.",
-      "url": "https://www.wbrc.com/2026/09/03/north-carolina-man-hit-killed-by-vehicle-jefferson-county-following-crash/",
-      "link": "https://www.wbrc.com/2026/09/03/north-carolina-man-hit-killed-by-vehicle-jefferson-county-following-crash/",
-      "published_at": "2026-09-03T12:50:18.000Z",
-      "date": "2026-09-03T12:50:18.000Z",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Testing Public Commentary",
+      "summary": "This form is to allow the public to provide feed back to Environmental Services for the proposed changes to the specifications for sanitary sewer construction.",
+      "description": "This form is to allow the public to provide feed back to Environmental Services for the proposed changes to the specifications for sanitary sewer construction.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=147",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=147",
+      "published_at": "2026-09-03T16:13:00.000Z",
+      "date": "2026-09-03T16:13:00.000Z",
       "location_tags": [
         "jefferson-county"
       ],
       "topic_tags": [
-        "roads"
+        "utilities"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -101,10 +179,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false"
+      "image_url": ""
     },
     {
-      "id": "news-3-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "id": "news-5-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -120,7 +198,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -146,7 +224,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/8667/986/0x447/90/89eb8b43-f9b4-46e8-af16-655da2ebfe0e-GettyImages2290345537.jpg"
     },
     {
-      "id": "news-4-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
+      "id": "news-6-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -162,7 +240,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -188,7 +266,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x362/90/fc6883f2-3bb8-4b5d-825f-5143fa0c291a-090226WIDENED280OPENING.png"
     },
     {
-      "id": "news-5-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont",
+      "id": "news-7-trussville-tribune-north-carolina-man-killed-after-crashing-car-and-walking-ont",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -204,7 +282,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -230,7 +308,44 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2022/08/AdobeStock_476922984-1024x683.jpeg"
     },
     {
-      "id": "news-6-trussville-tribune-vera-stol-milton-july-3-1928-august-13-2026",
+      "id": "news-8-abc-33-40-bessemer-man-dies-after-single-vehicle-crash-in-mulga",
+      "section": "nearby",
+      "why": "names mulga",
+      "town": "Mulga",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 19,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Bessemer man dies after single-vehicle crash in Mulga",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNakpPOUZCMllvNGdqTTR0UUtNRU94MExhR3dXM2Zkc0IzN2R2bTREd011MERpRlQwU2x3MTdLM3FZWU1YWWRDZVFzZmQxSzVzMVFLQ0xfX0oxVmI3SHN2amVqQVAwZl9PdHZTbEhJalduSVN2cU41MGVQRUpJbFFvSTh1bHhoZWZPeTNJSA?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNakpPOUZCMllvNGdqTTR0UUtNRU94MExhR3dXM2Zkc0IzN2R2bTREd011MERpRlQwU2x3MTdLM3FZWU1YWWRDZVFzZmQxSzVzMVFLQ0xfX0oxVmI3SHN2amVqQVAwZl9PdHZTbEhJalduSVN2cU41MGVQRUpJbFFvSTh1bHhoZWZPeTNJSA?oc=5",
+      "published_at": "2026-08-31T13:50:39.000Z",
+      "date": "2026-08-31T13:50:39.000Z",
+      "location_tags": [
+        "mulga"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-trussville-tribune-joseph-raymond-williamson-october-26-1946-august-28-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -241,7 +356,7 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Vera Stol Milton (July 3, 1928 — August 13, 2026)",
+        "name": "Joseph Raymond Williamson (October 26, 1946 — August 28, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
@@ -252,13 +367,13 @@
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Vera Stol Milton (July 3, 1928 — August 13, 2026)",
-      "summary": "Mrs. Vera Stol Milton, age 98 of Pensacola, Florida, passed away peacefully on August 13, 2026, surrounded by her family. Vera was born and raised in Vienna, Austria, and was a witness to the events of World War II. She met her husband, Arthur Doyal Milton in Vienna while he was serving in the U.S. […]",
-      "description": "Mrs. Vera Stol Milton, age 98 of Pensacola, Florida, passed away peacefully on August 13, 2026, surrounded by her family. Vera was born and raised in Vienna, Austria, and was a witness to the events of World War II. She met her husband, Arthur Doyal Milton in Vienna while he was serving in the U.S. […]",
-      "url": "https://www.trussvilletribune.com/2026/09/02/vera-stol-milton-july-3-1928-august-13-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/02/vera-stol-milton-july-3-1928-august-13-2026/",
-      "published_at": "2026-09-02T16:23:57.000Z",
-      "date": "2026-09-02T16:23:57.000Z",
+      "title": "Joseph Raymond Williamson (October 26, 1946 — August 28, 2026)",
+      "summary": "Joseph “Joe” Williamson, 79, of Steele, Alabama, passed away peacefully at home on August 28, 2026, following an illness. Born on October 26, 1946, in Lakeland, Florida, Joe developed a remarkably strong work ethic from a very early age, starting out with jobs like delivering newspapers and bagging groceries at a local",
+      "description": "Joseph “Joe” Williamson, 79, of Steele, Alabama, passed away peacefully at home on August 28, 2026, following an illness. Born on October 26, 1946, in Lakeland, Florida, Joe developed a remarkably strong work ethic from a very early age, starting out with jobs like delivering newspapers and bagging groceries at a local",
+      "url": "https://www.trussvilletribune.com/2026/09/03/joseph-raymond-williamson-october-26-1946-august-28-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/03/joseph-raymond-williamson-october-26-1946-august-28-2026/",
+      "published_at": "2026-09-03T16:12:27.000Z",
+      "date": "2026-09-03T16:12:27.000Z",
       "location_tags": [
         "regional"
       ],
@@ -274,7 +389,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-trussville-tribune-pastor-jim-hill-january-5-1952-august-30-2026",
+      "id": "news-10-trussville-tribune-bertha-dean-strickland-september-7-1937-september-1-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -285,24 +400,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Pastor Jim Hill (January 5, 1952 — August 30, 2026)",
+        "name": "Bertha Dean Strickland (September 7, 1937 — September 1, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
-        "serviceLabel": ""
+        "serviceLabel": "Tuesday, September 8"
       },
-      "score": 12,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Pastor Jim Hill (January 5, 1952 — August 30, 2026)",
-      "summary": "Pastor Jim Hill, age 74, of Palmerdale, Alabama passed away Sunday, August 30, 2026. Born in Grand Junction, Michigan on January 5, 1952, Jim was a beloved husband, father, grandfather, brother and friend. Jim was preceded in death by his parents, William Lee Hill, Jr. and Marjorie Pugh Hill. He is survived by his lovi",
-      "description": "Pastor Jim Hill, age 74, of Palmerdale, Alabama passed away Sunday, August 30, 2026. Born in Grand Junction, Michigan on January 5, 1952, Jim was a beloved husband, father, grandfather, brother and friend. Jim was preceded in death by his parents, William Lee Hill, Jr. and Marjorie Pugh Hill. He is survived by his lovi",
-      "url": "https://www.trussvilletribune.com/2026/09/02/pastor-jim-hill-january-5-1952-august-30-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/02/pastor-jim-hill-january-5-1952-august-30-2026/",
-      "published_at": "2026-09-02T15:50:30.000Z",
-      "date": "2026-09-02T15:50:30.000Z",
+      "title": "Bertha Dean Strickland (September 7, 1937 — September 1, 2026)",
+      "summary": "Bertha Dean Strickland “Bert” was born in Winfield, Alabama in 1937. She passed from this life on September 1, 2026. Visitation will be Tuesday, September 8, 2026, at 9:00 a.m. followed by funeral services at 10:00 a.m. at Jefferson Memorial Funeral Home. Terrell Harris will officiate; interment will be in Jefferson Me",
+      "description": "Bertha Dean Strickland “Bert” was born in Winfield, Alabama in 1937. She passed from this life on September 1, 2026. Visitation will be Tuesday, September 8, 2026, at 9:00 a.m. followed by funeral services at 10:00 a.m. at Jefferson Memorial Funeral Home. Terrell Harris will officiate; interment will be in Jefferson Me",
+      "url": "https://www.trussvilletribune.com/2026/09/03/bertha-dean-strickland-september-7-1937-september-1-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/03/bertha-dean-strickland-september-7-1937-september-1-2026/",
+      "published_at": "2026-09-03T16:02:36.000Z",
+      "date": "2026-09-03T16:02:36.000Z",
       "location_tags": [
         "regional"
       ],
@@ -318,7 +433,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-trussville-tribune-virginia-loftin-phillips-september-29-1930-august-28-2026",
+      "id": "news-11-trussville-tribune-shirley-fay-king-may-5-1941-august-26-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -329,24 +444,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Virginia Loftin Phillips (September 29, 1930 — August 28, 2026)",
+        "name": "Shirley Fay King (May 5, 1941 — August 26, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 12,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Virginia Loftin Phillips (September 29, 1930 — August 28, 2026)",
-      "summary": "Virginia L. Phillips went home to be with her Lord on September 28, 2026. Preceded in death by her husband Carl W.E. Phillips, married for 67 years, sons Earl and Timothy Phillips, and her father and mother TJ and Turci Loftin, sister Reba Brown and her brothers Herschel and Erskin Lofton. She is survived by […]",
-      "description": "Virginia L. Phillips went home to be with her Lord on September 28, 2026. Preceded in death by her husband Carl W.E. Phillips, married for 67 years, sons Earl and Timothy Phillips, and her father and mother TJ and Turci Loftin, sister Reba Brown and her brothers Herschel and Erskin Lofton. She is survived by […]",
-      "url": "https://www.trussvilletribune.com/2026/09/02/virginia-loftin-phillips-september-29-1930-august-28-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/02/virginia-loftin-phillips-september-29-1930-august-28-2026/",
-      "published_at": "2026-09-02T15:39:59.000Z",
-      "date": "2026-09-02T15:39:59.000Z",
+      "title": "Shirley Fay King (May 5, 1941 — August 26, 2026)",
+      "summary": "Shirley King, age 85, of Cullman, Alabama, passed away on August 26, 2026. Born on May 5, 1941 in Mississippi, She was the child of Henry McCreight and Lucille McCreight She worked at GUIDE ONE as an insurance agent. She married Bobby King in 1996, and together they shared 30 wonderful years. Shirley was a […]",
+      "description": "Shirley King, age 85, of Cullman, Alabama, passed away on August 26, 2026. Born on May 5, 1941 in Mississippi, She was the child of Henry McCreight and Lucille McCreight She worked at GUIDE ONE as an insurance agent. She married Bobby King in 1996, and together they shared 30 wonderful years. Shirley was a […]",
+      "url": "https://www.trussvilletribune.com/2026/09/03/shirley-fay-king-may-5-1941-august-26-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/03/shirley-fay-king-may-5-1941-august-26-2026/",
+      "published_at": "2026-09-03T15:56:46.000Z",
+      "date": "2026-09-03T15:56:46.000Z",
       "location_tags": [
         "regional"
       ],
