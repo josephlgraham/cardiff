@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T22:34:49.980Z",
+  "updatedAt": "2026-09-04T00:22:58.033Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -48,12 +48,12 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.15,
       "discharge_cfs": 19.3,
-      "water_temp_f": 84.7,
-      "dissolved_oxygen_mgl": 8.5,
-      "specific_conductance_uscm": 538,
+      "water_temp_f": 84.2,
+      "dissolved_oxygen_mgl": 7.5,
+      "specific_conductance_uscm": 541,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-03T22:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-09-04T00:00:00+00:00",
       "stage_history": [
         {
           "at": "2026-08-05T01:45:00+00:00",
@@ -528,7 +528,11 @@
           "stage_ft": 1.18
         },
         {
-          "at": "2026-09-03T22:00:00+00:00",
+          "at": "2026-09-03T18:30:00+00:00",
+          "stage_ft": 1.17
+        },
+        {
+          "at": "2026-09-04T00:00:00+00:00",
           "stage_ft": 1.15
         }
       ],
@@ -554,7 +558,7 @@
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-09-03T22:00:00+00:00",
+      "updated_at": "2026-09-04T00:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
