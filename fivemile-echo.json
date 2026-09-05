@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-28T04:06:11.218Z",
+  "updatedAt": "2026-09-05T18:56:56.369Z",
   "source": "US EPA ECHO, Clean Water Act facility search",
   "source_url": "https://echo.epa.gov/",
   "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
@@ -16,29 +16,7 @@
       }
     ]
   },
-  "assessment": {
-    "assessment_unit": "AL03160111-0407-102",
-    "waterbody_name": "Fivemile Creek",
-    "condition": "Impaired - With Restoration Plan",
-    "reporting_cycle": "2022",
-    "causes_impaired": [
-      "AMMONIA",
-      "METALS (OTHER THAN MERCURY)",
-      "ORGANIC ENRICHMENT/OXYGEN DEPLETION",
-      "TOXIC INORGANICS",
-      "TOXIC ORGANICS"
-    ],
-    "designated_uses": {
-      "AquaticLifeUse": "Not Supporting",
-      "FishConsumptionUse": "Not Supporting",
-      "RecreationUse": "Not Supporting",
-      "EcologicalUse": "Not Supporting",
-      "DrinkingWaterUse": null,
-      "OtherUse": "Insufficient Information"
-    },
-    "epa_url": "https://mywaterway.epa.gov/waterbody-report/21AWIC/AL03160111-0407-102",
-    "read_from_permit": "ALG120453"
-  },
+  "assessment": null,
   "counts": {
     "basin_rows_scanned": 1931,
     "in_watershed_active": 49,
@@ -64,18 +42,7 @@
       "last_inspection": "02/03/2026",
       "lat": 33.59826,
       "lon": -86.77437,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120453",
-      "main_violation": "Failure to Report DMR - Not Received",
-      "main_violation_quarters": 12,
-      "violation_kinds": [
-        {
-          "kind": "Failure to Report DMR - Not Received",
-          "quarters": 12
-        }
-      ],
-      "inspections": 1,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120453"
     },
     {
       "name": "TOMLIN EXCAVATING CO., INC.",
@@ -96,18 +63,7 @@
       "last_inspection": "01/29/2026",
       "lat": 33.58945,
       "lon": -86.76989,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180917",
-      "main_violation": "Failure to Report DMR - Not Received",
-      "main_violation_quarters": 12,
-      "violation_kinds": [
-        {
-          "kind": "Failure to Report DMR - Not Received",
-          "quarters": 12
-        }
-      ],
-      "inspections": 1,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180917"
     },
     {
       "name": "BLUESTONE COKE, LLC - BIRMINGHAM",
@@ -123,26 +79,7 @@
       "last_inspection": "03/25/2025",
       "lat": 33.557464,
       "lon": -86.799671,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247",
-      "main_violation": "Other Violation",
-      "main_violation_quarters": 7,
-      "violation_kinds": [
-        {
-          "kind": "Other Violation",
-          "quarters": 7
-        },
-        {
-          "kind": "Reportable Noncompliance",
-          "quarters": 1
-        },
-        {
-          "kind": "Resolved",
-          "quarters": 1
-        }
-      ],
-      "inspections": 4,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247"
     },
     {
       "name": "SAIIA CONSTRUCTION COMPANY LLC",
@@ -158,26 +95,7 @@
       "last_inspection": "10/15/2020",
       "lat": 33.570983,
       "lon": -86.813765,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141045",
-      "main_violation": "Effluent - Non-monthly Average Limit",
-      "main_violation_quarters": 4,
-      "violation_kinds": [
-        {
-          "kind": "Effluent - Non-monthly Average Limit",
-          "quarters": 4
-        },
-        {
-          "kind": "Other Violation",
-          "quarters": 2
-        },
-        {
-          "kind": "Resolved",
-          "quarters": 1
-        }
-      ],
-      "inspections": 0,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141045"
     },
     {
       "name": "ABC COKE",
@@ -198,26 +116,7 @@
       "last_inspection": "10/16/2024",
       "lat": 33.5827,
       "lon": -86.7816,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003417",
-      "main_violation": "Other Violation",
-      "main_violation_quarters": 4,
-      "violation_kinds": [
-        {
-          "kind": "Other Violation",
-          "quarters": 4
-        },
-        {
-          "kind": "Reportable Noncompliance",
-          "quarters": 1
-        },
-        {
-          "kind": "Resolved",
-          "quarters": 1
-        }
-      ],
-      "inspections": 4,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003417"
     },
     {
       "name": "RAINDROP CAR WASH ROEBUCK, AL",
@@ -233,30 +132,7 @@
       "last_inspection": "11/05/2025",
       "lat": 33.607095,
       "lon": -86.689445,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141147",
-      "main_violation": "Failure to Report DMR - Not Received",
-      "main_violation_quarters": 4,
-      "violation_kinds": [
-        {
-          "kind": "Failure to Report DMR - Not Received",
-          "quarters": 4
-        },
-        {
-          "kind": "Other Violation",
-          "quarters": 1
-        },
-        {
-          "kind": "Resolved",
-          "quarters": 1
-        },
-        {
-          "kind": "Undetermined",
-          "quarters": 1
-        }
-      ],
-      "inspections": 1,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141147"
     },
     {
       "name": "ALLWORTH LLC",
@@ -277,18 +153,7 @@
       "last_inspection": "07/10/2024",
       "lat": 33.59459,
       "lon": -86.77125,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0032298",
-      "main_violation": "Other Violation",
-      "main_violation_quarters": 4,
-      "violation_kinds": [
-        {
-          "kind": "Other Violation",
-          "quarters": 4
-        }
-      ],
-      "inspections": 2,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0032298"
     },
     {
       "name": "ABC AUTO PARTS, INC.",
