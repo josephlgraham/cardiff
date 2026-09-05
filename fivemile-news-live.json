@@ -1,29 +1,114 @@
 {
-  "updatedAt": "2026-09-05T00:37:01.672Z",
+  "updatedAt": "2026-09-05T13:40:17.263Z",
   "counts": {
+    "nearby": 2,
     "towns": 2,
-    "county": 3,
+    "county": 4,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
-      "news-2-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
+      "news-3-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
+      "news-4-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
     ],
-    "nearby": [],
+    "nearby": [
+      "news-1-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "news-2-trussville-tribune-new-storm-shelter-arrives-in-irondale"
+    ],
     "creek": [],
     "county": [
-      "news-3-jefferson-county-testing-public-commentary",
-      "news-4-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
-      "news-5-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo"
+      "news-5-jefferson-county-testing-public-commentary",
+      "news-6-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "news-7-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
+      "news-8-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn"
     ],
     "obituaries": [
-      "news-6-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
+      "id": "news-1-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "section": "nearby",
+      "why": "names corner",
+      "town": "Corner",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Meet the Birmingham vets helping pets have more good days",
+      "summary": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
+      "description": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
+      "url": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "link": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "published_at": "2026-09-03T19:26:20.000Z",
+      "date": "2026-09-03T19:26:20.000Z",
+      "location_tags": [
+        "corner"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
+    },
+    {
+      "id": "news-2-trussville-tribune-new-storm-shelter-arrives-in-irondale",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Storm-Shelter.png",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "New storm shelter arrives in Irondale",
+      "summary": "IRONDALE, Ala. — A new storm shelter for the city of Irondale has arrived. Weighing 35,000 pounds the shelter was recently installed at Beacon Drive next to the Irondale Senior Activity Center and across from Irondale Fire Department Station No. 1. The work to place the shelter was performed by J.D. Morris Construction",
+      "description": "IRONDALE, Ala. — A new storm shelter for the city of Irondale has arrived. Weighing 35,000 pounds the shelter was recently installed at Beacon Drive next to the Irondale Senior Activity Center and across from Irondale Fire Department Station No. 1. The work to place the shelter was performed by J.D. Morris Construction",
+      "url": "https://www.trussvilletribune.com/2026/09/04/new-storm-shelter-arrives-in-irondale/",
+      "link": "https://www.trussvilletribune.com/2026/09/04/new-storm-shelter-arrives-in-irondale/",
+      "published_at": "2026-09-05T00:16:29.000Z",
+      "date": "2026-09-05T00:16:29.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Storm-Shelter.png"
+    },
+    {
+      "id": "news-3-abc-33-40-new-chief-of-police-selected-for-the-city-of-graysville",
       "section": "towns",
       "why": "names graysville",
       "town": "Graysville",
@@ -34,7 +119,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -60,7 +145,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
+      "id": "news-4-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
       "section": "towns",
       "why": "names graysville",
       "town": "Graysville",
@@ -69,7 +154,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -93,7 +178,7 @@
       "image_url": ""
     },
     {
-      "id": "news-3-jefferson-county-testing-public-commentary",
+      "id": "news-5-jefferson-county-testing-public-commentary",
       "section": "county",
       "why": "jefferson county, utilities",
       "town": "Jefferson County",
@@ -104,7 +189,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -130,7 +215,7 @@
       "image_url": ""
     },
     {
-      "id": "news-4-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
+      "id": "news-6-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -146,7 +231,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -172,7 +257,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/8667/986/0x447/90/89eb8b43-f9b4-46e8-af16-655da2ebfe0e-GettyImages2290345537.jpg"
     },
     {
-      "id": "news-5-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
+      "id": "news-7-abc-33-40-aldot-delays-opening-widened-u-s-280-section-between-homewoo",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -188,7 +273,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -214,7 +299,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x362/90/fc6883f2-3bb8-4b5d-825f-5143fa0c291a-090226WIDENED280OPENING.png"
     },
     {
-      "id": "news-6-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-8-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2017/10/police_lights.jpg",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 20,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "North Carolina man dies in Jefferson County accident on Wednesday night",
+      "summary": "JEFFERSON COUNTY, Ala. — A man from North Carolina was killed in an accident that took place on I-22 in Jefferson County on Wednesday night, said a report from the Alabama Law Enforcement Agency (ALEA). At approximately 8 p.m. Ira G. Murphey-Tillman, 65, of Concord, N.C., was involved in a single vehicle crash. While h",
+      "description": "JEFFERSON COUNTY, Ala. — A man from North Carolina was killed in an accident that took place on I-22 in Jefferson County on Wednesday night, said a report from the Alabama Law Enforcement Agency (ALEA). At approximately 8 p.m. Ira G. Murphey-Tillman, 65, of Concord, N.C., was involved in a single vehicle crash. While h",
+      "url": "https://www.trussvilletribune.com/2026/09/04/north-carolina-man-dies-in-jefferson-county-accident-on-wednesday-night/",
+      "link": "https://www.trussvilletribune.com/2026/09/04/north-carolina-man-dies-in-jefferson-county-accident-on-wednesday-night/",
+      "published_at": "2026-09-05T00:24:55.000Z",
+      "date": "2026-09-05T00:24:55.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/10/police_lights.jpg"
+    },
+    {
+      "id": "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -232,7 +359,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Tribute Archive",
       "source": "Tribute Archive",
