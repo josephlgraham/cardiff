@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-06T13:55:36.400Z",
+  "updatedAt": "2026-09-07T00:41:33.534Z",
   "counts": {
-    "nearby": 4,
+    "nearby": 3,
+    "county": 4,
     "towns": 1,
-    "county": 3,
     "obituaries": 1
   },
   "sections": {
@@ -13,17 +13,17 @@
     "nearby": [
       "news-1-wvtm-13-11-fire-departments-called-to-warrior-manufacturing-fire",
       "news-2-abc-33-40-fire-damages-commercial-building-in-warrior",
-      "news-3-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
-      "news-4-trussville-tribune-new-storm-shelter-arrives-in-irondale"
+      "news-4-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days"
     ],
     "creek": [],
     "county": [
+      "news-3-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night",
       "news-6-jefferson-county-testing-public-commentary",
       "news-7-abc-33-40-record-labor-day-gas-prices-expected-as-alabama-drivers-hit-",
       "news-8-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn"
     ],
     "obituaries": [
-      "news-9-tributearchive-com-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
@@ -44,7 +44,7 @@
         "credit": "WVTM 13"
       },
       "obit": null,
-      "score": 33,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "WVTM 13",
       "source": "WVTM 13",
@@ -53,8 +53,8 @@
       "description": "No one was hurt, but firefighters needed medical attention after extreme heat as crews worked to fully extinguish a fire at a Warrior manufacturing facility.",
       "url": "https://www.wvtm13.com/article/warrior-alabama-factory-fire-fire-departments/73623507",
       "link": "https://www.wvtm13.com/article/warrior-alabama-factory-fire-fire-departments/73623507",
-      "published_at": "2026-09-06T01:49:00.000Z",
-      "date": "2026-09-06T01:49:00.000Z",
+      "published_at": "2026-09-06T21:25:00.000Z",
+      "date": "2026-09-06T21:25:00.000Z",
       "location_tags": [
         "warrior"
       ],
@@ -86,7 +86,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -112,7 +112,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/725/986/0x66/90/88f660a5-90d8-41c3-a8fe-898dd9a4abea-MtHighFireRescueWarrior.png"
     },
     {
-      "id": "news-3-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
+      "id": "news-3-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MVP2O7L4YVDDRDWEYKAF77A5HI.jpg?auth=9ee30743ba66c5f0e5c1f96b07c54de8d5fb34c3cb4724306150125f40abbf0b&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Birmingham man hit, killed on Highway 280 Saturday night",
+      "summary": "He died at UAB Hospital.",
+      "description": "He died at UAB Hospital.",
+      "url": "https://www.wbrc.com/2026/09/06/birmingham-man-hit-killed-highway-280-saturday-night/",
+      "link": "https://www.wbrc.com/2026/09/06/birmingham-man-hit-killed-highway-280-saturday-night/",
+      "published_at": "2026-09-06T18:20:14.000Z",
+      "date": "2026-09-06T18:20:14.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MVP2O7L4YVDDRDWEYKAF77A5HI.jpg?auth=9ee30743ba66c5f0e5c1f96b07c54de8d5fb34c3cb4724306150125f40abbf0b&smart=false"
+    },
+    {
+      "id": "news-4-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -126,7 +168,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -141,55 +183,13 @@
         "corner"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
-    },
-    {
-      "id": "news-4-trussville-tribune-new-storm-shelter-arrives-in-irondale",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Storm-Shelter.png",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "New storm shelter arrives in Irondale",
-      "summary": "IRONDALE, Ala. — A new storm shelter for the city of Irondale has arrived. Weighing 35,000 pounds the shelter was recently installed at Beacon Drive next to the Irondale Senior Activity Center and across from Irondale Fire Department Station No. 1. The work to place the shelter was performed by J.D. Morris Construction",
-      "description": "IRONDALE, Ala. — A new storm shelter for the city of Irondale has arrived. Weighing 35,000 pounds the shelter was recently installed at Beacon Drive next to the Irondale Senior Activity Center and across from Irondale Fire Department Station No. 1. The work to place the shelter was performed by J.D. Morris Construction",
-      "url": "https://www.trussvilletribune.com/2026/09/04/new-storm-shelter-arrives-in-irondale/",
-      "link": "https://www.trussvilletribune.com/2026/09/04/new-storm-shelter-arrives-in-irondale/",
-      "published_at": "2026-09-05T00:16:29.000Z",
-      "date": "2026-09-05T00:16:29.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Storm-Shelter.png"
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
     },
     {
       "id": "news-5-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
@@ -201,7 +201,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -278,7 +278,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -346,28 +346,28 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/10/police_lights.jpg"
     },
     {
-      "id": "news-9-tributearchive-com-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
       "tags": [
         "Obituary"
       ],
-      "outlet": "tributearchive.com",
+      "outlet": "Tribute Archive",
       "paywall": false,
       "image": null,
       "obit": {
         "name": "Terry Russell Obituary",
         "age": null,
         "town": "Adamsville",
-        "home": "tributearchive.com",
+        "home": "Tribute Archive",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
-      "source_name": "tributearchive.com",
-      "source": "tributearchive.com",
+      "source_name": "Tribute Archive",
+      "source": "Tribute Archive",
       "title": "Terry Russell Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
       "summary": "",
       "description": "",
