@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-06T23:16:26.941Z",
+  "updatedAt": "2026-09-07T01:06:46.595Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -13,7 +13,7 @@
     "first": "2026-06-08",
     "last": "2026-09-05"
   },
-  "summary": "The area has picked up 0.12 inches today, and Republic gauge is holding fairly steady. Lead stage is 1.26 ft with about 29.0 cfs moving through the channel. Month-to-date rain is 0.12 inches.",
+  "summary": "The area has picked up 0.12 inches today, and Republic gauge is holding fairly steady. Lead stage is 1.25 ft with about 28.0 cfs moving through the channel. Month-to-date rain is 0.12 inches.",
   "rainContext": {
     "today": 0.12,
     "monthToDate": 0.12,
@@ -46,14 +46,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 1.26,
-      "discharge_cfs": 29,
-      "water_temp_f": 85.5,
-      "dissolved_oxygen_mgl": 7.8,
-      "specific_conductance_uscm": 541,
+      "stage_ft": 1.25,
+      "discharge_cfs": 28,
+      "water_temp_f": 84.4,
+      "dissolved_oxygen_mgl": 6.8,
+      "specific_conductance_uscm": 525,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.027,
-      "updated_at": "2026-09-06T22:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.007,
+      "updated_at": "2026-09-07T00:00:00+00:00",
       "stage_history": [
         {
           "at": "2026-08-08T01:15:00+00:00",
@@ -528,8 +528,12 @@
           "stage_ft": 1.15
         },
         {
-          "at": "2026-09-06T22:00:00+00:00",
-          "stage_ft": 1.26
+          "at": "2026-09-06T19:15:00+00:00",
+          "stage_ft": 1.35
+        },
+        {
+          "at": "2026-09-07T00:00:00+00:00",
+          "stage_ft": 1.25
         }
       ],
       "note": "This reach looks fairly steady right now."
@@ -554,7 +558,7 @@
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-09-06T22:00:00+00:00",
+      "updated_at": "2026-09-07T00:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
