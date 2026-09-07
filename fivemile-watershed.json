@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T10:06:16.803Z",
+  "updatedAt": "2026-09-07T12:24:11.772Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -24,7 +24,7 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 73,
+      "lowTemp": 72,
       "highTemp": 74,
       "windGust": 0,
       "label": "Since midnight",
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.18,
       "discharge_cfs": 21.6,
-      "water_temp_f": 80.4,
-      "dissolved_oxygen_mgl": 6,
-      "specific_conductance_uscm": 538,
+      "water_temp_f": 79.2,
+      "dissolved_oxygen_mgl": 6.2,
+      "specific_conductance_uscm": 518,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-07T09:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-09-07T12:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-08-08T10:15:00+00:00",
-          "stage_ft": 1.47
-        },
         {
           "at": "2026-08-08T16:15:00+00:00",
           "stage_ft": 1.4
@@ -528,11 +524,11 @@
           "stage_ft": 1.28
         },
         {
-          "at": "2026-09-07T03:00:00+00:00",
-          "stage_ft": 1.22
+          "at": "2026-09-07T06:30:00+00:00",
+          "stage_ft": 1.18
         },
         {
-          "at": "2026-09-07T09:00:00+00:00",
+          "at": "2026-09-07T12:00:00+00:00",
           "stage_ft": 1.18
         }
       ],
@@ -551,14 +547,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 2.67,
-      "discharge_cfs": 118,
+      "stage_ft": 2.69,
+      "discharge_cfs": 123,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0.007,
-      "updated_at": "2026-09-07T09:00:00+00:00",
+      "updated_at": "2026-09-07T12:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
