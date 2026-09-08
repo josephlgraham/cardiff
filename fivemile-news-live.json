@@ -1,38 +1,75 @@
 {
-  "updatedAt": "2026-09-07T16:16:42.398Z",
+  "updatedAt": "2026-09-08T00:54:33.322Z",
   "counts": {
-    "nearby": 2,
-    "county": 3,
-    "towns": 1,
+    "nearby": 3,
+    "county": 2,
     "obituaries": 1
   },
   "sections": {
-    "towns": [
-      "news-5-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h"
-    ],
+    "towns": [],
     "nearby": [
-      "news-1-abc-33-40-fire-damages-commercial-building-in-warrior",
+      "news-1-al-com-south-alabama-crash-kills-couple-injures-man-woman-and-infan",
+      "news-2-abc-33-40-fire-damages-commercial-building-in-warrior",
       "news-4-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days"
     ],
     "creek": [],
     "county": [
-      "news-2-al-com-helpless-on-data-centers-alabama-counties-caution-against-in",
       "news-3-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night",
-      "news-6-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn"
+      "news-5-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn"
     ],
     "obituaries": [
-      "news-7-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-6-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-fire-damages-commercial-building-in-warrior",
+      "id": "news-1-al-com-south-alabama-crash-kills-couple-injures-man-woman-and-infan",
+      "section": "nearby",
+      "why": "names kimberly",
+      "town": "Kimberly",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/QV36DLESTBD3RJPQAKI7352NVY.jpeg?auth=fb6cc642be7ea89ffcd67b772e7f3aba2df5b0a3740b51a883f560327901a1ad&smart=true&height=1200",
+        "from": "feed",
+        "width": 1067,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 35,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "South Alabama crash kills couple, injures man, woman and infant",
+      "summary": "The two individuals that died in the crash were identified as Braxton Freckman, 28, and Kimberly Moody, 33.",
+      "description": "The two individuals that died in the crash were identified as Braxton Freckman, 28, and Kimberly Moody, 33.",
+      "url": "https://www.al.com/news/2026/09/south-alabama-crash-kills-couple-injures-man-woman-and-infant.html",
+      "link": "https://www.al.com/news/2026/09/south-alabama-crash-kills-couple-injures-man-woman-and-infant.html",
+      "published_at": "2026-09-07T21:19:19.000Z",
+      "date": "2026-09-07T21:19:19.000Z",
+      "location_tags": [
+        "kimberly"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/QV36DLESTBD3RJPQAKI7352NVY.jpeg?auth=fb6cc642be7ea89ffcd67b772e7f3aba2df5b0a3740b51a883f560327901a1ad&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-abc-33-40-fire-damages-commercial-building-in-warrior",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
-      "tags": [
-        "Public safety"
-      ],
+      "tags": [],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
@@ -42,13 +79,13 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
       "title": "Fire damages commercial building in Warrior",
-      "summary": "Mt. High Fire and Rescue was dispatched to a commercial building fire at Louis Allis Electrical Company in Warrior around 6 a.m. Saturday. When firefighters arr",
-      "description": "Mt. High Fire and Rescue was dispatched to a commercial building fire at Louis Allis Electrical Company in Warrior around 6 a.m. Saturday. When firefighters arr",
+      "summary": "WARRIOR, Ala. — Firefighters from 12 departments across three counties spent more than two hours battling a commercial fire Saturday morning at the Louis Allis",
+      "description": "WARRIOR, Ala. — Firefighters from 12 departments across three counties spent more than two hours battling a commercial fire Saturday morning at the Louis Allis",
       "url": "https://abc3340.com/news/local/fire-damages-commercial-building-in-warrior",
       "link": "https://abc3340.com/news/local/fire-damages-commercial-building-in-warrior",
       "published_at": "2026-09-05T22:06:26.000Z",
@@ -56,60 +93,14 @@
       "location_tags": [
         "warrior"
       ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/725/986/0x66/90/88f660a5-90d8-41c3-a8fe-898dd9a4abea-MtHighFireRescueWarrior.png"
-    },
-    {
-      "id": "news-2-al-com-helpless-on-data-centers-alabama-counties-caution-against-in",
-      "section": "county",
-      "why": "county commission, government",
-      "town": "Regional",
-      "tags": [
-        "Government",
-        "Business"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/YB7WSZGJVJBB7FQBILOI5WXR6A.jpg?auth=dcb7be47cf143db5b8470e50d7b6f5aa08eab6212576dbda74df5204d92724de&smart=true&height=1200",
-        "from": "feed",
-        "width": 1024,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Helpless on data centers, Alabama counties caution against industry-specific zoning",
-      "summary": "County commissions are grappling with how to navigate their own lack of authority amid rising pressure from their constituents to regulate data centers.",
-      "description": "County commissions are grappling with how to navigate their own lack of authority amid rising pressure from their constituents to regulate data centers.",
-      "url": "https://www.al.com/news/2026/09/no-authority-alabama-counties-helpless-on-data-centers-caution-against-industry-specific-zoning.html",
-      "link": "https://www.al.com/news/2026/09/no-authority-alabama-counties-helpless-on-data-centers-caution-against-industry-specific-zoning.html",
-      "published_at": "2026-09-07T11:00:00.000Z",
-      "date": "2026-09-07T11:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government",
-        "business"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/YB7WSZGJVJBB7FQBILOI5WXR6A.jpg?auth=dcb7be47cf143db5b8470e50d7b6f5aa08eab6212576dbda74df5204d92724de&smart=true&height=1200"
     },
     {
       "id": "news-3-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night",
@@ -128,7 +119,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -168,7 +159,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -192,40 +183,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
     },
     {
-      "id": "news-5-al-com-2-indicted-after-man-found-shot-dead-in-burning-graysville-h",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "2 indicted after man found shot dead in burning Graysville house",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYXdTU1RQMi1NeXl3bHRORkVTNG9EUVZwSVY1bXQ1Q0NBejZ1YTY2SFJ0MVpCSUVLNi1kODEtQVRmaFpuV2RRbkxiYzMyMjY1YWM3YmtiT1pFQU1sN09fV29Fb2dKaEttWnNLSDdKSkxNVXdHM0dVY0JZMzE0TGdieXFCNlRINmoyYUxWX3dXSDhvQnJrb1RqM041RG96eHhmMXpj0gG3AUFVX3lxTFBuSEk2Z3NycjNkd0JLelRQTnFnOGRYV19RUnhDc1JfVXR3djZEVElsQVNnV0luZm9qZXVtTURtTFdNakg5Ny02azVjNnFyeUE3QjJiUmpBSFg5X1libGN1MWluWFlTSHpKMWxwVmtsU3JZRWg5QlEwcWVOSzR6dEFYLVIzV2NCTWZhWm1zM1JwbFlKUWNTNTZxX1VGV2ltV20taHRVV05EVndUcTZoMHQ4YmlPd0xqSQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYXdTU1RQMi1NeXl3bHRORkVTNG9EUVZwSVY1bXQ1Q0NBejZ1YTY2SFJ0MVpCSUVLNi1kODEtQVRmaFpuV2RRbkxiYzMyMjY1YWM3YmtiT1pFQU1sN09fV29Fb2dKaEttWnNLSDdKSkxNVXdHM0dVY0JZMzE0TGdieXFCNlRINmoyYUxWX3dXSDhvQnJrb1RqM041RG96eHhmMXpj0gG3AUFVX3lxTFBuSEk2Z3NycjNkd0JLelRQTnFnOGRYV19RUnhDc1JfVXR3djZEVElsQVNnV0luZm9qZXVtTURtTFdNakg5Ny02azVjNnFyeUE3QjJiUmpBSFg5X1libGN1MWluWFlTSHpKMWxwVmtsU3JZRWg5QlEwcWVOSzR6dEFYLVIzV2NCTWZhWm1zM1JwbFlKUWNTNTZxX1VGV2ltV20taHRVV05EVndUcTZoMHQ4YmlPd0xqSQ?oc=5",
-      "published_at": "2026-09-01T22:25:00.000Z",
-      "date": "2026-09-01T22:25:00.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn",
+      "id": "news-5-trussville-tribune-north-carolina-man-dies-in-jefferson-county-accident-on-wedn",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -241,7 +199,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -267,7 +225,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/10/police_lights.jpg"
     },
     {
-      "id": "news-7-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-6-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
