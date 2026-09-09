@@ -1,106 +1,76 @@
 {
-  "updatedAt": "2026-09-08T14:52:31.437Z",
+  "updatedAt": "2026-09-09T01:02:55.151Z",
   "counts": {
-    "nearby": 4,
-    "county": 2,
-    "obituaries": 1
+    "obituaries": 7,
+    "county": 1,
+    "nearby": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-al-com-man-serving-life-in-rape-of-3-year-old-girl-dies-in-alabama-",
-      "news-2-al-com-auburn-secondary-what-alex-golesh-liked-from-his-corners-saf",
-      "news-4-abc-33-40-fire-damages-commercial-building-in-warrior",
-      "news-6-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days"
+      "news-3-abc-33-40-fire-damages-commercial-building-in-warrior"
     ],
     "creek": [],
     "county": [
-      "news-3-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
-      "news-5-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night"
+      "news-2-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex"
     ],
     "obituaries": [
-      "news-7-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-1-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
+      "news-4-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-5-trussville-tribune-jeanie-nini-page-wallace-july-12-1952-september-2-2026",
+      "news-6-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "news-7-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
+      "news-8-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
+      "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-man-serving-life-in-rape-of-3-year-old-girl-dies-in-alabama-",
-      "section": "nearby",
-      "why": "names western jefferson",
-      "town": "Western Jefferson",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/TJRU774P5RHKVETNRSFY4LOQKY.png?auth=8640efb31a11f202ca5458b154c3227332ee962857ea54bca94eda12d6a95a99&smart=true&height=1200",
-        "from": "feed",
-        "width": 421,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 34,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Man serving life in rape of 3-year-old girl dies in Alabama prison",
-      "summary": "Robert Earl Armbrust Jr., 52, was found unresponsive inside his three-man cell at the western Jefferson County lockup.",
-      "description": "Robert Earl Armbrust Jr., 52, was found unresponsive inside his three-man cell at the western Jefferson County lockup.",
-      "url": "https://www.al.com/news/2026/09/man-serving-life-in-rape-of-3-year-old-girl-dies-in-alabama-prison.html",
-      "link": "https://www.al.com/news/2026/09/man-serving-life-in-rape-of-3-year-old-girl-dies-in-alabama-prison.html",
-      "published_at": "2026-09-08T14:25:38.000Z",
-      "date": "2026-09-08T14:25:38.000Z",
-      "location_tags": [
-        "western-jefferson"
+      "id": "news-1-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Morris",
+      "tags": [
+        "Obituary"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joyce Plyler (October 24, 1951 — September 4, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Joyce Plyler (October 24, 1951 — September 4, 2026)",
+      "summary": "Glenda Joyce Plyler, 74, of Morris, Alabama passed away from the darkness of this world and gained eternal light on Friday, September 4th 2026, in the comfort of her home. Born on October 24, 1951, in Birmingham, AL, she attended Woodlawn High School and was a lifelong resident of the area. She is survived by […]",
+      "description": "Glenda Joyce Plyler, 74, of Morris, Alabama passed away from the darkness of this world and gained eternal light on Friday, September 4th 2026, in the comfort of her home. Born on October 24, 1951, in Birmingham, AL, she attended Woodlawn High School and was a lifelong resident of the area. She is survived by […]",
+      "url": "https://www.trussvilletribune.com/2026/09/08/joyce-plyler-october-24-1951-september-4-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/08/joyce-plyler-october-24-1951-september-4-2026/",
+      "published_at": "2026-09-08T17:15:34.000Z",
+      "date": "2026-09-08T17:15:34.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/TJRU774P5RHKVETNRSFY4LOQKY.png?auth=8640efb31a11f202ca5458b154c3227332ee962857ea54bca94eda12d6a95a99&smart=true&height=1200"
+      "image_url": ""
     },
     {
-      "id": "news-2-al-com-auburn-secondary-what-alex-golesh-liked-from-his-corners-saf",
-      "section": "nearby",
-      "why": "names corner",
-      "town": "Corner",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/BSPXFZQRKRHDFIWORQFBSPLF24.jpg?auth=2e5f32c5b648f0ec7216734f35ac253739143441ddb8ded98aa94c71547e2335&smart=true&height=1200",
-        "from": "feed",
-        "width": 3456,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Auburn secondary: What Alex Golesh liked from his corners, safeties vs Baylor",
-      "summary": "Despite Baylor passing for 333 yards, the Tigers coach was pleased with his defensive backs' play, particularly from Rayshawn Pleasant, Andre Jordan Jr., and freshman Gavin Jenkins.",
-      "description": "Despite Baylor passing for 333 yards, the Tigers coach was pleased with his defensive backs' play, particularly from Rayshawn Pleasant, Andre Jordan Jr., and freshman Gavin Jenkins.",
-      "url": "https://www.al.com/auburnfootball/2026/09/auburns-defensive-backs-played-with-confidence-in-season-opener-but-alex-golesh-wants-more.html",
-      "link": "https://www.al.com/auburnfootball/2026/09/auburns-defensive-backs-played-with-confidence-in-season-opener-but-alex-golesh-wants-more.html",
-      "published_at": "2026-09-08T14:28:22.000Z",
-      "date": "2026-09-08T14:28:22.000Z",
-      "location_tags": [
-        "corner"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/BSPXFZQRKRHDFIWORQFBSPLF24.jpg?auth=2e5f32c5b648f0ec7216734f35ac253739143441ddb8ded98aa94c71547e2335&smart=true&height=1200"
-    },
-    {
-      "id": "news-3-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
+      "id": "news-2-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -116,7 +86,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -142,7 +112,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LVZB3GZZCNBCLM54MK2BZAAEEE.jpg?auth=5d8b1b090b8673a3b52146dac2a61da490511cb32f10b1665f77094adc10d56c&smart=false"
     },
     {
-      "id": "news-4-abc-33-40-fire-damages-commercial-building-in-warrior",
+      "id": "news-3-abc-33-40-fire-damages-commercial-building-in-warrior",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -156,7 +126,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -180,87 +150,227 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/725/986/0x66/90/88f660a5-90d8-41c3-a8fe-898dd9a4abea-MtHighFireRescueWarrior.png"
     },
     {
-      "id": "news-5-wbrc-birmingham-man-hit-killed-on-highway-280-saturday-night",
-      "section": "county",
-      "why": "birmingham, roads",
+      "id": "news-4-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Tribute Archive",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Johnny A Rice Obituary",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Tribute Archive",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Tribute Archive",
+      "source": "Tribute Archive",
+      "title": "Johnny A Rice Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPM05QcVpGNW54Q0pOQUZIYUFNTXVwQmpvbnlHMmxQXy1TMHUzbmprN09sTTBENGUxMWJVMzV0cVotd0txUTVOT21WOUU1TDl1XzBscUlUYlNkNDJmdkNicmNseFdRZHVXV0Zqa3RSNURMMGxKcjhQNHdoQ2Z3dm9SVHEtX0YyYmJBUTVWdkJVRlBaS1ZPcnFsUkdEeWc0eUdkUEJvS3libE9hYVI4a0FPS2dGTQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPM05QcVpGNW54Q0pOQUZIYUFNTXVwQmpvbnlHMmxQXy1TMHUzbmprN09sTTBENGUxMWJVMzV0cVotd0txUTVOT21WOUU1TDl1XzBscUlUYlNkNDJmdkNicmNseFdRZHVXV0Zqa3RSNURMMGxKcjhQNHdoQ2Z3dm9SVHEtX0YyYmJBUTVWdkJVRlBaS1ZPcnFsUkdEeWc0eUdkUEJvS3libE9hYVI4a0FPS2dGTQ?oc=5",
+      "published_at": "2026-09-06T07:00:00.000Z",
+      "date": "2026-09-06T07:00:00.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-5-trussville-tribune-jeanie-nini-page-wallace-july-12-1952-september-2-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
       "town": "Birmingham",
       "tags": [
-        "Roads"
+        "Obituary"
       ],
-      "outlet": "WBRC",
+      "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MVP2O7L4YVDDRDWEYKAF77A5HI.jpg?auth=9ee30743ba66c5f0e5c1f96b07c54de8d5fb34c3cb4724306150125f40abbf0b&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
+      "image": null,
+      "obit": {
+        "name": "Jeanie “Nini” Page Wallace (July 12, 1952 — September 2, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 24,
+      "score": 16,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Birmingham man hit, killed on Highway 280 Saturday night",
-      "summary": "He died at UAB Hospital.",
-      "description": "He died at UAB Hospital.",
-      "url": "https://www.wbrc.com/2026/09/06/birmingham-man-hit-killed-highway-280-saturday-night/",
-      "link": "https://www.wbrc.com/2026/09/06/birmingham-man-hit-killed-highway-280-saturday-night/",
-      "published_at": "2026-09-06T18:20:14.000Z",
-      "date": "2026-09-06T18:20:14.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Jeanie “Nini” Page Wallace (July 12, 1952 — September 2, 2026)",
+      "summary": "Funeral Services for Mrs. Jeanie “Nini” Page Wallace, age 74 of Birmingham, will be held on Tuesday, September 8, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with David McConnell officiating. Burial will follow in the adjoining gardens. Jacqueline Jeanie “NiNi” Page Wallace grew up in Birmingham, Alabama, whe",
+      "description": "Funeral Services for Mrs. Jeanie “Nini” Page Wallace, age 74 of Birmingham, will be held on Tuesday, September 8, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with David McConnell officiating. Burial will follow in the adjoining gardens. Jacqueline Jeanie “NiNi” Page Wallace grew up in Birmingham, Alabama, whe",
+      "url": "https://www.trussvilletribune.com/2026/09/08/jeanie-nini-page-wallace-july-12-1952-september-2-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/08/jeanie-nini-page-wallace-july-12-1952-september-2-2026/",
+      "published_at": "2026-09-08T17:08:03.000Z",
+      "date": "2026-09-08T17:08:03.000Z",
       "location_tags": [
         "birmingham"
       ],
       "topic_tags": [
-        "roads"
+        "obituary"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MVP2O7L4YVDDRDWEYKAF77A5HI.jpg?auth=9ee30743ba66c5f0e5c1f96b07c54de8d5fb34c3cb4724306150125f40abbf0b&smart=false"
+      "image_url": ""
     },
     {
-      "id": "news-6-bham-now-meet-the-birmingham-vets-helping-pets-have-more-good-days",
-      "section": "nearby",
-      "why": "names corner",
-      "town": "Corner",
-      "tags": [],
+      "id": "news-6-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
       "outlet": "Bham Now",
       "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
+      "image": null,
+      "obit": {
+        "name": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
+        "age": null,
+        "town": "",
+        "home": "Bham Now",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 24,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
-      "title": "Meet the Birmingham vets helping pets have more good days",
-      "summary": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
-      "description": "🐾 BHAM PETS HAVE A SPECIALIST IN THEIR CORNER: This local team knows how to navigate a tough situation for your dog or cat. Meet Dr. Lock + the patient whose recovery left everyone cheering. 👇 NowPartner",
-      "url": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
-      "link": "https://bhamnow.com/2026/09/03/meet-the-birmingham-vets-helping-pets-have-more-good-days/#utm_source=rss&utm_medium=rss&utm_campaign=meet-the-birmingham-vets-helping-pets-have-more-good-days",
-      "published_at": "2026-09-03T19:26:20.000Z",
-      "date": "2026-09-03T19:26:20.000Z",
+      "title": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
+      "summary": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
+      "description": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
+      "url": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
+      "link": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
+      "published_at": "2026-09-08T19:53:14.000Z",
+      "date": "2026-09-08T19:53:14.000Z",
       "location_tags": [
-        "corner"
+        "regional"
       ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/VSB-105-1200x800.jpg"
+      "image_url": ""
     },
     {
-      "id": "news-7-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-7-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Mary Prestridge Strickland (January 31, 1943 — September 2, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Mary Prestridge Strickland (January 31, 1943 — September 2, 2026)",
+      "summary": "Mary Prestridge Strickland, born January 31, 1943, passed away on September 2, 2026, at the age of 83, leaving behind a family and community who were deeply blessed by her love, kindness, and caring spirit. Mary grew up in Talladega, Alabama, where she met Douglas T. Strickland, the man who would become her husband and",
+      "description": "Mary Prestridge Strickland, born January 31, 1943, passed away on September 2, 2026, at the age of 83, leaving behind a family and community who were deeply blessed by her love, kindness, and caring spirit. Mary grew up in Talladega, Alabama, where she met Douglas T. Strickland, the man who would become her husband and",
+      "url": "https://www.trussvilletribune.com/2026/09/08/mary-prestridge-strickland-january-31-1943-september-2-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/08/mary-prestridge-strickland-january-31-1943-september-2-2026/",
+      "published_at": "2026-09-08T17:30:50.000Z",
+      "date": "2026-09-08T17:30:50.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-8-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "E Jean Wolf Buzbee (January 4, 1929 — September 3, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "E Jean Wolf Buzbee (January 4, 1929 — September 3, 2026)",
+      "summary": "E. Jean Rowell Buzbee, 97, of Moody, Alabama, passed away September 3, 2026, at her daughter’s home. She was preceded in death by her parents, Jim and Senie Wolfe, and seven siblings. She is survived by her brothers, Ray Wolfe and Orville Wolfe; daughter, Debra (Danny) Hallman of Moody, AL and son, Keith (Irene) Rowell",
+      "description": "E. Jean Rowell Buzbee, 97, of Moody, Alabama, passed away September 3, 2026, at her daughter’s home. She was preceded in death by her parents, Jim and Senie Wolfe, and seven siblings. She is survived by her brothers, Ray Wolfe and Orville Wolfe; daughter, Debra (Danny) Hallman of Moody, AL and son, Keith (Irene) Rowell",
+      "url": "https://www.trussvilletribune.com/2026/09/08/e-jean-wolf-buzbee-january-4-1929-september-3-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/08/e-jean-wolf-buzbee-january-4-1929-september-3-2026/",
+      "published_at": "2026-09-08T17:23:27.000Z",
+      "date": "2026-09-08T17:23:27.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
