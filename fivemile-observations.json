@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T19:49:18.858Z",
+  "updatedAt": "2026-09-09T09:33:54.716Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 73,
-    "species_in_window": 63,
-    "window_total": 78,
-    "species_recorded": 69,
-    "observations_recorded": 81,
-    "area_total": 1085,
+    "in_window": 74,
+    "species_in_window": 64,
+    "window_total": 79,
+    "species_recorded": 70,
+    "observations_recorded": 82,
+    "area_total": 1086,
     "guide_links": 1
   },
   "observations": [
+    {
+      "id": 398348337,
+      "taxon": 126209,
+      "name": "Citrus Flatid Planthopper",
+      "latin": "Metcalfa pruinosa",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-07",
+      "place": null,
+      "obscured": true,
+      "observer": "Kristin A. Bakkegard",
+      "observerLogin": "kbakkegard",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/398348337",
+      "firstRecord": true
+    },
     {
       "id": 398351936,
       "taxon": 49540,
@@ -37,7 +54,7 @@
       "observerLogin": "diplopoda",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/398351936",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 395923395,
@@ -173,7 +190,7 @@
       "observerLogin": "rmh0089",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/393925295",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 393365510,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/377758131",
       "firstRecord": false
-    },
-    {
-      "id": 377749039,
-      "taxon": 482158,
-      "name": "curved-ribbon",
-      "latin": "Dinumma deponens",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-03",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/377749039",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -1037,6 +1037,19 @@
       "count": 1,
       "ids": [
         383793879
+      ]
+    },
+    {
+      "taxon": 126209,
+      "name": "Citrus Flatid Planthopper",
+      "latin": "Metcalfa pruinosa",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-09-07",
+      "last": "2026-09-07",
+      "count": 1,
+      "ids": [
+        398348337
       ]
     },
     {
