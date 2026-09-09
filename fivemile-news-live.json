@@ -1,32 +1,162 @@
 {
-  "updatedAt": "2026-09-09T01:02:55.151Z",
+  "updatedAt": "2026-09-09T15:00:52.184Z",
   "counts": {
-    "obituaries": 7,
-    "county": 1,
-    "nearby": 1
+    "nearby": 1,
+    "county": 4,
+    "obituaries": 6
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-3-abc-33-40-fire-damages-commercial-building-in-warrior"
+      "news-1-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
     ],
     "creek": [],
     "county": [
-      "news-2-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex"
+      "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
+      "news-3-wbrc-boats-rv-s-destroyed-in-birmingham-building-fire",
+      "news-5-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
+      "news-6-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville"
     ],
     "obituaries": [
-      "news-1-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
-      "news-4-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-5-trussville-tribune-jeanie-nini-page-wallace-july-12-1952-september-2-2026",
-      "news-6-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
-      "news-7-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
-      "news-8-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
-      "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-4-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
+      "news-7-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-8-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "news-9-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
+      "news-10-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
+      "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
+      "id": "news-1-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says",
+      "section": "nearby",
+      "why": "names adamsville",
+      "town": "Adamsville",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/YBC2MP2RNBFVXHCIQWIW4CEXQE.png?auth=662b9a70fd9fd1d410efb224df56f924510ac7e7145acac5452571559078c5e0&smart=true&height=1200",
+        "from": "feed",
+        "width": 655,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Man in handcuffs stole Adamsville police car, chief says",
+      "summary": "Adamsville police say 35-year-old Justin Robert Green stole a police cruiser and was eventually captured in Birmingham.",
+      "description": "Adamsville police say 35-year-old Justin Robert Green stole a police cruiser and was eventually captured in Birmingham.",
+      "url": "https://www.al.com/crime/2026/09/man-in-handcuffs-stole-adamsville-police-car-chief-says.html",
+      "link": "https://www.al.com/crime/2026/09/man-in-handcuffs-stole-adamsville-police-car-chief-says.html",
+      "published_at": "2026-09-09T14:42:39.000Z",
+      "date": "2026-09-09T14:42:39.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/YBC2MP2RNBFVXHCIQWIW4CEXQE.png?auth=662b9a70fd9fd1d410efb224df56f924510ac7e7145acac5452571559078c5e0&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads",
+        "Public safety"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//352JIFGCSJBWTNTC4ZB6ARUMJM.jpg?auth=d73dde7c3843c4e064ee4c54018c4ab00bf12db03db8eb52d4b03c49508bd5b9&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Birmingham man facing attempted murder charges after police in Midfield said he set fire to occupied car",
+      "summary": "Midfield police were called to the 500 block of Bessemer Super Highway around 12:30 p.m. on Aug. 29.",
+      "description": "Midfield police were called to the 500 block of Bessemer Super Highway around 12:30 p.m. on Aug. 29.",
+      "url": "https://www.wbrc.com/2026/09/09/birmingham-man-facing-attempted-murder-charges-after-police-midfield-said-he-set-fire-occupied-car/",
+      "link": "https://www.wbrc.com/2026/09/09/birmingham-man-facing-attempted-murder-charges-after-police-midfield-said-he-set-fire-occupied-car/",
+      "published_at": "2026-09-09T03:03:37.000Z",
+      "date": "2026-09-09T03:03:37.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads",
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//352JIFGCSJBWTNTC4ZB6ARUMJM.jpg?auth=d73dde7c3843c4e064ee4c54018c4ab00bf12db03db8eb52d4b03c49508bd5b9&smart=false"
+    },
+    {
+      "id": "news-3-wbrc-boats-rv-s-destroyed-in-birmingham-building-fire",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CI3FLHBV3NBR5NFXBPLLHWHOQ4.jpeg?auth=a559402fd4850e248d8f551885c29ae7afa8db323858c6dd48b4eccfee141418&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Boats, RV’s destroyed in Birmingham building fire",
+      "summary": "Authorities say the fire happened on Vanderbilt Road and Highway 79.",
+      "description": "Authorities say the fire happened on Vanderbilt Road and Highway 79.",
+      "url": "https://www.wbrc.com/2026/09/09/boats-rvs-destroyed-birmingham-building-fire/",
+      "link": "https://www.wbrc.com/2026/09/09/boats-rvs-destroyed-birmingham-building-fire/",
+      "published_at": "2026-09-09T12:12:33.000Z",
+      "date": "2026-09-09T12:12:33.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CI3FLHBV3NBR5NFXBPLLHWHOQ4.jpeg?auth=a559402fd4850e248d8f551885c29ae7afa8db323858c6dd48b4eccfee141418&smart=false"
+    },
+    {
+      "id": "news-4-trussville-tribune-joyce-plyler-october-24-1951-september-4-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Morris",
@@ -70,7 +200,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
+      "id": "news-5-wbrc-85-year-old-man-dies-days-after-crash-on-elton-b-stephens-ex",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -86,7 +216,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -112,45 +242,49 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LVZB3GZZCNBCLM54MK2BZAAEEE.jpg?auth=5d8b1b090b8673a3b52146dac2a61da490511cb32f10b1665f77094adc10d56c&smart=false"
     },
     {
-      "id": "news-3-abc-33-40-fire-damages-commercial-building-in-warrior",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
-      "outlet": "ABC 33/40",
+      "id": "news-6-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Trussville Tribune",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/725/986/0x66/90/88f660a5-90d8-41c3-a8fe-898dd9a4abea-MtHighFireRescueWarrior.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/090126-I59-WIDENING-OPENING-1024x1024.png",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 25,
+      "score": 21,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Fire damages commercial building in Warrior",
-      "summary": "WARRIOR, Ala. — Firefighters from 12 departments across three counties spent more than two hours battling a commercial fire Saturday morning at the Louis Allis",
-      "description": "WARRIOR, Ala. — Firefighters from 12 departments across three counties spent more than two hours battling a commercial fire Saturday morning at the Louis Allis",
-      "url": "https://abc3340.com/news/local/fire-damages-commercial-building-in-warrior",
-      "link": "https://abc3340.com/news/local/fire-damages-commercial-building-in-warrior",
-      "published_at": "2026-09-05T22:06:26.000Z",
-      "date": "2026-09-05T22:06:26.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Third northbound lane opens on I-59 in Trussville",
+      "summary": "TRUSSVILLE, Ala. — The widened northbound lanes on I-59 are now open in the Trussville area, adding a third travel lane between I-459 and Chalkville Mountain Road. The section covers around 3.5 miles of I-59 in northeast Jefferson County, which according to ALDOT carries around 63,000 motorists daily. The additional la",
+      "description": "TRUSSVILLE, Ala. — The widened northbound lanes on I-59 are now open in the Trussville area, adding a third travel lane between I-459 and Chalkville Mountain Road. The section covers around 3.5 miles of I-59 in northeast Jefferson County, which according to ALDOT carries around 63,000 motorists daily. The additional la",
+      "url": "https://www.trussvilletribune.com/2026/09/09/third-northbound-lane-opens-on-i-59-in-trussville/",
+      "link": "https://www.trussvilletribune.com/2026/09/09/third-northbound-lane-opens-on-i-59-in-trussville/",
+      "published_at": "2026-09-09T14:35:58.000Z",
+      "date": "2026-09-09T14:35:58.000Z",
       "location_tags": [
-        "warrior"
+        "jefferson-county"
       ],
-      "topic_tags": [],
+      "topic_tags": [
+        "roads"
+      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/725/986/0x66/90/88f660a5-90d8-41c3-a8fe-898dd9a4abea-MtHighFireRescueWarrior.png"
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/090126-I59-WIDENING-OPENING-1024x1024.png"
     },
     {
-      "id": "news-4-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-7-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -168,7 +302,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Tribute Archive",
       "source": "Tribute Archive",
@@ -194,51 +328,7 @@
       "image_url": ""
     },
     {
-      "id": "news-5-trussville-tribune-jeanie-nini-page-wallace-july-12-1952-september-2-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Jeanie “Nini” Page Wallace (July 12, 1952 — September 2, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Jeanie “Nini” Page Wallace (July 12, 1952 — September 2, 2026)",
-      "summary": "Funeral Services for Mrs. Jeanie “Nini” Page Wallace, age 74 of Birmingham, will be held on Tuesday, September 8, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with David McConnell officiating. Burial will follow in the adjoining gardens. Jacqueline Jeanie “NiNi” Page Wallace grew up in Birmingham, Alabama, whe",
-      "description": "Funeral Services for Mrs. Jeanie “Nini” Page Wallace, age 74 of Birmingham, will be held on Tuesday, September 8, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with David McConnell officiating. Burial will follow in the adjoining gardens. Jacqueline Jeanie “NiNi” Page Wallace grew up in Birmingham, Alabama, whe",
-      "url": "https://www.trussvilletribune.com/2026/09/08/jeanie-nini-page-wallace-july-12-1952-september-2-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/08/jeanie-nini-page-wallace-july-12-1952-september-2-2026/",
-      "published_at": "2026-09-08T17:08:03.000Z",
-      "date": "2026-09-08T17:08:03.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "id": "news-8-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -256,7 +346,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -282,7 +372,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
+      "id": "news-9-trussville-tribune-mary-prestridge-strickland-january-31-1943-september-2-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -326,7 +416,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
+      "id": "news-10-trussville-tribune-e-jean-wolf-buzbee-january-4-1929-september-3-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -370,7 +460,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
