@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T09:33:04.420Z",
+  "updatedAt": "2026-09-10T19:31:42.752Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 73,
-    "species_in_window": 63,
-    "window_total": 78,
-    "species_recorded": 70,
-    "observations_recorded": 82,
-    "area_total": 1086,
-    "guide_links": 1
+    "in_window": 74,
+    "species_in_window": 64,
+    "window_total": 79,
+    "species_recorded": 71,
+    "observations_recorded": 83,
+    "area_total": 1087,
+    "guide_links": 2
   },
   "observations": [
+    {
+      "id": 398802572,
+      "taxon": 48599,
+      "name": "American pokeweed",
+      "latin": "Phytolacca americana",
+      "rank": "species",
+      "group": "Plant",
+      "icon": "🌿",
+      "observedOn": "2026-09-08",
+      "place": null,
+      "obscured": true,
+      "observer": "phopper",
+      "observerLogin": "phopper",
+      "guide": "pokeweed",
+      "url": "https://www.inaturalist.org/observations/398802572",
+      "firstRecord": true
+    },
     {
       "id": 398348337,
       "taxon": 126209,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/377868507",
       "firstRecord": false
-    },
-    {
-      "id": 377758131,
-      "taxon": 82279,
-      "name": "Io Moth",
-      "latin": "Automeris io",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-03",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/377758131",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -878,6 +878,19 @@
       "count": 1,
       "ids": [
         377649474
+      ]
+    },
+    {
+      "taxon": 48599,
+      "name": "American pokeweed",
+      "latin": "Phytolacca americana",
+      "group": "Plant",
+      "rank": "species",
+      "first": "2026-09-08",
+      "last": "2026-09-08",
+      "count": 1,
+      "ids": [
+        398802572
       ]
     },
     {
