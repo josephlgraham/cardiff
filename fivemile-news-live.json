@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-10T00:50:37.264Z",
+  "updatedAt": "2026-09-10T14:49:11.152Z",
   "counts": {
-    "nearby": 5,
+    "nearby": 4,
     "county": 5,
     "obituaries": 3
   },
@@ -9,23 +9,22 @@
     "towns": [],
     "nearby": [
       "news-1-wbrc-suspect-escapes-patrol-car-window-steals-police-cruiser-befo",
-      "news-2-al-com-former-uab-player-who-was-stabbed-by-teammate-now-on-alabama",
-      "news-3-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
-      "news-5-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
-      "news-9-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
+      "news-2-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "news-4-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
+      "news-8-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
     ],
     "creek": [],
     "county": [
-      "news-4-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
-      "news-6-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
-      "news-7-al-com-expect-traffic-impacts-part-of-one-of-birmingham-s-main-stre",
-      "news-8-jefferson-county-2026-contract-resurfacing-projects",
-      "news-10-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville"
+      "news-3-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
+      "news-5-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
+      "news-6-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
+      "news-7-jefferson-county-2026-contract-resurfacing-projects",
+      "news-9-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville"
     ],
     "obituaries": [
-      "news-11-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
-      "news-13-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c"
     ]
   },
   "stories": [
@@ -46,7 +45,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -72,45 +71,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//G3C7GBYB2RHE3F57FESSXQGDHQ.png?auth=721541aeadf3f9226a64f70566c288851d7bf40ff06bd6361d5379a9d026d774&smart=false"
     },
     {
-      "id": "news-2-al-com-former-uab-player-who-was-stabbed-by-teammate-now-on-alabama",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/4LDS2SM7U5FR5PWAXRTDECVSRI.JPG?auth=ae45be41eb8ab14f39ff0bab80d1680aa48595d9129dd961040717706dc14d94&smart=true&height=1200",
-        "from": "feed",
-        "width": 6000,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Former UAB player who was stabbed by teammate now on Alabama roster",
-      "summary": "Josh Underwood played high school ball at Fultondale",
-      "description": "Josh Underwood played high school ball at Fultondale",
-      "url": "https://www.al.com/sports/2026/09/former-uab-player-who-was-stabbed-by-teammate-now-on-alabama-roster.html",
-      "link": "https://www.al.com/sports/2026/09/former-uab-player-who-was-stabbed-by-teammate-now-on-alabama-roster.html",
-      "published_at": "2026-09-10T00:45:21.000Z",
-      "date": "2026-09-10T00:45:21.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/4LDS2SM7U5FR5PWAXRTDECVSRI.JPG?auth=ae45be41eb8ab14f39ff0bab80d1680aa48595d9129dd961040717706dc14d94&smart=true&height=1200"
-    },
-    {
-      "id": "news-3-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "id": "news-2-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -124,7 +85,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -148,7 +109,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1191/986/26x0/90/b5a2ed8e-6523-4903-b095-9382c41f8454-AlabamaFallenWarriorMonumentinTrussvilleabc3340.com.png"
     },
     {
-      "id": "news-4-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
+      "id": "news-3-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -165,7 +126,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -192,7 +153,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/512e3e16-e4a3-4f95-b206-826ea978b9f0-asdasdf.jpg"
     },
     {
-      "id": "news-5-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
+      "id": "news-4-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -208,7 +169,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -234,7 +195,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/hths-building.jpg"
     },
     {
-      "id": "news-6-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
+      "id": "news-5-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -250,7 +211,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -276,35 +237,35 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HTBIEZYAC5B3FM5RC5OQ7TNPEE.jpeg?auth=391316bae3d96e85aa9dc00999d38bdc79127ae2f32b40f5a4c0f02cf4c6f786&smart=false"
     },
     {
-      "id": "news-7-al-com-expect-traffic-impacts-part-of-one-of-birmingham-s-main-stre",
+      "id": "news-6-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
       "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
+      "why": "aldot, roads",
+      "town": "Regional",
       "tags": [
         "Roads"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/U2X2NIVMTBFXTK6CTUA63UPMYU.png?auth=f28c4884a593fe73814c556a5eb992e9a55286da4b7372b882400fc1dc687eb8&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/0c806911-519d-4ea1-8725-92c548083b77-PENING.jpg",
         "from": "feed",
-        "width": 1336,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "‘Expect traffic impacts’: Part of one of Birmingham’s main streets will close for 2 weeks",
-      "summary": "The closure will be in the vicinity of Sloss Furnace along First Avenue North.",
-      "description": "The closure will be in the vicinity of Sloss Furnace along First Avenue North.",
-      "url": "https://www.al.com/news/2026/09/expect-traffic-impacts-part-of-one-of-birminghams-main-streets-will-close-for-2-weeks.html",
-      "link": "https://www.al.com/news/2026/09/expect-traffic-impacts-part-of-one-of-birminghams-main-streets-will-close-for-2-weeks.html",
-      "published_at": "2026-09-09T19:56:30.000Z",
-      "date": "2026-09-09T19:56:30.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "New widened US-280 lanes open between Shades Creek Parkway and I-459",
+      "summary": "ALDOT has opened the new widened configuration of U.S. 280 between Shades Creek Parkway and Interstate 459.Both directions of the upgraded four-lane section ope",
+      "description": "ALDOT has opened the new widened configuration of U.S. 280 between Shades Creek Parkway and Interstate 459.Both directions of the upgraded four-lane section ope",
+      "url": "https://abc3340.com/news/local/new-widened-us-280-lanes-open-between-shades-creek-parkway-and-i-459",
+      "link": "https://abc3340.com/news/local/new-widened-us-280-lanes-open-between-shades-creek-parkway-and-i-459",
+      "published_at": "2026-09-10T14:20:10.000Z",
+      "date": "2026-09-10T14:20:10.000Z",
       "location_tags": [
-        "birmingham"
+        "regional"
       ],
       "topic_tags": [
         "roads"
@@ -315,10 +276,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/U2X2NIVMTBFXTK6CTUA63UPMYU.png?auth=f28c4884a593fe73814c556a5eb992e9a55286da4b7372b882400fc1dc687eb8&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/0c806911-519d-4ea1-8725-92c548083b77-PENING.jpg"
     },
     {
-      "id": "news-8-jefferson-county-2026-contract-resurfacing-projects",
+      "id": "news-7-jefferson-county-2026-contract-resurfacing-projects",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -329,7 +290,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -355,7 +316,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says",
+      "id": "news-8-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says",
       "section": "nearby",
       "why": "names adamsville",
       "town": "Adamsville",
@@ -366,7 +327,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -392,7 +353,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville",
+      "id": "news-9-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -408,7 +369,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 20,
+      "score": 19,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -425,8 +386,8 @@
       "topic_tags": [
         "roads"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -434,7 +395,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/090126-I59-WIDENING-OPENING-1024x1024.png"
     },
     {
-      "id": "news-11-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -452,7 +413,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 15,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Tribute Archive",
       "source": "Tribute Archive",
@@ -478,51 +439,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
-        "age": null,
-        "town": "",
-        "home": "Bham Now",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
-      "summary": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
-      "description": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
-      "url": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
-      "link": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
-      "published_at": "2026-09-08T19:53:14.000Z",
-      "date": "2026-09-08T19:53:14.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-13-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -559,6 +476,50 @@
       ],
       "priority_level": 2,
       "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
+        "age": null,
+        "town": "",
+        "home": "Bham Now",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 11,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
+      "summary": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
+      "description": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
+      "url": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
+      "link": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
+      "published_at": "2026-09-08T19:53:14.000Z",
+      "date": "2026-09-08T19:53:14.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
