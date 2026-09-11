@@ -1,65 +1,113 @@
 {
-  "updatedAt": "2026-09-10T14:49:11.152Z",
+  "updatedAt": "2026-09-11T00:49:34.010Z",
   "counts": {
     "nearby": 4,
-    "county": 5,
-    "obituaries": 3
+    "county": 6,
+    "obituaries": 6
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-wbrc-suspect-escapes-patrol-car-window-steals-police-cruiser-befo",
-      "news-2-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
-      "news-4-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
-      "news-8-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
+      "news-1-al-com-suspect-charged-in-deadly-shooting-at-west-birmingham-home",
+      "news-3-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
+      "news-4-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "news-10-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
-      "news-5-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
-      "news-6-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
-      "news-7-jefferson-county-2026-contract-resurfacing-projects",
-      "news-9-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville"
+      "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
+      "news-5-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
+      "news-6-jefferson-county-caldwell-mill-rd-paving-and-projects",
+      "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-57-i",
+      "news-8-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
+      "news-9-jefferson-county-2026-contract-resurfacing-projects"
     ],
     "obituaries": [
-      "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c"
+      "news-11-trussville-tribune-mary-campbell-hardaman-march-10-1940-september-3-2026",
+      "news-12-trussville-tribune-sara-elizabeth-sample-december-28-1935-september-6-2026",
+      "news-13-trussville-tribune-wanda-june-mcafee-june-1-1931-september-8-2026",
+      "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-15-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-16-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-suspect-escapes-patrol-car-window-steals-police-cruiser-befo",
+      "id": "news-1-al-com-suspect-charged-in-deadly-shooting-at-west-birmingham-home",
       "section": "nearby",
-      "why": "names adamsville",
-      "town": "Adamsville",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
       "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/WYRXR65FIBBL5JKMITNYNIOSP4.png?auth=5be1fd8b1ad1ff888d38ae326d784f38e60ad58f65c2c81861a19525257b0f3a&smart=true&height=1200",
+        "from": "feed",
+        "width": 800,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Suspect charged in deadly shooting at west Birmingham home",
+      "summary": "Derrick Rasard Gray, of Pleasant Grove, is charged with capital murder in Tuesday killing of 54-year-old Brian Montez Swain.",
+      "description": "Derrick Rasard Gray, of Pleasant Grove, is charged with capital murder in Tuesday killing of 54-year-old Brian Montez Swain.",
+      "url": "https://www.al.com/news/2026/09/suspect-charged-in-deadly-shooting-at-west-birmingham-home.html",
+      "link": "https://www.al.com/news/2026/09/suspect-charged-in-deadly-shooting-at-west-birmingham-home.html",
+      "published_at": "2026-09-11T00:03:15.000Z",
+      "date": "2026-09-11T00:03:15.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/WYRXR65FIBBL5JKMITNYNIOSP4.png?auth=5be1fd8b1ad1ff888d38ae326d784f38e60ad58f65c2c81861a19525257b0f3a&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads",
         "Public safety"
       ],
       "outlet": "WBRC",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//G3C7GBYB2RHE3F57FESSXQGDHQ.png?auth=721541aeadf3f9226a64f70566c288851d7bf40ff06bd6361d5379a9d026d774&smart=false",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//352JIFGCSJBWTNTC4ZB6ARUMJM.jpg?auth=d73dde7c3843c4e064ee4c54018c4ab00bf12db03db8eb52d4b03c49508bd5b9&smart=false",
         "from": "feed",
         "width": null,
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 34,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Suspect escapes patrol car window, steals police cruiser before 2nd chase",
-      "summary": "A man wanted on warrants from three different counties was arrested after a chase in Adamsville on Tuesday night, according to police.",
-      "description": "A man wanted on warrants from three different counties was arrested after a chase in Adamsville on Tuesday night, according to police.",
-      "url": "https://www.wbrc.com/2026/09/09/suspect-escapes-patrol-car-window-steals-police-cruiser-before-2nd-chase/",
-      "link": "https://www.wbrc.com/2026/09/09/suspect-escapes-patrol-car-window-steals-police-cruiser-before-2nd-chase/",
-      "published_at": "2026-09-09T21:52:56.000Z",
-      "date": "2026-09-09T21:52:56.000Z",
+      "title": "Birmingham man facing attempted murder charges after police in Midfield say he set fire to occupied car",
+      "summary": "Midfield police were called to the 500 block of Bessemer Super Highway around 12:30 p.m. on Aug. 29.",
+      "description": "Midfield police were called to the 500 block of Bessemer Super Highway around 12:30 p.m. on Aug. 29.",
+      "url": "https://www.wbrc.com/2026/09/10/birmingham-man-facing-attempted-murder-charges-after-police-midfield-say-he-set-fire-occupied-car/",
+      "link": "https://www.wbrc.com/2026/09/10/birmingham-man-facing-attempted-murder-charges-after-police-midfield-say-he-set-fire-occupied-car/",
+      "published_at": "2026-09-10T21:52:26.000Z",
+      "date": "2026-09-10T21:52:26.000Z",
       "location_tags": [
-        "adamsville"
+        "birmingham"
       ],
       "topic_tags": [
+        "roads",
         "public-safety"
       ],
       "priority_level": 4,
@@ -68,10 +116,48 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//G3C7GBYB2RHE3F57FESSXQGDHQ.png?auth=721541aeadf3f9226a64f70566c288851d7bf40ff06bd6361d5379a9d026d774&smart=false"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//352JIFGCSJBWTNTC4ZB6ARUMJM.jpg?auth=d73dde7c3843c4e064ee4c54018c4ab00bf12db03db8eb52d4b03c49508bd5b9&smart=false"
     },
     {
-      "id": "news-2-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "id": "news-3-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1610/986/0x6/90/fbf9f732-945d-4455-84bd-d327ace3132a-habitat4.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "United Way of Central Alabama kicks off 2026 campaign with Habitat build in Pleasant Grove",
+      "summary": "With hammers swinging and volunteers in hard hats, United Way of Central Alabama launched its 2026 annual campaign Thursday morning by putting community support",
+      "description": "With hammers swinging and volunteers in hard hats, United Way of Central Alabama launched its 2026 annual campaign Thursday morning by putting community support",
+      "url": "https://abc3340.com/news/local/united-way-partners-with-habitat-for-humanity",
+      "link": "https://abc3340.com/news/local/united-way-partners-with-habitat-for-humanity",
+      "published_at": "2026-09-10T16:04:23.000Z",
+      "date": "2026-09-10T16:04:23.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1610/986/0x6/90/fbf9f732-945d-4455-84bd-d327ace3132a-habitat4.png"
+    },
+    {
+      "id": "news-4-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -85,7 +171,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -109,7 +195,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1191/986/26x0/90/b5a2ed8e-6523-4903-b095-9382c41f8454-AlabamaFallenWarriorMonumentinTrussvilleabc3340.com.png"
     },
     {
-      "id": "news-3-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
+      "id": "news-5-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -153,75 +239,65 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/512e3e16-e4a3-4f95-b206-826ea978b9f0-asdasdf.jpg"
     },
     {
-      "id": "news-4-trussville-tribune-3-hewitt-trussville-students-named-national-merit-scholarshi",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
+      "id": "news-6-jefferson-county-caldwell-mill-rd-paving-and-projects",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
       "tags": [
-        "Schools"
+        "Roads"
       ],
-      "outlet": "Trussville Tribune",
+      "outlet": "Jefferson County",
       "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/hths-building.jpg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
-      },
+      "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "3 Hewitt-Trussville students named National Merit Scholarship semifinalists",
-      "summary": "TRUSSVILLE, Ala. — Three Hewitt-Trussville High School students have been named semifinalists in this year’s National Merit Scholarship Program. Henry Haynes, Riley Morris, and Caden Williams were among the list of Alabama students announced Wednesday by the National Merit Scholarship Corporation. More than 16,000 seni",
-      "description": "TRUSSVILLE, Ala. — Three Hewitt-Trussville High School students have been named semifinalists in this year’s National Merit Scholarship Program. Henry Haynes, Riley Morris, and Caden Williams were among the list of Alabama students announced Wednesday by the National Merit Scholarship Corporation. More than 16,000 seni",
-      "url": "https://www.trussvilletribune.com/2026/09/09/3-hewitt-trussville-students-named-national-merit-scholarship-semifinalists/",
-      "link": "https://www.trussvilletribune.com/2026/09/09/3-hewitt-trussville-students-named-national-merit-scholarship-semifinalists/",
-      "published_at": "2026-09-09T17:48:27.000Z",
-      "date": "2026-09-09T17:48:27.000Z",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Caldwell Mill Rd Paving and Projects",
+      "summary": "We've had some questions about what roads will be paved in the Caldwell Mill area. Here is a look along with other projects that are in the future.",
+      "description": "We've had some questions about what roads will be paved in the Caldwell Mill area. Here is a look along with other projects that are in the future.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=125",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=125",
+      "published_at": "2026-09-10T23:02:27.000Z",
+      "date": "2026-09-10T23:02:27.000Z",
       "location_tags": [
-        "morris"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "schools"
+        "roads"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/hths-building.jpg"
+      "image_url": ""
     },
     {
-      "id": "news-5-wbrc-i-love-being-a-woman-there-s-nothing-better-this-is-girl-pow",
+      "id": "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-57-i",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
       "tags": [
         "Government"
       ],
-      "outlet": "WBRC",
+      "outlet": "Jefferson County",
       "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HTBIEZYAC5B3FM5RC5OQ7TNPEE.jpeg?auth=391316bae3d96e85aa9dc00999d38bdc79127ae2f32b40f5a4c0f02cf4c6f786&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
+      "image": null,
       "obit": null,
-      "score": 26,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "‘I love being a woman. There’s nothing better. This is girl power’: Jefferson County’s five female mayors lean on friendship to lead",
-      "summary": "The group known as the Jefferson County Lady Mayors said their bond helps them serve their cities.",
-      "description": "The group known as the Jefferson County Lady Mayors said their bond helps them serve their cities.",
-      "url": "https://www.wbrc.com/2026/09/09/i-love-being-woman-theres-nothing-better-this-is-girl-power-jefferson-countys-five-female-mayors-lean-friendship-lead/",
-      "link": "https://www.wbrc.com/2026/09/09/i-love-being-woman-theres-nothing-better-this-is-girl-power-jefferson-countys-five-female-mayors-lean-friendship-lead/",
-      "published_at": "2026-09-09T23:17:26.000Z",
-      "date": "2026-09-09T23:17:26.000Z",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "The Jefferson County Commission met, vetted, and approved 57 items in this week's Commission meeting",
+      "summary": "",
+      "description": "",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=149",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=149",
+      "published_at": "2026-09-10T22:38:16.000Z",
+      "date": "2026-09-10T22:38:16.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -234,10 +310,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HTBIEZYAC5B3FM5RC5OQ7TNPEE.jpeg?auth=391316bae3d96e85aa9dc00999d38bdc79127ae2f32b40f5a4c0f02cf4c6f786&smart=false"
+      "image_url": ""
     },
     {
-      "id": "news-6-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
+      "id": "news-8-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -253,7 +329,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -279,7 +355,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/0c806911-519d-4ea1-8725-92c548083b77-PENING.jpg"
     },
     {
-      "id": "news-7-jefferson-county-2026-contract-resurfacing-projects",
+      "id": "news-9-jefferson-county-2026-contract-resurfacing-projects",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -290,7 +366,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -316,7 +392,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says",
+      "id": "news-10-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says",
       "section": "nearby",
       "why": "names adamsville",
       "town": "Adamsville",
@@ -353,38 +429,40 @@
       "image_url": ""
     },
     {
-      "id": "news-9-trussville-tribune-third-northbound-lane-opens-on-i-59-in-trussville",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
+      "id": "news-11-trussville-tribune-mary-campbell-hardaman-march-10-1940-september-3-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
       "tags": [
-        "Roads"
+        "Obituary"
       ],
       "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/090126-I59-WIDENING-OPENING-1024x1024.png",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+      "image": null,
+      "obit": {
+        "name": "Mary Campbell Hardaman (March 10, 1940 — September 3, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 19,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Third northbound lane opens on I-59 in Trussville",
-      "summary": "TRUSSVILLE, Ala. — The widened northbound lanes on I-59 are now open in the Trussville area, adding a third travel lane between I-459 and Chalkville Mountain Road. The section covers around 3.5 miles of I-59 in northeast Jefferson County, which according to ALDOT carries around 63,000 motorists daily. The additional la",
-      "description": "TRUSSVILLE, Ala. — The widened northbound lanes on I-59 are now open in the Trussville area, adding a third travel lane between I-459 and Chalkville Mountain Road. The section covers around 3.5 miles of I-59 in northeast Jefferson County, which according to ALDOT carries around 63,000 motorists daily. The additional la",
-      "url": "https://www.trussvilletribune.com/2026/09/09/third-northbound-lane-opens-on-i-59-in-trussville/",
-      "link": "https://www.trussvilletribune.com/2026/09/09/third-northbound-lane-opens-on-i-59-in-trussville/",
-      "published_at": "2026-09-09T14:35:58.000Z",
-      "date": "2026-09-09T14:35:58.000Z",
+      "title": "Mary Campbell Hardaman (March 10, 1940 — September 3, 2026)",
+      "summary": "Kathryn Hardaman, age 86 of Birmingham, AL passed away on September 3, 2026. She was a member of North Clay Baptist Church. She is preceded in death by her husband, Alvin Hardaman and siblings, Delores Williams, Patricia Pardue, Charles Ray Campbell and Alf Campbell. She is survived by her son, Dean Hardaman; grandchil",
+      "description": "Kathryn Hardaman, age 86 of Birmingham, AL passed away on September 3, 2026. She was a member of North Clay Baptist Church. She is preceded in death by her husband, Alvin Hardaman and siblings, Delores Williams, Patricia Pardue, Charles Ray Campbell and Alf Campbell. She is survived by her son, Dean Hardaman; grandchil",
+      "url": "https://www.trussvilletribune.com/2026/09/10/mary-campbell-hardaman-march-10-1940-september-3-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/10/mary-campbell-hardaman-march-10-1940-september-3-2026/",
+      "published_at": "2026-09-10T17:07:44.000Z",
+      "date": "2026-09-10T17:07:44.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
-        "roads"
+        "obituary"
       ],
       "priority_level": 2,
       "priority": 2,
@@ -392,10 +470,98 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/090126-I59-WIDENING-OPENING-1024x1024.png"
+      "image_url": ""
     },
     {
-      "id": "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-12-trussville-tribune-sara-elizabeth-sample-december-28-1935-september-6-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Sara Elizabeth Sample (December 28, 1935 — September 6, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Sara Elizabeth Sample (December 28, 1935 — September 6, 2026)",
+      "summary": "Sarah Elizabeth Sample, age 90 of Birmingham, AL passed away on September 6, 2026. She was born and raised in Birmingham area. She was a member of Church of the Highlands Grants Mill Campus, Mat Makers Small Groups. She retired from the Mountain Brook School System. She cherished her church and her family as well […]",
+      "description": "Sarah Elizabeth Sample, age 90 of Birmingham, AL passed away on September 6, 2026. She was born and raised in Birmingham area. She was a member of Church of the Highlands Grants Mill Campus, Mat Makers Small Groups. She retired from the Mountain Brook School System. She cherished her church and her family as well […]",
+      "url": "https://www.trussvilletribune.com/2026/09/10/sara-elizabeth-sample-december-28-1935-september-6-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/10/sara-elizabeth-sample-december-28-1935-september-6-2026/",
+      "published_at": "2026-09-10T16:27:39.000Z",
+      "date": "2026-09-10T16:27:39.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-trussville-tribune-wanda-june-mcafee-june-1-1931-september-8-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Wanda June McAfee (June 1, 1931 — September 8, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Wanda June McAfee (June 1, 1931 — September 8, 2026)",
+      "summary": "HOOVER, AL – Wanda (June) McAfee, age 95, of Hoover, Alabama, passed away on September 8, 2026, at the Oaks on Parkwood in Hoover. She was born on June 1, 1931, in Logan, Cullman County, Alabama, the third child of William Grady Wright and Katie Lambert Wright. Her family moved frequently during her youth, living […]",
+      "description": "HOOVER, AL – Wanda (June) McAfee, age 95, of Hoover, Alabama, passed away on September 8, 2026, at the Oaks on Parkwood in Hoover. She was born on June 1, 1931, in Logan, Cullman County, Alabama, the third child of William Grady Wright and Katie Lambert Wright. Her family moved frequently during her youth, living […]",
+      "url": "https://www.trussvilletribune.com/2026/09/10/wanda-june-mcafee-june-1-1931-september-8-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/10/wanda-june-mcafee-june-1-1931-september-8-2026/",
+      "published_at": "2026-09-10T17:01:11.000Z",
+      "date": "2026-09-10T17:01:11.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -413,7 +579,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Tribute Archive",
       "source": "Tribute Archive",
@@ -439,7 +605,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-15-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -483,7 +649,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
+      "id": "news-16-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -501,7 +667,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 11,
+      "score": 10,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
