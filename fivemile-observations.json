@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T09:30:01.279Z",
+  "updatedAt": "2026-09-11T19:32:04.403Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,49 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 75,
+    "in_window": 77,
     "species_in_window": 64,
-    "window_total": 80,
+    "window_total": 82,
     "species_recorded": 73,
-    "observations_recorded": 86,
-    "area_total": 1090,
+    "observations_recorded": 88,
+    "area_total": 1092,
     "guide_links": 2
   },
   "observations": [
+    {
+      "id": 399260791,
+      "taxon": 39846,
+      "name": "Alabama Map Turtle",
+      "latin": "Graptemys pulchra",
+      "rank": "species",
+      "group": "Reptile",
+      "icon": "🐍",
+      "observedOn": "2026-09-10",
+      "place": null,
+      "obscured": true,
+      "observer": "Seamus O'Brien",
+      "observerLogin": "scf75",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/399260791",
+      "firstRecord": false
+    },
+    {
+      "id": 399227726,
+      "taxon": 39846,
+      "name": "Alabama Map Turtle",
+      "latin": "Graptemys pulchra",
+      "rank": "species",
+      "group": "Reptile",
+      "icon": "🐍",
+      "observedOn": "2026-09-10",
+      "place": null,
+      "obscured": true,
+      "observer": "Jesse Holifield",
+      "observerLogin": "jesseholifield",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/399227726",
+      "firstRecord": false
+    },
     {
       "id": 399150153,
       "taxon": 85034,
@@ -37,7 +71,7 @@
       "observerLogin": "cray87sly",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/399150153",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 399020517,
@@ -54,7 +88,7 @@
       "observerLogin": "cray87sly",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/399020517",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 399019358,
@@ -803,40 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/381542898",
       "firstRecord": false
-    },
-    {
-      "id": 378276495,
-      "taxon": 83090,
-      "name": "Tulip-tree Beauty",
-      "latin": "Epimecis hortaria",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-04",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/378276495",
-      "firstRecord": false
-    },
-    {
-      "id": 377883584,
-      "taxon": 17008,
-      "name": "Eastern Phoebe",
-      "latin": "Sayornis phoebe",
-      "rank": "species",
-      "group": "Bird",
-      "icon": "🐦",
-      "observedOn": "2026-07-03",
-      "place": null,
-      "obscured": true,
-      "observer": "Landon Ray",
-      "observerLogin": "landoncr",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/377883584",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -860,11 +860,13 @@
       "group": "Reptile",
       "rank": "species",
       "first": "2026-06-14",
-      "last": "2026-07-22",
-      "count": 2,
+      "last": "2026-09-10",
+      "count": 4,
       "ids": [
         371724282,
-        384079071
+        384079071,
+        399227726,
+        399260791
       ]
     },
     {
