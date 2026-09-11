@@ -134,17 +134,90 @@
     return atNoon(year, month, last.getDate() - offset);
   }
 
-  /* Harvest and Hunter moons, 2025 to 2030. Astronomical, so they are looked
-     up rather than derived. A year past the end of the table simply drops the
-     two entries rather than printing a wrong date. */
-  var MOON_TABLE = {
-    2025: { "harvest-moon": [9, 17], "hunters-moon": [10, 17] },
-    2026: { "harvest-moon": [9, 26], "hunters-moon": [10, 26] },
-    2027: { "harvest-moon": [9, 15], "hunters-moon": [10, 15] },
-    2028: { "harvest-moon": [10,  4], "hunters-moon": [11,  2] },
-    2029: { "harvest-moon": [9, 14], "hunters-moon": [10, 13] },
-    2030: { "harvest-moon": [10,  4], "hunters-moon": [11,  2] }
-  };
+  /* -----------------------------------------------------------------------
+     HARVEST AND HUNTER
+
+     The Harvest Moon is the full moon nearest the September equinox, which is
+     why it lands in October about a third of the time, and the Hunter's Moon
+     is the next full moon after it. Neither is a fixed date and neither is a
+     rule about weekdays, so they are worked out from fivemile-sky.js the same
+     way the almanac's phase is.
+
+     These used to be six years of dates typed into a table above a comment
+     saying they had been looked up. They had not been. Four of the six were
+     wrong and two of those were a week or more out, which is the argument for
+     asking the engine rather than keeping a list.
+
+     No engine means no entry. That is the behaviour the table had for a year
+     past its end, and it is still the right one: dropping the row is better
+     than printing a date nobody checked.
+     ----------------------------------------------------------------------- */
+
+  /* Every instant in the window where a rising quantity passes `target`,
+     found by stepping in six hour jumps and then halving. Both quantities
+     here run 0 to 360 and fall off a cliff back to nought once a cycle, and
+     a wrap is a drop rather than a rise, so it is skipped for free. */
+  function crossings(fromMs, toMs, valueAt, target) {
+    var step = 6 * 3600000;
+    var out = [];
+    var prev = null;
+    for (var t = fromMs; t <= toMs; t += step) {
+      var v = valueAt(t);
+      if (prev !== null && prev < target && v >= target) {
+        var a = t - step;
+        var b = t;
+        for (var k = 0; k < 32; k += 1) {
+          var m = (a + b) / 2;
+          if (valueAt(m) < target) { a = m; } else { b = m; }
+        }
+        out.push((a + b) / 2);
+      }
+      prev = v;
+    }
+    return out;
+  }
+
+  var moonFeastCache = {};
+
+  function moonFeasts(year) {
+    if (Object.prototype.hasOwnProperty.call(moonFeastCache, year)) return moonFeastCache[year];
+    moonFeastCache[year] = null;
+
+    var sky = window.FivemileSky;
+    if (!sky) return null;
+
+    var sunLonAt = function (ms) { return sky.sunAt(sky.dayNumber(new Date(ms))).lon; };
+    var elongationAt = function (ms) { return sky.moonIllumination(new Date(ms)).elongation; };
+
+    /* The sun's ecliptic longitude reaches 180 at the September equinox. */
+    var equinox = crossings(Date.UTC(year, 8, 15), Date.UTC(year, 8, 30), sunLonAt, 180)[0];
+    if (!equinox) return null;
+
+    /* Full is 180 degrees of elongation. A lunation and a half either side of
+       the equinox is enough to be certain the nearest one is in the list
+       whichever side it falls, and to have the one after it as well. */
+    var fulls = crossings(equinox - 45 * 86400000, equinox + 80 * 86400000, elongationAt, 180);
+    if (fulls.length < 2) return null;
+
+    var nearest = 0;
+    for (var i = 1; i < fulls.length; i += 1) {
+      if (Math.abs(fulls[i] - equinox) < Math.abs(fulls[nearest] - equinox)) nearest = i;
+    }
+    if (nearest + 1 >= fulls.length) return null;
+
+    /* Handed back as the local calendar date the full moon falls on, because
+       that is the night somebody here would go out and look at it. */
+    function localNoon(ms) {
+      var d = new Date(ms);
+      return atNoon(d.getFullYear(), d.getMonth() + 1, d.getDate());
+    }
+
+    moonFeastCache[year] = {
+      "harvest-moon": localNoon(fulls[nearest]),
+      "hunters-moon": localNoon(fulls[nearest + 1])
+    };
+    return moonFeastCache[year];
+  }
 
   function resolveMovable(slug, year) {
     var e = computeEaster(year);
@@ -154,6 +227,11 @@
       case "ash-wednesday":  return addDays(e, -46);
       case "mardi-gras":     return addDays(e, -47);
       case "arbor-day":      return lastWeekday(year, 4, 5);
+      // Alabama keeps its own, and it is a week rather than a day: the
+      // Legislature set the last full week of February in 1975. The last
+      // Saturday in February always has its Sunday in February too, so
+      // stepping back six days from it lands on the week's first day.
+      case "arbor-week-alabama": return addDays(lastWeekday(year, 2, 6), -6);
       case "mothers-day":    return nthWeekday(year, 5, 2, 0);
       case "memorial-day":   return lastWeekday(year, 5, 1);
       case "decoration-day": return addDays(lastWeekday(year, 5, 1), -1);
@@ -170,9 +248,8 @@
       case "tax-holiday-weather": return addDays(lastWeekday(year, 2, 0), -2);
       case "harvest-moon":
       case "hunters-moon": {
-        var row = MOON_TABLE[year];
-        if (row && row[slug]) return atNoon(year, row[slug][0], row[slug][1]);
-        return null;
+        var feasts = moonFeasts(year);
+        return feasts ? feasts[slug] : null;
       }
       default: return null;
     }
@@ -187,7 +264,7 @@
      season ones and "Pumpkins go in" does not come out as a nature note.
      ------------------------------------------------------------------------ */
   var SUBJECT_RULES = [
-    ["garden",    /garden|plant|pumpkin|soil|beds|seed|dogwood/i],
+    ["garden",    /garden|plant|pumpkin|soil|beds|seed|dogwood|arbor/i],
     ["civic",     /council|siren|hazardous|electronics|shredding|incorporation|tax holiday|election|meeting/i],
     ["sky",       /equinox|solstice|moon|meteor|perseid|leonid|sunset|shower|star/i],
     ["season",    /frost|peeper|daffodil|firefl|katydid|mulberr|muscadine|persimmon|blackberr|morel|ramp|fig |dog days|dais|bloom|ripen/i],

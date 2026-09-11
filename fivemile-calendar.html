@@ -238,6 +238,9 @@ function submitCalendarDate(){
 <script defer src="fivemile-season-data.js"></script>
 <!-- The engine, shared with the archive room. It has to be in front of the
      page script, which is why neither carries `async`. See DECISIONS.md 50. -->
+<!-- The Harvest and Hunter moons are worked out from the date rather
+     than looked up, so the calendar engine needs the sky engine. -->
+<script defer src="fivemile-sky.js"></script>
 <script defer src="fivemile-calendar-core.js"></script>
 <script defer src="fivemile-calendar.js"></script>
 <script defer src="fivemile-common.js"></script>
