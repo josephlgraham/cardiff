@@ -534,8 +534,16 @@
       var keys = Object.keys(months).sort().reverse();
 
       setText('creekStamp', plural(days.length, 'day', 'days') + ' · back to ' + longDate(days[0].date));
+      /* Averaged over the days that carry a reading. The gatherer leaves a day
+         out altogether rather than writing a half measured one, so in practice
+         that is every day in the month, and this is here to keep it true if
+         that ever changes. What it replaces was a `|| 0` in the sum with the
+         whole month underneath it, which would have quietly counted a missing
+         day as the creek sitting at nought feet. */
       buildReel(reel, keys, function (key) {
-        var mean = months[key].reduce(function (running, day) { return running + (num(day.mean) || 0); }, 0) / months[key].length;
+        var reported = months[key].filter(function (day) { return Number.isFinite(day.mean); });
+        if (!reported.length) return '&mdash;';
+        var mean = reported.reduce(function (running, day) { return running + day.mean; }, 0) / reported.length;
         return mean.toFixed(2) + ' ft';
       }, function (key) {
         renderCreekMonth(months[key], key);
