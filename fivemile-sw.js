@@ -82,7 +82,7 @@
 // fivemile-cards.css and fivemile-almanac.css both changed, and stylesheets are
 // the thing this cache is most cache-first about: without the bump a returning
 // reader keeps the unreadable chip. See DECISIONS.md 65.
-const CACHE_NAME = 'fivemile-v69';
+const CACHE_NAME = 'fivemile-v70';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

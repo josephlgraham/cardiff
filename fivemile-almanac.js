@@ -1182,7 +1182,7 @@
     // Night sky
     const nextFull = FA.nextMoonPhase(now, "Full Moon");
     const shower = FA.nextMeteorShower(now);
-    setText("deskSkyTag", Math.round(FA.moonAge(now)) + " days in");
+    setText("deskSkyTag", FA.moonAgePhrase(now));
     setText("deskSkyMoon", moon.icon + " " + moon.name);
     setText("deskSkyFull", nextFull ? FA.MONTHS_SHORT[nextFull.getMonth()] + " " + nextFull.getDate() : "—");
     setText("deskSkyMeteor", shower ? shower.name : "—");
@@ -1221,7 +1221,7 @@
     setText("sunSpan", daylight + " hours");
     setText("dayLength", daylight + " hours of daylight");
     setText("heroMoon", moon.icon + " " + moon.name);
-    setText("heroMoonSub", "Moon age in cycle: " + age + " days");
+    setText("heroMoonSub", "Moon age in cycle: " + age + (age === 1 ? " day" : " days"));
   }
 
   function buildStaticSections() {

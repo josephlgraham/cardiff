@@ -111,7 +111,7 @@
        mark, and the tile now has the place marks go, which is the kicker. */
     paintTile("skyMoon", moon.name, moon.science);
     FA.setTileMark("skyMoon", moon.icon, moon.name);
-    paintTile("skyAge", age + " days", "Days into a cycle that runs twenty nine and a half from one new moon to the next.");
+    paintTile("skyAge", age + (age === 1 ? " day" : " days"), "Days into a cycle that runs twenty nine and a half from one new moon to the next.");
     paintTile("skyDark", dark + " hours",
       "Sun down at " + FA.formatClock(sun.set) + " and up again at " + FA.formatClock(sun.rise) + ". True darkness starts later than sunset.");
 
@@ -124,7 +124,7 @@
     setText("moonMeta", "Tonight over Five Mile Creek");
     setText("moonLore", moon.lore);
     setText("moonSci", moon.science);
-    setText("skyMoonStamp", moon.icon + " " + age + " days in");
+    setText("skyMoonStamp", moon.icon + " " + FA.moonAgePhrase(now));
     renderStrip(moon);
     renderMeteors(now);
     FA.setRailSub("sky", moon.name);

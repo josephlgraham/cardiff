@@ -236,25 +236,81 @@
     return WDIRS[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16];
   }
 
+  /* -------------------------------------------------------------------------
+     THE MOON
+
+     The eight phases in order from new. The windows either side of each are
+     deliberately not equal. The four named phases are narrow, about twenty two
+     hours either side of the exact instant, because a reader told it is a full
+     moon should be able to step outside and see one. The crescent and gibbous
+     stretches take the rest of the month between them.
+
+     The edges are worked out below rather than written down here. Written down
+     they drifted: every one of them used to sit half a window late, so a phase
+     began at its exact instant instead of straddling it and the night before a
+     full moon was filed under waxing gibbous.
+     ------------------------------------------------------------------------- */
+  const SYNODIC_MONTH = 29.530588;
+
   const MOON_PHASES = [
-    { name: "New Moon", icon: "🌑", min: 0, max: 1.85, lore: "Dark nights make stars stronger and animal movement easier to hear than see.", science: "A new moon means the moon is roughly between Earth and the sun, so the lit side faces away from us." },
-    { name: "Waxing Crescent", icon: "🌒", min: 1.85, max: 7.38, lore: "Old almanac readers took the first light as a sign to start adding things back into the week.", science: "The illuminated fraction grows each evening, adding a little more moonlight after sunset." },
-    { name: "First Quarter", icon: "🌓", min: 7.38, max: 11.07, lore: "Half-lit nights are a good time to notice how moonlight changes the feel of fields and creek bends.", science: "From Earth we see half the near side lit because the moon has moved one quarter of the way around its orbit." },
-    { name: "Waxing Gibbous", icon: "🌔", min: 11.07, max: 14.77, lore: "This is when the moon begins to dominate the evening sky and stretch useful light later into the night.", science: "The moon is approaching full, so the visible illuminated portion keeps expanding toward a complete disk." },
-    { name: "Full Moon", icon: "🌕", min: 14.77, max: 16.61, lore: "Bright nights change how the woods look and how people move through them. Even the creek sounds different under a full moon.", science: "The Earth sits roughly between the sun and moon, so the moon's Earth-facing side is fully illuminated." },
-    { name: "Waning Gibbous", icon: "🌖", min: 16.61, max: 22.15, lore: "After full, the bright hours shift later into the night and toward dawn.", science: "The moon is still mostly lit, but the illuminated area shrinks a little each night after full." },
-    { name: "Last Quarter", icon: "🌗", min: 22.15, max: 25.84, lore: "Morning people notice this one first. It hangs over the early day rather than the evening.", science: "Again we see a half-lit moon, but now it is the opposite half compared with first quarter." },
-    { name: "Waning Crescent", icon: "🌘", min: 25.84, max: 29.53, lore: "The moon gives back the night a little at a time before the cycle resets.", science: "Only a thin illuminated slice remains visible before the moon returns to new." }
+    { name: "New Moon", icon: "🌑", lore: "Dark nights make stars stronger and animal movement easier to hear than see.", science: "A new moon means the moon is roughly between Earth and the sun, so the lit side faces away from us." },
+    { name: "Waxing Crescent", icon: "🌒", lore: "Old almanac readers took the first light as a sign to start adding things back into the week.", science: "The illuminated fraction grows each evening, adding a little more moonlight after sunset." },
+    { name: "First Quarter", icon: "🌓", lore: "Half-lit nights are a good time to notice how moonlight changes the feel of fields and creek bends.", science: "From Earth we see half the near side lit because the moon has moved one quarter of the way around its orbit." },
+    { name: "Waxing Gibbous", icon: "🌔", lore: "This is when the moon begins to dominate the evening sky and stretch useful light later into the night.", science: "The moon is approaching full, so the visible illuminated portion keeps expanding toward a complete disk." },
+    { name: "Full Moon", icon: "🌕", lore: "Bright nights change how the woods look and how people move through them. Even the creek sounds different under a full moon.", science: "The Earth sits roughly between the sun and moon, so the moon's Earth-facing side is fully illuminated." },
+    { name: "Waning Gibbous", icon: "🌖", lore: "After full, the bright hours shift later into the night and toward dawn.", science: "The moon is still mostly lit, but the illuminated area shrinks a little each night after full." },
+    { name: "Last Quarter", icon: "🌗", lore: "Morning people notice this one first. It hangs over the early day rather than the evening.", science: "Again we see a half-lit moon, but now it is the opposite half compared with first quarter." },
+    { name: "Waning Crescent", icon: "🌘", lore: "The moon gives back the night a little at a time before the cycle resets.", science: "Only a thin illuminated slice remains visible before the moon returns to new." }
   ];
 
+  /* The lower edge of each window, in days from new. An eighth of a month sits
+     at the middle of every phase. A named one reaches about twenty two hours
+     either side of that; an unnamed one reaches out to meet it. The first edge
+     is below nought on purpose. The new moon straddles the instant it happens,
+     so the evening before new is already new, and the same holds for the other
+     three. */
+  const PHASE_EDGES = MOON_PHASES.map(function (phase, index) {
+    const eighth = SYNODIC_MONTH / 8;
+    const named = index % 2 === 0;
+    return index * eighth - (named ? SYNODIC_MONTH / 32 : eighth - SYNODIC_MONTH / 32);
+  });
+
+  /* Days since new. Taken from the real angle between the moon and the sun,
+     which fivemile-sky.js works out from the date, because the month is not
+     29.53 days every time. The orbit is an ellipse and the moon does not cover
+     it at one speed, so counting mean months off a known new moon runs up to
+     about half a day either side of the truth. That is enough to name the
+     wrong phase, and for a while here it did.
+
+     The fallback is that mean count, for a page that shows a phase without
+     loading the sky engine. Every page that shows one loads it, so the
+     fallback should never run. It is kept honest anyway: the epoch below is
+     the new moon of 2000 January 6 at 18:14 UT, given in UT rather than in
+     whatever zone the reader's browser is set to. */
   function moonAge(date) {
-    const knownNew = new Date(2000, 0, 6, 18, 14, 0);
-    return (((date - knownNew) / 86400000) % 29.53 + 29.53) % 29.53;
+    const sky = window.FivemileSky;
+    if (sky) return sky.moonIllumination(date).elongation / 360 * SYNODIC_MONTH;
+    const knownNew = Date.UTC(2000, 0, 6, 18, 14);
+    return (((date - knownNew) / 86400000) % SYNODIC_MONTH + SYNODIC_MONTH) % SYNODIC_MONTH;
+  }
+
+  /* How far into the cycle, for the stamp under a phase. Two pages want the
+     same words, so they are written once. The count is whole days because a
+     decimal on a moon is a number nobody asked for. */
+  function moonAgePhrase(date) {
+    const days = Math.round(moonAge(date));
+    return days + (days === 1 ? " day in" : " days in");
   }
 
   function getMoonPhase(date) {
     const age = moonAge(date);
-    return MOON_PHASES.find((entry) => age >= entry.min && age < entry.max) || MOON_PHASES[0];
+    /* Past the last edge is the new moon again, coming round. */
+    const placed = age >= SYNODIC_MONTH + PHASE_EDGES[0] ? age - SYNODIC_MONTH : age;
+    let found = MOON_PHASES[0];
+    PHASE_EDGES.forEach(function (edge, index) {
+      if (placed >= edge) found = MOON_PHASES[index];
+    });
+    return found;
   }
 
   /* The next date the moon reaches a named phase, walked a day at a time. Good
@@ -956,6 +1012,7 @@
     dayLengthHours: dayLengthHours,
     directionFromDegrees: directionFromDegrees,
     moonAge: moonAge,
+    moonAgePhrase: moonAgePhrase,
     getMoonPhase: getMoonPhase,
     nextMoonPhase: nextMoonPhase,
 
