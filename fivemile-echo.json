@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T19:31:38.515Z",
+  "updatedAt": "2026-09-11T09:29:59.698Z",
   "source": "US EPA ECHO, Clean Water Act facility search",
   "source_url": "https://echo.epa.gov/",
   "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
@@ -123,7 +123,26 @@
       "last_inspection": "03/25/2025",
       "lat": 33.557464,
       "lon": -86.799671,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247",
+      "main_violation": "Other Violation",
+      "main_violation_quarters": 7,
+      "violation_kinds": [
+        {
+          "kind": "Other Violation",
+          "quarters": 7
+        },
+        {
+          "kind": "Reportable Noncompliance",
+          "quarters": 1
+        },
+        {
+          "kind": "Resolved",
+          "quarters": 1
+        }
+      ],
+      "inspections": 4,
+      "formal_enforcement_actions": 0,
+      "total_penalties": "$0"
     },
     {
       "name": "SAIIA CONSTRUCTION COMPANY LLC",
