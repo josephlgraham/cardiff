@@ -1,65 +1,60 @@
 {
-  "updatedAt": "2026-09-11T00:49:34.010Z",
+  "updatedAt": "2026-09-11T14:50:54.213Z",
   "counts": {
-    "nearby": 4,
-    "county": 6,
-    "obituaries": 6
+    "nearby": 5,
+    "county": 5,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-al-com-suspect-charged-in-deadly-shooting-at-west-birmingham-home",
-      "news-3-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
-      "news-4-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "news-1-wvtm-13-arrest-made-after-argument-leads-to-deadly-shooting-in-birmi",
+      "news-2-abc-33-40-man-charged-in-deadly-birmingham-shooting-in-roosevelt-neigh",
+      "news-4-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
+      "news-5-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
       "news-10-al-com-man-in-handcuffs-stole-adamsville-police-car-chief-says"
     ],
     "creek": [],
     "county": [
-      "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
-      "news-5-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
+      "news-3-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
       "news-6-jefferson-county-caldwell-mill-rd-paving-and-projects",
       "news-7-jefferson-county-the-jefferson-county-commission-met-vetted-and-approved-57-i",
       "news-8-abc-33-40-new-widened-us-280-lanes-open-between-shades-creek-parkway-a",
       "news-9-jefferson-county-2026-contract-resurfacing-projects"
     ],
     "obituaries": [
-      "news-11-trussville-tribune-mary-campbell-hardaman-march-10-1940-september-3-2026",
-      "news-12-trussville-tribune-sara-elizabeth-sample-december-28-1935-september-6-2026",
-      "news-13-trussville-tribune-wanda-june-mcafee-june-1-1931-september-8-2026",
-      "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-15-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-16-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c"
+      "news-11-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-suspect-charged-in-deadly-shooting-at-west-birmingham-home",
+      "id": "news-1-wvtm-13-arrest-made-after-argument-leads-to-deadly-shooting-in-birmi",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
       "tags": [
         "Public safety"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "WVTM 13",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/WYRXR65FIBBL5JKMITNYNIOSP4.png?auth=5be1fd8b1ad1ff888d38ae326d784f38e60ad58f65c2c81861a19525257b0f3a&smart=true&height=1200",
+        "url": "https://kubrick.htvapps.com/htv-prod/images/812f6bd9-5fa6-404b-8109-c4ccf7e25ee1.jpg",
         "from": "feed",
-        "width": 800,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "WVTM 13"
       },
       "obit": null,
-      "score": 38,
+      "score": 36,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Suspect charged in deadly shooting at west Birmingham home",
-      "summary": "Derrick Rasard Gray, of Pleasant Grove, is charged with capital murder in Tuesday killing of 54-year-old Brian Montez Swain.",
-      "description": "Derrick Rasard Gray, of Pleasant Grove, is charged with capital murder in Tuesday killing of 54-year-old Brian Montez Swain.",
-      "url": "https://www.al.com/news/2026/09/suspect-charged-in-deadly-shooting-at-west-birmingham-home.html",
-      "link": "https://www.al.com/news/2026/09/suspect-charged-in-deadly-shooting-at-west-birmingham-home.html",
-      "published_at": "2026-09-11T00:03:15.000Z",
-      "date": "2026-09-11T00:03:15.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Arrest made after argument leads to deadly shooting in Birmingham",
+      "summary": "A Pleasant Grove man has been arrested and charged in connection with the fatal shooting of a Birmingham man earlier this week .",
+      "description": "A Pleasant Grove man has been arrested and charged in connection with the fatal shooting of a Birmingham man earlier this week .",
+      "url": "https://www.wvtm13.com/article/birmingham-homicide-arrest-police-jesse-owens-swain-grey/73676873",
+      "link": "https://www.wvtm13.com/article/birmingham-homicide-arrest-police-jesse-owens-swain-grey/73676873",
+      "published_at": "2026-09-11T03:17:00.000Z",
+      "date": "2026-09-11T03:17:00.000Z",
       "location_tags": [
         "pleasant-grove"
       ],
@@ -72,10 +67,52 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/WYRXR65FIBBL5JKMITNYNIOSP4.png?auth=5be1fd8b1ad1ff888d38ae326d784f38e60ad58f65c2c81861a19525257b0f3a&smart=true&height=1200"
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/812f6bd9-5fa6-404b-8109-c4ccf7e25ee1.jpg"
     },
     {
-      "id": "news-2-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
+      "id": "news-2-abc-33-40-man-charged-in-deadly-birmingham-shooting-in-roosevelt-neigh",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/4x5/800/986/0x0/90/47c1efa6-c130-4c39-b805-c82b5db8f84b-DerrickGray.jpg?crop_fill=1&size=986x554",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 36,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Man charged in deadly Birmingham shooting in Roosevelt neighborhood",
+      "summary": "A Pleasant Grove man was charged with capital murder in the fatal shooting of a Birmingham man earlier this week.The Birmingham Police Department said 51-year-o",
+      "description": "A Pleasant Grove man was charged with capital murder in the fatal shooting of a Birmingham man earlier this week.The Birmingham Police Department said 51-year-o",
+      "url": "https://abc3340.com/news/local/alabama-birmingham-man-charged-with-capital-murder-in-fatal-roosevelt-shooting-51-year-old-derrick-gray-54-year-old-brian-swain",
+      "link": "https://abc3340.com/news/local/alabama-birmingham-man-charged-with-capital-murder-in-fatal-roosevelt-shooting-51-year-old-derrick-gray-54-year-old-brian-swain",
+      "published_at": "2026-09-11T00:21:20.000Z",
+      "date": "2026-09-11T00:21:20.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/4x5/800/986/0x0/90/47c1efa6-c130-4c39-b805-c82b5db8f84b-DerrickGray.jpg?crop_fill=1&size=986x554"
+    },
+    {
+      "id": "news-3-wbrc-birmingham-man-facing-attempted-murder-charges-after-police-",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -92,7 +129,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -119,7 +156,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//352JIFGCSJBWTNTC4ZB6ARUMJM.jpg?auth=d73dde7c3843c4e064ee4c54018c4ab00bf12db03db8eb52d4b03c49508bd5b9&smart=false"
     },
     {
-      "id": "news-3-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
+      "id": "news-4-abc-33-40-united-way-of-central-alabama-kicks-off-2026-campaign-with-h",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -133,7 +170,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -157,7 +194,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1610/986/0x6/90/fbf9f732-945d-4455-84bd-d327ace3132a-habitat4.png"
     },
     {
-      "id": "news-4-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
+      "id": "news-5-abc-33-40-there-s-many-stories-behind-alabama-s-fallen-warrior-monumen",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -171,7 +208,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -186,57 +223,13 @@
         "warrior"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/1191/986/26x0/90/b5a2ed8e-6523-4903-b095-9382c41f8454-AlabamaFallenWarriorMonumentinTrussvilleabc3340.com.png"
-    },
-    {
-      "id": "news-5-abc-33-40-two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/512e3e16-e4a3-4f95-b206-826ea978b9f0-asdasdf.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 28,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Two arrested after heroin seized in Birmingham traffic stop",
-      "summary": "Two people were arrested after a traffic stop and narcotics search warrant led to the seizure of heroin in Birmingham, according to the Jefferson County Sheriff",
-      "description": "Two people were arrested after a traffic stop and narcotics search warrant led to the seizure of heroin in Birmingham, according to the Jefferson County Sheriff",
-      "url": "https://abc3340.com/news/local/two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
-      "link": "https://abc3340.com/news/local/two-arrested-after-heroin-seized-in-birmingham-traffic-stop",
-      "published_at": "2026-09-09T16:16:13.000Z",
-      "date": "2026-09-09T16:16:13.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/512e3e16-e4a3-4f95-b206-826ea978b9f0-asdasdf.jpg"
     },
     {
       "id": "news-6-jefferson-county-caldwell-mill-rd-paving-and-projects",
@@ -250,7 +243,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -287,7 +280,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -329,7 +322,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -366,7 +359,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -403,7 +396,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -429,139 +422,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-trussville-tribune-mary-campbell-hardaman-march-10-1940-september-3-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Mary Campbell Hardaman (March 10, 1940 — September 3, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Mary Campbell Hardaman (March 10, 1940 — September 3, 2026)",
-      "summary": "Kathryn Hardaman, age 86 of Birmingham, AL passed away on September 3, 2026. She was a member of North Clay Baptist Church. She is preceded in death by her husband, Alvin Hardaman and siblings, Delores Williams, Patricia Pardue, Charles Ray Campbell and Alf Campbell. She is survived by her son, Dean Hardaman; grandchil",
-      "description": "Kathryn Hardaman, age 86 of Birmingham, AL passed away on September 3, 2026. She was a member of North Clay Baptist Church. She is preceded in death by her husband, Alvin Hardaman and siblings, Delores Williams, Patricia Pardue, Charles Ray Campbell and Alf Campbell. She is survived by her son, Dean Hardaman; grandchil",
-      "url": "https://www.trussvilletribune.com/2026/09/10/mary-campbell-hardaman-march-10-1940-september-3-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/10/mary-campbell-hardaman-march-10-1940-september-3-2026/",
-      "published_at": "2026-09-10T17:07:44.000Z",
-      "date": "2026-09-10T17:07:44.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-trussville-tribune-sara-elizabeth-sample-december-28-1935-september-6-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Sara Elizabeth Sample (December 28, 1935 — September 6, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Sara Elizabeth Sample (December 28, 1935 — September 6, 2026)",
-      "summary": "Sarah Elizabeth Sample, age 90 of Birmingham, AL passed away on September 6, 2026. She was born and raised in Birmingham area. She was a member of Church of the Highlands Grants Mill Campus, Mat Makers Small Groups. She retired from the Mountain Brook School System. She cherished her church and her family as well […]",
-      "description": "Sarah Elizabeth Sample, age 90 of Birmingham, AL passed away on September 6, 2026. She was born and raised in Birmingham area. She was a member of Church of the Highlands Grants Mill Campus, Mat Makers Small Groups. She retired from the Mountain Brook School System. She cherished her church and her family as well […]",
-      "url": "https://www.trussvilletribune.com/2026/09/10/sara-elizabeth-sample-december-28-1935-september-6-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/10/sara-elizabeth-sample-december-28-1935-september-6-2026/",
-      "published_at": "2026-09-10T16:27:39.000Z",
-      "date": "2026-09-10T16:27:39.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-13-trussville-tribune-wanda-june-mcafee-june-1-1931-september-8-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Wanda June McAfee (June 1, 1931 — September 8, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 13,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Wanda June McAfee (June 1, 1931 — September 8, 2026)",
-      "summary": "HOOVER, AL – Wanda (June) McAfee, age 95, of Hoover, Alabama, passed away on September 8, 2026, at the Oaks on Parkwood in Hoover. She was born on June 1, 1931, in Logan, Cullman County, Alabama, the third child of William Grady Wright and Katie Lambert Wright. Her family moved frequently during her youth, living […]",
-      "description": "HOOVER, AL – Wanda (June) McAfee, age 95, of Hoover, Alabama, passed away on September 8, 2026, at the Oaks on Parkwood in Hoover. She was born on June 1, 1931, in Logan, Cullman County, Alabama, the third child of William Grady Wright and Katie Lambert Wright. Her family moved frequently during her youth, living […]",
-      "url": "https://www.trussvilletribune.com/2026/09/10/wanda-june-mcafee-june-1-1931-september-8-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/10/wanda-june-mcafee-june-1-1931-september-8-2026/",
-      "published_at": "2026-09-10T17:01:11.000Z",
-      "date": "2026-09-10T17:01:11.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-11-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -579,15 +440,15 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Tribute Archive",
       "source": "Tribute Archive",
       "title": "Johnny A Rice Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
       "summary": "",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPM05QcVpGNW54Q0pOQUZIYUFNTXVwQmpvbnlHMmxQXy1TMHUzbmprN09sTTBENGUxMWJVMzV0cVotd0txUTVOT21WOUU1TDl1XzBscUlUYlNkNDJmdkNicmNseFdRZHVXV0Zqa3RSNURMMGxKcjhQNHdoQ2Z3dm9SVHEtX0YyYmJBUTVWdkJVRlBaS1ZPcnFsUkdEeWc0eUdkUEJvS3libE9hYVI4a0FPS2dGTQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPM05QcVpGNW54Q0pOQUZIYUFNTXVwQmpvbnlHMmxQXy1TMHUzbmprN09sTTBENGUxMWJVMzV0cVotd0txUTVOT21WOUU1TDl1XzBscUlUYlNkNDJmdkNicmNseFdRZHVXV0Zqa3RSNURMMGxKcjhQNHdoQ2Z3dm9SVHEtX0YyYmJBUTVWdkJVRlBaS1ZPcnFsUkdEeWc0eUdkUEJvS3libE9hYVI4a0FPS2dGTQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5WY0ZhM1Z4NEFheTFSLVdfQ21naHdIRTVHNDdwcE9aN2g4bVI0NjcwZlZtTGFoTXF0cGdlaWM5QmhXMFNzUEtwdC1WUFlzN1o1WlhmMkFhcDd5cU1FQXEtN05DTkl3TE4xTHRWYUxJbkV6UQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5WY0ZhM1Z4NEFheTFSLVdfQ21naHdIRTVHNDdwcE9aN2g4bVI0NjcwZlZtTGFoTXF0cGdlaWM5QmhXMFNzUEtwdC1WUFlzN1o1WlhmMkFhcDd5cU1FQXEtN05DTkl3TE4xTHRWYUxJbkV6UQ?oc=5",
       "published_at": "2026-09-06T07:00:00.000Z",
       "date": "2026-09-06T07:00:00.000Z",
       "location_tags": [
@@ -598,94 +459,6 @@
       ],
       "priority_level": 2,
       "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-15-tribute-archive-terry-russell-obituary-crestview-memorial-gardens-and-fh-ada",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Terry Russell Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Terry Russell Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB1SldYVTZqemJDZDFHWi1wLWx6QTdsWGdxeWtQeXM3NjRacFloZVRxeWxZN1JuYkVweXM4dTNfdmxFX0FlM1gyWUlPd1ZWU2twNEotbkt2akNsWkZlNV9keUtMbWFFRkdVQm9VOFZ5RnlIUQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFB1SldYVTZqemJDZDFHWi1wLWx6QTdsWGdxeWtQeXM3NjRacFloZVRxeWxZN1JuYkVweXM4dTNfdmxFX0FlM1gyWUlPd1ZWU2twNEotbkt2akNsWkZlNV9keUtMbWFFRkdVQm9VOFZ5RnlIUQ?oc=5",
-      "published_at": "2026-09-02T07:00:00.000Z",
-      "date": "2026-09-02T07:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-16-bham-now-ricky-bromberg-president-of-alabama-s-oldest-business-bham-c",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
-        "age": null,
-        "town": "",
-        "home": "Bham Now",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 10,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Ricky Bromberg, President of Alabama’s oldest business + Bham civic leader, dies at 67",
-      "summary": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
-      "description": "💔 BHAM LOSES A BELOVED LEADER: Ricky Bromberg, President of Bromberg & Co. passed away September 2 at 67. He spent his life showing up for customers, community, and everyone lucky enough to know him.",
-      "url": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
-      "link": "https://bhamnow.com/2026/09/08/ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67/#utm_source=rss&utm_medium=rss&utm_campaign=ricky-bromberg-president-of-alabamas-oldest-business-bham-civic-leader-dies-at-67",
-      "published_at": "2026-09-08T19:53:14.000Z",
-      "date": "2026-09-08T19:53:14.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 1,
-      "priority": 1,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
