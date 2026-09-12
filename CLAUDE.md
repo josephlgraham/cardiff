@@ -138,7 +138,9 @@ shows". The site should be intuitive, not annotated.
 
 ## Design tokens
 
-- Type: Plus Jakarta Sans (body and UI), DM Mono (data and captions)
+- Type: Plus Jakarta Sans (body, UI, and the reading on a card), DM Mono
+  (labels, kickers, captions, and the archive tables). Mono names a thing,
+  the sans says it. See DECISIONS.md 66.
 - Red `#C8102E`, paper `#F2E8D5`, card `#FAF6EE`, ink `#1C1208`, masthead `#3D2810`
 - Border radius 14px on all cards and infoboxes
 - Separators: 1px `#DDCFB8`, 40px margin top and bottom, no shadow

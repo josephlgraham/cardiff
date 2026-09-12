@@ -1058,7 +1058,12 @@
 
     const now = new Date();
     setText("weekSpan", DAY_COUNTS[days.length] || days.length + " days");
-    setHTML("weekBody", '<div class="week-grid">' + days.map((entry) => {
+    /* The strip is as wide as the number of days it actually has. The forecast
+       file runs out at the end of its week and a day whose daylight has gone
+       drops off the front, so six and five and four are all normal counts, and
+       a seven track grid holding six of them ends in a blank slot. */
+    setHTML("weekBody", '<div class="week-grid" style="--week-days:' + days.length + '">' +
+      days.map((entry) => {
       const day = entry.day;
       const hi = Number(day.temperature);
       const lo = entry.night ? Number(entry.night.temperature) : NaN;

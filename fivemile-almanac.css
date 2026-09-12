@@ -259,7 +259,7 @@ section.top{padding:24px 0 0}
 .wf-grid{display:grid;gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
 .wf-place{background:var(--card);padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .wf-name{font-size:15px;font-weight:700}
-.wf-temp{font-family:var(--mono);font-size:17px}
+.wf-temp{font-family:var(--sans);font-weight:700;font-size:17px}
 .wf-cond{font-size:14px;color:#6B6156;flex-basis:100%;line-height:1.45}
 
 /* ---------------------------------------------------------------------------
@@ -453,11 +453,17 @@ section.top{padding:24px 0 0}
 /* ---------------------------------------------------------------------------
    THE WEEK
    --------------------------------------------------------------------------- */
-.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
+/* One track a day, and the renderer says how many days there are. Seven is
+   the fallback for the same reason it used to be the rule: that is the most
+   the forecast file ever holds. */
+.week-grid{display:grid;grid-template-columns:repeat(var(--week-days,7),1fr);gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
 .week-item{background:var(--card);padding:10px 6px;text-align:center;display:grid;gap:3px;align-content:start}
 .week-item-day{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#6B6156}
 .week-item-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
-.week-item-temp{font-family:var(--mono);font-size:15px}
+/* The two readings on this page that were still in the mono. A reading is
+   set in the sans now, on the cards and here, and the labels around them keep
+   the mono the way they always have. See DECISIONS.md 66. */
+.week-item-temp{font-family:var(--sans);font-weight:700;font-size:15px}
 .week-item-note{font-size:12.5px;line-height:1.4;color:#6B6156}
 
 /* ---------------------------------------------------------------------------
@@ -524,6 +530,15 @@ section.top{padding:24px 0 0}
 @media(max-width:900px){
   .week-grid{grid-template-columns:repeat(4,1fr)}
   .moon-strip{grid-template-columns:repeat(4,1fr)}
+  /* Four across divides four days and no other count the file hands over, so
+     the last day takes whatever is left of its row rather than leaving it as
+     bare rule colour. Three rules cover every count because the columns are
+     fixed at four here: a last day landing on the first, second or third
+     track of a row runs to the end of it. The moon strip is always eight
+     phases and needs none of this. */
+  .week-grid > .week-item:nth-child(4n+1):last-child{grid-column:1/-1}
+  .week-grid > .week-item:nth-child(4n+2):last-child{grid-column:2/-1}
+  .week-grid > .week-item:nth-child(4n+3):last-child{grid-column:3/-1}
 }
 @media(max-width:820px){
   .two-wide{grid-template-columns:1fr}
@@ -548,6 +563,9 @@ section.top{padding:24px 0 0}
 }
 @media(max-width:560px){
   .week-grid{grid-template-columns:repeat(2,1fr)}
+  /* Two across, so an odd number of days leaves the last one on its own. */
+  .week-grid > .week-item:nth-child(odd):last-child{grid-column:1/-1}
+  .week-grid > .week-item:nth-child(even):last-child{grid-column:auto}
   .month-grid{grid-template-columns:1fr}
   .fish-grid{grid-template-columns:1fr}
   .watershed-chart{min-height:250px}

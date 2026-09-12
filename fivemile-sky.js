@@ -196,8 +196,9 @@
   /* How much of the disk is lit, and which way round it is. The elongation is
      the angle between the moon and the sun as seen from here, so nought is new
      and a hundred and eighty is full. This is a better answer than counting
-     days since a known new moon, which is what the almanac's phase lookup
-     does, because the month is not 29.53 days every time. */
+     days since a known new moon, because the month is not 29.53 days every
+     time: the orbit is an ellipse and the moon does not cover it at one
+     speed. Everything on the site that names a phase comes off this. */
   function moonIllumination(date) {
     const m = moonAt(dayNumber(date));
     const elong = rev(m.lon - m.sunLon);
@@ -212,6 +213,115 @@
       fraction: (1 - cos(separation)) / 2,
       waxing: elong < 180
     };
+  }
+
+  /* -------------------------------------------------------------------------
+     THE PHASE, BY NAME
+
+     One answer to "what is the moon tonight", for every page that asks.
+
+     There were two. The almanac named the phase off the age in days and the
+     news page named it off the lit fraction, and on the night sky page the two
+     answers stood one above the other: the tile said Waxing Crescent and the
+     panel underneath it said New Moon. Both were describing the same moon.
+
+     The age is the one that can do this job. A fraction cannot: three percent
+     lit is already a day and a half past new, and a fraction on its own does
+     not know which side of new or full it is on, so it has to be told. The
+     naming below is the almanac's, moved here rather than copied, so there is
+     no second copy to drift.
+
+     An eighth of a month sits at the middle of every phase. A named one, new,
+     the two quarters, and full, reaches about twenty two hours either side of
+     its instant, so it straddles the instant rather than starting at it and
+     the evening before a full moon is already full. The crescents and the
+     gibbous stretches take the rest of the month between them. See
+     DECISIONS.md 67.
+     ------------------------------------------------------------------------- */
+  const SYNODIC_MONTH = 29.530588;
+
+  /* The order is the cycle and everything downstream indexes into it. The
+     almanac keeps a table of the same eight in the same order, carrying the
+     icon and the writing that goes with each one. */
+  const MOON_PHASE_NAMES = ["New Moon", "Waxing Crescent", "First Quarter", "Waxing Gibbous",
+    "Full Moon", "Waning Gibbous", "Last Quarter", "Waning Crescent"];
+
+  /* The lower edge of each window, in days from new. The first edge is below
+     nought on purpose: the new moon straddles the instant it happens, and the
+     hours before it are already new. */
+  const PHASE_EDGES = MOON_PHASE_NAMES.map(function (name, index) {
+    const eighth = SYNODIC_MONTH / 8;
+    const named = index % 2 === 0;
+    return index * eighth - (named ? SYNODIC_MONTH / 32 : eighth - SYNODIC_MONTH / 32);
+  });
+
+  /* Days since new, off the real angle. Fractional, because the phase lookup
+     wants the fraction and the pages that print it round it themselves. */
+  function moonAge(date) {
+    return moonIllumination(date).elongation / 360 * SYNODIC_MONTH;
+  }
+
+  function moonPhase(date) {
+    const lit = moonIllumination(date);
+    const age = lit.elongation / 360 * SYNODIC_MONTH;
+    /* Past the last edge is the new moon again, coming round. */
+    const placed = age >= SYNODIC_MONTH + PHASE_EDGES[0] ? age - SYNODIC_MONTH : age;
+    let index = 0;
+    PHASE_EDGES.forEach(function (edge, at) {
+      if (placed >= edge) index = at;
+    });
+    return {
+      index: index,
+      name: MOON_PHASE_NAMES[index],
+      age: age,
+      fraction: lit.fraction,
+      waxing: lit.waxing
+    };
+  }
+
+  /* The four named phases are four angles: new is nought, the quarters are
+     ninety and two hundred and seventy, and full is a hundred and eighty. The
+     next one is the instant the moon reaches that angle, found by stepping in
+     six hour jumps and then halving, which is how the calendar already finds
+     the harvest moon.
+
+     It is an instant and not a day for a reason. The old answer walked forward
+     a day at a time and handed back the first day the phase window covered,
+     and a window opens about twenty two hours before the phase itself, so a
+     full moon at twenty past eleven at night came back as the day after. Three
+     of the thirteen full moons in 2026 fall that way, and on those three the
+     almanac and the calendar printed different dates for the same moon.
+
+     The difference is folded to run from minus a hundred and eighty to plus a
+     hundred and eighty, so it rises through nought at the phase whichever
+     angle is being looked for, and the fold's own jump is a fall rather than a
+     rise and gets skipped for free. */
+  const PHASE_ANGLES = { "New Moon": 0, "First Quarter": 90, "Full Moon": 180, "Last Quarter": 270 };
+
+  function nextMoonPhase(date, name) {
+    const target = PHASE_ANGLES[name];
+    if (target === undefined) return null;
+    const diff = function (ms) {
+      const d = rev(moonIllumination(new Date(ms)).elongation - target);
+      return d > 180 ? d - 360 : d;
+    };
+    const step = 6 * 3600000;
+    const from = date.getTime();
+    let prev = diff(from);
+    for (let t = from + step; t <= from + 40 * 86400000; t += step) {
+      const v = diff(t);
+      if (prev < 0 && v >= 0) {
+        let a = t - step;
+        let b = t;
+        for (let k = 0; k < 32; k += 1) {
+          const m = (a + b) / 2;
+          if (diff(m) < 0) { a = m; } else { b = m; }
+        }
+        return new Date((a + b) / 2);
+      }
+      prev = v;
+    }
+    return null;
   }
 
   /* -------------------------------------------------------------------------
@@ -663,6 +773,11 @@
     moonAt: moonAt,
     planetAt: planetAt,
     moonIllumination: moonIllumination,
+    SYNODIC_MONTH: SYNODIC_MONTH,
+    MOON_PHASE_NAMES: MOON_PHASE_NAMES,
+    moonAge: moonAge,
+    moonPhase: moonPhase,
+    nextMoonPhase: nextMoonPhase,
     riseSetTransit: riseSetTransit,
     moonTimes: moonTimes,
     planetTimes: planetTimes,

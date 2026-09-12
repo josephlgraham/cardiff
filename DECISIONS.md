@@ -4002,3 +4002,195 @@ the thing being faded is text, fade the text.
 .fx-verdict` rather than on an id, so it already covers one, and that is the
 right shape: the rule is about where the chip is standing, not about which page
 it is on.
+
+---
+
+## 66. A reading is set in the sans, and a grid never ends in a hole
+**Decided:** September 2026.
+
+Joe sent a screenshot of the sky block on the news page with three things wrong
+with it, and the three turned out to be one CSS file, one renderer and one
+decision that had quietly come undone.
+
+### The typewriter
+
+Every reading on every card was DM Mono at 500, from the creek level on the
+homepage to "Sets 8:27 PM, in the west" on the news page. The reasoning was
+that a reading is data and data is mono, and it holds right up until you notice
+how many of these cells hold no figure at all. "Up most of the night, from 8:24
+PM" is a sentence. "Set out collards and turnips" is a sentence. A card of them
+in a fixed pitch face reads as a typewriter, which is a voice this site does
+not have, and mono is also the widest way to set a long value on a 390px
+screen.
+
+**The reading takes Plus Jakarta Sans at 700. Everything else keeps the mono.**
+Labels, kickers, captions, units, town badges, the source slot on the red bar,
+and the archive tables, where figures stand in columns and the fixed pitch is
+doing the job it exists for. The rule is now sayable in one line: mono names
+things, the sans says them.
+
+Four rules carried the old setting in `fivemile-cards.css`, `.d-cell b`,
+`.t-row b`, `.s-row b` and `.g-val`, and two more sat outside it on the almanac,
+`.wf-temp` and `.week-item-temp`. All six moved together, because a page with
+half its readings in each is worse than a page with all of them in either. The
+card spec in `docs/` keeps its own copy of those rules and moved with them.
+
+### The list variant had never once applied
+
+`.d-rows.list` turns a two by two grid of readings into full width rows, and it
+was written for exactly the two panels that were not getting it. Both sky
+panels hand their rows to a wrapper div the renderer owns, and every selector
+in that block was `.d-body > .d-rows.list`. A child combinator, and the wrapper
+is the child.
+
+So those two cards had been rendering as narrow boxes with phrases wrapping
+three lines deep, and on any day with an odd number of readings the last slot
+of the grid was empty: bare rule colour in the corner of the card, which is
+what Joe had circled. They are descendant selectors now. Nothing else on the
+site moves, because every other `.d-rows.list` is already a direct child.
+
+**`.fill` was inert for the same reason, and `.d-pass` is new.** A wrapper
+between the body and the grid also swallows the card's spare height, so on a
+day with three readings the panel ended with 175px of nothing under the last
+row while the planets card beside it filled its box. `.d-pass` makes a host
+div a column that grows, so the grid inside it can take the slack the way the
+daily read already does.
+
+**And a grid that comes out odd fills its own row.** `.d-rows` is two columns
+at every width and never collapses to one, so an odd count always left a slot
+showing. The last cell takes the whole row when it lands on one.
+
+### The week strip was the same bug with better manners
+
+Joe asked whether there were other blank slots on a phone and guessed at the
+moon charts. The moon strip is always eight phases across eight columns or
+four, so it is always full. The week strip beside it is seven columns holding
+however many days the forecast file still has, which is six by the middle of a
+week and fewer by the end of one, and the difference showed as blank slots:
+one on the full measure, two at four across, one at two across.
+
+The strip is as wide as the number of days it has now. The renderer writes the
+count into `--week-days` and the track count reads it, and at the two narrow
+breakpoints, where the columns are fixed at four and two, the last day runs to
+the end of its row.
+
+### On a phone the lookup row stacks
+
+A row wants a label at one end and a figure at the other, and at 390px there is
+not enough left over for the figure: "12.5 hours, losing 2 minutes a day" broke
+with one word alone on the second line. Under 480px the label sits above the
+reading, which gives it the whole row, puts almost all of them back on one
+line, and leaves the cell shorter than it was.
+
+### The turning came off the page
+
+The block opened with the turning, Lammas or Michaelmas or Hallowtide and the
+date it began, and under the rows it printed that turning's explainer: a
+paragraph about loaf-mass, Lughnasadh, and summer's long labor starting to pay
+out, to a reader who came to find out whether the creek was up.
+
+**Decision 41 had already settled this and nobody noticed it had come undone.**
+The turnings are how `turnings.json` files its dates and they are not a season
+anybody here is standing in. The calendar has said so in a comment since it was
+rebuilt. `fivemile-skynow.js` was reading the same file and putting the frame
+back on a different page.
+
+The row is gone, the explainer is gone with it, and the fetch went too, so the
+block now reads nothing off disk at all. What stays is astronomy: the named
+stretches in `fivemile-sky.js` still carry their paragraph when one is on,
+because the dog days and the second summer are things people here say, and each
+of those explains where its own name came from rather than what the year means.
+
+**The turnings file is untouched.** Decision 41 kept the eight explainers as
+deliberate dead data, good writing waiting on a page about the old calendar,
+and that is still where they belong.
+
+### What filled the empty slot
+
+A third standing reading, and the one the panel was missing: the light. How
+long the day is and which way it is going, worked out from sunrise and sunset
+either side of today so the rate does not jump a minute on the arithmetic. It
+is the fact everybody notices in September and it belongs in a panel called
+Where the year is, which is more than the turning was doing there.
+
+**Revisit if:** a reading ever needs to line up in a column with the reading
+under it. That is a table, the archive already has one, and the mono is still
+there for it.
+
+---
+
+## 67. One place decides what the moon is
+**Decided:** September 2026. Follows 66.
+
+The night sky page said two things about the same moon, about four inches
+apart. The tile at the top said Waxing Crescent. The panel underneath it said
+New Moon, 3% lit.
+
+Both were right about the sky and wrong about each other. Two files were
+answering the same question two different ways.
+
+### A lit fraction cannot name a phase
+
+`fivemile-skynow.js` named the phase off how much of the disk was lit: under
+three percent was new, over ninety seven was full, and the rest split at the
+halves. It reads like a reasonable rule and it is not one.
+
+**Three percent lit is already a day and a half past new.** The fraction moves
+slowly at both ends of the month and quickly through the middle, so a threshold
+in fraction is a window of wildly different widths depending on where in the
+cycle it lands. Checked across four hundred days against what the almanac was
+saying, the two disagreed on **seventy nine of them**. One day in five. It
+called waxing gibbous evenings Full Moon, and it called the nights either side
+of new New Moon whichever way the moon was going.
+
+The almanac's rule is the right one and it was already written down: the age in
+days from new, taken from the real angle between the moon and the sun, with an
+eighth of a month around each of the eight phases and the four named ones
+straddling their own instant by about twenty two hours either side.
+
+**So the almanac's rule moved into `fivemile-sky.js` rather than being copied
+into the news page.** The engine is where the site's astronomy already lives,
+every page that names a phase loads it, and it now exports the eight names, the
+age, and `moonPhase()`. The almanac keeps its table of icons and writing and
+takes the index from the engine. Checked across the same four hundred days, the
+almanac names exactly the phase it named before, and the news page and the
+night sky page now name it too.
+
+### The next full moon was a day late three times a year
+
+The second one came out of checking the first. `nextMoonPhase` walked forward a
+day at a time and handed back the first day the phase window covered, and a
+window opens about twenty two hours before the phase itself. A full moon at
+twenty past eleven at night therefore came back as the following day.
+
+The calendar does not work that way. It finds the instant the moon reaches a
+hundred and eighty degrees of elongation, which is how it dates the harvest and
+hunter's moons. So on those evenings the almanac and the calendar printed
+different dates for the same moon: **three of the thirteen full moons in 2026**,
+in August, October and December.
+
+The engine finds the instant now, for any of the four named phases, and the
+almanac asks it. All thirteen agree with the calendar. The day walk stays in
+`fivemile-almanac-core.js` behind the same no-engine fallback as the phase
+lookup, where it is still a day late on those three and where it has never once
+run.
+
+**The calendar keeps its own crossing helper.** It also crosses the sun's
+longitude to find the equinox, so it is not a second copy of the moon
+arithmetic, it is a general tool the moon happens to be one user of.
+
+### What this leaves
+
+The phase is named in one function. The date of a phase is found in one
+function. Every page that shows either of them reads the engine, whether it
+loads the almanac or not.
+
+**Still hand written:** the equinoxes and solstices in `fivemile-season-data.js`
+are fixed month and day entries, which is why the news page can say Fall
+equinox, Sep 22 in a year when it falls on the 23rd. The calendar hedges it as
+"Around Sep 22" and the sky block does not. That is a sun date rather than a
+moon one and it is a separate job.
+
+**Revisit if:** a page ever wants a phase without loading the engine. The
+fallbacks in `fivemile-almanac-core.js` are honest about being coarser, and the
+right answer is to load the engine rather than to improve them.

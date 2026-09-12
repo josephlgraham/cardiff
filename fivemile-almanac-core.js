@@ -252,6 +252,9 @@
      ------------------------------------------------------------------------- */
   const SYNODIC_MONTH = 29.530588;
 
+  /* The eight, in the engine's order, because that is what indexes into this
+     table. What is kept here is the writing and the icon. Which phase the moon
+     is in tonight is fivemile-sky.js's answer and not this file's. */
   const MOON_PHASES = [
     { name: "New Moon", icon: "🌑", lore: "Dark nights make stars stronger and animal movement easier to hear than see.", science: "A new moon means the moon is roughly between Earth and the sun, so the lit side faces away from us." },
     { name: "Waxing Crescent", icon: "🌒", lore: "Old almanac readers took the first light as a sign to start adding things back into the week.", science: "The illuminated fraction grows each evening, adding a little more moonlight after sunset." },
@@ -263,33 +266,20 @@
     { name: "Waning Crescent", icon: "🌘", lore: "The moon gives back the night a little at a time before the cycle resets.", science: "Only a thin illuminated slice remains visible before the moon returns to new." }
   ];
 
-  /* The lower edge of each window, in days from new. An eighth of a month sits
-     at the middle of every phase. A named one reaches about twenty two hours
-     either side of that; an unnamed one reaches out to meet it. The first edge
-     is below nought on purpose. The new moon straddles the instant it happens,
-     so the evening before new is already new, and the same holds for the other
-     three. */
-  const PHASE_EDGES = MOON_PHASES.map(function (phase, index) {
-    const eighth = SYNODIC_MONTH / 8;
-    const named = index % 2 === 0;
-    return index * eighth - (named ? SYNODIC_MONTH / 32 : eighth - SYNODIC_MONTH / 32);
-  });
-
-  /* Days since new. Taken from the real angle between the moon and the sun,
-     which fivemile-sky.js works out from the date, because the month is not
-     29.53 days every time. The orbit is an ellipse and the moon does not cover
-     it at one speed, so counting mean months off a known new moon runs up to
-     about half a day either side of the truth. That is enough to name the
-     wrong phase, and for a while here it did.
+  /* Days since new, from the sky engine, which takes it off the real angle
+     between the moon and the sun rather than counting mean months off a known
+     new moon. A mean count runs up to about half a day either side of the
+     truth, which is enough to name the wrong phase, and for a while here it
+     did.
 
      The fallback is that mean count, for a page that shows a phase without
-     loading the sky engine. Every page that shows one loads it, so the
-     fallback should never run. It is kept honest anyway: the epoch below is
-     the new moon of 2000 January 6 at 18:14 UT, given in UT rather than in
-     whatever zone the reader's browser is set to. */
+     loading the engine. Every page that shows one loads it, so the fallback
+     should never run. It is kept honest anyway: the epoch below is the new
+     moon of 2000 January 6 at 18:14 UT, given in UT rather than in whatever
+     zone the reader's browser is set to. */
   function moonAge(date) {
     const sky = window.FivemileSky;
-    if (sky) return sky.moonIllumination(date).elongation / 360 * SYNODIC_MONTH;
+    if (sky) return sky.moonAge(date);
     const knownNew = Date.UTC(2000, 0, 6, 18, 14);
     return (((date - knownNew) / 86400000) % SYNODIC_MONTH + SYNODIC_MONTH) % SYNODIC_MONTH;
   }
@@ -302,21 +292,32 @@
     return days + (days === 1 ? " day in" : " days in");
   }
 
+  /* Which of the eight, tonight. The engine decides and this hands back the
+     entry that goes with it, so the phase named on the almanac, on the night
+     sky page and on the news page is one decision made in one place.
+
+     Without the engine it falls back to the nearest eighth of the mean month,
+     which is a coarser answer and deliberately so: the window rules are the
+     engine's and there is no second copy of them here to fall out of step. */
   function getMoonPhase(date) {
-    const age = moonAge(date);
-    /* Past the last edge is the new moon again, coming round. */
-    const placed = age >= SYNODIC_MONTH + PHASE_EDGES[0] ? age - SYNODIC_MONTH : age;
-    let found = MOON_PHASES[0];
-    PHASE_EDGES.forEach(function (edge, index) {
-      if (placed >= edge) found = MOON_PHASES[index];
-    });
-    return found;
+    const sky = window.FivemileSky;
+    if (sky) return MOON_PHASES[sky.moonPhase(date).index];
+    const eighth = SYNODIC_MONTH / 8;
+    return MOON_PHASES[Math.round(moonAge(date) / eighth) % 8];
   }
 
-  /* The next date the moon reaches a named phase, walked a day at a time. Good
-     enough for a page that says around the fourteenth and never claims a
-     minute. */
+  /* The next time the moon reaches a named phase. The engine answers with the
+     instant, which is the date the calendar prints for the harvest moon, so
+     the two pages name the same night.
+
+     It used to walk forward a day at a time looking for the first day the
+     phase window covered, and a window opens about twenty two hours early, so
+     a full moon late in the evening came back as the morning after. The walk
+     is still here for a page with no engine, and it is still a day late on
+     those. See DECISIONS.md 67. */
   function nextMoonPhase(date, name) {
+    const sky = window.FivemileSky;
+    if (sky) return sky.nextMoonPhase(date, name);
     const start = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     for (let i = 1; i <= 40; i += 1) {
       const probe = new Date(start);

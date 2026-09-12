@@ -22,8 +22,6 @@
   const SKY = window.FivemileSky;
   if (!SKY) return;
 
-  const TURNINGS_URL = "turnings.json";
-
   const MONTHS = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
@@ -82,11 +80,12 @@
   }
 
   function renderPlanets(host, planets) {
+    host.classList.add("d-pass");
     if (!planets.length) {
       host.innerHTML = '<div class="empty">&mdash;</div>';
       return;
     }
-    host.innerHTML = '<div class="d-rows list">' +
+    host.innerHTML = '<div class="d-rows list fill">' +
       planets.map(function (planet) {
         return cell(whenMark(planet), planet.name, esc(planetLine(planet)));
       }).join("") + "</div>";
@@ -134,32 +133,46 @@
   /* -------------------------------------------------------------------------
      WHERE THE YEAR IS
 
-     The turning comes from turnings.json, which the calendar has carried since
-     the beginning and which is the eight old quarter and cross quarter names.
-     The stretch comes from fivemile-sky.js and is the shorter run inside a year
-     that somebody would actually name in conversation. The dog days are the
-     one everybody says, and they are also the one everybody gets wrong, so
-     when they are on the page says where the name came from.
+     Three standing readings and one that only shows part of the year: the
+     moon, the light, the named stretch when one is on, and the next thing the
+     sky does. All of it worked out in fivemile-sky.js.
+
+     This block used to open with the turning as well, Lammas or Michaelmas or
+     Hallowtide and the date it began, read out of turnings.json. That is the
+     one thing it will not do now. Those eight names are how the calendar files
+     its dates, they are not a season anybody here is standing in, and the
+     paragraph underneath was explaining loaf-mass to a reader who came to find
+     out whether the creek was up. See DECISIONS.md 41 and 66.
      ------------------------------------------------------------------------- */
-  function withinTurning(now, turning) {
-    const md = String(now.getMonth() + 1).padStart(2, "0") + "-" +
-      String(now.getDate()).padStart(2, "0");
-    if (turning.start <= turning.end) return md >= turning.start && md <= turning.end;
-    return md >= turning.start || md <= turning.end;
+
+  /* Sunrise to sunset, and which way it is going. The amount is what somebody
+     notices in September and the rate is why, and the rate is measured across
+     the day either side rather than off yesterday alone so that it does not
+     jump a minute on the arithmetic. */
+  function dayLength(date) {
+    const sun = SKY.riseSetTransit(date, SKY.sunAt, { h0: -0.833 });
+    if (!sun.rise || !sun.set) return null;
+    return (sun.set - sun.rise) / 3600000;
   }
 
-  function readableDate(value) {
-    const parts = /^(\d{2})-(\d{2})$/.exec(String(value || ""));
-    if (!parts) return null;
-    return MONTHS[Number(parts[1]) - 1] + " " + Number(parts[2]);
+  function dayApart(date, days) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days, 12);
   }
 
-  function moonName(fraction, waxing) {
-    if (fraction < 0.03) return "New moon";
-    if (fraction > 0.97) return "Full moon";
-    if (fraction < 0.47) return waxing ? "Waxing crescent" : "Waning crescent";
-    if (fraction < 0.53) return waxing ? "First quarter" : "Last quarter";
-    return waxing ? "Waxing gibbous" : "Waning gibbous";
+  function lightLine(now) {
+    const today = dayLength(now);
+    if (today === null) return null;
+    const hours = (Math.round(today * 10) / 10) + " hours";
+    const before = dayLength(dayApart(now, -1));
+    const after = dayLength(dayApart(now, 1));
+    if (before === null || after === null) return hours;
+    /* Within a week of a solstice this rounds to nothing, which is the true
+       answer and the thing the solstice is named for. */
+    const rate = Math.round((after - before) / 2 * 60);
+    if (rate === 0) return hours + ", and holding steady";
+    const count = Math.abs(rate);
+    return hours + ", " + (rate > 0 ? "gaining " : "losing ") + count +
+      (count === 1 ? " minute" : " minutes") + " a day";
   }
 
   function nextCelestial(now) {
@@ -169,52 +182,49 @@
     return all.find(function (entry) { return entry.lane === "celestial"; }) || null;
   }
 
-  function renderSeason(host, tipHost, now, turning) {
-    const lit = SKY.moonIllumination(now);
+  function renderSeason(host, tipHost, now) {
+    host.classList.add("d-pass");
+    /* The engine names the phase. This file used to name it here off the lit
+       fraction, which put New Moon on the news page and on the night sky page
+       directly under a tile reading Waxing Crescent. See DECISIONS.md 67. */
+    const moon = SKY.moonPhase(now);
     const stretch = SKY.currentStretch(now);
     const next = nextCelestial(now);
+    const light = lightLine(now);
 
     const rows = [];
     rows.push(cell("🌙", "The moon",
-      esc(moonName(lit.fraction, lit.waxing) + ", " + Math.round(lit.fraction * 100) + "% lit")));
-    if (turning) {
-      rows.push(cell(turning.emoji || "🕰️", "The turning",
-        esc(turning.name + ", since " + (readableDate(turning.start) || "—"))));
-    }
+      esc(moon.name + ", " + Math.round(moon.fraction * 100) + "% lit")));
+    if (light) rows.push(cell("🌅", "The light", esc(light)));
     if (stretch) {
-      rows.push(cell(stretch.mark, "Where the year is",
+      rows.push(cell(stretch.mark, "The season",
         esc(stretch.name + ", to " + MONTHS[stretch.to[0]] + " " + stretch.to[1])));
     }
     if (next) {
       rows.push(cell("☄️", "Next in the sky",
         esc(next.title + (next.dateLabel ? ", " + next.dateLabel : ""))));
     }
-    host.innerHTML = '<div class="d-rows list">' + rows.join("") + "</div>";
+    /* fill, because these two panels stand side by side and the taller one
+       sets the height. Without it the shorter one finishes with its spare
+       height in a hole under the last row. */
+    host.innerHTML = '<div class="d-rows list fill">' + rows.join("") + "</div>";
 
     if (!tipHost) return;
-    /* The interesting half. A named stretch of the year gets its explanation,
-       and when there is no stretch on, the turning's own does the job. */
-    const words = stretch ? stretch.why : (turning && turning.explainer) || "";
+    /* The interesting half, and only when there is something to be interesting
+       about. A named stretch carries where its name came from, which is worth
+       a paragraph. The rest of the year the rows say all there is to say and
+       the paragraph stays down. */
+    const words = stretch ? stretch.why : "";
     tipHost.innerHTML = esc(words);
     tipHost.hidden = !words;
   }
 
-  /* ------------------------------------------------------------------------- */
-  async function currentTurning(now) {
-    try {
-      const response = await fetch(TURNINGS_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error("no turnings");
-      const data = await response.json();
-      const list = (data && data.turnings) || [];
-      return list.find(function (turning) { return withinTurning(now, turning); }) || null;
-    } catch (error) {
-      /* The turning is the nicest part of this block and not the load bearing
-         part. Without the file the moon and the planets still stand. */
-      return null;
-    }
-  }
-
-  async function paint() {
+  /* -------------------------------------------------------------------------
+     Every reading here is worked out from the date in the reader's own
+     browser, so this block fetches nothing at all and stands whether or not
+     anything else on the page loaded.
+     ------------------------------------------------------------------------- */
+  function paint() {
     const now = new Date();
     const planetsHost = document.querySelector("[data-skynow-planets]");
     const ledeHost = document.querySelector("[data-skynow-lede]");
@@ -231,7 +241,7 @@
       const sun = SKY.riseSetTransit(now, SKY.sunAt, { h0: -0.833 });
       stampHost.textContent = sun.set ? "Dark from about " + clock(new Date(sun.set.getTime() + 45 * 60000)) : "—";
     }
-    if (seasonHost) renderSeason(seasonHost, tipHost, now, await currentTurning(now));
+    if (seasonHost) renderSeason(seasonHost, tipHost, now);
 
     const block = document.querySelector("[data-skynow]");
     if (block) block.hidden = false;
