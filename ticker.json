@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-09-12T06:15:51.452Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-09-12T19:09:28.198Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "⚠️ Special Weather Statement · Through next 21 min",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Special Weather Statement",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "⚠️",
+      "ends": "2026-09-12T14:30:00-05:00",
+      "endsShort": "next 21 min",
+      "headline": "Special Weather Statement",
+      "description": "At 203 PM CDT, Doppler radar was tracking a strong thunderstorm near",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.299c2ff7584374ef20be50ad90f32697527fe922.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
