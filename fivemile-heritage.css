@@ -369,6 +369,13 @@ section.blk[id]{scroll-margin-top:18px}
 .hz-title{display:block;font-size:18px;font-weight:700;line-height:1.3;letter-spacing:-.012em;
   margin-bottom:5px}
 .hz-note{font-size:16px;line-height:1.55;color:var(--ink2);margin:0;max-width:68ch}
+/* Coalburg and Republic on the hub run longer than a dated row, so a row can
+   hold more than one paragraph. */
+.hz-note + .hz-note{margin-top:10px}
+.hz-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--fm-rule);
+  text-underline-offset:2px}
+.hz-note a:hover{color:var(--red);text-decoration-color:var(--red)}
+#up-the-creek .hz-panel{margin-top:20px}
 
 /* The source line. Mono, quiet, and under every single entry, because a fact
    on this page with no source is a fact this page should not be running. */

@@ -55,7 +55,7 @@ export const STAT = { MAX: '00001', MIN: '00002', MEAN: '00003' };
 export const GAUGES = [
   {
     id: '02457595',
-    label: 'Republic gauge',
+    label: 'Five Mile Creek at Republic',
     name: 'Fivemile Creek near Republic, Ala',
     place: 'Republic',
     role: 'lead',

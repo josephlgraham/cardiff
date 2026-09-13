@@ -214,6 +214,16 @@
     </div>
   </section>
 
+  <section class="blk abt reveal" id="about-the-author">
+    <div class="hd"><h2>About the author</h2></div>
+    <div class="panel">
+      <p>My name is Joe Graham and I put the site together.</p>
+      <p>My family has been in this part of Jefferson County for eight generations. The Graham side is from Mount Olive, where we still keep a family burying ground. My mother's people lived closer to the water. My grandfather kept a garden in Republic, and that is where I learned this creek, crossing the underwater bridge and fishing with him on hot afternoons.</p>
+      <p>I served on the Cardiff town council, in Seat One, from 2018 until February 2024. I watched the town's government come apart from the inside, and that is part of why this site exists.</p>
+      <p>Most of the photographs here are mine. If you have one you would like to see featured, send it to <a id="authorMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>.</p>
+    </div>
+  </section>
+
   <section class="blk abt reveal" id="how-this-is-made">
     <div class="hd"><h2>How this site is made</h2></div>
     <div class="panel">
@@ -258,7 +268,7 @@
    in the markup is the same address, so the links work with JS off. */
 if(window.BRAND && window.BRAND.email){
   var mail = window.BRAND.email;
-  ['sendMail','fixMail'].forEach(function(id){
+  ['sendMail','fixMail','authorMail'].forEach(function(id){
     var el = document.getElementById(id);
     if(!el) return;
     el.href = 'mailto:' + mail;

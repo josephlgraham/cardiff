@@ -428,7 +428,7 @@ function paintCreek(watershed){
   setMark(0, change >= CREEK_MOVE_FT ? '⬆️' : change <= -CREEK_MOVE_FT ? '⬇️' : '🌊');
   var sentence;
   if(change === null){
-    sentence = 'That is the reading at the ' + esc(lead.label || 'Republic gauge') + '.';
+    sentence = 'That is the reading on ' + esc(lead.label || 'Five Mile Creek at Republic') + '.';
   }else if(change >= CREEK_MOVE_FT){
     sentence = 'It has come up <b>' + inchWord(change) + '</b> since yesterday.';
   }else if(change <= -CREEK_MOVE_FT){
@@ -643,7 +643,7 @@ function creekTrace(watershed){
   var area = line + ' ' + right.toFixed(1) + ',' + floor + ' ' + left.toFixed(1) + ',' + floor;
   var lastX = x(points.length - 1), lastY = y(points[points.length - 1].ft);
   var day = function(date){return MONTHS[date.getMonth()] + ' ' + date.getDate()};
-  var place = lead.label || 'Republic gauge';
+  var place = lead.label || 'Five Mile Creek at Republic';
   /* Not 'span': that name is already the stage range this chart is scaled by. */
   var dateSpan = esc(day(points[0].at)) + ' &ndash; ' + esc(day(points[points.length - 1].at));
 

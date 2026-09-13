@@ -212,7 +212,7 @@ const RING_TOWNS = ['graysville', 'cardiff', 'brookside', 'gin town'];
 const RING_NEARBY = [
   'adamsville', 'sylvan springs', 'pleasant grove', 'forestdale', 'fultondale',
   'gardendale', 'maytown', 'mulga', 'docena', 'edgewater', 'sandusky', 'bayview',
-  'republic', 'sayre', 'trafford', 'kimberly', 'morris', 'warrior', 'corner',
+  'republic', 'coalburg', 'sayre', 'trafford', 'kimberly', 'morris', 'warrior', 'corner',
   'minor high', 'mortimer jordan', 'west jefferson', 'western jefferson', 'north jefferson'
 ];
 

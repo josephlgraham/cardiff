@@ -4323,3 +4323,30 @@ gets committed where.
 **Revisit if:** the robots are made punctual. Then the stamp can print the next
 time on the clock, and the source notes can tighten "every few hours" to
 whatever is actually kept. Not before.
+
+## 70. Coalburg and Republic are on the creek, and they are not towns
+
+Joe widened the heritage page to take in two places up the creek. Coalburg was
+a Sloss prison mine, and the company that opened the Brookside mine was called
+Coalburg Coal and Coke. Republic is where the only live gauge in the watershed
+sits, so every creek reading on this site is a reading from Republic.
+
+Neither is a town, and the site does not treat them as one.
+
+- **Heritage hub only.** Two entries in an Up the creek section on
+  fivemile-heritage.html, written as static HTML rather than as facts in
+  fivemile-heritage.json, because every fact there carries a town badge and is
+  counted into a chapter. They carry their sources inline.
+- **No town badge, no nav item, no place in the Graysville, Cardiff, Brookside
+  order.** The tagline, the masthead, and the three town panels stay three.
+- **The gauge is labelled Five Mile Creek at Republic.** That is the label in
+  scripts/fetch/usgs-gauge.mjs, so the masthead and every sentence built from
+  it say it. The station number 02457595 stays in captions and tooltips.
+- **The Coalburg entry says what it was.** Leased prisoners, the Parke death
+  rate, more than 100 dead between 1899 and 1902. It is not softened, and it
+  links to the Equal Justice Initiative.
+- **The news desk catches Coalburg.** It is in the nearby ring in
+  scripts/fetch-news.mjs. Unlike Republic it needs no veto list.
+
+**Revisit if:** another place on the creek earns an entry. It goes in the same
+section, on the same terms, and still is not a town.

@@ -91,7 +91,7 @@
 // next edition in its stamp and both it and fivemile-almanac.html stopped
 // promising a reading every ten minutes. Both pages are precached and served
 // cache-first. See DECISIONS.md 69.
-const CACHE_NAME = 'fivemile-v73';
+const CACHE_NAME = 'fivemile-v74';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
