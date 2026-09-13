@@ -311,10 +311,16 @@
        bare figure and the unit moves to the line above the chart, where it is
        said once instead of twice. */
     const feet = (value) => value.toFixed(2) + (narrow ? "" : " ft");
-    /* How close a day number may come to either end before it is dropped, so
-       it never collides with the two dates already on the baseline. It scales
-       with the type, or a narrow chart loses most of its days. */
-    const dayCuff = narrow ? 34 : 54;
+    /* How wide a label on the baseline is. DM Mono gives every character six
+       tenths of an em, so a label's width is its length and needs no
+       measuring. The size is the one fivemile-almanac.css sets at the same
+       breakpoint. This replaced a fixed cuff of 34px at each end, which was
+       narrower than "Sep 13" is on a phone, so a day number landing just
+       inside it was printed on top of the date. */
+    const axisCharWidth = (narrow ? 11 : 12.5) * 0.6;
+    const labelWidth = (text) => String(text).length * axisCharWidth;
+    /* The clear space a day number keeps from the dates at either end. */
+    const labelGap = narrow ? 8 : 12;
     const axisBaseline = height - 12;
     const stageRange = displayStageRange(points, stageNow);
     const min = stageRange.rawMin;
@@ -366,14 +372,20 @@
         prevDayKey = dayKey;
       }
     });
-    const usableRight = dataRight;
+    /* The first date is anchored at its left edge and the last at its right,
+       so between them is the only room a day number has. */
+    const dayRoomLeft = padLeft + labelWidth(firstLabel) + labelGap;
+    const dayRoomRight = dataRight - labelWidth(lastLabel) - labelGap;
     const dayGridlines = dayMarkers
       .filter((marker) => marker.index !== 0)
       .map((marker) => '<line x1="' + marker.x.toFixed(1) + '" y1="' + padTop + '" x2="' + marker.x.toFixed(1) + '" y2="' + (height - padBottom) + '" stroke="rgba(80,44,8,0.1)" stroke-width="1"/>')
       .join("");
     let lastDayLabelX = -100;
     const dayLabels = dayMarkers
-      .filter((marker) => marker.index !== 0 && marker.x >= padLeft + dayCuff && marker.x <= usableRight - dayCuff)
+      .filter((marker) => {
+        const half = labelWidth(marker.label) / 2;
+        return marker.index !== 0 && marker.x - half >= dayRoomLeft && marker.x + half <= dayRoomRight;
+      })
       .filter((marker) => {
         if (marker.x - lastDayLabelX >= 30) {
           lastDayLabelX = marker.x;
