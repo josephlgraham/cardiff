@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T09:29:59.698Z",
+  "updatedAt": "2026-09-13T10:23:45.383Z",
   "source": "US EPA ECHO, Clean Water Act facility search",
   "source_url": "https://echo.epa.gov/",
   "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
@@ -58,19 +58,23 @@
         }
       ],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 12,
-      "quarters_in_significant_noncompliance": 12,
-      "violation_status": "Yes",
+      "quarters_in_noncompliance": 11,
+      "quarters_in_significant_noncompliance": 11,
+      "violation_status": "No",
       "last_inspection": "02/03/2026",
       "lat": 33.59826,
       "lon": -86.77437,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG120453",
       "main_violation": "Failure to Report DMR - Not Received",
-      "main_violation_quarters": 12,
+      "main_violation_quarters": 11,
       "violation_kinds": [
         {
           "kind": "Failure to Report DMR - Not Received",
-          "quarters": 12
+          "quarters": 11
+        },
+        {
+          "kind": "Resolved",
+          "quarters": 1
         }
       ],
       "inspections": 1,
@@ -90,19 +94,23 @@
         }
       ],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 12,
-      "quarters_in_significant_noncompliance": 12,
-      "violation_status": "Yes",
+      "quarters_in_noncompliance": 11,
+      "quarters_in_significant_noncompliance": 11,
+      "violation_status": "No",
       "last_inspection": "01/29/2026",
       "lat": 33.58945,
       "lon": -86.76989,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180917",
       "main_violation": "Failure to Report DMR - Not Received",
-      "main_violation_quarters": 12,
+      "main_violation_quarters": 11,
       "violation_kinds": [
         {
           "kind": "Failure to Report DMR - Not Received",
-          "quarters": 12
+          "quarters": 11
+        },
+        {
+          "kind": "Resolved",
+          "quarters": 1
         }
       ],
       "inspections": 1,
@@ -117,7 +125,7 @@
       "receiving_water": "FIVEMILE CREEK",
       "hydrologic_units": [],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 9,
+      "quarters_in_noncompliance": 8,
       "quarters_in_significant_noncompliance": 0,
       "violation_status": "Yes",
       "last_inspection": "03/25/2025",
@@ -152,7 +160,7 @@
       "receiving_water": "FIVEMILE CREEK",
       "hydrologic_units": [],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 7,
+      "quarters_in_noncompliance": 6,
       "quarters_in_significant_noncompliance": 4,
       "violation_status": "Yes",
       "last_inspection": "10/15/2020",
@@ -194,7 +202,7 @@
       "design_flow_mgd": 0,
       "quarters_in_noncompliance": 5,
       "quarters_in_significant_noncompliance": 0,
-      "violation_status": "Yes",
+      "violation_status": "No",
       "last_inspection": "08/27/2026",
       "lat": 33.5827,
       "lon": -86.7816,
@@ -220,6 +228,46 @@
       "total_penalties": "$0"
     },
     {
+      "name": "ABC AUTO PARTS, INC.",
+      "permit": "ALG180021",
+      "city": "TARRANT",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 4,
+      "quarters_in_significant_noncompliance": 2,
+      "violation_status": "Yes",
+      "last_inspection": "11/07/2024",
+      "lat": 33.580241,
+      "lon": -86.777242,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180021",
+      "main_violation": "Failure to Report DMR - Not Received",
+      "main_violation_quarters": 2,
+      "violation_kinds": [
+        {
+          "kind": "Failure to Report DMR - Not Received",
+          "quarters": 2
+        },
+        {
+          "kind": "Resolved",
+          "quarters": 2
+        },
+        {
+          "kind": "Other Violation",
+          "quarters": 2
+        }
+      ],
+      "inspections": 1,
+      "formal_enforcement_actions": 0,
+      "total_penalties": "$0"
+    },
+    {
       "name": "RAINDROP CAR WASH ROEBUCK, AL",
       "permit": "ALG141147",
       "city": "BIRMINGHAM",
@@ -227,7 +275,7 @@
       "receiving_water": "FIVEMILE CREEK",
       "hydrologic_units": [],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 5,
+      "quarters_in_noncompliance": 4,
       "quarters_in_significant_noncompliance": 4,
       "violation_status": "No",
       "last_inspection": "11/05/2025",
@@ -240,10 +288,6 @@
         {
           "kind": "Failure to Report DMR - Not Received",
           "quarters": 4
-        },
-        {
-          "kind": "Other Violation",
-          "quarters": 1
         },
         {
           "kind": "Resolved",
@@ -271,45 +315,13 @@
         }
       ],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 4,
+      "quarters_in_noncompliance": 3,
       "quarters_in_significant_noncompliance": 0,
       "violation_status": "No",
       "last_inspection": "07/10/2024",
       "lat": 33.59459,
       "lon": -86.77125,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0032298",
-      "main_violation": "Other Violation",
-      "main_violation_quarters": 4,
-      "violation_kinds": [
-        {
-          "kind": "Other Violation",
-          "quarters": 4
-        }
-      ],
-      "inspections": 2,
-      "formal_enforcement_actions": 0,
-      "total_penalties": "$0"
-    },
-    {
-      "name": "ABC AUTO PARTS, INC.",
-      "permit": "ALG180021",
-      "city": "TARRANT",
-      "status": "Effective",
-      "receiving_water": "FIVEMILE CREEK",
-      "hydrologic_units": [
-        {
-          "code": "031601110406",
-          "name": "Upper Fivemile Creek"
-        }
-      ],
-      "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 3,
-      "quarters_in_significant_noncompliance": 2,
-      "violation_status": "No",
-      "last_inspection": "11/07/2024",
-      "lat": 33.580241,
-      "lon": -86.777242,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG180021"
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0032298"
     },
     {
       "name": "BOYLES YARD",
@@ -324,8 +336,8 @@
         }
       ],
       "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 3,
-      "quarters_in_significant_noncompliance": 3,
+      "quarters_in_noncompliance": 2,
+      "quarters_in_significant_noncompliance": 2,
       "violation_status": "No",
       "last_inspection": "06/01/2022",
       "lat": 33.56309,

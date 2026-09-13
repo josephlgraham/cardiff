@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T19:07:44.622Z",
+  "updatedAt": "2026-09-13T10:23:47.182Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 85,
-    "species_in_window": 68,
-    "window_total": 90,
-    "species_recorded": 77,
-    "observations_recorded": 96,
-    "area_total": 1100,
+    "in_window": 87,
+    "species_in_window": 70,
+    "window_total": 92,
+    "species_recorded": 79,
+    "observations_recorded": 98,
+    "area_total": 1102,
     "guide_links": 6
   },
   "observations": [
+    {
+      "id": 399673568,
+      "taxon": 153544,
+      "name": "Butterfly Orbweaver",
+      "latin": "Araneus pegnia",
+      "rank": "species",
+      "group": "Spider",
+      "icon": "🕷️",
+      "observedOn": "2026-09-12",
+      "place": "Adamsville",
+      "obscured": false,
+      "observer": "Rachel Nicole Macek",
+      "observerLogin": "rnmacek",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/399673568",
+      "firstRecord": true
+    },
     {
       "id": 399260791,
       "taxon": 39846,
@@ -259,6 +276,23 @@
       "guide": "pokeweed",
       "url": "https://www.inaturalist.org/observations/398802572",
       "firstRecord": false
+    },
+    {
+      "id": 398575630,
+      "taxon": 81750,
+      "name": "Mournful Sphinx",
+      "latin": "Enyo lugubris",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-08",
+      "place": "Adamsville",
+      "obscured": false,
+      "observer": "Rachel Nicole Macek",
+      "observerLogin": "rnmacek",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/398575630",
+      "firstRecord": true
     },
     {
       "id": 398348337,
@@ -803,40 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/382817289",
       "firstRecord": false
-    },
-    {
-      "id": 382764775,
-      "taxon": 119989,
-      "name": "Carolina Mantis",
-      "latin": "Stagmomantis carolina",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-18",
-      "place": null,
-      "obscured": true,
-      "observer": "Willie Luker",
-      "observerLogin": "stringbeanwill",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/382764775",
-      "firstRecord": false
-    },
-    {
-      "id": 382182399,
-      "taxon": 48484,
-      "name": "Asian Lady Beetle",
-      "latin": "Harmonia axyridis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-16",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/382182399",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -1010,6 +1010,19 @@
       "count": 1,
       "ids": [
         361205140
+      ]
+    },
+    {
+      "taxon": 153544,
+      "name": "Butterfly Orbweaver",
+      "latin": "Araneus pegnia",
+      "group": "Spider",
+      "rank": "species",
+      "first": "2026-09-12",
+      "last": "2026-09-12",
+      "count": 1,
+      "ids": [
+        399673568
       ]
     },
     {
@@ -1432,6 +1445,19 @@
       "count": 1,
       "ids": [
         393365510
+      ]
+    },
+    {
+      "taxon": 81750,
+      "name": "Mournful Sphinx",
+      "latin": "Enyo lugubris",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-09-08",
+      "last": "2026-09-08",
+      "count": 1,
+      "ids": [
+        398575630
       ]
     },
     {
