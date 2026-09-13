@@ -82,7 +82,16 @@
 // fivemile-cards.css and fivemile-almanac.css both changed, and stylesheets are
 // the thing this cache is most cache-first about: without the bump a returning
 // reader keeps the unreadable chip. See DECISIONS.md 65.
-const CACHE_NAME = 'fivemile-v71';
+// v72 puts the equinoxes and solstices on the sky engine. turnings.json and
+// fivemile-season-data.js are network-first and now ask fivemile-sky.js and
+// fivemile-calendar-core.js for those dates, and both of those are cache-first,
+// so without the bump a returning reader's calendar drops the four rows.
+// See DECISIONS.md 68.
+// v73 says the rhythm the robots actually keep. fivemile-news.html names the
+// next edition in its stamp and both it and fivemile-almanac.html stopped
+// promising a reading every ten minutes. Both pages are precached and served
+// cache-first. See DECISIONS.md 69.
+const CACHE_NAME = 'fivemile-v73';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

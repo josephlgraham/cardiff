@@ -18,6 +18,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const vm    = require('vm');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const VERBOSE = process.argv.includes('--verbose');
@@ -282,150 +283,40 @@ async function fetchGaugeAlertLines() {
 
 
 // ─────────────────────────────────────────────────────────────────────
-//  Civic calendar — day-before reminders
-//  Kept in sync with fivemile-season-data.js (civic lane entries).
-//  Add new events here whenever fivemile-season-data.js is updated.
+//  Civic calendar, day-before reminders
+//  Read straight out of fivemile-season-data.js, the same file the calendar
+//  page reads. This used to be a second copy of the civic dates with a note
+//  asking whoever added a meeting to add it here as well, and a date added in
+//  one place and not the other got a calendar row and no reminder.
+//
+//  Every civic and community date gets a reminder unless its entry says
+//  ticker: false. The entry's ticker object sets the emoji and the short line;
+//  without one the line is built from the place and the hour.
 // ─────────────────────────────────────────────────────────────────────
 
-const CIVIC_EVENTS = [
-  {
-    id:      'tornado-siren-test',
-    title:   'Jefferson County tornado siren test',
-    kind:    'recurring-weekday',
-    nth:     1, weekday: 3, hour: 10,   // 1st Wednesday, 10 AM
-    exceptMonths: [],
-    emoji:   '🚨',
-    short:   'Sirens test at 10:00 AM, no action needed'
-  },
-  // The three councils, west to east. See DECISIONS.md 1.
-  {
-    id:      'graysville-city-council',
-    title:   'Graysville City Council meeting',
-    kind:    'recurring-weekday',
-    nth:     [1, 3], weekday: 4, hour: 18,   // 1st and 3rd Thursday, 6 PM
-    exceptMonths: [],
-    emoji:   '🏛️',
-    short:   'Graysville City Hall · 6:00 PM'
-  },
-  {
-    id:      'cardiff-city-council',
-    title:   'Cardiff City Council meeting',
-    kind:    'recurring-weekday',
-    nth:     2, weekday: 2, hour: 18,   // 2nd Tuesday, 6 PM
-    exceptMonths: [{ year: 2026, month: 4 }],
-    emoji:   '🏛️',
-    short:   '6:00 PM'
-  },
-  {
-    id:      'brookside-town-council',
-    title:   'Brookside Town Council meeting',
-    kind:    'recurring-weekday',
-    nth:     1, weekday: 1,            // 1st Monday, moved off a holiday
-    holidayShift: true,
-    exceptMonths: [],
-    emoji:   '🏛️',
-    short:   'Brookside Town Hall · 6:00 PM'
-  },
-  {
-    id:      'cardiff-town-council-april-2026',
-    title:   'Cardiff Town Council Meeting',
-    kind:    'day',
-    year: 2026, month: 4, day: 13, hour: 18,
-    emoji:   '🏛️',
-    short:   'Town Hall · 6:00 PM · All welcome'
-  },
-  // Community events. Same day-before reminder as a council meeting, because a
-  // reader wants to know about the walk as much as the vote.
-  {
-    id:      'brookside-awareness-walk-2026',
-    title:   'Suicide Awareness Walk, Brookside',
-    kind:    'day',
-    year: 2026, month: 9, day: 12, hour: 9,
-    emoji:   '💛',
-    short:   'Brookside Ballpark · registration 9 AM, walk at 10'
-  },
-  {
-    id:      'brookside-duck-race-2026',
-    title:   'Five Mile Creek Rubber Duck Race',
-    kind:    'day',
-    year: 2026, month: 6, day: 12, hour: 12,
-    emoji:   '🦆',
-    short:   'Brookside Ballpark · registration noon, race at 1 PM'
-  },
-  {
-    id:      'hhw-collection-spring-2026',
-    title:   'Household Hazardous Waste Drop-Off',
-    kind:    'day',
-    year: 2026, month: 4, day: 25, hour: 8,
-    emoji:   '♻️',
-    short:   'First Baptist Gardendale · 8 AM to 11:30 AM'
-  },
-  {
-    id:      'electronics-dropoff-may-2026',
-    title:   'Electronics & Paper Shredding Drop-Off',
-    kind:    'day',
-    year: 2026, month: 5, day: 9, hour: 9,
-    emoji:   '♻️',
-    short:   'Center Point Satellite Courthouse · 9 AM to 11:30 AM'
-  },
-  {
-    id:      'electronics-dropoff-june-2026',
-    title:   'Electronics & Paper Shredding Drop-Off',
-    kind:    'day',
-    year: 2026, month: 6, day: 13, hour: 9,
-    emoji:   '♻️',
-    short:   'Valley Reclamation Facility, Bessemer · 9 AM to 11:30 AM'
-  },
-  {
-    id:      'electronics-dropoff-sep-2026',
-    title:   'Electronics & Paper Shredding Drop-Off',
-    kind:    'day',
-    year: 2026, month: 9, day: 12, hour: 9,
-    emoji:   '♻️',
-    short:   'Birmingham City Hall/Lynn Henley Park · 9 AM to 11:30 AM'
-  },
-  {
-    id:      'hhw-collection-fall-2026',
-    title:   'Household Hazardous Waste Drop-Off',
-    kind:    'day',
-    year: 2026, month: 10, day: 17, hour: 8,
-    emoji:   '♻️',
-    short:   'Camp Ketona · 8 AM to 11:30 AM'
-  }
-];
+const SEASON_DATA_FILE = path.join(__dirname, 'fivemile-season-data.js');
+const REMINDER_LANES = ['civic', 'community'];
 
-// The federal holidays a first Monday meeting can collide with. Mirrors
-// mondayHoliday in fivemile-season-data.js; keep the two in step.
-function fixedHoliday(month, day) {
-  if (month === 1  && day === 1)  return "New Year's Day";
-  if (month === 6  && day === 19) return 'Juneteenth';
-  if (month === 7  && day === 4)  return 'Independence Day';
-  if (month === 11 && day === 11) return 'Veterans Day';
-  if (month === 12 && day === 25) return 'Christmas Day';
-  return null;
+// The season data is a browser script that hangs itself off window, so it is
+// run in a sandbox with a window of its own. A file that fails to load costs
+// the ticker its reminders and never its weather alerts.
+function loadSeasonData() {
+  try {
+    const sandbox = { window: {}, console };
+    vm.runInNewContext(fs.readFileSync(SEASON_DATA_FILE, 'utf8'), sandbox, { filename: SEASON_DATA_FILE });
+    const data = sandbox.window.CardiffSeasonData;
+    if (!data || typeof data.getEntriesForMonth !== 'function') throw new Error('no getEntriesForMonth');
+    return data;
+  } catch (err) {
+    console.warn(`   ⚠ Could not read ${path.basename(SEASON_DATA_FILE)}: ${err.message}`);
+    return null;
+  }
 }
 
-function mondayHoliday(year, month, day) {
-  const onTheDay = fixedHoliday(month, day);
-  if (onTheDay) return onTheDay;
-
-  const date = new Date(year, month - 1, day);
-  if (date.getDay() === 1) {
-    const before = new Date(year, month - 1, day - 1);
-    const observed = fixedHoliday(before.getMonth() + 1, before.getDate());
-    if (observed) return observed;
-  }
-
-  if (month === 9 && day === nthWeekdayOfMonth(year, 9, 1, 1)) return 'Labor Day';
-  return null;
-}
-
-// nth weekday of a month (weekday: 0=Sun … 6=Sat)
-function nthWeekdayOfMonth(year, month, weekday, nth) {
-  const firstDay = new Date(year, month - 1, 1);
-  const day = 1 + ((weekday - firstDay.getDay() + 7) % 7) + (nth - 1) * 7;
-  const daysInMonth = new Date(year, month, 0).getDate();
-  return day <= daysInMonth ? day : null;
+function formatHour(hour) {
+  const period = hour >= 12 ? 'PM' : 'AM';
+  const h = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
+  return `${h}:00 ${period}`;
 }
 
 // Returns { year, month, day } for "tomorrow" in America/Chicago.
@@ -451,45 +342,30 @@ function getTomorrowLocal(now) {
   return { year: next.getUTCFullYear(), month: next.getUTCMonth() + 1, day: next.getUTCDate() };
 }
 
-// Build ticker lines for civic events happening tomorrow
-function getTomorrowCivicLines(now) {
+// Build ticker lines for civic events happening tomorrow. The holiday shift,
+// the excepted months, and the twice monthly meetings are all worked out by
+// getEntriesForMonth, so the reminder lands on the night the calendar prints.
+function getTomorrowCivicLines(now, seasonData) {
+  const data = seasonData === undefined ? loadSeasonData() : seasonData;
+  if (!data) return [];
   const t = getTomorrowLocal(now);
   const lines = [];
 
-  for (const ev of CIVIC_EVENTS) {
-    let match = false;
+  for (const row of data.getEntriesForMonth(t.year, t.month)) {
+    const entry = row.entry;
+    if (row.standing || entry.ticker === false) continue;
+    if (!REMINDER_LANES.includes(String(entry.lane || '').toLowerCase())) continue;
+    if (row.start.getDate() !== t.day) continue;
 
-    if (ev.kind === 'day') {
-      if (ev.year && ev.year !== t.year) continue;
-      match = ev.month === t.month && ev.day === t.day;
-    } else if (ev.kind === 'recurring-weekday') {
-      const excepted = (ev.exceptMonths || []).some(
-        ex => ex.year === t.year && ex.month === t.month
-      );
-      if (!excepted) {
-        // nth is a list, and a plain number is a list of one. Graysville meets
-        // twice a month; everything else meets once.
-        const nths = Array.isArray(ev.nth) ? ev.nth : [ev.nth];
-        match = nths.some(nth => {
-          let day = nthWeekdayOfMonth(t.year, t.month, ev.weekday, nth);
-          if (day === null) return false;
-          // Brookside moves off a holiday to the following week. Same rule as
-          // fivemile-season-data.js, and the two have to agree or the reminder
-          // fires on a night nobody is meeting.
-          if (ev.holidayShift && mondayHoliday(t.year, t.month, day)) {
-            const shifted = nthWeekdayOfMonth(t.year, t.month, ev.weekday, nth + 1);
-            if (shifted !== null) day = shifted;
-          }
-          return day === t.day;
-        });
-      }
-    }
+    const ticker = entry.ticker || {};
+    const emoji = ticker.emoji || (entry.lane === 'civic' ? '🏛️' : '📅');
+    const title = ticker.title || entry.title;
+    const short = ticker.short ||
+      [entry.place, entry.hour !== undefined ? formatHour(entry.hour) : ''].filter(Boolean).join(' · ');
 
-    if (match) {
-      let line = `${ev.emoji} Tomorrow: ${ev.title}`;
-      if (ev.short) line += ` · ${ev.short}`;
-      lines.push(line);
-    }
+    let line = `${emoji} Tomorrow: ${title}`;
+    if (short) line += ` · ${short}`;
+    lines.push(line);
   }
 
   return lines;

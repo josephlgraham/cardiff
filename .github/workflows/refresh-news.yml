@@ -13,11 +13,17 @@ name: Refresh News
 # Cron here is UTC and does not follow daylight saving, so these drift by an
 # hour between March and November. That is close enough for a news page and
 # not worth a second workflow to fix.
+#
+# On the hour, these started about four hours late in the morning and two in
+# the evening through September 2026, so the morning edition was gathered
+# around ten. GitHub delays the top of the hour first, hence the odd minute.
+# The timeout is there because this job shares a queue with the live data: a
+# hung feed with no timeout would hold that queue for six hours.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 11,23 * * *'
+    - cron: '13 11,23 * * *'
 
 permissions:
   contents: write
@@ -29,15 +35,16 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Gather the news
         run: node scripts/fetch-news.mjs

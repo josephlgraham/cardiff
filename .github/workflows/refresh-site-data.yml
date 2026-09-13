@@ -1,9 +1,13 @@
 name: Refresh Site Data
 
+# Off the hour for the same reason as the other two: on the hour these started
+# two to four and a half hours late. The timeout is well over the slowest run
+# on record, about fifteen minutes on a backfill, and well under the six hour
+# default, which a hung source would otherwise hold the shared queue for.
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 5,17 * * *'
+    - cron: '23 5,17 * * *'
 
 permissions:
   contents: write
@@ -15,15 +19,16 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
 
       # News is not gathered here any more. It has its own script and its own
       # schedule in refresh-news.yml, because a morning report wants gathering

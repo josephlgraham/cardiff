@@ -18,9 +18,13 @@ the obvious case and it is not the only one:
 - **The weather station has no location in copy.** It is "the FIVEMILE weather
   station" in prose and "Our station" on a label. Never a town, never a road,
   never a house. A station's town is an address with extra steps.
-- **No sentence about how the site is kept.** Which instrument, which schedule,
-  which service, what gets committed where. That is interesting to whoever
-  built it and to nobody standing on a bank deciding whether to go out.
+- **No sentence about how the site is kept.** Which instrument, which service,
+  what gets committed where. That is interesting to whoever built it and to
+  nobody standing on a bank deciding whether to go out. The one exception is
+  the rhythm, because a reader plans around it: the news comes out in a morning
+  edition and an evening one, and conditions are read again every few hours.
+  Say it only as tightly as the robots keep it, which is why no page prints a
+  clock time for the next one. See DECISIONS.md 69.
 - **Nothing the site knows is attributed to Joe personally.** What readers have
   caught, seen, or reported is attributed to readers. See DECISIONS.md 55.
 - **HTML comments are served.** A comment is not rendered but anybody can read
@@ -91,7 +95,7 @@ no deploy step.
 
 Conventions:
 
-- ES modules, `.mjs`, Node 20.
+- ES modules, `.mjs`, Node 24. Node 20 reached end of life in April 2026.
 - Fetchers live in `/scripts`. New ones are one file per source. The older
   combined scripts get split the same way as we touch them, not in one pass.
 - Output is a committed `fivemile-*.json` at the repo root, alongside the rest.

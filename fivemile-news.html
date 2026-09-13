@@ -180,8 +180,9 @@
     <div class="panel intro" data-share-in>
       <p class="lede">The news from Graysville, Cardiff, and Brookside, and from the rest of west
         Jefferson County: town and county business, the creek and the weather, obituaries, and the
-        votes and hearings that change the ground here. Nothing is taken down once it has run, so a
-        story from March is still here in November.</p>
+        votes and hearings that change the ground here. It comes out twice a day, a morning edition
+        and an evening one, and nothing is taken down once it has run, so a story from March is still
+        here in November.</p>
     </div>
   </section>
 
@@ -388,8 +389,8 @@
   <!-- WHERE THIS COMES FROM -------------------------------------------------- -->
   <div class="sources reveal">
     <h2>Where these come from</h2>
-    <p>Headlines here are gathered twice a day, morning and evening, from the outlets that cover this part of Jefferson County. We run the headline, one sentence, and the outlet's name, and every one of them links straight to the original. We do not republish anybody's article.</p>
-    <p>Weather alerts, conditions, and the creek gauge do not wait for an edition. Those are checked every ten minutes, day and night, so the red strip and the morning report are current even when the headlines are hours old.</p>
+    <p>Headlines here are gathered twice a day, in a morning edition and an evening one, from the outlets that cover this part of Jefferson County. We run the headline, one sentence, and the outlet's name, and every one of them links straight to the original. We do not republish anybody's article.</p>
+    <p>Weather alerts, conditions, and the creek gauge do not wait for an edition. They are read again every few hours, day and night, and every reading here carries the time it was taken.</p>
     <p>When a photograph appears beside a headline, it is the picture the outlet itself published for sharing, loaded from that outlet's own server and credited to them. We never copy a photograph onto this site and we never take one out of the body of an article. If you publish here and you would rather we did not show your pictures at all, say so and we will turn them off for your site the same day.</p>
     <p class="outlets" id="sourceList">&mdash;</p>
     <p style="margin-top:12px"><a href="mailto:fivemilec@gmail.com" id="fixMail">Corrections and takedowns</a> go to the same address as everything else.</p>
@@ -1159,8 +1160,44 @@ function paintNews(live, desk){
   listOutlets(kept);
 
   var stamp = live ? parseDate(live.updatedAt) : null;
-  document.getElementById('newsStamp').textContent = stamp
-    ? 'Gathered at ' + clock(stamp) : '—';
+  var el = document.getElementById('newsStamp');
+  el.textContent = stamp ? editionStamp(stamp, new Date()) : '—';
+  if(stamp) el.setAttribute('datetime', stamp.toISOString());
+}
+
+/* The stamp names the edition that comes next, in words rather than on a
+   clock. The two editions are scheduled for six and six, and GitHub starts
+   them late by anything up to four hours, so a printed time would be wrong
+   most days while "this evening" is right every one of them. See DECISIONS.md
+   69.
+
+   Which edition the news in hand is comes from the hour it was gathered along
+   the creek: before three in the afternoon it was the morning one. When the
+   gap since then is longer than the rhythm ever runs, an edition has been
+   missed, and the stamp stops promising the next one and says when the news
+   was last gathered instead. */
+var EDITION_STALE_HOURS = 20;
+
+function centralParts(date){
+  var parts = {};
+  new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', year: 'numeric', month: 'numeric', day: 'numeric',
+    hour: 'numeric', hourCycle: 'h23'
+  }).formatToParts(date).forEach(function(p){ parts[p.type] = Number(p.value); });
+  return { day: Date.UTC(parts.year, parts.month - 1, parts.day) / 864e5, hour: parts.hour };
+}
+
+function editionStamp(stamp, now){
+  if((now - stamp) / 36e5 > EDITION_STALE_HOURS){
+    return 'Gathered ' + stamp.toLocaleDateString('en-US', {
+      weekday: 'long', timeZone: 'America/Chicago'
+    }) + ' at ' + clock(stamp);
+  }
+  var then = centralParts(stamp), here = centralParts(now);
+  var days = here.day - then.day;
+  var evening = here.hour < 17 ? 'Next edition this evening' : 'Next edition tonight';
+  if(days === 0) return then.hour < 15 ? evening : 'Next edition tomorrow morning';
+  return here.hour < 15 ? 'Next edition this morning' : evening;
 }
 
 /* --- boot ---------------------------------------------------------------- */

@@ -186,12 +186,12 @@
     var sky = window.FivemileSky;
     if (!sky) return null;
 
-    var sunLonAt = function (ms) { return sky.sunAt(sky.dayNumber(new Date(ms))).lon; };
     var elongationAt = function (ms) { return sky.moonIllumination(new Date(ms)).elongation; };
 
-    /* The sun's ecliptic longitude reaches 180 at the September equinox. */
-    var equinox = crossings(Date.UTC(year, 8, 15), Date.UTC(year, 8, 30), sunLonAt, 180)[0];
-    if (!equinox) return null;
+    /* The engine finds the equinox, the same one the calendar prints. */
+    var turning = sky.sunTurning ? sky.sunTurning(year, "fall-equinox") : null;
+    if (!turning) return null;
+    var equinox = turning.getTime();
 
     /* Full is 180 degrees of elongation. A lunation and a half either side of
        the equinox is enough to be certain the nearest one is in the list
@@ -246,6 +246,17 @@
       // The last weekend that finishes inside February: find the last Sunday
       // in the month and step back to its Friday.
       case "tax-holiday-weather": return addDays(lastWeekday(year, 2, 0), -2);
+      // The equinoxes and solstices move between the 19th and the 23rd, so
+      // they are the engine's instant turned into the local day, and no
+      // engine means no row, the same as the moons below.
+      case "spring-equinox":
+      case "summer-solstice":
+      case "fall-equinox":
+      case "winter-solstice": {
+        var sky = window.FivemileSky;
+        var instant = sky && sky.sunTurning ? sky.sunTurning(year, slug) : null;
+        return instant ? atNoon(instant.getFullYear(), instant.getMonth() + 1, instant.getDate()) : null;
+      }
       case "harvest-moon":
       case "hunters-moon": {
         var feasts = moonFeasts(year);

@@ -324,6 +324,66 @@
     return null;
   }
 
+  /* The four turnings of the sun are four longitudes, the same way the four
+     phases are four angles: the March equinox is nought, the June solstice
+     ninety, the September equinox a hundred and eighty, and the December
+     solstice two hundred and seventy. Each one falls somewhere in the back
+     two thirds of its month, so the search starts on the tenth and runs
+     twenty five days.
+
+     These used to be a month and a day typed into the season data, which put
+     the fall equinox on September 22 in a year it lands on the 23rd. The
+     instant is found here and a page turns it into its own local date.
+
+     The sun here is good to about a hundredth of a degree, which is a quarter
+     of an hour on the instant. That only matters when a turning falls within
+     a quarter hour of midnight, and then the date could come out a day off. */
+  const SUN_TURNINGS = {
+    "spring-equinox": { lon: 0, month: 2 },
+    "summer-solstice": { lon: 90, month: 5 },
+    "fall-equinox": { lon: 180, month: 8 },
+    "winter-solstice": { lon: 270, month: 11 }
+  };
+
+  /* The season data asks for the same four instants over and over while a
+     page draws, so each one is found once. */
+  const sunTurningCache = {};
+
+  function sunTurning(year, name) {
+    const key = year + ":" + name;
+    if (!Object.prototype.hasOwnProperty.call(sunTurningCache, key)) {
+      sunTurningCache[key] = findSunTurning(year, name);
+    }
+    const found = sunTurningCache[key];
+    return found ? new Date(found.getTime()) : null;
+  }
+
+  function findSunTurning(year, name) {
+    const turning = SUN_TURNINGS[name];
+    if (!turning) return null;
+    const diff = function (ms) {
+      const d = rev(sunAt(dayNumber(new Date(ms))).lon - turning.lon);
+      return d > 180 ? d - 360 : d;
+    };
+    const step = 6 * 3600000;
+    const from = Date.UTC(year, turning.month, 10);
+    let prev = diff(from);
+    for (let t = from + step; t <= from + 25 * 86400000; t += step) {
+      const v = diff(t);
+      if (prev < 0 && v >= 0) {
+        let a = t - step;
+        let b = t;
+        for (let k = 0; k < 32; k += 1) {
+          const m = (a + b) / 2;
+          if (diff(m) < 0) { a = m; } else { b = m; }
+        }
+        return new Date((a + b) / 2);
+      }
+      prev = v;
+    }
+    return null;
+  }
+
   /* -------------------------------------------------------------------------
      THE PLANETS
 
@@ -778,6 +838,7 @@
     moonAge: moonAge,
     moonPhase: moonPhase,
     nextMoonPhase: nextMoonPhase,
+    sunTurning: sunTurning,
     riseSetTransit: riseSetTransit,
     moonTimes: moonTimes,
     planetTimes: planetTimes,

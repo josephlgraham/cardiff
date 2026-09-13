@@ -15,6 +15,7 @@
       day: 1,
       windowLabel: "January 1900",
       calendarLabel: "Jan 1",
+      ticker: false,
       summary: "An annual marker for the town itself. Incorporated January 1900."
     },
     {
@@ -28,6 +29,7 @@
       hour: 10,
       windowLabel: "First Wednesday of each month, 10:00 AM",
       calendarLabel: "First Wednesday, 10:00 AM",
+      ticker: { emoji: "🚨", short: "Sirens test at 10:00 AM, no action needed" },
       summary: "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test."
     },
     {
@@ -45,6 +47,7 @@
       place: "Graysville City Hall",
       windowLabel: "First and third Thursday of each month, 6:00 PM",
       calendarLabel: "First and third Thursday, 6:00 PM",
+      ticker: { emoji: "🏛️", short: "Graysville City Hall · 6:00 PM" },
       summary: "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall."
     },
     {
@@ -59,6 +62,7 @@
       exceptMonths: [{year: 2026, month: 4}],
       windowLabel: "Second Tuesday of each month, 6:00 PM",
       calendarLabel: "Second Tuesday, 6:00 PM",
+      ticker: { emoji: "🏛️", short: "6:00 PM" },
       summary: "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM."
     },
     {
@@ -73,6 +77,7 @@
       hour: 18,
       windowLabel: "Apr 13, 2026 · 6:00 PM",
       calendarLabel: "Apr 13, 2026",
+      ticker: { emoji: "🏛️", short: "Town Hall · 6:00 PM · All welcome" },
       summary: "Cardiff Town Council meeting, the first step toward restarting active local government. All residents welcome. Cardiff Town Hall, 6:00 PM. No agenda required to attend."
     },
     {
@@ -94,6 +99,7 @@
       place: "Brookside Town Hall",
       windowLabel: "First Monday of each month, 6:00 PM",
       calendarLabel: "First Monday, 6:00 PM",
+      ticker: { emoji: "🏛️", short: "Brookside Town Hall · 6:00 PM" },
       summary: "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday."
     },
     {
@@ -113,6 +119,7 @@
       place: "Brookside Ballpark",
       windowLabel: "Jun 12, 2026 · 12:00 PM",
       calendarLabel: "Jun 12, 2026",
+      ticker: { emoji: "🦆", short: "Brookside Ballpark · registration noon, race at 1 PM" },
       summary: "Registration at noon at the Brookside Ballpark and the race starts at one. Tickets are $20 for a chance at $1,000, and the proceeds go back into community events."
     },
     {
@@ -129,6 +136,7 @@
       place: "Brookside Ballpark",
       windowLabel: "Sep 12, 2026 · 9:00 AM",
       calendarLabel: "Sep 12, 2026",
+      ticker: { emoji: "💛", title: "Suicide Awareness Walk, Brookside", short: "Brookside Ballpark · registration 9 AM, walk at 10" },
       summary: "Registration at nine at the Brookside Ballpark and the walk sets off at ten. Stephanie Hodges has the details on 205-572-2678. The 988 Suicide and Crisis Lifeline answers calls and texts at any hour, on any day."
     },
     {
@@ -276,9 +284,10 @@
       category: "Celestial",
       lane: "celestial",
       kind: "day",
+      sun: "spring-equinox",
       month: 3,
       day: 20,
-      windowLabel: "Mar 20",
+      windowLabel: "Around Mar 20",
       calendarLabel: "Around Mar 20",
       summary: "Day and night in balance. Older planting calendars treated this as a real turning, not just a date on paper."
     },
@@ -368,9 +377,10 @@
       category: "Celestial",
       lane: "celestial",
       kind: "day",
+      sun: "summer-solstice",
       month: 6,
       day: 21,
-      windowLabel: "Jun 21",
+      windowLabel: "Around Jun 21",
       calendarLabel: "Around Jun 21",
       summary: "The longest day of the year. Peoples across the Southeast watched solar turnings long before they lived on printed calendars, and later midsummer customs gathered around the same light."
     },
@@ -464,9 +474,10 @@
       category: "Celestial",
       lane: "celestial",
       kind: "day",
+      sun: "fall-equinox",
       month: 9,
       day: 22,
-      windowLabel: "Sep 22",
+      windowLabel: "Around Sep 22",
       calendarLabel: "Around Sep 22",
       summary: "The second balance point of the year, when old harvest calendars and the land itself both start leaning harder into fall."
     },
@@ -596,9 +607,10 @@
       category: "Celestial",
       lane: "celestial",
       kind: "day",
+      sun: "winter-solstice",
       month: 12,
       day: 21,
-      windowLabel: "Dec 21",
+      windowLabel: "Around Dec 21",
       calendarLabel: "Around Dec 21",
       summary: "The shortest day of the year. Long before modern Christmas calendars, people marked this dark turn with sky watching, fire, evergreens, and return-of-light traditions."
     },
@@ -613,6 +625,7 @@
       day: 25,
       windowLabel: "Apr 25, 2026 · 8:00 AM to 11:30 AM",
       calendarLabel: "Apr 25, 2026",
+      ticker: { emoji: "♻️", title: "Household Hazardous Waste Drop-Off", short: "First Baptist Gardendale · 8 AM to 11:30 AM" },
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County HHW drop-off. The nearest site to these towns is First Baptist Church, Gardendale (940 Main St.). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM to 11:30 AM."
     },
@@ -627,6 +640,7 @@
       day: 9,
       windowLabel: "May 9, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "May 9, 2026",
+      ticker: { emoji: "♻️", short: "Center Point Satellite Courthouse · 9 AM to 11:30 AM" },
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     },
@@ -641,6 +655,7 @@
       day: 13,
       windowLabel: "Jun 13, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "Jun 13, 2026",
+      ticker: { emoji: "♻️", short: "Valley Reclamation Facility, Bessemer · 9 AM to 11:30 AM" },
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     },
@@ -655,6 +670,7 @@
       day: 17,
       windowLabel: "Oct 17, 2026 · 8:00 AM to 11:30 AM",
       calendarLabel: "Oct 17, 2026",
+      ticker: { emoji: "♻️", title: "Household Hazardous Waste Drop-Off", short: "Camp Ketona · 8 AM to 11:30 AM" },
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County HHW drop-off. The nearest site to these towns is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM to 11:30 AM."
     },
@@ -669,6 +685,7 @@
       day: 12,
       windowLabel: "Sep 12, 2026 · 9:00 AM to 11:30 AM",
       calendarLabel: "Sep 12, 2026",
+      ticker: { emoji: "♻️", short: "Birmingham City Hall/Lynn Henley Park · 9 AM to 11:30 AM" },
       link: "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
       summary: "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM."
     }
@@ -812,9 +829,24 @@
     return { start: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()), end: atNoon(start.getFullYear(), start.getMonth() + 1, start.getDate()) };
   }
 
+  /* The local day an entry falls on in a given year. The equinoxes and
+     solstices carry a `sun` key and ask fivemile-sky.js, because they move
+     between the 19th and the 23rd and a typed month and day is wrong in some
+     years. The month and day on those entries are only the fallback for a page
+     that has not loaded the engine, and none of the pages that show a sky date
+     are one. See DECISIONS.md 68. */
+  function dayOf(entry, year) {
+    const sky = window.FivemileSky;
+    if (entry.sun && sky && typeof sky.sunTurning === "function") {
+      const instant = sky.sunTurning(year, entry.sun);
+      if (instant) return atNoon(instant.getFullYear(), instant.getMonth() + 1, instant.getDate());
+    }
+    return atNoon(year, entry.month, entry.day);
+  }
+
   function buildOccurrence(entry, year) {
     if (entry.kind === "day") {
-      const start = atNoon(year, entry.month, entry.day);
+      const start = dayOf(entry, year);
       const end = cloneDate(start);
       return { start, end };
     }
@@ -930,15 +962,24 @@
       .filter((item) => item.start >= today)
       .sort((a, b) => a.start - b.start)[0];
 
-    return upcoming || occurrences.sort((a, b) => a.start - b.start)[0];
+    /* A dated entry more than a year gone has no occurrence left in the
+       window, and comes back as null rather than undefined. Every getter
+       below drops it. Without that, the first one-off entry to pass its first
+       anniversary threw inside every page that reads this file. */
+    return upcoming || occurrences.sort((a, b) => a.start - b.start)[0] || null;
+  }
+
+  function resolveAll(today) {
+    return SEASON_ENTRIES
+      .map((entry) => resolveEntry(entry, today))
+      .filter(Boolean);
   }
 
   function getSeasonEntries(referenceDate, monthsAhead) {
     const today = referenceDate ? new Date(referenceDate) : new Date();
     const horizon = addDays(today, Math.round((monthsAhead || 3) * 31));
 
-    return SEASON_ENTRIES
-      .map((entry) => resolveEntry(entry, today))
+    return resolveAll(today)
       .filter((entry) => entry.active || entry.start <= horizon)
       .sort((a, b) => {
         if (a.active !== b.active) return a.active ? -1 : 1;
@@ -948,15 +989,13 @@
 
   function getAllEntries(referenceDate) {
     const today = referenceDate ? new Date(referenceDate) : new Date();
-    return SEASON_ENTRIES
-      .map((entry) => resolveEntry(entry, today))
+    return resolveAll(today)
       .sort((a, b) => a.start - b.start);
   }
 
   function getUpcomingCalendar(referenceDate, limit) {
     const today = referenceDate ? new Date(referenceDate) : new Date();
-    const items = SEASON_ENTRIES
-      .map((entry) => resolveEntry(entry, today))
+    const items = resolveAll(today)
       .filter((entry) => entry.active || entry.start >= addDays(today, -14))
       .sort((a, b) => {
         if (a.active !== b.active) return a.active ? -1 : 1;
@@ -1003,8 +1042,7 @@
     for (let index = 0; index < (monthCount || 6); index += 1) {
       const monthStart = new Date(start.getFullYear(), start.getMonth() + index, 1, 12, 0, 0, 0);
       const monthEnd = new Date(start.getFullYear(), start.getMonth() + index + 1, 0, 12, 0, 0, 0);
-      const items = SEASON_ENTRIES
-        .map((entry) => resolveEntry(entry, monthStart))
+      const items = resolveAll(monthStart)
         .flatMap((entry) => {
           if (entry.end < monthStart || entry.start > monthEnd) return [];
           if (entry.kind !== "range") return [entry];
@@ -1070,8 +1108,9 @@
     SEASON_ENTRIES.forEach(function (entry) {
       if (entry.kind === "day") {
         if (entry.year && entry.year !== year) return;
-        if (entry.month !== month) return;
-        out.push({ entry: entry, start: atNoon(year, month, entry.day), shiftNote: null, standing: false });
+        const start = dayOf(entry, year);
+        if (start.getMonth() + 1 !== month) return;
+        out.push({ entry: entry, start: start, shiftNote: null, standing: false });
         return;
       }
       if (entry.kind === "recurring-weekday") {

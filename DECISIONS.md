@@ -1052,6 +1052,15 @@ back a tail this site can already absorb. Anything better needs something
 outside GitHub doing the triggering, and that is a dependency this site does not
 take. See CLAUDE.md on preferring the simpler option.
 
+**Measured again, September 2026, and it had got worse.** Over the first two
+weeks of September the live workflow got about seven runs a day, typically three
+to five hours apart and once nearly seven. The sparse schedules were no longer
+honored either: `0 5,17` started around 09:30 and 19:40 UTC, and the news
+editions at `0 11,23` about four hours and two hours late. The crons now sit off
+the top of the hour, which GitHub names as the busiest time and the first place
+it delays or drops a scheduled run. See 68 for what else changed and what is
+still open.
+
 The commit step stages each file only if something other than its own
 `updatedAt` stamp moved, so a quiet night does not rebuild the site 144 times
 for nothing. The check is per file rather than across the batch, because the
@@ -4185,12 +4194,132 @@ The phase is named in one function. The date of a phase is found in one
 function. Every page that shows either of them reads the engine, whether it
 loads the almanac or not.
 
-**Still hand written:** the equinoxes and solstices in `fivemile-season-data.js`
-are fixed month and day entries, which is why the news page can say Fall
-equinox, Sep 22 in a year when it falls on the 23rd. The calendar hedges it as
-"Around Sep 22" and the sky block does not. That is a sun date rather than a
-moon one and it is a separate job.
+**Since done:** the equinoxes and solstices were still fixed month and day
+entries when this was written, which is why the news page could say Fall
+equinox, Sep 22 in a year when it falls on the 23rd. They are on the engine now.
+See 68.
 
 **Revisit if:** a page ever wants a phase without loading the engine. The
 fallbacks in `fivemile-almanac-core.js` are honest about being coarser, and the
 right answer is to load the engine rather than to improve them.
+
+## 68. The sun's four turnings come from the engine, and the robots read one calendar
+
+### The equinoxes and solstices
+
+They were a month and a day typed into `fivemile-season-data.js` and into
+`turnings.json`, so the sky block said Fall equinox, Sep 22 in 2027, when it
+falls on the 23rd here, and the calendar put the 2028 spring equinox on the 20th
+when it is the evening of the 19th in Central time.
+
+`fivemile-sky.js` now has `sunTurning(year, name)`, which finds the instant the
+sun reaches nought, ninety, a hundred and eighty, or two hundred and seventy
+degrees, the same stepping and halving `nextMoonPhase` uses. Checked against the
+published instants for 2026 through 2028, it is within a quarter of an hour on
+all twelve. The page turns the instant into its own local day.
+
+- In the season data the four entries carry a `sun` key. Their month and day
+  stay as the fallback for a page without the engine, and no page that shows a
+  sky date is one.
+- In `turnings.json` they are `movable:spring-equinox` and so on, resolved in
+  `fivemile-calendar-core.js` next to Easter and the harvest moon. No engine
+  means no row, the same rule the moons already follow.
+- The harvest moon now takes its equinox from the engine too, so the calendar
+  and the harvest moon cannot disagree about which day the equinox was. Every
+  harvest and hunter's moon from 2026 to 2031 came out on the same date as
+  before.
+
+### The season data threw on its first anniversary
+
+A one-off entry with a year on it, the April 13, 2026 Cardiff meeting, stops
+having any occurrence inside the year window once it is a year gone. The resolver
+handed back undefined and every getter read `.active` off it. From April 14,
+2027 that would have thrown inside every page that reads the file: the homepage
+civic dates, Coming up on the news page, the sky block, and the nature and
+almanac windows, all on the same morning, and nobody would have touched a thing.
+
+The resolver returns null for an entry with nothing left and one helper drops
+them. Checked day by day from September 2026 to the end of 2031 through every
+getter, with no throw. Old dated entries can stay in the file for as long as
+anybody likes.
+
+### The ticker reminders read the calendar's file
+
+`fivemile-alerts.js` kept its own list of the civic and community dates with a
+note asking whoever added a meeting to add it there too. A date added in one
+place and not the other got a calendar row and no Tomorrow line in the strip.
+
+It now loads `fivemile-season-data.js` in a sandbox and asks
+`getEntriesForMonth`, so the holiday shift, the excepted months, and the twice
+monthly meetings are the calendar's own answers. Every civic and community date
+gets a reminder unless its entry says `ticker: false`, which the incorporation
+anniversary does. The wording lives on the entry as `ticker: { emoji, short }`,
+with a `title` where the strip names it differently. Without a ticker object
+the line is built from the place and the hour. Run over every day of 2026 and
+2027, the ticker lines came out character for character the same as the old
+list's.
+
+If the season data fails to load, the strip loses its reminders and keeps its
+weather alerts.
+
+### The workflows
+
+- `actions/checkout` and `actions/setup-node` are on v5, and the scripts run on
+  Node 24. Node 20 went out of support in April 2026 and every run was carrying
+  a deprecation warning about the v4 actions.
+- The news and site data jobs have timeouts. They share a concurrency group
+  with the live job, and with GitHub's six hour default a hung source would
+  have held live conditions back for six hours.
+- All three crons are off the top of the hour. See the September measurement
+  under 30.
+- `fivemile-sw.js` went to v72, because the season data and `turnings.json` are
+  network-first and now depend on two cache-first scripts.
+
+**Still open:** the schedule is the weak point. Seven live runs a day means
+alerts and conditions can be hours old, and moving the minute is a mitigation,
+not a fix. The one way to get ten minutes back without taking on an outside
+service is a live job that loops inside a single run for most of GitHub's six
+hour limit and then starts its own successor, with the cron left as the
+backstop if the chain breaks. It is free on a public repository and changes what
+30 says about commit frequency, so it waits for Joe.
+
+**Revisit if:** the sky engine's sun model is ever replaced, or a turning lands
+within a quarter hour of local midnight, when the day it prints is the one that
+could be wrong.
+
+## 69. The site says the rhythm the robots keep, and no tighter
+
+The news page told readers that alerts, conditions, and the gauge "are checked
+every ten minutes, day and night", and the almanac said the same about the gauge
+and the station. Measured in September 2026 (see 30 and 68) they were read
+about seven times a day, often three to five hours apart. The stamp beside the
+news heading said when the headlines were gathered and nothing about when the
+next ones would come.
+
+Joe's call: if there is a rhythm, state the rhythm, in the static copy and in
+the stamp.
+
+- **The news stamp names the next edition in words.** "Next edition this
+  evening", "tonight", "this morning", or "tomorrow morning". Not a clock time:
+  the editions are scheduled for six and six, and the morning one lands anywhere
+  from about twenty to nine to a quarter past eleven, so "Next edition 6:00 PM"
+  would be wrong most days and "this evening" is right every one of them.
+- **Which edition is in hand** comes from the Central hour it was gathered:
+  before three in the afternoon it was the morning one.
+- **A missed edition stops the promise.** More than twenty hours since the last
+  gathering is longer than the rhythm ever runs, and the stamp says "Gathered
+  Saturday at 9:52 AM" instead of naming an edition that has not come.
+- **The static copy says the same thing.** The news page opening says it comes
+  out twice a day, a morning edition and an evening one. The source notes on the
+  news page and the almanac say conditions and the gauge are read again every
+  few hours, day and night, and that every reading carries the time it was
+  taken.
+
+CLAUDE.md's veil said no sentence about which schedule. It now makes the rhythm
+the one exception, because it is the part a reader can plan around, and keeps
+the rest behind the veil: no service names, no instrument, nothing about what
+gets committed where.
+
+**Revisit if:** the robots are made punctual. Then the stamp can print the next
+time on the clock, and the source notes can tighten "every few hours" to
+whatever is actually kept. Not before.
