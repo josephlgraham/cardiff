@@ -109,15 +109,12 @@ p.arc-count{margin:0 0 16px}
 /* ---------------------------------------------------------------------------
    THE CHARTS
 
-   Same construction as the creek chart on the almanac: an inline polyline
-   drawn from the numbers already on the page, no library, and a mono label at
-   each end of the axis. Nothing here is interactive, because a chart you have
-   to poke at is worse than a table on a phone and the table is right
-   underneath it.
+   Same construction as the creek chart on the almanac: inline SVG drawn from
+   the numbers already on the page, no library, measured to its own box. The
+   fixed height .arc-chart class that used to live here letterboxed the rain
+   chart on a phone to half its box with axis type under five pixels, and it
+   went when the weather room moved onto .arc-plot. See DECISIONS.md 45 and 72.
    --------------------------------------------------------------------------- */
-.arc-chart{margin:0 0 15px}
-.arc-chart svg{display:block;width:100%;height:150px}
-.arc-chart.tall svg{height:186px}
 .arc-axis{font-family:var(--mono);font-size:11px;fill:#6B6156}
 
 /* ---------------------------------------------------------------------------
@@ -154,14 +151,133 @@ p.arc-count{margin:0 0 16px}
 .src-note strong{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.11em;
   text-transform:uppercase;color:var(--ink);margin-bottom:6px}
 
+/* ---------------------------------------------------------------------------
+   THE CREEK ROOM
+
+   Thirty eight years of one creek, which is more than a reel of months can
+   carry, so the room is a year at a time with the months of that year under
+   it, then a season set beside the same season in other years, then every
+   month on file in one grid. See DECISIONS.md 71.
+
+   These charts measure their own box and draw at one unit to the pixel, the
+   way the almanac's creek chart does, so the svg takes height:auto and never a
+   height of its own. A fixed height here would letterbox the drawing and
+   shrink the type with it. See DECISIONS.md 45.
+   --------------------------------------------------------------------------- */
+.reel{position:relative}
+.reel-months{margin-top:18px}
+.arc-plot{margin:15px 0 0}
+.arc-plot svg{display:block;width:100%;height:auto}
+/* The date beside a day that ran off the top of the chart. The paper stroke
+   behind the letters keeps it legible where it crosses a line. */
+.arc-flag{fill:var(--red);paint-order:stroke;stroke:#FAF6EE;stroke-width:3px;stroke-linejoin:round}
+
+/* The key under a chart. Each swatch is drawn the way its mark is drawn: a
+   solid line, a dashed one, or a patch of the band. */
+.arc-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:8px 0 0;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--fm-muted)}
+.arc-legend span{display:inline-flex;align-items:center;gap:6px}
+.arc-legend .sw{display:inline-block;flex:none;width:18px;height:10px;border-radius:2px}
+.arc-legend .sw-line{height:3px;background:var(--hold-creek)}
+.arc-legend .sw-other{height:2px;background:#B3A58C}
+.arc-legend .sw-usual{height:0;border-top:2px dashed #6B6156;border-radius:0}
+.arc-legend .sw-mid{background:rgba(74,124,89,.24)}
+.arc-legend .sw-wide{background:rgba(74,124,89,.1)}
+.arc-legend .sw-range{background:rgba(74,124,89,.22)}
+.d-body p.arc-say{margin:12px 0 0}
+
+/* The season picker. Four seasons always fit across a phone, so they sit in
+   one row of equal buttons rather than in a reel. Same face as a reel chip,
+   because it is the same kind of control. */
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 10px}
+.seg-btn{min-height:44px;padding:6px 4px;background:var(--card);border:1px solid var(--fm-rule);border-radius:4px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);
+  cursor:pointer;transition:border-color var(--ease),background var(--ease)}
+.seg-btn:hover{border-color:var(--masthead);background:#fff}
+.seg-btn[aria-pressed="true"]{background:var(--masthead);border-color:var(--masthead);color:var(--paper)}
+/* The years to compare. Several are in at once, so an included year is
+   outlined in brown and only the one drawn in green on the chart is filled,
+   with a green rule under it. Seven filled chips in a row read as a wall. */
+.reel-multi .reel-btn[aria-pressed="true"]{background:#fff;border-color:var(--masthead);
+  box-shadow:inset 0 0 0 1px var(--masthead);color:var(--ink)}
+.reel-multi .reel-btn[aria-pressed="true"] small{color:var(--fm-muted)}
+.reel-multi .reel-btn.is-focus[aria-pressed="true"]{background:var(--masthead);color:var(--paper);
+  box-shadow:inset 0 -4px 0 var(--hold-creek)}
+.reel-multi .reel-btn.is-focus[aria-pressed="true"] small{color:rgba(242,232,213,.75)}
+
+/* The comparison table. The year is a button the full height of the row, and
+   the short rule in front of it is the year's line on the chart. */
+.arc-cmp{margin-top:14px}
+.arc-cmp thead th:first-child,.arc-ranked thead th:first-child{text-align:left}
+.arc-cmp tbody th{padding:0}
+.yr-btn{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:0 6px;background:none;border:0;
+  font-family:var(--mono);font-size:inherit;font-weight:500;color:var(--ink);cursor:pointer;text-align:left}
+.yr-btn::before{content:"";flex:none;width:14px;height:2px;border-radius:1px;background:#B3A58C}
+.arc-cmp tr.on{background:rgba(74,124,89,.09)}
+.arc-cmp tr.on .yr-btn::before{height:4px;background:var(--hold-creek)}
+.arc-cmp tr.usual th{padding:12px 6px;color:var(--fm-muted);font-weight:500}
+.arc-cmp tr.usual th::before{content:"";display:inline-block;width:14px;margin-right:8px;vertical-align:middle;
+  border-top:2px dashed #6B6156}
+.arc-cmp tr.usual td{color:var(--fm-muted)}
+
+.arc-all{margin-top:14px;border-top:1px solid var(--fm-rule)}
+.arc-all summary{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;list-style:none;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--red)}
+.arc-all summary::-webkit-details-marker{display:none}
+.arc-all summary::before{content:"+";width:12px;font-family:var(--sans);font-size:17px;line-height:1}
+.arc-all[open] summary::before{content:"\2212"}
+.arc-ranked tr.on th{color:var(--hold-creek);font-weight:700}
+
+/* The grid. The line above it reads out whatever month is under a finger, and
+   the button beside it opens that month at the top of the page. */
+.grid-read{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;margin:0 0 8px}
+.d-body .grid-read p{margin:0;font-size:15px;line-height:1.4}
+.grid-go{flex:none;min-width:72px;min-height:44px;padding:6px 12px;background:var(--card);
+  border:1px solid var(--fm-rule);border-radius:4px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
+  color:var(--ink);cursor:pointer;transition:border-color var(--ease),background var(--ease)}
+.grid-go:hover{border-color:var(--masthead);background:#fff}
+#creekGridPlot svg{cursor:crosshair;touch-action:manipulation}
+.arc-legend.grid-key{flex-wrap:nowrap;gap:3px}
+.grid-key .sw{width:22px;border-radius:0}
+.grid-key span:first-child{margin-right:6px}
+.grid-key span:last-child{margin-left:6px}
+
+/* ---------------------------------------------------------------------------
+   THE WEATHER ROOM
+
+   The creek room's controls and charts again, over two records: our station
+   and the Birmingham airport. Temperature is drawn in a dark brown and rain in
+   the weather blue, and the grid runs from blue for cool to terracotta for
+   warm, or from brown for dry to blue for wet. See DECISIONS.md 72.
+   --------------------------------------------------------------------------- */
+.reel-gap{margin-top:18px}
+.seg.two{grid-template-columns:repeat(2,1fr)}
+.card-notice p + p{margin-top:10px}
+.arc-legend .sw-temp{width:5px;height:14px;border-radius:1px;background:#5A3E22}
+.arc-legend .sw-normal{background:rgba(214,186,144,.75)}
+.arc-legend .sw-record{background:#EDE3D1}
+.arc-legend .sw-rain{height:3px;background:var(--hold-weather)}
+.arc-legend .sw-heat{height:3px;background:#5A3E22}
+.arc-legend .sw-dot-hot,.arc-legend .sw-dot-cold{width:8px;height:8px;border-radius:50%}
+.arc-legend .sw-dot-hot{background:var(--red)}
+.arc-legend .sw-dot-cold{background:var(--hold-weather)}
+.arc-legend .sw-mid-rain{background:rgba(156,195,214,.45)}
+.arc-legend .sw-mid-heat{background:rgba(214,186,144,.45)}
+/* The creek room marks the year in view in the creek green. Here the mark
+   takes the colour of the line it stands for. */
+#airportSeason[data-metric="rain"] .arc-cmp tr.on .yr-btn::before{background:var(--hold-weather)}
+#airportSeason[data-metric="heat"] .arc-cmp tr.on .yr-btn::before{background:#5A3E22}
+#airportSeason .arc-cmp tr.on{background:rgba(46,134,171,.08)}
+#airportSeasonYears[data-metric="rain"] .reel-btn.is-focus[aria-pressed="true"]{box-shadow:inset 0 -4px 0 var(--hold-weather)}
+#airportSeasonYears[data-metric="heat"] .reel-btn.is-focus[aria-pressed="true"]{box-shadow:inset 0 -4px 0 #D6BA90}
+.d-body p.arc-note{margin:6px 0 0;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--fm-muted)}
+
 @media(max-width:820px){
   .gallery{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .wrap{padding:20px 16px 24px}
   section.blk{padding:28px 0 0}
-  .arc-chart svg{height:132px}
-  .arc-chart.tall svg{height:164px}
 }
 @media(max-width:480px){
   .arc-table{font-size:13px}

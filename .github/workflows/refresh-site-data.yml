@@ -60,7 +60,7 @@ jobs:
           # sitemap.xml is staged because the heritage build writes the lastmod
           # dates into it off fivemile-heritage.json. Without it those dates
           # would be regenerated every run and never committed.
-          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json
+          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-airport-archive/ fivemile-airport-normals.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0

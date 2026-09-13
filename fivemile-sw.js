@@ -91,7 +91,16 @@
 // next edition in its stamp and both it and fivemile-almanac.html stopped
 // promising a reading every ten minutes. Both pages are precached and served
 // cache-first. See DECISIONS.md 69.
-const CACHE_NAME = 'fivemile-v74';
+// v75 stops the creek chart printing a day number on top of the date at either
+// end of it, which happened on a phone in both the week and the month view,
+// and rebuilds the creek room around every day since 1988. fivemile-almanac.js,
+// fivemile-almanac.css, fivemile-almanac.html, fivemile-archive.js,
+// fivemile-archive.css and fivemile-creek-archive.html all changed, and every
+// one of them is served cache-first. See DECISIONS.md 71. The same version
+// rebuilds the weather room around the official Birmingham record since 1930,
+// which changed fivemile-weather-archive.html as well. The airport's year
+// files and normals are JSON and come network-first. See DECISIONS.md 72.
+const CACHE_NAME = 'fivemile-v75';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

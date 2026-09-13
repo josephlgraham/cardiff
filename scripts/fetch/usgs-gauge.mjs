@@ -188,13 +188,20 @@ export async function fetchLatest(ids, parameterCodes, options = {}) {
   return groupReadings(features);
 }
 
+/* options.lean drops the geometry from every feature. Nothing here reads it,
+   and on a pull of years rather than hours it is most of the payload. */
+function leanParams(options) {
+  return options.lean ? { skipGeometry: 'true' } : {};
+}
+
 export async function fetchSeries(ids, parameterCodes, from, to, options = {}) {
   const window = new Date(from).toISOString() + '/' + new Date(to).toISOString();
   const features = await fetchFeatures(buildUrl('continuous', {
     monitoring_location_id: ids.map(siteId).join(','),
     parameter_code: parameterCodes.join(','),
     datetime: window,
-    limit: String(options.limit || 10000)
+    limit: String(options.limit || 10000),
+    ...leanParams(options)
   }), options);
   return groupReadings(features);
 }
@@ -284,7 +291,8 @@ export async function fetchDailyStat(gaugeId, parameterCode, statisticId, from, 
     monitoring_location_id: siteId(gaugeId),
     parameter_code: parameterCode,
     datetime: window,
-    limit: String(options.limit || 2000)
+    limit: String(options.limit || 2000),
+    ...leanParams(options)
   }), options);
   const rows = [];
   for (const feature of features) {

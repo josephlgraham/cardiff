@@ -17,6 +17,7 @@ import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 import { refreshCms } from './fetch/sheets-cms.mjs';
 import { updateEchoFile } from './fetch/echo-watershed.mjs';
 import { updateObservationsFile } from './fetch/inat-observations.mjs';
+import { updateAirportArchive, updateAirportNormalsFile } from './fetch/acis-airport.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -1340,6 +1341,22 @@ async function main() {
     await updateCreekPeaksFile();
   } catch (error) {
     console.error('Creek peaks update failed (continuing):', error.message);
+  }
+  /* The official record at the Birmingham airport, which the weather room
+     measures a normal year against. The last 45 days are asked for again every
+     run because the newest days there are preliminary and get corrected. The
+     normals move once a decade and the file is only written when they do.
+     See DECISIONS.md 72. */
+  try {
+    console.log('Reading the airport record:');
+    await updateAirportArchive();
+  } catch (error) {
+    console.error('Airport archive update failed (continuing):', error.message);
+  }
+  try {
+    await updateAirportNormalsFile();
+  } catch (error) {
+    console.error('Airport normals update failed (continuing):', error.message);
   }
   try {
     await updateWatershedForecastFile();

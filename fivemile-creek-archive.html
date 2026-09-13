@@ -12,13 +12,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The creek &middot; FIVEMILE</title>
-<meta name="description" content="Five Mile Creek at the Republic gauge, day by day: how low it sat, how high it came, and how much water went through.">
+<meta name="description" content="Five Mile Creek at the Republic gauge, every day since 1988: this year against the record, one season beside the same season in other years, and the wet years and the dry ones.">
 <link rel="canonical" href="https://fivemile.now/fivemile-creek-archive.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="The creek &middot; FIVEMILE">
-<meta property="og:description" content="Five Mile Creek at the Republic gauge, day by day: how low it sat, how high it came, and how much water went through.">
+<meta property="og:description" content="Five Mile Creek at the Republic gauge, every day since 1988: this year against the record, one season beside the same season in other years, and the wet years and the dry ones.">
 <meta property="og:url" content="https://fivemile.now/fivemile-creek-archive.html">
 <meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
 <meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The creek &middot; FIVEMILE">
-<meta name="twitter:description" content="Five Mile Creek at the Republic gauge, day by day: how low it sat, how high it came, and how much water went through.">
+<meta name="twitter:description" content="Five Mile Creek at the Republic gauge, every day since 1988: this year against the record, one season beside the same season in other years, and the wet years and the dry ones.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -85,30 +85,61 @@
   <section class="top">
     <div class="hd"><h1>The creek</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
     <div class="panel intro" data-share-in>
-      <p class="lede">Five Mile Creek at the Republic gauge, rolled up a day at a time: how low it sat, how
-        high it came, and how much water went through. The shaded band on the chart is the day's low to its
-        high, which is the part a daily average hides. A creek that averaged a foot and a half can still have
-        touched three and a half at four in the afternoon.</p>
+      <p class="lede">Five Mile Creek at the Republic gauge, one day at a time, back to the spring of 1988.
+        That is long enough to know what an ordinary September looks like on this creek, and to say so
+        plainly when this one is not.</p>
     </div>
     <p class="arc-count" id="creekStamp">&mdash;</p>
-    <div class="reel" id="creekReel" role="group" aria-label="The creek by month"></div>
-    <div class="card-dept">
-      <div class="d-bar"><h3 id="creekMonthName">&mdash;</h3><span class="r" title="USGS gauge 02457595">Five Mile Creek at Republic</span></div>
+    <div class="reel" id="creekYearReel" role="group" aria-label="The creek by year"></div>
+    <div class="card-dept brief" id="creek-year">
+      <div class="d-bar"><h3 id="creekYearName">&mdash;</h3><span class="r" title="USGS gauge 02457595">Five Mile Creek at Republic</span></div>
+      <div class="d-body" id="creekYear">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+    <div class="reel reel-months" id="creekReel" role="group" aria-label="The months of the year"></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="creekMonthName">&mdash;</h3><span class="r">Day by day</span></div>
       <div class="d-body" id="creekMonth">
         <div class="empty">&mdash;</div>
       </div>
     </div>
+  </section>
+
+  <section class="blk" id="seasons">
+    <div class="hd"><h2>Season against season</h2></div>
+    <div class="seg" id="creekSeasonPick" role="group" aria-label="Season"></div>
+    <div class="reel reel-multi" id="creekSeasonYears" role="group" aria-label="Years to compare"></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="creekSeasonName">&mdash;</h3><span class="r" id="creekSeasonSpan">&mdash;</span></div>
+      <div class="d-body" id="creekSeason">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="every-year">
+    <div class="hd"><h2>Every year on file</h2></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3>Wetter or drier</h3><span class="r">Month by month</span></div>
+      <div class="d-body" id="creekGrid">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="records">
+    <div class="hd"><h2>The record</h2></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3>On the books</h3><span class="r">Every day on file</span></div>
+      <div class="d-body" id="creekRecords">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
     <div class="card-notice info" style="margin-top:12px">
-      <p class="n-kick">Why this record is short</p>
-      <h3>The gauge only remembers a month</h3>
-      <p>USGS hands back the last thirty days and nothing before it, and until this page was built that is
-        all the site kept, so the creek was the one thing here that did scroll away. The record now starts
-        the day it was built and grows a day at a time from here. The gauge itself has been reporting since
-        long before that, and the full run is on the
-        <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS
-        page for the station</a>.</p>
-      <p id="creekRecord">&mdash;</p>
-      <p>How high the creek gets is one question about it. What goes into it is the other, and that has a
+      <p class="n-kick">The other half of it</p>
+      <h3>What goes into the creek</h3>
+      <p>How high the creek runs is one question about it. What goes into it is the other, and that has a
         page of its own: <a href="fivemile-discharges.html">what goes into the creek</a> sets out who holds
         a permit to discharge here and what the EPA says about the water.</p>
     </div>
@@ -117,11 +148,15 @@
   <p class="src-note">
     <strong>Where this comes from</strong>
     The <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS
-    gauge on Fivemile Creek near Republic</a>, station 02457595, which reads the water every fifteen minutes.
-    Each row here is one day of those readings rolled into a low, a high, a mean, and the average flow through
-    the channel. Republic sits upstream of all three towns, so what it reads today is broadly what comes
-    through Brookside, Cardiff, and Graysville after it. A day missing more than half its readings is left
-    out rather than reported wrong.
+    gauge on Fivemile Creek near Republic</a>, station 02457595. Every day since May 21, 1988 carries the mean
+    depth and mean flow USGS publishes for it. The gauge's fifteen minute readings are online from October 1,
+    2007, and from then on each day also has its low and its high; before that the day's mean is all there is.
+    The usual level for a time of year is the middle of every full year on file before this one, taken a week
+    either side of the date. Seasons are whole months, the way the weather service counts them, so spring is
+    March through May and winter runs from December into the new year. The last several months are provisional
+    until USGS reviews them and can still move a little. The highest crest comes from the gauge's own peak
+    record, because a flood can come and go inside a day. Republic sits upstream of all three towns, so what it
+    reads is broadly what comes through Brookside, Cardiff, and Graysville after it.
   </p>
 
 </main><!-- /wrap -->

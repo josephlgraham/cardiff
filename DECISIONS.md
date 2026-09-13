@@ -4350,3 +4350,230 @@ Neither is a town, and the site does not treat them as one.
 
 **Revisit if:** another place on the creek earns an entry. It goes in the same
 section, on the same terms, and still is not a town.
+
+---
+
+## 71. The creek room holds every day since 1988, and works the rest out itself
+**Decided:** September 2026. Supersedes the creek half of decision 36.
+
+Joe asked for a yearly view of the creek, and for a way to set this spring
+beside last spring and the five before it. The creek room could do neither. It
+held fifty days and said, in a notice headed "The gauge only remembers a month",
+that USGS hands back thirty days and nothing before. That stopped being true
+when the fetchers moved to the Water Data API. The daily collection has a mean
+stage and a mean flow for Republic on every day since May 21, 1988, and the
+fifteen minute record runs from October 1, 2007.
+
+### The backfill
+
+`scripts/backfill-creek-history.mjs` is run by hand, once, and was. It wrote
+13,944 days into `fivemile-creek-archive/`, one file a year back to 1988.
+
+- **Mean and cfs are the published daily values**, not worked out again.
+- **Low, high and readings come from the fifteen minute record**, rolled up by
+  the calendar day here with the same 48 reading floor the live job keeps. Before
+  October 2007 those three are null and the row says `source: "usgs-daily"`.
+  Nothing guesses at a low the gauge never recorded.
+- **It only adds.** A day already on file is left alone, because those rows
+  belong to the live job, which repairs its own thirty day window. Run it twice
+  and the second run writes nothing, which is also how to recover if a
+  scheduled commit lands in the middle: pull, run it again, commit.
+
+Stage is comparable across the whole run. At the same low flow, 15 to 30 cfs,
+the median stage sat between 1.16 and 1.30 ft in every year but one, so the
+gauge datum has not moved in a way that would make 1990 and 2026 disagree about
+what a foot means.
+
+### No summary file
+
+The room reads all thirty nine year files and works out everything else on the
+page. It is 2.3 MB on disk and about 140 KB over the wire compressed, less than
+a photograph, and the arithmetic takes no noticeable time on a phone. A summary
+file written by the job would have been faster to load and would have been a
+second copy of the record that could fall out of step with it, which is the
+one thing decision 36 says an archive must never have. The hub does not read
+the year files at all: it takes the count and the first day from `index.json`
+and the highest crest from `fivemile-creek-peaks.json`.
+
+**Revisit if:** the room gets slow on a phone. The fix then is a derived file
+of past years only, rewritten on January 1, with the current year worked out on
+the page. It is not pagination.
+
+### What is on the page
+
+- **The year.** A year's daily mean over the usual range, a card of four
+  readings, and one sentence saying how many days it ran above usual and, for a
+  full year, where it ranks. The months of that year sit under it in a reel and
+  open the day table, which is the old room.
+- **Season against season.** Four seasons in a row of buttons, a reel of years,
+  a chart, and a table. The default is the most recent season with thirty days
+  on file, and it and the six before it, which is what Joe asked for in so many
+  words. Tapping a year adds it and draws it in green; tapping it again takes it
+  out. Every season of that kind is ranked in a list behind a summary line.
+- **Every year on file.** Thirty nine rows of twelve months, each coloured by
+  where it falls against the same month in every other year. Tapping a month
+  reads it out in a sentence, and the button beside the sentence opens that year
+  and that month at the top of the page.
+- **The record.** Highest crest, most and least water in a day, the wettest and
+  driest full years, and the first day on file.
+
+### The rules the numbers keep
+
+- **Usual** is the middle of every full year before this one, pooled a week
+  either side of the date. The two bands are half of years and eight years in
+  ten. A leap year calendar gives every date a fixed slot, so February 29 has
+  one of its own.
+- **Seasons are whole months**, the way the weather service counts them, and
+  are named for the year they end in: Winter 2025 to 26 is December 2025 into
+  February 2026. Not the sun's turnings. Those move by a day or two a year, and
+  a season that starts on a different day each year cannot be averaged against
+  itself honestly.
+- **Seasons and years are ranked by flow**, because flow is complete back to
+  1988 and depth has gaps. Only a finished season with nine tenths of its days
+  is ranked. The top half is counted from the wet end and the bottom half from
+  the dry, so a reader sees "6th driest" and never "33rd wettest".
+- **The grid is months, not weeks.** Weeks were built first and read as
+  confetti: a week of this creek is mostly whether one storm landed in it.
+- **A flood runs off the top of the chart** rather than flattening every other
+  day of the year against the floor. Each rise that goes off gets a red mark,
+  and only the day the card calls the highest gets its date, so the chart and
+  the card can never name two different days.
+
+### Two things that will bite the next person
+
+`num()` in `fivemile-archive.js` returns 0 for null, because `Number(null)` is
+0. Every day before October 2007 has a null low and high, so the creek code
+reads through `reading()` instead. The old month summary used `num()` and would
+have reported the creek at nought feet for every month before 2007.
+
+The room's `buildYears` collided with the dates room's function of the same
+name in the same file, and the later one won silently. The creek's is
+`buildCreekYears`. The file is one scope, so a new function name wants a grep
+first.
+
+### The charts measure their box
+
+All four charts in the room size their viewBox to the element they draw into,
+which is decision 45 applied here. The weather room's rain chart was still on
+the old fixed viewBox when this was written, drawing at half its box on a phone
+with axis type under five pixels. Decision 72 moved it over.
+
+### The chart on the almanac, and a door from it
+
+The same week this was built the almanac's creek chart was printing a day
+number on top of the date at either end on a phone: the 12 over "Sep 13" in the
+week view, the 8 and the 19 in the month view. The gap it kept was a fixed 34px
+and "Sep 13" is 40. DM Mono is a true monospace, so the chart now works out
+each label's width from its length and drops a day number that would touch an
+end date. The card also carries a door into this room.
+
+### What decision 36 said and what changed
+
+Decision 36 said the archive charts have nothing to poke at, because the table
+is right underneath. The day table still is. The comparison and the grid are
+not tables anybody would read on a phone, and Joe asked to click around, so
+those two answer a tap. Neither hides a number that is not also written out on
+the page.
+
+---
+
+## 72. The weather room carries the official Birmingham record, and says whose it is
+**Decided:** September 2026. Builds on decision 71.
+
+The station's log starts on January 1, 2026, which is enough to keep a diary
+and nowhere near enough to say whether a September is hot. Joe's call: use the
+official record from the Birmingham airport for the long view, and tell
+readers plainly what that is.
+
+### The data
+
+`scripts/fetch/acis-airport.mjs` reads the National Weather Service record for
+station USW00013876 at the airport, and NOAA's 1991 to 2020 normals for it,
+from the Applied Climate Information System that NOAA's Regional Climate
+Centers run. No key, and one request brings back all 97 years in about a
+second.
+
+- **`fivemile-airport-archive/`** is one file a year back to January 1, 1930,
+  through the same year archive writer as the station and the creek. 35,319
+  days on the first run. A row is `date`, `high`, `low`, `rain`, and `snow`
+  only when there was any. A trace is kept as 0, the way an official total
+  counts it, and a reading marked missing is null.
+- **`fivemile-airport-normals.json`** is the normal high, low and rain for all
+  366 dates. NOAA publishes no normal rain for February 29, so that one is null
+  and counts as nothing. The daily normals add up to the annual normal NOAA
+  publishes, 56.62 inches, which is how the file was checked.
+- **The twice daily job asks again for the last 45 days**, because the newest
+  days at the airport are preliminary and get corrected. Fresh values win inside
+  that window and a day with nothing yet is not written. The normals file is
+  only rewritten if the normals change.
+- **It never mixes with the station's file.** Two records, two directories.
+
+The run is 3.5 MB on disk and about 270 KB compressed across 97 files, which is
+twice the creek. The room draws the station section first and the long record
+when the airport's years arrive, a little under a second on a laptop. The hub
+reads only the airport's `index.json`.
+
+**Revisit if:** the room is slow on a phone. Decision 71's revisit note applies
+here first: a derived file of past years, rewritten once a year.
+
+### The notice is the disclaimer, and it carries a number
+
+Everything from the long record heading down is the airport, and a notice says
+so before any of it appears: our station's log starts on January 1, 2026, the
+official record is kept at the airport southeast of the three towns, it is the
+right record for knowing what normal is, and it is not a reading from here.
+There is no mileage in it, because there were no sourced town coordinates to
+measure from.
+
+Under that, the page sets the two side by side over every day both have and
+says how far apart they ran: the airport's highs and lows against ours, and its
+rain against ours. On the day this was built the airport's highs ran 0.6
+degrees cooler, its lows 3.8 degrees warmer, and it measured 45.52 inches of
+rain to the station's 56.65. That is the most honest disclaimer there is.
+
+The source note cites the National Weather Service in Birmingham and the
+station number. It does not name the service the job fetches through, which is
+the veil in CLAUDE.md: a citation says whose record it is, not how the site
+gets it.
+
+### What is on the page
+
+Our station first, as it was: a month at a time with its day table and the
+record so far, now with marks on every cell and both charts measured. Then the
+long record:
+
+- **On this date.** Normal high and low, the record high and low and the year
+  each was set, the most rain on the date, and a year ago.
+- **The year.** Every day drawn as a stroke from its low to its high, standing
+  in the normal range, inside the range of every year on file, with a dot on
+  any day that set or tied the record for its date. Under it, rain added up
+  through the year against the normal adding up beside it. Six readings and a
+  sentence that ranks a full year for heat and for rain.
+- **The month.** The same as the station's month card, with the normal range
+  behind the temperatures and a snow column only when the month had snow.
+- **Season against season.** The creek room's control, with a second choice
+  between rain and heat. Rain is drawn added up through the season, because
+  that is where a wet spring and a dry one part company. Heat is each day's
+  mean, run through the week around it, because a line a day for seven years is
+  a tangle.
+- **Every year on file.** 97 rows of months, heat by default, rain on the
+  other button. A month still under way has an average but no total, so it has
+  no rain colour until it ends, and switching to rain moves the readout back to
+  the newest month that has one.
+- **The record.** Hottest and coldest day, wettest day, most snow, wettest and
+  driest year, hottest summer, coldest winter, and the first day on file.
+
+### Normal and usual are different words on purpose
+
+**Normal** is NOAA's 1991 to 2020 figure, and it is the word used anywhere the
+page compares to it: the bands, the cumulative rain line, the year sentence. A
+year before 1991 is measured against it too, which is the standard practice.
+**Usual** is the middle of every year on file, and it is only used on the grid,
+which ranks a month against the same month in all 97 years. Rankings count
+every full year or season on file and use the two ends of the list, as in
+decision 71: warmest and coolest, wettest and driest.
+
+### Ties
+
+Records on a date and on the books go to the most recent year when two years
+tie, which is how the weather service writes them.

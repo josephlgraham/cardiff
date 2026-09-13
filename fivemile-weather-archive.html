@@ -12,13 +12,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weather &middot; FIVEMILE</title>
-<meta name="description" content="Every day the FIVEMILE weather station has reported, month by month: highs, lows, rain, and wind, with the record so far.">
+<meta name="description" content="Every day the FIVEMILE weather station has reported, and the official Birmingham record since 1930: normals, records on this date, season against season, and every month of every year.">
 <link rel="canonical" href="https://fivemile.now/fivemile-weather-archive.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Weather &middot; FIVEMILE">
-<meta property="og:description" content="Every day the FIVEMILE weather station has reported, month by month: highs, lows, rain, and wind, with the record so far.">
+<meta property="og:description" content="Every day the FIVEMILE weather station has reported, and the official Birmingham record since 1930: normals, records on this date, season against season, and every month of every year.">
 <meta property="og:url" content="https://fivemile.now/fivemile-weather-archive.html">
 <meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
 <meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Weather &middot; FIVEMILE">
-<meta name="twitter:description" content="Every day the FIVEMILE weather station has reported, month by month: highs, lows, rain, and wind, with the record so far.">
+<meta name="twitter:description" content="Every day the FIVEMILE weather station has reported, and the official Birmingham record since 1930: normals, records on this date, season against season, and every month of every year.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
 <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -85,20 +85,97 @@
   <section class="top">
     <div class="hd"><h1>Weather</h1><a href="fivemile-archive.html">Archive &rarr;</a></div>
     <div class="panel intro" data-share-in>
-      <p class="lede">Every day the weather station has reported, one row each. Pick a month and it is all
-        there: what it got up to, what it fell to overnight, what fell out of the sky, and how hard it blew.</p>
+      <p class="lede">Every day the <b class="fm-name">FIVEMILE</b> weather station has reported, and under it the
+        official Birmingham record, kept at the airport since 1930. The station says what the weather did here.
+        The long record says whether that was anything out of the ordinary.</p>
     </div>
     <p class="arc-count" id="weatherStamp">&mdash;</p>
-    <div class="reel" id="weatherReel" role="group" aria-label="Weather by month"></div>
-    <div class="card-dept">
+    <div class="reel" id="weatherReel" role="group" aria-label="Our station by month"></div>
+    <div class="card-dept brief">
       <div class="d-bar"><h3 id="weatherMonthName">&mdash;</h3><span class="r">Our station</span></div>
       <div class="d-body" id="weatherMonth">
         <div class="empty">&mdash;</div>
       </div>
     </div>
-    <div class="card-dept" style="margin-top:12px">
-      <div class="d-bar"><h3>The record so far</h3><span class="r">Everything on file</span></div>
+    <div class="card-dept brief" style="margin-top:12px">
+      <div class="d-bar"><h3>The record so far</h3><span class="r">Our station</span></div>
       <div class="d-body" id="weatherRecords">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="long-record">
+    <div class="hd"><h2>The long record</h2></div>
+    <div class="card-notice info">
+      <p class="n-kick">Where these numbers come from</p>
+      <h3>Everything from here down is the Birmingham airport, not here</h3>
+      <p>Our station's log on this page starts on January 1, 2026. The official weather record for Birmingham
+        goes back to 1930 and is kept at the airport, southeast of the three towns. It is the right record for
+        knowing what a normal September looks like, and it is what every normal, record, and ranking below is
+        measured against.</p>
+      <p>It is not a reading from here. A storm can soak the airport and miss the creek, or the other way around,
+        and the temperatures there are not ours.</p>
+      <p id="airportCompare"></p>
+    </div>
+    <p class="arc-count" id="airportStamp" style="margin-top:16px">&mdash;</p>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="airportTodayName">&mdash;</h3><span class="r">On this date</span></div>
+      <div class="d-body" id="airportToday">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+    <div class="reel reel-gap" id="airportYearReel" role="group" aria-label="The airport by year"></div>
+    <div class="card-dept brief" id="airport-year">
+      <div class="d-bar"><h3 id="airportYearName">&mdash;</h3><span class="r">Birmingham airport</span></div>
+      <div class="d-body" id="airportYear">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+    <div class="reel reel-months" id="airportReel" role="group" aria-label="The months of the year"></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="airportMonthName">&mdash;</h3><span class="r">Birmingham airport</span></div>
+      <div class="d-body" id="airportMonth">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="seasons">
+    <div class="hd"><h2>Season against season</h2></div>
+    <div class="seg" id="airportSeasonPick" role="group" aria-label="Season"></div>
+    <div class="seg two" id="airportSeasonMetric" role="group" aria-label="Measure">
+      <button type="button" class="seg-btn" data-metric="rain" aria-pressed="true">Rain</button>
+      <button type="button" class="seg-btn" data-metric="heat" aria-pressed="false">Heat</button>
+    </div>
+    <div class="reel reel-multi" id="airportSeasonYears" role="group" aria-label="Years to compare"></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="airportSeasonName">&mdash;</h3><span class="r" id="airportSeasonSpan">&mdash;</span></div>
+      <div class="d-body" id="airportSeason">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="every-year">
+    <div class="hd"><h2>Every year on file</h2></div>
+    <div class="seg two" id="airportGridMetric" role="group" aria-label="Measure">
+      <button type="button" class="seg-btn" data-metric="heat" aria-pressed="true">Heat</button>
+      <button type="button" class="seg-btn" data-metric="rain" aria-pressed="false">Rain</button>
+    </div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3 id="airportGridTitle">Warmer or cooler</h3><span class="r">Month by month</span></div>
+      <div class="d-body" id="airportGrid">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="records">
+    <div class="hd"><h2>The record</h2></div>
+    <div class="card-dept brief">
+      <div class="d-bar"><h3>On the books</h3><span class="r">Birmingham airport</span></div>
+      <div class="d-body" id="airportRecords">
         <div class="empty">&mdash;</div>
       </div>
     </div>
@@ -106,11 +183,16 @@
 
   <p class="src-note">
     <strong>Where this comes from</strong>
-    Every row is a full day from the <b class="fm-name">FIVEMILE</b> weather station. It reports for all three towns,
-    because one rain gauge on this ground is closer to the truth here than a regional model is. The
-    earliest days were filled in from the station's own history. Today is not in the table, because
-    today is not over; it is on the
-    <a href="fivemile-almanac.html#weather">almanac</a>.
+    The first section is the <b class="fm-name">FIVEMILE</b> weather station, a full day to a row. It reports for all
+    three towns, because one rain gauge on this ground is closer to the truth here than a regional model is, and
+    today is not in the table because today is not over; it is on the
+    <a href="fivemile-almanac.html#weather">almanac</a>. Everything under the long record heading is the official record the
+    <a href="https://www.weather.gov/bmx/" target="_blank" rel="noopener">National Weather Service in Birmingham</a> keeps
+    at the airport, station USW00013876. Normals are NOAA's official normals for 1991 to 2020, and a year before 1991 is
+    measured against them all the same. A trace of rain counts as none, the way an official total counts it. The
+    newest days there are preliminary and can still be corrected. Usual, on the grid, means the middle of every
+    year on file for that month; normal means NOAA's figure. Seasons are whole months,
+    the way the weather service counts them, and winter runs from December into the new year.
   </p>
 
 </main><!-- /wrap -->
