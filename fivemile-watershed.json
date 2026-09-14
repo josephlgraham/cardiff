@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T23:26:46.734Z",
+  "updatedAt": "2026-09-14T01:33:39.611Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -13,7 +13,7 @@
     "first": "2026-06-15",
     "last": "2026-09-12"
   },
-  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.11 ft with about 16.7 cfs moving through the channel. Month-to-date rain is 0.84 inches.",
+  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.10 ft with about 16.1 cfs moving through the channel. Month-to-date rain is 0.84 inches.",
   "rainContext": {
     "today": 0,
     "monthToDate": 0.8400000000000001,
@@ -46,14 +46,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 1.11,
-      "discharge_cfs": 16.7,
-      "water_temp_f": 82.9,
-      "dissolved_oxygen_mgl": 8.1,
-      "specific_conductance_uscm": 415,
+      "stage_ft": 1.1,
+      "discharge_cfs": 16.1,
+      "water_temp_f": 81.9,
+      "dissolved_oxygen_mgl": 6.9,
+      "specific_conductance_uscm": 423,
       "trend": "steady",
       "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-13T23:00:00+00:00",
+      "updated_at": "2026-09-14T01:00:00+00:00",
       "stage_history": [
         {
           "at": "2026-08-15T01:45:00+00:00",
@@ -528,8 +528,12 @@
           "stage_ft": 1.13
         },
         {
-          "at": "2026-09-13T23:00:00+00:00",
-          "stage_ft": 1.11
+          "at": "2026-09-13T19:45:00+00:00",
+          "stage_ft": 1.13
+        },
+        {
+          "at": "2026-09-14T01:00:00+00:00",
+          "stage_ft": 1.1
         }
       ],
       "note": "This reach looks fairly steady right now."
@@ -553,8 +557,8 @@
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-13T23:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-09-14T01:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
