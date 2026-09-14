@@ -442,9 +442,12 @@ async function updateWeatherFile() {
     solarRadiation: d.solarradiation || 0,
     dailyRain: d.dailyrainin || 0,
     hourlyRain: d.hourlyrainin || 0,
-    weeklyRain: d.weeklyrainin || 0,
+    /* Not d.weeklyrainin or d.yearlyrainin. The station's week resets every
+       Sunday and its year counter disagrees with its own daily record.
+       patchRainTotals fills both in from the record. */
+    weeklyRain: null,
     monthlyRain: d.monthlyrainin || 0,
-    yearlyRain: d.yearlyrainin || 0,
+    yearlyRain: null,
     feelsLike: Math.round(d.feelsLike || d.tempf),
     dewPoint: Math.round(d.dewPoint || 0),
     lastUpdated: d.date || new Date().toISOString(),
@@ -1264,6 +1267,86 @@ async function patchYesterdayFromArchive(weather, archivePayload) {
   }
 }
 
+/* The past week and this year rain rows are totalled from the station's own
+   daily record, the same days the weather log shows, rather than read off the
+   station's running counters.
+
+   Past week means the seven days a reader just lived through: today so far and
+   the six days before it. The station's weekly counter is a calendar week reset
+   every Sunday, so on a Monday the almanac said 0.00" with Friday's and
+   Saturday's rain still in the ground.
+
+   This year used to be the station's yearly counter, which ran 3.65" behind the
+   log for 2026 with every day since January 1 on the books. An offset carried
+   on the counter is invisible from here, and the log is the record a reader can
+   check day by day in the archive, so the log wins.
+
+   Each earlier day comes from the station archive. The archive is filled on the
+   twice daily run, so shortly after midnight it may not hold yesterday yet, and
+   for that the rain log's highest daily total stands in.
+
+   A day neither one has is handled differently in the two rows. The week goes
+   blank, because a week short a day reads drier than it was and the gap clears
+   within days. The year counts the days that were recorded, because a dash
+   there would stand until New Year over one bad day, and a day the station was
+   not reporting is a day its gauge was not counting either. The year does go
+   blank if the record does not reach back to January 1, since then it is not a
+   year to date at all. */
+async function patchRainTotals(weather, archivePayload) {
+  if (!weather) return;
+  try {
+    const todayKey = localDateKey(stationObs || new Date());
+    const archiveRain = new Map((archivePayload?.days || [])
+      .filter((day) => Number.isFinite(day.rain))
+      .map((day) => [day.date, day.rain]));
+    const log = await readJson(RAIN_LOG_FILE, { samples: [] });
+    const logRain = new Map();
+    for (const sample of log.samples || []) {
+      const total = Number(sample.dailyTotal);
+      if (!sample.localDate || !Number.isFinite(total)) continue;
+      logRain.set(sample.localDate, Math.max(logRain.get(sample.localDate) ?? 0, total));
+    }
+    const rainOn = (dateKey) => (archiveRain.has(dateKey) ? archiveRain.get(dateKey) : logRain.get(dateKey));
+    const round = (value) => Math.round(value * 100) / 100;
+    const today = Number.isFinite(weather.dailyRain) ? weather.dailyRain : null;
+
+    let week = today;
+    const weekMissing = [];
+    for (let i = 1; i <= 6 && week !== null; i += 1) {
+      const dateKey = shiftDayKey(todayKey, -i);
+      const rain = rainOn(dateKey);
+      if (Number.isFinite(rain)) week += rain;
+      else weekMissing.push(dateKey);
+    }
+    if (weekMissing.length) console.warn(`Past week rain left blank, no record for ${weekMissing.join(', ')}.`);
+    const nextWeek = week === null || weekMissing.length ? null : round(week);
+
+    const yearStart = `${todayKey.slice(0, 4)}-01-01`;
+    let year = today;
+    const yearMissing = [];
+    if (year !== null && todayKey !== yearStart && !Number.isFinite(rainOn(yearStart))) {
+      console.warn(`This year rain left blank, no record for ${yearStart}.`);
+      year = null;
+    }
+    for (let dateKey = shiftDayKey(todayKey, -1); year !== null && dateKey >= yearStart; dateKey = shiftDayKey(dateKey, -1)) {
+      const rain = rainOn(dateKey);
+      if (Number.isFinite(rain)) year += rain;
+      else yearMissing.push(dateKey);
+    }
+    if (year !== null && yearMissing.length) console.warn(`This year rain counts no record for ${yearMissing.join(', ')}.`);
+    const nextYear = year === null ? null : round(year);
+
+    if (nextWeek !== weather.weeklyRain || nextYear !== weather.yearlyRain) {
+      weather.weeklyRain = nextWeek;
+      weather.yearlyRain = nextYear;
+      await writeJson(WEATHER_FILE, weather);
+      console.log(`Rain totals: past week ${nextWeek === null ? 'unknown' : nextWeek + '"'}, this year ${nextYear === null ? 'unknown' : nextYear + '"'}`);
+    }
+  } catch (error) {
+    console.error('Rain totals failed (continuing):', error.message);
+  }
+}
+
 async function main() {
   /* The ten minute run. Alerts, the gauge, and current conditions are the three
      things that can change while somebody is standing outside looking at the sky,
@@ -1277,7 +1360,9 @@ async function main() {
     } catch (error) {
       console.error('Weather update failed (continuing):', error.message);
     }
-    await patchYesterdayFromArchive(live, await readYearArchive(WEATHER_ARCHIVE_DIR, { days: [] }));
+    const archive = await readYearArchive(WEATHER_ARCHIVE_DIR, { days: [] });
+    await patchYesterdayFromArchive(live, archive);
+    await patchRainTotals(live, archive);
     try {
       await updateWatershedFile(live, { archive: false });
     } catch (error) {
@@ -1304,6 +1389,7 @@ async function main() {
     console.error('Weather archive update failed (continuing):', error.message);
   }
   await patchYesterdayFromArchive(weather, archivePayload);
+  await patchRainTotals(weather, archivePayload ||await readYearArchive(WEATHER_ARCHIVE_DIR, { days: [] }));
   try {
     await updateWatershedFile(weather);
   } catch (error) {
