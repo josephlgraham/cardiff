@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T19:33:52.298Z",
+  "updatedAt": "2026-09-14T10:48:24.756Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 87,
-    "species_in_window": 70,
-    "window_total": 92,
-    "species_recorded": 79,
-    "observations_recorded": 98,
-    "area_total": 1102,
+    "in_window": 89,
+    "species_in_window": 71,
+    "window_total": 94,
+    "species_recorded": 80,
+    "observations_recorded": 100,
+    "area_total": 1104,
     "guide_links": 6
   },
   "observations": [
+    {
+      "id": 400104629,
+      "taxon": 116681,
+      "name": "Ailanthus Webworm Moth",
+      "latin": "Atteva aurea",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-13",
+      "place": null,
+      "obscured": true,
+      "observer": "Kristin A. Bakkegard",
+      "observerLogin": "kbakkegard",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/400104629",
+      "firstRecord": false
+    },
     {
       "id": 399673568,
       "taxon": 153544,
@@ -259,6 +276,23 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/399019358",
       "firstRecord": false
+    },
+    {
+      "id": 398902777,
+      "taxon": 978666,
+      "name": "Pavlovski's Monopis Moth",
+      "latin": "Monopis longella",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-09",
+      "place": null,
+      "obscured": true,
+      "observer": "Kristin A. Bakkegard",
+      "observerLogin": "kbakkegard",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/398902777",
+      "firstRecord": true
     },
     {
       "id": 398802572,
@@ -803,40 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/383103256",
       "firstRecord": false
-    },
-    {
-      "id": 383104989,
-      "taxon": 118930,
-      "name": "Yellow-striped Armyworm Moth",
-      "latin": "Spodoptera ornithogalli",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-19",
-      "place": null,
-      "obscured": true,
-      "observer": "Cal",
-      "observerLogin": "diplopoda",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/383104989",
-      "firstRecord": false
-    },
-    {
-      "id": 382817289,
-      "taxon": 311163,
-      "name": "Pale-bordered Field Cockroach",
-      "latin": "Pseudomops septentrionalis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-18",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/382817289",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -847,10 +847,11 @@
       "group": "Insect",
       "rank": "species",
       "first": "2026-08-05",
-      "last": "2026-08-05",
-      "count": 1,
+      "last": "2026-09-13",
+      "count": 2,
       "ids": [
-        388661185
+        388661185,
+        400104629
       ]
     },
     {
@@ -1552,6 +1553,19 @@
       "ids": [
         373456818,
         382817289
+      ]
+    },
+    {
+      "taxon": 978666,
+      "name": "Pavlovski's Monopis Moth",
+      "latin": "Monopis longella",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-09-09",
+      "last": "2026-09-09",
+      "count": 1,
+      "ids": [
+        398902777
       ]
     },
     {
