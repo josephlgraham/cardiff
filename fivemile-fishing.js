@@ -600,9 +600,6 @@
     }
 
     setText("fishNarrative", narrative(read, sol) || "Neither the gauge nor the station is answering right now, so there is nothing to read off.");
-
-    FA.setRailSub("fishing", (Number.isFinite(water) ? Math.round(water) + "°F water" : "Gauge quiet") +
-      (sol && sol.best ? " · best " + clock(sol.best.mid) : ""));
   }
 
   function boot() {

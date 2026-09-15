@@ -127,7 +127,6 @@
     setText("skyMoonStamp", moon.icon + " " + FA.moonAgePhrase(now));
     renderStrip(moon);
     renderMeteors(now);
-    FA.setRailSub("sky", moon.name);
 
     renderNextPhases(now);
 

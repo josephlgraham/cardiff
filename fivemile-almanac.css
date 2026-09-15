@@ -34,18 +34,6 @@
   --r:8px;--r-lg:14px;--ease:220ms ease;
   --hdr-bg:#3d2810;--hdr-rule:rgba(255,215,140,0.09);--hdr-text:#f5ead8;
   --hdr-dim:rgba(245,234,216,0.82);--hdr-dimmer:rgba(245,234,216,0.65);--hdr-nav:rgba(245,234,216,0.82);
-
-  /* The five desks. Read by the rail and by nothing else.
-
-     DECISIONS.md 25 allows a page with its own set of subjects to set
-     --accent from its own stylesheet rather than adding classes to the card
-     file. The news beats did it first. These are the second set, and like the
-     beats they color a 4px bar and never a word. */
-  --desk-almanac:#4E6E58;
-  --desk-fishing:#2F6B8A;
-  --desk-garden:#6E7F3A;
-  --desk-sky:#4C4B7C;
-  --desk-nature:#8A5A2E;
 }
 
 /* The reset, the ground, and the measure are in fivemile-shell.css. */
@@ -54,90 +42,55 @@
 /* ---------------------------------------------------------------------------
    THE DESK RAIL
 
-   The index to the five pages, carried by all five. It replaced a row of
-   rounded pills that jumped to anchors on one very long page, so the first
-   requirement was that it not look like those pills and the second was that
-   it not look like the navigation bar sitting directly above it.
+   The index to the five pages, carried by all five, drawn as a segmented
+   control: one bar, five parts of one almanac, the page you are on filled in.
+   See DECISIONS.md 76, which replaced the row of cards from 28 and 51.
 
-   It is neither. The masthead nav is brown, all caps, and marks the current
-   page with a red underline. The rail is paper, sentence case, square
-   cornered, and marks the current page by going quiet and heavy rather than
-   bright. Each item carries the 4px accent bar the .tag badge uses, which is
-   the site's existing mark for an index entry, and a live line of its own
-   underneath so the rail reports something rather than only pointing.
+   It must not look like the navigation directly above it, and it does not.
+   The masthead nav is text on brown with a red underline under the lit tab.
+   This is a paper bar with the lit part filled brown, which reads as the
+   second level of the same place rather than as a second menu.
 
    Not a sidebar. It has to work at 390px, where a vertical rail is either a
-   wall of links above the content or a horizontal row anyway, and where two
-   layouts of the same object drift apart. One row, scrolled sideways on a
-   phone the way the nav above it already scrolls.
+   wall of links above the content or a horizontal row anyway.
    --------------------------------------------------------------------------- */
-/* No band. The first pass gave the rail its own paper2 fill and a rule under
-   it, which cut it off from the page and made it read as chrome bolted under
-   the masthead rather than as the top of the page you are on. It sits on the
-   page background now, with the topographic lines running behind it like they
-   run behind everything else, and the items are the only objects in it. */
+/* No band. The rail sits on the page background with the topographic lines
+   running behind it like they run behind everything else. */
 .desk-rail{background:transparent;position:relative;z-index:2}
-.desk-rail-inner{max-width:1000px;margin:0 auto;padding:16px 20px 0;display:flex;gap:8px;
-  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.desk-rail-inner::-webkit-scrollbar{display:none}
-/* Every item is the same width, and the five of them are exactly the row.
-   flex:1 0 auto sized each one to the longest word in it, so Nature Watch came
-   out 35px wider than Garden and the five together ran 100px past the right
-   edge of the measure, where the fifth one sat off screen with nothing to say
-   it was there. 1 1 0 divides the row instead of accumulating it. */
-.desk-item{display:flex;align-items:stretch;gap:9px;flex:1 1 0;min-width:0;min-height:73px;
-  background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r);padding:0 11px 0 0;
-  text-decoration:none;color:inherit;overflow:hidden;transition:border-color var(--ease),background var(--ease)}
-.desk-item::before{content:"";width:4px;align-self:stretch;background:var(--accent,#6B6156);flex:none}
-.desk-item:hover{border-color:var(--masthead);background:#fff;text-decoration:none}
-.desk-item > .desk-text{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;padding:9px 0}
-/* The name's line: the mark leads it, the arrow closes it. Both ride this line
-   rather than the item, which is what leaves the live line underneath the full
-   width of the tile to say something in. */
-.desk-head{display:flex;align-items:center;gap:7px;min-width:0}
-/* The mark. Sized against the name, so it holds its own in a row being scanned
-   at arm's length without shouting over the word it belongs to. Same idiom as
-   .g-mark on a gauge tile and .d-mark inside a cell. */
-.desk-mark{font-family:var(--emoji);font-size:17px;line-height:1;flex:none}
-.desk-name{font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.25;
-  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* The live line wraps rather than truncating, and it is always two lines tall.
+.desk-rail-inner{max-width:1000px;margin:0 auto;padding:16px 20px 0}
+/* The bar. Five equal parts, never scrolled: a control whose fifth part is off
+   the edge of the screen is not saying there are five. 14px outside and 11px
+   inside, so the lit part's corners sit concentric with the bar's across the
+   3px of padding between them. */
+.desk-seg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;padding:3px;
+  background:var(--card);border:1px solid #DDCFB8;border-radius:var(--r-lg)}
+.desk-item{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:46px;
+  padding:6px 10px;border-radius:11px;text-decoration:none;color:var(--ink2);
+  transition:background var(--ease),color var(--ease)}
+.desk-item:hover{background:var(--paper2);color:var(--ink);text-decoration:none}
+.desk-item:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+/* The mark. Drained on the four pages you are not on and in full color on the
+   one you are, so the color says where you are before the words do. It comes
+   back on hover too, which is the part getting ready to be the lit one.
 
-   One line and an ellipsis is what was there, and it could not work: a fifth
-   of a 1000px row is 160px, the line reports things like Harvest okra and
-   southern peas and 12.34 ft · Creek-peeking level, and at 10px, small enough
-   that nobody here should have to read it, eleven of the longest values were
-   still being cut. A line that reports half of what it knows is worse than a
-   line set one size down.
+   The lit mark sits on a paper disc. Straight onto the brown fill, the fishing
+   rod is a brown stick on brown and all that showed was the fish. Every mark
+   holds the same 30px box whether it is lit or not, so lighting one never
+   moves the row. */
+.desk-mark{font-family:var(--emoji);font-style:normal;font-size:19px;line-height:1;flex:none;
+  display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  filter:grayscale(1);opacity:.55;transition:filter var(--ease),opacity var(--ease)}
+.desk-item:hover .desk-mark,.desk-item[aria-current="page"] .desk-mark{filter:none;opacity:1}
+.desk-item[aria-current="page"] .desk-mark{background:var(--paper)}
+.desk-name{font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+/* The page you are on. Masthead brown with the masthead's own text color, and
+   still a link so a tap reloads and nothing dead-ends. */
+.desk-item[aria-current="page"]{background:var(--masthead);color:var(--hdr-text)}
 
-   Two is also the ceiling, and the item holds the height for both of them
-   whether this value needs the second line or not. The line starts as a
-   standing description and is replaced by a live reading once the file lands,
-   and a rail that changes height under the reader as that happens is the page
-   moving while it is being read. Reserving it on the item rather than on the
-   line is what keeps a one line value centred instead of sitting on top of a
-   blank one. */
-.desk-sub{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
-  font-family:var(--mono);font-size:10.5px;color:#6B6156;line-height:1.4;margin-top:3px;
-  overflow:hidden}
-/* The arrow. This is the whole fix for the first pass, which had five items
-   that named a page and gave a reader nothing to tell them the name was a
-   door. An arrow is not copy and it does not explain the interface: it points.
-   Red, because red is what this site uses for a link that leaves. */
-.desk-go{font-size:17px;line-height:1;color:var(--red);flex:none;margin-left:auto}
-.desk-item:hover .desk-go{color:var(--masthead)}
-/* Going back up to the almanac. The arrow leads instead of following, which is
-   the one difference a reader needs between the way home and the way onward. */
-.desk-item.back .desk-go{margin-left:0;margin-right:-1px}
-.desk-item.back{border-color:var(--masthead)}
-/* The current page. Recessed, arrowless, and still a link so a tap reloads and
-   nothing dead-ends. */
-.desk-item[aria-current="page"]{background:var(--paper2);border:1.5px solid var(--masthead)}
-.desk-item[aria-current="page"] .desk-name{color:var(--masthead)}
-
-/* The way back, repeated at the foot of every desk page. A reader who has come
-   down a long page should not have to scroll back up to leave it. Full width,
-   a big arrow, and the name of the place it goes. */
+/* The way back, at the foot of every desk page. A reader who has come down a
+   long page should not have to scroll back up to leave it. Full width, a big
+   arrow, and the name of the place it goes. */
 .desk-back{display:flex;align-items:center;gap:14px;margin-top:34px;min-height:68px;
   padding:14px 18px;background:var(--card);border:1px solid #DDCFB8;border-left:5px solid var(--red);
   border-radius:0 var(--r-lg) var(--r-lg) 0;text-decoration:none;color:inherit;
@@ -146,11 +99,6 @@
 .desk-back .a{font-size:26px;line-height:1;color:var(--red);flex:none}
 .desk-back b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
 .desk-back i{display:block;font-style:normal;font-size:14.5px;color:#6B6156;line-height:1.45;margin-top:2px}
-.desk-item[data-desk="almanac"]{--accent:var(--desk-almanac)}
-.desk-item[data-desk="fishing"]{--accent:var(--desk-fishing)}
-.desk-item[data-desk="garden"]{--accent:var(--desk-garden)}
-.desk-item[data-desk="sky"]{--accent:var(--desk-sky)}
-.desk-item[data-desk="nature"]{--accent:var(--desk-nature)}
 
 /* ---------------------------------------------------------------------------
    LAYOUT
@@ -553,19 +501,26 @@ section.top{padding:24px 0 0}
   .month-grid{grid-template-columns:repeat(2,1fr)}
   .fish-grid{grid-template-columns:repeat(2,1fr)}
 }
-/* Below the full measure the row cannot give five items the 186px they need to
-   hold a name and two lines, and dividing what is there instead took them down
-   to 147px and started cutting lines again. So the rail stops dividing and
-   starts scrolling, at the width where the measure stops being 1000px rather
-   than at some phone size. Items keep their size, the fifth one sits half in
-   view, and half an item at the edge is the only thing that has ever told a
-   reader a row scrolls. Full width items would be five rows of nav above every
-   page on the desk. */
-@media(max-width:1040px){
-  .desk-item{flex:0 0 auto;width:186px}
+/* Below 900px a mark beside a name no longer fits five across: at 800px
+   Nature Watch was cut to Nature Wa. So the mark goes over the name, which
+   keeps all five in view down to 390px, where a part is 65px wide. That holds
+   Night Sky at 13px and does not hold Nature Watch, which drops its tail. The
+   name on the page itself is untouched. */
+@media(max-width:900px){
+  .desk-item{flex-direction:column;gap:3px;min-height:54px;padding:6px 2px}
+  .desk-mark{font-size:20px}
+  .desk-name{font-size:13px;max-width:100%}
+  .desk-more{display:none}
 }
 @media(max-width:760px){
-  .desk-rail-inner{padding:10px 16px}
+  .desk-rail-inner{padding:10px 16px 0}
+}
+/* The small Androids. At 360px Night Sky wants 59px and a part has 55, so the
+   side padding goes and the name comes down a pixel. Below that it wraps onto
+   a second line rather than losing its last letters. */
+@media(max-width:380px){
+  .desk-item{padding-inline:0}
+  .desk-name{font-size:12px;white-space:normal;text-align:center}
 }
 @media(max-width:560px){
   .week-grid{grid-template-columns:repeat(2,1fr)}

@@ -220,7 +220,6 @@
     renderMonth(guide);
     renderYear(month);
     renderWindows(now);
-    FA.setRailSub("nature", guide.items[0].title);
 
     paintTile("natureMonth", guide.tag, guide.lead);
     paintTile("natureLight", daylight + " hours",

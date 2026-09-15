@@ -47,58 +47,42 @@
      THE DESK RAIL
 
      One definition, five pages. A page calls renderRail with its own key and
-     gets the row back with itself marked. The line under each name is a
-     standing description until the page replaces it with something live.
+     gets the control back with itself lit.
      ------------------------------------------------------------------------- */
   const DESKS = [
-    { key: "almanac", href: "fivemile-almanac.html",  mark: "🌊", name: "Almanac",      sub: "The creek and the weather" },
-    { key: "fishing", href: "fivemile-fishing.html",  mark: "🎣", name: "Fishing",      sub: "The water and the fish" },
-    { key: "garden",  href: "fivemile-garden.html",   mark: "🌱", name: "Garden",       sub: "What to plant now" },
-    { key: "sky",     href: "fivemile-nightsky.html", mark: "🌙", name: "Night Sky",    sub: "The moon and the stars" },
-    { key: "nature",  href: "fivemile-nature.html",   mark: "🍃", name: "Nature Watch", sub: "What to look for" }
+    { key: "almanac", href: "fivemile-almanac.html",  mark: "🌊", name: "Almanac" },
+    { key: "fishing", href: "fivemile-fishing.html",  mark: "🎣", name: "Fishing" },
+    { key: "garden",  href: "fivemile-garden.html",   mark: "🌱", name: "Garden" },
+    { key: "sky",     href: "fivemile-nightsky.html", mark: "🌙", name: "Night Sky" },
+    { key: "nature",  href: "fivemile-nature.html",   mark: "🍃", name: "Nature", more: " Watch" }
   ];
 
-  /* Every item carries an arrow. The first pass did not, and five tiles that
-     named a page without pointing anywhere read as headings rather than as
-     doors, which is exactly how they were treated.
+  /* A segmented control: five parts of one almanac in one bar, the page you
+     are on filled in masthead brown. See DECISIONS.md 76.
 
-     Every item also carries a mark, the same idiom the gauge tiles and the
-     cells inside a department panel use. Five text-only tiles in a row are
-     five things a reader has to read before they can pick one. The marks are
-     the site's own: the creek is the wave, fishing the rod, the garden the
-     seedling, the sky the moon, nature the leaf. Decoration only, so they are
-     hidden from a screen reader, and never the only place a subject is named.
+     Every item carries a mark, the same idiom the gauge tiles and the cells
+     inside a department panel use. The marks are the site's own: the creek is
+     the wave, fishing the rod, the garden the seedling, the sky the moon,
+     nature the leaf. Decoration only, so they are hidden from a screen reader,
+     and never the only place a subject is named. The lit page's mark is in
+     full color and the other four are drained, so the color says where you are
+     before the words do.
 
-     The mark and the arrow ride the name's line, not the item's. Five items
-     have one row of 1000px to share, and a mark in a column of its own took
-     36px of that row away from every name and every live line, which put the
-     fifth item past the right edge and clipped three of the five lines. The
-     head holds the mark, the name and the arrow; the live line runs the full
-     width underneath. Same stack a gauge tile uses, and the reason it is the
-     right one here is the same: the small line gets the whole width.
-
-     On a desk page the almanac entry leads with a left arrow instead. That is
-     the way back up, and a reader who has opened Fishing needs the way home to
-     look different from the way sideways. */
+     more is the part of a name a phone has no room for. A fifth of a 390px
+     screen holds Night Sky and does not hold Nature Watch, so the tail is its
+     own span and the stylesheet drops it at that width. */
   function renderRail(currentKey) {
     const host = document.querySelector("[data-desk-rail]");
     if (!host) return;
-    host.innerHTML = DESKS.map((desk) => {
+    host.innerHTML = '<div class="desk-seg">' + DESKS.map((desk) => {
       const current = desk.key === currentKey;
-      const isBack = desk.key === "almanac" && currentKey !== "almanac";
-      const arrow = current ? "" : '<span class="desk-go" aria-hidden="true">' + (isBack ? "&larr;" : "&rarr;") + "</span>";
-      return '<a class="desk-item' + (isBack ? " back" : "") + '" data-desk="' + desk.key + '" href="' + desk.href + '"' +
+      return '<a class="desk-item" data-desk="' + desk.key + '" href="' + desk.href + '"' +
         (current ? ' aria-current="page"' : "") + ">" +
-        '<span class="desk-text">' +
-          '<span class="desk-head">' +
-            (isBack ? arrow : "") +
-            '<i class="desk-mark" aria-hidden="true">' + desk.mark + "</i>" +
-            '<span class="desk-name">' + escapeHtml(desk.name) + "</span>" +
-            (isBack ? "" : arrow) +
-          "</span>" +
-          '<span class="desk-sub" data-desk-sub="' + desk.key + '">' + escapeHtml(desk.sub) + "</span>" +
+        '<i class="desk-mark" aria-hidden="true">' + desk.mark + "</i>" +
+        '<span class="desk-name">' + escapeHtml(desk.name) +
+          (desk.more ? '<span class="desk-more">' + escapeHtml(desk.more) + "</span>" : "") +
         "</span></a>";
-    }).join("");
+    }).join("") + "</div>";
   }
 
   /* The way back at the foot of a desk page. Written into whatever carries
@@ -129,13 +113,6 @@
       node.setAttribute("aria-label", label);
       node.removeAttribute("aria-hidden");
     }
-  }
-
-  /* A desk reporting its own live line into the rail. Silent when the rail is
-     not on the page, so a page can call it without checking first. */
-  function setRailSub(key, text) {
-    const node = document.querySelector('[data-desk-sub="' + key + '"]');
-    if (node && text) node.textContent = text;
   }
 
   /* -------------------------------------------------------------------------
@@ -996,7 +973,6 @@
     renderRail: renderRail,
     renderBackLink: renderBackLink,
     renderMonthYear: renderMonthYear,
-    setRailSub: setRailSub,
     setTileMark: setTileMark,
     setText: setText,
     setHTML: setHTML,

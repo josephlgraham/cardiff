@@ -639,12 +639,10 @@
         const mood = creekMood(stage);
         setText("watershedScience", data.summary ||
           "Stage is the height of the water at the gauge. Flow is how much of it is going past. Read together they say whether the creek is loafing or working.");
-        FA.setRailSub("almanac", stage.toFixed(2) + " ft · " + mood.label);
         const creekPill = document.getElementById("mhCreekPill");
         if (creekPill) creekPill.textContent = mood.icon + " " + stage.toFixed(2) + " ft · " + mood.label;
       } else {
         setText("watershedScience", "Live creek numbers drop in here after the watershed file refreshes.");
-        FA.setRailSub("almanac", "Gauge sync pending");
       }
     } catch (error) {
       watershedLeadGauge = null;
@@ -655,7 +653,6 @@
       ["creekStage", "creekFlow", "creekChange", "creekRain"].forEach(function (id) {
         paintTile(id, null, "The gauge file is not answering right now.");
       });
-      FA.setRailSub("almanac", "Gauge sync offline");
     }
   }
 
@@ -1173,7 +1170,6 @@
       setText("deskFishWater", water + "°F");
       setText("deskFishWindow", window.time);
       setText("deskFishNote", best ? best.note : "Water, species, seasons, and the rules.");
-      FA.setRailSub("fishing", water + "°F water · " + window.time);
     } else {
       setText("deskFishTag", "Station offline");
       setText("deskFishWater", "—");
@@ -1188,7 +1184,6 @@
       setText("deskGardenTag", MONTHS_LONG[month]);
       setText("deskGardenJob", plant.items[0].name);
       setText("deskGardenNote", plant.lead);
-      FA.setRailSub("garden", plant.items[0].action + " " + plant.items[0].name.toLowerCase());
     }
     const frost = FA.nextFrost(now);
     setText("deskGardenFrost", frost.days + " days");
@@ -1204,7 +1199,6 @@
     setText("deskSkyFull", nextFull ? FA.MONTHS_SHORT[nextFull.getMonth()] + " " + nextFull.getDate() : "—");
     setText("deskSkyMeteor", shower ? shower.name : "—");
     setText("deskSkyNote", moon.lore);
-    FA.setRailSub("sky", moon.name);
 
     // Nature watch
     const nature = FA.NATURE_GUIDE[month];
@@ -1212,7 +1206,6 @@
       setText("deskNatureTag", MONTHS_LONG[month]);
       setText("deskNatureLook", nature.items[0].title);
       setText("deskNatureNote", nature.lead);
-      FA.setRailSub("nature", nature.items[0].title);
     }
     const windows = FA.seasonEntries(now, ["nature", "hunting", "frost", "tradition"], 3);
     setText("deskNatureWindow", windows.length ? windows[0].title : "—");

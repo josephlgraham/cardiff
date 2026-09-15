@@ -923,7 +923,8 @@ the one most dependent on somebody keeping `fivemile-skywatch.json` current.
 
 ## 28. The desk rail points, and the almanac carries a card for every desk
 **Decided:** August 2026. Replaces the "Jump to today" pills. Revised the same
-day, after the first pass failed in front of a reader.
+day, after the first pass failed in front of a reader. The rail itself is
+replaced by decision 76; the desk cards and the way back still stand.
 
 The almanac used to open with a row of rounded pills that jumped to anchors
 further down the same page. Once the page split, five of the seven pills were
@@ -2905,6 +2906,7 @@ flat glyph on one page and in color on the next. One token, and `.g-mark`,
 `.d-mark`, `.wx-mark` and `.desk-mark` all reach for it.
 
 **The rail was rebuilt to take the mark, and the first attempt was wrong.**
+The rail below is the one decision 76 replaced; the marks carried over.
 Dropping a mark into a column of its own took 36px of every item's width away
 from the name and the live line. The row then ran 100px past the right edge of
 the measure with the fifth item sitting off screen, `flex:1 0 auto` had already
@@ -5069,3 +5071,56 @@ somebody scrolls, which is the same cost decision 38 wrote down for About.
 
 **No cache bump.** The service worker fetches pages network first, and no
 stylesheet or script changed.
+
+---
+
+## 76. The desk rail is a segmented control
+**Decided:** September 2026. Replaces the rail described in decisions 28 and 51.
+The desk cards on the almanac and the way back at the foot of each desk page
+stand as they were.
+
+Joe said the rail's buttons had always felt weird, and they were five cards
+doing a menu's job. Each one had an accent bar, a mark, an arrow, and two lines
+of live readings, which made them read as content. They were 73px tall, and on
+a phone two and a half of them fit before the row ran off the edge. The page
+you were on was marked by going quieter, which is the weakest signal there is.
+
+Four shapes were drawn at 390px: tabs with the mark over the name, tabs in one
+scrolling row, a segmented control, and no rail at all with a back link at the
+top of each desk. Joe picked the segmented control.
+
+**What it is.** One paper bar with the 14px card corner, five equal parts, and
+the page you are on filled in masthead brown with the masthead's text color. It
+reads as five parts of one almanac, which is what the family is. The masthead
+nav above it is text on brown with a red underline, so the two do not look like
+the same object twice.
+
+**Color on the lit mark.** Joe asked for color on the icon of the page you are
+on. The marks are emoji and already carry color, so the other four are drained
+to gray and the lit one is left alone. On the brown fill the fishing rod is a
+brown stick on brown and only the fish showed, so the lit mark sits on a 30px
+paper disc. Every mark holds the same 30px box lit or not, so the row does not
+move. Hover brings a mark's color back.
+
+**All five always in view.** It never scrolls. Above 900px the mark sits beside
+the name. Below it the mark goes over the name, because at 800px Nature Watch
+was being cut to Nature Wa. At 390px a part is 65px wide, which holds Night Sky
+at 13px and not Nature Watch, so on those widths the tab says Nature. The page
+itself is still Nature Watch. At 360px Night Sky wanted 59px and had 55, so
+below 380px the name drops to 12px and loses its side padding, and at 320px it
+wraps onto two lines rather than losing letters.
+
+**What went.** The live line under each name, `setRailSub` and its eleven
+callers. On the almanac the desk cards already carry today's readings, so
+nothing a reader plans around was lost. The left arrow that led the Almanac
+item on a desk page went too: Almanac is the first part of the bar, and the
+full width `.desk-back` block at the foot is still the way home. The five
+`--desk-*` accent colors colored the bar and nothing else, so they are gone.
+
+**Measured** on all five pages at 320, 360, 390, 800, 900, 901, 1040, and
+1280px: no page overflows sideways, no name is cut, and every part is at least
+46px tall. `CACHE_NAME` is bumped, because the stylesheet changed and the
+service worker serves CSS cache first.
+
+**Revisit if:** the family grows past five. Six parts at 390px is 54px each,
+which does not hold a name at a readable size.

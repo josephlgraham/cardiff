@@ -130,7 +130,7 @@
 // reader downloads on purpose. The same
 // version adds the Download tile to the share row, so fivemile-common.js and
 // fivemile-common.css changed too. See DECISIONS.md 74.
-const CACHE_NAME = 'fivemile-v79';
+const CACHE_NAME = 'fivemile-v80';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

@@ -158,7 +158,6 @@
     renderYear(month);
     await readPhotos();
     renderFeature(guide, month);
-    FA.setRailSub("garden", guide.items[0].action + " " + guide.items[0].name.toLowerCase());
 
     paintTile("gardenMonth", FA.MONTHS_LONG[month], guide.lead);
 
