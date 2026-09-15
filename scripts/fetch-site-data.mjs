@@ -18,6 +18,7 @@ import { refreshCms } from './fetch/sheets-cms.mjs';
 import { updateEchoFile } from './fetch/echo-watershed.mjs';
 import { updateObservationsFile } from './fetch/inat-observations.mjs';
 import { updateAirportArchive, updateAirportNormalsFile } from './fetch/acis-airport.mjs';
+import { updateOutlooks } from './fetch/cpc-outlook.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -1443,6 +1444,15 @@ async function main() {
     await updateAirportNormalsFile();
   } catch (error) {
     console.error('Airport normals update failed (continuing):', error.message);
+  }
+  /* NOAA's monthly outlook, which the monthly edition prints as NOAA's and
+     scores once the month is over. It comes out on the last day of the month,
+     so most runs find nothing new and write nothing. See DECISIONS.md 74. */
+  try {
+    console.log('Reading the NOAA monthly outlook:');
+    await updateOutlooks();
+  } catch (error) {
+    console.error('Outlook update failed (continuing):', error.message);
   }
   try {
     await updateWatershedForecastFile();

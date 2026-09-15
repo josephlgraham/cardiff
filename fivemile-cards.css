@@ -746,6 +746,70 @@ a.card-post:hover .p-lf h3{color:var(--red)}
 a.card-quiz:hover{text-decoration:none}
 
 /* ---------------------------------------------------------------------------
+   10  FEATURE  .card-feature  ·  height from contents  ·  full width
+
+   The quiz card's construction, grown to carry something a reader uses or
+   reads for its own sake rather than a door to a quiz: the mono kicker, the
+   white heading, the warm body colour and the red disc in the corner. It was
+   drawn first for the search desk on the Archive hub, which read as more of
+   the page on card stock, and moved here when the monthly edition wanted the
+   same face for its old saying. Two copies of one dark panel is how a third
+   near miss starts. See DECISIONS.md 73 and 74.
+
+   Rare, the way the brass check is. It is for the one thing on a page that
+   invites a reader to have a go or to stop and read, and never a data card.
+   --------------------------------------------------------------------------- */
+.card-feature{position:relative;overflow:hidden;background:var(--masthead);color:var(--paper);
+  border-radius:var(--fm-card-r);padding:22px 24px 20px}
+.card-feature::after{content:"";position:absolute;right:-46px;top:-46px;width:168px;height:168px;
+  border-radius:50%;background:var(--red);opacity:.22;pointer-events:none}
+.card-feature > *{position:relative;z-index:1}
+.cf-kick{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#D9C9A8}
+.card-feature h2,.card-feature h3{margin:7px 0 8px;font-size:26px;font-weight:800;line-height:1.18;
+  letter-spacing:-.02em;color:#fff}
+.cf-lede{margin:0;font-size:16.5px;line-height:1.5;color:#DCCEB3;max-width:none}
+.cf-lede + .cf-lede{margin-top:10px}
+.cf-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid #5C4A31;font-size:16px;line-height:1.55;color:#BBA985}
+.cf-src{margin:14px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.cf-src a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+/* A feature panel that is a door, the news page's edition card. Tappable over
+   its whole face, with the destination named at the foot the way .d-go names
+   it on a department panel. */
+a.card-feature{display:block;text-decoration:none;color:var(--paper)}
+a.card-feature:hover{text-decoration:none}
+a.card-feature:hover .cf-go{text-decoration:underline}
+.cf-go{margin:14px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#fff}
+/* .ed-verdict  ·  how a forecast call did
+
+   The same pill as the fishing desk's .fx-verdict: green for right, red for a
+   miss, grey for no call, and never without the sentence that says why. Three
+   pages draw it, the edition, the Editions room and the news page, which is
+   why it is here and not in fivemile-edition.css.
+
+   On a .card-feature it takes the panel's own colour, for the reason decision
+   65 gives for a chip on the red bar: green and red on the masthead brown are
+   a vibration, and the word inside already says which it is. */
+.ed-verdict{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 10px;border-radius:99px;white-space:nowrap;border:1px solid transparent;
+  line-height:1.4;vertical-align:middle}
+.ed-right{background:rgba(42,122,58,.12);color:#2a7a3a;border-color:rgba(42,122,58,.3)}
+.ed-wrong{background:rgba(200,16,46,.08);color:#C8102E;border-color:rgba(200,16,46,.26)}
+.ed-none{background:rgba(80,44,8,.06);color:#6B6156;border-color:#DDCFB8}
+.card-feature .ed-verdict{background:rgba(242,232,213,.1);color:#fff;border-color:rgba(242,232,213,.3)}
+/* A forecaster and its pill stay together on one line, so a narrow row wraps
+   between the two calls and never strands a pill away from its name. */
+.ed-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:10px}
+.ed-call{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.ed-who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fm-muted)}
+.card-feature .ed-who{color:#D9C9A8}
+
+@media(max-width:600px){
+  .card-feature{padding:18px 16px 16px}
+  .card-feature::after{right:-52px;top:-52px;width:124px;height:124px}
+  .card-feature h2,.card-feature h3{font-size:23px}
+}
+
+/* ---------------------------------------------------------------------------
    11  PLAT FRAME  .card-plat  ·  heritage page only
 
    Deliberately breaks the 14px radius rule, which is why it is restricted to

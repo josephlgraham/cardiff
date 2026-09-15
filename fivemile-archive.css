@@ -45,10 +45,11 @@
    Margins collapse, so the gap under the lede stays the lede's own 18px. */
 .panel.intro > p + p{margin-top:12px}
 
-/* Five rooms in a two column grid leaves one on its own with a hole beside it.
-   The fifth takes the whole row instead. It is the newest room and the one
-   most people are actually looking for, so the wide slot is not a consolation
-   prize. Below 821px the grid is one column anyway and this does nothing. */
+/* An odd number of panels in a two column grid leaves one on its own with a
+   hole beside it, so the last takes the whole row instead. The hub needed it
+   while it had five rooms and has six now; an edition page still uses it for a
+   month with three cards. Below 821px the grid is one column anyway and this
+   does nothing. See DECISIONS.md 66. */
 .two-eq > .card-dept.span2{grid-column:1/-1}
 
 /* The line under a room's opening paragraph saying how much is in it. It is
@@ -139,24 +140,73 @@ p.arc-count{margin:0 0 16px}
 .arc-count{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
   color:var(--fm-muted);white-space:nowrap}
 
-/* The search on the hub. The same box as the rooms' with a button beside it,
-   because a question is a thing you finish typing and send, and answering it
-   on every keystroke would fetch a year of creek readings for "in 19". Under
-   it, one button that turns up a fact off the record. It is set in the sans,
-   because what it says is a sentence and not a label, and it wears the card
-   face of every other secondary control in the archive. See DECISIONS.md 73. */
+/* ---------------------------------------------------------------------------
+   THE SEARCH DESK
+
+   The search on the hub. It was first drawn as the rooms' box on the open
+   page with a card-faced button under it, and it read as more of the page:
+   Joe could not tell it was something to use. So it is mounted on
+   .card-feature, the quiz card's construction grown full width, which lives
+   in fivemile-cards.css since the monthly edition took the same face. What is
+   here is only what belongs to the search.
+
+   The box has a button beside it, because a question is a thing you finish
+   typing and send, and answering it on every keystroke would fetch a year of
+   creek readings for "in 19". The button is red, the one red control on the
+   page, so it is the first thing an eye lands on in the brown.
+
+   Under the box, the button that turns up a fact off the record. Its second
+   line is the question the next press answers, and it turns over every few
+   seconds. It holds still under a pointer, while anything in the form has
+   focus, and for a reader who has asked for less motion, where it changes
+   only after a press. See DECISIONS.md 73.
+   --------------------------------------------------------------------------- */
+.find-desk{margin:0 0 18px}
+
 .find{margin:18px 0 0}
-.find .arc-find{margin:0 0 8px}
-.find-go{flex:none;min-width:88px;min-height:44px;padding:6px 14px;background:var(--masthead);
-  border:1px solid var(--masthead);border-radius:var(--r);font-family:var(--mono);font-size:12.5px;
-  letter-spacing:.09em;text-transform:uppercase;color:var(--paper);cursor:pointer;transition:background var(--ease)}
-.find-go:hover{background:var(--ink)}
-.find-luck{display:inline-flex;align-items:center;min-height:44px;margin:0 0 12px;padding:8px 15px;
-  background:var(--card);border:1px solid var(--fm-rule);border-radius:4px;font-family:var(--sans);font-size:15px;
-  font-weight:600;color:var(--ink);cursor:pointer;transition:border-color var(--ease),background var(--ease)}
-.find-luck:hover{border-color:var(--masthead);background:#fff}
-.find-luck[aria-busy="true"]{opacity:.6}
-.find-out{margin:6px 0 0}
+.find-desk .arc-find{position:relative;gap:8px;margin:0}
+.find-desk .arc-find input{min-height:54px;padding:12px 12px 12px 44px;font-size:17px;
+  background:var(--card);border:2px solid var(--card);border-radius:var(--r)}
+.find-desk .arc-find input:focus{border-color:#D9C9A8}
+.fd-glass{position:absolute;left:14px;top:50%;width:20px;height:20px;margin-top:-10px;
+  fill:none;stroke:var(--fm-muted);stroke-width:2.2;stroke-linecap:round;pointer-events:none}
+.find-go{flex:none;min-width:78px;min-height:54px;padding:6px 16px;background:var(--red);
+  border:0;border-radius:var(--r);font-family:var(--mono);font-size:13px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:#fff;cursor:pointer;transition:background var(--ease)}
+.find-go:hover{background:#9a0c22}
+.find-go:focus-visible,.find-luck:focus-visible{outline:2px solid #D9C9A8;outline-offset:2px}
+
+.find-luck{display:flex;align-items:center;gap:14px;width:100%;min-height:66px;margin:10px 0 0;
+  padding:11px 12px 11px 16px;background:rgba(242,232,213,.07);border:1px solid #7A6444;border-radius:var(--r);
+  font-family:var(--sans);color:#fff;text-align:left;cursor:pointer;
+  transition:border-color var(--ease),background var(--ease)}
+.find-luck:hover{border-color:#D9C9A8;background:rgba(242,232,213,.13)}
+.find-luck[aria-busy="true"]{opacity:.7;cursor:progress}
+.luck-text{flex:1;min-width:0;display:block}
+.luck-label{display:block;font-size:17px;font-weight:700;line-height:1.3}
+.luck-tease{display:block;margin-top:3px;font-size:16px;font-weight:400;line-height:1.4;color:#D9C9A8}
+.luck-go{flex:none;display:flex;align-items:center;justify-content:center;width:38px;height:38px;
+  border-radius:50%;background:var(--paper);color:var(--masthead);font-size:19px;line-height:1;
+  transition:transform var(--ease)}
+.find-luck:hover .luck-go{transform:translateX(3px)}
+.luck-tease.is-out{animation:tease-out .22s ease forwards}
+.luck-tease.is-in{animation:tease-in .36s ease}
+@keyframes tease-out{to{opacity:0;transform:translateY(-7px)}}
+@keyframes tease-in{from{opacity:0;transform:translateY(9px)}}
+
+/* The questions run from one line to two on a phone, and a button that
+   changes height every few seconds shoves everything under it up and down.
+   Two lines are held on a phone whatever the question. */
+@media(max-width:600px){
+  .luck-tease{min-height:2.8em}
+  /* At 390px the label only stays on one line at 16px with the disc a little
+     smaller, and "know" alone on a second line reads as a mistake. */
+  .find-luck{gap:10px;padding:10px 10px 10px 14px}
+  .luck-label{font-size:16px}
+  .luck-go{width:34px;height:34px;font-size:17px}
+}
+
+.find-out{margin:0}
 .find-out:empty{display:none}
 .find-out[aria-busy="true"]{opacity:.6}
 .find-out > .empty{margin-bottom:24px}

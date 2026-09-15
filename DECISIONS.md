@@ -301,8 +301,12 @@ reader who works it out has caught the publication in a small lie about
 honesty itself. So the news page is called out by name.
 
 **The claims made, all of which must stay true:**
-- Anything in FIVEMILE's own voice is written or edited by a person before
-  publishing.
+- Anything in FIVEMILE's own voice is written or edited by a person in
+  advance. Most of it is read before it goes up. The almanac notes, the archive
+  search and the monthly edition are sentences a person wrote ahead of time and
+  a rule fills in, and they publish without anybody reading each one. Decision
+  74 is when that became true of a whole edition and the About page changed
+  first.
 - News headlines are automated, sorted by script, and always linked to source.
 - No text is generated at read time. Almanac notes are hand written in advance
   and matched by rule, which is templating, not generation.
@@ -319,6 +323,15 @@ site's usefulness permanently.
 
 **Revisit if:** never for the principle. The wording updates whenever the
 practice does.
+
+**Updated September 2026.** The About section stopped leading with "there is no
+AI running on this site" and was cut from seven items to four. Joe wanted it to
+say how the site uses AI well rather than promise it never will, and the monthly
+edition in decision 74 made "nothing publishes on its own" false. What it says
+now: Claude helps build the site and any new use gets disclosed before it
+happens; the news, the search and the edition run on written rules; nothing is
+made up while a reader reads; no generated photographs and no invented quotes,
+people, dates or history; and the mistakes are Joe's.
 
 ---
 
@@ -1167,7 +1180,8 @@ something else is an About page.
   what the project is, which is the only place asking for money makes sense.
 - The community rules, as prose rather than a numbered card.
 - The about copy, and the AI disclosure rewritten to lead with the fact that no
-  AI runs on the site at all. The earlier draft opened with "I use AI tools to
+  AI runs on the site at all. (Rewritten again in September 2026 around how the
+  site uses AI, see the update under decision 13.) The earlier draft opened with "I use AI tools to
   build and write FIVEMILE", which answers a question nobody asked before
   answering the one they did. It now opens with "There is no AI running on this
   site" and explains that automatic is not the same thing as AI, which is true
@@ -4593,9 +4607,10 @@ friendly way.
 The obvious way to build "answer any question in a friendly way" is a language
 model. That needs a backend or a key in the browser, which decision 2 rules
 out, and it would generate text at read time, which decision 13 promises the
-site never does. The About page says it in Joe's words: there is no AI running
-on this site and there is not going to be a chatbot. If that ever changes, the
-disclosure changes first, and it is Joe's call, not a build detail.
+site never does. The About page says it in Joe's words: nothing on these pages
+is made up by a machine while you read it, and any new use of AI gets said there
+before it happens. If that ever changes, the disclosure changes first, and it is
+Joe's call, not a build detail.
 
 So `fivemile-search.js` is rules. Each rule recognises one kind of question,
 reads the files the rooms already read, does the arithmetic, and fills in a
@@ -4607,7 +4622,8 @@ the one thing this site cannot print.
 
 The About page's "Automatic is not the same thing as AI" line gained one
 sentence saying the search works this way, and the hub's source note says it
-too. Neither names anything about how the site is kept. See decision 58.
+too. That item is now "Some of it runs on its own, by rules you can read", after
+the September 2026 rewrite noted under decision 13. Neither names anything about how the site is kept. See decision 58.
 
 ### What it answers
 
@@ -4713,6 +4729,9 @@ of a heritage chapter, quoted whole, with its heading and a door back to it.
 - **Dealt, not drawn.** The facts are shuffled into a deck and dealt one a
   press, so none comes round again until every other one has. The date facts are
   different every day anyway.
+- **What the button says is what you get.** Every fact carries the question it
+  answers, and the button's second line shows the question for the fact the
+  next press deals. See "The desk" below.
 - **A fact with nothing behind it is skipped**, not shown as "nothing on file".
 - **Heritage paragraphs are whole and only history.** Between 160 and 620
   characters, starting with a capital and ending a sentence, never holding a
@@ -4724,6 +4743,56 @@ of a heritage chapter, quoted whole, with its heading and a door back to it.
 - **The towns are said in town order and all three are said**, including
   Brookside at none yet, so the stories fact never reads as leaving a town out.
 
+### The desk
+
+The first build put the box and the fact button straight on the page, under
+the opening panel, in the same card face as every other control in the
+archive. It worked and Joe could not tell it was there: it blended in so well
+that it did not read as something to use. He asked for it to be treated as a
+feature the site is proud of, and for the fact button to show some of what it
+might turn up.
+
+- **It opens the page.** The search sits directly under the Archive heading,
+  above the panel about the five rooms, for the reason the desk pages put their
+  readings above their opening in `fivemile-cards.css`: somebody who came to
+  look a thing up should not have to get past a paragraph to reach the box.
+- **It is drawn on the masthead brown, with the quiz card's construction.** The
+  mono kicker, the white heading, the warm body color and the red disc in the
+  corner are `.card-quiz`, which the card spec calls the one place a little
+  swagger is correct. This is the other thing on the site that asks a reader to
+  have a go, so it borrows that face rather than inventing a third dark one. It
+  is not a card and holds no cards: the answers land under it on the paper,
+  where they always did.
+- **The Ask button is red**, the only red control on the page, so an eye
+  finds it first. It said Search; it says Ask now, which is what the heading
+  asks a reader to do and leaves the box more room on a phone.
+- **The fact button shows its next question, and it turns over.** The second
+  line is a question in sentence form, and every four and a half seconds it
+  slides to the next fact in the deck without dealing it. A press deals the
+  fact whose question is showing, so the question is a promise the answer
+  keeps. Each question is written to be true of anything its fact can turn up:
+  "What is the story behind the three towns?" for a heritage paragraph from any
+  chapter, and "What was the weather on a past September 15?" rather than "long
+  ago", because the random year can be last year. The one time a press gets a
+  different fact is when the one showing comes back empty, which the old rule
+  already skipped past and which needs a date with no reading on it.
+- **It holds still when it should.** Under a mouse, while the box is being
+  typed in, while the button has keyboard focus, while a fact is being dealt,
+  and while the page is not on screen. Every hold starts the wait over, so it
+  never turns the instant a pointer leaves. A finger on a phone fires a pointer
+  enter and never a leave, so only a mouse counts as hovering. For a reader who
+  has asked the system for less motion it does not turn at all and changes only
+  after a press.
+- **The duplicate facts went.** The deck used to carry the weather on this
+  date, the field guide and the heritage paragraph twice each, to deal them
+  more often. With the questions on show, the same question coming round twice
+  in one pass looked like a fault, so every fact is in once.
+- **A phone is moved to the answer.** The answer can land below the fold under
+  the desk, and a press with nothing happening on screen reads as a press that
+  did nothing. When the top of the answer is off the bottom of the screen after
+  a press or a search, the page scrolls until it sits a little under halfway
+  down. It never scrolls on a page load with `?q=` in the address.
+
 ### The hub says how to use it, and that is the one exception
 
 CLAUDE.md says never explain the interface in copy, and this breaks that on
@@ -4731,9 +4800,15 @@ purpose, at Joe's request. A search box that takes a question in plain words
 and answers it is not something a reader here would guess, and the whole
 feature is wasted on somebody who types one word and stops.
 
-So the hub's opening panel carries two paragraphs about it. They are written
-about what the record can tell a reader and how to put a question, with four
-real examples, and not about which box to tap. The placeholder says "Ask a
+So the desk carries it. The heading says to ask the way you would ask a
+neighbor, four real example questions sit between it and the box, and a line
+under the buttons says what comes back when the record holds the answer and
+when it does not. They were two paragraphs in the opening panel before the
+desk, and the line "No question in mind? Ask it to tell you something you
+don't know" went when the button started showing its own questions. All of it
+is written about what the record can tell a reader and how to put a question,
+and not about which box to tap. The four examples are written as questions now,
+with question marks, and were run again in that form. The placeholder says "Ask a
 question", which is all that fits in the box at 390px; the longer "Ask a
 question, or search a word" was cut off at "wo" on a phone, and it stays as the
 box's label for a screen reader, where nothing gets cut. Every example in the copy was run against the
@@ -4759,3 +4834,196 @@ before the archive existed, against the rule in CLAUDE.md.
 
 **Revisit if:** readers keep asking something that gets no card. The fix is a
 new rule, written the same way. It is never a model.
+
+## 74. The monthly edition, and the calls it scores
+**Decided:** September 2026. Builds on decisions 13, 36, 53, 58, 66, 72 and 73.
+
+Joe asked for a monthly report, "the July 2026 Edition": a summary of the month
+just gone and a look at the month ahead, featured on the news page, with the
+forecast in one edition scored in the next, and some old-timer wisdom in it.
+
+He decided four things before it was built. The wisdom is real traditional
+sayings tested against the record, plus sayings readers here actually say,
+credited to readers. The edition publishes on its own. It scores NOAA's outlook
+and a FIVEMILE call side by side. And the eight editions of 2026 before
+September were built at once, so the first one on the news page has a run
+behind it.
+
+### What it is made of
+
+`scripts/build-editions.mjs` is the one renderer. Every sentence in an edition
+is written in that file in advance and filled in from the records by rule, the
+way the almanac notes and the search are (decisions 13 and 73). The files:
+
+- `fivemile-editions/YYYY-MM.json` is the edition, worked out once.
+  `fivemile-editions/index.json` lists them newest first.
+- `fivemile-edition-YYYY-MM.html` is the page, one a month, in the sitemap, so
+  it is crawlable, shareable, and searchable from the hub.
+- `fivemile-edition-archive.html` is the room, the sixth, and the page every
+  edition takes its shell from. There is no template file.
+- `fivemile-outlooks.json` is NOAA's monthly outlook for every month since
+  August 2014, written by `scripts/fetch/cpc-outlook.mjs`, which
+  `scripts/fetch-site-data.mjs` calls on every run.
+- `fivemile-sayings.json` is the sayings, with their sources, definitions and
+  tests.
+
+### An edition is frozen
+
+The figures, the calls and the sentences are worked out once and never again on
+a later run. The call an edition prints for the month ahead is the call the next
+edition scores, and a call that could change after the month was over would be
+scored against nothing. `--rebuild YYYY-MM` exists for Joe, by hand. The page
+itself is redrawn from the frozen JSON on every run, so a masthead change
+reaches every edition while no number in any of them moves. Run twice, the
+builder changes no file the second time.
+
+It is due on the 2nd of the month or later, once the airport record has the last
+day of the month before and NOAA's outlook for the new month is in. If the
+outlook has still not come by the 5th, the edition runs without it. The step
+sits in `refresh-site-data.yml` after the fetch, with `continue-on-error`.
+
+The editions for January to August 2026 were built on September 15, 2026 and say
+so in their own opening: put together after the month was over, from the
+records as they stood, with calls worked out by the same rule from what was on
+file before each month began.
+
+### How a call is scored
+
+NOAA's outlook is not a number. It is a chance that the month finishes in the
+warm, middle or cool third of its 1991 to 2020 months. So a month is scored the
+same way: its average temperature, the mean of each day's high and low at the
+Birmingham airport, is set among the same month in those thirty years, and so is
+its rain. A call for the third it landed in is right, any other call missed, and
+equal chances is no call. The copy says "the warm third" and never "tercile".
+
+NOAA's outlook is read at the middle of the three towns, the pair
+`fivemile-sky.js` uses, and never at the station (decision 58). NOAA's lowest
+contour is 33 percent, so a lean at 33 is said as a slight lean.
+
+**FIVEMILE's call** is a rule. Which third did the month just gone finish in,
+and what followed it in every earlier year that started the same way? It calls
+warm or cool only when at least fifteen years started that way and one of those
+came in at least 45 times in a hundred. Only years before the month being called
+are counted, so the call could have been made on the day it is dated.
+
+**It calls temperature only.** Run over the airport record from 1960 to 2025
+with only earlier years counted (`--report`), the temperature rule made 289
+calls and was right in 134, 46 percent, where a guess is right 33. The same rule
+for rain made 165 calls and was right in 54, 33 percent, which is a guess. Every
+edition says FIVEMILE does not call rain and why. NOAA's temperature outlook was
+right 64 times and missed 33 from August 2014 to August 2026, so FIVEMILE is the
+weaker forecaster and the running tallies will show it. That is the point of
+printing both.
+
+### The sayings
+
+**Nothing is quoted that the source does not quote.** A saying goes in only when
+a published source has it. Where the source gives its words, as National
+Geographic does for the Candlemas rhyme and the Farmers' Almanac does for "in
+like a lion", the words go in `saying` and print in quotation marks. Where the
+source only describes the lore, as with dogwood winter, blackberry winter and
+the dog days, it goes in `belief` as a plain statement and never prints as a
+quote. The first draft of the file put three sentences in quotation marks that
+no source said, and they were caught and changed before anything was built on
+them.
+
+**An old word is defined where it appears.** Joe asked for this. Candlemas, the
+dog days, blackberry winter and dogwood winter each carry a one sentence
+definition in `define`, printed beside the saying with a link to the source, so
+a reader on a phone never has to leave the page to follow it.
+
+**Each has a test the daily record can answer, written before it was run**, and
+the edition prints the test in plain words with the count of years it held.
+Candlemas held in 43 of 95 years, in like a lion in 32 of 96, dogwood winter in
+93 of 96, blackberry winter in 75 of 96, and the dog days in 43 of 96. Dogwood
+winter's test is loose, and holding 93 times says so. It was not tightened after
+the fact, because a test changed to fit its answer is not a test. `check` is the
+month whose edition says whether it held this year, which for the dog days is
+September, when a summer's hottest day is finally known.
+
+A saying that failed either check stayed out. "As the days lengthen, the cold
+strengthens" had no source worth citing and does not run. A month with no saying
+runs without one.
+
+**Reader sayings** come from a sayings tab in the Google Sheet into `readers`,
+credited to a reader and never to Joe (decision 55), and are not tested. The tab
+does not exist yet. Creating and publishing it is Joe's, and its gid then goes
+into `fivemile-cms-sources.json` with `fivemile-sayings.json` as the target and
+`readers` as the key.
+
+### What is left out
+
+A section with nothing behind it is left out, never shown as nothing on file.
+Stories run only from August 2026, when the story index starts, and say so in
+that month. Sightings run only from May 2026, because the roll began at the end
+of April and every earlier species would read as new that month. The dates ahead
+are the civic, community, market and sky rows from the calendar engine, drawn
+with its own `stubHtml`. The feast days and the garden signs stay on the
+calendar, which also keeps old words like Michaelmas out of an edition that has
+no room to define them.
+
+### Share and download
+
+Joe asked that a reader be able to share an edition or download it.
+
+**Share was already there.** Every edition opens on an intro panel carrying
+`data-share-in`, so it gets the share row every page has, and each edition has
+its own title, description and address for the preview.
+
+**Download is a real PDF, printed once.** `fivemile-edition-2026-08.pdf` sits
+beside its page. The builder serves the repo from a throwaway local server and
+prints the finished page with headless Chrome, which GitHub's Ubuntu runners
+already carry, so there is no new dependency. Chrome writes a creation time into
+every PDF, so a PDF is printed only when its edition has none, or on
+`--rebuild`; run twice, all eight come out byte for byte the same. With no
+Chrome to be found the run finishes, the page builds without its Download
+button, and the log says so. `CHROME_PATH`, when set, is the only place looked.
+The Google tag's hosts resolve to nothing during the print, so a robot printing
+a page never counts as a reader.
+
+**The button is a tile in the share row.** A panel with `data-share-download`
+gets a Download tile after Email in `fivemile-common.js`. It is a plain link
+with the `download` attribute, and no other page carries the attribute, so no
+other page changed. On a phone five tiles already fill the row, so Download
+takes a full width row of its own under them. The Editions room gives each
+edition a Download PDF link above the stretched title link, so the card stays
+one tap target and the PDF is a second one without a link inside a link.
+
+**The print stylesheet is the report.** `@media print` in `fivemile-edition.css`
+drops the navigation, the red strip, the share row, the doors, the footer and
+the home screen banner, puts two columns back, keeps cards whole across pages,
+prints the colours, and prints a link's address after it.
+
+- **The paper grain goes in print.** The first PDFs came out at 19 megabytes
+  each with their text as pixels. The grain in `fivemile-shell.css` is a fixed
+  layer of SVG noise with a blend mode, and Chrome can only print that by
+  flattening every page into an image. Without it August is 306 kilobytes, with
+  every font embedded as text.
+- **The card marks go in print.** They are colour emoji and decoration, and a
+  print machine without an emoji font draws them as empty boxes.
+- **The page prints at 92 percent.** 16px on screen is 12pt on paper. At full
+  size the first row of cards missed the foot of page one by a few pixels and
+  left it more than half empty. At 92 percent the body is 11pt and August is
+  five pages.
+
+PDFs are not precached. They match none of the service worker's rules and go
+straight to the network, which is right for a file somebody downloads on
+purpose.
+
+### Where it shows
+
+- **The news page** carries the newest edition directly under the lead, on
+  `.card-feature`, with the two calls as pills. The search desk's brown panel
+  moved into `fivemile-cards.css` as `.card-feature` so the two can never drift,
+  and the call pill `.ed-verdict` lives beside it, taking the panel's own colour
+  on brown for the reason decision 65 gives.
+- **The Archive hub** has six rooms, which fill two columns, so the dates room
+  gave up its full width slot.
+- **The About page** changed first, as decision 13 requires. Its AI section was
+  rewritten shorter and around how the site uses AI, and "Nothing publishes on
+  its own" went, because now something does.
+
+**Revisit if:** NOAA moves or renames the outlook files, which the fetcher
+reports by name, or a saying's source goes away, in which case find another
+source or take the saying out. Never tune a test, a threshold or the call rule
+to make a past result come out better.

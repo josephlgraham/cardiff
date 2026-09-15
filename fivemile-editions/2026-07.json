@@ -1,0 +1,216 @@
+{
+  "month": "2026-07",
+  "title": "The July 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "July ran about as warm as usual and came in close to normal on rain, and Five Mile Creek rose over the high water line once.",
+  "was": {
+    "station": {
+      "days": 31,
+      "daysInMonth": 31,
+      "hot": {
+        "value": 96,
+        "date": "2026-07-03"
+      },
+      "cold": {
+        "value": 67,
+        "date": "2026-07-31"
+      },
+      "avg": 81.7,
+      "tempDiff": 0.4,
+      "rain": 5.88,
+      "rainNormal": 5.42,
+      "wettest": {
+        "value": 1.49,
+        "date": "2026-07-24"
+      },
+      "ninety": 26,
+      "freezing": 0
+    },
+    "ranks": {},
+    "creek": {
+      "days": 31,
+      "peak": {
+        "value": 4.69,
+        "date": "2026-07-24"
+      },
+      "low": {
+        "value": 1.22,
+        "date": "2026-07-23"
+      },
+      "daysHigh": 1,
+      "rises": 1,
+      "typicalPeak": 5.6,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": {
+      "count": 18,
+      "names": [
+        "Rustic Borer",
+        "American trumpet vine",
+        "Asian Lady Beetle"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "above"
+    },
+    "noaa": {
+      "issued": "2026-06-30",
+      "temp": {
+        "cat": "above",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "right",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 14,
+      "n": 26,
+      "counts": {
+        "above": 14,
+        "normal": 6,
+        "below": 6
+      },
+      "verdict": "right"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 63,
+        "wrong": 33,
+        "none": 46
+      },
+      "rain": {
+        "right": 39,
+        "wrong": 42,
+        "none": 61
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 1,
+      "wrong": 0,
+      "none": 6
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-08",
+    "noaa": {
+      "issued": "2026-07-31",
+      "temp": {
+        "cat": "above",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 23,
+      "counts": {
+        "above": 12,
+        "normal": 7,
+        "below": 4
+      }
+    },
+    "normals": {
+      "highFrom": 91,
+      "highTo": 89,
+      "lowFrom": 72,
+      "lowTo": 69,
+      "rain": 4.35,
+      "recordHigh": {
+        "value": 105,
+        "date": "2007-08-15"
+      },
+      "recordLow": {
+        "value": 51,
+        "date": "1946-08-31"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 828,
+      "last": 773,
+      "turning": null
+    },
+    "saying": null,
+    "dates": [
+      {
+        "date": "2026-08-01",
+        "word": "Thursdays",
+        "title": "Gardendale Farmers Market",
+        "blurb": "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September.",
+        "url": "",
+        "subject": "market",
+        "town": "Gardendale",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-08-03",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-08-05",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-08-06",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-08-11",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-08-20",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

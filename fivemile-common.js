@@ -1051,6 +1051,7 @@ window.FivemileCreekLines = Object.freeze({
     link:  '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/>' +
            '<path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
     mail:  '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2.5 6.5 12 13l9.5-6.5"/>',
+    download: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v3h16v-3"/>',
     text:  '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.9 9.9 0 0 1-2.8-.4L3 21l1.4-4.1A8.2 8.2 0 0 1 3 11.5a8.4 8.4 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4z"/>',
     /* The Facebook mark. If it ever looks a shade off against their brand
        page, replace this one path with the official SVG and nothing else
@@ -1150,6 +1151,22 @@ window.FivemileCreekLines = Object.freeze({
     mail.href = 'mailto:?subject=' + encodeURIComponent(title) +
       '&body=' + encodeURIComponent(title) + '%0A%0A' + encodeURIComponent(url);
     row.appendChild(mail);
+
+    /* A copy to keep. Only a page whose opening carries data-share-download
+       gets this, and today that is the monthly edition, whose PDF is printed
+       once when the edition is written. It is a plain link with the download
+       attribute, so it works with script or without a share sheet, and a phone
+       that ignores the attribute opens the PDF, which it can save from there.
+       See DECISIONS.md 74. */
+    var keep = main.querySelector('[data-share-download]');
+    if (keep) {
+      var file = keep.getAttribute('data-share-download');
+      var dl = control('a', 'Download a copy as a PDF', 'download', 'Download');
+      dl.className += ' fm-share-dl';
+      dl.href = file;
+      dl.setAttribute('download', file);
+      row.appendChild(dl);
+    }
 
     row.appendChild(status);
 

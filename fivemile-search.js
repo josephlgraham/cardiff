@@ -14,7 +14,8 @@
    rule does the arithmetic and a sentence written in advance says what came
    out. Nothing is generated and nothing is guessed. A question with no rule
    behind it gets no answer card at all, only the matches underneath, which is
-   the promise the About page makes: there is no AI running on this site.
+   the promise the About page makes: nothing here is made up by a machine
+   while you read it.
    See DECISIONS.md 13 and 73.
 
    THE MATCHES. Every page in sitemap.xml, read as the page itself, plus every
@@ -2813,7 +2814,7 @@
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     input.blur();
-    run(input.value);
+    run(input.value).then(function () { bringUp(); });
   });
   input.addEventListener('search', function () {
     if (!input.value) run('');
@@ -2976,7 +2977,9 @@
     });
   }
 
-  function daylightSinceSolstice() {
+  /* The solstice most recently gone, off the sky engine. The daylight fact
+     counts from it and its question under the button names its month. */
+  function lastSolstice() {
     var S = window.FivemileSky;
     if (!S) return null;
     var now = new Date();
@@ -2987,8 +2990,13 @@
         if (at && at <= now) candidates.push({ name: name, at: at });
       });
     });
-    var last = candidates.sort(function (a, b) { return b.at - a.at; })[0];
-    if (!last) return null;
+    return candidates.sort(function (a, b) { return b.at - a.at; })[0] || null;
+  }
+
+  function daylightSinceSolstice() {
+    var S = window.FivemileSky;
+    var last = lastSolstice();
+    if (!S || !last) return null;
     function daylight(key) {
       var t = S.riseSetTransit(dateOf(key), S.sunAt, { h0: -0.833 });
       return t.rise && t.set ? Math.round((t.set - t.rise) / 60000) : null;
@@ -3030,62 +3038,209 @@
     });
   }
 
+  /* Each fact carries the question it answers, which is what shows under the
+     button. The question has to be true of anything the fact can turn up, so
+     it is written about the kind of thing and never about one result: the
+     heritage fact quotes any paragraph of any chapter, so its question is the
+     story of the three towns and not the mines, and the weather on this date
+     can land on last year, so its question says a past one and not long ago.
+     A question naming a date names today's. */
+  function todayWords() { return MONTHS[monthOf(today()) - 1] + ' ' + dayOf(today()); }
+  function makeFact(question, run) {
+    return {
+      question: typeof question === 'function' ? question : function () { return question; },
+      run: typeof run === 'string' ? function () { return ask(run); } : run
+    };
+  }
+
   var FACTS = [
-    function () { return ask('record high for today'); },
-    function () { return ask('highest the creek has ever been'); },
-    function () { return ask('lowest the creek has ever been'); },
-    function () { return ask('what was the hottest day ever'); },
-    function () { return ask('what was the coldest it has ever been'); },
-    function () { return ask('what was the wettest day ever'); },
-    function () { return ask('what was the driest year'); },
-    function () { return ask('what was the wettest year'); },
-    function () { return ask('biggest snow ever'); },
-    function () { return ask('when did it last snow'); },
-    thisDateLongAgo,
-    thisDateLongAgo,
-    creekOnThisDate,
-    creekBusiestYear,
-    guideEntry,
-    guideEntry,
-    sightingFromTheRoll,
-    heritageParagraph,
-    heritageParagraph,
-    daylightSinceSolstice,
-    townsInTheStories
+    makeFact(function () { return 'What is the record high for ' + todayWords() + '?'; }, 'record high for today'),
+    makeFact('How high has Five Mile Creek ever come up?', 'highest the creek has ever been'),
+    makeFact('How low has Five Mile Creek ever dropped?', 'lowest the creek has ever been'),
+    makeFact('What was the hottest day on record?', 'what was the hottest day ever'),
+    makeFact('What is the coldest it has ever been?', 'what was the coldest it has ever been'),
+    makeFact('What was the wettest day on record?', 'what was the wettest day ever'),
+    makeFact('Which year was the driest on record?', 'what was the driest year'),
+    makeFact('Which year was the wettest on record?', 'what was the wettest year'),
+    makeFact('What was the biggest snow on record?', 'biggest snow ever'),
+    makeFact('When did it last snow?', 'when did it last snow'),
+    makeFact(function () { return 'What was the weather on a past ' + todayWords() + '?'; }, thisDateLongAgo),
+    makeFact(function () { return 'How high has the creek ever been on a ' + todayWords() + '?'; }, creekOnThisDate),
+    makeFact('Which year did the creek run high most often?', creekBusiestYear),
+    makeFact('What lives and grows along the creek?', guideEntry),
+    makeFact('What has been spotted along the lower creek?', sightingFromTheRoll),
+    makeFact('What is the story behind the three towns?', heritageParagraph),
+    makeFact(function () {
+      var last = lastSolstice();
+      if (!last) return null;
+      return last.name === 'summer-solstice' ? 'How much daylight have we lost since June?' : 'How much daylight have we gained since December?';
+    }, daylightSinceSolstice),
+    makeFact('Which of the three towns makes the news most?', townsInTheStories)
   ];
+
+  /* THE DECK AND THE QUESTION ON THE BUTTON
+
+     The facts are shuffled into a deck. The question under the button walks
+     through the deck without dealing from it, and a press deals the fact whose
+     question is showing, so what the button says is what the reader gets. A
+     dealt fact leaves the deck, and the deck is only shuffled again once every
+     fact in it has been dealt, so nothing comes round twice before the rest.
+
+     A fact that turns up nothing is passed over for the next one in the deck,
+     the way it always was. That is the one time the answer is not the question
+     that was showing, and it is rare: it needs a year with no reading on
+     today's date, or a sighting with no date on it. */
+  var luck = document.getElementById('findLuck');
+  var teaseEl = document.getElementById('findTease');
   var deck = [];
+  var deckAt = 0;
+  var showing = null;
+  var lastDealt = null;
+  var dealing = false;
+  var hovering = false;
+  var swapTimer = 0;
+  var dwell = 0;
+  var TURN_EVERY = 4500;
+  var lessMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  function refillDeck() {
+    deck = shuffled(FACTS);
+    /* The fact just dealt does not open the next deck. */
+    if (deck.length > 1 && deck[0] === lastDealt) deck.push(deck.shift());
+    deckAt = 0;
+  }
+  function teaseQuestion(fact) {
+    try { return fact.question() || null; } catch (err) { return null; }
+  }
+  /* The fact at the deck's place with a question that can be written today. A
+     fact whose question cannot be, the daylight one without the sky engine,
+     leaves the deck. */
+  function showable() {
+    for (var guard = 0; guard <= FACTS.length; guard++) {
+      if (!deck.length) refillDeck();
+      if (deckAt >= deck.length) deckAt = 0;
+      var fact = deck[deckAt];
+      var question = teaseQuestion(fact);
+      if (question) return { fact: fact, question: question };
+      deck.splice(deckAt, 1);
+    }
+    return null;
+  }
+  function dealFact(fact) {
+    var i = deck.indexOf(fact);
+    if (i !== -1) {
+      deck.splice(i, 1);
+      if (i < deckAt) deckAt--;
+    }
+    lastDealt = fact;
+  }
+
+  function paintTease(animate) {
+    if (!teaseEl) return;
+    clearTimeout(swapTimer);
+    teaseEl.classList.remove('is-in', 'is-out');
+    function swap() {
+      showing = showable();
+      teaseEl.textContent = showing ? showing.question : '';
+      teaseEl.hidden = !showing;
+      if (animate && showing) {
+        void teaseEl.offsetWidth;
+        teaseEl.classList.add('is-in');
+      }
+    }
+    if (!animate || teaseEl.hidden) return swap();
+    teaseEl.classList.add('is-out');
+    swapTimer = setTimeout(swap, 220);
+  }
+
+  /* The question holds still while a mouse is over the button, while the box
+     is being typed in, while the button has keyboard focus, while a fact is
+     being dealt, and while the page is not on screen. Every hold starts the
+     wait over, so a question never turns the moment a pointer leaves it. */
+  function teaseHeld() {
+    if (dealing || hovering || document.hidden) return true;
+    var active = document.activeElement;
+    if (active === input) return true;
+    if (active === luck) {
+      try { return luck.matches(':focus-visible'); } catch (err) { return true; }
+    }
+    return false;
+  }
+  function tick() {
+    if (teaseHeld()) { dwell = 0; return; }
+    dwell += 500;
+    if (dwell < TURN_EVERY) return;
+    dwell = 0;
+    deckAt++;
+    paintTease(true);
+  }
+
+  /* On a phone the answer can land below the fold, under the button that was
+     just pressed, and a press with nothing visible happening reads as a press
+     that did nothing. When the top of the answer is off the bottom of the
+     screen the page moves up until it is in view. */
+  function bringUp() {
+    if (!out.firstElementChild) return;
+    var top = out.getBoundingClientRect().top;
+    var tall = window.innerHeight || document.documentElement.clientHeight;
+    if (top <= tall - 120) return;
+    try {
+      window.scrollBy({ top: top - tall * 0.4, behavior: lessMotion ? 'auto' : 'smooth' });
+    } catch (err) {
+      window.scrollBy(0, top - tall * 0.4);
+    }
+  }
 
   function tellMe() {
     var id = ++running;
     input.value = '';
     remember('');
+    dealing = true;
+    /* A press during the turn keeps the question that was on the button. */
+    clearTimeout(swapTimer);
+    if (teaseEl) teaseEl.classList.remove('is-out');
     if (luck) luck.setAttribute('aria-busy', 'true');
     out.setAttribute('aria-busy', 'true');
     out.innerHTML = '<div class="empty">&mdash;</div>';
     var tries = 0;
-    function attempt() {
-      if (tries++ >= FACTS.length) return Promise.resolve(null);
-      if (!deck.length) deck = shuffled(FACTS);
-      var fact = deck.pop();
-      return Promise.resolve().then(fact).catch(function (err) {
+    function attempt(fact) {
+      if (!fact || tries++ >= FACTS.length) return Promise.resolve(null);
+      dealFact(fact);
+      return Promise.resolve().then(fact.run).catch(function (err) {
         if (window.console) console.warn('FIVEMILE fact failed', err);
         return null;
       }).then(function (found) {
         /* A fact with nothing behind it is not a fact. */
         var empty = !found || !found.say.length || /^Nothing is on file/.test(found.say[0]);
-        return empty ? attempt() : found;
+        if (!empty) return found;
+        var next = showable();
+        return attempt(next && next.fact);
       });
     }
-    return attempt().then(function (found) {
+    /* A second press before the first answer lands takes the next fact, since
+       the one showing has already left the deck. */
+    var first = showing && deck.indexOf(showing.fact) !== -1 ? showing : showable();
+    return attempt(first && first.fact).then(function (found) {
+      dealing = false;
+      dwell = 0;
+      if (luck) luck.removeAttribute('aria-busy');
       if (id !== running) return;
       paint(found, []);
       out.removeAttribute('aria-busy');
-      if (luck) luck.removeAttribute('aria-busy');
+      paintTease(!lessMotion);
+      bringUp();
     });
   }
 
-  var luck = document.getElementById('findLuck');
-  if (luck) luck.addEventListener('click', tellMe);
+  if (luck) {
+    luck.addEventListener('click', tellMe);
+    /* A mouse only. A finger on a phone fires the enter and never the leave,
+       which would hold the question still for the rest of the visit. */
+    luck.addEventListener('pointerenter', function (event) { if (event.pointerType === 'mouse') hovering = true; });
+    luck.addEventListener('pointerleave', function () { hovering = false; dwell = 0; });
+  }
+  paintTease(false);
+  if (teaseEl && !lessMotion) setInterval(tick, 500);
 
   var asked = new URLSearchParams(location.search).get('q');
   if (asked) {
@@ -3094,5 +3249,5 @@
   }
 
   /* For checking a rule from the console without touching the page. */
-  window.FivemileSearch = { run: run, understand: understand, answer: answer, tell: tellMe };
+  window.FivemileSearch = { run: run, understand: understand, answer: answer, tell: tellMe, facts: FACTS };
 })();

@@ -197,6 +197,18 @@
     <div id="leadSlot"></div>
   </section>
 
+  <!-- THE MONTHLY EDITION ---------------------------------------------------
+       The newest edition, under the lead and above the day's report. The lead
+       is what happened today and goes first; the edition is the month, and a
+       reader who came for the creek this morning should reach it before the
+       month. Drawn from fivemile-editions/index.json on the feature panel, the
+       one dark card on the page. It ships hidden, like the lead, and stays
+       hidden if the file does not come. See DECISIONS.md 74. -->
+  <section class="blk reveal" id="editionBlock" hidden>
+    <div class="hd"><h2 id="monthly-edition">The monthly edition</h2><a href="fivemile-edition-archive.html">Every edition &rarr;</a></div>
+    <div id="editionSlot"></div>
+  </section>
+
   <!-- NOTICE + MORNING REPORT + COMING UP ----------------------------------
        The inline padding-top of 14px this block used to carry went with the
        move. It was tightening the gap under the News heading, and this is not
@@ -1211,6 +1223,30 @@ if(window.BRAND && window.BRAND.email){
 }
 
 paintUpcoming();
+
+/* The newest monthly edition. Its own fetch, apart from the six below, so a
+   slow news file never holds it back and a missing edition costs the page
+   nothing. */
+function editionChip(verdict){
+  var label = verdict === 'right' ? 'Right' : verdict === 'wrong' ? 'Missed' : 'No call';
+  return '<span class="ed-verdict ed-' + esc(verdict) + '">' + label + '</span>';
+}
+function paintEdition(index){
+  var ed = index && index.editions && index.editions[0];
+  if(!ed) return;
+  var calls = (ed.noaa ? '<span class="ed-call"><span class="ed-who">NOAA</span>' + editionChip(ed.noaa) + '</span>' : '') +
+    '<span class="ed-call"><span class="ed-who">FIVEMILE</span>' + editionChip(ed.fivemile) + '</span>';
+  document.getElementById('editionSlot').innerHTML =
+    '<a class="card-feature ed-card" href="' + esc(ed.file) + '">' +
+      '<p class="cf-kick">Monthly</p>' +
+      '<h3>' + esc(ed.title) + '</h3>' +
+      '<p class="cf-lede">' + esc(ed.lede) + '</p>' +
+      '<div class="ed-chips">' + calls + '</div>' +
+      '<p class="cf-go">Read the edition <span aria-hidden="true">&rarr;</span></p>' +
+    '</a>';
+  document.getElementById('editionBlock').hidden = false;
+}
+loadJson('fivemile-editions/index.json').then(paintEdition).catch(function(){});
 
 settle([
   loadJson(DATA.news),

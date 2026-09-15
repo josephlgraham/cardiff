@@ -1,0 +1,259 @@
+{
+  "month": "2026-05",
+  "title": "The May 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "May ran a little cooler than usual and came in wetter than usual, and Five Mile Creek rose over the high water line once.",
+  "was": {
+    "station": {
+      "days": 31,
+      "daysInMonth": 31,
+      "hot": {
+        "value": 91,
+        "date": "2026-05-17"
+      },
+      "cold": {
+        "value": 39,
+        "date": "2026-05-03"
+      },
+      "avg": 69.8,
+      "tempDiff": -1.7,
+      "rain": 6.92,
+      "rainNormal": 4.91,
+      "wettest": {
+        "value": 1.77,
+        "date": "2026-05-22"
+      },
+      "ninety": 4,
+      "freezing": 0
+    },
+    "ranks": {},
+    "creek": {
+      "days": 31,
+      "peak": {
+        "value": 4.18,
+        "date": "2026-05-24"
+      },
+      "low": {
+        "value": 1.18,
+        "date": "2026-05-18"
+      },
+      "daysHigh": 1,
+      "rises": 1,
+      "typicalPeak": 4.94,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": {
+      "count": 13,
+      "names": [
+        "Carolina Mantis",
+        "Eastern Narrow-mouthed Toad",
+        "Black Kingsnake"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "normal",
+      "rain": "below"
+    },
+    "noaa": {
+      "issued": "2026-04-30",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "none",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 28,
+      "counts": {
+        "above": 6,
+        "normal": 12,
+        "below": 10
+      },
+      "verdict": "none"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 62,
+        "wrong": 33,
+        "none": 45
+      },
+      "rain": {
+        "right": 38,
+        "wrong": 42,
+        "none": 60
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 0,
+      "wrong": 0,
+      "none": 5
+    },
+    "sayings": [
+      {
+        "id": "blackberry-winter",
+        "result": {
+          "held": true,
+          "day": "2026-05-03",
+          "low": 41,
+          "normal": 57
+        }
+      }
+    ]
+  },
+  "ahead": {
+    "month": "2026-06",
+    "noaa": {
+      "issued": "2026-05-31",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "normal",
+      "hits": 10,
+      "n": 28,
+      "counts": {
+        "above": 9,
+        "normal": 10,
+        "below": 9
+      }
+    },
+    "normals": {
+      "highFrom": 86,
+      "highTo": 90,
+      "lowFrom": 65,
+      "lowTo": 71,
+      "rain": 4.78,
+      "recordHigh": {
+        "value": 106,
+        "date": "1931-06-29"
+      },
+      "recordLow": {
+        "value": 42,
+        "date": "1966-06-01"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 855,
+      "last": 861,
+      "turning": {
+        "name": "summer-solstice",
+        "date": "2026-06-21"
+      }
+    },
+    "saying": null,
+    "dates": [
+      {
+        "date": "2026-06-01",
+        "word": "Thursdays",
+        "title": "Gardendale Farmers Market",
+        "blurb": "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September.",
+        "url": "",
+        "subject": "market",
+        "town": "Gardendale",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-01",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-03",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-04",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-09",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-12",
+        "word": null,
+        "title": "Five Mile Creek Rubber Duck Race",
+        "blurb": "Registration at noon at the Brookside Ballpark and the race starts at one. Tickets are $20 for a chance at $1,000, and the proceeds go back into community events.",
+        "url": "",
+        "subject": "community",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-13",
+        "word": null,
+        "title": "Electronics & Paper Shredding Drop-Off",
+        "blurb": "Jefferson County electronics and paper shredding event at Valley Reclamation Facility, 3923 Clear Water Drive, Bessemer. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM.",
+        "url": "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-18",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-06-21",
+        "word": null,
+        "title": "Summer Solstice",
+        "blurb": "The longest day of the year.",
+        "url": "",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

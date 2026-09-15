@@ -41,6 +41,7 @@
   var CREEK_DIR = 'fivemile-creek-archive';
   var CREEK_PEAKS = 'fivemile-creek-peaks.json';
   var NEWS_INDEX = 'news-archive/index.json';
+  var EDITION_INDEX = 'fivemile-editions/index.json';
 
   function esc(value) {
     var box = document.createElement('div');
@@ -3087,6 +3088,31 @@
     });
   }
 
+  /* The sixth room. The index the Editions room is written from, read here for
+     the same three figures every panel carries, and a line on how the newest
+     edition's two calls came out. See DECISIONS.md 74. */
+  function hubEditions() {
+    loadJson(EDITION_INDEX).then(function (data) {
+      var list = (data && Array.isArray(data.editions) ? data.editions : []);
+      if (!list.length) return;
+      var newest = list[0];
+      setText('hubEditionCount', String(list.length));
+      setText('hubEditionNewest', monthLabel(newest.month));
+      setText('hubEditionSince', monthLabel(list[list.length - 1].month));
+      var month = monthProse(newest.month);
+      var one = function (who, verdict) {
+        return who + (verdict === 'right' ? ' was right' : verdict === 'wrong' ? ' missed' : ' made no call');
+      };
+      var note = newest.noaa === newest.fivemile
+        ? (newest.fivemile === 'right' ? 'Both calls for ' + month + ' were right.'
+          : newest.fivemile === 'wrong' ? 'Both calls for ' + month + ' missed.'
+          : 'Neither NOAA nor FIVEMILE made a call for ' + month + '.')
+        : 'For ' + month + ', ' + one(newest.noaa ? 'NOAA' : 'NOAA, with no outlook on file,', newest.noaa) +
+          ' and ' + one('FIVEMILE', newest.fivemile) + '.';
+      setText('hubEditionNote', note);
+    }).catch(function () { /* the panel keeps its em dashes */ });
+  }
+
   function loadHub() {
     if (!byId('hubPhotoCount')) return;
     hubPhotos();
@@ -3094,6 +3120,7 @@
     hubCreek();
     hubNews();
     hubDates();
+    hubEditions();
   }
 
   /* The search on the hub lists a story the way the stories room lists one,

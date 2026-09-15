@@ -50,6 +50,20 @@ jobs:
         continue-on-error: true
         run: node scripts/build-heritage-pages.mjs
 
+      # The monthly edition. It reads nothing from the network: the fetch step
+      # above has already brought in the airport record and NOAA's outlook. On
+      # every run but the one that falls due it works nothing out and only
+      # redraws the pages from the frozen editions, which changes no file unless
+      # the room page shell has moved. Due means the 2nd of the month or later,
+      # the last day of the month before in the airport record, and NOAA's
+      # outlook for the new month in, or the 5th. The edition's PDF is printed
+      # once, with the Chrome that ships on this runner, and never reprinted on
+      # a later run. continue-on-error for the same reason as the heritage step.
+      # See DECISIONS.md 74.
+      - name: Put out the monthly edition when one is due
+        continue-on-error: true
+        run: node scripts/build-editions.mjs
+
       - name: Commit refreshed data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +74,7 @@ jobs:
           # sitemap.xml is staged because the heritage build writes the lastmod
           # dates into it off fivemile-heritage.json. Without it those dates
           # would be regenerated every run and never committed.
-          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-airport-archive/ fivemile-airport-normals.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json
+          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-airport-archive/ fivemile-airport-normals.json fivemile-observations.json fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json fivemile-outlooks.json fivemile-sayings.json fivemile-editions/ fivemile-edition-*.html fivemile-edition-*.pdf
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0

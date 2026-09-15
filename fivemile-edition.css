@@ -1,0 +1,106 @@
+/* ===========================================================================
+   fivemile-edition.css
+
+   The monthly edition pages and the Editions room. Every card is from
+   fivemile-cards.css and the shell is fivemile-shell.css and
+   fivemile-archive.css, because an edition is a page in the archive family.
+   What is here is the few things an edition has that nothing else does: the
+   verdict on a call, the old saying set large, and the row of calls under an
+   edition in the room. See DECISIONS.md 74.
+
+   Load order is common, cards, shell, archive, then this.
+   =========================================================================== */
+
+/* The small mono word over the lede, the same object as a card kicker. */
+.panel .ed-kick{margin:0 0 6px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--fm-muted)}
+
+/* The verdict pill on a call lives in fivemile-cards.css, beside
+   .card-feature, because the news page draws it too. */
+.d-body .d-rows.list .d-cell b .ed-verdict{font-size:11px;letter-spacing:.08em}
+
+/* A card here carries its figures and then sentences about them, where most
+   department panels carry one or the other, so the first sentence needs the
+   gap a grid does not leave under itself. */
+.d-body .d-rows + p{margin-top:12px}
+
+/* The door is a real link here rather than a line inside a linked panel, so it
+   would otherwise pick up the underline every other link on the page has. The
+   search answers on the hub made the same correction. */
+.d-body a.d-go{text-decoration:none;align-self:flex-start;min-height:44px}
+.d-body a.d-go:hover{text-decoration:underline}
+
+/* A section head further down a section, over the dates. */
+.hd.ed-subhd{margin-top:30px}
+
+/* The old saying. Its words are the thing, so they are set large and in the
+   sans, and never in italics. A saying the source gives word for word is in
+   quotation marks; a belief the source only describes is a plain sentence. */
+.ed-feature{display:grid;gap:12px;margin-top:12px}
+.card-feature .ed-quote,.card-feature .ed-belief{margin:4px 0 14px;padding:0;font-size:21px;font-weight:700;
+  line-height:1.4;color:#fff;letter-spacing:-.01em}
+
+/* The room. Each edition is a stub whose date block is the month and year,
+   with the two calls under its lede. */
+.ed-stub{position:relative}
+.ed-stub .k-bd h3{margin:0 0 4px}
+.ed-open{color:inherit;text-decoration:none}
+.ed-open::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.ed-stub:hover .ed-open{color:var(--red)}
+.ed-open:focus-visible{outline:none}
+.ed-stub:focus-within{outline:2px solid var(--red);outline-offset:2px}
+/* Above the stretched title link, so it is a target of its own. */
+.ed-pdf{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;
+  border:1px solid var(--fm-rule);border-radius:var(--r);background:var(--card);color:var(--ink);text-decoration:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ed-pdf svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ed-pdf:hover{border-color:var(--red);color:var(--red);background:#fff;text-decoration:none}
+
+@media(max-width:600px){
+  .card-feature .ed-quote,.card-feature .ed-belief{font-size:19px}
+}
+
+/* ---------------------------------------------------------------------------
+   PRINT
+
+   What the PDF is made from, and what a reader gets printing the page from a
+   browser. It reads as a report: the wordmark and the edition, and nothing a
+   finger would tap. The navigation, the red strip, the share row, the doors,
+   the footer and the home screen banner go. Two columns come back, because a
+   letter page is as wide as a laptop's measure, and no card breaks across a
+   page. The colours print, the red bars and the brown saying card included,
+   and a link that goes somewhere prints where, since paper cannot be tapped.
+   --------------------------------------------------------------------------- */
+@page{size:letter;margin:.5in .55in}
+@media print{
+  html,body{background:#fff!important}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  /* The paper grain in fivemile-shell.css is a fixed layer of SVG noise with a
+     blend mode, and Chrome can only print that by flattening every page to a
+     picture: the first PDF of August came out at 19 MB with its text as pixels.
+     Paper is paper, so the grain goes. So do the card marks, because they are
+     colour emoji, decoration only, and a print machine without an emoji font
+     draws them as empty boxes. */
+  body::before,body::after{display:none!important}
+  .d-mark{display:none!important}
+  /* 16px on screen is 12pt on paper, a size up from the 11pt a printed report
+     is usually set in. At full size the first row of cards missed the bottom
+     of page one by a few pixels and left the page more than half empty. At 92
+     percent the body is 11pt, which is still generous for a reader who holds
+     the page at arm's length. */
+  body{zoom:.92}
+  .skip-link,.mh-tabs,.announce-strip,.mh-left-info,.mh-right-info,.mh-mobile-pills,
+  .fm-share,.cardiff-site-footer,#fivemile-install-banner,#topo-canvas,
+  .d-body a.d-go,.hd a{display:none!important}
+  .cardiff-masthead{position:static!important;border-radius:var(--fm-card-r)}
+  :root[data-intro] .mh-brand-name,:root[data-intro] .mh-brand-sub{opacity:1!important;transform:none!important}
+  .wrap{max-width:none;padding:14px 0 0}
+  .panel.intro{padding:16px 20px}
+  section.blk{padding-top:22px}
+  .two-eq{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .two-eq > .card-dept.span2{grid-column:1/-1}
+  .card-dept,.card-feature,.card-stub,.d-rows,.panel{break-inside:avoid;page-break-inside:avoid}
+  .hd{break-after:avoid;page-break-after:avoid}
+  .src-note a::after,.cf-src a::after,.card-stub .k-more::after{content:" (" attr(href) ")";font-size:.85em;word-break:break-all}
+  .card-stub .k-more{text-decoration:none}
+}

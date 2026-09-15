@@ -114,7 +114,23 @@
 // version takes the italic off every placeholder in fivemile-common.css, which
 // broke the no italics rule on every search box on the site, and adds the
 // hub's two paragraphs on how to ask the search.
-const CACHE_NAME = 'fivemile-v77';
+// v78 mounts the search on the Archive hub in its own brown desk and puts
+// the question the next press answers under the fact button, turning over
+// every few seconds. fivemile-archive.html, fivemile-archive.css and
+// fivemile-search.js all changed, and a returning reader holding the old
+// stylesheet would get the new desk with none of its styles. See DECISIONS.md 73.
+// v79 adds the monthly edition. fivemile-edition.css and the Editions room
+// are new, fivemile-cards.css gained the shared feature panel the search desk
+// now stands on, and fivemile-archive.html, fivemile-archive.css,
+// fivemile-archive.js and fivemile-news.html all changed. A returning reader
+// holding the old cards stylesheet would get a search desk with no brown
+// behind it. The edition pages are not precached: there is one a month and the
+// runtime cache keeps the ones a reader opens. Their PDFs match none of the
+// rules below and go straight to the network, which is right for a file a
+// reader downloads on purpose. The same
+// version adds the Download tile to the share row, so fivemile-common.js and
+// fivemile-common.css changed too. See DECISIONS.md 74.
+const CACHE_NAME = 'fivemile-v79';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -154,7 +170,7 @@ const PRECACHE_URLS = [
   '/fivemile-nightsky.html',
   '/fivemile-nature.html',
   '/fivemile-kitchen.html',
-  // The archive hub and its five rooms. Same footing as the almanac desks: a
+  // The archive hub and its six rooms. Same footing as the almanac desks: a
   // reader who opened one and lost signal should get the page rather than the
   // offline card.
   '/fivemile-archive.html',
@@ -164,6 +180,7 @@ const PRECACHE_URLS = [
   '/fivemile-discharges.html',
   '/fivemile-news-archive.html',
   '/fivemile-calendar-archive.html',
+  '/fivemile-edition-archive.html',
   '/offline.html',
   '/fivemile-common.css',
   '/fivemile-cards.css',
@@ -174,6 +191,7 @@ const PRECACHE_URLS = [
   '/fivemile-calendar.css',
   '/fivemile-almanac.css',
   '/fivemile-archive.css',
+  '/fivemile-edition.css',
   '/fivemile-archive.js',
   '/fivemile-search.js',
   '/fivemile-heritage.css',

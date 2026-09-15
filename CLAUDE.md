@@ -50,8 +50,8 @@ Facebook groups are fine for talking and useless for remembering. This site
 keeps things. Nothing here scrolls away.
 
 The Archive is where that promise is kept and where it can be checked. It is a
-hub, `fivemile-archive.html`, and five rooms: the gallery, the weather log, the
-creek log, the story index, and the date index. Each room reads the same file
+hub, `fivemile-archive.html`, and six rooms: the gallery, the weather log, the
+creek log, the story index, the date index, and the editions. Each room reads the same file
 the live page reads, so nothing is archived by hand and nothing can fall out of
 step. The date index is the one exception and only in form: the calendar has no
 file, so the room asks the same engine the calendar page asks and gets the same
@@ -64,10 +64,19 @@ and every page in `sitemap.xml`, and it answers a question only when a rule
 written in that file can count the answer from the record. It is not a chatbot
 and must not become one: no model, no API, no generated text. A question with
 no rule gets the matching pages and records. If you add a page, put it in the
-sitemap and it is searchable. The hub's opening panel says how to ask it, which
+sitemap and it is searchable. The search desk at the top of the hub says how to ask it, which
 is the one deliberate exception to never explaining the UI in copy, and every
 example question in that copy must be run against the search before it ships.
 See DECISIONS.md 73.
+
+The monthly edition comes out on its own on the 2nd, from
+`scripts/build-editions.mjs`: how the month went, how NOAA's outlook and
+FIVEMILE's own call for it did, and the month ahead. Every sentence is written in
+advance and filled by rule, and an edition is frozen once it is written, because
+its call for next month is what the next edition scores. An old saying runs only
+with a published source, its own test against the airport record, and a
+definition for any old word in it; words a source did not give are never set in
+quotation marks. See DECISIONS.md 74.
 
 The calendar page itself holds one month, with a step to the month either side.
 It is not a rolling window: everything behind and ahead of it is in the date

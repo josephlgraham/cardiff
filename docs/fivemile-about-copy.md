@@ -62,44 +62,31 @@ with your name, unless you tell us not to.
 
 Tell us and we will fix it. fivemilec@gmail.com.
 
-**Footer line, every page, links to this section:**
-
-> No AI runs on this site. A person writes and approves everything here, and no
-> image is AI generated.
-
 ### How this site is made
 
-The point of this section is the first line of it: there is no AI running on
-this site. AI is a tool used to build it, the way a saw is a tool used to build
-a porch. Lead with that, because it is what a reader is actually asking.
+Rewritten September 2026 when the monthly edition started publishing on its own.
+The old version led with "there is no AI running on this site" and promised
+nothing publishes on its own. Joe wanted it shorter and about using AI well
+rather than a flat no, and the edition made the second promise false. The live
+copy is on fivemile-about.html. See DECISIONS.md 13 and 74.
 
-**A person decides what runs.** Everything written in FIVEMILE's own voice is
-written or edited by me before it goes up. Nothing publishes on its own.
+**I use AI, and I answer for it.** Claude helps me write the code, draft pages,
+and check my work. If I ever put AI to work on these pages in a new way, this
+section will say so before it happens.
 
-**Automatic is not the same thing as AI.** The news sorting is a written list of
-keyword rules, not a model, and that was chosen deliberately so the reason a
-story landed somewhere can be read back. See DECISIONS.md 19.
+**Some of it runs on its own, by rules you can read.** The news page gathers
+headlines twice a day and sorts them by written rules, with every headline
+linked to whoever reported it. The archive search and the monthly edition work
+the same way: they count what is on file and fill in sentences written in
+advance. Nothing on these pages is made up by a machine while you read it.
 
-**The news page is different, and you should know how.** Headlines there are
-gathered automatically from other publications, sorted by a script, and linked
-back to whoever reported them. I do not write those stories and I do not read
-every one before it appears. The link always goes to the source.
-
-**Nothing is written by a machine while you are reading it.** The weather and
-creek numbers come from instruments. The notes beside them were written ahead
-of time by a person and matched to the conditions by a simple rule. There is no
-chatbot behind this page.
-
-**No invented photographs, ever.** Nothing here is an AI-generated image and
-nothing ever will be. Historical photographs are real, sourced, and credited.
-Around here people can recognize their own grandparents in a picture, and a
+**Some things are never made up.** No generated photographs, and no invented
+quotes, people, dates, or history. When something is not known, the site says
+so. Around here people can recognize their own grandparents in a picture, and a
 fake one would be unforgivable.
 
-**No invented quotes, people, or history.** When something is not known, the
-site says it is not known.
-
-**The mistakes are still mine.** Using a tool is not an excuse for getting
-something wrong. Tell me and I will fix it and say that I fixed it.
+**The mistakes are mine.** Using a tool is no excuse for getting something
+wrong. Tell me and I will fix it, and say that I fixed it.
 
 ### One more thing
 

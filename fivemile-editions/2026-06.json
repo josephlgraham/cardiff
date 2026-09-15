@@ -1,0 +1,250 @@
+{
+  "month": "2026-06",
+  "title": "The June 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "June ran about as warm as usual and came in wet, and Five Mile Creek rose over the high water line twice.",
+  "was": {
+    "station": {
+      "days": 30,
+      "daysInMonth": 30,
+      "hot": {
+        "value": 96,
+        "date": "2026-06-30"
+      },
+      "cold": {
+        "value": 54,
+        "date": "2026-06-04"
+      },
+      "avg": 77.6,
+      "tempDiff": -0.7,
+      "rain": 10.37,
+      "rainNormal": 4.78,
+      "wettest": {
+        "value": 4.83,
+        "date": "2026-06-20"
+      },
+      "ninety": 13,
+      "freezing": 0
+    },
+    "ranks": {
+      "rain": {
+        "rank": 7,
+        "high": true,
+        "of": 97
+      }
+    },
+    "creek": {
+      "days": 30,
+      "peak": {
+        "value": 8.47,
+        "date": "2026-06-20"
+      },
+      "low": {
+        "value": 1.23,
+        "date": "2026-06-07"
+      },
+      "daysHigh": 5,
+      "rises": 2,
+      "typicalPeak": 4.22,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": {
+      "count": 18,
+      "names": [
+        "Alabama Map Turtle",
+        "Banded Tussock Moth",
+        "Pale-bordered Field Cockroach"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "above"
+    },
+    "noaa": {
+      "issued": "2026-05-31",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 33
+      },
+      "tempVerdict": "none",
+      "rainVerdict": "right"
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "normal",
+      "hits": 10,
+      "n": 28,
+      "counts": {
+        "above": 9,
+        "normal": 10,
+        "below": 9
+      },
+      "verdict": "none"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 62,
+        "wrong": 33,
+        "none": 46
+      },
+      "rain": {
+        "right": 39,
+        "wrong": 42,
+        "none": 60
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 0,
+      "wrong": 0,
+      "none": 6
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-07",
+    "noaa": {
+      "issued": "2026-06-30",
+      "temp": {
+        "cat": "above",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 14,
+      "n": 26,
+      "counts": {
+        "above": 14,
+        "normal": 6,
+        "below": 6
+      }
+    },
+    "normals": {
+      "highFrom": 90,
+      "highTo": 91,
+      "lowFrom": 71,
+      "lowTo": 72,
+      "rain": 5.42,
+      "recordHigh": {
+        "value": 107,
+        "date": "1930-07-29"
+      },
+      "recordLow": {
+        "value": 51,
+        "date": "1967-07-15"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 861,
+      "last": 829,
+      "turning": null
+    },
+    "saying": {
+      "traditional": {
+        "id": "dog-days",
+        "record": {
+          "held": 43,
+          "years": 96
+        }
+      }
+    },
+    "dates": [
+      {
+        "date": "2026-07-01",
+        "word": "Thursdays",
+        "title": "Gardendale Farmers Market",
+        "blurb": "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September.",
+        "url": "",
+        "subject": "market",
+        "town": "Gardendale",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-01",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-02",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-06",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-14",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-16",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-17",
+        "word": null,
+        "title": "Back to school sales tax holiday",
+        "blurb": "No state sales tax on clothes, school supplies, and computers from Friday morning through Sunday night, and most cities and counties around here waive their share as well. It is the third weekend in July.",
+        "url": "https://www.revenue.alabama.gov/sales-use/sales-tax-holidays/",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-07-20",
+        "word": null,
+        "title": "Perseid meteor shower begins building",
+        "blurb": "Peaks in mid-August around the Feast of St. Lawrence.",
+        "url": "https://en.wikipedia.org/wiki/Perseids",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

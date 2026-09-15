@@ -1,0 +1,228 @@
+{
+  "month": "2026-02",
+  "title": "The February 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "February ran a little warmer than usual and came in close to normal on rain, and Five Mile Creek rose over the high water line once.",
+  "was": {
+    "station": {
+      "days": 28,
+      "daysInMonth": 28,
+      "hot": {
+        "value": 82,
+        "date": "2026-02-19"
+      },
+      "cold": {
+        "value": 14,
+        "date": "2026-02-01"
+      },
+      "avg": 50.5,
+      "tempDiff": 1.7,
+      "rain": 4.52,
+      "rainNormal": 4.95,
+      "wettest": {
+        "value": 2.83,
+        "date": "2026-02-26"
+      },
+      "ninety": 0,
+      "freezing": 12
+    },
+    "ranks": {},
+    "creek": {
+      "days": 28,
+      "peak": {
+        "value": 6.68,
+        "date": "2026-02-27"
+      },
+      "low": {
+        "value": 1.2,
+        "date": "2026-02-23"
+      },
+      "daysHigh": 2,
+      "rises": 1,
+      "typicalPeak": 6.82,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": null
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "below"
+    },
+    "noaa": {
+      "issued": "2026-01-31",
+      "temp": {
+        "cat": "below",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "below",
+        "prob": 33
+      },
+      "tempVerdict": "wrong",
+      "rainVerdict": "right"
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "normal",
+      "hits": 11,
+      "n": 25,
+      "counts": {
+        "above": 6,
+        "normal": 8,
+        "below": 11
+      },
+      "verdict": "none"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 60,
+        "wrong": 33,
+        "none": 44
+      },
+      "rain": {
+        "right": 38,
+        "wrong": 42,
+        "none": 57
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 0,
+      "wrong": 0,
+      "none": 2
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-03",
+    "noaa": {
+      "issued": "2026-02-28",
+      "temp": {
+        "cat": "above",
+        "prob": 70
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 27,
+      "counts": {
+        "above": 12,
+        "normal": 4,
+        "below": 11
+      }
+    },
+    "normals": {
+      "highFrom": 63,
+      "highTo": 71,
+      "lowFrom": 42,
+      "lowTo": 48,
+      "rain": 5.66,
+      "recordHigh": {
+        "value": 89,
+        "date": "1982-03-19"
+      },
+      "recordLow": {
+        "value": 2,
+        "date": "1993-03-14"
+      },
+      "frost": {
+        "froze": 90,
+        "years": 96,
+        "edge": {
+          "date": "1950-03-31",
+          "low": 29
+        },
+        "spring": true
+      }
+    },
+    "sky": {
+      "first": 688,
+      "last": 751,
+      "turning": {
+        "name": "spring-equinox",
+        "date": "2026-03-20"
+      }
+    },
+    "saying": {
+      "traditional": {
+        "id": "lion-lamb",
+        "record": {
+          "held": 32,
+          "years": 96
+        }
+      }
+    },
+    "dates": [
+      {
+        "date": "2026-03-02",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-03-04",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-03-05",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-03-10",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-03-19",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-03-20",
+        "word": null,
+        "title": "Spring Equinox",
+        "blurb": "Day and night of equal length; the astronomical start of spring.",
+        "url": "",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

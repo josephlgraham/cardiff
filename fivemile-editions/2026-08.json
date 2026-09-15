@@ -1,0 +1,282 @@
+{
+  "month": "2026-08",
+  "title": "The August 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "August ran about as warm as usual and came in close to normal on rain, and Five Mile Creek never reached the high water line.",
+  "was": {
+    "station": {
+      "days": 31,
+      "daysInMonth": 31,
+      "hot": {
+        "value": 99,
+        "date": "2026-08-17"
+      },
+      "cold": {
+        "value": 64,
+        "date": "2026-08-25"
+      },
+      "avg": 81.7,
+      "tempDiff": 0.8,
+      "rain": 3.78,
+      "rainNormal": 4.35,
+      "wettest": {
+        "value": 1.25,
+        "date": "2026-08-01"
+      },
+      "ninety": 27,
+      "freezing": 0
+    },
+    "ranks": {
+      "temp": {
+        "rank": 10,
+        "high": true,
+        "of": 97
+      }
+    },
+    "creek": {
+      "days": 31,
+      "peak": {
+        "value": 3.48,
+        "date": "2026-08-09"
+      },
+      "low": {
+        "value": 1.1,
+        "date": "2026-08-30"
+      },
+      "daysHigh": 0,
+      "rises": 0,
+      "typicalPeak": 3.79,
+      "typicalYears": 17,
+      "line": 3.5
+    },
+    "stories": {
+      "count": 59,
+      "towns": [
+        {
+          "town": "Graysville",
+          "n": 6
+        },
+        {
+          "town": "Cardiff",
+          "n": 1
+        },
+        {
+          "town": "Brookside",
+          "n": 0
+        }
+      ],
+      "startsLate": "2026-08-16"
+    },
+    "sightings": {
+      "count": 19,
+      "names": [
+        "Ailanthus Webworm Moth",
+        "Hackberry Emperor",
+        "Pole Borer"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "normal"
+    },
+    "noaa": {
+      "issued": "2026-07-31",
+      "temp": {
+        "cat": "above",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "right",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 23,
+      "counts": {
+        "above": 12,
+        "normal": 7,
+        "below": 4
+      },
+      "verdict": "right"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 64,
+        "wrong": 33,
+        "none": 46
+      },
+      "rain": {
+        "right": 39,
+        "wrong": 42,
+        "none": 62
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 2,
+      "wrong": 0,
+      "none": 6
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-09",
+    "noaa": {
+      "issued": "2026-08-31",
+      "temp": {
+        "cat": "above",
+        "prob": 50
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 25,
+      "counts": {
+        "above": 12,
+        "normal": 8,
+        "below": 5
+      }
+    },
+    "normals": {
+      "highFrom": 89,
+      "highTo": 82,
+      "lowFrom": 69,
+      "lowTo": 61,
+      "rain": 4,
+      "recordHigh": {
+        "value": 102,
+        "date": "1931-09-19"
+      },
+      "recordLow": {
+        "value": 37,
+        "date": "1967-09-30"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 771,
+      "last": 712,
+      "turning": {
+        "name": "fall-equinox",
+        "date": "2026-09-22"
+      }
+    },
+    "saying": null,
+    "dates": [
+      {
+        "date": "2026-09-01",
+        "word": "Thursdays",
+        "title": "Gardendale Farmers Market",
+        "blurb": "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September.",
+        "url": "",
+        "subject": "market",
+        "town": "Gardendale",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-02",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-03",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-08",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-12",
+        "word": null,
+        "title": "Suicide Awareness Walk",
+        "blurb": "Registration at nine at the Brookside Ballpark and the walk sets off at ten. Stephanie Hodges has the details on 205-572-2678. The 988 Suicide and Crisis Lifeline answers calls and texts at any hour, on any day.",
+        "url": "",
+        "subject": "community",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-12",
+        "word": null,
+        "title": "Electronics & Paper Shredding Drop-Off",
+        "blurb": "Jefferson County electronics and paper shredding event at Birmingham City Hall/Lynn Henley Park, 710 20th Street North. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM.",
+        "url": "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-14",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": "Moved a week later this month because the usual date is Labor Day."
+      },
+      {
+        "date": "2026-09-17",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-22",
+        "word": null,
+        "title": "Autumn Equinox",
+        "blurb": "Day and night of equal length; the astronomical start of fall.",
+        "url": "",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-09-26",
+        "word": null,
+        "title": "Harvest Moon",
+        "blurb": "The full moon nearest the autumn equinox; the brightest and earliest-rising full moon of the year.",
+        "url": "https://en.wikipedia.org/wiki/Harvest_moon",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

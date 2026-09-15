@@ -1,0 +1,217 @@
+{
+  "month": "2026-01",
+  "title": "The January 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "January ran a little cooler than usual and came in wet, and Five Mile Creek rose over the high water line twice.",
+  "was": {
+    "station": {
+      "days": 31,
+      "daysInMonth": 31,
+      "hot": {
+        "value": 67,
+        "date": "2026-01-08"
+      },
+      "cold": {
+        "value": 12,
+        "date": "2026-01-27"
+      },
+      "avg": 42,
+      "tempDiff": -2.6,
+      "rain": 10.62,
+      "rainNormal": 5.03,
+      "wettest": {
+        "value": 1.9,
+        "date": "2026-01-09"
+      },
+      "ninety": 0,
+      "freezing": 20
+    },
+    "ranks": {},
+    "creek": {
+      "days": 31,
+      "peak": {
+        "value": 5.76,
+        "date": "2026-01-25"
+      },
+      "low": {
+        "value": 1.07,
+        "date": "2026-01-01"
+      },
+      "daysHigh": 2,
+      "rises": 2,
+      "typicalPeak": 6.14,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": null
+  },
+  "calls": {
+    "outcome": {
+      "temp": "normal",
+      "rain": "above"
+    },
+    "noaa": {
+      "issued": "2025-12-31",
+      "temp": {
+        "cat": "above",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "wrong",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "normal",
+      "hits": 14,
+      "n": 36,
+      "counts": {
+        "above": 12,
+        "normal": 10,
+        "below": 14
+      },
+      "verdict": "none"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 60,
+        "wrong": 32,
+        "none": 44
+      },
+      "rain": {
+        "right": 37,
+        "wrong": 42,
+        "none": 57
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 0,
+      "wrong": 0,
+      "none": 1
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-02",
+    "noaa": {
+      "issued": "2026-01-31",
+      "temp": {
+        "cat": "below",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "below",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "normal",
+      "hits": 11,
+      "n": 25,
+      "counts": {
+        "above": 6,
+        "normal": 8,
+        "below": 11
+      }
+    },
+    "normals": {
+      "highFrom": 56,
+      "highTo": 63,
+      "lowFrom": 36,
+      "lowTo": 42,
+      "rain": 4.95,
+      "recordHigh": {
+        "value": 83,
+        "date": "1962-02-13"
+      },
+      "recordLow": {
+        "value": 3,
+        "date": "1958-02-17"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 635,
+      "last": 686,
+      "turning": null
+    },
+    "saying": {
+      "traditional": {
+        "id": "candlemas",
+        "record": {
+          "held": 43,
+          "years": 95
+        }
+      }
+    },
+    "dates": [
+      {
+        "date": "2026-02-02",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-02-04",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-02-05",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-02-10",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-02-19",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-02-20",
+        "word": null,
+        "title": "Severe weather sales tax holiday",
+        "blurb": "Alabama takes its sales tax off batteries, tarps, flashlights, weather radios, and generators for one weekend, and most of Jefferson County takes the local share off too. It runs the last full weekend of February.",
+        "url": "https://www.revenue.alabama.gov/sales-use/sales-tax-holidays/",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

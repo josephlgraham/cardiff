@@ -1021,4 +1021,9 @@ main:focus{outline:none;}
   .fm-share-kick{flex:1 0 100%;margin-bottom:2px;}
   .fm-share-btn{flex:1 1 0;min-width:0;}
   .fm-share-said{flex:1 0 100%;margin-left:0;}
+  /* Five tiles already fill a phone's row, and a sixth labelled Download
+     would not fit its word. It takes a row of its own under them, icon beside
+     the label, which also makes the one control that saves a file the widest
+     one in the row. */
+  .fm-share-btn.fm-share-dl{flex:1 0 100%;flex-direction:row;gap:9px;min-height:48px;font-size:10.5px;}
 }

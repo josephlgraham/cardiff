@@ -1,0 +1,243 @@
+{
+  "month": "2026-04",
+  "title": "The April 2026 Edition",
+  "built": "2026-09-15",
+  "backfilled": true,
+  "lede": "April ran a little warmer than usual and came in wetter than usual, and Five Mile Creek rose over the high water line once.",
+  "was": {
+    "station": {
+      "days": 30,
+      "daysInMonth": 30,
+      "hot": {
+        "value": 89,
+        "date": "2026-04-12"
+      },
+      "cold": {
+        "value": 36,
+        "date": "2026-04-20"
+      },
+      "avg": 66.1,
+      "tempDiff": 2.5,
+      "rain": 6.9,
+      "rainNormal": 5.08,
+      "wettest": {
+        "value": 2.45,
+        "date": "2026-04-29"
+      },
+      "ninety": 0,
+      "freezing": 0
+    },
+    "ranks": {
+      "temp": {
+        "rank": 2,
+        "high": true,
+        "of": 97
+      }
+    },
+    "creek": {
+      "days": 30,
+      "peak": {
+        "value": 4.07,
+        "date": "2026-04-29"
+      },
+      "low": {
+        "value": 1.15,
+        "date": "2026-04-28"
+      },
+      "daysHigh": 2,
+      "rises": 1,
+      "typicalPeak": 7.14,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": null,
+    "sightings": null
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "normal"
+    },
+    "noaa": {
+      "issued": "2026-03-31",
+      "temp": {
+        "cat": "above",
+        "prob": 40
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "right",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "above",
+      "hits": 10,
+      "n": 30,
+      "counts": {
+        "above": 10,
+        "normal": 10,
+        "below": 10
+      },
+      "verdict": "none"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 62,
+        "wrong": 33,
+        "none": 44
+      },
+      "rain": {
+        "right": 38,
+        "wrong": 42,
+        "none": 59
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 0,
+      "wrong": 0,
+      "none": 4
+    },
+    "sayings": [
+      {
+        "id": "dogwood-winter",
+        "result": {
+          "held": true,
+          "day": "2026-04-20",
+          "low": 41,
+          "normal": 53
+        }
+      }
+    ]
+  },
+  "ahead": {
+    "month": "2026-05",
+    "noaa": {
+      "issued": "2026-04-30",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      }
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 28,
+      "counts": {
+        "above": 6,
+        "normal": 12,
+        "below": 10
+      }
+    },
+    "normals": {
+      "highFrom": 79,
+      "highTo": 85,
+      "lowFrom": 57,
+      "lowTo": 65,
+      "rain": 4.91,
+      "recordHigh": {
+        "value": 99,
+        "date": "1962-05-28"
+      },
+      "recordLow": {
+        "value": 36,
+        "date": "1971-05-04"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 812,
+      "last": 854,
+      "turning": null
+    },
+    "saying": {
+      "traditional": {
+        "id": "blackberry-winter",
+        "record": {
+          "held": 75,
+          "years": 96
+        }
+      }
+    },
+    "dates": [
+      {
+        "date": "2026-05-01",
+        "word": "Thursdays",
+        "title": "Gardendale Farmers Market",
+        "blurb": "Growers set up on Thursday mornings at Bill Noble Park in Gardendale, which is close enough to be an ordinary errand from any of the three towns. It runs from nine until one, May through September.",
+        "url": "",
+        "subject": "market",
+        "town": "Gardendale",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-04",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-06",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-07",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-09",
+        "word": null,
+        "title": "Electronics & Paper Shredding Drop-Off",
+        "blurb": "Jefferson County electronics and paper shredding event at Center Point Satellite Courthouse, 2651 Center Point Parkway. Accepts computers, TVs, phones, printers, cables, and more. 9:00 AM to 11:30 AM.",
+        "url": "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-12",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-05-21",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      }
+    ]
+  }
+}

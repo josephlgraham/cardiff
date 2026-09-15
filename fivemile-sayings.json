@@ -1,0 +1,61 @@
+{
+  "_readme": "Old weather sayings for the monthly edition. See DECISIONS.md 74. A traditional saying goes in only when it is found in a published source (source, url). Only wording the source itself gives goes in `saying` and is printed in quotation marks. Lore a source describes without a fixed wording goes in `belief`, written as a plain statement of what the belief is, and is never printed as a quote. Either way, its test has to be something the airport's daily high, low, rain and snow can answer. The test is written in plain words in `test` and done by the function named in `rule` inside scripts/build-editions.mjs, and it was written down before it was ever run against the record. `month` is the month the saying is about, and it runs in the edition that looks ahead to that month. `check` is the month by the end of which the test can be answered, and the edition for that month says whether it held this year: Candlemas is about February but its six weeks run into March, and the hottest day of a summer is not known until September is over. Any old word gets a one sentence definition in `define`, which prints beside the saying. `readers` is filled from the sayings tab of the Google Sheet by scripts/fetch/sheets-cms.mjs once that tab exists: id, month, saying, credited. A reader's saying is not tested and is credited to a reader, never to Joe.",
+  "traditional": [
+    {
+      "id": "candlemas",
+      "month": 2,
+      "check": 3,
+      "saying": "If Candlemas day be fair and bright, winter will have another flight. If on Candlemas day it be shower and rain, winter is gone and will not come again.",
+      "define": "Candlemas is February 2, an old church feast day that falls about halfway between the first day of winter and the first day of spring.",
+      "source": "National Geographic",
+      "url": "https://www.nationalgeographic.com/culture/article/candlemas-jesus-mary-christianity",
+      "rule": "candlemas",
+      "test": "Fair means no measurable rain fell at the airport on February 2, because the record does not say whether the sun was out. Another flight of winter means the six weeks after, February 3 through March 16, ran colder than normal. The saying holds when a fair Candlemas is followed by a cold six weeks, or a wet one by a mild six weeks."
+    },
+    {
+      "id": "lion-lamb",
+      "month": 3,
+      "check": 3,
+      "saying": "If March comes in like a lion, it will go out like a lamb.",
+      "define": "A lion is a rough start to the month and a lamb is a gentle end, and the saying runs the other way too.",
+      "source": "Farmers' Almanac",
+      "url": "https://www.farmersalmanac.com/the-truth-behind-in-like-a-lion-out-like-a-lamb",
+      "rule": "lionLamb",
+      "test": "A rough start is a quarter inch of rain or more, or a freeze, on any of March 1 to 3. A gentle end is no rain and no freeze on all of March 29 to 31. The saying holds when a rough start ends gently or a gentle start ends rough."
+    },
+    {
+      "id": "dogwood-winter",
+      "month": 4,
+      "check": 4,
+      "belief": "A cold snap comes every spring when the dogwoods bloom, and it is not safe to plant until it has passed.",
+      "define": "Dogwood winter is the old name for the cold snap that comes when the dogwoods bloom, which in north Alabama is usually early to mid April.",
+      "source": "Farmers' Almanac",
+      "url": "https://www.farmersalmanac.com/what-is-dogwood-winter",
+      "rule": "dogwoodWinter",
+      "test": "It counts as come when a night in April runs at least 10 degrees colder than the normal low for its date, after the year's first day of 80 degrees."
+    },
+    {
+      "id": "blackberry-winter",
+      "month": 5,
+      "check": 5,
+      "belief": "A cool spell comes every May when the blackberries bloom.",
+      "define": "Blackberry winter is the old name for the cool spell that comes when the blackberries bloom, usually early to mid May.",
+      "source": "Tennessee Historical Society",
+      "url": "https://tennesseehistory.org/blackberry-winter-tennessee-little-winters/",
+      "rule": "blackberryWinter",
+      "test": "It counts as come when a night between May 1 and May 20 runs at least 10 degrees colder than the normal low for its date, after the year's first day of 85 degrees."
+    },
+    {
+      "id": "dog-days",
+      "month": 7,
+      "check": 9,
+      "belief": "The dog days are the hottest stretch of the summer.",
+      "define": "The dog days run from July 3 to August 11, named for Sirius, the Dog Star, which lines up with the sun in the middle of them.",
+      "source": "Farmers' Almanac",
+      "url": "https://www.farmersalmanac.com/why-are-they-called-dog-days-of-summer",
+      "rule": "dogDays",
+      "test": "It holds when the hottest day of the summer, June through September, falls between July 3 and August 11. When the hottest reading is tied, any tied day inside the dog days counts."
+    }
+  ],
+  "readers": []
+}

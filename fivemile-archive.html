@@ -12,13 +12,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archive &middot; FIVEMILE</title>
-<meta name="description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, and a search that answers questions from the record.">
+<meta name="description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
 <link rel="canonical" href="https://fivemile.now/fivemile-archive.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Archive &middot; FIVEMILE">
-<meta property="og:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, and a search that answers questions from the record.">
+<meta property="og:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
 <meta property="og:url" content="https://fivemile.now/fivemile-archive.html">
 <meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
 <meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Archive &middot; FIVEMILE">
-<meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, and a search that answers questions from the record.">
+<meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
 <!-- What this page is and what place it is about, for the crawlers that
      read it and the answer engines that read them. The website and the
@@ -39,7 +39,7 @@
   "@id": "https://fivemile.now/fivemile-archive.html#webpage",
   "url": "https://fivemile.now/fivemile-archive.html",
   "name": "Archive",
-  "description": "Everything FIVEMILE keeps: the photographs, the weather log, the creek log, every story that has run, every date the calendar has carried, and a search that answers questions from the record.",
+  "description": "Everything FIVEMILE keeps: the photographs, the weather log, the creek log, every story that has run, every date the calendar has carried, every monthly edition, and a search that answers questions from the record.",
   "keywords": "Five Mile Creek archive, Graysville Alabama history, Cardiff Alabama records, Brookside Alabama, weather records Jefferson County, creek gauge history",
   "inLanguage": "en-US",
   "isPartOf": {
@@ -107,41 +107,60 @@
 
   <section class="top">
     <div class="hd"><h1>Archive</h1><a href="index.html">Front page &rarr;</a></div>
-    <div class="panel intro" data-share-in>
-      <p class="lede">Five things get kept here, and none of them go anywhere.</p>
-      <p>A library keeps its old papers on microfiche and makes you wind a spool to find March.
-        This is that, without the spool.</p>
-      <!-- The one place on the site where copy says how to use a control, on
-           purpose, because a search that takes questions is not something a
-           reader would guess. Every example below was run against the search
-           before it went in, and each one gets a real answer. Change an
-           example and run it first. See DECISIONS.md 73. -->
-      <p>You can also just ask it. Put a question the way you would put it to a neighbor: has the creek been
-        high this month, when does the Brookside council meet, how much rain fell last August, has anybody
-        seen a box turtle. If the record holds the answer you get it, straight from the creek gauge, the
-        weather records, the calendar or the stories, with a line under it saying where it came from. If it
-        does not, you get every page and record with those words in them, so a name or a place works just as
-        well.</p>
-      <p>No question in mind? Ask it to tell you something you don't know.</p>
-</div>
 
     <!-- The search. One box over every page in the sitemap and every file the
          rooms read. A question that fits a rule is answered from those files
          by fivemile-search.js; anything else gets the matching pages, dates,
          stories, guide entries, sightings and photographs. Without script the
          form still submits to this page with ?q= in the address, which is
-         what the script reads on load. See DECISIONS.md 73. -->
-    <form class="find" id="findForm" role="search" action="fivemile-archive.html" method="get">
-      <div class="arc-find">
-        <input type="search" name="q" id="findInput" placeholder="Ask a question" aria-label="Ask a question, or search a word" autocomplete="off" enterkeyhint="search" maxlength="200">
-        <button type="submit" class="find-go">Search</button>
-      </div>
-      <!-- One thing off the record per press, dealt from a shuffled deck of
-           facts in fivemile-search.js. Every one is worked out from the files
-           or quoted whole from the heritage pages. See DECISIONS.md 73. -->
-      <button type="button" class="find-luck" id="findLuck">Tell me something I don't know</button>
-    </form>
+         what the script reads on load.
+
+         It opens the page, above the panel about the six rooms, for the
+         reason the desk pages put their readings above their opening: a
+         reader who came to look something up should not have to get past a
+         paragraph to find the box. It is drawn on the masthead brown so it
+         reads as a thing to use and not as more of the page.
+
+         The one place on the site where copy says how to use a control, on
+         purpose, because a search that takes questions is not something a
+         reader would guess. Every example question below was run against the
+         search before it went in, and each one gets a real answer. Change an
+         example and run it first. See DECISIONS.md 73. -->
+    <section class="card-feature find-desk" aria-labelledby="findHead">
+      <p class="cf-kick">Search the archive</p>
+      <h2 id="findHead">Ask it the way you'd ask a neighbor</h2>
+      <p class="cf-lede">Has the creek been high this month? When does the Brookside council meet? How much
+        rain fell last August? Has anybody seen a box turtle?</p>
+      <form class="find" id="findForm" role="search" action="fivemile-archive.html" method="get">
+        <div class="arc-find">
+          <svg class="fd-glass" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <input type="search" name="q" id="findInput" placeholder="Ask a question" aria-label="Ask a question, or search a word" autocomplete="off" enterkeyhint="search" maxlength="200">
+          <button type="submit" class="find-go">Ask</button>
+        </div>
+        <!-- One thing off the record per press. The line under the button is
+             the question the next press answers, and it turns over every few
+             seconds, so the button says what it holds instead of being a
+             mystery. It stays empty without script, where the button does
+             nothing anyway. See DECISIONS.md 73. -->
+        <button type="button" class="find-luck" id="findLuck">
+          <span class="luck-text">
+            <span class="luck-label">Tell me something I don't know</span>
+            <span class="luck-tease" id="findTease" hidden></span>
+          </span>
+          <span class="luck-go" aria-hidden="true">&rarr;</span>
+        </button>
+      </form>
+      <p class="cf-foot">If the record holds the answer you get it, straight from the creek gauge, the weather
+        records, the calendar or the stories, with a line under it saying where it came from. If it does not,
+        you get every page and record with those words in them, so a name or a place works just as well.</p>
+    </section>
     <div class="find-out" id="findOut" aria-live="polite"></div>
+
+    <div class="panel intro" data-share-in>
+      <p class="lede">Six things get kept here, and none of them go anywhere.</p>
+      <p>A library keeps its old papers on microfiche and makes you wind a spool to find March.
+        This is that, without the spool.</p>
+</div>
 
     <!-- Each panel reports what is behind it before a reader opens it. Every
          figure is read off the file the room itself reads, so a number here
@@ -204,9 +223,9 @@
            two lists and a set of rules, so the count is worked out with the
            same engine the room and the calendar page both ask, which keeps
            decision 36's rule that a figure out front cannot drift from the
-           figure inside. It takes the full width because five panels in two
-           columns otherwise leave a hole. -->
-      <a class="card-dept span2" href="fivemile-calendar-archive.html">
+           figure inside. It took the full width while it was the fifth of
+           five; the editions made six, and six panels fill two columns. -->
+      <a class="card-dept" href="fivemile-calendar-archive.html">
         <div class="d-bar"><h3>Dates</h3><span class="r">Calendar</span></div>
         <div class="d-body">
           <div class="d-rows list">
@@ -217,6 +236,22 @@
           <p class="d-tip">The council meetings and the two sales tax holidays are worked out from the rules
             that set them, so they are right in every year on it.</p>
           <p class="d-go">Date index <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
+      <!-- The sixth room: one edition a month, written by
+           scripts/build-editions.mjs, and never changed after it runs.
+           See DECISIONS.md 74. -->
+      <a class="card-dept" href="fivemile-edition-archive.html">
+        <div class="d-bar"><h3>Editions</h3><span class="r">Monthly</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🗞️</i>Editions</em><b id="hubEditionCount">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🆕</i>Most recent</em><b id="hubEditionNewest">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubEditionSince">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubEditionNote">&mdash;</p>
+          <p class="d-go">Editions <span aria-hidden="true">&rarr;</span></p>
         </div>
       </a>
 
@@ -244,7 +279,7 @@
 </div><!-- /page -->
 
 <script src="fivemile-common.js"></script>
-<!-- The hub reports on all five rooms, and the dates room has no file to read.
+<!-- The hub reports on all six rooms, and the dates room has no file to read.
      Its two figures are counted with the calendar engine, so the hub carries it
      the way it carries the four JSON fetches. See DECISIONS.md 50. -->
 <script src="fivemile-season-data.js"></script>
