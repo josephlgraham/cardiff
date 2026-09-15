@@ -1,129 +1,28 @@
 {
-  "updatedAt": "2026-09-15T20:18:37.873Z",
+  "updatedAt": "2026-09-15T21:14:53.056Z",
+  "rule": "three-towns",
   "source": "iNaturalist",
-  "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
-  "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
+  "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
+  "note": "Research grade observations only, from Graysville, Cardiff, and Brookside. Research grade means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
   "area": {
-    "label": "The lower end of Five Mile Creek",
-    "swlat": 33.575,
-    "swlng": -87.02,
-    "nelat": 33.705,
-    "nelng": -86.855
+    "label": "Graysville, Cardiff, and Brookside",
+    "swlat": 33.612,
+    "swlng": -87.005,
+    "nelat": 33.69,
+    "nelng": -86.895
   },
   "counts": {
-    "shown": 48,
-    "window_days": 120,
-    "in_window": 91,
-    "species_in_window": 72,
-    "window_total": 96,
-    "species_recorded": 81,
-    "observations_recorded": 102,
-    "area_total": 1106,
+    "shown": 37,
+    "window_days": 365,
+    "in_window": 37,
+    "species_in_window": 31,
+    "window_total": 38,
+    "species_recorded": 31,
+    "observations_recorded": 37,
+    "area_total": 250,
     "guide_links": 6
   },
   "observations": [
-    {
-      "id": 400335883,
-      "taxon": 120217,
-      "name": "Banded Tussock Moth",
-      "latin": "Halysidota tessellaris",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-14",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/400335883",
-      "firstRecord": false
-    },
-    {
-      "id": 400324271,
-      "taxon": 1397852,
-      "name": "Chinese Privet Leaf Beetle",
-      "latin": "Argopistes tsekooni",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-14",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/400324271",
-      "firstRecord": true
-    },
-    {
-      "id": 400104629,
-      "taxon": 116681,
-      "name": "Ailanthus Webworm Moth",
-      "latin": "Atteva aurea",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-13",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/400104629",
-      "firstRecord": false
-    },
-    {
-      "id": 399673568,
-      "taxon": 153544,
-      "name": "Butterfly Orbweaver",
-      "latin": "Araneus pegnia",
-      "rank": "species",
-      "group": "Spider",
-      "icon": "🕷️",
-      "observedOn": "2026-09-12",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399673568",
-      "firstRecord": false
-    },
-    {
-      "id": 399260791,
-      "taxon": 39846,
-      "name": "Alabama Map Turtle",
-      "latin": "Graptemys pulchra",
-      "rank": "species",
-      "group": "Reptile",
-      "icon": "🐍",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Seamus O'Brien",
-      "observerLogin": "scf75",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399260791",
-      "firstRecord": false
-    },
-    {
-      "id": 399227726,
-      "taxon": 39846,
-      "name": "Alabama Map Turtle",
-      "latin": "Graptemys pulchra",
-      "rank": "species",
-      "group": "Reptile",
-      "icon": "🐍",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Jesse Holifield",
-      "observerLogin": "jesseholifield",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399227726",
-      "firstRecord": false
-    },
     {
       "id": 399154686,
       "taxon": 104390,
@@ -139,23 +38,6 @@
       "observerLogin": "jesseholifield",
       "guide": "snail",
       "url": "https://www.inaturalist.org/observations/399154686",
-      "firstRecord": false
-    },
-    {
-      "id": 399154894,
-      "taxon": 104390,
-      "name": "Plicate Rocksnail",
-      "latin": "Leptoxis plicata",
-      "rank": "species",
-      "group": "Mollusc",
-      "icon": "🐌",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Jesse Holifield",
-      "observerLogin": "jesseholifield",
-      "guide": "snail",
-      "url": "https://www.inaturalist.org/observations/399154894",
       "firstRecord": false
     },
     {
@@ -176,23 +58,6 @@
       "firstRecord": false
     },
     {
-      "id": 399157779,
-      "taxon": 220898,
-      "name": "Orangenacre Mucket",
-      "latin": "Hamiota perovalis",
-      "rank": "species",
-      "group": "Mollusc",
-      "icon": "🐌",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Jesse Holifield",
-      "observerLogin": "jesseholifield",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399157779",
-      "firstRecord": false
-    },
-    {
       "id": 399157861,
       "taxon": 220898,
       "name": "Orangenacre Mucket",
@@ -207,176 +72,6 @@
       "observerLogin": "jesseholifield",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/399157861",
-      "firstRecord": false
-    },
-    {
-      "id": 399258874,
-      "taxon": 1318867,
-      "name": "Gladiator Elimia",
-      "latin": "Elimia hydeii",
-      "rank": "species",
-      "group": "Mollusc",
-      "icon": "🐌",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Seamus O'Brien",
-      "observerLogin": "scf75",
-      "guide": "snail",
-      "url": "https://www.inaturalist.org/observations/399258874",
-      "firstRecord": false
-    },
-    {
-      "id": 399157900,
-      "taxon": 220898,
-      "name": "Orangenacre Mucket",
-      "latin": "Hamiota perovalis",
-      "rank": "species",
-      "group": "Mollusc",
-      "icon": "🐌",
-      "observedOn": "2026-09-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Jesse Holifield",
-      "observerLogin": "jesseholifield",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399157900",
-      "firstRecord": false
-    },
-    {
-      "id": 399017627,
-      "taxon": 85333,
-      "name": "Spined Micrathena",
-      "latin": "Micrathena gracilis",
-      "rank": "species",
-      "group": "Spider",
-      "icon": "🕷️",
-      "observedOn": "2026-09-10",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Celeste Ray",
-      "observerLogin": "cray87sly",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399017627",
-      "firstRecord": false
-    },
-    {
-      "id": 399150153,
-      "taxon": 85034,
-      "name": "Spotted Orbweaver",
-      "latin": "Neoscona crucifera",
-      "rank": "species",
-      "group": "Spider",
-      "icon": "🕷️",
-      "observedOn": "2026-09-10",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Celeste Ray",
-      "observerLogin": "cray87sly",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399150153",
-      "firstRecord": false
-    },
-    {
-      "id": 399020517,
-      "taxon": 914922,
-      "name": "Japanese knotweed",
-      "latin": "Reynoutria japonica",
-      "rank": "species",
-      "group": "Plant",
-      "icon": "🌿",
-      "observedOn": "2026-09-10",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Celeste Ray",
-      "observerLogin": "cray87sly",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399020517",
-      "firstRecord": false
-    },
-    {
-      "id": 399019358,
-      "taxon": 68264,
-      "name": "Hackberry Emperor",
-      "latin": "Asterocampa celtis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-10",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Celeste Ray",
-      "observerLogin": "cray87sly",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/399019358",
-      "firstRecord": false
-    },
-    {
-      "id": 398902777,
-      "taxon": 978666,
-      "name": "Pavlovski's Monopis Moth",
-      "latin": "Monopis longella",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-09",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/398902777",
-      "firstRecord": false
-    },
-    {
-      "id": 398802572,
-      "taxon": 48599,
-      "name": "American pokeweed",
-      "latin": "Phytolacca americana",
-      "rank": "species",
-      "group": "Plant",
-      "icon": "🌿",
-      "observedOn": "2026-09-08",
-      "place": null,
-      "obscured": true,
-      "observer": "phopper",
-      "observerLogin": "phopper",
-      "guide": "pokeweed",
-      "url": "https://www.inaturalist.org/observations/398802572",
-      "firstRecord": false
-    },
-    {
-      "id": 398575630,
-      "taxon": 81750,
-      "name": "Mournful Sphinx",
-      "latin": "Enyo lugubris",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-08",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/398575630",
-      "firstRecord": false
-    },
-    {
-      "id": 398348337,
-      "taxon": 126209,
-      "name": "Citrus Flatid Planthopper",
-      "latin": "Metcalfa pruinosa",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-09-07",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/398348337",
       "firstRecord": false
     },
     {
@@ -397,40 +92,6 @@
       "firstRecord": false
     },
     {
-      "id": 395923395,
-      "taxon": 50001,
-      "name": "Eastern Box Turtle",
-      "latin": "Terrapene carolina carolina",
-      "rank": "subspecies",
-      "group": "Reptile",
-      "icon": "🐍",
-      "observedOn": "2026-08-30",
-      "place": null,
-      "obscured": true,
-      "observer": "Kay Dantzler",
-      "observerLogin": "kaydantzler",
-      "guide": "boxturt",
-      "url": "https://www.inaturalist.org/observations/395923395",
-      "firstRecord": false
-    },
-    {
-      "id": 395699452,
-      "taxon": 226221,
-      "name": "Narrow-winged Tree Cricket",
-      "latin": "Oecanthus niveus",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-29",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/395699452",
-      "firstRecord": false
-    },
-    {
       "id": 394427437,
       "taxon": 68264,
       "name": "Hackberry Emperor",
@@ -445,74 +106,6 @@
       "observerLogin": "diplopoda",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/394427437",
-      "firstRecord": false
-    },
-    {
-      "id": 394326157,
-      "taxon": 51110,
-      "name": "Eastern Carpenter Bee",
-      "latin": "Xylocopa virginica",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-24",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/394326157",
-      "firstRecord": false
-    },
-    {
-      "id": 394324330,
-      "taxon": 55556,
-      "name": "Large Milkweed Bug",
-      "latin": "Oncopeltus fasciatus",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-24",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/394324330",
-      "firstRecord": false
-    },
-    {
-      "id": 394233763,
-      "taxon": 81677,
-      "name": "Milkweed Tussock Moth",
-      "latin": "Euchaetes egle",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-24",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/394233763",
-      "firstRecord": false
-    },
-    {
-      "id": 393931129,
-      "taxon": 49766,
-      "name": "Zebra Longwing",
-      "latin": "Heliconius charithonia",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-23",
-      "place": null,
-      "obscured": true,
-      "observer": "Ryan",
-      "observerLogin": "r_thomson",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/393931129",
       "firstRecord": false
     },
     {
@@ -533,142 +126,6 @@
       "firstRecord": false
     },
     {
-      "id": 393365510,
-      "taxon": 142998,
-      "name": "Mint-loving Pyrausta Moth",
-      "latin": "Pyrausta acrionalis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-20",
-      "place": null,
-      "obscured": true,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/393365510",
-      "firstRecord": false
-    },
-    {
-      "id": 392831361,
-      "taxon": 225465,
-      "name": "Pole Borer",
-      "latin": "Neandra brunnea",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-19",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/392831361",
-      "firstRecord": false
-    },
-    {
-      "id": 390732717,
-      "taxon": 225465,
-      "name": "Pole Borer",
-      "latin": "Neandra brunnea",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-12",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/390732717",
-      "firstRecord": false
-    },
-    {
-      "id": 390467488,
-      "taxon": 362395,
-      "name": "Pelitropis rotulata",
-      "latin": null,
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-11",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/390467488",
-      "firstRecord": false
-    },
-    {
-      "id": 390391901,
-      "taxon": 34435,
-      "name": "Mediterranean House Gecko",
-      "latin": "Hemidactylus turcicus",
-      "rank": "species",
-      "group": "Reptile",
-      "icon": "🐍",
-      "observedOn": "2026-08-11",
-      "place": null,
-      "obscured": true,
-      "observer": "Rachel Nicole Macek",
-      "observerLogin": "rnmacek",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/390391901",
-      "firstRecord": false
-    },
-    {
-      "id": 390347489,
-      "taxon": 67707,
-      "name": "Yellow Garden Spider",
-      "latin": "Argiope aurantia",
-      "rank": "species",
-      "group": "Spider",
-      "icon": "🕷️",
-      "observedOn": "2026-08-11",
-      "place": "Adamsville",
-      "obscured": false,
-      "observer": "birdybirdnerd",
-      "observerLogin": "birdybirdnerd",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/390347489",
-      "firstRecord": false
-    },
-    {
-      "id": 390189279,
-      "taxon": 143649,
-      "name": "Florida Fern Moth",
-      "latin": "Callopistria floridensis",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-10",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/390189279",
-      "firstRecord": false
-    },
-    {
-      "id": 389558009,
-      "taxon": 48548,
-      "name": "Painted Lady",
-      "latin": "Vanessa cardui",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-08",
-      "place": null,
-      "obscured": true,
-      "observer": "Landon Ray",
-      "observerLogin": "landoncr",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/389558009",
-      "firstRecord": false
-    },
-    {
       "id": 389392932,
       "taxon": 227111,
       "name": "Trumpet Vine Sphinx",
@@ -683,57 +140,6 @@
       "observerLogin": "kinggub",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/389392932",
-      "firstRecord": false
-    },
-    {
-      "id": 389484098,
-      "taxon": 164985,
-      "name": "Japanese climbing fern",
-      "latin": "Lygodium japonicum",
-      "rank": "species",
-      "group": "Plant",
-      "icon": "🌿",
-      "observedOn": "2026-08-08",
-      "place": "Mount Olive",
-      "obscured": false,
-      "observer": "Landon Ray",
-      "observerLogin": "landoncr",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/389484098",
-      "firstRecord": false
-    },
-    {
-      "id": 388661842,
-      "taxon": 126291,
-      "name": "Two-lined Spittlebug",
-      "latin": "Prosapia bicincta",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-05",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/388661842",
-      "firstRecord": false
-    },
-    {
-      "id": 388661185,
-      "taxon": 116681,
-      "name": "Ailanthus Webworm Moth",
-      "latin": "Atteva aurea",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-08-05",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/388661185",
       "firstRecord": false
     },
     {
@@ -754,40 +160,6 @@
       "firstRecord": false
     },
     {
-      "id": 385857673,
-      "taxon": 81923,
-      "name": "Brown Marmorated Stink Bug",
-      "latin": "Halyomorpha halys",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-27",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/385857673",
-      "firstRecord": false
-    },
-    {
-      "id": 385483849,
-      "taxon": 119989,
-      "name": "Carolina Mantis",
-      "latin": "Stagmomantis carolina",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-26",
-      "place": "Mount Olive",
-      "obscured": false,
-      "observer": "Landon Ray",
-      "observerLogin": "landoncr",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/385483849",
-      "firstRecord": false
-    },
-    {
       "id": 384079071,
       "taxon": 39846,
       "name": "Alabama Map Turtle",
@@ -805,53 +177,495 @@
       "firstRecord": false
     },
     {
-      "id": 383832868,
-      "taxon": 123611,
-      "name": "Suzuki's Promalactis Moth",
-      "latin": "Promalactis suzukiella",
+      "id": 383103256,
+      "taxon": 75995,
+      "name": "American trumpet vine",
+      "latin": "Campsis radicans",
       "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-21",
-      "place": null,
-      "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
+      "group": "Plant",
+      "icon": "🌿",
+      "observedOn": "2026-07-19",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Cal",
+      "observerLogin": "diplopoda",
       "guide": null,
-      "url": "https://www.inaturalist.org/observations/383832868",
+      "url": "https://www.inaturalist.org/observations/383103256",
       "firstRecord": false
     },
     {
-      "id": 383827980,
-      "taxon": 143005,
-      "name": "Bent-lined Carpet",
-      "latin": "Costaconvexa centrostrigaria",
+      "id": 383104989,
+      "taxon": 118930,
+      "name": "Yellow-striped Armyworm Moth",
+      "latin": "Spodoptera ornithogalli",
       "rank": "species",
       "group": "Insect",
       "icon": "🦋",
-      "observedOn": "2026-07-21",
+      "observedOn": "2026-07-19",
       "place": null,
       "obscured": true,
-      "observer": "Kristin A. Bakkegard",
-      "observerLogin": "kbakkegard",
+      "observer": "Cal",
+      "observerLogin": "diplopoda",
       "guide": null,
-      "url": "https://www.inaturalist.org/observations/383827980",
+      "url": "https://www.inaturalist.org/observations/383104989",
+      "firstRecord": false
+    },
+    {
+      "id": 376445375,
+      "taxon": 58991,
+      "name": "Common Purslane",
+      "latin": "Portulaca oleracea",
+      "rank": "species",
+      "group": "Plant",
+      "icon": "🌿",
+      "observedOn": "2026-06-27",
+      "place": null,
+      "obscured": true,
+      "observer": "brianbeverage",
+      "observerLogin": "brianbeverage",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/376445375",
+      "firstRecord": false
+    },
+    {
+      "id": 375431463,
+      "taxon": 1674296,
+      "name": "Ivory-marked Borer",
+      "latin": "Coeleburia quadrigeminata",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-06-25",
+      "place": null,
+      "obscured": true,
+      "observer": "brianbeverage",
+      "observerLogin": "brianbeverage",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/375431463",
+      "firstRecord": false
+    },
+    {
+      "id": 381728858,
+      "taxon": 60839,
+      "name": "Virginian Tiger Moth",
+      "latin": "Spilosoma virginica",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-05-05",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Cal",
+      "observerLogin": "diplopoda",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/381728858",
+      "firstRecord": false
+    },
+    {
+      "id": 358134165,
+      "taxon": 84549,
+      "name": "Common Whitetail",
+      "latin": "Plathemis lydia",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-05-03",
+      "place": null,
+      "obscured": true,
+      "observer": "hbarze",
+      "observerLogin": "hbarze",
+      "guide": "dragonfly",
+      "url": "https://www.inaturalist.org/observations/358134165",
+      "firstRecord": false
+    },
+    {
+      "id": 381701117,
+      "taxon": 5206,
+      "name": "Red-shouldered Hawk",
+      "latin": "Buteo lineatus",
+      "rank": "species",
+      "group": "Bird",
+      "icon": "🐦",
+      "observedOn": "2026-04-24",
+      "place": null,
+      "obscured": true,
+      "observer": "Rhoda Knutson",
+      "observerLogin": "rhoda79944",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/381701117",
+      "firstRecord": false
+    },
+    {
+      "id": 350318384,
+      "taxon": 6930,
+      "name": "Mallard",
+      "latin": "Anas platyrhynchos",
+      "rank": "species",
+      "group": "Bird",
+      "icon": "🐦",
+      "observedOn": "2026-04-03",
+      "place": null,
+      "obscured": true,
+      "observer": "fein",
+      "observerLogin": "hmameril",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/350318384",
+      "firstRecord": false
+    },
+    {
+      "id": 345368361,
+      "taxon": 335051,
+      "name": "golden reishi",
+      "latin": "Ganoderma curtisii",
+      "rank": "species",
+      "group": "Fungus",
+      "icon": "🍄",
+      "observedOn": "2026-03-26",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "annamoody22",
+      "observerLogin": "annamoody22",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/345368361",
+      "firstRecord": false
+    },
+    {
+      "id": 345817696,
+      "taxon": 85365,
+      "name": "Redbreast Sunfish",
+      "latin": "Lepomis auritus",
+      "rank": "species",
+      "group": "Fish",
+      "icon": "🐟",
+      "observedOn": "2026-03-24",
+      "place": null,
+      "obscured": true,
+      "observer": "Kalton Roye",
+      "observerLogin": "kalton_roye",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/345817696",
+      "firstRecord": false
+    },
+    {
+      "id": 341519887,
+      "taxon": 81793,
+      "name": "rose vervain",
+      "latin": "Glandularia canadensis",
+      "rank": "species",
+      "group": "Plant",
+      "icon": "🌿",
+      "observedOn": "2026-03-05",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Dan Spaulding",
+      "observerLogin": "danbadlands",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/341519887",
+      "firstRecord": false
+    },
+    {
+      "id": 331342593,
+      "taxon": 42134,
+      "name": "Wild Boar",
+      "latin": "Sus scrofa",
+      "rank": "species",
+      "group": "Mammal",
+      "icon": "🦌",
+      "observedOn": "2025-12-17",
+      "place": null,
+      "obscured": true,
+      "observer": "Jordan Broadhead",
+      "observerLogin": "jbroadhead",
+      "guide": "hog",
+      "url": "https://www.inaturalist.org/observations/331342593",
+      "firstRecord": false
+    },
+    {
+      "id": 321438642,
+      "taxon": 169457,
+      "name": "southern annual saltmarsh aster",
+      "latin": "Symphyotrichum divaricatum",
+      "rank": "species",
+      "group": "Plant",
+      "icon": "🌿",
+      "observedOn": "2025-10-15",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "yanceyuab",
+      "observerLogin": "yanceyuab",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/321438642",
+      "firstRecord": false
+    },
+    {
+      "id": 319881823,
+      "taxon": 222717,
+      "name": "Alabama Heelsplitter",
+      "latin": "Lasmigona alabamensis",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319881823",
+      "firstRecord": false
+    },
+    {
+      "id": 319882134,
+      "taxon": 125531,
+      "name": "Three-horn Wartyback",
+      "latin": "Obliquaria reflexa",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319882134",
+      "firstRecord": false
+    },
+    {
+      "id": 319882303,
+      "taxon": 111460,
+      "name": "Mapleleaf",
+      "latin": "Quadrula quadrula",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319882303",
+      "firstRecord": false
+    },
+    {
+      "id": 319882434,
+      "taxon": 1603041,
+      "name": "Pistolgrip",
+      "latin": "Quadrula verrucosa",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319882434",
+      "firstRecord": false
+    },
+    {
+      "id": 319882496,
+      "taxon": 128504,
+      "name": "Bleufer",
+      "latin": "Potamilus purpuratus",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319882496",
+      "firstRecord": false
+    },
+    {
+      "id": 319884570,
+      "taxon": 1610839,
+      "name": "Alabama Orb",
+      "latin": "Pustulosa kieneriana",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319884570",
+      "firstRecord": false
+    },
+    {
+      "id": 319884598,
+      "taxon": 151627,
+      "name": "Yellow Sandshell",
+      "latin": "Lampsilis teres",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319884598",
+      "firstRecord": false
+    },
+    {
+      "id": 319887213,
+      "taxon": 1603041,
+      "name": "Pistolgrip",
+      "latin": "Quadrula verrucosa",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319887213",
+      "firstRecord": false
+    },
+    {
+      "id": 319887328,
+      "taxon": 104032,
+      "name": "Southern Pocketbook",
+      "latin": "Lampsilis ornata",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319887328",
+      "firstRecord": false
+    },
+    {
+      "id": 319887622,
+      "taxon": 222717,
+      "name": "Alabama Heelsplitter",
+      "latin": "Lasmigona alabamensis",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319887622",
+      "firstRecord": false
+    },
+    {
+      "id": 319887926,
+      "taxon": 125531,
+      "name": "Three-horn Wartyback",
+      "latin": "Obliquaria reflexa",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319887926",
+      "firstRecord": false
+    },
+    {
+      "id": 319887961,
+      "taxon": 111460,
+      "name": "Mapleleaf",
+      "latin": "Quadrula quadrula",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/319887961",
+      "firstRecord": false
+    },
+    {
+      "id": 319892412,
+      "taxon": 109801,
+      "name": "Ringed Hornsnail",
+      "latin": "Pleurocera annulifera",
+      "rank": "species",
+      "group": "Mollusc",
+      "icon": "🐌",
+      "observedOn": "2025-10-09",
+      "place": null,
+      "obscured": true,
+      "observer": "kingjenna",
+      "observerLogin": "kingjenna",
+      "guide": "snail",
+      "url": "https://www.inaturalist.org/observations/319892412",
+      "firstRecord": false
+    },
+    {
+      "id": 319568845,
+      "taxon": 67731,
+      "name": "Common Green Darner",
+      "latin": "Anax junius",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2025-10-08",
+      "place": null,
+      "obscured": true,
+      "observer": "bcecille",
+      "observerLogin": "bcecille",
+      "guide": "dragonfly",
+      "url": "https://www.inaturalist.org/observations/319568845",
+      "firstRecord": false
+    },
+    {
+      "id": 318670669,
+      "taxon": 477740,
+      "name": "Tigrosa annexa",
+      "latin": null,
+      "rank": "species",
+      "group": "Spider",
+      "icon": "🕷️",
+      "observedOn": "2025-10-04",
+      "place": "Brookside",
+      "obscured": false,
+      "observer": "sswbryan",
+      "observerLogin": "sswbryan",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/318670669",
       "firstRecord": false
     }
   ],
   "roll": [
     {
-      "taxon": 116681,
-      "name": "Ailanthus Webworm Moth",
-      "latin": "Atteva aurea",
-      "group": "Insect",
+      "taxon": 222717,
+      "name": "Alabama Heelsplitter",
+      "latin": "Lasmigona alabamensis",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-08-05",
-      "last": "2026-09-13",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
       "count": 2,
       "ids": [
-        388661185,
-        400104629
+        319881823,
+        319887622
       ]
     },
     {
@@ -860,40 +674,24 @@
       "latin": "Graptemys pulchra",
       "group": "Reptile",
       "rank": "species",
-      "first": "2026-06-14",
-      "last": "2026-09-10",
-      "count": 4,
+      "first": "2026-07-22",
+      "last": "2026-07-22",
+      "count": 1,
       "ids": [
-        371724282,
-        384079071,
-        399227726,
-        399260791
+        384079071
       ]
     },
     {
-      "taxon": 98895,
-      "name": "Alabama Shiner",
-      "latin": "Cyprinella callistia",
-      "group": "Fish",
+      "taxon": 1610839,
+      "name": "Alabama Orb",
+      "latin": "Pustulosa kieneriana",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-06-26",
-      "last": "2026-06-26",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
       "count": 1,
       "ids": [
-        377649474
-      ]
-    },
-    {
-      "taxon": 48599,
-      "name": "American pokeweed",
-      "latin": "Phytolacca americana",
-      "group": "Plant",
-      "rank": "species",
-      "first": "2026-09-08",
-      "last": "2026-09-08",
-      "count": 1,
-      "ids": [
-        398802572
+        319884570
       ]
     },
     {
@@ -910,203 +708,29 @@
       ]
     },
     {
-      "taxon": 48484,
-      "name": "Asian Lady Beetle",
-      "latin": "Harmonia axyridis",
+      "taxon": 128504,
+      "name": "Bleufer",
+      "latin": "Potamilus purpuratus",
+      "group": "Mollusc",
+      "rank": "species",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
+      "count": 1,
+      "ids": [
+        319882496
+      ]
+    },
+    {
+      "taxon": 67731,
+      "name": "Common Green Darner",
+      "latin": "Anax junius",
       "group": "Insect",
       "rank": "species",
-      "first": "2026-07-16",
-      "last": "2026-07-16",
+      "first": "2025-10-08",
+      "last": "2025-10-08",
       "count": 1,
       "ids": [
-        382182399
-      ]
-    },
-    {
-      "taxon": 120217,
-      "name": "Banded Tussock Moth",
-      "latin": "Halysidota tessellaris",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-11",
-      "last": "2026-09-14",
-      "count": 2,
-      "ids": [
-        370653461,
-        400335883
-      ]
-    },
-    {
-      "taxon": 143005,
-      "name": "Bent-lined Carpet",
-      "latin": "Costaconvexa centrostrigaria",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-21",
-      "last": "2026-07-21",
-      "count": 1,
-      "ids": [
-        383827980
-      ]
-    },
-    {
-      "taxon": 60348,
-      "name": "Black Kingsnake",
-      "latin": "Lampropeltis nigra",
-      "group": "Reptile",
-      "rank": "species",
-      "first": "2026-05-10",
-      "last": "2026-05-10",
-      "count": 1,
-      "ids": [
-        361318001
-      ]
-    },
-    {
-      "taxon": 109092,
-      "name": "Blackbanded Darter",
-      "latin": "Percina nigrofasciata",
-      "group": "Fish",
-      "rank": "species",
-      "first": "2026-05-12",
-      "last": "2026-05-12",
-      "count": 1,
-      "ids": [
-        360984403
-      ]
-    },
-    {
-      "taxon": 49591,
-      "name": "Bluegill",
-      "latin": "Lepomis macrochirus",
-      "group": "Fish",
-      "rank": "species",
-      "first": "2026-06-11",
-      "last": "2026-06-11",
-      "count": 1,
-      "ids": [
-        371484431
-      ]
-    },
-    {
-      "taxon": 81923,
-      "name": "Brown Marmorated Stink Bug",
-      "latin": "Halyomorpha halys",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-27",
-      "last": "2026-07-27",
-      "count": 1,
-      "ids": [
-        385857673
-      ]
-    },
-    {
-      "taxon": 14825,
-      "name": "Brown-headed Nuthatch",
-      "latin": "Sitta pusilla",
-      "group": "Bird",
-      "rank": "species",
-      "first": "2026-05-13",
-      "last": "2026-05-13",
-      "count": 1,
-      "ids": [
-        361205140
-      ]
-    },
-    {
-      "taxon": 153544,
-      "name": "Butterfly Orbweaver",
-      "latin": "Araneus pegnia",
-      "group": "Spider",
-      "rank": "species",
-      "first": "2026-09-12",
-      "last": "2026-09-12",
-      "count": 1,
-      "ids": [
-        399673568
-      ]
-    },
-    {
-      "taxon": 119989,
-      "name": "Carolina Mantis",
-      "latin": "Stagmomantis carolina",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-27",
-      "last": "2026-07-26",
-      "count": 4,
-      "ids": [
-        365872758,
-        377871806,
-        382764775,
-        385483849
-      ]
-    },
-    {
-      "taxon": 1555999,
-      "name": "Carolina snailseed",
-      "latin": "Nephroia carolina",
-      "group": "Plant",
-      "rank": "species",
-      "first": "2026-05-13",
-      "last": "2026-05-13",
-      "count": 1,
-      "ids": [
-        364176068
-      ]
-    },
-    {
-      "taxon": 61505,
-      "name": "Carolina Sphinx",
-      "latin": "Manduca sexta",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-21",
-      "last": "2026-07-21",
-      "count": 1,
-      "ids": [
-        383793879
-      ]
-    },
-    {
-      "taxon": 1397852,
-      "name": "Chinese Privet Leaf Beetle",
-      "latin": "Argopistes tsekooni",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-09-14",
-      "last": "2026-09-14",
-      "count": 1,
-      "ids": [
-        400324271
-      ]
-    },
-    {
-      "taxon": 126209,
-      "name": "Citrus Flatid Planthopper",
-      "latin": "Metcalfa pruinosa",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-09-07",
-      "last": "2026-09-07",
-      "count": 1,
-      "ids": [
-        398348337
-      ]
-    },
-    {
-      "taxon": 56083,
-      "name": "Common Pill Woodlouse",
-      "latin": "Armadillidium vulgare",
-      "group": "Animal",
-      "rank": "species",
-      "first": "2026-04-30",
-      "last": "2026-04-30",
-      "count": 2,
-      "ids": [
-        356896036,
-        356898124
+        319568845
       ]
     },
     {
@@ -1123,32 +747,6 @@
       ]
     },
     {
-      "taxon": 143105,
-      "name": "Common Tan Wave",
-      "latin": "Pleuroprucha insulsaria",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-22",
-      "last": "2026-05-22",
-      "count": 1,
-      "ids": [
-        364181106
-      ]
-    },
-    {
-      "taxon": 118951,
-      "name": "Common True Katydid",
-      "latin": "Pterophylla camellifolia",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-05",
-      "last": "2026-07-05",
-      "count": 1,
-      "ids": [
-        378536558
-      ]
-    },
-    {
       "taxon": 84549,
       "name": "Common Whitetail",
       "latin": "Plathemis lydia",
@@ -1162,134 +760,16 @@
       ]
     },
     {
-      "taxon": 482158,
-      "name": "curved-ribbon",
-      "latin": "Dinumma deponens",
-      "group": "Insect",
+      "taxon": 335051,
+      "name": "golden reishi",
+      "latin": "Ganoderma curtisii",
+      "group": "Fungus",
       "rank": "species",
-      "first": "2026-07-03",
-      "last": "2026-07-03",
+      "first": "2026-03-26",
+      "last": "2026-03-26",
       "count": 1,
       "ids": [
-        377749039
-      ]
-    },
-    {
-      "taxon": 147030,
-      "name": "Davis' Tree Cricket",
-      "latin": "Oecanthus exclamationis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-26",
-      "last": "2026-06-26",
-      "count": 1,
-      "ids": [
-        376445156
-      ]
-    },
-    {
-      "taxon": 50001,
-      "name": "Eastern Box Turtle",
-      "latin": "Terrapene carolina carolina",
-      "group": "Reptile",
-      "rank": "subspecies",
-      "first": "2026-08-30",
-      "last": "2026-08-30",
-      "count": 1,
-      "ids": [
-        395923395
-      ]
-    },
-    {
-      "taxon": 51110,
-      "name": "Eastern Carpenter Bee",
-      "latin": "Xylocopa virginica",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-24",
-      "last": "2026-08-24",
-      "count": 1,
-      "ids": [
-        394326157
-      ]
-    },
-    {
-      "taxon": 25078,
-      "name": "Eastern Narrow-mouthed Toad",
-      "latin": "Gastrophryne carolinensis",
-      "group": "Amphibian",
-      "rank": "species",
-      "first": "2026-05-10",
-      "last": "2026-07-03",
-      "count": 2,
-      "ids": [
-        360451547,
-        377868727
-      ]
-    },
-    {
-      "taxon": 17008,
-      "name": "Eastern Phoebe",
-      "latin": "Sayornis phoebe",
-      "group": "Bird",
-      "rank": "species",
-      "first": "2026-07-03",
-      "last": "2026-07-03",
-      "count": 1,
-      "ids": [
-        377883584
-      ]
-    },
-    {
-      "taxon": 127133,
-      "name": "Fall Webworm Moth",
-      "latin": "Hyphantria cunea",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-11",
-      "last": "2026-07-11",
-      "count": 1,
-      "ids": [
-        380498582
-      ]
-    },
-    {
-      "taxon": 143649,
-      "name": "Florida Fern Moth",
-      "latin": "Callopistria floridensis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-10",
-      "last": "2026-08-10",
-      "count": 1,
-      "ids": [
-        390189279
-      ]
-    },
-    {
-      "taxon": 1318867,
-      "name": "Gladiator Elimia",
-      "latin": "Elimia hydeii",
-      "group": "Mollusc",
-      "rank": "species",
-      "first": "2026-09-10",
-      "last": "2026-09-10",
-      "count": 1,
-      "ids": [
-        399258874
-      ]
-    },
-    {
-      "taxon": 143390,
-      "name": "Greenhouse Millipede",
-      "latin": "Oxidus gracilis",
-      "group": "Animal",
-      "rank": "species",
-      "first": "2026-06-23",
-      "last": "2026-06-23",
-      "count": 1,
-      "ids": [
-        374760624
+        345368361
       ]
     },
     {
@@ -1299,50 +779,10 @@
       "group": "Insect",
       "rank": "species",
       "first": "2026-08-25",
-      "last": "2026-09-10",
-      "count": 2,
-      "ids": [
-        394427437,
-        399019358
-      ]
-    },
-    {
-      "taxon": 228593,
-      "name": "Hebrew Moth",
-      "latin": "Polygrammate hebraeicum",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-06",
-      "last": "2026-07-06",
+      "last": "2026-08-25",
       "count": 1,
       "ids": [
-        378967997
-      ]
-    },
-    {
-      "taxon": 228915,
-      "name": "Herrick's Water Penny Beetle",
-      "latin": "Psephenus herricki",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-05",
-      "last": "2026-05-05",
-      "count": 1,
-      "ids": [
-        358659484
-      ]
-    },
-    {
-      "taxon": 82279,
-      "name": "Io Moth",
-      "latin": "Automeris io",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-03",
-      "last": "2026-07-03",
-      "count": 1,
-      "ids": [
-        377758131
+        394427437
       ]
     },
     {
@@ -1359,159 +799,30 @@
       ]
     },
     {
-      "taxon": 164985,
-      "name": "Japanese climbing fern",
-      "latin": "Lygodium japonicum",
-      "group": "Plant",
+      "taxon": 6930,
+      "name": "Mallard",
+      "latin": "Anas platyrhynchos",
+      "group": "Bird",
       "rank": "species",
-      "first": "2026-08-08",
-      "last": "2026-08-08",
+      "first": "2026-04-03",
+      "last": "2026-04-03",
       "count": 1,
       "ids": [
-        389484098
+        350318384
       ]
     },
     {
-      "taxon": 914922,
-      "name": "Japanese knotweed",
-      "latin": "Reynoutria japonica",
-      "group": "Plant",
+      "taxon": 111460,
+      "name": "Mapleleaf",
+      "latin": "Quadrula quadrula",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-09-10",
-      "last": "2026-09-10",
-      "count": 1,
+      "first": "2025-10-09",
+      "last": "2025-10-09",
+      "count": 2,
       "ids": [
-        399020517
-      ]
-    },
-    {
-      "taxon": 55556,
-      "name": "Large Milkweed Bug",
-      "latin": "Oncopeltus fasciatus",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-24",
-      "last": "2026-08-24",
-      "count": 1,
-      "ids": [
-        394324330
-      ]
-    },
-    {
-      "taxon": 199870,
-      "name": "Meal moth",
-      "latin": "Pyralis farinalis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-07",
-      "last": "2026-06-07",
-      "count": 1,
-      "ids": [
-        369576993
-      ]
-    },
-    {
-      "taxon": 34435,
-      "name": "Mediterranean House Gecko",
-      "latin": "Hemidactylus turcicus",
-      "group": "Reptile",
-      "rank": "species",
-      "first": "2026-08-11",
-      "last": "2026-08-11",
-      "count": 1,
-      "ids": [
-        390391901
-      ]
-    },
-    {
-      "taxon": 210209,
-      "name": "Micromus posticus",
-      "latin": null,
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-18",
-      "last": "2026-06-18",
-      "count": 1,
-      "ids": [
-        373145261
-      ]
-    },
-    {
-      "taxon": 81677,
-      "name": "Milkweed Tussock Moth",
-      "latin": "Euchaetes egle",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-24",
-      "last": "2026-08-24",
-      "count": 1,
-      "ids": [
-        394233763
-      ]
-    },
-    {
-      "taxon": 142998,
-      "name": "Mint-loving Pyrausta Moth",
-      "latin": "Pyrausta acrionalis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-20",
-      "last": "2026-08-20",
-      "count": 1,
-      "ids": [
-        393365510
-      ]
-    },
-    {
-      "taxon": 81750,
-      "name": "Mournful Sphinx",
-      "latin": "Enyo lugubris",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-09-08",
-      "last": "2026-09-08",
-      "count": 1,
-      "ids": [
-        398575630
-      ]
-    },
-    {
-      "taxon": 226221,
-      "name": "Narrow-winged Tree Cricket",
-      "latin": "Oecanthus niveus",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-29",
-      "last": "2026-08-29",
-      "count": 1,
-      "ids": [
-        395699452
-      ]
-    },
-    {
-      "taxon": 47916,
-      "name": "North American Luna Moth",
-      "latin": "Actias luna",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-22",
-      "last": "2026-05-22",
-      "count": 1,
-      "ids": [
-        364467442
-      ]
-    },
-    {
-      "taxon": 48957,
-      "name": "North American Wheel Bug",
-      "latin": "Arilus cristatus",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-07",
-      "last": "2026-05-07",
-      "count": 1,
-      "ids": [
-        359300563
+        319882303,
+        319887961
       ]
     },
     {
@@ -1522,90 +833,23 @@
       "rank": "species",
       "first": "2026-09-10",
       "last": "2026-09-10",
-      "count": 3,
-      "ids": [
-        399157779,
-        399157861,
-        399157900
-      ]
-    },
-    {
-      "taxon": 62785,
-      "name": "Ormenoides venusta",
-      "latin": null,
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-27",
-      "last": "2026-06-27",
       "count": 1,
       "ids": [
-        376075861
+        399157861
       ]
     },
     {
-      "taxon": 48548,
-      "name": "Painted Lady",
-      "latin": "Vanessa cardui",
-      "group": "Insect",
+      "taxon": 1603041,
+      "name": "Pistolgrip",
+      "latin": "Quadrula verrucosa",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-08-08",
-      "last": "2026-08-08",
-      "count": 1,
-      "ids": [
-        389558009
-      ]
-    },
-    {
-      "taxon": 311163,
-      "name": "Pale-bordered Field Cockroach",
-      "latin": "Pseudomops septentrionalis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-19",
-      "last": "2026-07-18",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
       "count": 2,
       "ids": [
-        373456818,
-        382817289
-      ]
-    },
-    {
-      "taxon": 978666,
-      "name": "Pavlovski's Monopis Moth",
-      "latin": "Monopis longella",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-09-09",
-      "last": "2026-09-09",
-      "count": 1,
-      "ids": [
-        398902777
-      ]
-    },
-    {
-      "taxon": 362395,
-      "name": "Pelitropis rotulata",
-      "latin": null,
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-11",
-      "last": "2026-08-11",
-      "count": 1,
-      "ids": [
-        390467488
-      ]
-    },
-    {
-      "taxon": 227975,
-      "name": "Phyllophaga futilis",
-      "latin": null,
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-11",
-      "last": "2026-06-11",
-      "count": 1,
-      "ids": [
-        370653044
+        319882434,
+        319887213
       ]
     },
     {
@@ -1616,66 +860,75 @@
       "rank": "species",
       "first": "2026-09-10",
       "last": "2026-09-10",
-      "count": 3,
+      "count": 2,
       "ids": [
         399154686,
-        399154894,
         399154992
       ]
     },
     {
-      "taxon": 225465,
-      "name": "Pole Borer",
-      "latin": "Neandra brunnea",
-      "group": "Insect",
+      "taxon": 5206,
+      "name": "Red-shouldered Hawk",
+      "latin": "Buteo lineatus",
+      "group": "Bird",
       "rank": "species",
-      "first": "2026-08-12",
-      "last": "2026-08-19",
-      "count": 2,
-      "ids": [
-        390732717,
-        392831361
-      ]
-    },
-    {
-      "taxon": 143867,
-      "name": "Porcelain Gray",
-      "latin": "Protoboarmia porcelaria",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-05",
-      "last": "2026-07-05",
+      "first": "2026-04-24",
+      "last": "2026-04-24",
       "count": 1,
       "ids": [
-        378650304
+        381701117
       ]
     },
     {
-      "taxon": 27486,
-      "name": "Red Salamander",
-      "latin": "Pseudotriton ruber",
-      "group": "Amphibian",
+      "taxon": 85365,
+      "name": "Redbreast Sunfish",
+      "latin": "Lepomis auritus",
+      "group": "Fish",
       "rank": "species",
-      "first": "2026-06-13",
-      "last": "2026-07-03",
-      "count": 2,
+      "first": "2026-03-24",
+      "last": "2026-03-24",
+      "count": 1,
       "ids": [
-        371484365,
-        377868507
+        345817696
       ]
     },
     {
-      "taxon": 233860,
-      "name": "Rustic Borer",
-      "latin": "Xylotrechus colonus",
-      "group": "Insect",
+      "taxon": 109801,
+      "name": "Ringed Hornsnail",
+      "latin": "Pleurocera annulifera",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-07-14",
-      "last": "2026-07-16",
-      "count": 2,
+      "first": "2025-10-09",
+      "last": "2025-10-09",
+      "count": 1,
       "ids": [
-        381558344,
-        382178844
+        319892412
+      ]
+    },
+    {
+      "taxon": 81793,
+      "name": "rose vervain",
+      "latin": "Glandularia canadensis",
+      "group": "Plant",
+      "rank": "species",
+      "first": "2026-03-05",
+      "last": "2026-03-05",
+      "count": 1,
+      "ids": [
+        341519887
+      ]
+    },
+    {
+      "taxon": 169457,
+      "name": "southern annual saltmarsh aster",
+      "latin": "Symphyotrichum divaricatum",
+      "group": "Plant",
+      "rank": "species",
+      "first": "2025-10-15",
+      "last": "2025-10-15",
+      "count": 1,
+      "ids": [
+        321438642
       ]
     },
     {
@@ -1692,29 +945,16 @@
       ]
     },
     {
-      "taxon": 84185,
-      "name": "Southern Flannel Moth",
-      "latin": "Megalopyge opercularis",
-      "group": "Insect",
+      "taxon": 104032,
+      "name": "Southern Pocketbook",
+      "latin": "Lampsilis ornata",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-06-25",
-      "last": "2026-06-25",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
       "count": 1,
       "ids": [
-        375136909
-      ]
-    },
-    {
-      "taxon": 85333,
-      "name": "Spined Micrathena",
-      "latin": "Micrathena gracilis",
-      "group": "Spider",
-      "rank": "species",
-      "first": "2026-09-10",
-      "last": "2026-09-10",
-      "count": 1,
-      "ids": [
-        399017627
+        319887328
       ]
     },
     {
@@ -1732,68 +972,30 @@
       ]
     },
     {
-      "taxon": 85034,
-      "name": "Spotted Orbweaver",
-      "latin": "Neoscona crucifera",
+      "taxon": 125531,
+      "name": "Three-horn Wartyback",
+      "latin": "Obliquaria reflexa",
+      "group": "Mollusc",
+      "rank": "species",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
+      "count": 2,
+      "ids": [
+        319882134,
+        319887926
+      ]
+    },
+    {
+      "taxon": 477740,
+      "name": "Tigrosa annexa",
+      "latin": null,
       "group": "Spider",
       "rank": "species",
-      "first": "2026-09-10",
-      "last": "2026-09-10",
+      "first": "2025-10-04",
+      "last": "2025-10-04",
       "count": 1,
       "ids": [
-        399150153
-      ]
-    },
-    {
-      "taxon": 82792,
-      "name": "Summer Azure",
-      "latin": "Celastrina neglecta",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-05",
-      "last": "2026-07-05",
-      "count": 1,
-      "ids": [
-        381542898
-      ]
-    },
-    {
-      "taxon": 123611,
-      "name": "Suzuki's Promalactis Moth",
-      "latin": "Promalactis suzukiella",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-21",
-      "last": "2026-07-21",
-      "count": 1,
-      "ids": [
-        383832868
-      ]
-    },
-    {
-      "taxon": 228714,
-      "name": "Tile-horned Prionus",
-      "latin": "Prionus imbricornis",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-05-28",
-      "last": "2026-05-28",
-      "count": 1,
-      "ids": [
-        366216082
-      ]
-    },
-    {
-      "taxon": 30746,
-      "name": "Timber Rattlesnake",
-      "latin": "Crotalus horridus",
-      "group": "Reptile",
-      "rank": "species",
-      "first": "2026-07-09",
-      "last": "2026-07-09",
-      "count": 1,
-      "ids": [
-        394944625
+        318670669
       ]
     },
     {
@@ -1810,33 +1012,6 @@
       ]
     },
     {
-      "taxon": 83090,
-      "name": "Tulip-tree Beauty",
-      "latin": "Epimecis hortaria",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-07-04",
-      "last": "2026-07-04",
-      "count": 1,
-      "ids": [
-        378276495
-      ]
-    },
-    {
-      "taxon": 126291,
-      "name": "Two-lined Spittlebug",
-      "latin": "Prosapia bicincta",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-06-11",
-      "last": "2026-08-05",
-      "count": 2,
-      "ids": [
-        370647951,
-        388661842
-      ]
-    },
-    {
       "taxon": 60839,
       "name": "Virginian Tiger Moth",
       "latin": "Spilosoma virginica",
@@ -1850,42 +1025,29 @@
       ]
     },
     {
-      "taxon": 153842,
-      "name": "White-jawed Jumping Spider",
-      "latin": "Hentzia mitrata",
-      "group": "Spider",
+      "taxon": 42134,
+      "name": "Wild Boar",
+      "latin": "Sus scrofa",
+      "group": "Mammal",
       "rank": "species",
-      "first": "2026-06-02",
-      "last": "2026-06-02",
+      "first": "2025-12-17",
+      "last": "2025-12-17",
       "count": 1,
       "ids": [
-        367867360
+        331342593
       ]
     },
     {
-      "taxon": 201277,
-      "name": "White-lined Snout",
-      "latin": "Hypena abalienalis",
-      "group": "Insect",
+      "taxon": 151627,
+      "name": "Yellow Sandshell",
+      "latin": "Lampsilis teres",
+      "group": "Mollusc",
       "rank": "species",
-      "first": "2026-06-06",
-      "last": "2026-06-06",
+      "first": "2025-10-09",
+      "last": "2025-10-09",
       "count": 1,
       "ids": [
-        368862767
-      ]
-    },
-    {
-      "taxon": 67707,
-      "name": "Yellow Garden Spider",
-      "latin": "Argiope aurantia",
-      "group": "Spider",
-      "rank": "species",
-      "first": "2026-08-11",
-      "last": "2026-08-11",
-      "count": 1,
-      "ids": [
-        390347489
+        319884598
       ]
     },
     {
@@ -1899,19 +1061,6 @@
       "count": 1,
       "ids": [
         383104989
-      ]
-    },
-    {
-      "taxon": 49766,
-      "name": "Zebra Longwing",
-      "latin": "Heliconius charithonia",
-      "group": "Insect",
-      "rank": "species",
-      "first": "2026-08-23",
-      "last": "2026-08-23",
-      "count": 1,
-      "ids": [
-        393931129
       ]
     }
   ]

@@ -3020,6 +3020,8 @@ Locust Fork and catches Adamsville and the Mount Olive side, which is correct,
 they are on this water, but every row names its own town so nobody is ever told
 a Mount Olive frog was a Cardiff frog.
 
+The box was moved in September 2026, to the three towns only. See decision 81.
+
 ---
 
 ## 53. The heritage prose is written into the HTML at build time
@@ -3170,6 +3172,8 @@ standfirst on an opening, and it stops matching the moment anything is put above
 the lede. Adding a kicker silently dropped the standfirst off every page that
 gained one, and the selector had to be widened to compensate. It is back to the
 single shape now, and the comment in `fivemile-shell.css` says so.
+
+The standfirst itself was taken out in September 2026. See decision 80.
 
 ### The share row moved inside the panel
 
@@ -5336,3 +5340,91 @@ issue saying the alert works, to confirm the email arrives.
 **Revisit if:** GitHub's throttling gets worse and the twelve hour limits start
 raising alarms on a working station; or an issue opens and nobody saw the email,
 in which case the notification settings are the problem and not this.
+
+---
+
+## 80. Prose in a card is one size
+**Decided:** September 2026. Replaces the standfirst described under decision 54.
+
+The first paragraph of every opening panel was set at 19px in full ink, 18px on
+a phone, with the argument that a slab of even grey had nowhere for the eye to
+land. Heritage chapters copied it onto `.ch-note`. Joe read the pages and did
+not like a card whose first paragraph was bigger than the rest of it, and asked
+for the rule to be that text in a card is consistent.
+
+Measured across the sitemap before the change, one panel could read in three
+sizes: the lede at 19px in ink, a `.p-list` at 16.5px in ink2, and a following
+plain paragraph at 17px in ink because nothing set it and it inherited the body.
+The standfirst was the loud one, but the 17px paragraph was the same fault
+quietly.
+
+**Every paragraph in a panel is now 16.5px at 1.62 in ink2**, which is what
+`.lede` already was and what `.p-list` rows already were. `.panel .lede:first-child`
+is gone from `fivemile-shell.css`, and a `:where(.panel) > p` rule sets the plain
+paragraphs to match. `:where()` keeps it at the weight of a bare `p`, so a page
+that styles a paragraph in a panel with a class of its own, the edition kicker
+for one, still wins. `.ch-note` in `fivemile-heritage.css` takes the same
+numbers and loses its phone step.
+
+About sets its own paragraphs in `.abt p`, at 16px, beside a `.p-list` at 16.5px
+in the same panel. Its paragraphs and its runs list move to 16.5px. Its 1.8
+leading stays, because that page is read rather than scanned (decision 32) and
+the complaint was about size.
+
+**Do not bring back a larger first paragraph**, in a panel or anywhere else a
+card holds prose. If an opening seems to need an entry point, the answer is a
+shorter paragraph or a `.p-list`, not a bigger one.
+
+**Revisit if:** Joe asks for it. This is taste, and it is his.
+
+---
+
+## 81. Sightings are the three towns
+**Decided:** September 2026. Replaces the area in decision 52.
+
+Decision 52 drew the iNaturalist box wide over the lower creek and let it catch
+Adamsville and the Mount Olive side, on the argument that they are on this water
+and every row names its own town. Joe read the nature page, saw Adamsville on
+two rows in a row, and called it the thing wrong with the page. The numbers
+agreed with him. Of the 96 research grade records in the last four months, 20
+named Adamsville, 7 named Mount Olive, 1 named Birmingham, and 6 named any of
+the three towns. The rest had their location withheld. A list that is mostly
+somewhere else tells a reader in Graysville that this site is about somewhere
+else, which is the same fault decision 42 fixed for Cardiff standing in for the
+watershed.
+
+**Two things hold it to the three towns, because neither can do it alone.**
+
+- *The box is tight.* It runs from 33.612 to 33.69 north and from -87.005 to
+  -86.895 east, around the town coordinates the forecast uses. The south edge
+  sits just above every Adamsville record from those four months and the east
+  edge just short of every Mount Olive one. An obscured record has no town, so the
+  box is the only thing deciding whether one of those is ours.
+- *The name has to be one of the three.* A record with a real location that
+  names any other town, or none, is dropped in the fetcher and never reaches the
+  file. Adamsville's north edge and Graysville's south edge are close enough
+  that a box alone would leak.
+
+**The window is a year, not four months.** Inside the tight box the last four
+months held 14 records. A year holds 37, with 31 species, and a list that short
+in winter would otherwise go blank.
+
+**The roll was rebuilt, once.** Decision 52 says the roll is never rewritten,
+and that is still the rule. But the roll held 81 species from the old box and
+only 13 of them survive the new one, so extending it would have kept Adamsville
+on the permanent record forever. The file now carries `rule: "three-towns"`, and
+a run that finds a different rule on the file rebuilds the roll from the window
+instead of extending it. The window reaches back past the day the roll began, so
+nothing inside the three towns was lost. Nothing is marked as a first record on
+a rebuild run. If the area ever changes again, change `RULE` with it.
+
+**What moved with it.** The nature page intro names the three towns and the
+year. The search says "in the three towns" where it said "along the lower
+creek", and its tag is Three towns. The edition builder says the same for
+editions not yet written; the ones already out are frozen and keep their words.
+The Archive search desk asked about a box turtle, which was on the old roll and
+is not on the new one, so the example is now a map turtle, and it was run
+against the search before it went in.
+
+**Revisit if:** the list stays too thin to be worth a section, in which case the
+answer is a longer window before it is a wider box.

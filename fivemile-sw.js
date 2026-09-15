@@ -132,7 +132,11 @@
 // fivemile-common.css changed too. See DECISIONS.md 74.
 // v82 has fivemile-search.js tell analytics what was typed at the box, and a
 // reader holding the old script would keep asking without it. See DECISIONS.md 78.
-const CACHE_NAME = 'fivemile-v82';
+// v83 sets every paragraph in a panel at one size, and a reader holding the old
+// shell would keep the larger first paragraph. See DECISIONS.md 80. It also
+// carries the sightings rewording for the three towns in the nature page and
+// the search. See DECISIONS.md 81.
+const CACHE_NAME = 'fivemile-v83';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

@@ -2447,8 +2447,8 @@
         var recent = data && Array.isArray(data.observations) ? data.observations : [];
         if (!counts || !recent.length) return null;
         return card({
-          kicker: 'Sightings', tag: 'Lower creek',
-          say: ['People have recorded ' + counts.species_in_window + ' species along the lower creek in the past ' + counts.window_days + ' days, in ' + counts.in_window + ' sightings.',
+          kicker: 'Sightings', tag: 'Three towns',
+          say: ['People have recorded ' + counts.species_in_window + ' species in the three towns in the past ' + counts.window_days + ' days, in ' + counts.in_window + ' sightings.',
             'The most recent was the ' + recent[0].name + ', on ' + onDate(recent[0].observedOn) + '.'],
           table: { head: ['Species', 'Seen'], rows: recent.slice(0, 8).map(function (o) { return [o.name, labelDate(o.observedOn)]; }) },
           note: note, door: door
@@ -2461,10 +2461,10 @@
          not that nobody has seen one, only that no record of one is on file.
          When the field guide knows the animal, the guide entry comes with it. */
       if (!hits.length) {
-        var nothing = 'No sighting on record along the lower creek matches ' + properCase(asTyped(ctx.raw, q) || q.phrase, [TOWN_ORDER.join(' ')]) + '.';
+        var nothing = 'No sighting on record in the three towns matches ' + properCase(asTyped(ctx.raw, q) || q.phrase, [TOWN_ORDER.join(' ')]) + '.';
         return answerGuide(ctx).then(function (entry) {
           if (entry) { entry.say.unshift(nothing); return entry; }
-          return card({ kicker: 'Sightings', tag: 'Lower creek', say: [nothing], note: note, door: door, withMatches: true });
+          return card({ kicker: 'Sightings', tag: 'Three towns', say: [nothing], note: note, door: door, withMatches: true });
         });
       }
       hits.sort(function (a, b) { return a.last < b.last ? 1 : -1; });
@@ -2472,14 +2472,14 @@
       var say = [];
       var lead = /\b(has|have) (anyone|anybody|someone|people)\b/.test(ctx.q) ? 'Yes. ' : yesNo(ctx, true);
       if (hits.length === 1) {
-        say.push(lead + hits[0].name + ' has been recorded ' + times(num(hits[0].count)) + ' along the lower creek, ' +
+        say.push(lead + hits[0].name + ' has been recorded ' + times(num(hits[0].count)) + ' in the three towns, ' +
           (num(hits[0].count) === 1 ? 'on ' : 'most recently on ') + onDate(hits[0].last) + '.');
       } else {
-        say.push(lead + cap(counted(hits.length, 'kind matches', 'kinds match')) + ', recorded ' + times(recorded) + ' in all along the lower creek.');
+        say.push(lead + cap(counted(hits.length, 'kind matches', 'kinds match')) + ', recorded ' + times(recorded) + ' in all across the three towns.');
         say.push('The most recent was the ' + hits[0].name + ', on ' + onDate(hits[0].last) + '.');
       }
       return card({
-        kicker: 'Sightings', tag: 'Lower creek', say: say,
+        kicker: 'Sightings', tag: 'Three towns', say: say,
         table: { head: ['Species', 'Times', 'Last seen'], rows: hits.slice(0, 20).map(function (row) { return [row.name, String(row.count), labelDate(row.last)]; }) },
         note: note, door: door
       });
@@ -2521,7 +2521,7 @@
       if (!best.inat) return result;
       return fetchJson(SIGHTINGS_FILE).then(function (data) {
         var row = (data && Array.isArray(data.roll) ? data.roll : []).filter(function (r) { return r.taxon === best.inat; })[0];
-        if (row) result.say.push('It has been recorded ' + times(num(row.count)) + ' along the lower creek, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.');
+        if (row) result.say.push('It has been recorded ' + times(num(row.count)) + ' in the three towns, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.');
         return result;
       }).catch(function () { return result; });
     });
@@ -2695,7 +2695,7 @@
         groups.push({ name: 'Sightings', rows: seen.map(function (x) {
           var row = x.rec.row;
           return hitHtml(row.group || 'Nature Watch', 'fivemile-nature.html', row.name,
-            esc('Recorded ' + times(num(row.count)) + ' along the lower creek, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.'));
+            esc('Recorded ' + times(num(row.count)) + ' in the three towns, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.'));
         }) });
       }
 
@@ -2954,11 +2954,11 @@
       if (!row || !row.first) return null;
       var n = num(row.count) || 1;
       var inGuide = (parts[1] && Array.isArray(parts[1].species) ? parts[1].species : []).filter(function (sp) { return sp.inat === row.taxon; })[0];
-      var say = [row.name + ' has been recorded ' + times(n) + ' along the lower creek, ' +
+      var say = [row.name + ' has been recorded ' + times(n) + ' in the three towns, ' +
         (n === 1 || row.first === row.last ? 'on ' + onDate(row.first) : 'first on ' + onDate(row.first) + ' and most recently on ' + onDate(row.last)) + '.'];
       if (inGuide) say.push('It is in the field guide too.');
       return card({
-        kicker: 'Sightings', tag: row.group || 'Lower creek', say: say,
+        kicker: 'Sightings', tag: row.group || 'Three towns', say: say,
         note: parts[0].note || '',
         door: inGuide ? { href: 'fivemile-guide.html#' + inGuide.id, label: 'Field guide' } : { href: 'fivemile-nature.html', label: 'Nature Watch' }
       });
@@ -3086,7 +3086,7 @@
     makeFact(function () { return 'How high has the creek ever been on a ' + todayWords() + '?'; }, creekOnThisDate),
     makeFact('Which year did the creek run high most often?', creekBusiestYear),
     makeFact('What lives and grows along the creek?', guideEntry),
-    makeFact('What has been spotted along the lower creek?', sightingFromTheRoll),
+    makeFact('What has been spotted in the three towns?', sightingFromTheRoll),
     makeFact('What is the story behind the three towns?', heritageParagraph),
     makeFact(function () {
       var last = lastSolstice();

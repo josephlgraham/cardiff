@@ -64,7 +64,10 @@ const SITE = 'https://fivemile.now/';
 /* The first edition. The station log starts here, and so does the site. */
 const FIRST_EDITION = '2026-01';
 /* The sightings roll started at the end of April 2026, so a month before May
-   would count everything ever recorded as new that month. */
+   would count everything ever recorded as new that month. It was rebuilt in
+   September 2026 for the three towns and now reaches back to October 2025, but
+   the editions before May are already written and frozen, so this stays. See
+   DECISIONS.md 81. */
 const SIGHTINGS_FROM = '2026-05';
 /* The fifteen minute creek record, which is the only one with a true daily
    high. Earlier years are daily means and read lower. See DECISIONS.md 71. */
@@ -822,9 +825,9 @@ function wasSection(ed) {
   }
   const si = ed.was.sightings;
   if (si) {
-    const say = cap(counted(si.count, 'species was', 'species were')) + ' recorded along the lower creek for the first time on file' +
+    const say = cap(counted(si.count, 'species was', 'species were')) + ' recorded in Graysville, Cardiff, and Brookside for the first time on file' +
       (si.names.length ? ', among them ' + listWords(si.names) : '') + '.';
-    cards.push(card('Sightings', 'Lower creek', rows([['🦉', 'New to the roll', String(si.count)]]) + paras([say]) +
+    cards.push(card('Sightings', 'Three towns', rows([['🦉', 'New to the roll', String(si.count)]]) + paras([say]) +
       door('fivemile-nature.html', 'Nature Watch')));
   }
   if (!cards.length) return '';

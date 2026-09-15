@@ -1,18 +1,25 @@
-/* What people have recorded along the lower end of Five Mile Creek, from
+/* What people have recorded in Graysville, Cardiff, and Brookside, from
    iNaturalist.
 
    iNaturalist is already in this repo as a build time source for the field
    guide's photographs. This is the other half of it: not what lives here in
-   general, but what somebody actually stood in front of and filed this month.
+   general, but what somebody actually stood in front of and filed this year.
    The guide is the reference and this is the record.
 
-   THE AREA. A bounding box over the lower creek, from Graysville down toward
-   the Locust Fork, wide enough to hold the three towns and the ground either
-   side of the water. It is drawn around the town coordinates the forecast
-   already uses in fetch-site-data.mjs, with room for the bottoms. It catches
-   Adamsville and the Mount Olive side too, which is correct: they are on this
-   water, and a row names its own town so nobody is told a Mount Olive frog was
-   a Cardiff frog.
+   THE AREA IS THE THREE TOWNS. It used to be a wide box over the lower creek
+   that caught Adamsville and the Mount Olive side, on the argument that they
+   are on this water. In practice twenty of the last ninety six records named
+   Adamsville and only six named any of the three towns, so the list read as
+   somebody else's. Joe asked for it to be these three towns.
+   See DECISIONS.md 81.
+
+   Two things hold it there. The box is drawn tight around the town
+   coordinates the forecast uses in fetch-site-data.mjs, and a record that
+   carries a town has to name one of the three or it is dropped. The box alone
+   cannot do it, because Adamsville's north edge and Graysville's south edge
+   are a street apart. The name alone cannot do it either, because an obscured
+   record has no name, and the box is the only thing that decides whether one
+   of those is ours.
 
    RESEARCH GRADE ONLY. An observation is research grade when other people have
    agreed on the identification. Everything below that is one person's best
@@ -40,7 +47,10 @@
    feed has ever seen, with the first and last date and a count. The page shows
    a recent run, but the roll is permanent, so a species that turned up once in
    2026 is still on the record in 2030. It is also what lets a row say the first
-   time something has been recorded here. See DECISIONS.md 52. */
+   time something has been recorded here. See DECISIONS.md 52.
+
+   The one exception is a change to the area itself, which rebuilds the roll
+   once under the new rule. See RULE below and DECISIONS.md 81. */
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -52,19 +62,33 @@ const GUIDE_FILE = path.join(ROOT, 'fivemile-guide.json');
 
 const USER_AGENT = 'FIVEMILE observation feed (https://fivemile.now, fivemilec@gmail.com)';
 
-/* The lower creek. Read as south west corner, north east corner. */
+/* The three towns. Read as south west corner, north east corner. The south
+   edge sits just above the Adamsville records and the east edge just short of
+   the Mount Olive ones, checked against four months of records in September 2026. */
 const AREA = {
-  label: 'The lower end of Five Mile Creek',
-  swlat: 33.575,
-  swlng: -87.02,
-  nelat: 33.705,
-  nelng: -86.855
+  label: 'Graysville, Cardiff, and Brookside',
+  swlat: 33.612,
+  swlng: -87.005,
+  nelat: 33.69,
+  nelng: -86.895
 };
+
+/* The only town names a row may carry, in the site's town order. */
+const TOWNS = ['Graysville', 'Cardiff', 'Brookside'];
+
+/* Which rule the roll was built under. When this changes, the next run
+   rebuilds the roll from the window instead of extending the old one, because
+   the old one holds species from ground this feed no longer covers. The window
+   reaches back past the day the roll began, so nothing inside the three towns
+   is lost by the rebuild. */
+const RULE = 'three-towns';
 
 /* How many observations the page holds. The roll below keeps everything. */
 const SHOWN = 48;
-/* How far back a run looks. Anything older is already in the roll. */
-const WINDOW_DAYS = 120;
+/* How far back a run looks. Anything older is already in the roll. Three
+   towns file far fewer records than the old box did, so this is a year rather
+   than four months, which also keeps a winter list from going empty. */
+const WINDOW_DAYS = 365;
 /* Identified to species or finer. A research grade record can stop at the
    genus when the community agrees it cannot be taken further, and "Halysidota"
    on a page tells a reader here nothing they can use. Dropping them also keeps
@@ -169,6 +193,15 @@ function normalize(observation, guide) {
 
   const obscured = Boolean(observation.obscured || observation.geoprivacy || observation.taxon_geoprivacy);
 
+  /* A record with a real location has to name one of the three towns. One
+     that names somewhere else, or nowhere, is not ours to print. */
+  let place = null;
+  if (!obscured) {
+    const town = townFrom(observation.place_guess);
+    place = TOWNS.find((name) => town && name.toLowerCase() === town.toLowerCase()) || null;
+    if (!place) return null;
+  }
+
   return {
     id: observation.id,
     taxon: taxon.id,
@@ -180,7 +213,7 @@ function normalize(observation, guide) {
     icon: group.icon,
     observedOn: observation.observed_on || null,
     /* No town on an obscured record. See the note at the top of this file. */
-    place: obscured ? null : townFrom(observation.place_guess),
+    place,
     obscured,
     observer: observation.user?.name || observation.user?.login || null,
     observerLogin: observation.user?.login || null,
@@ -275,23 +308,29 @@ export async function updateObservationsFile() {
   }
 
   const observations = results.map((result) => normalize(result, guide)).filter(Boolean);
-  const roll = updateRoll(previous?.roll, observations);
+  /* A roll built under an older rule is started again rather than extended.
+     See RULE above. */
+  const rebuild = Boolean(previous) && previous.rule !== RULE;
+  if (rebuild) console.log('   iNaturalist: the area rule changed, rebuilding the roll from the window.');
+  const roll = updateRoll(rebuild ? [] : previous?.roll, observations);
 
-  /* A species is new here only if this feed has run before and had never seen
-     it. On a first run everything would be new, which is true and useless. */
+  /* A species is new here only if this feed has run before under the same
+     rule and had never seen it. On a first run or a rebuild everything would
+     be new, which is true and useless. */
   const known = new Set((previous?.roll || []).map((entry) => Number(entry.taxon)));
   const shown = observations.slice(0, SHOWN).map((observation) => ({
     ...observation,
-    firstRecord: previous ? !known.has(observation.taxon) : false
+    firstRecord: previous && !rebuild ? !known.has(observation.taxon) : false
   }));
 
   const payload = {
     updatedAt: new Date().toISOString(),
+    rule: RULE,
     source: 'iNaturalist',
     source_url: 'https://www.inaturalist.org/observations'
       + '?swlat=' + AREA.swlat + '&swlng=' + AREA.swlng + '&nelat=' + AREA.nelat + '&nelng=' + AREA.nelng
       + '&quality_grade=research',
-    note: 'Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.',
+    note: 'Research grade observations only, from Graysville, Cardiff, and Brookside. Research grade means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.',
     area: AREA,
     counts: {
       shown: shown.length,

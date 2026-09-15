@@ -27,7 +27,7 @@
   const LANES = ["nature", "hunting", "frost", "tradition"];
   const STORAGE_KEY = "cardiff-season-windows-expanded";
 
-  /* What people have actually recorded along the lower creek, from
+  /* What people have actually recorded in the three towns, from
      iNaturalist, gathered by scripts/fetch/inat-observations.mjs. The file is
      the whole contract: this reads it and asks nobody anything at runtime.
      Twelve rows before the reader opens the rest, same as the season windows
