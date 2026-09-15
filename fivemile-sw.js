@@ -100,7 +100,14 @@
 // rebuilds the weather room around the official Birmingham record since 1930,
 // which changed fivemile-weather-archive.html as well. The airport's year
 // files and normals are JSON and come network-first. See DECISIONS.md 72.
-const CACHE_NAME = 'fivemile-v75';
+// v76 puts the search on the Archive hub. fivemile-search.js is new, and
+// fivemile-archive.html, fivemile-archive.css, fivemile-archive.js,
+// fivemile-common.js, fivemile-almanac-core.js and fivemile-fishing.js all
+// changed, the last three because the creek lines moved into common.js. All
+// of them are cache-first, and a returning reader holding the old common.js
+// with the new almanac core would find no creek lines at all.
+// See DECISIONS.md 73.
+const CACHE_NAME = 'fivemile-v76';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -161,6 +168,7 @@ const PRECACHE_URLS = [
   '/fivemile-almanac.css',
   '/fivemile-archive.css',
   '/fivemile-archive.js',
+  '/fivemile-search.js',
   '/fivemile-heritage.css',
   '/fivemile-guide.css',
   '/fivemile-guide.js',

@@ -446,16 +446,18 @@
      never a safety clearance: the top band tells a reader to respect the water,
      it does not tell anybody the water is fine. */
   function creekMood(stage) {
+    /* The lines are fivemile-common.js's, which every page loads first. */
+    const lines = window.FivemileCreekLines;
     if (!Number.isFinite(stage)) {
       return { icon: "📡", label: "Gauge watch", boat: "Desk lamp only", note: "Waiting on a fresh creek read." };
     }
-    if (stage < 1.5) {
+    if (stage < lines.wadable) {
       return { icon: "🥾", label: "Low and wadable", boat: "Boot water", note: "More boots than boat at this level." };
     }
-    if (stage < 2.25) {
+    if (stage < lines.lively) {
       return { icon: "🛶", label: "Creek-peeking level", boat: "Canoe daydream", note: "Enough water to look lively without feeling pushy." };
     }
-    if (stage < 3.5) {
+    if (stage < lines.high) {
       return { icon: "🚣", label: "Moving with purpose", boat: "Paddle craft energy", note: "The channel has more muscle and less loafing." };
     }
     return { icon: "🛟", label: "High-water caution", boat: "No joke boat water", note: "Fast, higher water deserves a respectful eye." };

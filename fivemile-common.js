@@ -21,6 +21,31 @@
 //  To change the weather station, edit WX_URL below.
 // ─────────────────────────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────────────────────────
+//  The creek lines
+//
+//  Where the Republic gauge stops being one kind of creek and starts being
+//  the next, in feet of stage. The masthead pill, the almanac, the fishing
+//  desk and the archive search all draw the same lines, and they used to
+//  draw them from four copies of the same three numbers. A search that
+//  counted days of high water off one copy while the masthead called the
+//  creek high off another would sooner or later disagree with itself in
+//  front of a reader.
+//
+//  None of these is a flood stage. There is no sourced flood stage for this
+//  gauge, and "high" here means the band the almanac calls High-water
+//  caution, nothing more official than that.
+//
+//  Defined out here rather than inside the page code below so it exists the
+//  moment this file has run. The almanac core and the fishing desk load
+//  after this file and read it when they draw.
+// ─────────────────────────────────────────────────────────────────────
+window.FivemileCreekLines = Object.freeze({
+  wadable: 1.5,   // under this, low and wadable
+  lively: 2.25,   // under this, an ordinary creek with some water in it
+  high: 3.5       // at or over this, high water
+});
+
 (function () {
   'use strict';
 
@@ -206,10 +231,11 @@
 
 
   function creekMoodPill(stage) {
+    var lines = window.FivemileCreekLines;
     if (!isFinite(stage)) return { icon: '📡', label: 'Creek' };
-    if (stage < 1.5)  return { icon: '🥾', label: 'Low & wadable' };
-    if (stage < 2.25) return { icon: '🛶', label: 'Creek level' };
-    if (stage < 3.5)  return { icon: '🚣', label: 'Moving fast' };
+    if (stage < lines.wadable) return { icon: '🥾', label: 'Low & wadable' };
+    if (stage < lines.lively)  return { icon: '🛶', label: 'Creek level' };
+    if (stage < lines.high)    return { icon: '🚣', label: 'Moving fast' };
     return { icon: '🛟', label: 'High water' };
   }
 

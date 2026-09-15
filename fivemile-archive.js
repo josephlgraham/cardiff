@@ -3096,6 +3096,10 @@
     hubDates();
   }
 
+  /* The search on the hub lists a story the way the stories room lists one,
+     so it asks for this row rather than drawing a second kind of its own. */
+  window.FivemileArchiveRows = { story: storyRow };
+
   loadHub();
   loadPhotos();
   loadWeather();

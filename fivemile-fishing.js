@@ -102,7 +102,7 @@
     if (!Number.isFinite(stage)) return null;
     const rising = trend === "rising" || (Number.isFinite(rate) && rate > 0.02);
     const falling = trend === "falling" || (Number.isFinite(rate) && rate < -0.02);
-    if (stage >= 3.5) return "high";
+    if (stage >= window.FivemileCreekLines.high) return "high";
     if (falling && stage >= 1.8) return "falling";
     if (rising && Number.isFinite(rate) && rate >= 0.15) return "coloring";
     if (rising) return "first";
@@ -162,7 +162,7 @@
 
   function creekVerdict(stage, trend, rate, mood) {
     if (!Number.isFinite(stage)) return { verdict: "fair", word: "No reading", note: "The Republic gauge is not answering, so judge the water from the bank." };
-    if (stage >= 3.5) return { verdict: "tough", word: "High", note: "Fast, higher water deserves a respectful eye, and nothing feeds in a current it cannot hold station in." };
+    if (stage >= window.FivemileCreekLines.high) return { verdict: "tough", word: "High", note: "Fast, higher water deserves a respectful eye, and nothing feeds in a current it cannot hold station in." };
     if (trend === "falling" && stage >= 1.8) return { verdict: "good", word: "Dropping", note: "The falling side of a rise, which is usually the best few hours the creek gives you all month." };
     if (trend === "rising") return { verdict: "good", word: "Rising", note: "Coming up, which means food going into the channel and fish moving to the edges to meet it." };
     if (stage < 1.2) return { verdict: "fair", word: "Low", note: "Low and clear. Everything can see you coming, so keep off the skyline and fish the deeper holes." };

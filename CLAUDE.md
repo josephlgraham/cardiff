@@ -59,6 +59,13 @@ answer. If you add something the site keeps, give it a room. If you add a
 rolling window that overwrites itself, you have added something that scrolls
 away, and the creek archive in DECISIONS.md 36 is the pattern for fixing it.
 
+The hub also carries the search, `fivemile-search.js`. It reads the same files
+and every page in `sitemap.xml`, and it answers a question only when a rule
+written in that file can count the answer from the record. It is not a chatbot
+and must not become one: no model, no API, no generated text. A question with
+no rule gets the matching pages and records. If you add a page, put it in the
+sitemap and it is searchable. See DECISIONS.md 73.
+
 The calendar page itself holds one month, with a step to the month either side.
 It is not a rolling window: everything behind and ahead of it is in the date
 index, reachable from a door under the month. See DECISIONS.md 50.

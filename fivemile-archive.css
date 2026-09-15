@@ -134,6 +134,49 @@ p.arc-count{margin:0 0 16px}
 .arc-count{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
   color:var(--fm-muted);white-space:nowrap}
 
+/* The search on the hub. The same box as the rooms' with a button beside it,
+   because a question is a thing you finish typing and send, and answering it
+   on every keystroke would fetch a year of creek readings for "in 19". The
+   sample questions under it are a strip you push sideways, the reel's
+   gesture, set in the sans because they are sentences and not labels. See
+   DECISIONS.md 73. */
+.find{margin:18px 0 0}
+.find .arc-find{margin:0 0 8px}
+.find-go{flex:none;min-width:88px;min-height:44px;padding:6px 14px;background:var(--masthead);
+  border:1px solid var(--masthead);border-radius:var(--r);font-family:var(--mono);font-size:12.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--paper);cursor:pointer;transition:background var(--ease)}
+.find-go:hover{background:var(--ink)}
+.find-try{display:flex;gap:6px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.find-try::-webkit-scrollbar{display:none}
+.find-try button{flex:none;min-height:44px;padding:8px 13px;background:var(--card);border:1px solid var(--fm-rule);
+  border-radius:4px;font-family:var(--sans);font-size:15px;color:var(--ink);white-space:nowrap;cursor:pointer;
+  transition:border-color var(--ease),background var(--ease)}
+.find-try button:hover{border-color:var(--masthead);background:#fff}
+.find-out{margin:6px 0 0}
+.find-out:empty{display:none}
+.find-out[aria-busy="true"]{opacity:.6}
+.find-out > .empty{margin-bottom:24px}
+/* The answer reads larger than a panel's own prose, because it is the thing
+   the reader asked for. */
+.find-answer{margin:0 0 14px}
+.find-answer .d-body p.find-say{font-size:17px;line-height:1.5}
+.find-answer .d-rows{margin:14px 0 0}
+/* The door is a real link here rather than a line inside a linked panel, so
+   it would otherwise pick up the underline every other link on the page has. */
+.find-answer a.d-go{text-decoration:none;align-self:flex-start;min-height:44px}
+.find-answer a.d-go:hover{text-decoration:underline}
+.find-table{margin:14px 0 0;overflow-x:auto}
+.find-extra{margin:0 0 26px}
+.find-answer + .find-group{margin-top:26px}
+.find-group{margin:0 0 26px}
+.find-group .hd{margin-bottom:10px}
+/* A page match has no town to lead with, so its one label sits where the
+   town would. */
+.find-hit .k-top .k-src{margin-left:0}
+.find-hit .w b{font-weight:700;color:var(--ink)}
+.find-more{margin-top:0}
+.find-more .rows{padding-bottom:4px}
+
 /* ---------------------------------------------------------------------------
    THE GALLERY
 

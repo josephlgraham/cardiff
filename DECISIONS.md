@@ -4577,3 +4577,134 @@ decision 71: warmest and coolest, wettest and driest.
 
 Records on a date and on the books go to the most recent year when two years
 tie, which is how the weather service writes them.
+
+---
+
+## 73. The Archive hub has a search, and it answers only what a rule can count
+**Decided:** September 2026. Builds on decisions 2, 13, 36, 50 and 72.
+
+Joe asked for a search on the archive that covers the whole site and can take
+a question like "how many times has the creek been high in the last month",
+and then asked that it reach the data everywhere on the site and answer in a
+friendly way.
+
+### It is not a chatbot, and it cannot become one without undoing three decisions
+
+The obvious way to build "answer any question in a friendly way" is a language
+model. That needs a backend or a key in the browser, which decision 2 rules
+out, and it would generate text at read time, which decision 13 promises the
+site never does. The About page says it in Joe's words: there is no AI running
+on this site and there is not going to be a chatbot. If that ever changes, the
+disclosure changes first, and it is Joe's call, not a build detail.
+
+So `fivemile-search.js` is rules. Each rule recognises one kind of question,
+reads the files the rooms already read, does the arithmetic, and fills in a
+sentence written in advance in the publication voice. That is the same thing
+the almanac has always done with its notes, and it keeps every claim in
+decision 13 true. A question no rule recognises gets no answer card at all,
+only the matching pages and records, because a guess dressed as an answer is
+the one thing this site cannot print.
+
+The About page's "Automatic is not the same thing as AI" line gained one
+sentence saying the search works this way, and the hub's source note says it
+too. Neither names anything about how the site is kept. See decision 58.
+
+### What it answers
+
+- **The creek.** Right now off the live file, including the water temperature
+  and the oxygen. Over any stretch off the creek archive: how many days it
+  reached a line and in how many separate rises, the highest and lowest, the
+  average, the first and last time. The highest on record is the crest in
+  `fivemile-creek-peaks.json`, not a daily figure, as on the hub.
+- **Rain, heat, cold, frost, wind, snow.** Totals, counts over a threshold,
+  wettest and driest days, months and years, dry stretches, the last rain, the
+  last and first freeze, a single day's weather, the records and normals for a
+  date.
+- **The forecast, the moon, the sun, the air.** Off the forecast in the
+  weather file, `fivemile-sky.js`, and the air quality file.
+- **Dates.** Off the calendar engine: when a meeting is and what the schedule
+  is, what is on this weekend.
+- **Stories, sightings, the field guide.** How many stories mention something
+  in a stretch, whether something is on the sightings roll, and the guide's
+  entry for an animal or plant, with its sightings count beside it.
+
+### The rules the numbers keep
+
+- **High water is the masthead's line**, 3.5 feet at Republic. It is not a
+  flood stage, because this gauge has none, and every creek answer that uses
+  it says so. A day counts if any reading in it reached the line, and a rise is
+  an unbroken run of such days, which is what "how many times" means.
+- **The lines are in one place now.** They were three numbers written into
+  `fivemile-common.js`, `fivemile-almanac-core.js` and `fivemile-fishing.js`
+  separately. A search counting days of high water off a fourth copy would
+  sooner or later disagree with the masthead in front of a reader, so all four
+  read `window.FivemileCreekLines`, defined at the top of `fivemile-common.js`.
+  The fishing desk's 2.6 and 1.8 are its own rise stages and were left alone.
+- **A day with a mean and no high goes by the mean, and the answer says so.**
+  Before October 2007 that is every day. After it, it is the days the gauge sent
+  too few readings for, 17 of them in 2025 alone.
+- **Our station or the airport, never both in one figure.** A question that
+  falls entirely inside the station's log is answered from it. One that reaches
+  back past January 1, 2026 is answered from the airport record, and the
+  sentence names the airport. Records "on record" come from the airport with
+  our station's own best added as a second sentence. Snow is always the
+  airport, because the station does not measure it. This is decision 72.
+- **Normal is NOAA's figure for the airport**, and when a station total is set
+  beside it the sentence says whose normal it is.
+- **Today counts as far as it has gone.** The archives only hold finished
+  days, so today comes from the live files and the answer says it is so far.
+- **The frost dates are read off the garden page.** The garden desk prints
+  "Around Mar 20" and "Around Nov 15" by hand, and the search reads those two
+  rows out of `fivemile-garden.html` rather than keeping a copy.
+- **A yes or no question gets Yes or No first**, and then the sentence.
+
+### The matches
+
+Every page in `sitemap.xml`, fetched and read as the page itself, split at its
+headings, plus every story, every calendar date, every guide entry, every
+species on the roll and every photograph. The sitemap is the list, so a page
+added to the site and to the sitemap is searchable with nothing else done,
+and there is no index file to fall out of step. That is decision 36's rule.
+
+Nothing loads until somebody searches. A question fetches only the year files
+it is about, and a year file fetched once is kept for the visit.
+
+Some pages draw their content from script rather than markup. The guide, the
+calendar and the news page are covered by reading their files directly. The
+kitchen keeps its recipes in a list inside its own script, and the search
+reads that list off the page with a pattern. If the kitchen's recipe list ever
+changes shape, recipes quietly drop out of the matches and nothing else breaks.
+
+### Words that have to be soft
+
+"When does the Brookside city council meet" has to find the Brookside Town
+Council meeting. City, town, meet, meeting, next and a handful of others are
+soft words: they count toward a match when they are there and do not sink it
+when they are not. The Cardiff one-off meeting in April 2026 shares a name with
+the council that still meets, and a past one-off no longer splits the answer.
+
+When a single meeting is the answer, the card quotes the sentence the calendar
+itself carries for it, adds the next date and any holiday shift, and shows no
+stubs, because a stub would print the same sentence again.
+
+### The address
+
+The question goes into the address as `?q=`, so the back button restores it
+and an answer can be sent to somebody. The page has Google Analytics on it,
+and if its site search reporting is on, the questions people ask will show up
+there. That is worth knowing and nothing on the page mentions it.
+
+### Things that will bite the next person
+
+- **The rules run in order and the first answer wins.** The order is written
+  down at the bottom of the file with the reason for each place in it. A new
+  rule goes in the list, not at the end of whichever function looked closest.
+- **The file is one scope.** A helper called `later` was shadowed by a variable
+  of the same name during the build and broke the missing days count silently.
+  Grep before naming.
+- **A question read wrongly is worse than no answer.** When a rule is not sure
+  a question is its own, it returns nothing and lets the next rule try. Keep it
+  that way.
+
+**Revisit if:** readers keep asking something that gets no card. The fix is a
+new rule, written the same way. It is never a model.
