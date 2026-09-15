@@ -50,8 +50,8 @@ Facebook groups are fine for talking and useless for remembering. This site
 keeps things. Nothing here scrolls away.
 
 The Archive is where that promise is kept and where it can be checked. It is a
-hub, `fivemile-archive.html`, and six rooms: the gallery, the weather log, the
-creek log, the story index, the date index, and the editions. Each room reads the same file
+hub, `fivemile-archive.html`, and seven rooms: the gallery, the weather log, the
+creek log, the story index, the date index, the editions, and the species list. Each room reads the same file
 the live page reads, so nothing is archived by hand and nothing can fall out of
 step. The date index is the one exception and only in form: the calendar has no
 file, so the room asks the same engine the calendar page asks and gets the same

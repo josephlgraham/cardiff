@@ -12,13 +12,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archive &middot; FIVEMILE</title>
-<meta name="description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
+<meta name="description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, every species recorded in the three towns, and a search that answers questions from the record.">
 <link rel="canonical" href="https://fivemile.now/fivemile-archive.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FIVEMILE">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Archive &middot; FIVEMILE">
-<meta property="og:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
+<meta property="og:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, every species recorded in the three towns, and a search that answers questions from the record.">
 <meta property="og:url" content="https://fivemile.now/fivemile-archive.html">
 <meta property="og:image" content="https://fivemile.now/fivemile-share.jpg">
 <meta property="og:image:alt" content="A common buckeye butterfly with brown and orange eyespots on its open wings, resting on grass seed heads in a green field.">
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Archive &middot; FIVEMILE">
-<meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, and a search that answers questions from the record.">
+<meta name="twitter:description" content="Everything this site keeps and never deletes: the photographs that have run, every day of weather, the creek at the Republic gauge, every story that has run, every monthly edition, every species recorded in the three towns, and a search that answers questions from the record.">
 <meta name="twitter:image" content="https://fivemile.now/fivemile-share.jpg">
 <!-- What this page is and what place it is about, for the crawlers that
      read it and the answer engines that read them. The website and the
@@ -39,7 +39,7 @@
   "@id": "https://fivemile.now/fivemile-archive.html#webpage",
   "url": "https://fivemile.now/fivemile-archive.html",
   "name": "Archive",
-  "description": "Everything FIVEMILE keeps: the photographs, the weather log, the creek log, every story that has run, every date the calendar has carried, every monthly edition, and a search that answers questions from the record.",
+  "description": "Everything FIVEMILE keeps: the photographs, the weather log, the creek log, every story that has run, every date the calendar has carried, every monthly edition, every species recorded in the three towns, and a search that answers questions from the record.",
   "keywords": "Five Mile Creek archive, Graysville Alabama history, Cardiff Alabama records, Brookside Alabama, weather records Jefferson County, creek gauge history",
   "inLanguage": "en-US",
   "isPartOf": {
@@ -115,7 +115,7 @@
          form still submits to this page with ?q= in the address, which is
          what the script reads on load.
 
-         It opens the page, above the panel about the six rooms, for the
+         It opens the page, above the panel about the seven rooms, for the
          reason the desk pages put their readings above their opening: a
          reader who came to look something up should not have to get past a
          paragraph to find the box. It is drawn on the masthead brown so it
@@ -157,7 +157,7 @@
     <div class="find-out" id="findOut" aria-live="polite"></div>
 
     <div class="panel intro" data-share-in>
-      <p class="lede">Six things get kept here, and none of them go anywhere.</p>
+      <p class="lede">Seven things get kept here, and none of them go anywhere.</p>
       <p>A library keeps its old papers on microfiche and makes you wind a spool to find March.
         This is that, without the spool.</p>
 </div>
@@ -255,6 +255,21 @@
         </div>
       </a>
 
+      <!-- The seventh room: every species on the iNaturalist roll. It spans both
+           columns because seven panels leave one over. See DECISIONS.md 82. -->
+      <a class="card-dept span2" href="fivemile-species-archive.html">
+        <div class="d-bar"><h3>Species</h3><span class="r">iNaturalist</span></div>
+        <div class="d-body">
+          <div class="d-rows list">
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🍃</i>Species</em><b id="hubSpeciesCount">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">📊</i>Records</em><b id="hubSpeciesRecords">&mdash;</b></div>
+            <div class="d-cell"><em><i class="d-mark" aria-hidden="true">🕰️</i>Back to</em><b id="hubSpeciesSince">&mdash;</b></div>
+          </div>
+          <p class="d-tip" id="hubSpeciesNote">&mdash;</p>
+          <p class="d-go">Species list <span aria-hidden="true">&rarr;</span></p>
+        </div>
+      </a>
+
     </div>
   </section>
 
@@ -266,7 +281,8 @@
     <a href="https://waterdata.usgs.gov/monitoring-location/02457595/" target="_blank" rel="noopener">USGS gauge
     on Fivemile Creek near Republic</a>, station 02457595. Stories are headlines and summaries from the
     outlets that published them, kept with a link back to the original. Dates are the same two lists the
-    <a href="fivemile-calendar.html">calendar</a> reads. Nothing here is ever deleted.
+    <a href="fivemile-calendar.html">calendar</a> reads. Species are research grade records from iNaturalist, the
+    same ones <a href="fivemile-nature.html">Nature Watch</a> shows. Nothing here is ever deleted.
     The search reads the same files and every page on the site. A question it has a rule for is counted
     from the record by rules written down in advance, and a question it has no rule for gets the pages and
     records that match, never a guess.
@@ -279,7 +295,7 @@
 </div><!-- /page -->
 
 <script src="fivemile-common.js"></script>
-<!-- The hub reports on all six rooms, and the dates room has no file to read.
+<!-- The hub reports on all seven rooms, and the dates room has no file to read.
      Its two figures are counted with the calendar engine, so the hub carries it
      the way it carries the four JSON fetches. See DECISIONS.md 50. -->
 <script src="fivemile-season-data.js"></script>

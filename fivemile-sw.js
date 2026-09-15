@@ -136,7 +136,11 @@
 // shell would keep the larger first paragraph. See DECISIONS.md 80. It also
 // carries the sightings rewording for the three towns in the nature page and
 // the search. See DECISIONS.md 81.
-const CACHE_NAME = 'fivemile-v83';
+// v84 opens the species room. fivemile-species-archive.html is new, and
+// fivemile-archive.html, fivemile-archive.css, fivemile-archive.js,
+// fivemile-nature.html, fivemile-nature.js and fivemile-search.js all changed.
+// See DECISIONS.md 82.
+const CACHE_NAME = 'fivemile-v84';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -187,6 +191,7 @@ const PRECACHE_URLS = [
   '/fivemile-news-archive.html',
   '/fivemile-calendar-archive.html',
   '/fivemile-edition-archive.html',
+  '/fivemile-species-archive.html',
   '/offline.html',
   '/fivemile-common.css',
   '/fivemile-cards.css',

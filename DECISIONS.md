@@ -5428,3 +5428,43 @@ against the search before it went in.
 
 **Revisit if:** the list stays too thin to be worth a section, in which case the
 answer is a longer window before it is a wider box.
+
+---
+
+## 82. The species list is the seventh room
+**Decided:** September 2026. Extends decisions 52 and 81.
+
+The roll in `fivemile-observations.json` was something the site kept and never
+pruned, and it had no room. CLAUDE.md says anything the site keeps gets one.
+Joe also wanted the sightings connected to the field guide, and the roll is
+where that join belongs.
+
+**`fivemile-species-archive.html`**, drawn by `fivemile-archive.js` like the
+other rooms. Every species on the roll, most recently recorded first, a row of
+kinds to narrow it, and a search over the names. A row carries the kind, how
+many records and over what dates, the common name, and the Latin name in mono.
+
+**A row is not a link, because it has two ways out.** The latest record on
+iNaturalist, and the field guide entry where there is one, each on its own 44px
+`.k-more`. The iNaturalist link goes to one record rather than a search, because
+iNaturalist's search pages sit behind a bot check and a single record does not.
+
+**Two fields were added to the roll** by the fetcher: `latest`, the id of the
+record with the latest date, and `guide`, the field guide entry matched up the
+tree the same way an observation row is. Five of the 31 species have one today.
+
+**Everything that reads the roll points at the room.** The hub has a seventh
+panel, full width because seven leave one over. Nature Watch has a door under
+its sightings, built the way the calendar builds its door to the date index. A
+search answer counted off the roll opens the room, and a roll row now answers
+to its guide entry's name and aliases, so "has anybody seen a snail" finds the
+Plicate Rocksnail instead of saying there is no snail on record.
+
+**Still no photographs.** Decision 52 turned down a thumbnail per record, and
+the licenses back it up: of the latest 48 records, 4 carried a photo under CC0,
+CC BY, or CC BY-SA. A photograph per species, pulled the way the field guide's
+are, would grow the repo only when a new species turns up. That is Joe's call
+and has not been made.
+
+**Revisit if:** the roll grows past a few hundred species and the one long list
+needs paging, or Joe wants the per species photographs.

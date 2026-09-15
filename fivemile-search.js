@@ -2438,9 +2438,19 @@
   function answerSightings(ctx) {
     if (!SEEN_WORDS.test(ctx.q)) return null;
     var q = terms(strip(ctx.rest, SEEN_SOFT));
-    return fetchJson(SIGHTINGS_FILE).then(function (data) {
+    return Promise.all([fetchJson(SIGHTINGS_FILE), fetchJson(GUIDE_FILE).catch(function () { return null; })]).then(function (parts) {
+      var data = parts[0];
       var roll = data && Array.isArray(data.roll) ? data.roll : [];
+      /* A row the roll has matched to a field guide entry answers to that
+         entry's name and aliases too, so a snail question finds the Plicate
+         Rocksnail the species room lists under the guide's snails. */
+      var guideWords = {};
+      (parts[1] && Array.isArray(parts[1].species) ? parts[1].species : []).forEach(function (sp) {
+        guideWords[sp.id] = [sp.name].concat(Array.isArray(sp.alias) ? sp.alias : []).join(' ');
+      });
       var door = { href: 'fivemile-nature.html', label: 'Nature Watch' };
+      /* An answer counted off the roll opens the room that draws the roll. */
+      var rollDoor = { href: 'fivemile-species-archive.html', label: 'Species list' };
       var note = data && data.note ? data.note : '';
       if (!q.strict.length) {
         var counts = data && data.counts;
@@ -2448,14 +2458,14 @@
         if (!counts || !recent.length) return null;
         return card({
           kicker: 'Sightings', tag: 'Three towns',
-          say: ['People have recorded ' + counts.species_in_window + ' species in the three towns in the past ' + counts.window_days + ' days, in ' + counts.in_window + ' sightings.',
+          say: ['People have recorded ' + counts.species_in_window + ' species in the three towns in the past ' + (num(counts.window_days) === 365 ? 'year' : counts.window_days + ' days') + ', in ' + counts.in_window + ' sightings.',
             'The most recent was the ' + recent[0].name + ', on ' + onDate(recent[0].observedOn) + '.'],
           table: { head: ['Species', 'Seen'], rows: recent.slice(0, 8).map(function (o) { return [o.name, labelDate(o.observedOn)]; }) },
           note: note, door: door
         });
       }
       var hits = roll.map(function (row) {
-        return record({ row: row, title: row.name, text: row.latin, extra: row.group });
+        return record({ row: row, title: row.name, text: row.latin, extra: row.group + ' ' + (guideWords[row.guide] || '') });
       }).filter(function (rec) { return score(rec, q) > 0; }).map(function (rec) { return rec.row; });
       /* Nothing on the roll is an answer too, and it says exactly that much:
          not that nobody has seen one, only that no record of one is on file.
@@ -2464,7 +2474,7 @@
         var nothing = 'No sighting on record in the three towns matches ' + properCase(asTyped(ctx.raw, q) || q.phrase, [TOWN_ORDER.join(' ')]) + '.';
         return answerGuide(ctx).then(function (entry) {
           if (entry) { entry.say.unshift(nothing); return entry; }
-          return card({ kicker: 'Sightings', tag: 'Three towns', say: [nothing], note: note, door: door, withMatches: true });
+          return card({ kicker: 'Sightings', tag: 'Three towns', say: [nothing], note: note, door: rollDoor, withMatches: true });
         });
       }
       hits.sort(function (a, b) { return a.last < b.last ? 1 : -1; });
@@ -2481,7 +2491,7 @@
       return card({
         kicker: 'Sightings', tag: 'Three towns', say: say,
         table: { head: ['Species', 'Times', 'Last seen'], rows: hits.slice(0, 20).map(function (row) { return [row.name, String(row.count), labelDate(row.last)]; }) },
-        note: note, door: door
+        note: note, door: rollDoor
       });
     });
   }
@@ -2953,14 +2963,14 @@
       var row = anyOf(roll);
       if (!row || !row.first) return null;
       var n = num(row.count) || 1;
-      var inGuide = (parts[1] && Array.isArray(parts[1].species) ? parts[1].species : []).filter(function (sp) { return sp.inat === row.taxon; })[0];
+      var inGuide = (parts[1] && Array.isArray(parts[1].species) ? parts[1].species : []).filter(function (sp) { return sp.inat === row.taxon || (row.guide && sp.id === row.guide); })[0];
       var say = [row.name + ' has been recorded ' + times(n) + ' in the three towns, ' +
         (n === 1 || row.first === row.last ? 'on ' + onDate(row.first) : 'first on ' + onDate(row.first) + ' and most recently on ' + onDate(row.last)) + '.'];
       if (inGuide) say.push('It is in the field guide too.');
       return card({
         kicker: 'Sightings', tag: row.group || 'Three towns', say: say,
         note: parts[0].note || '',
-        door: inGuide ? { href: 'fivemile-guide.html#' + inGuide.id, label: 'Field guide' } : { href: 'fivemile-nature.html', label: 'Nature Watch' }
+        door: inGuide ? { href: 'fivemile-guide.html#' + inGuide.id, label: 'Field guide' } : { href: 'fivemile-species-archive.html', label: 'Species list' }
       });
     });
   }

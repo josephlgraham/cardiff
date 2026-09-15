@@ -1,14 +1,18 @@
 /* ===========================================================================
    fivemile-archive.js
 
-   The archive family. Six pages share this file:
+   The archive family. Seven pages share this file:
 
-     fivemile-archive.html           the hub, five panels and nothing else
+     fivemile-archive.html           the hub, a search and a panel per room
      fivemile-gallery.html           every photograph that has run
      fivemile-weather-archive.html   every day the station has reported
      fivemile-creek-archive.html     the creek at the Republic gauge, by the day
      fivemile-news-archive.html      every story that has run, by month
      fivemile-calendar-archive.html  every date the calendar keeps, by the year
+     fivemile-species-archive.html   every species recorded in the three towns
+
+   The editions room is written by scripts/build-editions.mjs and does not
+   load this file; the hub reads its index all the same.
 
    One file rather than five, on the same footing as fivemile-almanac-core.js:
    the rooms are the same three moves over different numbers, and splitting
@@ -42,6 +46,7 @@
   var CREEK_PEAKS = 'fivemile-creek-peaks.json';
   var NEWS_INDEX = 'news-archive/index.json';
   var EDITION_INDEX = 'fivemile-editions/index.json';
+  var SIGHTINGS_FILE = 'fivemile-observations.json';
 
   function esc(value) {
     var box = document.createElement('div');
@@ -2980,6 +2985,131 @@
   }
 
   /* -------------------------------------------------------------------------
+     THE SPECIES
+
+     The roll in fivemile-observations.json, which the iNaturalist fetcher
+     extends every run and never prunes. Nature Watch shows the last year of
+     records out of the same file; this is every species the roll has ever
+     held, newest sighting first, with a row of kinds to narrow it and a search
+     over the names. See DECISIONS.md 82.
+
+     A row is not a link, because it has two places to go and neither is the
+     obvious one: the latest record on iNaturalist, and the field guide entry
+     where there is one. Each gets its own 44px line, the .k-more the calendar
+     rows already use for the same job.
+     ------------------------------------------------------------------------- */
+  var speciesRoll = [];
+  var speciesKind = '';
+
+  function rollOf(data) {
+    return (data && Array.isArray(data.roll) ? data.roll : [])
+      .filter(function (row) { return row && row.name && row.first; });
+  }
+
+  function speciesSpan(row) {
+    if (!row.last || row.last === row.first) return longDate(row.first);
+    if (row.first.slice(0, 4) === row.last.slice(0, 4)) return shortDate(row.first) + ' to ' + longDate(row.last);
+    return longDate(row.first) + ' to ' + longDate(row.last);
+  }
+
+  function speciesRow(row) {
+    var count = num(row.count) || 0;
+    var links = '';
+    if (row.latest) {
+      links += '<a class="k-more" href="https://www.inaturalist.org/observations/' + esc(row.latest) +
+        '" target="_blank" rel="noopener">' + (count === 1 ? 'The record' : 'The latest record') +
+        ' on iNaturalist <span aria-hidden="true">&rarr;</span></a>';
+    }
+    if (row.guide) {
+      links += '<a class="k-more" href="fivemile-guide.html#' + esc(row.guide) +
+        '">In the field guide <span aria-hidden="true">&rarr;</span></a>';
+    }
+    return '<div class="card-stub species"><div class="k-bd">' +
+      '<div class="k-top">' +
+        '<span class="tag">' + esc(row.group || 'Living thing') + '</span>' +
+        '<span class="k-src">' + esc(plural(count, 'record', 'records')) + ' &middot; ' + esc(speciesSpan(row)) + '</span>' +
+      '</div>' +
+      '<h3>' + esc(row.name) + '</h3>' +
+      (row.latin ? '<div class="w">' + esc(row.latin) + '</div>' : '') +
+      (links ? '<div class="k-links">' + links + '</div>' : '') +
+    '</div></div>';
+  }
+
+  function showSpecies() {
+    var host = byId('speciesRows');
+    if (!host) return;
+    var find = byId('speciesFind');
+    var needle = find ? find.value.trim().toLowerCase() : '';
+    var rows = speciesRoll.filter(function (row) {
+      if (speciesKind && row.group !== speciesKind) return false;
+      if (!needle) return true;
+      return [row.name, row.latin, row.group].join(' ').toLowerCase().indexOf(needle) > -1;
+    });
+    host.innerHTML = rows.length ? rows.map(speciesRow).join('') : '<div class="empty">&mdash;</div>';
+    var count = byId('speciesCount');
+    /* Short, because on a phone it shares a line with the search box and every
+       letter it takes comes out of the box. */
+    if (count) {
+      count.textContent = needle ? plural(rows.length, 'match', 'matches')
+        : speciesKind ? speciesKind + ' · ' + rows.length
+        : plural(rows.length, 'species', 'species');
+    }
+  }
+
+  /* The kinds, most recorded first, behind an All that opens pressed. The
+     reel's look without its months, so it reads as the same control the other
+     rooms use to narrow what is under it. */
+  function buildKindReel(host) {
+    var counts = {};
+    speciesRoll.forEach(function (row) {
+      var kind = row.group || 'Living thing';
+      counts[kind] = (counts[kind] || 0) + 1;
+    });
+    var kinds = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
+    host.innerHTML = [''].concat(kinds).map(function (kind) {
+      return '<button type="button" class="reel-btn" data-kind="' + esc(kind) + '" aria-pressed="' + (kind ? 'false' : 'true') + '">' +
+        esc(kind || 'All') + '<small>' + (kind ? counts[kind] : speciesRoll.length) + '</small></button>';
+    }).join('');
+    host.addEventListener('click', function (event) {
+      var button = event.target.closest ? event.target.closest('.reel-btn') : null;
+      if (!button) return;
+      speciesKind = button.getAttribute('data-kind') || '';
+      Array.prototype.forEach.call(host.querySelectorAll('.reel-btn'), function (other) {
+        other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
+      });
+      showSpecies();
+    });
+  }
+
+  function loadSpecies() {
+    var reel = byId('speciesReel');
+    if (!reel) return;
+    loadJson(SIGHTINGS_FILE).then(function (data) {
+      speciesRoll = rollOf(data).sort(function (a, b) {
+        return String(b.last || b.first).localeCompare(String(a.last || a.first)) || a.name.localeCompare(b.name);
+      });
+      if (!speciesRoll.length) return;
+
+      var records = speciesRoll.reduce(function (sum, row) { return sum + (num(row.count) || 0); }, 0);
+      var earliest = speciesRoll.map(function (row) { return row.first; }).sort()[0];
+      setText('speciesStamp', plural(speciesRoll.length, 'species', 'species') + ' · ' +
+        plural(records, 'record', 'records') + ' · back to ' + monthLabel(earliest));
+
+      buildKindReel(reel);
+      showSpecies();
+
+      var find = byId('speciesFind');
+      if (find) {
+        var timer = null;
+        find.addEventListener('input', function () {
+          window.clearTimeout(timer);
+          timer = window.setTimeout(showSpecies, 160);
+        });
+      }
+    }).catch(function () { /* the empty state is already on the page */ });
+  }
+
+  /* -------------------------------------------------------------------------
      THE HUB
 
      Four panels, three readings and a line each. It reads all four files
@@ -3113,6 +3243,26 @@
     }).catch(function () { /* the panel keeps its em dashes */ });
   }
 
+  /* The seventh room. Same three figures, off the roll the room reads, and a
+     line naming the species that went on the list most recently. */
+  function hubSpecies() {
+    loadJson(SIGHTINGS_FILE).then(function (data) {
+      var roll = rollOf(data);
+      if (!roll.length) return;
+      var records = roll.reduce(function (sum, row) { return sum + (num(row.count) || 0); }, 0);
+      var earliest = roll.map(function (row) { return row.first; }).sort()[0];
+      var newest = roll.slice().sort(function (a, b) {
+        return b.first.localeCompare(a.first) || a.name.localeCompare(b.name);
+      })[0];
+      setText('hubSpeciesCount', String(roll.length));
+      setText('hubSpeciesRecords', String(records));
+      setText('hubSpeciesSince', monthLabel(earliest));
+      setText('hubSpeciesNote', 'The most recent species to go on the list is the ' + newest.name +
+        ', from a record on ' + MONTHS_FULL[Number(newest.first.slice(5, 7)) - 1] + ' ' +
+        dayNumber(newest.first) + ', ' + newest.first.slice(0, 4) + '.');
+    }).catch(function () { /* the panel keeps its em dashes */ });
+  }
+
   function loadHub() {
     if (!byId('hubPhotoCount')) return;
     hubPhotos();
@@ -3121,6 +3271,7 @@
     hubNews();
     hubDates();
     hubEditions();
+    hubSpecies();
   }
 
   /* The search on the hub lists a story the way the stories room lists one,
@@ -3133,4 +3284,5 @@
   loadCreek();
   loadNews();
   loadDates();
+  loadSpecies();
 })();

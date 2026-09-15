@@ -249,11 +249,25 @@ async function fetchRecent() {
 /* The permanent half. Every species this feed has ever seen, first date, last
    date, and which observations. Old entries are never dropped and never
    rewritten except to extend them. Observation ids are held rather than a bare
-   count so a re-run cannot inflate anything. */
+   count so a re-run cannot inflate anything.
+
+   Two fields are for the species room in the archive. `latest` is the record
+   with the latest date, which is where that room's link goes, because
+   iNaturalist's own search pages sit behind a bot check and a link to one
+   record does not. `guide` is the field guide entry, matched up the tree the
+   same way an observation row is, and kept once found. See DECISIONS.md 82. */
+function laterRecord(entry, observation) {
+  if (!entry.latest || observation.observedOn > entry.last) return true;
+  return observation.observedOn === entry.last && observation.id > entry.latest;
+}
+
 function updateRoll(previousRoll, observations) {
   const roll = new Map();
   for (const entry of previousRoll || []) {
-    roll.set(Number(entry.taxon), { ...entry, taxon: Number(entry.taxon) });
+    /* A roll written before `latest` existed gets its highest id, which is the
+       newest filing and close enough until the next record replaces it. */
+    const latest = entry.latest || (entry.ids && entry.ids.length ? Math.max(...entry.ids) : null);
+    roll.set(Number(entry.taxon), { ...entry, taxon: Number(entry.taxon), latest });
   }
 
   for (const observation of observations) {
@@ -268,6 +282,8 @@ function updateRoll(previousRoll, observations) {
         rank: observation.rank,
         first: observation.observedOn,
         last: observation.observedOn,
+        latest: observation.id,
+        guide: observation.guide || null,
         ids: [observation.id]
       });
       continue;
@@ -278,6 +294,8 @@ function updateRoll(previousRoll, observations) {
     existing.name = observation.name || existing.name;
     existing.latin = observation.latin || existing.latin;
     existing.group = observation.group || existing.group;
+    existing.guide = observation.guide || existing.guide || null;
+    if (laterRecord(existing, observation)) existing.latest = observation.id;
     if (observation.observedOn < existing.first) existing.first = observation.observedOn;
     if (observation.observedOn > existing.last) existing.last = observation.observedOn;
   }
@@ -291,6 +309,8 @@ function updateRoll(previousRoll, observations) {
       rank: entry.rank || null,
       first: entry.first,
       last: entry.last,
+      latest: entry.latest || null,
+      guide: entry.guide || null,
       count: (entry.ids || []).length,
       ids: entry.ids || []
     }))

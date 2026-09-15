@@ -165,6 +165,17 @@
     const species = counts.species_in_window || 0;
     setText("obsStamp", species + " species in the last " + months + " months");
 
+    /* The door to the species room reads the roll, the same list the room
+       draws, rather than the last year above it. */
+    const roll = (Array.isArray(data.roll) ? data.roll : []).filter(function (row) { return row && row.first; });
+    if (roll.length) {
+      const earliest = roll.map(function (row) { return row.first; }).sort()[0];
+      const firstMonth = new Date(Number(earliest.slice(0, 4)), Number(earliest.slice(5, 7)) - 1, 1);
+      setText("obsDoorSpecies", String(roll.length));
+      setText("obsDoorRecords", String(roll.reduce(function (sum, row) { return sum + (Number(row.count) || 0); }, 0)));
+      setText("obsDoorSince", firstMonth.toLocaleDateString("en-US", { month: "short", year: "numeric" }));
+    }
+
     const shown = obsExpanded ? entries : entries.slice(0, OBS_PREVIEW);
     setHTML("obsList", shown.map(observationRow).join(""));
 
