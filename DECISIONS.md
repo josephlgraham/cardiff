@@ -5124,3 +5124,86 @@ service worker serves CSS cache first.
 
 **Revisit if:** the family grows past five. Six parts at 390px is 54px each,
 which does not hold a name at a readable size.
+
+---
+
+## 77. The almanac opens on a dateline and a lead
+**Decided:** September 2026. Replaces the date hero. Keeps decision 54's
+opening panel and share row.
+
+The almanac used to open with a Sun and moon card, a big date card, a Yesterday
+card, and a panel listing the four desks. Joe said the date took up too much
+room, it did not look good on a phone, and he wanted the top to feel more
+editorial and nicer to scroll. On a 390px phone those four blocks came to about
+1,000px before the creek. The date was printed twice, once beside the section
+head and once in its own card. Yesterday was printed twice, at the top and in
+the Weather section. And the desk list said what the segmented control
+directly above it had just said (decision 76).
+
+**What it is now, top down.**
+
+- **The section head,** TODAY, the same object that opens every section below it.
+- **The dateline.** The date as a line of type, and under it sunrise, sunset,
+  hours of daylight, and the moon's phase and age as mono data. The items wrap
+  whole, so a phone never separates Sunset from its time.
+- **The week on the creek.** One `.card-gauge.spark` beside the date on a wide
+  screen and under it on a narrow one: today's stage, the stage band's
+  sentence, and the last seven days drawn as a line. Same construction as the
+  trace on the homepage, and the line is drawn against at least 0.2 ft of range,
+  the floor the full chart uses, so a quiet week draws quiet. Joe asked for a
+  thumbnail of the gauge, and this is it. It links down to the creek section.
+- **The lead,** in the opening panel. One paragraph that reads the day: the
+  creek, yesterday's weather, and when the moon comes up and goes down. Under
+  it, one line from one desk.
+
+**The lead is written by rule, like the monthly edition.** Every sentence is
+in `fivemile-almanac.js` in advance and filled from files the page already
+reads: the creek from the watershed file, yesterday from the station's own
+archive, the moon from the sky engine. The creek's change is the one the
+24-hour tile prints, worked out by one function both of them call. A part whose
+file has not answered is left out rather than filled with something plausible.
+The paragraph waits for the creek and the weather to settle before it writes,
+so it does not grow a sentence at a time under somebody reading it.
+
+`creekMood` gained a `phrase` for each band, because a band's label is a
+heading and does not read aloud. "The creek is creek-peeking level" is nobody's
+English, so that band reads as "up enough to look lively."
+
+**One line from one desk, a different desk each day.** Joe wanted a line
+included. The desk turns over with the day of the year, in the order the bar
+carries them, and a desk with nothing to say that day hands the line to the
+next. Fishing reads the water temperature and oxygen measured at Republic.
+Garden and Nature Watch use the month's lead from the desk's own table, and
+Night Sky names the next meteor shower. It is a `.p-list` row and not a link,
+for the reason written against `.p-list` in the card file: the bar above is the
+way to the desks.
+
+**The date is sized off its own column.** The longest date there is, Wednesday,
+September 28, is 12.7 times as wide as its type is tall. At a flat 30px it
+broke onto two lines at 390px. The type is `7.6cqi` of the dateline's width,
+capped at 40px, so it fits beside the tile and under it without a breakpoint,
+and a scrollbar's 15px comes out of the column it actually comes out of.
+
+**What went.** The Sun and moon, date, and Yesterday cards and the `.hero-*`
+rules, the desk list in the opening panel, and the ids the page script used to
+fill them. The Yesterday card in the Weather section stays. While in the file,
+an em dash in the weather narrative's copy became a comma.
+
+**Measured.** At 390px the creek section starts at about 1,060px, down from
+about 1,250px. Most of what is left above it is the masthead, the bar, and the
+share row, which every page carries. At 1040px and wider the creek section
+starts at 742px and is on the first screen. No page overflows sideways at 320,
+360, 390, 600, 820, 821, 900, 1040, or 1280px, and the longest date sits on one
+line from 360px up. All four desk lines were checked by pinning the day. The
+prerender check still reports every page current. `CACHE_NAME` is bumped.
+
+**The opening prose is no longer in the HTML.** Decision 59 noted that the
+almanac's opening paragraph was hard coded and a crawler could read it. The lead
+is filled in the reader's browser now, so a crawler gets an em dash there.
+The moon sentence is worked out from the reader's clock and can never be written
+in at build time. The creek and yesterday sentences come off committed files and
+could be.
+
+**Revisit if:** the creek and yesterday sentences get prerendered the way the
+gauge tiles are, which would put a real paragraph back in front of a crawler.
+Also revisit if a desk's line starts repeating what the lead already says.

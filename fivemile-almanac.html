@@ -114,68 +114,36 @@
 <div class="page">
 <main tabindex="-1" class="wrap" id="main">
 
-  <!-- TODAY --------------------------------------------------------------- -->
+  <!-- TODAY ---------------------------------------------------------------
+       A dateline and a lead. The date is a line of type rather than a card,
+       the week on the creek is the one tile beside it, and the opening panel
+       reads the day in sentences. See DECISIONS.md 77.
+       ---------------------------------------------------------------------- -->
   <section class="top">
-    <div class="hd"><h1>Today</h1><time id="almStamp">&mdash;</time></div>
-    <div class="hero-row">
-
-      <div class="card-dept">
-        <div class="d-bar"><h3>Sun and moon</h3><span class="r" id="sunSpan">&mdash;</span></div>
-        <div class="d-body">
-          <div class="hero-pair">
-            <div>
-              <div class="hero-lbl">Sunrise &middot; Sunset</div>
-              <div class="hero-val" id="sunTimes">&mdash;</div>
-              <div class="hero-note" id="dayLength">&mdash;</div>
-            </div>
-            <div>
-              <div class="hero-lbl">Moon</div>
-              <div class="hero-val" id="heroMoon">&mdash;</div>
-              <div class="hero-note" id="heroMoonSub">&mdash;</div>
-            </div>
-          </div>
-        </div>
+    <div class="hd"><h1>Today</h1></div>
+    <div class="dateline-row">
+      <div class="dateline">
+        <p class="dl-date" id="almDate">&mdash;</p>
+        <ul class="dl-sky">
+          <li id="almSunrise">&mdash;</li>
+          <li id="almSunset">&mdash;</li>
+          <li id="almDaylight">&mdash;</li>
+          <li id="almMoon">&mdash;</li>
+        </ul>
       </div>
 
-      <div class="hero-date">
-        <div class="hero-day" id="dateDayName">&mdash;</div>
-        <div class="hero-num" id="dateBig">&mdash;</div>
-        <div class="hero-month"><span id="dateMonthName">&mdash;</span> <span id="dateYearNum">&mdash;</span></div>
-      </div>
-
-      <div class="card-dept">
-        <div class="d-bar"><h3>Yesterday</h3><span class="r" id="wxUpdated">&mdash;</span></div>
-        <div class="d-body">
-          <div class="hero-pair">
-            <div>
-              <div class="hero-lbl">Conditions</div>
-              <div class="hero-val" id="heroCond">&mdash;</div>
-              <div class="hero-note" id="heroCondSub">&mdash;</div>
-            </div>
-            <div>
-              <div class="hero-lbl">Ground condition</div>
-              <div class="hero-val" id="heroRain">&mdash;</div>
-              <div class="hero-note" id="heroRainSub">At our station</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <a class="card-gauge spark" id="creekWeekTile" href="#the-creek">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌊</i><span class="g-lbl">The week &middot; Republic</span></p>
+        <div class="g-val" id="creekWeekVal">&mdash;</div>
+        <div class="g-sub" id="creekWeekSub">&mdash;</div>
+        <span class="g-spark" id="creekWeekSpark" aria-hidden="true"></span>
+      </a>
     </div>
+
     <div class="panel intro" data-share-in>
-      <p class="lede">Sun and moon, what the weather did yesterday, where the creek stands this
-        morning, and the week in front of you. Four more desks run off the same numbers.</p>
-      <ul class="p-list">
-        <li><i aria-hidden="true">🎣</i><span><b>Fishing.</b> Water temperature, oxygen, and
-          when the moon says the fish should feed.</span></li>
-        <li><i aria-hidden="true">🌱</i><span><b>Garden.</b> What to plant now, counted from
-          the two frost dates.</span></li>
-        <li><i aria-hidden="true">🌙</i><span><b>Night sky.</b> The moon, the planets, and the
-          next meteor shower.</span></li>
-        <li><i aria-hidden="true">🍃</i><span><b>Nature watch.</b> What is moving, blooming,
-          and calling, and what people are finding.</span></li>
-      </ul>
-      <p>Between them they cover most of a year in Graysville, Cardiff, and Brookside.</p>
+      <p class="lede" id="almLead">&mdash;</p>
+      <ul class="p-list" id="almDeskLine" hidden></ul>
     </div>
   </section>
 

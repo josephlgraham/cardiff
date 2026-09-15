@@ -220,6 +220,15 @@
     return best;
   }
 
+  /* The stage now against the reading nearest the same hour yesterday. The
+     change tile and the lead both say this, so it is worked out in one place
+     and the two cannot disagree about which way the creek went. */
+  function stageChange24h(allPoints) {
+    if (allPoints.length < 2) return NaN;
+    const previous = findPointNear(allPoints, 24);
+    return previous ? allPoints[allPoints.length - 1].stage_ft - previous.stage_ft : NaN;
+  }
+
   function setWatershedRangeButtons(points) {
     const availableDays = historySpanDays(points);
     const monthReady = availableDays >= 20;
@@ -350,9 +359,7 @@
       [dataRight, height - padBottom],
       [padLeft, height - padBottom]
     ]).map((point) => point[0].toFixed(1) + "," + point[1].toFixed(1)).join(" ");
-    const latest = points[points.length - 1];
-    const previous24h = findPointNear(allPoints, 24);
-    const change24h = previous24h ? latest.stage_ft - previous24h.stage_ft : NaN;
+    const change24h = stageChange24h(allPoints);
     const firstLabel = formatGaugeDay(points[0].at);
     const lastLabel = formatGaugeDay(points[points.length - 1].at);
     const changeLabel = Number.isFinite(change24h) ? formatDeltaFeet(change24h) : "Need more history";
@@ -633,6 +640,9 @@
       setText("watershedUpdated", primary ? relativeGaugeTime(primary.updated_at) : "Gauge sync pending");
       renderWatershedChartPanel();
       paintRainTile(data.rainContext);
+      paintCreekWeek(primary);
+      lead.creek = creekSentence(primary);
+      renderLead();
 
       const stage = primary ? numericOrNaN(primary.stage_ft) : NaN;
       if (Number.isFinite(stage)) {
@@ -653,6 +663,9 @@
       ["creekStage", "creekFlow", "creekChange", "creekRain"].forEach(function (id) {
         paintTile(id, null, "The gauge file is not answering right now.");
       });
+      paintCreekWeek(null);
+      lead.creek = "";
+      renderLead();
     }
   }
 
@@ -785,7 +798,7 @@
     } else {
       text += " with no measurable rain.";
     }
-    text += " The watershed log keeps a running record—each day’s high, low, and rainfall are preserved in the climate archive.";
+    text += " The watershed log keeps a running record, and each day’s high, low, and rainfall are preserved in the climate archive.";
     return text;
   }
 
@@ -796,7 +809,6 @@
   }
 
   function buildWeather(wx, rain, dailySummary, rawData, prevDay) {
-    const ground = groundCondition(wx.precipTotal, wx.humidity);
     const ds = dailySummary || null;
 
     // Prefer the station's own previous-day record from the climate archive.
@@ -819,7 +831,6 @@
       yesterday.setDate(yesterday.getDate() - 1);
       dateLabel = yesterday.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
     }
-    setText("wxUpdated", dateLabel);
     setText("wxReadStamp", dateLabel);
 
     // The three yesterday readings.
@@ -833,18 +844,8 @@
       setText("wxYestRain", "—");
     }
 
-    // hero conditions box: yesterday range
-    if (hasYesterday) {
-      setText("heroCond", yHigh + "°–" + yLow + "°F");
-      setText("heroCondSub", "Yesterday’s temperature range");
-    } else {
-      setText("heroCond", "—");
-      setText("heroCondSub", "Daily summary pending first run");
-    }
-
-    // hero ground condition: derived from morning snapshot moisture
-    setHTML("heroRain", emojiText(ground.icon, ground.title));
-    setText("heroRainSub", ground.note);
+    lead.yesterday = yesterdaySentence(yHigh, yLow, yRain);
+    renderLead();
 
     // narrative and science
     setText("wxNarrative", buildYesterdayNarrative({ high: yHigh, low: yLow, rain: yRain }));
@@ -909,15 +910,12 @@
       return wx;
     } catch (error) {
       latestWeatherPayload = null;
-      setText("wxUpdated", "Station offline");
       setText("wxNarrative", "The weather station data did not load. The rest of the almanac is still available.");
       setText("wxYestHigh", "—");
       setText("wxYestLow", "—");
       setText("wxYestRain", "—");
-      setHTML("heroCond", emojiText("📡", "Station offline"));
-      setText("heroCondSub", "Yesterday's range will return when the station data loads.");
-      setHTML("heroRain", emojiText("🥾", "Check the ground"));
-      setText("heroRainSub", "Walk the yard or creek edge for the real footing report.");
+      lead.yesterday = "";
+      renderLead();
       setText("rainYesterday", "—");
       setText("rainWeekly", "—");
       setText("rainMonthly", "—");
@@ -1219,26 +1217,193 @@
     setText("factBody", fact.body);
   }
 
-  function buildDateHero(date, sun, moon) {
-    const age = Math.round(FA.moonAge(date));
+  /* -------------------------------------------------------------------------
+     THE DATELINE AND THE LEAD
+
+     The top of the page reads the day the way a paper's front page does: the
+     date as a line of type with the sun and moon under it, the week on the
+     creek as one tile beside it, and a paragraph that says what the numbers
+     below it add up to. See DECISIONS.md 77.
+
+     Every sentence in the lead is written here in advance and filled by rule
+     from the files the rest of the page already reads. Nothing is generated
+     and nothing is guessed: a part whose file has not answered is left out of
+     the paragraph rather than filled with something plausible.
+
+     The creek and yesterday arrive on two different fetches. The paragraph
+     waits for both to settle, one way or the other, so it is written once
+     instead of growing a sentence at a time under somebody reading it.
+     ------------------------------------------------------------------------- */
+  const lead = { creek: undefined, yesterday: undefined, moon: "" };
+
+  function buildDateline(date, sun, moon) {
     const daylight = Math.round(FA.dayLengthHours(sun) * 10) / 10;
-    setText("dateDayName", DAYS_LONG[date.getDay()]);
-    setText("dateBig", String(date.getDate()));
-    setText("dateMonthName", MONTHS_LONG[date.getMonth()]);
-    setText("dateYearNum", String(date.getFullYear()));
-    setText("almStamp", date.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }));
-    setText("sunTimes", formatClock(sun.rise) + " · " + formatClock(sun.set));
-    setText("sunSpan", daylight + " hours");
-    setText("dayLength", daylight + " hours of daylight");
-    setText("heroMoon", moon.icon + " " + moon.name);
-    setText("heroMoonSub", "Moon age in cycle: " + age + (age === 1 ? " day" : " days"));
+    setText("almDate", DAYS_LONG[date.getDay()] + ", " + MONTHS_LONG[date.getMonth()] + " " + date.getDate());
+    setText("almSunrise", "Sunrise " + formatClock(sun.rise));
+    setText("almSunset", "Sunset " + formatClock(sun.set));
+    setText("almDaylight", daylight + " hours of daylight");
+    /* The phase mark says the phase, so it is labelled rather than hidden. */
+    setHTML("almMoon", '<i class="dl-mark" role="img" aria-label="' + escapeHtml(moon.name) + '">' + moon.icon + "</i>" +
+      escapeHtml(moon.name.charAt(0) + moon.name.slice(1).toLowerCase()) + ", " + escapeHtml(FA.moonAgePhrase(date)));
+    lead.moon = moonSentence(date);
+  }
+
+  /* When the moon comes up and goes down today, from the sky engine. A day with
+     only one of the two is a real day, about once a month each way, and the
+     sentence says what actually happens on it rather than printing a blank. */
+  function moonSentence(date) {
+    const sky = window.FivemileSky;
+    if (!sky || typeof sky.moonTimes !== "function") return "";
+    const times = sky.moonTimes(date);
+    const rise = times && times.rise;
+    const set = times && times.set;
+    if (rise && set) {
+      return rise < set
+        ? "The moon rises at " + formatClock(rise) + " and sets at " + formatClock(set) + "."
+        : "The moon sets at " + formatClock(set) + " and rises again at " + formatClock(rise) + ".";
+    }
+    if (rise) return "The moon rises at " + formatClock(rise) + " and is still up at midnight.";
+    if (set) return "The moon has been up since before midnight and sets at " + formatClock(set) + ".";
+    return "";
+  }
+
+  /* The creek in one sentence, off the same stage and the same change the
+     tiles below print. */
+  function creekSentence(gauge) {
+    const stage = gauge ? numericOrNaN(gauge.stage_ft) : NaN;
+    if (!Number.isFinite(stage)) return "";
+    const mood = creekMood(stage);
+    const change = stageChange24h(sanitizeGaugeHistory(gauge.stage_history));
+    let text = "Five Mile Creek is " + mood.phrase + ", at " + stage.toFixed(2) + " feet";
+    if (Number.isFinite(change)) {
+      text += Math.abs(change) < 0.01
+        ? " and about where it stood this time yesterday"
+        : " and " + (change < 0 ? "down " : "up ") + Math.abs(change).toFixed(2) + " feet since this time yesterday";
+    }
+    return text + ".";
+  }
+
+  function yesterdaySentence(high, low, rain) {
+    if (!Number.isFinite(high) || !Number.isFinite(low)) return "";
+    let text = "It got up to " + Math.round(high) + "° yesterday and down to " + Math.round(low) + "°";
+    if (Number.isFinite(rain)) {
+      text += rain >= 0.01
+        ? ", and the station caught " + rain.toFixed(2) + " inches of rain."
+        : ", with no rain at the station.";
+    } else {
+      text += ".";
+    }
+    return text;
+  }
+
+  /* One line from one desk, and a different desk each day, in the order the
+     bar carries them. A desk with nothing to say today hands the line to the
+     next one. Not a link: the bar above is the way to the desks, and the note
+     on .p-list in fivemile-cards.css already says why a second set of doors
+     under it is one too many. */
+  function deskLine(date, gauge) {
+    const month = date.getMonth();
+    const lines = {
+      fishing: function () {
+        const water = gauge ? numericOrNaN(gauge.water_temp_f) : NaN;
+        if (!Number.isFinite(water)) return "";
+        const oxygen = gauge ? numericOrNaN(gauge.dissolved_oxygen_mgl) : NaN;
+        const text = "The water at Republic is " + Math.round(water) + "°F";
+        if (!Number.isFinite(oxygen)) return text + ".";
+        const tail = {
+          "Plenty": "which is plenty for everything in it",
+          "Comfortable": "which is enough for everything in it to feed normally",
+          "Getting thin": "which is thin enough that the fish feed less",
+          "Low": "which leaves warm water fish working for breath",
+          "Very low": "which is stress rather than fishing weather"
+        }[FA.oxygenNote(oxygen).label];
+        return text + " and holds " + oxygen.toFixed(1) + " mg/L of oxygen" + (tail ? ", " + tail : "") + ".";
+      },
+      garden: function () {
+        const guide = FA.PLANTING_GUIDE[month];
+        return guide ? guide.lead : "";
+      },
+      sky: function () {
+        const shower = FA.nextMeteorShower(date);
+        return shower
+          ? "The next meteor shower is the " + shower.name + ", peaking around " + MONTHS_LONG[shower.when.getMonth()] + " " + shower.when.getDate() + "."
+          : "";
+      },
+      nature: function () {
+        const guide = FA.NATURE_GUIDE[month];
+        return guide ? guide.lead : "";
+      }
+    };
+    const desks = FA.DESKS.filter(function (desk) { return lines[desk.key]; });
+    const start = FA.dayOfYear(date) % desks.length;
+    for (let step = 0; step < desks.length; step += 1) {
+      const desk = desks[(start + step) % desks.length];
+      const sentence = lines[desk.key]();
+      if (sentence) return { desk: desk, sentence: sentence };
+    }
+    return null;
+  }
+
+  function renderLead() {
+    if (lead.creek === undefined || lead.yesterday === undefined) return;
+    const text = [lead.creek, lead.yesterday, lead.moon].filter(Boolean).join(" ");
+    setText("almLead", text || "—");
+
+    const host = document.getElementById("almDeskLine");
+    if (!host) return;
+    const line = deskLine(new Date(), watershedLeadGauge);
+    if (!line) {
+      host.hidden = true;
+      return;
+    }
+    host.innerHTML = '<li><i aria-hidden="true">' + line.desk.mark + "</i><span><b>" +
+      escapeHtml(line.desk.name + (line.desk.more || "")) + ".</b> " + escapeHtml(line.sentence) + "</span></li>";
+    host.hidden = false;
+  }
+
+  /* The week on the creek, as a gauge tile with the line drawn in it. Same
+     construction as the trace on the homepage: a viewBox, a polyline, the dot
+     on today, no library, and no lettering inside the box, because text in a
+     viewBox shrinks with the box. The tile's own figure and sentence carry the
+     reading. The line is drawn against at least a fifth of a foot of range, the
+     same floor the full chart below uses, so a creek that moved an inch all
+     week draws as a creek that barely moved. */
+  function paintCreekWeek(gauge) {
+    const stage = gauge ? numericOrNaN(gauge.stage_ft) : NaN;
+    const mood = creekMood(stage);
+    paintTile("creekWeek", Number.isFinite(stage) ? formatFeet(stage) : null, Number.isFinite(stage) ? mood.note : "—");
+    FA.setTileMark("creekWeek", mood.icon, mood.label);
+
+    const spark = document.getElementById("creekWeekSpark");
+    if (!spark) return;
+    const points = filterHistoryRange(sanitizeGaugeHistory(gauge ? gauge.stage_history : []), 7);
+    if (points.length < 4) {
+      spark.innerHTML = "";
+      return;
+    }
+    const W = 160, H = 64, left = 4, right = 152, top = 8, floor = 58;
+    const values = points.map(function (point) { return point.stage_ft; });
+    const low = Math.min.apply(null, values);
+    const high = Math.max.apply(null, values);
+    const mid = (low + high) / 2;
+    const half = Math.max(high - low, 0.2) / 2;
+    const step = (right - left) / (points.length - 1);
+    const x = function (i) { return left + i * step; };
+    const y = function (v) { return floor - ((v - (mid - half)) / (half * 2)) * (floor - top); };
+    const line = points.map(function (point, i) { return x(i).toFixed(1) + "," + y(point.stage_ft).toFixed(1); }).join(" ");
+    const lastY = y(values[values.length - 1]);
+    spark.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '">' +
+      '<polygon points="' + line + " " + right + "," + floor + " " + left + "," + floor + '" fill="var(--hold-creek)" fill-opacity="0.18"/>' +
+      '<polyline fill="none" stroke="var(--hold-creek)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="' + line + '"/>' +
+      '<circle cx="' + right + '" cy="' + lastY.toFixed(1) + '" r="4" fill="var(--hold-creek)" stroke="var(--card)" stroke-width="2"/>' +
+      "</svg>";
   }
 
   function buildStaticSections() {
     const now = new Date();
     const sun = getSunTimes(now);
     const moon = getMoonPhase(now);
-    buildDateHero(now, sun, moon);
+    buildDateline(now, sun, moon);
     buildFact(now);
     renderDesks(null);
   }
