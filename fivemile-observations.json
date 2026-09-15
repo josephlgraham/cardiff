@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T10:12:11.716Z",
+  "updatedAt": "2026-09-15T20:18:37.873Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,12 +13,12 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 90,
-    "species_in_window": 71,
-    "window_total": 95,
-    "species_recorded": 80,
-    "observations_recorded": 101,
-    "area_total": 1105,
+    "in_window": 91,
+    "species_in_window": 72,
+    "window_total": 96,
+    "species_recorded": 81,
+    "observations_recorded": 102,
+    "area_total": 1106,
     "guide_links": 6
   },
   "observations": [
@@ -38,6 +38,23 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/400335883",
       "firstRecord": false
+    },
+    {
+      "id": 400324271,
+      "taxon": 1397852,
+      "name": "Chinese Privet Leaf Beetle",
+      "latin": "Argopistes tsekooni",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-14",
+      "place": "Adamsville",
+      "obscured": false,
+      "observer": "Rachel Nicole Macek",
+      "observerLogin": "rnmacek",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/400324271",
+      "firstRecord": true
     },
     {
       "id": 400104629,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/383827980",
       "firstRecord": false
-    },
-    {
-      "id": 383793879,
-      "taxon": 61505,
-      "name": "Carolina Sphinx",
-      "latin": "Manduca sexta",
-      "rank": "species",
-      "group": "Insect",
-      "icon": "🦋",
-      "observedOn": "2026-07-21",
-      "place": null,
-      "obscured": true,
-      "observer": "Ryan",
-      "observerLogin": "r_thomson",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/383793879",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -1067,6 +1067,19 @@
       "count": 1,
       "ids": [
         383793879
+      ]
+    },
+    {
+      "taxon": 1397852,
+      "name": "Chinese Privet Leaf Beetle",
+      "latin": "Argopistes tsekooni",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-09-14",
+      "last": "2026-09-14",
+      "count": 1,
+      "ids": [
+        400324271
       ]
     },
     {
