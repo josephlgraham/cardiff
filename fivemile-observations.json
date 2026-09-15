@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T20:59:47.969Z",
+  "updatedAt": "2026-09-15T10:12:11.716Z",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.575&swlng=-87.02&nelat=33.705&nelng=-86.855&quality_grade=research",
   "note": "Research grade observations only, which means other people agreed on the identification. Places are given to the town and no closer, and a record iNaturalist has obscured carries no place at all.",
@@ -13,15 +13,32 @@
   "counts": {
     "shown": 48,
     "window_days": 120,
-    "in_window": 89,
+    "in_window": 90,
     "species_in_window": 71,
-    "window_total": 94,
+    "window_total": 95,
     "species_recorded": 80,
-    "observations_recorded": 100,
-    "area_total": 1104,
+    "observations_recorded": 101,
+    "area_total": 1105,
     "guide_links": 6
   },
   "observations": [
+    {
+      "id": 400335883,
+      "taxon": 120217,
+      "name": "Banded Tussock Moth",
+      "latin": "Halysidota tessellaris",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-14",
+      "place": "Adamsville",
+      "obscured": false,
+      "observer": "Rachel Nicole Macek",
+      "observerLogin": "rnmacek",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/400335883",
+      "firstRecord": false
+    },
     {
       "id": 400104629,
       "taxon": 116681,
@@ -820,23 +837,6 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/383793879",
       "firstRecord": false
-    },
-    {
-      "id": 383103256,
-      "taxon": 75995,
-      "name": "American trumpet vine",
-      "latin": "Campsis radicans",
-      "rank": "species",
-      "group": "Plant",
-      "icon": "🌿",
-      "observedOn": "2026-07-19",
-      "place": "Graysville",
-      "obscured": false,
-      "observer": "Cal",
-      "observerLogin": "diplopoda",
-      "guide": null,
-      "url": "https://www.inaturalist.org/observations/383103256",
-      "firstRecord": false
     }
   ],
   "roll": [
@@ -929,10 +929,11 @@
       "group": "Insect",
       "rank": "species",
       "first": "2026-06-11",
-      "last": "2026-06-11",
-      "count": 1,
+      "last": "2026-09-14",
+      "count": 2,
       "ids": [
-        370653461
+        370653461,
+        400335883
       ]
     },
     {
