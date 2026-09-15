@@ -4,7 +4,9 @@
     "build-heritage": "node scripts/build-heritage-pages.mjs",
     "check-heritage": "node scripts/build-heritage-pages.mjs --check",
     "build-gauges": "node scripts/build-gauge-tiles.mjs",
-    "check-gauges": "node scripts/build-gauge-tiles.mjs --check"
+    "check-gauges": "node scripts/build-gauge-tiles.mjs --check",
+    "build-qr": "node scripts/build-qr.mjs",
+    "check-freshness": "node scripts/check-freshness.mjs"
   },
   "dependencies": {
     "qrcode": "^1.5.4"

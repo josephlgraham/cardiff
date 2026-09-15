@@ -122,6 +122,10 @@ Conventions:
   in the front end and every entry in the service worker cache list.
 - One source being down never fails the run. Catch it, keep the last good file,
   log what happened, and let every other source finish.
+- Because of that, a dead source is silent. `scripts/check-freshness.mjs` opens
+  an issue when a file's data gets too old. A new feed gets a line in it, read
+  from the time the data is from and not the time it was committed. See
+  DECISIONS.md 79.
 
 ## Hard rules
 

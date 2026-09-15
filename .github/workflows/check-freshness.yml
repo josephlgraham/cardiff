@@ -1,0 +1,47 @@
+name: Check Data Freshness
+
+# Opens an issue when something the site shows has stopped updating, and closes
+# it when everything is current again. GitHub emails a new issue to whoever
+# watches the repository, and the owner watches it by default. This is the only
+# way anybody hears about a source that is down, because every fetcher keeps
+# the last good file and its own run still passes. See DECISIONS.md 79.
+#
+# It reads the committed files and nothing else, commits nothing, and so stays
+# out of the data-refresh-main queue the other three share. Every six hours is
+# enough: the tightest limit it checks is twelve.
+#
+# Run it by hand from the Actions tab with "Open a test issue" ticked to see
+# the email arrive.
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'Open a test issue to confirm the email arrives'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '47 */6 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+
+      - name: Check how old each feed is
+        run: node scripts/check-freshness.mjs ${{ inputs.test && '--test' || '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

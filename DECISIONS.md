@@ -4713,7 +4713,8 @@ stubs, because a stub would print the same sentence again.
 The question goes into the address as `?q=`, so the back button restores it
 and an answer can be sent to somebody. The page has Google Analytics on it,
 and if its site search reporting is on, the questions people ask will show up
-there. That is worth knowing and nothing on the page mentions it.
+there. That is worth knowing and nothing on the page mentions it. Mostly they
+did not show up, and decision 78 is why and what changed.
 
 ### Tell me something I don't know
 
@@ -5207,3 +5208,131 @@ could be.
 **Revisit if:** the creek and yesterday sentences get prerendered the way the
 gauge tiles are, which would put a real paragraph back in front of a crawler.
 Also revisit if a desk's line starts repeating what the lead already says.
+
+## 78. Printed codes are tagged, and the search tells analytics what was asked
+**Decided:** September 2026. Goes a step past decision 73's note on the address.
+
+Joe asked where to see what people type into the search. Decision 73 said the
+questions would show up in Google Analytics "if its site search reporting is
+on". It was on, and the questions mostly did not show up. Tested on the live
+site on 15 September:
+
+- **A page opened with `?q=` in the address** sent `view_search_results` with
+  the question as `search_term`. That is a shared link, not a reader at the box.
+- **A question typed at the box** sent only a `page_view` with the question in
+  the address, because the search puts it there with `replaceState` and GA4
+  counts a history change as a page view. No search event, so nothing in the
+  Search term report.
+- **The fact button** sent another `page_view` as it cleared the address.
+
+So the report held shared links and little else, and the Archive's page views
+were counted high.
+
+**The search now says so itself.** On submit, `fivemile-search.js` sends
+`view_search_results` with the question. A page load is left to Analytics,
+which already catches it, so nothing is counted twice. Anything shaped like an
+email address or a phone number is blanked first, because a search box is where
+somebody types one. Years, dates, and ranges like 1990-2020 are left alone, and
+were tested. The term is cut to 100 characters, which is as long as GA4 keeps a
+parameter. No new destination: the Google tag was already on every page.
+
+**Joe's half is a switch in GA4.** Admin, Data streams, the stream, Enhanced
+measurement, Page views, Show advanced settings, and untick "Page changes based
+on browser history events". Nothing else on the site depends on it. The field
+guide pushes `#bream` and the kitchen replaces its hash, and GA4 sent no page
+view for the guide's hash change when tested. Until it is unticked, a typed
+question also reaches Analytics unredacted inside the page address.
+
+**Where to read it.** Explore, a blank exploration, Search term in rows and
+Event count in values. Questions typed before this change are only under the
+dimension Page path and query string, filtered to `q=`.
+
+**Printed QR codes carry a tag.** A visit from paper otherwise counts as Direct,
+the same as somebody typing the address. Each code's link carries `utm_source`
+for the printed thing and `utm_medium=print`. GA4's default channels do not know
+print, so these visits land in Unassigned; they are read under Session source /
+medium, as `flyer / print`. The page is the same with or without the tag. The
+homepage's canonical keeps the tagged address out of search results, and the
+share row shares the canonical, so the tag does not travel when a reader passes
+the page on.
+
+**The half sheet flyer was retagged before it was printed.** Its code encoded
+`https://fivemile.now`, untagged, at error correction Q. The code in the same
+2.1 inch square now encodes `https://fivemile.now/?utm_source=flyer&utm_medium=print`,
+still Q, with smaller squares. Nothing else on the flyer changed. The code was
+decoded back out of the PDF to check it, and Joe scanned it.
+
+**`scripts/build-qr.mjs` keeps the codes.** It writes an SVG for a print shop
+and a 4,005px PNG to `qr-codes/`, from a list in the script. Both were checked
+square for square against the flyer. An entry is frozen once it is on paper,
+because a changed link or level redraws the squares and the file stops matching
+the bulletin boards. Stickers get their own entry, `sticker / print`. So will
+the sign's code when it is reprinted before March 2027.
+
+**Revisit if:** GA4 starts sending a search event on a history change on its
+own, which would count typed questions twice; or the search moves off the
+Archive hub; or a question turns up in the report carrying something personal
+the blanking missed.
+
+## 79. A feed that goes quiet opens an issue
+**Decided:** September 2026.
+
+Every fetcher keeps the last good file when its source is down, so a bad day at
+USGS is not a bad day for the site. The cost is silence. The run still passes,
+GitHub sends no failure email, and the page goes on showing a reading that gets
+older by the hour until somebody happens to notice. Joe wants the site to run on
+its own with him checking in, and that only works if it can say when it needs
+him.
+
+**`scripts/check-freshness.mjs`, every six hours, from
+`.github/workflows/check-freshness.yml`.** It reads the time each file says its
+data is from, never when the file was committed. Commit times would lie both
+ways: the live job skips a commit when only `updatedAt` moved, and a stamp can
+move on a run that fetched nothing.
+
+| Check | Read from | Limit |
+|---|---|---|
+| Our station | `current.obsTime` | 12 hours |
+| The creek gauge | the lead gauge's `updated_at` | 12 hours |
+| The news | `fivemile-news-live.json` `updatedAt` | 36 hours |
+| The newest story | newest `published_at` | 4 days |
+| The forecast | `fivemile-watershed-weather.json` `updatedAt` | 36 hours |
+| The weather log | last day in its index | 3 days |
+| The creek log | last day in its index | 4 days |
+| The airport record | last day in its index | 7 days |
+| Announcements and notices from the Sheet | `updated` | 3 days |
+| The monthly edition | last month on file, from the 6th | due by the 5th |
+
+The limits come from what normal has looked like. GitHub ran the ten minute job
+every three to seven hours through September (decision 30's workflow comment),
+so a reading gets twelve. The longest gap between two stories since 17 August
+was 37 hours, so the newest story gets four days. The sheet's `updated` is
+rewritten only on a good read, so three days without it means three days of
+failed reads.
+
+**Left out, and why.** ECHO rewrites its file only when EPA's data moves, so a
+quiet month and a dead feed look the same. The alert ticker is only committed
+when an alert changes, so no alerts and a broken fetch look the same. Air
+quality and the iNaturalist feed were not added because neither was looked at
+closely enough to know whether its stamp moves on a run that learned nothing.
+
+**One issue, kept current.** Found by its title and by being opened by
+`github-actions[bot]`, so an issue Joe opens with the same words is never
+touched. Each run rewrites the body, which notifies nobody. A comment goes on
+only when something new goes quiet, and when everything is current the issue
+says so and closes. The body names the workflow that writes each file, since
+that run's log says what the source answered. The repository is public, so the
+issue speaks the way the site does: "Our station", and nowhere.
+
+**Tested** against the files as they stood, which were all current; with the
+clock moved three days on, which flagged five; and against a stand-in for the
+GitHub API for opening, updating without a comment, updating with one, closing,
+and ignoring a person's issue of the same title. Moved to 7 October, the missing
+September edition was flagged. The workflow has a "test" switch that opens an
+issue saying the alert works, to confirm the email arrives.
+
+**A new feed gets a line in `CHECKS`.** CLAUDE.md says so under Data.
+
+**Revisit if:** GitHub's throttling gets worse and the twelve hour limits start
+raising alarms on a working station; or an issue opens and nobody saw the email,
+in which case the notification settings are the problem and not this.

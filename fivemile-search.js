@@ -2811,9 +2811,27 @@
     history.replaceState(null, '', url);
   }
 
+  /* A question typed at the box is told to Google Analytics as a site search,
+     so it lands in the Search term report. Analytics finds a question on its
+     own only when a page opens with ?q= already in the address, which is a
+     shared link and not a reader at the box, so a page load is left to it.
+     Anything shaped like an email address or a phone number is blanked first:
+     a search box is where somebody types one, and analytics is no place for
+     it. See DECISIONS.md 78. */
+  function tell(raw) {
+    if (typeof window.gtag !== 'function') return;
+    var text = String(raw || '').trim().slice(0, 200)
+      .replace(/[^\s@]+@[^\s@]+\.[^\s@]+/g, '[email]')
+      .replace(/(?:\+?1[\s.-]?)?\(?\b\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\b/g, '[phone]')
+      .replace(/\b\d{3}[\s.-]\d{4}\b/g, '[phone]')
+      .slice(0, 100);
+    if (text) window.gtag('event', 'view_search_results', { search_term: text });
+  }
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     input.blur();
+    tell(input.value);
     run(input.value).then(function () { bringUp(); });
   });
   input.addEventListener('search', function () {
