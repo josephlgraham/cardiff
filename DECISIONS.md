@@ -1734,6 +1734,9 @@ the page that answers who is doing this and why, which on a publication nobody
 has heard of yet is not a footer question. See DECISIONS.md 32 for what About
 replaced.
 
+**Reversed in September 2026.** Archive has this slot now and About is back in
+the footer. See decision 75.
+
 **Seven items do not fit 390px, so the strip scrolls.** Five did, which is why
 the mobile rule used to divide the width evenly between them with `flex:1 1 0`
 and no scrolling at all. The row measures about 440px now. Shrinking to fit
@@ -5027,3 +5030,42 @@ purpose.
 reports by name, or a saying's source goes away, in which case find another
 source or take the saying out. Never tune a test, a threshold or the call rule
 to make a past result come out better.
+
+## 75. Archive takes About's place in the bar
+**Decided:** September 2026. Amends decision 38.
+
+The masthead nav is Home, News, Calendar, Almanac, Field Guide, Heritage,
+Archive. About came out of the bar and lives in the footer site map under This
+site, where it already had a row.
+
+**Joe asked for the swap.** Decision 38 put About in the bar on the grounds
+that who is doing this is not a footer question for a publication nobody has
+heard of. What changed is what the Archive holds. It keeps every day on the
+creek since 1988, the airport record back to 1930, every story, every date, the
+editions, and a search that answers off all of it. That is the promise the site
+makes, that nothing here scrolls away, and it was sitting one row down in the
+footer. About answers a question a reader asks once. The Archive answers the
+ones they come back with.
+
+**The tab is lit on the hub and on every room.** The gallery, the weather log,
+the creek log, the story index, the date index, the Editions room, and each
+edition page mark Archive active, the same way the almanac desks light Almanac
+and the chapters light Heritage. The gallery stays under The place in the
+footer. Both are right: the footer groups pages by what a reader is after, and
+the bar says which door they came in by. About now lights no tab, the same as
+Announcements, Civic, and What goes in.
+
+**The edition pages needed no change to the builder.**
+`scripts/build-editions.mjs` copies its masthead out of
+`fivemile-edition-archive.html`, so the room is the one place the markup has to
+be right. The eight edition files were edited to match what the next build
+writes anyway.
+
+**Measured at 390px** on the home page, the hub, About, the gallery, and the
+August edition: the strip is 519px, the Archive tab is 70px wide, every tab is
+46px tall, no page overflows sideways, and where Archive is lit it is scrolled
+into view. On the home page Archive is the tab past the right edge until
+somebody scrolls, which is the same cost decision 38 wrote down for About.
+
+**No cache bump.** The service worker fetches pages network first, and no
+stylesheet or script changed.
