@@ -4694,6 +4694,57 @@ and an answer can be sent to somebody. The page has Google Analytics on it,
 and if its site search reporting is on, the questions people ask will show up
 there. That is worth knowing and nothing on the page mentions it.
 
+### Tell me something I don't know
+
+The first build put five sample questions under the box in a strip you
+pushed sideways. Joe replaced them with one button, labelled in his words,
+that turns up something off the record.
+
+It is held to the same rule as the answers: nothing is made up. Every fact is
+one of three things. A question put to the same rules a reader's question goes
+to ("record high for today", "the driest year"). A figure worked out from the
+same files: the highest the creek has been on today's date across every year on
+file, the year since 2008 with the most days of high water, the daylight lost or
+gained since the last solstice, how many stories name each of the three towns,
+a species off the sightings roll, an entry from the field guide, the weather on
+today's date in a year picked at random off the airport record. Or a paragraph
+of a heritage chapter, quoted whole, with its heading and a door back to it.
+
+- **Dealt, not drawn.** The facts are shuffled into a deck and dealt one a
+  press, so none comes round again until every other one has. The date facts are
+  different every day anyway.
+- **A fact with nothing behind it is skipped**, not shown as "nothing on file".
+- **Heritage paragraphs are whole and only history.** Between 160 and 620
+  characters, starting with a capital and ending a sentence, never holding a
+  placeholder, and never a paragraph that talks about the page itself: its
+  sources, what is above or below, or how to write in.
+- **No obituaries and nothing from the civic page.** An obituary turned up at
+  random as a curiosity is exactly what decision 22 exists to prevent, and the
+  civic page argues a case rather than reporting one.
+- **The towns are said in town order and all three are said**, including
+  Brookside at none yet, so the stories fact never reads as leaving a town out.
+
+### The hub says how to use it, and that is the one exception
+
+CLAUDE.md says never explain the interface in copy, and this breaks that on
+purpose, at Joe's request. A search box that takes a question in plain words
+and answers it is not something a reader here would guess, and the whole
+feature is wasted on somebody who types one word and stops.
+
+So the hub's opening panel carries two paragraphs about it. They are written
+about what the record can tell a reader and how to put a question, with four
+real examples, and not about which box to tap. The placeholder says "Ask a
+question", which is all that fits in the box at 390px; the longer "Ask a
+question, or search a word" was cut off at "wo" on a phone, and it stays as the
+box's label for a screen reader, where nothing gets cut. Every example in the copy was run against the
+search before it went in and gets a real answer, and anybody changing an
+example runs it first. The exception stops at this panel: nothing else on the
+site starts explaining its controls because this does.
+
+The same pass took `font-style:italic` off `::placeholder` in
+`fivemile-common.css`. It had put every search box on the site in italics since
+before the archive existed, against the rule in CLAUDE.md.
+
 ### Things that will bite the next person
 
 - **The rules run in order and the first answer wins.** The order is written

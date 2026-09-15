@@ -107,7 +107,14 @@
 // of them are cache-first, and a returning reader holding the old common.js
 // with the new almanac core would find no creek lines at all.
 // See DECISIONS.md 73.
-const CACHE_NAME = 'fivemile-v76';
+// v77 swaps the strip of sample questions on the hub for one button that
+// turns up a fact off the record. fivemile-archive.html, fivemile-archive.css
+// and fivemile-search.js all changed, and a returning reader holding the old
+// stylesheet would get an unstyled button. See DECISIONS.md 73. The same
+// version takes the italic off every placeholder in fivemile-common.css, which
+// broke the no italics rule on every search box on the site, and adds the
+// hub's two paragraphs on how to ask the search.
+const CACHE_NAME = 'fivemile-v77';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

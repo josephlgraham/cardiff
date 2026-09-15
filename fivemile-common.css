@@ -880,7 +880,9 @@ a[hidden]{
   }
 }
 
-::placeholder{font-style:italic;opacity:.75;}
+/* No italics, and that includes the words inside an empty box. The muted
+   colour already tells a reader this is not something they typed. */
+::placeholder{opacity:.75;}
 
 /* Skip link. The first tab stop on every page, so somebody using a keyboard or
    a switch is not made to walk the watershed button, the nameplate, five tabs

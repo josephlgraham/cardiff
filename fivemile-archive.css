@@ -40,6 +40,11 @@
    a first section, which is the one place it disagrees with the shell. */
 .wrap{padding-top:26px}
 
+/* The hub's opening runs to four paragraphs since it started saying how to ask
+   the search, and the reset in the shell gives a paragraph no margin at all.
+   Margins collapse, so the gap under the lede stays the lede's own 18px. */
+.panel.intro > p + p{margin-top:12px}
+
 /* Five rooms in a two column grid leaves one on its own with a hole beside it.
    The fifth takes the whole row instead. It is the newest room and the one
    most people are actually looking for, so the wide slot is not a consolation
@@ -136,22 +141,21 @@ p.arc-count{margin:0 0 16px}
 
 /* The search on the hub. The same box as the rooms' with a button beside it,
    because a question is a thing you finish typing and send, and answering it
-   on every keystroke would fetch a year of creek readings for "in 19". The
-   sample questions under it are a strip you push sideways, the reel's
-   gesture, set in the sans because they are sentences and not labels. See
-   DECISIONS.md 73. */
+   on every keystroke would fetch a year of creek readings for "in 19". Under
+   it, one button that turns up a fact off the record. It is set in the sans,
+   because what it says is a sentence and not a label, and it wears the card
+   face of every other secondary control in the archive. See DECISIONS.md 73. */
 .find{margin:18px 0 0}
 .find .arc-find{margin:0 0 8px}
 .find-go{flex:none;min-width:88px;min-height:44px;padding:6px 14px;background:var(--masthead);
   border:1px solid var(--masthead);border-radius:var(--r);font-family:var(--mono);font-size:12.5px;
   letter-spacing:.09em;text-transform:uppercase;color:var(--paper);cursor:pointer;transition:background var(--ease)}
 .find-go:hover{background:var(--ink)}
-.find-try{display:flex;gap:6px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.find-try::-webkit-scrollbar{display:none}
-.find-try button{flex:none;min-height:44px;padding:8px 13px;background:var(--card);border:1px solid var(--fm-rule);
-  border-radius:4px;font-family:var(--sans);font-size:15px;color:var(--ink);white-space:nowrap;cursor:pointer;
-  transition:border-color var(--ease),background var(--ease)}
-.find-try button:hover{border-color:var(--masthead);background:#fff}
+.find-luck{display:inline-flex;align-items:center;min-height:44px;margin:0 0 12px;padding:8px 15px;
+  background:var(--card);border:1px solid var(--fm-rule);border-radius:4px;font-family:var(--sans);font-size:15px;
+  font-weight:600;color:var(--ink);cursor:pointer;transition:border-color var(--ease),background var(--ease)}
+.find-luck:hover{border-color:var(--masthead);background:#fff}
+.find-luck[aria-busy="true"]{opacity:.6}
 .find-out{margin:6px 0 0}
 .find-out:empty{display:none}
 .find-out[aria-busy="true"]{opacity:.6}

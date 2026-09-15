@@ -1386,7 +1386,7 @@
     var win = ctx.win;
     /* A bare number over or under something, with no other unit named, is a
        temperature: "how many days over 90". */
-    var bareDegrees = /\b(over|above|under|below|at least|more than|less than|hit|reached)\s+-?\d{1,3}\b(?!\s*(feet|foot|ft|inch|inches|mph|cfs|percent|%|stories|times))/.test(q);
+    var bareDegrees = /\b(over|above|under|below|at least|more than|less than|hit|reached|topped|topped out at)\s+-?\d{1,3}\b(?!\s*(feet|foot|ft|inch|inches|mph|cfs|percent|%|stories|times))/.test(q);
     if (!bareDegrees && !/\b(hot\w*|heat|warm\w*|cold\w*|cool\w*|freez\w*|froze\w*|frost\w*|temp\w*|degrees?|chilly|muggy|highs|lows|the high|the low|weather)\b|\b(normal|average|usual|typical|record)\s+(highs?|lows?)\b/.test(q)) return null;
     if (/\b(average|usual|typical|normal|expected)\b.*\b(frost|freeze)\b|\b(frost|freeze) dates?\b|\bwhen (is|does) the (last|first) (frost|freeze)\b|\bplant\w*\b.*\bfrost\b/.test(q)) return frostDates(ctx);
     if (/\brecord (high|low|temp\w*)s?\b|\bon this (date|day)\b|\btoday in history\b/.test(q) && (!win || /^(day|today)$/.test(win.kind))) return recordsOnDate(ctx);
@@ -2471,7 +2471,8 @@
       var say = [];
       var lead = /\b(has|have) (anyone|anybody|someone|people)\b/.test(ctx.q) ? 'Yes. ' : yesNo(ctx, true);
       if (hits.length === 1) {
-        say.push(lead + hits[0].name + ' has been recorded ' + times(num(hits[0].count)) + ' along the lower creek, most recently on ' + onDate(hits[0].last) + '.');
+        say.push(lead + hits[0].name + ' has been recorded ' + times(num(hits[0].count)) + ' along the lower creek, ' +
+          (num(hits[0].count) === 1 ? 'on ' : 'most recently on ') + onDate(hits[0].last) + '.');
       } else {
         say.push(lead + cap(counted(hits.length, 'kind matches', 'kinds match')) + ', recorded ' + times(recorded) + ' in all along the lower creek.');
         say.push('The most recent was the ' + hits[0].name + ', on ' + onDate(hits[0].last) + '.');
@@ -2519,7 +2520,7 @@
       if (!best.inat) return result;
       return fetchJson(SIGHTINGS_FILE).then(function (data) {
         var row = (data && Array.isArray(data.roll) ? data.roll : []).filter(function (r) { return r.taxon === best.inat; })[0];
-        if (row) result.say.push('It has been recorded ' + times(num(row.count)) + ' along the lower creek, most recently on ' + onDate(row.last) + '.');
+        if (row) result.say.push('It has been recorded ' + times(num(row.count)) + ' along the lower creek, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.');
         return result;
       }).catch(function () { return result; });
     });
@@ -2538,12 +2539,12 @@
       node.remove();
     });
     var records = [];
-    var current = { head: '', id: '', parts: [] };
+    var current = { head: '', id: '', parts: [], paras: [] };
     function flush() {
       var text = current.parts.join(' ').replace(/\s+/g, ' ').trim();
       if (!text && !current.head) return;
       var href = path + (current.id ? '#' + current.id : '');
-      records.push(record({ kind: 'page', page: title, href: href, title: title, head: current.head, text: text }));
+      records.push(record({ kind: 'page', page: title, href: href, title: title, head: current.head, text: text, paras: current.paras }));
     }
     var blocks = 'h1,h2,h3,p,li,figcaption,blockquote,td,dd';
     Array.prototype.forEach.call(main.querySelectorAll(blocks), function (el) {
@@ -2553,10 +2554,15 @@
         flush();
         var holder = el.id ? el : el.closest('[id]');
         var id = holder && holder !== main && holder.id !== 'main' ? holder.id : '';
-        current = { head: text, id: id, parts: [] };
+        current = { head: text, id: id, parts: [], paras: [] };
         return;
       }
-      if (text.length > 1 && text !== DASH) current.parts.push(text);
+      if (text.length > 1 && text !== DASH) {
+        current.parts.push(text);
+        /* Whole paragraphs are kept apart as well, so a paragraph can be
+           quoted without cutting a sentence. */
+        if (el.tagName === 'P') current.paras.push(text);
+      }
     });
     flush();
     /* The kitchen draws its recipes from a list in its own script, so its
@@ -2688,7 +2694,7 @@
         groups.push({ name: 'Sightings', rows: seen.map(function (x) {
           var row = x.rec.row;
           return hitHtml(row.group || 'Nature Watch', 'fivemile-nature.html', row.name,
-            esc('Recorded ' + times(num(row.count)) + ' along the lower creek, most recently on ' + onDate(row.last) + '.'));
+            esc('Recorded ' + times(num(row.count)) + ' along the lower creek, ' + (num(row.count) === 1 ? 'on ' : 'most recently on ') + onDate(row.last) + '.'));
         }) });
       }
 
@@ -2812,15 +2818,274 @@
   input.addEventListener('search', function () {
     if (!input.value) run('');
   });
-  var tries = document.getElementById('findTry');
-  if (tries) {
-    tries.addEventListener('click', function (event) {
-      var button = event.target.closest ? event.target.closest('button[data-q]') : null;
-      if (!button) return;
-      input.value = button.getAttribute('data-q');
-      run(input.value);
+  /* -------------------------------------------------------------------------
+     SOMETHING YOU DID NOT KNOW
+
+     One button, and every press turns up one thing off the record. Nothing is
+     made up for it. Each fact below is either a question put to the same rules
+     a reader's question goes to, or a figure worked out from the same files,
+     or a paragraph of the heritage pages quoted whole. The facts are dealt from
+     a shuffled deck, so the same one does not come round again until every
+     other one has, and the ones tied to today's date are different tomorrow.
+
+     No obituaries, ever, and nothing from the civic page, which argues a case
+     rather than reporting one. See DECISIONS.md 22, 35 and 73.
+     ------------------------------------------------------------------------- */
+  function ask(question) { return answer(understand(question)); }
+  function anyOf(list) { return list.length ? list[Math.floor(Math.random() * list.length)] : null; }
+  function shuffled(list) {
+    var copy = list.slice();
+    for (var i = copy.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var hold = copy[i];
+      copy[i] = copy[j];
+      copy[j] = hold;
+    }
+    return copy;
+  }
+  function hoursAndMinutes(total) {
+    var h = Math.floor(total / 60);
+    var m = total % 60;
+    if (!h) return counted(m, 'minute', 'minutes');
+    return counted(h, 'hour', 'hours') + (m ? ' and ' + counted(m, 'minute', 'minutes') : '');
+  }
+
+  /* The weather on today's date in a year picked at random off the airport
+     record, with the creek beside it once the gauge was running. */
+  function thisDateLongAgo() {
+    return shelf(AIRPORT_DIR).then(function (held) {
+      if (!held.first) return null;
+      var now = today();
+      var year = yearOf(held.first) + Math.floor(Math.random() * (yearOf(now) - yearOf(held.first)));
+      var key = year + now.slice(4);
+      if (!realDate(key)) return null;
+      return ask('what was the weather on ' + MONTHS[monthOf(key) - 1] + ' ' + dayOf(key) + ' ' + year);
     });
   }
+
+  function creekOnThisDate() {
+    var now = today();
+    var md = now.slice(5);
+    return shelf(CREEK_DIR).then(function (held) {
+      if (!held.first) return null;
+      var jobs = [];
+      for (var year = yearOf(held.first); year < yearOf(now); year++) jobs.push(yearRows(CREEK_DIR, year));
+      return Promise.all(jobs).then(function (years) {
+        var rows = [];
+        years.forEach(function (list) { list.forEach(function (d) { if (d.date.slice(5) === md && highOf(d) != null) rows.push(d); }); });
+        if (rows.length < 5) return null;
+        var best = most(rows, highOf);
+        var label = MONTHS[monthOf(now) - 1] + ' ' + dayOf(now);
+        return card({
+          kicker: 'The creek', tag: 'On this date',
+          say: ['On this date in ' + yearOf(best.date) + ', Five Mile Creek came up to ' + feet(highOf(best)) + ' at Republic.',
+            'That is the highest it has been on a ' + label + ' in the ' + rows.length + ' years on file.'],
+          note: ['Each year goes by the day\'s highest reading at the Republic gauge.'].concat(creekCaveats([best], null, null)).join(' '),
+          door: CREEK_DOOR
+        });
+      });
+    });
+  }
+
+  /* Only years with readings through the day can be counted for high water,
+     and the fifteen minute record starts in October 2007. */
+  function creekBusiestYear() {
+    var now = today();
+    return shelf(CREEK_DIR).then(function (held) {
+      if (!held.first) return null;
+      var jobs = [];
+      for (var year = 2008; year <= yearOf(now); year++) jobs.push(yearRows(CREEK_DIR, year));
+      return Promise.all(jobs).then(function (years) {
+        var test = lineTest({ dir: 'above', value: lines().high, named: 'high' });
+        var tally = years.map(function (rows, i) {
+          return { year: 2008 + i, days: rows.filter(function (d) { return num(d.high) != null && test(d); }).length, size: rows.length };
+        });
+        var whole = tally.filter(function (t) { return t.year < yearOf(now) && t.size >= 300; });
+        if (!whole.length) return null;
+        var busiest = most(whole, function (t) { return t.days; });
+        var quietest = least(whole, function (t) { return t.days; });
+        var current = tally[tally.length - 1];
+        var over = current.year === yearOf(now) && current.days
+          ? 'So far this year it has happened on ' + counted(current.days, 'day', 'days') + '.'
+          : 'It has not happened yet this year.';
+        return card({
+          kicker: 'The creek', tag: 'Since 2008',
+          say: ['No year since 2008 has put Five Mile Creek over the high water line on more days than ' + busiest.year +
+            ', which reached it on ' + counted(busiest.days, 'day', 'days') + '.',
+            'The quietest was ' + quietest.year + ', with ' + counted(quietest.days, 'day', 'days') + '.', over],
+          note: 'High water is ' + looseFeet(lines().high) + ' at the Republic gauge, the same line the masthead and the almanac draw. ' +
+            'It is not a flood stage, because this gauge does not have one. A day counts if any reading in it reached the line.',
+          door: CREEK_DOOR
+        });
+      });
+    });
+  }
+
+  function guideEntry() {
+    return fetchJson(GUIDE_FILE).then(function (guide) {
+      var sp = anyOf(guide && Array.isArray(guide.species) ? guide.species : []);
+      return sp ? answerGuide(understand('what is a ' + sp.name)) : null;
+    });
+  }
+
+  function sightingFromTheRoll() {
+    return Promise.all([fetchJson(SIGHTINGS_FILE), fetchJson(GUIDE_FILE).catch(function () { return null; })]).then(function (parts) {
+      var roll = parts[0] && Array.isArray(parts[0].roll) ? parts[0].roll : [];
+      var row = anyOf(roll);
+      if (!row || !row.first) return null;
+      var n = num(row.count) || 1;
+      var inGuide = (parts[1] && Array.isArray(parts[1].species) ? parts[1].species : []).filter(function (sp) { return sp.inat === row.taxon; })[0];
+      var say = [row.name + ' has been recorded ' + times(n) + ' along the lower creek, ' +
+        (n === 1 || row.first === row.last ? 'on ' + onDate(row.first) : 'first on ' + onDate(row.first) + ' and most recently on ' + onDate(row.last)) + '.'];
+      if (inGuide) say.push('It is in the field guide too.');
+      return card({
+        kicker: 'Sightings', tag: row.group || 'Lower creek', say: say,
+        note: parts[0].note || '',
+        door: inGuide ? { href: 'fivemile-guide.html#' + inGuide.id, label: 'Field guide' } : { href: 'fivemile-nature.html', label: 'Nature Watch' }
+      });
+    });
+  }
+
+  /* A paragraph of the heritage pages, whole, with the door back to where it
+     sits. Only paragraphs that are complete sentences of a readable length,
+     and never one holding a placeholder. */
+  function heritageParagraph() {
+    return pagesIndex().then(function (records) {
+      var choices = [];
+      /* A chapter also talks about itself: where its sources are, and how to
+         write in with a correction. Those paragraphs are the page's own
+         housekeeping and not history, so anything that points at the page
+         rather than at the past stays out. */
+      var housekeeping = /\b(above|below|this chapter|this page|these are|sources?|fill in|write in|email|let us know|get in touch)\b/i;
+      records.forEach(function (rec) {
+        if (rec.href.indexOf('fivemile-heritage') !== 0 || /fill in a gap/i.test(rec.head)) return;
+        (rec.paras || []).forEach(function (para) {
+          if (para.length >= 160 && para.length <= 620 && /^[A-Z"]/.test(para) && /[.!?"]$/.test(para) &&
+              para.indexOf(DASH) === -1 && !housekeeping.test(para)) {
+            choices.push({ rec: rec, para: para });
+          }
+        });
+      });
+      var pick = anyOf(choices);
+      if (!pick) return null;
+      var chapter = pick.rec.page.split(' · ')[0];
+      return card({
+        kicker: 'Heritage', tag: pick.rec.head || chapter, say: [pick.para],
+        door: { href: pick.rec.href, label: chapter }
+      });
+    });
+  }
+
+  function daylightSinceSolstice() {
+    var S = window.FivemileSky;
+    if (!S) return null;
+    var now = new Date();
+    var candidates = [];
+    [now.getFullYear() - 1, now.getFullYear()].forEach(function (year) {
+      ['summer-solstice', 'winter-solstice'].forEach(function (name) {
+        var at = S.sunTurning(year, name);
+        if (at && at <= now) candidates.push({ name: name, at: at });
+      });
+    });
+    var last = candidates.sort(function (a, b) { return b.at - a.at; })[0];
+    if (!last) return null;
+    function daylight(key) {
+      var t = S.riseSetTransit(dateOf(key), S.sunAt, { h0: -0.833 });
+      return t.rise && t.set ? Math.round((t.set - t.rise) / 60000) : null;
+    }
+    var then = daylight(keyOf(last.at));
+    var nowMinutes = daylight(today());
+    if (then == null || nowMinutes == null || then === nowMinutes) return null;
+    var change = nowMinutes - then;
+    var summer = last.name === 'summer-solstice';
+    return card({
+      kicker: 'The sun', tag: 'Since the solstice',
+      say: ['Since the ' + (summer ? 'summer' : 'winter') + ' solstice on ' + onDate(keyOf(last.at)) + ', the days here have ' +
+        (change < 0 ? 'lost ' : 'gained ') + hoursAndMinutes(Math.abs(change)) + ' of daylight.',
+        'Today has ' + hoursAndMinutes(nowMinutes) + ' of it.'],
+      door: ALMANAC_DOOR
+    });
+  }
+
+  /* Which of the three towns the stories name most. Every town is said, in
+     town order, so none of the three reads as left out. */
+  function townsInTheStories() {
+    return storiesAll().then(function (all) {
+      var counts = TOWN_ORDER.map(function (town) {
+        return { town: town, n: all.filter(function (rec) { return rec.story.town === town; }).length };
+      });
+      if (!counts.some(function (c) { return c.n; })) return null;
+      /* "Nine are about Graysville, one about Cardiff, and none yet about
+         Brookside." Only the first carries the verb. */
+      var parts = counts.map(function (c, i) {
+        var n = c.n === 0 ? 'none yet' : c.n <= 10 ? SMALL[c.n] : String(c.n);
+        return n + (i === 0 ? (c.n === 1 ? ' is' : ' are') : '') + ' about ' + c.town;
+      });
+      return card({
+        kicker: 'Stories', tag: 'News page',
+        say: ['Of the ' + all.length + ' stories on file, ' + parts[0] + ', ' + parts[1] + ', and ' + parts[2] + '.',
+          'The rest are about the county and the places around the three towns.'],
+        door: { href: 'fivemile-news-archive.html', label: 'Story index' }
+      });
+    });
+  }
+
+  var FACTS = [
+    function () { return ask('record high for today'); },
+    function () { return ask('highest the creek has ever been'); },
+    function () { return ask('lowest the creek has ever been'); },
+    function () { return ask('what was the hottest day ever'); },
+    function () { return ask('what was the coldest it has ever been'); },
+    function () { return ask('what was the wettest day ever'); },
+    function () { return ask('what was the driest year'); },
+    function () { return ask('what was the wettest year'); },
+    function () { return ask('biggest snow ever'); },
+    function () { return ask('when did it last snow'); },
+    thisDateLongAgo,
+    thisDateLongAgo,
+    creekOnThisDate,
+    creekBusiestYear,
+    guideEntry,
+    guideEntry,
+    sightingFromTheRoll,
+    heritageParagraph,
+    heritageParagraph,
+    daylightSinceSolstice,
+    townsInTheStories
+  ];
+  var deck = [];
+
+  function tellMe() {
+    var id = ++running;
+    input.value = '';
+    remember('');
+    if (luck) luck.setAttribute('aria-busy', 'true');
+    out.setAttribute('aria-busy', 'true');
+    out.innerHTML = '<div class="empty">&mdash;</div>';
+    var tries = 0;
+    function attempt() {
+      if (tries++ >= FACTS.length) return Promise.resolve(null);
+      if (!deck.length) deck = shuffled(FACTS);
+      var fact = deck.pop();
+      return Promise.resolve().then(fact).catch(function (err) {
+        if (window.console) console.warn('FIVEMILE fact failed', err);
+        return null;
+      }).then(function (found) {
+        /* A fact with nothing behind it is not a fact. */
+        var empty = !found || !found.say.length || /^Nothing is on file/.test(found.say[0]);
+        return empty ? attempt() : found;
+      });
+    }
+    return attempt().then(function (found) {
+      if (id !== running) return;
+      paint(found, []);
+      out.removeAttribute('aria-busy');
+      if (luck) luck.removeAttribute('aria-busy');
+    });
+  }
+
+  var luck = document.getElementById('findLuck');
+  if (luck) luck.addEventListener('click', tellMe);
 
   var asked = new URLSearchParams(location.search).get('q');
   if (asked) {
@@ -2829,5 +3094,5 @@
   }
 
   /* For checking a rule from the console without touching the page. */
-  window.FivemileSearch = { run: run, understand: understand, answer: answer };
+  window.FivemileSearch = { run: run, understand: understand, answer: answer, tell: tellMe };
 })();

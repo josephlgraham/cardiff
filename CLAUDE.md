@@ -64,7 +64,10 @@ and every page in `sitemap.xml`, and it answers a question only when a rule
 written in that file can count the answer from the record. It is not a chatbot
 and must not become one: no model, no API, no generated text. A question with
 no rule gets the matching pages and records. If you add a page, put it in the
-sitemap and it is searchable. See DECISIONS.md 73.
+sitemap and it is searchable. The hub's opening panel says how to ask it, which
+is the one deliberate exception to never explaining the UI in copy, and every
+example question in that copy must be run against the search before it ships.
+See DECISIONS.md 73.
 
 The calendar page itself holds one month, with a step to the month either side.
 It is not a rolling window: everything behind and ahead of it is in the date
