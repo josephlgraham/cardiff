@@ -1,62 +1,148 @@
 {
-  "updatedAt": "2026-09-15T01:24:59.141Z",
+  "updatedAt": "2026-09-15T15:32:45.287Z",
   "counts": {
-    "nearby": 3,
-    "county": 3,
+    "nearby": 4,
+    "county": 6,
     "obituaries": 3
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-abc-33-40-man-charged-in-deadly-birmingham-shooting-in-roosevelt-neigh",
-      "news-2-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
-      "news-3-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
+      "news-1-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
+      "news-2-wvtm-13-who-is-kimberly-greenwood-trump-nominates-wife-of-god-bless-",
+      "news-4-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
+      "news-5-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
     ],
     "creek": [],
     "county": [
-      "news-4-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
-      "news-5-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
-      "news-6-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
+      "news-3-abc-33-40-one-killed-in-crash-on-i-65-northbound-in-birmingham",
+      "news-6-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
+      "news-7-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
+      "news-8-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
+      "news-9-wvtm-13-nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-p",
+      "news-10-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
     ],
     "obituaries": [
-      "news-7-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
-      "news-8-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
-      "news-9-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-11-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
+      "news-12-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
+      "news-13-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-man-charged-in-deadly-birmingham-shooting-in-roosevelt-neigh",
+      "id": "news-1-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
       "tags": [
+        "Roads"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/crash-car_39081935_ver1.0-2-1-1-1.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 34,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Pleasant Grove teen killed in I-65 crash identified",
+      "summary": "I-65 NB at University Boulevard has reopened following a fatal crash Tuesday morning.",
+      "description": "I-65 NB at University Boulevard has reopened following a fatal crash Tuesday morning.",
+      "url": "https://www.alabamas42.com/traffic/i-65-reopens-in-birmingham-after-fatal-crash/",
+      "link": "https://www.alabamas42.com/traffic/i-65-reopens-in-birmingham-after-fatal-crash/",
+      "published_at": "2026-09-15T11:35:42.000Z",
+      "date": "2026-09-15T11:35:42.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/crash-car_39081935_ver1.0-2-1-1-1.jpg?w=900"
+    },
+    {
+      "id": "news-2-wvtm-13-who-is-kimberly-greenwood-trump-nominates-wife-of-god-bless-",
+      "section": "nearby",
+      "why": "names kimberly",
+      "town": "Kimberly",
+      "tags": [],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/d96d5e86-4b9e-40eb-bfce-bfe3db4d157d.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Who is Kimberly Greenwood? Trump nominates wife of ‘God Bless the USA’ singer to serve as US ambassador",
+      "summary": "Who is Kimberly Greenwood? President Trump nominates the wife of “God Bless the USA” singer Lee Greenwood to serve as a U.S. ambassador.",
+      "description": "Who is Kimberly Greenwood? President Trump nominates the wife of “God Bless the USA” singer Lee Greenwood to serve as a U.S. ambassador.",
+      "url": "https://www.wvtm13.com/article/kimbery-greenwood-ambassador-barbados/73741061",
+      "link": "https://www.wvtm13.com/article/kimbery-greenwood-ambassador-barbados/73741061",
+      "published_at": "2026-09-15T14:07:00.000Z",
+      "date": "2026-09-15T14:07:00.000Z",
+      "location_tags": [
+        "kimberly"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/d96d5e86-4b9e-40eb-bfce-bfe3db4d157d.jpg"
+    },
+    {
+      "id": "news-3-abc-33-40-one-killed-in-crash-on-i-65-northbound-in-birmingham",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads",
         "Public safety"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/4x5/800/986/0x0/90/47c1efa6-c130-4c39-b805-c82b5db8f84b-DerrickGray.jpg?crop_fill=1&size=986x554",
+        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/772ba632-cc37-4e0d-90e5-df1adbbccf08-Wide.00_01_33_17.Still001.png",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Man charged in deadly Birmingham shooting in Roosevelt neighborhood",
-      "summary": "A Pleasant Grove man was charged with capital murder in the fatal shooting of a Birmingham man earlier this week.The Birmingham Police Department said 51-year-o",
-      "description": "A Pleasant Grove man was charged with capital murder in the fatal shooting of a Birmingham man earlier this week.The Birmingham Police Department said 51-year-o",
-      "url": "https://abc3340.com/news/local/alabama-birmingham-man-charged-with-capital-murder-in-fatal-roosevelt-shooting-51-year-old-derrick-gray-54-year-old-brian-swain",
-      "link": "https://abc3340.com/news/local/alabama-birmingham-man-charged-with-capital-murder-in-fatal-roosevelt-shooting-51-year-old-derrick-gray-54-year-old-brian-swain",
-      "published_at": "2026-09-11T00:21:20.000Z",
-      "date": "2026-09-11T00:21:20.000Z",
+      "title": "One killed in crash on I-65 Northbound in Birmingham",
+      "summary": "An 18-year-old is dead after a multi-vehicle crash on Interstate-65 in Birmingham.Police say two cars and a motorcycle were involved in the crash.Jordin Jacobie",
+      "description": "An 18-year-old is dead after a multi-vehicle crash on Interstate-65 in Birmingham.Police say two cars and a motorcycle were involved in the crash.Jordin Jacobie",
+      "url": "https://abc3340.com/news/local/i-65-northbound-closed-in-birmingham-for-police-investigation",
+      "link": "https://abc3340.com/news/local/i-65-northbound-closed-in-birmingham-for-police-investigation",
+      "published_at": "2026-09-15T10:26:56.000Z",
+      "date": "2026-09-15T10:26:56.000Z",
       "location_tags": [
-        "pleasant-grove"
+        "birmingham"
       ],
       "topic_tags": [
+        "roads",
         "public-safety"
       ],
       "priority_level": 4,
@@ -65,10 +151,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/4x5/800/986/0x0/90/47c1efa6-c130-4c39-b805-c82b5db8f84b-DerrickGray.jpg?crop_fill=1&size=986x554"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/772ba632-cc37-4e0d-90e5-df1adbbccf08-Wide.00_01_33_17.Still001.png"
     },
     {
-      "id": "news-2-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
+      "id": "news-4-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -84,7 +170,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -110,7 +196,7 @@
       "image_url": "https://abc3340.com/resources/media2/3x4/240/986/0x0/90/5e83653a-5f1d-423d-892f-7d94f8247e86-image001.png?crop_fill=1&size=986x554"
     },
     {
-      "id": "news-3-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
+      "id": "news-5-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -124,7 +210,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -148,7 +234,49 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Cullman-Grand-Opening-48-1200x800.jpg"
     },
     {
-      "id": "news-4-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
+      "id": "news-6-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Hoover man killed in Bessemer motorcycle crash",
+      "summary": "The Jefferson County Coroner’s Office has identified the victim as Brandon Alexander Shaw. He was 28.",
+      "description": "The Jefferson County Coroner’s Office has identified the victim as Brandon Alexander Shaw. He was 28.",
+      "url": "https://www.wbrc.com/2026/09/15/hoover-man-killed-bessemer-motorcycle-crash/",
+      "link": "https://www.wbrc.com/2026/09/15/hoover-man-killed-bessemer-motorcycle-crash/",
+      "published_at": "2026-09-15T15:19:10.000Z",
+      "date": "2026-09-15T15:19:10.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false"
+    },
+    {
+      "id": "news-7-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -164,7 +292,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -190,7 +318,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//UTBK5AHBBNDGRFKWUNQTJGIVIE.png?auth=1c62436aa538bf48019ad3d461545de49c9b3b685bf09ab25901bae12b0fac74&smart=false"
     },
     {
-      "id": "news-5-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
+      "id": "news-8-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
       "section": "county",
       "why": "alabama department, government",
       "town": "Regional",
@@ -206,7 +334,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -232,7 +360,49 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CXDQRH5MHNEQHGWRIKXY5FIHLY.jpg?auth=6c72b38a5ce5ea1abc9f2d283a2fc9b69d00447da6fd69973e06a24b52cf88b0&smart=false"
     },
     {
-      "id": "news-6-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
+      "id": "news-9-wvtm-13-nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-p",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/vidthumb/d297d5ec-68ca-48cc-84be-cc96bbb285fb/d73caa76-7fab-4f50-b8a1-0ca7d2b0850a.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Nightly lane closures on US-31 in Homewood for resurfacing project",
+      "summary": "ALDOT has started a resurfacing and access management project on US-31 in Homewood, with nightly lane closures from 7 p.m. to 6 a.m. through late June.",
+      "description": "ALDOT has started a resurfacing and access management project on US-31 in Homewood, with nightly lane closures from 7 p.m. to 6 a.m. through late June.",
+      "url": "https://www.wvtm13.com/article/nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-project/73739551",
+      "link": "https://www.wvtm13.com/article/nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-project/73739551",
+      "published_at": "2026-09-15T11:14:00.000Z",
+      "date": "2026-09-15T11:14:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": true,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/vidthumb/d297d5ec-68ca-48cc-84be-cc96bbb285fb/d73caa76-7fab-4f50-b8a1-0ca7d2b0850a.jpg"
+    },
+    {
+      "id": "news-10-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -248,7 +418,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -274,7 +444,7 @@
       "image_url": "https://thebamabuzz.com/wp-content/uploads/2026/09/Gardendale-Groundbreaking-1024x695.jpg"
     },
     {
-      "id": "news-7-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
+      "id": "news-11-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -318,7 +488,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
+      "id": "news-12-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -336,7 +506,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -362,7 +532,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-13-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
