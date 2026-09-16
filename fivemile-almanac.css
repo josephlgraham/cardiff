@@ -98,7 +98,7 @@
 .desk-back:hover{background:#fff;border-color:#DDCFB8;border-left-color:var(--red);text-decoration:none}
 .desk-back .a{font-size:26px;line-height:1;color:var(--red);flex:none}
 .desk-back b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
-.desk-back i{display:block;font-style:normal;font-size:14.5px;color:#6B6156;line-height:1.45;margin-top:2px}
+.desk-back i{display:block;font-style:normal;font-size:16.5px;color:#6B6156;line-height:1.45;margin-top:2px}
 
 /* ---------------------------------------------------------------------------
    LAYOUT
@@ -128,7 +128,7 @@ section.top{padding:24px 0 0}
    the news page and the homepage, deliberately. */
 .send{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px;text-align:center}
 .send h2{margin:0 0 6px;font-size:20px;font-weight:800}
-.send p{margin:0 auto 14px;color:#6B6156;font-size:16px;max-width:52ch}
+.send p{margin:0 auto 14px;color:#6B6156;font-size:16.5px;max-width:52ch}
 .send .btn{min-height:44px;font-size:15.5px;display:inline-flex;align-items:center;justify-content:center;padding:0 20px;text-decoration:none}
 
 /* ---------------------------------------------------------------------------
@@ -179,7 +179,7 @@ section.top{padding:24px 0 0}
    is the depth chart that sits under them, which is the one thing on the site
    that draws rather than reports.
    --------------------------------------------------------------------------- */
-.creek-note{font-size:15.5px;line-height:1.55;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
+.creek-note{font-size:16.5px;line-height:1.55;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
 /* The door out of the creek card and into the creek room, where the week and
    the month on this chart become every day since 1988. It is the card
    system's own destination line, made a link rather than a line inside one,
@@ -204,18 +204,20 @@ section.top{padding:24px 0 0}
 .watershed-chart-empty{font-size:15px;line-height:1.55;color:#6B6156;padding:20px 0}
 .watershed-axis{font-family:var(--mono);font-size:12.5px;fill:#6B6156}
 .watershed-upstream{margin-top:11px;padding:11px 13px;background:var(--paper);border:1px solid #DDCFB8;
-  border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:15px;line-height:1.55;color:var(--ink2)}
+  border-left:4px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:16.5px;line-height:1.55;color:var(--ink2)}
 
 /* ---------------------------------------------------------------------------
    WEATHER
 
    The narrative line and the science note. Both are prose inside a card, so
    both take the card system reading size rather than the 11px they used to.
+   The same size as each other, too: the narrative was 15.5 over a science note
+   at 15, which is a larger first paragraph. See DECISIONS.md 80.
    --------------------------------------------------------------------------- */
-.wx-narrative{font-size:15.5px;line-height:1.6;color:var(--ink2)}
+.wx-narrative{font-size:16.5px;line-height:1.6;color:var(--ink2)}
 .sci-box{margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
 .sci-label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#6B6156;margin-bottom:4px}
-.sci-box p{font-size:15px;line-height:1.6;color:var(--ink2)}
+.sci-box p{font-size:16.5px;line-height:1.6;color:var(--ink2)}
 .wf-grid{display:grid;gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
 .wf-place{background:var(--card);padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .wf-name{font-size:15px;font-weight:700}
@@ -229,15 +231,20 @@ section.top{padding:24px 0 0}
    shape: a mark, a name, a status word, and a sentence. They were five
    near-identical rules with five sets of sizes. They are one rule now, and a
    desk that wants a status word colors it with a modifier.
+
+   The sentence is card prose, 16.5px in ink2, and the name over it is the same
+   size in bold, the way a .p-list row sets its name. The sentence was 14.5 in
+   muted grey, so a card with a paragraph above its rows read in two sizes. See
+   DECISIONS.md 80.
    --------------------------------------------------------------------------- */
 .alm-list{display:grid}
 .alm-row{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;padding:11px 0;border-bottom:1px solid #DDCFB8}
 .alm-row:last-child{border-bottom:none}
 .alm-row:first-child{padding-top:2px}
 .alm-mark{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
-.alm-name{font-size:15.5px;font-weight:700;line-height:1.3}
+.alm-name{font-size:16.5px;font-weight:700;line-height:1.3}
 .alm-status{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6B6156;margin:3px 0 2px}
-.alm-note{font-size:14.5px;line-height:1.55;color:#6B6156}
+.alm-note{font-size:16.5px;line-height:1.55;color:var(--ink2)}
 .alm-head-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .pa-plant{color:var(--green)}
 .pa-harvest{color:var(--amber)}
@@ -375,11 +382,13 @@ section.top{padding:24px 0 0}
 .fh-state.fx-off{opacity:.75}
 .fh-latin{font-family:var(--mono);font-size:11px;color:#6B6156;margin:3px 0 0}
 .fh-also{font-family:var(--mono);font-size:11px;color:#6B6156;margin:2px 0 0}
-.fh-line{font-size:15.5px;line-height:1.55;color:var(--ink2);margin:9px 0 0}
+/* The line under the name and the three rows under it are one size. The line
+   was 15.5 over rows at 14.5, a larger first paragraph. See DECISIONS.md 80. */
+.fh-line{font-size:16.5px;line-height:1.55;color:var(--ink2);margin:9px 0 0}
 .fh-rows{margin:10px 0 0;display:grid;gap:6px}
 .fh-rows > div{display:grid;grid-template-columns:58px minmax(0,1fr);gap:9px;align-items:baseline}
 .fh-rows dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#6B6156}
-.fh-rows dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink2)}
+.fh-rows dd{margin:0;font-size:16.5px;line-height:1.5;color:var(--ink2)}
 .fh-more{margin-top:auto;padding-top:11px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
   text-transform:uppercase;color:var(--masthead);text-decoration:none;
   display:inline-flex;align-items:center;min-height:44px}
@@ -400,7 +409,7 @@ section.top{padding:24px 0 0}
 .moon-big{font-family:var(--emoji);font-style:normal;font-size:44px;line-height:1;flex:none}
 .moon-name{font-size:18px;font-weight:700;letter-spacing:-.01em}
 .moon-meta{font-family:var(--mono);font-size:11.5px;color:#6B6156;margin-top:3px;line-height:1.5}
-.moon-lore{font-size:15.5px;line-height:1.6;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
+.moon-lore{font-size:16.5px;line-height:1.6;color:var(--ink2);margin-top:12px;padding-top:11px;border-top:1px solid #DDCFB8}
 /* The eight phases as a strip, for the night sky page. The current one is
    marked, the rest are the reference. */
 .moon-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:#DDCFB8;border:1px solid #DDCFB8;border-radius:8px;overflow:hidden}
@@ -447,28 +456,32 @@ section.top{padding:24px 0 0}
 
    Alerts, the sky callout, and the report rows the scripts write when a feed
    is quiet. All of them are the same shape: a label, a value, a sentence.
+   The value and the sentence are card prose size, the value in bold, for the
+   reason written over the row lists. See DECISIONS.md 80.
    --------------------------------------------------------------------------- */
 .report-stack,.alert-stack,.sky-stack{display:grid;gap:10px}
 .report-row,.alert-row,.sky-event{background:var(--paper);border:1px solid #DDCFB8;border-radius:var(--r);padding:11px 13px}
 .report-label,.alert-label{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6B6156}
-.report-value,.alert-value{font-size:15.5px;font-weight:700;line-height:1.4;margin-top:3px}
-.report-note,.alert-note{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px}
+.report-value,.alert-value{font-size:16.5px;font-weight:700;line-height:1.4;margin-top:3px}
+.report-note,.alert-note{font-size:16.5px;line-height:1.55;color:var(--ink2);margin-top:3px}
 .sky-event{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;align-items:start}
 .sky-event-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
-.sky-event-title{font-size:15.5px;font-weight:700;line-height:1.3}
-.sky-event-note{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px}
+.sky-event-title{font-size:16.5px;font-weight:700;line-height:1.3}
+.sky-event-note{font-size:16.5px;line-height:1.55;color:var(--ink2);margin-top:3px}
 .sky-callout{background:var(--paper);border:1px solid #DDCFB8;border-left:4px solid var(--amber);
-  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:16.5px;line-height:1.6;color:var(--ink2)}
 .alert-banner{background:rgba(200,16,46,.05);border:1px solid #DDCFB8;border-left:5px solid var(--red);
-  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:16.5px;line-height:1.6;color:var(--ink2)}
 .alert-calm{background:var(--paper);border:1px solid #DDCFB8;border-left:5px solid var(--green);
-  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:15.5px;line-height:1.6;color:var(--ink2)}
+  border-radius:0 var(--r) var(--r) 0;padding:12px 14px;font-size:16.5px;line-height:1.6;color:var(--ink2)}
 .alert-banner strong,.alert-calm strong{color:var(--ink)}
 .side-item{display:grid;grid-template-columns:26px minmax(0,1fr);gap:11px;padding:11px 0;border-bottom:1px solid #DDCFB8}
 .side-item:last-child{border-bottom:none}
 .side-icon{font-family:var(--emoji);font-style:normal;font-size:20px;line-height:1.2}
-.side-val{font-size:15.5px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
-.side-sub{font-size:14.5px;line-height:1.55;color:#6B6156;margin-top:3px;overflow-wrap:anywhere}
+/* Same shape as the report rows above, so the same two sizes: the value in
+   bold and the sentence under it, both card prose. See DECISIONS.md 80. */
+.side-val{font-size:16.5px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.side-sub{font-size:16.5px;line-height:1.55;color:var(--ink2);margin-top:3px;overflow-wrap:anywhere}
 
 /* The source line. Every desk page ends with one, and every reading that
    comes from somewhere else names where. A number with no provenance is a

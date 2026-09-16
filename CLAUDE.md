@@ -170,7 +170,9 @@ shows". The site should be intuitive, not annotated.
   the sans says it. See DECISIONS.md 66.
 - Red `#C8102E`, paper `#F2E8D5`, card `#FAF6EE`, ink `#1C1208`, masthead `#3D2810`
 - Prose in a card is one size, first paragraph included: 16.5px in ink2
-  `#4a3418`. No standfirst, no lead paragraph set larger. See DECISIONS.md 80.
+  `#4a3418`. No standfirst, no lead paragraph set larger. A caption under a
+  figure, date, or photograph and a saying set on display keep their own size,
+  because they have a different job. See DECISIONS.md 80.
 - Border radius 14px on all cards and infoboxes
 - Separators: 1px `#DDCFB8`, 40px margin top and bottom, no shadow
 - Empty states: an em dash only. No "loading" or "will appear here" text.

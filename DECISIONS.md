@@ -5371,6 +5371,52 @@ in the same panel. Its paragraphs and its runs list move to 16.5px. Its 1.8
 leading stays, because that page is read rather than scanned (decision 32) and
 the complaint was about size.
 
+### Every card, not only the panels
+
+Joe then asked for every page to be checked. Measured in a browser at 390px and
+1280px on every page, the panels were right and the rest of the card system was
+not. The desk card opened at 15.5px over a tip at 15, the desks' narrative at
+15.5 sat over a science note at 15, a fish card's line at 15.5 sat over its rows
+at 14.5, and the guide's biome text at 15.5 sat over its gear line at 14.5.
+Those are the same larger first paragraph, only smaller. Civic, Kitchen, and
+Announce still ran their own rem scale, down to 12.5px, with one tile in three
+sizes.
+
+The rule Joe settled on: **every sentence a card holds is 16.5px, in ink2 where
+the card is paper.** That covers `.d-body p` and `.d-tip`, `.card-notice p`,
+`.card-lead p`, the obituary service line, the row list and small parts notes in
+`fivemile-almanac.css`, `.fh-line` and its rows, the guide entry and gear line,
+`.hz-note` and `.hz-gap`, the closing bands and the send blocks, the search
+answer, and the card copy on Civic, Kitchen, Announce, and `offline.html`. A
+row's bold name moves to 16.5 with its sentence, so a name is never smaller than
+the line under it. The obituary stays quiet by having no photograph, color, or
+weight, not by having small type. The search answer was 17px so it would read
+larger than panel prose, which is the standfirst argument again, and it matches
+now.
+
+Some variation stays, because it has a job. In Joe's words, there can be some
+variation, and what he did not like was the change feeling arbitrary:
+
+- **Captions keep their size.** A line under a figure, a date, a photograph, or
+  a table, in a card with no paragraph of its own: `.g-sub` on a gauge tile,
+  `.k-bd .w` on a calendar stub, `.t-note` under a tab table, `.s-foot` on a
+  seed packet, `.month-note` in a month cell, `.p-lf p` on a postcard, `.b-line`
+  on a field check, `.wf-cond`, and the archive's `.grid-read` readout.
+- **Display type keeps its size.** The old saying on an edition is set at 21px
+  bold over the paragraphs that explain it, because it is the saying on display
+  and not a paragraph. The same goes for `.card-quiz` headings and `.gd-q`.
+- **Color keeps its job.** `.hz-gap`, the send blocks, and the closing bands
+  stay muted, and the dark feature card keeps its light text. Only the size
+  is shared.
+
+A second pass over the same rule caught four more sentences that sit in a
+card and were a size smaller than the ones beside them: the sidebar rows on
+the desk pages, which are the report rows' shape exactly, the line under the
+name on the way back up, the line on a quiz card, and the paragraph on a plat
+card. Only the size moved on the two that are deliberately quiet.
+
+Hollers is shelved (decision 38) and was left alone.
+
 **Do not bring back a larger first paragraph**, in a panel or anywhere else a
 card holds prose. If an opening seems to need an entry point, the answer is a
 shorter paragraph or a `.p-list`, not a bigger one.

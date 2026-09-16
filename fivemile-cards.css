@@ -333,7 +333,13 @@ a.tag:hover{border-color:var(--masthead);text-decoration:none}
     justify-content:center;gap:1px}
   .d-body .d-rows.list .d-cell b{text-align:left}
 }
-.d-body p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
+/* Prose in a card is the panel's size and ink, 16.5px in ink2. It was 15.5
+   here, with the tip under it at 15 and a desk's narrative at 15.5 over a
+   plain paragraph at 15, so one card read in two sizes with the first one
+   larger. Every sentence a card holds is one size now, wherever the rule for
+   it lives. A caption under a figure or a date is not prose and keeps its own
+   size. See DECISIONS.md 80. */
+.d-body p{margin:0 0 10px;font-size:16.5px;line-height:1.5;color:var(--ink2)}
 .d-body p:last-child{margin-bottom:0}
 
 /* .card-dept.brief  ·  height from contents
@@ -523,7 +529,7 @@ a.card-dept:hover .d-go{color:var(--masthead)}
 /* The suggestion under the forecast. Ruled off, because it is the one line on
    the card telling a reader to do something rather than reporting a number. */
 .d-body .d-tip{margin:12px 0 0;padding-top:11px;border-top:1px solid var(--fm-rule);
-  font-size:15px;line-height:1.5}
+  font-size:16.5px;line-height:1.5}
 
 /* ---------------------------------------------------------------------------
    03  INDEX TAB  .card-tab  ·  --h-panel  ·  three across
@@ -743,7 +749,7 @@ a.card-post:hover .p-lf h3{color:var(--red)}
 .n-kick{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--red);margin:0 0 4px}
 .card-notice h3{margin:0 0 5px;font-size:17px;font-weight:700;line-height:1.3}
-.card-notice p{margin:0;font-size:15.5px;line-height:1.5}
+.card-notice p{margin:0;font-size:16.5px;line-height:1.5;color:var(--ink2)}
 .n-src{font-family:var(--mono);font-size:11px;color:var(--fm-muted);margin-top:9px}
 .n-src a{color:inherit}
 .card-notice.info{border-left-color:var(--masthead)}
@@ -760,7 +766,7 @@ a.card-post:hover .p-lf h3{color:var(--red)}
   border-radius:50%;background:var(--red);opacity:.22}
 .q-kick{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#D9C9A8}
 .card-quiz h3{margin:8px 0 6px;font-size:23px;font-weight:800;line-height:1.18;letter-spacing:-.02em;color:#fff;position:relative}
-.card-quiz p{margin:0;font-size:14.5px;color:#DCCEB3;line-height:1.5;position:relative}
+.card-quiz p{margin:0;font-size:16.5px;color:#DCCEB3;line-height:1.5;position:relative}
 .q-go{margin-top:auto;padding-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;
   text-transform:uppercase;color:#fff;position:relative}
 a.card-quiz:hover{text-decoration:none}
@@ -789,7 +795,7 @@ a.card-quiz:hover{text-decoration:none}
   letter-spacing:-.02em;color:#fff}
 .cf-lede{margin:0;font-size:16.5px;line-height:1.5;color:#DCCEB3;max-width:none}
 .cf-lede + .cf-lede{margin-top:10px}
-.cf-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid #5C4A31;font-size:16px;line-height:1.55;color:#BBA985}
+.cf-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid #5C4A31;font-size:16.5px;line-height:1.55;color:#BBA985}
 .cf-src{margin:14px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
 .cf-src a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 /* A feature panel that is a door, the news page's edition card. Tappable over
@@ -845,7 +851,7 @@ a.card-feature:hover .cf-go{text-decoration:underline}
 .card-plat::after{bottom:6px;right:6px;border-left:none;border-top:none}
 .pl-in{background:rgba(250,246,238,.88);padding:12px 14px}
 .pl-in h3{margin:0 0 8px;font-size:18px;font-weight:700}
-.pl-in p{margin:0;font-size:15px;line-height:1.55}
+.pl-in p{margin:0;font-size:16.5px;line-height:1.55;color:var(--ink2)}
 
 /* ---------------------------------------------------------------------------
    Section head. Not a card, but every page that uses these cards needs it.

@@ -46,13 +46,17 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .k-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
 .k-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
 .k-title{font-family:var(--sans);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
-.k-sub{font-size:0.92rem;line-height:1.78;color:var(--ink2);max-width:720px;}
+.k-sub{font-size:16.5px;line-height:1.78;color:var(--ink2);max-width:720px;}
 .k-box{display:grid;grid-template-columns:320px 1fr;gap:1rem;align-items:start;margin-bottom:2rem;}
 .recipe-list-shell,.recipe-detail,.sub-card,.tip-band{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow),inset 0 0 0 1px rgba(200,16,46,.09);position:relative;overflow:hidden;}
 .recipe-list-shell{padding:1.4rem 1rem 1rem;position:sticky;top:140px;}
 .list-head,.detail-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.8rem;}
 .list-kicker,.detail-kicker{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--red);}
-.list-copy{font-size:0.82rem;line-height:1.65;color:var(--ink2);margin-bottom:0.8rem;}
+/* Every sentence in a card on this page is card prose size, 16.5px in ink2,
+   the same as the rest of the site. This page kept its own scale of .82rem to
+   .88rem, which put a recipe in three sizes and all of it under the 16px floor.
+   Labels, kickers, and the recipe buttons keep theirs. See DECISIONS.md 80. */
+.list-copy{font-size:16.5px;line-height:1.65;color:var(--ink2);margin-bottom:0.8rem;}
 .recipe-list{display:grid;gap:0.55rem;}
 .recipe-btn{appearance:none;text-align:left;width:100%;padding:0.9rem 0.95rem;border-radius:var(--r);border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all var(--ease);display:grid;grid-template-columns:auto 1fr auto;gap:0.75rem;align-items:center;}
 .recipe-btn:hover{border-color:var(--amber);transform:translateY(-1px);}
@@ -79,31 +83,31 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .detail-title{font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.45rem;}
 .detail-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.11em;color:var(--ink3);margin-bottom:0.55rem;}
 .detail-tag{display:inline-flex;align-items:center;padding:0.35rem 0.75rem;border-radius:999px;border:1px solid var(--border2);background:var(--paper2);font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.8rem;}
-.detail-body{font-size:0.88rem;line-height:1.78;color:var(--ink2);max-width:62ch;}
-.safety-box{margin-top:0.9rem;padding:0.85rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:0.82rem;line-height:1.68;color:var(--ink2);}
+.detail-body{font-size:16.5px;line-height:1.78;color:var(--ink2);max-width:62ch;}
+.safety-box{margin-top:0.9rem;padding:0.85rem 1rem;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.18);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;font-size:16.5px;line-height:1.68;color:var(--ink2);}
 .recipe-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:1rem;margin-top:1rem;}
 .recipe-col{padding:1rem;background:rgba(255,255,255,0.38);border:1px solid var(--border);border-radius:var(--r);}
 .col-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:0.75rem;}
 .ing-list,.step-list{display:grid;gap:0.55rem;}
-.ing-list li{list-style:none;padding:0.45rem 0;border-bottom:1px solid var(--rule);font-size:0.84rem;line-height:1.55;color:var(--ink2);}
+.ing-list li{list-style:none;padding:0.45rem 0;border-bottom:1px solid var(--rule);font-size:16.5px;line-height:1.55;color:var(--ink2);}
 .ing-list li:last-child,.step-list li:last-child{border-bottom:none;}
 .ing-list .amt{color:var(--amber);font-weight:700;margin-right:0.35rem;}
 .step-list li{list-style:none;padding:0.6rem 0;border-bottom:1px solid var(--rule);display:flex;gap:0.75rem;}
 .step-num{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--red);width:1.5rem;flex-shrink:0;padding-top:0.1rem;}
-.step-title{font-weight:800;color:var(--ink);margin-bottom:0.12rem;font-size:0.84rem;}
-.step-copy{font-size:0.83rem;line-height:1.68;color:var(--ink2);}
+.step-title{font-weight:800;color:var(--ink);margin-bottom:0.12rem;font-size:16.5px;}
+.step-copy{font-size:16.5px;line-height:1.68;color:var(--ink2);}
 .step-timer{display:inline-flex;align-items:center;margin-top:0.35rem;padding:0.24rem 0.58rem;background:var(--paper);border:1px solid var(--border);border-radius:999px;font-family:var(--mono);font-size:0.58rem;color:var(--green);cursor:pointer;transition:all var(--ease);}
 .step-timer:hover{background:rgba(42,122,58,0.08);border-color:var(--green);}
 .step-timer.running{background:rgba(42,122,58,0.12);border-color:var(--green);font-weight:500;}
 .step-timer.done{background:rgba(42,122,58,0.16);border-color:var(--green);font-weight:700;}
-.note-box{margin-top:1rem;padding:0.9rem 1rem;background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);font-size:0.84rem;line-height:1.7;color:var(--ink2);}
+.note-box{margin-top:1rem;padding:0.9rem 1rem;background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);font-size:16.5px;line-height:1.7;color:var(--ink2);}
 .note-box strong{display:block;color:var(--ink);margin-bottom:0.2rem;}
 .tip-band{padding:1.1rem 1.15rem;margin-bottom:1rem;}
-.tip-title{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;}
-.tip-copy{font-size:0.84rem;line-height:1.7;color:var(--ink2);}
+.tip-title{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:0.35rem;}
+.tip-copy{font-size:16.5px;line-height:1.7;color:var(--ink2);}
 .sub-card{padding:2rem 1.75rem 1.75rem;}
 .sub-title{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:0.35rem;}
-.sub-desc{font-size:0.86rem;line-height:1.7;color:var(--ink2);margin-bottom:1.1rem;}
+.sub-desc{font-size:16.5px;line-height:1.7;color:var(--ink2);margin-bottom:1.1rem;}
 .sub-form{display:flex;flex-direction:column;gap:0.6rem;}
 .sub-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
 .sub-form input,.sub-form textarea{width:100%;padding:0.68rem 0.85rem;background:var(--paper);border:1px solid var(--border);border-radius:var(--r);font-family:var(--sans);font-size:0.86rem;color:var(--ink);outline:none;transition:border-color var(--ease);}
@@ -179,7 +183,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
     <p class="sub-desc">Tell us the dish, the ingredients, and how to make it. Family history and practical notes are welcome. Recipe submissions go into the site inbox.</p>
     <div class="sub-form">
       <div class="sub-row"><input type="text" id="rsubName" placeholder="Your Name"><input type="text" id="rsubDish" placeholder="Name of the Dish"></div>
-      <textarea id="rsubRecipe" placeholder="The recipe — ingredients, method, and any story behind it"></textarea>
+      <textarea id="rsubRecipe" placeholder="The recipe, ingredients, method, and any story behind it"></textarea>
       <button class="sub-btn" id="recipeSubmitBtn" type="button" onclick="submitRecipe()">Send it in →</button>
     </div>
     <div id="recipeSubStatus" style="margin-top:0.9rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink2);" aria-live="polite"></div>

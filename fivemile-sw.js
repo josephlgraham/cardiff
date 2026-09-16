@@ -140,7 +140,11 @@
 // fivemile-archive.html, fivemile-archive.css, fivemile-archive.js,
 // fivemile-nature.html, fivemile-nature.js and fivemile-search.js all changed.
 // See DECISIONS.md 82.
-const CACHE_NAME = 'fivemile-v84';
+// v85 carries decision 80 past the panels to every sentence in a card, on
+// every page: the desk cards, the row lists, the fish cards, the guide, the
+// news notes, heritage, civic, kitchen, announce, and offline.html. A reader
+// holding the old stylesheets would keep a card in two sizes. See DECISIONS.md 80.
+const CACHE_NAME = 'fivemile-v85';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

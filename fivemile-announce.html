@@ -56,7 +56,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .an-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
 .an-kicker::before{content:"";width:14px;height:2px;background:var(--red);display:inline-block;}
 .an-title{font-family:var(--sans);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--ink);margin-bottom:0.75rem;}
-.an-sub{font-size:0.96rem;line-height:1.78;color:var(--ink2);max-width:560px;}
+.an-sub{font-size:16.5px;line-height:1.78;color:var(--ink2);max-width:560px;}
 
 /* Section rule */
 .s-rule{display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1.5rem;}
@@ -79,7 +79,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
 .notice-meta-icon{font-size:1.1rem;line-height:1;flex-shrink:0;margin-top:0.1rem;}
 .notice-meta-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem;}
 .notice-meta-val{font-family:var(--sans);font-size:0.96rem;font-weight:700;color:var(--ink);}
-.notice-desc{font-size:0.92rem;line-height:1.8;color:var(--ink2);border-top:1px solid var(--rule);padding-top:1.25rem;}
+/* The notice's paragraphs are card prose size, 16.5px in ink2, like every
+   other sentence in a card on the site. They were .92rem. See DECISIONS.md 80. */
+.notice-desc{font-size:16.5px;line-height:1.8;color:var(--ink2);border-top:1px solid var(--rule);padding-top:1.25rem;}
 .notice-desc p+p{margin-top:0.85rem;}
 .notice-footer{padding:1rem 2rem;background:var(--paper2);border-top:1px solid var(--border);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.07em;color:var(--ink3);display:flex;align-items:center;gap:0.5rem;}
 .notice-footer::before{content:"";width:10px;height:2px;background:var(--ink3);display:inline-block;flex-shrink:0;}
@@ -139,11 +141,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;back
   <div class="an-hero reveal">
     <div class="an-kicker">Graysville &middot; Cardiff &middot; Brookside</div>
     <h1 class="an-title">Announcements</h1>
-    <p class="an-sub">Community notices, meeting dates, and anything else the neighborhood needs to know. This page is unlisted — share the link directly with folks who need it.</p>
+    <p class="an-sub">Community notices, meeting dates, and anything else the neighborhood needs to know. This page is unlisted, so share the link directly with folks who need it.</p>
   </div>
 
   <!-- Notices are rendered by fivemile-common.js from announcements.json.
-       To post or edit a notice, edit announcements.json — not this file. -->
+       To post or edit a notice, edit announcements.json rather than this file. -->
   <div class="s-rule reveal"><h2>Current notices</h2><hr></div>
   <div id="announceCurrent">
     <div class="archive-note reveal">Loading notices&hellip;</div>

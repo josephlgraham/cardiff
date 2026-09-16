@@ -210,10 +210,11 @@ p.arc-count{margin:0 0 16px}
 .find-out:empty{display:none}
 .find-out[aria-busy="true"]{opacity:.6}
 .find-out > .empty{margin-bottom:24px}
-/* The answer reads larger than a panel's own prose, because it is the thing
-   the reader asked for. */
+/* The answer is card prose, the same size as every other sentence in a card.
+   It was set at 17 to read larger because it is the thing the reader asked
+   for, which is the standfirst argument decision 80 took out. The bar over it
+   and the rows under it already say it is the answer. */
 .find-answer{margin:0 0 14px}
-.find-answer .d-body p.find-say{font-size:17px;line-height:1.5}
 .find-answer .d-rows{margin:14px 0 0}
 /* The door is a real link here rather than a line inside a linked panel, so
    it would otherwise pick up the underline every other link on the page has. */
