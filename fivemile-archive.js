@@ -2987,6 +2987,165 @@
   }
 
   /* -------------------------------------------------------------------------
+     WHAT THE WATER CARRIES
+
+     fivemile-creek-quality.json is the Republic gauge's other two daily
+     records, specific conductance and water temperature, gathered into years
+     by scripts/fetch/usgs-creek-quality.mjs. The room already holds how much
+     water went past. This is what was in it.
+
+     Only whole years are drawn. A year to date would sit above every finished
+     year for no reason but the calendar, since the months it is missing are
+     the cold ones.
+
+     Conductance carries two lines, because the honest version needs both. One
+     is every day of the year. The other is the same year's low flow days only,
+     where there is least water to spread the mineral through, and it answers
+     the obvious objection that a run of wet years would look like a creek
+     getting cleaner. See DECISIONS.md 85.
+     ------------------------------------------------------------------------- */
+  var QUALITY_FILE = 'fivemile-creek-quality.json';
+
+  function qualityYears(data) {
+    return (data && Array.isArray(data.years) ? data.years : [])
+      .filter(function (row) { return row && row.conductance && row.conductance.whole_year; });
+  }
+
+  /* One chart: the years along the bottom, the reading up the side, a line per
+     series. Same box, frame and axis the rest of the room draws with. */
+  function drawYearSeries(host, rows, series, options) {
+    if (!host || !rows.length) return;
+    var box = boxOf(host, false);
+    var frame = frameOf(box);
+    var values = [];
+    series.forEach(function (line) {
+      rows.forEach(function (row) { var v = line.of(row); if (v != null) values.push(v); });
+    });
+    if (!values.length) return;
+
+    var lo = Math.min.apply(null, values);
+    var hi = Math.max.apply(null, values);
+    var pad = (hi - lo) * 0.15 || 1;
+    lo = Math.floor((lo - pad) / options.step) * options.step;
+    hi = Math.ceil((hi + pad) / options.step) * options.step;
+
+    var first = rows[0].year;
+    var last = rows[rows.length - 1].year;
+    var xOf = function (year) {
+      return frame.left + ((year - first) / Math.max(1, last - first)) * (frame.right - frame.left);
+    };
+    var yOf = function (value) {
+      return frame.bottom - ((value - lo) / (hi - lo)) * (frame.bottom - frame.top);
+    };
+
+    var out = svgOpen(box, options.label);
+    out += valueAxis(lo, hi, options.step, frame, yOf, function (v) { return String(Math.round(v)); });
+    out += baseline(frame);
+
+    /* Every tenth year, and the last one, which is the year a reader is
+       looking for. A decade mark sitting on top of it is dropped rather than
+       drawn through it, and the last label hugs the right edge so it cannot
+       run off the end of the chart. */
+    var marks = [];
+    for (var year = Math.ceil(first / 10) * 10; year <= last; year += 10) marks.push(year);
+    var room = 4 * AXIS_CHAR + 10;
+    marks = marks.filter(function (mark) { return mark !== last && xOf(last) - xOf(mark) > room; });
+    marks.push(last);
+    marks.forEach(function (mark) {
+      var at = xOf(mark);
+      var anchor = mark === last && at + 2 * AXIS_CHAR > frame.right ? 'end' : 'middle';
+      out += '<text class="arc-axis" x="' + (anchor === 'end' ? frame.right : at).toFixed(1) + '" y="' +
+        (frame.bottom + 16) + '" text-anchor="' + anchor + '">' + mark + '</text>';
+    });
+
+    series.forEach(function (line) {
+      var d = '';
+      var pen = false;
+      rows.forEach(function (row) {
+        var v = line.of(row);
+        if (v == null) { pen = false; return; }
+        d += (pen ? 'L' : 'M') + xOf(row.year).toFixed(1) + ' ' + yOf(v).toFixed(1);
+        pen = true;
+      });
+      if (d) {
+        out += '<path d="' + d + '" fill="none" stroke="' + line.color + '" stroke-width="' +
+          (line.weight || 2.5) + '" stroke-linejoin="round" stroke-linecap="round"' +
+          (line.dash ? ' stroke-dasharray="6 4"' : '') + '/>';
+      }
+      var lastRow = rows.filter(function (row) { return line.of(row) != null; }).pop();
+      if (lastRow) {
+        out += '<circle cx="' + xOf(lastRow.year).toFixed(1) + '" cy="' + yOf(line.of(lastRow)).toFixed(1) +
+          '" r="3.5" fill="' + line.color + '"/>';
+      }
+    });
+    out += '</svg>';
+    host.innerHTML = out;
+  }
+
+  /* The ends of the record, five years at each end so one odd year cannot
+     carry the sentence. */
+  function qualityEnds(rows, of) {
+    var head = rows.slice(0, 5).map(of).filter(function (v) { return v != null; });
+    var tail = rows.slice(-5).map(of).filter(function (v) { return v != null; });
+    if (head.length < 2 || tail.length < 2) return null;
+    return { was: median(head.slice().sort(numeric)), now: median(tail.slice().sort(numeric)) };
+  }
+
+  function renderQuality(data) {
+    var block = byId('quality');
+    if (!block) return;
+    var rows = qualityYears(data);
+    if (rows.length < 10) { block.hidden = true; return; }
+    block.hidden = false;
+
+    var first = rows[0].year;
+    var last = rows[rows.length - 1].year;
+    setText('qualityStamp', plural(rows.length, 'whole year', 'whole years') + ' \u00b7 ' + first + ' to ' + last);
+
+    drawYearSeries(byId('qualitySaltPlot'), rows, [
+      { of: function (row) { return row.conductance.at_low_flow; }, color: '#8B6914', dash: true },
+      { of: function (row) { return row.conductance.median; }, color: 'var(--hold-creek)' }
+    ], { step: 100, label: 'Specific conductance at the Republic gauge by year, ' + first + ' to ' + last });
+    var key = byId('qualitySaltKey');
+    if (key) key.innerHTML = legend([['sw-line', 'Every day'], ['sw-usual', 'Its low flow days']]);
+
+    var all = qualityEnds(rows, function (row) { return row.conductance.median; });
+    var low = qualityEnds(rows, function (row) { return row.conductance.at_low_flow; });
+    var flow = qualityEnds(rows, function (row) { return row.flow ? row.flow.median : null; });
+    if (all && low) {
+      var say = 'The first five whole years read about ' + Math.round(all.was) +
+        ' microsiemens through the year and the last five about ' + Math.round(all.now) +
+        '. Taking only each year\u2019s low flow days, when there is least water to spread it through, the same two figures are ' +
+        Math.round(low.was) + ' and ' + Math.round(low.now) + '.';
+      if (flow) {
+        say += ' Flow over the same years went from a median of ' + flow.was.toFixed(0) +
+          ' cubic feet a second to ' + flow.now.toFixed(0) + ', so the fall is not the creek simply running higher.';
+      }
+      setText('qualitySaltSay', say);
+    }
+
+    drawYearSeries(byId('qualityWarmPlot'), rows, [
+      { of: function (row) { return row.temperature ? row.temperature.median : null; }, color: '#B23A2E' }
+    ], { step: 2, label: 'Water temperature at the Republic gauge by year, ' + first + ' to ' + last });
+
+    var warm = qualityEnds(rows, function (row) { return row.temperature ? row.temperature.median : null; });
+    if (warm) {
+      var move = warm.now - warm.was;
+      setText('qualityWarmSay', 'The first five whole years run about ' + warm.was.toFixed(1) +
+        ' degrees through the year and the last five about ' + warm.now.toFixed(1) + ', ' +
+        (move >= 0 ? 'up ' : 'down ') + Math.abs(move).toFixed(1) + ' degrees across ' + (last - first) + ' years.');
+    }
+  }
+
+  function loadQuality() {
+    if (!byId('quality')) return;
+    loadJson(QUALITY_FILE).then(renderQuality).catch(function () {
+      var block = byId('quality');
+      if (block) block.hidden = true;
+    });
+  }
+
+  /* -------------------------------------------------------------------------
      THE SPECIES
 
      The roll in fivemile-observations.json, which the iNaturalist fetcher
@@ -3327,4 +3486,5 @@
   loadNews();
   loadDates();
   loadSpecies();
+  loadQuality();
 })();

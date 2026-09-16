@@ -143,6 +143,49 @@
     </div>
   </section>
 
+  <!-- WHAT THE WATER CARRIES -----------------------------------------------
+       The gauge's other two daily records, gathered into years by
+       scripts/fetch/usgs-creek-quality.mjs. Hidden until the file has ten
+       whole years in it, the same way the sightings block on Nature Watch
+       waits for something to show. The copy reports the reading and does not
+       call the creek anything. See DECISIONS.md 85 and 63.
+       ---------------------------------------------------------------------- -->
+  <section class="blk" id="quality" hidden>
+    <div class="hd"><h2>What the water carries</h2><span class="hd-note" id="qualityStamp">&mdash;</span></div>
+    <div class="panel intro">
+      <p class="lede">The gauge at Republic measures more than how much water is going past. It has also
+        read the water itself every day since 1988, and that record reaches back further than anybody
+        here has been watching.</p>
+    </div>
+
+    <div class="card-dept">
+      <div class="d-bar"><h3>Dissolved mineral</h3><span class="r">Microsiemens per centimetre</span></div>
+      <div class="d-body">
+        <div class="arc-plot" id="qualitySaltPlot"></div>
+        <div id="qualitySaltKey"></div>
+        <p class="arc-say" id="qualitySaltSay">&mdash;</p>
+      </div>
+    </div>
+
+    <div class="card-notice info" style="margin-top:12px">
+      <p class="n-kick">What is being measured</p>
+      <h3>Specific conductance</h3>
+      <p>How well the water carries an electric current, which rises with the amount of mineral
+        dissolved in it: salts, metals, and whatever else the ground gives up. It is not a reading of
+        any one substance and it is not a safety measure. It is the plainest number there is for how
+        much the water is carrying, which is why the gauge has kept it since 1988.
+        <a href="https://www.usgs.gov/special-topics/water-science-school/science/conductivity-electrical-conductance-and-water" target="_blank" rel="noopener">The USGS explains it here</a>.</p>
+    </div>
+
+    <div class="card-dept" style="margin-top:12px">
+      <div class="d-bar"><h3>Water temperature</h3><span class="r">Degrees through the year</span></div>
+      <div class="d-body">
+        <div class="arc-plot" id="qualityWarmPlot"></div>
+        <p class="arc-say" id="qualityWarmSay">&mdash;</p>
+      </div>
+    </div>
+  </section>
+
   <section class="blk" id="records">
     <div class="hd"><h2>The record</h2></div>
     <div class="card-dept brief">
@@ -172,6 +215,9 @@
     until USGS reviews them and can still move a little. The highest crest comes from the gauge's own peak
     record, because a flood can come and go inside a day. Republic sits upstream of all three towns, so what it
     reads is broadly what comes through Brookside, Cardiff, and Graysville after it.
+    Specific conductance and water temperature are the same gauge's other two daily records, kept since
+    September 1988 and gathered here into whole years. A year to date is left off, because the months it is
+    missing are the cold ones and it would read high against every finished year for that reason alone.
   </p>
 
 </main><!-- /wrap -->

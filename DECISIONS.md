@@ -5638,3 +5638,57 @@ took its charter in 1897 and Brookside in 1898. The rules live in
 
 **Revisit if:** a source moves, in which case rerun the script; or another page
 wants it, in which case it writes the same three lines and nothing else.
+
+---
+
+## 85. What the water carries, by year
+**Decided:** September 2026.
+
+Joe asked whether the creek could be plotted over the years. The gauge at
+Republic has read two things every day since September 1988 that this site had
+never touched: specific conductance, 12,593 days, and water temperature, 13,442
+days. The creek room already held how much water went past. This is what was in
+it.
+
+**What the record says.** Reading the first five whole years against the last
+five: conductance about 642 microsiemens down to about 448, and on each year's
+own low flow days 758 down to 580. Water temperature about 63.2 degrees up to
+about 65.1, which is 1.9 degrees across 35 years. Median flow over the same
+years went from 41 cubic feet a second to 45.
+
+**The dilution trap, and why every year carries a second figure.** Conductance
+falls when a creek runs high, because the same mineral is spread through more
+water, so a run of wet years reads exactly like a creek getting cleaner. Each
+year therefore also carries its median on its own low flow days, the bottom
+quarter of that year's flow, where dilution is least. Both lines fall and flow
+does not trend, so the fall is in the water rather than in the weather. The
+chart draws both lines for the same reason: the honest version needs them.
+
+**A year is the middle of its twelve monthly middles**, not the middle of every
+day in it. A month that lost a fortnight to a dead sensor then counts the same
+as any other month. Without that, a year weights itself towards whichever
+months reported most, and several years here are missing a month.
+
+**Only whole years are drawn, and this one is not among them.** A year to date
+is missing the cold months, so it reads high against every finished year for no
+reason but the calendar. The first cut of this used a straight median over 180
+days and put 2026 at 70 degrees against a 1989 of 63, which is an artefact and
+would have been published as a finding.
+
+**It reports and does not characterise.** The copy says what the meter read and
+what specific conductance is, with the USGS definition linked, and stops there.
+It does not call the creek clean, dirty, recovering or poisoned. That is the
+rule the discharge page keeps in decision 63, and it matters more here, because
+the numbers are the site's own strongest evidence about the thing everybody
+upstream and downstream of the mines has an opinion about.
+
+**A summary, not 13,000 rows.** `fivemile-creek-quality.json` is 39 years at
+17KB. The daily record stays at USGS, and every figure here can be checked
+against it. Only the last two years are worked out again on a run, because USGS
+revises provisional figures for months.
+
+**Revisit if:** the dissolved oxygen record ever gets long enough to plot. It is
+16 samples between 1997 and 2014, which is nothing, though the gauge reports it
+live now. Or if somebody wants the flashiness of the creek, how hard it rises
+and falls, which needs no new source at all: the daily flow back to 1988 is
+already in `fivemile-creek-archive/`.

@@ -1,0 +1,992 @@
+{
+  "updatedAt": "2026-09-16T03:29:44.960Z",
+  "source": "USGS",
+  "source_url": "https://waterdata.usgs.gov/monitoring-location/02457595/",
+  "gaugeId": "02457595",
+  "gaugeName": "Fivemile Creek near Republic, Ala",
+  "note": "Daily figures from the Republic gauge, gathered into years. Specific conductance is how well the water carries a current, which rises with dissolved mineral. Each year also carries its median on its own low flow days, the bottom quarter of that year’s flow, because conductance falls when a creek runs high and a wet year would otherwise read as a cleaner one. A year is only comparable when all twelve months are in it, which is what whole_year says.",
+  "enough_months": 12,
+  "counts": {
+    "years": 39,
+    "years_with_enough": 33,
+    "first_full_year": 1989,
+    "last_full_year": 2024
+  },
+  "years": [
+    {
+      "year": 1988,
+      "conductance": {
+        "days": 95,
+        "months": 3,
+        "whole_year": false,
+        "median": 576,
+        "low_quarter": 551,
+        "high_quarter": 720,
+        "at_low_flow": 754
+      },
+      "temperature": {
+        "days": 95,
+        "months": 3,
+        "whole_year": false,
+        "median": 57.7,
+        "low_quarter": 51.1,
+        "high_quarter": 59.9,
+        "at_low_flow": 58.6
+      },
+      "flow": {
+        "days": 95,
+        "median": 36
+      }
+    },
+    {
+      "year": 1989,
+      "conductance": {
+        "days": 351,
+        "months": 12,
+        "whole_year": true,
+        "median": 537,
+        "low_quarter": 436,
+        "high_quarter": 612,
+        "at_low_flow": 651
+      },
+      "temperature": {
+        "days": 352,
+        "months": 12,
+        "whole_year": true,
+        "median": 61.4,
+        "low_quarter": 53.2,
+        "high_quarter": 72.9,
+        "at_low_flow": 74.6
+      },
+      "flow": {
+        "days": 352,
+        "median": 56
+      }
+    },
+    {
+      "year": 1990,
+      "conductance": {
+        "days": 350,
+        "months": 12,
+        "whole_year": true,
+        "median": 688,
+        "low_quarter": 506,
+        "high_quarter": 748,
+        "at_low_flow": 766
+      },
+      "temperature": {
+        "days": 364,
+        "months": 12,
+        "whole_year": true,
+        "median": 64,
+        "low_quarter": 55.7,
+        "high_quarter": 75.6,
+        "at_low_flow": 66.5
+      },
+      "flow": {
+        "days": 365,
+        "median": 35
+      }
+    },
+    {
+      "year": 1991,
+      "conductance": {
+        "days": 342,
+        "months": 12,
+        "whole_year": true,
+        "median": 614,
+        "low_quarter": 499,
+        "high_quarter": 670,
+        "at_low_flow": 677
+      },
+      "temperature": {
+        "days": 357,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.1,
+        "low_quarter": 53.8,
+        "high_quarter": 75.6,
+        "at_low_flow": 67.5
+      },
+      "flow": {
+        "days": 357,
+        "median": 41
+      }
+    },
+    {
+      "year": 1992,
+      "conductance": {
+        "days": 334,
+        "months": 12,
+        "whole_year": true,
+        "median": 642,
+        "low_quarter": 527,
+        "high_quarter": 721,
+        "at_low_flow": 758
+      },
+      "temperature": {
+        "days": 359,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.2,
+        "low_quarter": 53.6,
+        "high_quarter": 71.6,
+        "at_low_flow": 70.9
+      },
+      "flow": {
+        "days": 359,
+        "median": 44
+      }
+    },
+    {
+      "year": 1993,
+      "conductance": {
+        "days": 356,
+        "months": 12,
+        "whole_year": true,
+        "median": 685,
+        "low_quarter": 527,
+        "high_quarter": 757,
+        "at_low_flow": 796
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 62,
+        "low_quarter": 51.4,
+        "high_quarter": 75.6,
+        "at_low_flow": 66.6
+      },
+      "flow": {
+        "days": 365,
+        "median": 38
+      }
+    },
+    {
+      "year": 1994,
+      "conductance": {
+        "days": 364,
+        "months": 12,
+        "whole_year": true,
+        "median": 627,
+        "low_quarter": 525,
+        "high_quarter": 706,
+        "at_low_flow": 749
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.8,
+        "low_quarter": 55.6,
+        "high_quarter": 73.9,
+        "at_low_flow": 74.3
+      },
+      "flow": {
+        "days": 365,
+        "median": 52
+      }
+    },
+    {
+      "year": 1995,
+      "conductance": {
+        "days": 357,
+        "months": 12,
+        "whole_year": true,
+        "median": 664,
+        "low_quarter": 537,
+        "high_quarter": 833,
+        "at_low_flow": 907
+      },
+      "temperature": {
+        "days": 356,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.9,
+        "low_quarter": 54,
+        "high_quarter": 74.2,
+        "at_low_flow": 78.6
+      },
+      "flow": {
+        "days": 365,
+        "median": 50
+      }
+    },
+    {
+      "year": 1996,
+      "conductance": {
+        "days": 346,
+        "months": 12,
+        "whole_year": true,
+        "median": 664,
+        "low_quarter": 528,
+        "high_quarter": 757,
+        "at_low_flow": 820
+      },
+      "temperature": {
+        "days": 363,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.5,
+        "low_quarter": 54.5,
+        "high_quarter": 73.8,
+        "at_low_flow": 72.1
+      },
+      "flow": {
+        "days": 363,
+        "median": 61
+      }
+    },
+    {
+      "year": 1997,
+      "conductance": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 598,
+        "low_quarter": 502,
+        "high_quarter": 716,
+        "at_low_flow": 843
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 62.1,
+        "low_quarter": 54.7,
+        "high_quarter": 71.6,
+        "at_low_flow": 72.1
+      },
+      "flow": {
+        "days": 365,
+        "median": 59
+      }
+    },
+    {
+      "year": 1998,
+      "conductance": {
+        "days": 332,
+        "months": 12,
+        "whole_year": true,
+        "median": 770,
+        "low_quarter": 483,
+        "high_quarter": 913,
+        "at_low_flow": 993
+      },
+      "temperature": {
+        "days": 350,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.2,
+        "low_quarter": 54.7,
+        "high_quarter": 75.7,
+        "at_low_flow": 71.1
+      },
+      "flow": {
+        "days": 350,
+        "median": 52.5
+      }
+    },
+    {
+      "year": 1999,
+      "conductance": {
+        "days": 354,
+        "months": 12,
+        "whole_year": true,
+        "median": 799,
+        "low_quarter": 616,
+        "high_quarter": 1000,
+        "at_low_flow": 1070
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 66.6,
+        "low_quarter": 55.4,
+        "high_quarter": 74.1,
+        "at_low_flow": 66.4
+      },
+      "flow": {
+        "days": 365,
+        "median": 42
+      }
+    },
+    {
+      "year": 2000,
+      "conductance": {
+        "days": 341,
+        "months": 12,
+        "whole_year": true,
+        "median": 771,
+        "low_quarter": 638,
+        "high_quarter": 889,
+        "at_low_flow": 930
+      },
+      "temperature": {
+        "days": 354,
+        "months": 12,
+        "whole_year": true,
+        "median": 64,
+        "low_quarter": 54.7,
+        "high_quarter": 76.1,
+        "at_low_flow": 71.6
+      },
+      "flow": {
+        "days": 354,
+        "median": 32
+      }
+    },
+    {
+      "year": 2001,
+      "conductance": {
+        "days": 326,
+        "months": 12,
+        "whole_year": true,
+        "median": 599,
+        "low_quarter": 499,
+        "high_quarter": 700,
+        "at_low_flow": 718
+      },
+      "temperature": {
+        "days": 332,
+        "months": 12,
+        "whole_year": true,
+        "median": 61.9,
+        "low_quarter": 54.1,
+        "high_quarter": 74.1,
+        "at_low_flow": 61
+      },
+      "flow": {
+        "days": 332,
+        "median": 40.5
+      }
+    },
+    {
+      "year": 2002,
+      "conductance": {
+        "days": 335,
+        "months": 12,
+        "whole_year": true,
+        "median": 534,
+        "low_quarter": 424,
+        "high_quarter": 597,
+        "at_low_flow": 625
+      },
+      "temperature": {
+        "days": 348,
+        "months": 12,
+        "whole_year": true,
+        "median": 66.8,
+        "low_quarter": 53.2,
+        "high_quarter": 74.7,
+        "at_low_flow": 76.6
+      },
+      "flow": {
+        "days": 348,
+        "median": 65.1
+      }
+    },
+    {
+      "year": 2003,
+      "conductance": {
+        "days": 308,
+        "months": 12,
+        "whole_year": true,
+        "median": 534,
+        "low_quarter": 465,
+        "high_quarter": 614,
+        "at_low_flow": 648
+      },
+      "temperature": {
+        "days": 346,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.3,
+        "low_quarter": 53.2,
+        "high_quarter": 73.3,
+        "at_low_flow": 62.4
+      },
+      "flow": {
+        "days": 346,
+        "median": 51.4
+      }
+    },
+    {
+      "year": 2004,
+      "conductance": {
+        "days": 353,
+        "months": 12,
+        "whole_year": true,
+        "median": 554,
+        "low_quarter": 474,
+        "high_quarter": 596,
+        "at_low_flow": 603
+      },
+      "temperature": {
+        "days": 366,
+        "months": 12,
+        "whole_year": true,
+        "median": 66.9,
+        "low_quarter": 55.9,
+        "high_quarter": 75.7,
+        "at_low_flow": 76
+      },
+      "flow": {
+        "days": 366,
+        "median": 44.8
+      }
+    },
+    {
+      "year": 2005,
+      "conductance": {
+        "days": 354,
+        "months": 12,
+        "whole_year": true,
+        "median": 517,
+        "low_quarter": 450,
+        "high_quarter": 582,
+        "at_low_flow": 618
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.4,
+        "low_quarter": 54,
+        "high_quarter": 74.8,
+        "at_low_flow": 66.5
+      },
+      "flow": {
+        "days": 365,
+        "median": 50
+      }
+    },
+    {
+      "year": 2006,
+      "conductance": {
+        "days": 320,
+        "months": 12,
+        "whole_year": true,
+        "median": 589,
+        "low_quarter": 476,
+        "high_quarter": 615,
+        "at_low_flow": 633
+      },
+      "temperature": {
+        "days": 349,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.8,
+        "low_quarter": 54.5,
+        "high_quarter": 76.8,
+        "at_low_flow": 70.3
+      },
+      "flow": {
+        "days": 350,
+        "median": 37.9
+      }
+    },
+    {
+      "year": 2007,
+      "conductance": {
+        "days": 56,
+        "months": 3,
+        "whole_year": false,
+        "median": 649,
+        "low_quarter": 614,
+        "high_quarter": 701,
+        "at_low_flow": 684
+      },
+      "temperature": {
+        "days": 343,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.1,
+        "low_quarter": 54.2,
+        "high_quarter": 77.3,
+        "at_low_flow": 66.3
+      },
+      "flow": {
+        "days": 343,
+        "median": 20.5
+      }
+    },
+    {
+      "year": 2008,
+      "conductance": {
+        "days": 358,
+        "months": 12,
+        "whole_year": true,
+        "median": 502,
+        "low_quarter": 427,
+        "high_quarter": 588,
+        "at_low_flow": 600
+      },
+      "temperature": {
+        "days": 350,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.6,
+        "low_quarter": 53.3,
+        "high_quarter": 76.1,
+        "at_low_flow": 67.1
+      },
+      "flow": {
+        "days": 360,
+        "median": 39.3
+      }
+    },
+    {
+      "year": 2009,
+      "conductance": {
+        "days": 355,
+        "months": 12,
+        "whole_year": true,
+        "median": 454,
+        "low_quarter": 370,
+        "high_quarter": 504,
+        "at_low_flow": 515
+      },
+      "temperature": {
+        "days": 265,
+        "months": 11,
+        "whole_year": false,
+        "median": 60.3,
+        "low_quarter": 54.3,
+        "high_quarter": 72.9,
+        "at_low_flow": 75.6
+      },
+      "flow": {
+        "days": 356,
+        "median": 69.5
+      }
+    },
+    {
+      "year": 2010,
+      "conductance": {
+        "days": 353,
+        "months": 12,
+        "whole_year": true,
+        "median": 464,
+        "low_quarter": 397,
+        "high_quarter": 542,
+        "at_low_flow": 551
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.5,
+        "low_quarter": 51.6,
+        "high_quarter": 77,
+        "at_low_flow": 67.2
+      },
+      "flow": {
+        "days": 365,
+        "median": 48
+      }
+    },
+    {
+      "year": 2011,
+      "conductance": {
+        "days": 360,
+        "months": 12,
+        "whole_year": true,
+        "median": 509,
+        "low_quarter": 424,
+        "high_quarter": 543,
+        "at_low_flow": 558
+      },
+      "temperature": {
+        "days": 364,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.8,
+        "low_quarter": 55.3,
+        "high_quarter": 77.6,
+        "at_low_flow": 78.6
+      },
+      "flow": {
+        "days": 364,
+        "median": 41.3
+      }
+    },
+    {
+      "year": 2012,
+      "conductance": {
+        "days": 356,
+        "months": 12,
+        "whole_year": true,
+        "median": 471,
+        "low_quarter": 426,
+        "high_quarter": 527,
+        "at_low_flow": 534
+      },
+      "temperature": {
+        "days": 366,
+        "months": 12,
+        "whole_year": true,
+        "median": 66.2,
+        "low_quarter": 55.6,
+        "high_quarter": 75.9,
+        "at_low_flow": 77.5
+      },
+      "flow": {
+        "days": 366,
+        "median": 38.5
+      }
+    },
+    {
+      "year": 2013,
+      "conductance": {
+        "days": 348,
+        "months": 12,
+        "whole_year": true,
+        "median": 412,
+        "low_quarter": 359,
+        "high_quarter": 487,
+        "at_low_flow": 524
+      },
+      "temperature": {
+        "days": 354,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.5,
+        "low_quarter": 53.3,
+        "high_quarter": 74.3,
+        "at_low_flow": 68.9
+      },
+      "flow": {
+        "days": 354,
+        "median": 72.8
+      }
+    },
+    {
+      "year": 2014,
+      "conductance": {
+        "days": 348,
+        "months": 12,
+        "whole_year": true,
+        "median": 494,
+        "low_quarter": 400,
+        "high_quarter": 521,
+        "at_low_flow": 529
+      },
+      "temperature": {
+        "days": 358,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.7,
+        "low_quarter": 53.4,
+        "high_quarter": 76.5,
+        "at_low_flow": 75.4
+      },
+      "flow": {
+        "days": 358,
+        "median": 42.8
+      }
+    },
+    {
+      "year": 2015,
+      "conductance": {
+        "days": 304,
+        "months": 12,
+        "whole_year": true,
+        "median": 485,
+        "low_quarter": 374,
+        "high_quarter": 535,
+        "at_low_flow": 564
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.7,
+        "low_quarter": 56.7,
+        "high_quarter": 75.7,
+        "at_low_flow": 73.1
+      },
+      "flow": {
+        "days": 365,
+        "median": 43.4
+      }
+    },
+    {
+      "year": 2016,
+      "conductance": {
+        "days": 325,
+        "months": 11,
+        "whole_year": false,
+        "median": 464,
+        "low_quarter": 402,
+        "high_quarter": 562,
+        "at_low_flow": 603
+      },
+      "temperature": {
+        "days": 364,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.4,
+        "low_quarter": 55.6,
+        "high_quarter": 77.7,
+        "at_low_flow": 67.3
+      },
+      "flow": {
+        "days": 364,
+        "median": 33
+      }
+    },
+    {
+      "year": 2017,
+      "conductance": {
+        "days": 324,
+        "months": 12,
+        "whole_year": true,
+        "median": 474,
+        "low_quarter": 395,
+        "high_quarter": 525,
+        "at_low_flow": 550
+      },
+      "temperature": {
+        "days": 362,
+        "months": 12,
+        "whole_year": true,
+        "median": 68.5,
+        "low_quarter": 57.4,
+        "high_quarter": 74.1,
+        "at_low_flow": 60.4
+      },
+      "flow": {
+        "days": 363,
+        "median": 44.4
+      }
+    },
+    {
+      "year": 2018,
+      "conductance": {
+        "days": 332,
+        "months": 12,
+        "whole_year": true,
+        "median": 486,
+        "low_quarter": 387,
+        "high_quarter": 529,
+        "at_low_flow": 546
+      },
+      "temperature": {
+        "days": 362,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.9,
+        "low_quarter": 55.4,
+        "high_quarter": 77.9,
+        "at_low_flow": 77.5
+      },
+      "flow": {
+        "days": 362,
+        "median": 45.5
+      }
+    },
+    {
+      "year": 2019,
+      "conductance": {
+        "days": 344,
+        "months": 12,
+        "whole_year": true,
+        "median": 485,
+        "low_quarter": 420,
+        "high_quarter": 557,
+        "at_low_flow": 584
+      },
+      "temperature": {
+        "days": 354,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.8,
+        "low_quarter": 56.3,
+        "high_quarter": 77.9,
+        "at_low_flow": 79
+      },
+      "flow": {
+        "days": 354,
+        "median": 44.6
+      }
+    },
+    {
+      "year": 2020,
+      "conductance": {
+        "days": 294,
+        "months": 11,
+        "whole_year": false,
+        "median": 442,
+        "low_quarter": 292,
+        "high_quarter": 483,
+        "at_low_flow": 528
+      },
+      "temperature": {
+        "days": 363,
+        "months": 12,
+        "whole_year": true,
+        "median": 64.9,
+        "low_quarter": 56.1,
+        "high_quarter": 75.9,
+        "at_low_flow": 68.7
+      },
+      "flow": {
+        "days": 364,
+        "median": 46.2
+      }
+    },
+    {
+      "year": 2021,
+      "conductance": {
+        "days": 337,
+        "months": 12,
+        "whole_year": true,
+        "median": 439,
+        "low_quarter": 383,
+        "high_quarter": 481,
+        "at_low_flow": 497
+      },
+      "temperature": {
+        "days": 353,
+        "months": 12,
+        "whole_year": true,
+        "median": 66.6,
+        "low_quarter": 55,
+        "high_quarter": 74.3,
+        "at_low_flow": 56.7
+      },
+      "flow": {
+        "days": 353,
+        "median": 54.9
+      }
+    },
+    {
+      "year": 2022,
+      "conductance": {
+        "days": 342,
+        "months": 12,
+        "whole_year": true,
+        "median": 448,
+        "low_quarter": 371,
+        "high_quarter": 509,
+        "at_low_flow": 557
+      },
+      "temperature": {
+        "days": 360,
+        "months": 12,
+        "whole_year": true,
+        "median": 62.9,
+        "low_quarter": 55.1,
+        "high_quarter": 75.7,
+        "at_low_flow": 63.9
+      },
+      "flow": {
+        "days": 360,
+        "median": 48.8
+      }
+    },
+    {
+      "year": 2023,
+      "conductance": {
+        "days": 323,
+        "months": 12,
+        "whole_year": true,
+        "median": 443,
+        "low_quarter": 384,
+        "high_quarter": 550,
+        "at_low_flow": 588
+      },
+      "temperature": {
+        "days": 355,
+        "months": 12,
+        "whole_year": true,
+        "median": 63.7,
+        "low_quarter": 56.5,
+        "high_quarter": 75.2,
+        "at_low_flow": 61.9
+      },
+      "flow": {
+        "days": 355,
+        "median": 40.9
+      }
+    },
+    {
+      "year": 2024,
+      "conductance": {
+        "days": 356,
+        "months": 12,
+        "whole_year": true,
+        "median": 507,
+        "low_quarter": 419,
+        "high_quarter": 558,
+        "at_low_flow": 580
+      },
+      "temperature": {
+        "days": 365,
+        "months": 12,
+        "whole_year": true,
+        "median": 65.1,
+        "low_quarter": 56.3,
+        "high_quarter": 75.9,
+        "at_low_flow": 73
+      },
+      "flow": {
+        "days": 365,
+        "median": 27.9
+      }
+    },
+    {
+      "year": 2025,
+      "conductance": {
+        "days": 286,
+        "months": 10,
+        "whole_year": false,
+        "median": 486,
+        "low_quarter": 418,
+        "high_quarter": 520,
+        "at_low_flow": 537
+      },
+      "temperature": {
+        "days": 303,
+        "months": 10,
+        "whole_year": false,
+        "median": 68,
+        "low_quarter": 53.2,
+        "high_quarter": 75.3,
+        "at_low_flow": 64.6
+      },
+      "flow": {
+        "days": 303,
+        "median": 28.3
+      }
+    },
+    {
+      "year": 2026,
+      "conductance": {
+        "days": 209,
+        "months": 8,
+        "whole_year": false,
+        "median": 439,
+        "low_quarter": 361,
+        "high_quarter": 492,
+        "at_low_flow": 515
+      },
+      "temperature": {
+        "days": 255,
+        "months": 9,
+        "whole_year": false,
+        "median": 70.3,
+        "low_quarter": 60.3,
+        "high_quarter": 78.3,
+        "at_low_flow": 72.2
+      },
+      "flow": {
+        "days": 255,
+        "median": 38.2
+      }
+    }
+  ]
+}

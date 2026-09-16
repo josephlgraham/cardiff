@@ -159,7 +159,11 @@
 // can reach them. Those three pages, fivemile-cards.css and
 // fivemile-almanac.css all changed and all are served cache-first.
 // See DECISIONS.md 84.
-const CACHE_NAME = 'fivemile-v88';
+// v89 opens the water quality block in the creek room: what the gauge has
+// read in the water since 1988, by year. fivemile-creek-archive.html and
+// fivemile-archive.js both changed and both are served cache-first.
+// See DECISIONS.md 85.
+const CACHE_NAME = 'fivemile-v89';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

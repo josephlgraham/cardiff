@@ -18,6 +18,7 @@ import { refreshCms } from './fetch/sheets-cms.mjs';
 import { updateEchoFile } from './fetch/echo-watershed.mjs';
 import { updateObservationsFile } from './fetch/inat-observations.mjs';
 import { updateSpeciesPhotos } from './fetch/inat-species-photos.mjs';
+import { updateCreekQuality } from './fetch/usgs-creek-quality.mjs';
 import { updateAirportArchive, updateAirportNormalsFile } from './fetch/acis-airport.mjs';
 import { updateOutlooks } from './fetch/cpc-outlook.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
@@ -1436,6 +1437,13 @@ async function main() {
     await updateCreekPeaksFile();
   } catch (error) {
     console.error('Creek peaks update failed (continuing):', error.message);
+  }
+  /* What the water carries, by year. Only the last two years are worked out
+     again on a run, so this is three short calls. See DECISIONS.md 85. */
+  try {
+    await updateCreekQuality();
+  } catch (error) {
+    console.error('Creek quality update failed (continuing):', error.message);
   }
   /* The official record at the Birmingham airport, which the weather room
      measures a normal year against. The last 45 days are asked for again every
