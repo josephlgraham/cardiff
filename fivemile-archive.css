@@ -252,6 +252,21 @@ p.arc-count{margin:0 0 16px}
 .card-stub.species .w{margin-top:2px;font-family:var(--mono);font-size:12.5px}
 .card-stub.species:hover{border-color:var(--fm-rule)}
 .k-links{display:flex;flex-wrap:wrap;gap:0 20px}
+/* The photograph of the species, where the story row has its town pill. It
+   leads the row because a reader scanning a list of living things is scanning
+   pictures. Square, cropped to the middle, and no alt text, since the name is
+   the next thing in the row. See DECISIONS.md 83. */
+.sp-shot{flex:none;padding:12px 0 12px 14px;display:flex;align-items:flex-start}
+.sp-shot img,.sp-blank{display:block;width:64px;height:64px;border-radius:8px;object-fit:cover;
+  background:var(--paper);border:1px solid var(--fm-rule)}
+.card-stub.species .sp-shot + .k-bd{padding-left:13px}
+/* Who took them. See DECISIONS.md 18 on why a credit is never a title. */
+.obs-credit{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--fm-rule);
+  font-size:13.5px;line-height:1.5;color:var(--fm-muted)}
+@media(max-width:480px){
+  .sp-shot{padding:12px 0 12px 12px}
+  .sp-shot img,.sp-blank{width:52px;height:52px}
+}
 
 .src-note{margin-top:34px;padding-top:14px;border-top:1px solid var(--fm-rule);
   font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--fm-muted)}

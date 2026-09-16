@@ -2973,6 +2973,8 @@ reader here nothing, and carrying those would also make the species count on
 the roll a count of something else.
 
 **No photographs, and that follows from the stack rather than from taste.**
+*(Superseded in September 2026, for the species rather than the record. See
+decision 83.)*
 Nothing on a page talks to the outside world, so hotlinking iNaturalist's photo
 CDN was never available. Committing a thumbnail per record was, and it was
 turned down because the repo would then grow every week forever to decorate a
@@ -3145,8 +3147,11 @@ said the first block of text was not formatted right and ran the full width,
 which is exactly what a 64ch paragraph with nothing under it looks like beside
 four mounted gauge tiles.
 
-**All five are `.panel.intro` now**, and `.desk-intro` survives only on the one
-sub-section intro that is not a page opening.
+**All five are `.panel.intro` now.** `.desk-intro` survived for a while on the
+one sub-section intro that is not a page opening, the sightings block on Nature
+Watch. Joe read that block in September 2026 and said the same thing about it,
+that it needed to be on a card and run the full width instead of being hung up.
+It is a `.panel.intro` too now, and the class is gone.
 
 ### A label above the standfirst was tried and taken out
 
@@ -5514,3 +5519,59 @@ and has not been made.
 
 **Revisit if:** the roll grows past a few hundred species and the one long list
 needs paging, or Joe wants the per species photographs.
+
+---
+
+## 83. A photograph of the species, not of the sighting
+**Decided:** September 2026. Revisits the photographs in decision 52.
+
+Decision 52 turned down a thumbnail per record for two reasons. Hotlinking
+iNaturalist's CDN is out under the stack rule, and committing a thumbnail per
+record would grow the repo every week forever to decorate a list. Both still
+hold. The licences make it worse: of the last forty eight records, four carried
+a photograph under CC0, CC BY or CC BY-SA, so forty four rows would have had
+nothing.
+
+What that argument never covered is a photograph of the SPECIES. Joe asked for
+pictures instead of emoji, and the emoji were doing badly: iNaturalist's iconic
+taxa are groups, so a moth, a beetle and a dragonfly were the same butterfly.
+
+**One photograph per species, and the file grows only when a species turns up
+here for the first time.** `scripts/fetch/inat-species-photos.mjs` picks it the
+way the field guide picks its own, research grade and licensed CC0, CC BY or
+CC BY-SA, Alabama first and the country after, and writes an 88px square WebP
+into `fivemile_photos/species/` with the credit in
+`fivemile-species-photos.json`. Thirty of the thirty one species on the roll
+had one. All thirty came to 129KB, which is a third of one field guide
+photograph.
+
+**A species already in the file is never looked up again.** That is what makes
+this affordable where the per record version was not, and it means a run that
+learns nothing writes nothing.
+
+**The rows say what the picture is.** A line under the list reads that the
+pictures show the species and not the sighting, then names the photographers
+and the licences. CC BY and CC BY-SA require the credit, decision 18 rules out
+a title attribute, and the first half of that sentence is the site not letting
+a reader think the person who filed the record took the picture.
+
+**No alt text, on purpose.** The species name sits next to the photograph as
+text, so the picture is decoration and carries `alt=""` with `aria-hidden`.
+Writing alt text would also mean describing thirty photographs nobody here has
+looked at, which is the hard rule about inventing a fact wearing a different
+hat.
+
+**The Plicate Rocksnail has no photograph anybody has released**, which is what
+you would expect of a snail that lives in about one creek. It keeps the group
+emoji on Nature Watch and takes the paper coloured placeholder block in the
+species room, both the same size as a photograph, so the names still run down
+the list in a straight line. CLAUDE.md asks for that block and asks that Joe be
+told, and he has been.
+
+**Not in `check-freshness.mjs`.** This file is written only when a new species
+appears, so a quiet month and a dead fetcher look the same, which is the test
+decision 79 set for staying out.
+
+**Revisit if:** iNaturalist's licence mix changes enough that a photograph per
+record becomes possible, or the roll grows to where 88px squares are worth
+fetching at two sizes.

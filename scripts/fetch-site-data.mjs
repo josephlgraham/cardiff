@@ -17,6 +17,7 @@ import { readYearArchive, writeYearArchive } from './lib/year-archive.mjs';
 import { refreshCms } from './fetch/sheets-cms.mjs';
 import { updateEchoFile } from './fetch/echo-watershed.mjs';
 import { updateObservationsFile } from './fetch/inat-observations.mjs';
+import { updateSpeciesPhotos } from './fetch/inat-species-photos.mjs';
 import { updateAirportArchive, updateAirportNormalsFile } from './fetch/acis-airport.mjs';
 import { updateOutlooks } from './fetch/cpc-outlook.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
@@ -1423,6 +1424,13 @@ async function main() {
     await updateObservationsFile();
   } catch (error) {
     console.error('Observation feed failed (continuing):', error.message);
+  }
+  /* A photograph of each species on the roll, which only fetches anything at
+     all the first time a species turns up here. See DECISIONS.md 83. */
+  try {
+    await updateSpeciesPhotos();
+  } catch (error) {
+    console.error('Species photographs failed (continuing):', error.message);
   }
   try {
     await updateCreekPeaksFile();

@@ -144,7 +144,13 @@
 // every page: the desk cards, the row lists, the fish cards, the guide, the
 // news notes, heritage, civic, kitchen, announce, and offline.html. A reader
 // holding the old stylesheets would keep a card in two sizes. See DECISIONS.md 80.
-const CACHE_NAME = 'fivemile-v85';
+// v86 puts a photograph of each species on the sightings rows and in the
+// species room, and mounts the sightings intro on a panel. fivemile-nature.js,
+// fivemile-nature.html, fivemile-archive.js, fivemile-almanac.css,
+// fivemile-archive.css and fivemile-shell.css all changed, and all are served
+// cache-first. The photographs themselves are not precached, the same as the
+// field guide's. See DECISIONS.md 83.
+const CACHE_NAME = 'fivemile-v86';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

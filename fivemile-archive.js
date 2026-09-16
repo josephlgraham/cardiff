@@ -47,6 +47,8 @@
   var NEWS_INDEX = 'news-archive/index.json';
   var EDITION_INDEX = 'fivemile-editions/index.json';
   var SIGHTINGS_FILE = 'fivemile-observations.json';
+  /* A photograph of each species, not of the sighting. See DECISIONS.md 83. */
+  var SPECIES_PHOTOS = 'fivemile-species-photos.json';
 
   function esc(value) {
     var box = document.createElement('div');
@@ -3000,6 +3002,8 @@
      ------------------------------------------------------------------------- */
   var speciesRoll = [];
   var speciesKind = '';
+  var speciesShots = {};
+  var LICENSE_WORDS = { cc0: 'CC0', 'cc-by': 'CC BY', 'cc-by-sa': 'CC BY-SA' };
 
   function rollOf(data) {
     return (data && Array.isArray(data.roll) ? data.roll : [])
@@ -3024,7 +3028,17 @@
       links += '<a class="k-more" href="fivemile-guide.html#' + esc(row.guide) +
         '">In the field guide <span aria-hidden="true">&rarr;</span></a>';
     }
-    return '<div class="card-stub species"><div class="k-bd">' +
+    var shot = speciesShots[String(row.taxon)];
+    /* The name is the next thing in the row, so the photograph says nothing a
+       screen reader needs and carries no alt text. A species with no
+       photograph free to use gets the paper block CLAUDE.md keeps for exactly
+       this, which holds the row in line with the rest of the list. */
+    var picture = shot
+      ? '<div class="sp-shot"><img src="' + esc(shot.file) + '" alt="" aria-hidden="true" ' +
+        'width="64" height="64" loading="lazy" decoding="async"></div>'
+      : '<div class="sp-shot"><span class="sp-blank" aria-hidden="true"></span></div>';
+
+    return '<div class="card-stub species">' + picture + '<div class="k-bd">' +
       '<div class="k-top">' +
         '<span class="tag">' + esc(row.group || 'Living thing') + '</span>' +
         '<span class="k-src">' + esc(plural(count, 'record', 'records')) + ' &middot; ' + esc(speciesSpan(row)) + '</span>' +
@@ -3033,6 +3047,28 @@
       (row.latin ? '<div class="w">' + esc(row.latin) + '</div>' : '') +
       (links ? '<div class="k-links">' + links + '</div>' : '') +
     '</div></div>';
+  }
+
+  /* Whose photographs these are, and that they are of the species rather
+     than of any sighting on the list. CC BY and CC BY-SA require the first
+     part; the second is the site not implying something untrue. */
+  function speciesCredit(rows) {
+    var names = [];
+    var licenses = [];
+    rows.forEach(function (row) {
+      var shot = speciesShots[String(row.taxon)];
+      if (!shot) return;
+      if (shot.credit && names.indexOf(shot.credit) < 0) names.push(shot.credit);
+      var word = LICENSE_WORDS[shot.license];
+      if (word && licenses.indexOf(word) < 0) licenses.push(word);
+    });
+    if (!names.length) return '';
+    var list = names.length === 1 ? names[0]
+      : names.length === 2 ? names[0] + ' and ' + names[1]
+      : names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+    return '<p class="obs-credit">The pictures show the species and not the sighting. ' +
+      'They were taken by ' + esc(list) + ', and come from iNaturalist under ' +
+      esc(licenses.join(', ')) + '.</p>';
   }
 
   function showSpecies() {
@@ -3045,7 +3081,7 @@
       if (!needle) return true;
       return [row.name, row.latin, row.group].join(' ').toLowerCase().indexOf(needle) > -1;
     });
-    host.innerHTML = rows.length ? rows.map(speciesRow).join('') : '<div class="empty">&mdash;</div>';
+    host.innerHTML = rows.length ? rows.map(speciesRow).join('') + speciesCredit(rows) : '<div class="empty">&mdash;</div>';
     var count = byId('speciesCount');
     /* Short, because on a phone it shares a line with the search box and every
        letter it takes comes out of the box. */
@@ -3084,7 +3120,13 @@
   function loadSpecies() {
     var reel = byId('speciesReel');
     if (!reel) return;
-    loadJson(SIGHTINGS_FILE).then(function (data) {
+    /* The photographs are optional. A room that cannot read them is the
+       room as it opened, every row text and no picture on it. */
+    loadJson(SPECIES_PHOTOS).then(function (data) {
+      speciesShots = (data && data.photos) || {};
+    }).catch(function () { speciesShots = {}; }).then(function () {
+      return loadJson(SIGHTINGS_FILE);
+    }).then(function (data) {
       speciesRoll = rollOf(data).sort(function (a, b) {
         return String(b.last || b.first).localeCompare(String(a.last || a.first)) || a.name.localeCompare(b.name);
       });

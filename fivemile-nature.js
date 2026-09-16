@@ -33,10 +33,15 @@
      Twelve rows before the reader opens the rest, same as the season windows
      below. */
   const OBS_URL = "fivemile-observations.json";
+  /* A photograph of each species, not of the sighting. The mark on a row is
+     one of these where there is one and the group emoji where there is not.
+     See DECISIONS.md 83. */
+  const PHOTO_URL = "fivemile-species-photos.json";
   const OBS_PREVIEW = 12;
 
   let expanded = false;
   let obsExpanded = false;
+  let speciesPhotos = {};
 
   function paintTile(id, value, sentence) {
     setHTML(id + "Val", value == null ? "&mdash;" : escapeHtml(value));
@@ -130,8 +135,18 @@
       sentence.push('It is in the <a href="fivemile-guide.html#' + escapeHtml(entry.guide) + '">field guide</a>.');
     }
 
-    return '<div class="alm-row">' +
-      '<div class="alm-mark">' + iconHtml(entry.icon || "🍃") + "</div>" +
+    const shot = speciesPhotos[String(entry.taxon)];
+    /* The name is right beside it, so the photograph is decoration to a
+       screen reader and carries no alt text of its own. A species with no
+       photograph free to use keeps the group emoji, in a slot the same size,
+       so the names go down the list in a straight line either way. */
+    const mark = shot
+      ? '<img class="alm-photo" src="' + escapeHtml(shot.file) + '" alt="" aria-hidden="true" ' +
+        'width="44" height="44" loading="lazy" decoding="async">'
+      : '<span class="alm-blank">' + iconHtml(entry.icon || "🍃") + "</span>";
+
+    return '<div class="alm-row obs-row">' +
+      '<div class="alm-mark">' + mark + "</div>" +
       "<div>" +
         '<div class="alm-head-line">' +
           '<a class="alm-name obs-name" href="' + escapeHtml(entry.url) + '" target="_blank" rel="noopener">' +
@@ -141,6 +156,35 @@
         (line ? '<div class="alm-when">' + escapeHtml(line) + "</div>" : "") +
         (sentence.length ? '<div class="alm-note">' + sentence.join(" ") + "</div>" : "") +
       "</div></div>";
+  }
+
+  const LICENSE_WORDS = { cc0: "CC0", "cc-by": "CC BY", "cc-by-sa": "CC BY-SA" };
+
+  /* A, B, and C. A credit is a sentence like anything else a reader reads. */
+  function listWords(list) {
+    if (list.length < 2) return list[0] || "";
+    if (list.length === 2) return list[0] + " and " + list[1];
+    return list.slice(0, -1).join(", ") + ", and " + list[list.length - 1];
+  }
+
+  /* CC BY and CC BY-SA both want the photographer named where the photograph
+     is, and DECISIONS.md 18 rules out a title attribute, so the names go under
+     the list. It says whose photographs these are and, just as important, that
+     they are of the species rather than of the sighting. */
+  function creditLine(rows) {
+    const names = [];
+    const licenses = [];
+    rows.forEach(function (row) {
+      const shot = speciesPhotos[String(row.taxon)];
+      if (!shot) return;
+      if (shot.credit && names.indexOf(shot.credit) < 0) names.push(shot.credit);
+      const word = LICENSE_WORDS[shot.license];
+      if (word && licenses.indexOf(word) < 0) licenses.push(word);
+    });
+    if (!names.length) return "";
+    return '<p class="obs-credit">The pictures show the species and not the sighting. ' +
+      'They were taken by ' + escapeHtml(listWords(names)) +
+      ', and come from iNaturalist under ' + escapeHtml(licenses.join(", ")) + '.</p>';
   }
 
   /* The block stays out of the page until there is something to put in it. */
@@ -177,7 +221,7 @@
     }
 
     const shown = obsExpanded ? entries : entries.slice(0, OBS_PREVIEW);
-    setHTML("obsList", shown.map(observationRow).join(""));
+    setHTML("obsList", shown.map(observationRow).join("") + creditLine(shown));
 
     const toggle = document.getElementById("obsExpand");
     if (!toggle) return;
@@ -197,6 +241,12 @@
 
   async function loadObservations() {
     try {
+      /* The photographs are optional. A run that cannot read them draws the
+         same rows with the group emoji on them. */
+      speciesPhotos = await fetch(PHOTO_URL, { cache: "no-store" })
+        .then(function (response) { return response.ok ? response.json() : null; })
+        .then(function (data) { return (data && data.photos) || {}; })
+        .catch(function () { return {}; });
       const response = await fetch(OBS_URL, { cache: "no-store" });
       if (!response.ok) throw new Error("observations unavailable");
       renderObservations(await response.json());

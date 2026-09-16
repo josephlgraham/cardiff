@@ -119,9 +119,11 @@ section.top{padding:24px 0 0}
    packets, so this row fits itself to what it holds. */
 #gardenPackets{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
 
-/* The lead paragraph under a section head on a desk page. One or two
-   sentences saying what the page is for, then out of the way. */
-.desk-intro{font-size:16.5px;line-height:1.6;color:var(--ink2);max-width:64ch;margin:0 0 16px}
+/* .desk-intro was the lead paragraph under a section head on a desk page, and
+   it is gone. It was a bare paragraph lying on the paper at a 64ch cap, which
+   is the same thing decision 54 took off the five page openings and the one
+   place it survived. A section opens on .panel.intro now, like everything
+   else. See DECISIONS.md 54.
 
 /* The send block that closes a page. Not a card in the card system sense, so
    it stays plain: paper fill, hairline border, 14px radius. Same values as
@@ -245,6 +247,24 @@ section.top{padding:24px 0 0}
 .alm-name{font-size:16.5px;font-weight:700;line-height:1.3}
 .alm-status{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#6B6156;margin:3px 0 2px}
 .alm-note{font-size:16.5px;line-height:1.55;color:var(--ink2)}
+/* A sighting row carries a photograph of the species where there is one, and
+   the group emoji where there is not. The mark column widens to hold it, so a
+   row with a picture and a row without still line their names up. The picture
+   is square and cropped to the middle, the way the guide's thumbnails are.
+   See DECISIONS.md 83. */
+.alm-row.obs-row{grid-template-columns:44px minmax(0,1fr)}
+.alm-photo{display:block;width:44px;height:44px;border-radius:6px;object-fit:cover;
+  background:var(--paper);border:1px solid #DDCFB8}
+/* The same slot with the group emoji in it, for a species with no photograph
+   free to use. */
+.alm-blank{display:flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border-radius:6px;background:var(--paper);border:1px solid #DDCFB8}
+
+/* Who took them, under the list. A credit is not a title attribute here or
+   anywhere else on this site. See DECISIONS.md 18. */
+.obs-credit{margin:12px 0 0;padding-top:11px;border-top:1px solid #DDCFB8;
+  font-size:13.5px;line-height:1.5;color:#6B6156}
+
 .alm-head-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .pa-plant{color:var(--green)}
 .pa-harvest{color:var(--amber)}
