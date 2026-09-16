@@ -1,36 +1,77 @@
 {
-  "updatedAt": "2026-09-15T15:32:45.287Z",
+  "updatedAt": "2026-09-16T01:22:53.841Z",
   "counts": {
     "nearby": 4,
-    "county": 6,
-    "obituaries": 3
+    "county": 4,
+    "obituaries": 4
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
-      "news-2-wvtm-13-who-is-kimberly-greenwood-trump-nominates-wife-of-god-bless-",
-      "news-4-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
-      "news-5-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
+      "news-1-al-com-atlanta-dancer-arrested-two-years-after-boyfriend-s-bizarre-",
+      "news-2-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
+      "news-4-trussville-tribune-durrell-earl-tyler-december-10-1929-september-10-2026",
+      "news-6-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
     ],
     "creek": [],
     "county": [
       "news-3-abc-33-40-one-killed-in-crash-on-i-65-northbound-in-birmingham",
-      "news-6-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
-      "news-7-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
-      "news-8-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
-      "news-9-wvtm-13-nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-p",
-      "news-10-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
+      "news-5-al-com-blankenship-retiring-as-alabama-conservation-chief-ivey-name",
+      "news-7-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
+      "news-8-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
     ],
     "obituaries": [
-      "news-11-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
-      "news-12-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
-      "news-13-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada"
+      "news-9-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "news-10-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
+      "news-11-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
+      "news-12-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada"
     ]
   },
   "stories": [
     {
-      "id": "news-1-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
+      "id": "news-1-al-com-atlanta-dancer-arrested-two-years-after-boyfriend-s-bizarre-",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/YHF3FT56JVBKBDLJABOWV4M6ZE.jpg?auth=38c48420760fb0a35554f2b74b85041cb5ceb7089016f3299845d346a4503e91&smart=true&height=1200",
+        "from": "feed",
+        "width": 774,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Atlanta dancer arrested two years after boyfriend’s bizarre Birmingham strangulation death",
+      "summary": "Julian Taylor Morris, an Atlanta-based entertainer and event host, was arrested in Miami in the 2024 strangulation death of Deundray Cottrell.",
+      "description": "Julian Taylor Morris, an Atlanta-based entertainer and event host, was arrested in Miami in the 2024 strangulation death of Deundray Cottrell.",
+      "url": "https://www.al.com/crime/2026/09/atlanta-dancer-arrested-two-years-after-boyfriends-bizarre-birmingham-strangulation-death.html",
+      "link": "https://www.al.com/crime/2026/09/atlanta-dancer-arrested-two-years-after-boyfriends-bizarre-birmingham-strangulation-death.html",
+      "published_at": "2026-09-15T22:22:53.000Z",
+      "date": "2026-09-15T22:22:53.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/YHF3FT56JVBKBDLJABOWV4M6ZE.jpg?auth=38c48420760fb0a35554f2b74b85041cb5ceb7089016f3299845d346a4503e91&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-cbs-42-pleasant-grove-teen-killed-in-i-65-crash-identified",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -46,7 +87,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -72,44 +113,6 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/crash-car_39081935_ver1.0-2-1-1-1.jpg?w=900"
     },
     {
-      "id": "news-2-wvtm-13-who-is-kimberly-greenwood-trump-nominates-wife-of-god-bless-",
-      "section": "nearby",
-      "why": "names kimberly",
-      "town": "Kimberly",
-      "tags": [],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/d96d5e86-4b9e-40eb-bfce-bfe3db4d157d.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Who is Kimberly Greenwood? Trump nominates wife of ‘God Bless the USA’ singer to serve as US ambassador",
-      "summary": "Who is Kimberly Greenwood? President Trump nominates the wife of “God Bless the USA” singer Lee Greenwood to serve as a U.S. ambassador.",
-      "description": "Who is Kimberly Greenwood? President Trump nominates the wife of “God Bless the USA” singer Lee Greenwood to serve as a U.S. ambassador.",
-      "url": "https://www.wvtm13.com/article/kimbery-greenwood-ambassador-barbados/73741061",
-      "link": "https://www.wvtm13.com/article/kimbery-greenwood-ambassador-barbados/73741061",
-      "published_at": "2026-09-15T14:07:00.000Z",
-      "date": "2026-09-15T14:07:00.000Z",
-      "location_tags": [
-        "kimberly"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/d96d5e86-4b9e-40eb-bfce-bfe3db4d157d.jpg"
-    },
-    {
       "id": "news-3-abc-33-40-one-killed-in-crash-on-i-65-northbound-in-birmingham",
       "section": "county",
       "why": "birmingham, roads",
@@ -127,7 +130,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -154,49 +157,87 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/772ba632-cc37-4e0d-90e5-df1adbbccf08-Wide.00_01_33_17.Still001.png"
     },
     {
-      "id": "news-4-abc-33-40-gardendale-woman-arrested-in-florida-child-sexual-abuse-mate",
+      "id": "news-4-trussville-tribune-durrell-earl-tyler-december-10-1929-september-10-2026",
       "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "Trussville Tribune",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/3x4/240/986/0x0/90/5e83653a-5f1d-423d-892f-7d94f8247e86-image001.png?crop_fill=1&size=986x554",
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Durrell-Earl-Tyler-Obit-240x300.jpg",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "Trussville Tribune"
       },
       "obit": null,
       "score": 28,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Gardendale Woman Arrested in Florida Child Sexual Abuse Material Investigation",
-      "summary": "",
-      "description": "",
-      "url": "https://abc3340.com/news/local/alabama-gardendale-woman-arrested-in-florida-child-sexual-abuse-material-investigation-33-year-old-stephanie-craft-of-september-2026",
-      "link": "https://abc3340.com/news/local/alabama-gardendale-woman-arrested-in-florida-child-sexual-abuse-material-investigation-33-year-old-stephanie-craft-of-september-2026",
-      "published_at": "2026-09-11T20:34:28.000Z",
-      "date": "2026-09-11T20:34:28.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Durrell Earl Tyler (December 10, 1929 — September 10, 2026)",
+      "summary": "Durell Earl Tyler, 96, of Fultondale, died at his home on September 10, 2026, surrounded by family. He leaves behind a family who will deeply miss his presence, stories, and music, which was a constant part of his life. He was born to Charles and Martha Massey Tyler in Oxford, Mississippi, on December 10, 1929. […]",
+      "description": "Durell Earl Tyler, 96, of Fultondale, died at his home on September 10, 2026, surrounded by family. He leaves behind a family who will deeply miss his presence, stories, and music, which was a constant part of his life. He was born to Charles and Martha Massey Tyler in Oxford, Mississippi, on December 10, 1929. […]",
+      "url": "https://www.trussvilletribune.com/2026/09/15/durrell-earl-tyler-december-10-1929-september-10-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/15/durrell-earl-tyler-december-10-1929-september-10-2026/",
+      "published_at": "2026-09-15T15:48:06.000Z",
+      "date": "2026-09-15T15:48:06.000Z",
       "location_tags": [
-        "gardendale"
+        "fultondale"
       ],
-      "topic_tags": [
-        "public-safety"
-      ],
+      "topic_tags": [],
       "priority_level": 4,
       "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/3x4/240/986/0x0/90/5e83653a-5f1d-423d-892f-7d94f8247e86-image001.png?crop_fill=1&size=986x554"
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Durrell-Earl-Tyler-Obit-240x300.jpg"
     },
     {
-      "id": "news-5-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
+      "id": "news-5-al-com-blankenship-retiring-as-alabama-conservation-chief-ivey-name",
+      "section": "county",
+      "why": "alabama department, land",
+      "town": "Regional",
+      "tags": [
+        "Land"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/WXUZNR4Y6BDELGALNCYGEA3CZE.JPG?auth=46524e8726e35c5d909ec9de8d07ab889e1445bac0d52571d771175a0c9274bf&smart=true&height=1200",
+        "from": "feed",
+        "width": 5184,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Blankenship retiring as Alabama conservation chief; Ivey names interim",
+      "summary": "Chris Blankenship has led the Alabama Department of Conservation and Natural Resources since 2017.",
+      "description": "Chris Blankenship has led the Alabama Department of Conservation and Natural Resources since 2017.",
+      "url": "https://www.al.com/news/mobile/2026/09/blankenship-retiring-as-conservation-chief-ivey-names-interim.html",
+      "link": "https://www.al.com/news/mobile/2026/09/blankenship-retiring-as-conservation-chief-ivey-names-interim.html",
+      "published_at": "2026-09-15T20:00:58.000Z",
+      "date": "2026-09-15T20:00:58.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "land"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/WXUZNR4Y6BDELGALNCYGEA3CZE.JPG?auth=46524e8726e35c5d909ec9de8d07ab889e1445bac0d52571d771175a0c9274bf&smart=true&height=1200"
+    },
+    {
+      "id": "news-6-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -210,7 +251,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -225,8 +266,8 @@
         "corner"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -234,7 +275,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Cullman-Grand-Opening-48-1200x800.jpg"
     },
     {
-      "id": "news-6-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
+      "id": "news-7-wbrc-hoover-man-killed-in-bessemer-motorcycle-crash",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -250,7 +291,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -276,133 +317,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false"
     },
     {
-      "id": "news-7-wbrc-he-died-trying-to-protect-others-father-son-killed-in-crash-",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//UTBK5AHBBNDGRFKWUNQTJGIVIE.png?auth=1c62436aa538bf48019ad3d461545de49c9b3b685bf09ab25901bae12b0fac74&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "‘He died trying to protect others’: Father, son killed in crash on I-65",
-      "summary": "A Birmingham family is grieving after a routine call for roadside help turned into an unimaginable tragedy Sunday night, claiming the lives of both a father and his youngest son on Interstate-65.",
-      "description": "A Birmingham family is grieving after a routine call for roadside help turned into an unimaginable tragedy Sunday night, claiming the lives of both a father and his youngest son on Interstate-65.",
-      "url": "https://www.wbrc.com/2026/09/15/he-died-trying-protect-others-father-son-killed-crash-i-65/",
-      "link": "https://www.wbrc.com/2026/09/15/he-died-trying-protect-others-father-son-killed-crash-i-65/",
-      "published_at": "2026-09-15T00:36:33.000Z",
-      "date": "2026-09-15T00:36:33.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//UTBK5AHBBNDGRFKWUNQTJGIVIE.png?auth=1c62436aa538bf48019ad3d461545de49c9b3b685bf09ab25901bae12b0fac74&smart=false"
-    },
-    {
-      "id": "news-8-wbrc-hoover-council-may-seek-state-help-resolving-kroll-audit-que",
-      "section": "county",
-      "why": "alabama department, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CXDQRH5MHNEQHGWRIKXY5FIHLY.jpg?auth=6c72b38a5ce5ea1abc9f2d283a2fc9b69d00447da6fd69973e06a24b52cf88b0&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Hoover council may seek state help resolving Kroll audit questions",
-      "summary": "The Hoover City Council is set to consider a resolution tonight that would ask the Alabama Department of Examiners of Public Accounts to help resolve unanswered questions from the city’s Kroll audits.",
-      "description": "The Hoover City Council is set to consider a resolution tonight that would ask the Alabama Department of Examiners of Public Accounts to help resolve unanswered questions from the city’s Kroll audits.",
-      "url": "https://www.wbrc.com/2026/09/14/hoover-council-may-seek-state-help-resolving-kroll-audit-questions/",
-      "link": "https://www.wbrc.com/2026/09/14/hoover-council-may-seek-state-help-resolving-kroll-audit-questions/",
-      "published_at": "2026-09-14T23:29:37.000Z",
-      "date": "2026-09-14T23:29:37.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//CXDQRH5MHNEQHGWRIKXY5FIHLY.jpg?auth=6c72b38a5ce5ea1abc9f2d283a2fc9b69d00447da6fd69973e06a24b52cf88b0&smart=false"
-    },
-    {
-      "id": "news-9-wvtm-13-nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-p",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/d297d5ec-68ca-48cc-84be-cc96bbb285fb/d73caa76-7fab-4f50-b8a1-0ca7d2b0850a.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Nightly lane closures on US-31 in Homewood for resurfacing project",
-      "summary": "ALDOT has started a resurfacing and access management project on US-31 in Homewood, with nightly lane closures from 7 p.m. to 6 a.m. through late June.",
-      "description": "ALDOT has started a resurfacing and access management project on US-31 in Homewood, with nightly lane closures from 7 p.m. to 6 a.m. through late June.",
-      "url": "https://www.wvtm13.com/article/nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-project/73739551",
-      "link": "https://www.wvtm13.com/article/nightly-lane-closures-on-us-31-in-homewood-for-resurfacing-project/73739551",
-      "published_at": "2026-09-15T11:14:00.000Z",
-      "date": "2026-09-15T11:14:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/d297d5ec-68ca-48cc-84be-cc96bbb285fb/d73caa76-7fab-4f50-b8a1-0ca7d2b0850a.jpg"
-    },
-    {
-      "id": "news-10-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
+      "id": "news-8-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -418,7 +333,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -444,7 +359,51 @@
       "image_url": "https://thebamabuzz.com/wp-content/uploads/2026/09/Gardendale-Groundbreaking-1024x695.jpg"
     },
     {
-      "id": "news-11-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
+      "id": "news-9-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Remember, Reflect, Recommit: 16th Street Baptist Church Commemorates Anniversary of 1963 Bombing, Opens Education Center",
+        "age": null,
+        "town": "",
+        "home": "Birmingham Times",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Remember, Reflect, Recommit: 16th Street Baptist Church Commemorates Anniversary of 1963 Bombing, Opens Education Center",
+      "summary": "A memorial service to commemorate the four girls killed in the 1963 bombing is held annually at 16th Street Baptist Church. (Marika N. Johnson, For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/0915B-16th-str-_18-1024x683.jpg\" />By Javacia Harris Bowser | The Birmin",
+      "description": "A memorial service to commemorate the four girls killed in the 1963 bombing is held annually at 16th Street Baptist Church. (Marika N. Johnson, For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/0915B-16th-str-_18-1024x683.jpg\" />By Javacia Harris Bowser | The Birmin",
+      "url": "https://www.birminghamtimes.com/2026/09/remember-reflect-recommit-16th-street-baptist-church-commemorates-anniversary-of-1963-bombing-opens-education-center/",
+      "link": "https://www.birminghamtimes.com/2026/09/remember-reflect-recommit-16th-street-baptist-church-commemorates-anniversary-of-1963-bombing-opens-education-center/",
+      "published_at": "2026-09-15T22:25:31.000Z",
+      "date": "2026-09-15T22:25:31.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-trussville-tribune-barbara-nell-awtrey-september-1-1935-september-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -462,7 +421,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -488,7 +447,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
+      "id": "news-11-trussville-tribune-barbara-jack-wright-march-28-1941-september-9-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -532,7 +491,7 @@
       "image_url": ""
     },
     {
-      "id": "news-13-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-12-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
