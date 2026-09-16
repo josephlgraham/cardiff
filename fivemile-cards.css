@@ -853,6 +853,29 @@ a.card-feature:hover .cf-go{text-decoration:underline}
 .pl-in h3{margin:0 0 8px;font-size:18px;font-weight:700}
 .pl-in p{margin:0;font-size:16.5px;line-height:1.55;color:var(--ink2)}
 
+/* .fm-map  ·  the area map, wherever a page drops it
+
+   fivemile-area-map.svg is drawn from survey data by scripts/build-area-map.mjs
+   and inlined by fivemile-common.js wherever a page writes a data-fm-map
+   element. It lives here rather than with one page because four pages use it:
+   the almanac's creek section, the creek room, About, and the charters
+   chapter. The drawing takes the width it is given and keeps its proportions.
+
+   The caption under it is a caption and keeps its own size, which decision 80
+   leaves alone. See DECISIONS.md 84. */
+.fm-map{margin:0}
+.fm-map [data-fm-map]{display:block}
+.fm-map svg,.fm-map img{display:block;width:100%;height:auto;
+  border:1px solid var(--fm-rule);border-radius:8px}
+.fm-map figcaption{margin-top:11px;padding-top:10px;border-top:1px solid var(--fm-rule);
+  font-size:13.5px;line-height:1.55;color:var(--fm-muted)}
+@media(max-width:760px){
+  /* Squeezed into a phone card the whole drawing puts its town names at six
+     pixels, so it keeps a readable width and is pushed sideways instead. */
+  .fm-map [data-fm-map]{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .fm-map svg,.fm-map img{min-width:680px}
+}
+
 /* ---------------------------------------------------------------------------
    Section head. Not a card, but every page that uses these cards needs it.
    Ink rule under a small uppercase heading, with an optional red link out to

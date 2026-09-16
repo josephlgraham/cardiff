@@ -5629,5 +5629,12 @@ asks of a reader, and the names land at about 15px.
 with a spot, decision 52, and iNaturalist withholds the location on most of
 them anyway. Pins are not available and would be invented if they were.
 
+**Where it appears.** The almanac's creek section, under the depth chart. The
+creek room in the archive, saying where the gauge that wrote every row on that
+page sits. About, as the ground the whole site covers. And the charters
+chapter, because the lines on it are the ones that chapter is about: Graysville
+took its charter in 1897 and Brookside in 1898. The rules live in
+`fivemile-cards.css` for that reason rather than with any one page.
+
 **Revisit if:** a source moves, in which case rerun the script; or another page
 wants it, in which case it writes the same three lines and nothing else.

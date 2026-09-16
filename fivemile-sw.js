@@ -154,7 +154,12 @@
 // fivemile-area-map.svg is new, fivemile-common.js gained the loader that
 // inlines it, and fivemile-almanac.html and fivemile-almanac.css both
 // changed. All are served cache-first. See DECISIONS.md 84.
-const CACHE_NAME = 'fivemile-v87';
+// v88 puts the same map on three more pages, the creek room, About, and the
+// charters chapter, and moves its rules into fivemile-cards.css where all four
+// can reach them. Those three pages, fivemile-cards.css and
+// fivemile-almanac.css all changed and all are served cache-first.
+// See DECISIONS.md 84.
+const CACHE_NAME = 'fivemile-v88';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
