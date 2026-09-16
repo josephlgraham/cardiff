@@ -25,7 +25,18 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
+
+/* sharp is loaded only when there is a photograph to shrink, and not at the
+   top of this file. fetch-site-data.mjs imports this module, so a
+   top-level import made every run of it, the ten minute one included, need a
+   package that lives in node_modules. When that package was missing on the
+   runner the whole script died before it asked the station anything, and the
+   weather and the gauge went stale for a day. See DECISIONS.md 83. */
+let sharpModule = null;
+async function loadSharp() {
+  if (!sharpModule) sharpModule = (await import('sharp')).default;
+  return sharpModule;
+}
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const ROLL_FILE = path.join(ROOT, 'fivemile-observations.json');
@@ -126,6 +137,7 @@ export async function updateSpeciesPhotos() {
       }
       const buffer = await download(sized(found.photo.url, 'medium'));
       const file = slug(entry.name) + '-' + entry.taxon + '.webp';
+      const sharp = await loadSharp();
       await sharp(buffer).rotate()
         .resize(SIZE, SIZE, { fit: 'cover', position: 'centre' })
         .webp({ quality: 66, effort: 5 })

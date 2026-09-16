@@ -30,6 +30,15 @@ jobs:
         with:
           node-version: '24'
 
+      # The species photographs are shrunk with sharp, the one package from
+      # node_modules the fetch step uses, and only when a species turns up here
+      # without a photograph. The runner starts without it. If the registry is
+      # down the install fails, that species waits for the next run, and the
+      # weather goes out regardless, hence continue-on-error. See DECISIONS.md 83.
+      - name: Install the image library
+        continue-on-error: true
+        run: npm ci --no-audit --no-fund
+
       # News is not gathered here any more. It has its own script and its own
       # schedule in refresh-news.yml, because a morning report wants gathering
       # in the morning.
@@ -74,7 +83,7 @@ jobs:
           # sitemap.xml is staged because the heritage build writes the lastmod
           # dates into it off fivemile-heritage.json. Without it those dates
           # would be regenerated every run and never committed.
-          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-creek-quality.json fivemile-airport-archive/ fivemile-airport-normals.json fivemile-observations.json fivemile-species-photos.json fivemile_photos/species/ fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json fivemile-outlooks.json fivemile-sayings.json fivemile-editions/ fivemile-edition-*.html fivemile-edition-*.pdf
+          git add fivemile-weather.json fivemile-watershed.json fivemile-watershed-weather.json fivemile-air-quality.json fivemile-rain-log.json fivemile-weather-archive/ fivemile-creek-archive/ fivemile-creek-peaks.json fivemile-creek-quality.json fivemile-creek-flashiness.json fivemile-creek-samples.json fivemile-airport-archive/ fivemile-airport-normals.json fivemile-observations.json fivemile-species-photos.json fivemile_photos/species/ fivemile-hollers.json fivemile-heritage*.html sitemap.xml announcements.json fivemile-echo.json fivemile-outlooks.json fivemile-sayings.json fivemile-editions/ fivemile-edition-*.html fivemile-edition-*.pdf
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0
