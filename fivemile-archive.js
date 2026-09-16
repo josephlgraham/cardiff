@@ -3402,13 +3402,38 @@
         less.fivemile + '.';
     }
 
-    /* USGS has never gone back and checked any of this, nineteen years on, and
-       a reader looking at the strongest numbers on the page is owed that. */
-    var unchecked = stations.filter(function (station) { return /prelim/i.test(station.status || ''); });
-    var caveat = unchecked.length === stations.length
-      ? 'The USGS still has all of these marked preliminary, which means it published them and has not been back to check them.'
-      : unchecked.length
-        ? 'The USGS still has some of these marked preliminary, which means it published them and has not been back to check them.'
+    /* THE SIZE OF THE STREAM, straight after the ratios and never apart from
+       them. Fourteen times the manganese in a trickle is not fourteen times the
+       manganese in the creek, and a reader told the first without the second
+       will reasonably think Black Creek is poisoning Five Mile Creek. The days
+       differ and the page says which, and where nobody measured the flow the
+       page says that too rather than guessing. */
+    var blackFlow = stations.filter(function (station) { return station.creek !== 'Five Mile Creek' && station.flow; })[0];
+    var mainFlow = stations.filter(function (station) { return station.creek === 'Five Mile Creek' && station.flow; })[0];
+    if (blackFlow && mainFlow) {
+      var cfs = function (value) { return value < 1 ? 'less than one cubic foot of water a second' : Math.round(value) + ' cubic feet a second'; };
+      reads += (reads ? ' ' : '') + 'Black Creek is a much smaller stream. Above the drainage it was carrying ' +
+        cfs(blackFlow.flow.cfs) + ' on ' + esc(prosaicDate(blackFlow.flow.date).replace(/, \d{4}$/, '')) +
+        '. Five Mile Creek above both was carrying ' + cfs(mainFlow.flow.cfs) + ' on ' +
+        esc(prosaicDate(mainFlow.flow.date).replace(/, \d{4}$/, '')) + '.';
+      var unmeasured = stations.filter(function (station) { return station.creek !== 'Five Mile Creek' && !station.flow; });
+      if (unmeasured.length) {
+        reads += ' Nobody measured the flow at ' + esc(unmeasured.map(function (station) {
+          return String(station.reads || '').split(', ').slice(1).join(', ').replace(/^at /, '');
+        }).join(' or ')) + '.';
+      }
+    }
+
+    /* USGS never marked these final, and that much is a fact. What the
+       Preliminary label means beyond that is not: the portal's own definition
+       of it is internal use only, not released to the public, which cannot be
+       true of a reading on a public portal. So the page says the fact and
+       stops. See DECISIONS.md 86. */
+    var unfinal = stations.filter(function (station) { return !/^(final|accepted|validated)$/i.test(station.status || ''); });
+    var caveat = unfinal.length === stations.length
+      ? 'The USGS has never marked any of these readings as final.'
+      : unfinal.length
+        ? 'The USGS has never marked some of these readings as final.'
         : '';
 
     /* Prose sized, because an 11.5px caption is the smallest link on the page

@@ -5922,11 +5922,26 @@ from the daily record. They agree to the hundredth.
 temperature 2 to 33.2 Celsius, conductance 28 to 1,320. Nothing impossible, and
 the only zeros are the twelve oxygen readings already accounted for.
 
-**USGS has never checked most of its own.** 7,110 of the 10,028 USGS samples in
-these two units are still marked `Preliminary`, including every reading in the
-Black Creek table, nineteen years on. ADEM's are `Final`. The page says so
-under the table, because the strongest numbers on it are the ones USGS has not
-been back to.
+**USGS never marked most of its own final, and that is all the label says.**
+7,110 of the 10,028 USGS samples in these two units carry `Preliminary`,
+including every reading in the Black Creek table. ADEM's are `Final`. The page
+first said this meant USGS "published them and has not been back to check
+them", and that was wrong. The Water Quality Exchange defines `Preliminary` as
+"Internal use only, not released to public", which cannot describe a reading on
+a public portal, and the value that means subject to revision until reviewed is
+a different one, `Provisional`. So the label is a mismatch and not evidence
+about review. The page now says only that USGS never marked these final.
+
+**Black Creek is a small stream, and the table has to say so.** "14 times the
+manganese" is true of a concentration. Without the flow beside it, a reader
+hears Black Creek poisoning Five Mile Creek, which is the dilution trap from
+decision 85 in a new place. The USGS measured Black Creek above the drainage at
+0.44 cubic feet a second on June 8 and Five Mile Creek above both at 32 on June
+5. Nobody measured the flow at Walker Chapel Road, so the share Black Creek adds
+at the confluence is not known and the page does not guess it. The gauge at
+Republic, below the confluence, read 581 microsiemens that day against 614 in
+Five Mile Creek above it, so whatever Black Creek brought did not show as a rise
+at the gauge.
 
 **Revisit if:** the datasonde record is ever worth a page of its own. It is
 7,117 readings at eight stations and it holds something the samples cannot, the

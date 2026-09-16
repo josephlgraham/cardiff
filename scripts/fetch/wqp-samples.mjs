@@ -280,6 +280,7 @@ export async function updateWaterSamples({ force = false } = {}) {
   const perThing = new Map();
   const oxygen = [];
   const transect = new Map(TRANSECT.map((row) => [row.id, new Map()]));
+  const transectFlow = new Map();
   let results = 0;
   let loggedTotal = 0;
   let qcTotal = 0;
@@ -333,6 +334,15 @@ export async function updateWaterSamples({ force = false } = {}) {
        a column off June 8 set beside two columns off June 5 is three readings
        of three different creeks. The shared day is picked once every row has
        been read. */
+    /* How much water each transect station was carrying, from whichever day
+       it was measured. Concentrations without a flow beside them are the
+       dilution trap: fourteen times the manganese in a trickle is not fourteen
+       times the manganese in the creek. */
+    if (transect.has(id) && kind === 'sample' && thingName === 'Stream flow, instantaneous' &&
+        /^ft3\/s/i.test(row['ResultMeasure/MeasureUnitCode'] || '') && value != null && Number.isFinite(value)) {
+      if (!transectFlow.has(id)) transectFlow.set(id, { cfs: value, date });
+    }
+
     const held = transect.get(id);
     if (held && date && kind === 'sample' && TRANSECT_READS.includes(thingName)) {
       const day = held.get(date) || new Map();
@@ -341,11 +351,13 @@ export async function updateWaterSamples({ force = false } = {}) {
           value: raw === '' ? (row.ResultDetectionConditionText || null) : raw,
           unit: row['ResultMeasure/MeasureUnitCode'] || '',
           fraction: row.ResultSampleFractionText || '',
-          /* USGS says whether it has been back to check a reading. Most of
-             what it has here it has not: 7,110 of its 10,028 samples in these
-             two units are still marked Preliminary, including every reading in
-             this table, nineteen years on. A reader looking at the strongest
-             numbers on the page is owed that. */
+          /* The status the portal gives the reading. 7,110 of the USGS's
+             10,028 samples in these two units, including every reading in this
+             table, carry Preliminary rather than Final or Accepted. Do not read
+             more into it than that: the portal's own definition of Preliminary
+             is "Internal use only, not released to public", which cannot be
+             true of a reading on a public portal, and the value that means
+             "subject to revision" is a different one, Provisional. */
           status: row.ResultStatusIdentifier || ''
         });
       }
@@ -503,6 +515,7 @@ export async function updateWaterSamples({ force = false } = {}) {
          the metal cells in its column are empty on the shared day. A page
          that shows the gap has to be able to say what is in it. */
       also_sampled: [...transect.get(row.id).keys()].filter((date) => date !== sharedDay).sort(),
+      flow: transectFlow.get(row.id) || null,
       /* The status USGS gives most of this station's readings that day. */
       status: (() => {
         const tally = {};

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T06:19:35.204Z",
+  "updatedAt": "2026-09-16T13:55:20.248Z",
   "source": "Water Quality Portal",
   "source_url": "https://www.waterqualitydata.us/",
   "hucs": {
@@ -124,6 +124,10 @@
         "also_sampled": [
           "2006-06-08"
         ],
+        "flow": {
+          "cfs": 0.44,
+          "date": "2006-06-08"
+        },
         "status": "Preliminary",
         "readings": [
           {
@@ -180,6 +184,7 @@
         "lat": 33.61205,
         "lon": -86.84249,
         "also_sampled": [],
+        "flow": null,
         "status": "Preliminary",
         "readings": [
           {
@@ -257,6 +262,10 @@
         "lat": 33.60594,
         "lon": -86.85388,
         "also_sampled": [],
+        "flow": {
+          "cfs": 32,
+          "date": "2006-06-05"
+        },
         "status": "Preliminary",
         "readings": [
           {
