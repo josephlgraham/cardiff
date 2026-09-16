@@ -5692,3 +5692,246 @@ revises provisional figures for months.
 live now. Or if somebody wants the flashiness of the creek, how hard it rises
 and falls, which needs no new source at all: the daily flow back to 1988 is
 already in `fivemile-creek-archive/`.
+
+---
+
+## 86. How hard it rises and falls, and everybody else's samples
+**Decided:** September 2026. Answers both halves of what decision 85 left open.
+
+Decision 85 ended with two things worth doing and one of them has an answer
+nobody expected.
+
+### Flashiness, and the finding that there is no trend
+
+**What it is.** Add up how much the flow changed from each day to the next
+across a whole year, divide by all the water that went past in that year. The
+Richards-Baker index, set out by Baker, Richards, Loftus and Kramer in the
+Journal of the American Water Resources Association in 2004. It carries no
+units, so a wet year and a dry one can be set beside each other. Water off
+springs and wet ground is let go slowly and scores low. Water off roofs, roads
+and parking lots arrives at once and scores high.
+
+**It needed no new source.** `scripts/build-creek-flashiness.mjs` reads the
+daily flow already in `fivemile-creek-archive/` and writes
+`fivemile-creek-flashiness.json`. It fetches nothing, so it runs on the twice
+daily job right after the archive it reads has been written.
+
+**What the record says.** 37 whole years, 1989 to 2025. The middle year scores
+0.62. The steadiest was 2007 at 0.34, which was also the driest year the gauge
+has seen, and the flashiest was 2004 at 0.85. By the decade: the 1990s at 0.58,
+the 2000s at 0.68, the 2010s at 0.59, the 2020s at 0.64.
+
+**Those decades do not run in order, and that is the finding.** The expectation
+going in, written into the note that asked for this, was a development story: a
+rising index is the usual read on how much pavement is upstream, so the
+watershed filling in should show up here. It does not. Mann-Kendall over the 37
+years gives p = 0.69 and the correlation with the year itself is 0.08. There is
+no trend to report and the page says so in as many words.
+
+**The wet year trap, which is the dilution trap again.** Flashiness follows how
+wet the year was: the correlation with annual mean flow is 0.60. A run of wet
+years would read as a creek getting flashier the same way a run of wet years
+reads as a creek getting cleaner on the conductance chart. The page carries it
+as a count rather than a coefficient, because a reader can hold a count: the
+flashier half of the record holds 9 of the 10 wettest years and 1 of the 10
+driest. Every year also carries its own median and mean flow so anybody can
+check it.
+
+**Only whole years, only neighbouring days.** Same whole year rule as decision
+85 and for the same reason. A day whose neighbour is missing puts its flow in
+the denominator and no step in the numerator, because the change across a gap
+is not a day's change.
+
+### The Water Quality Portal, all sixty stations
+
+The earlier probe pulled three stations out of a bounding box, found 1,281
+results, and concluded the portal was real but too thin to chart. Widening it
+turned that conclusion over completely.
+
+**The area is the two hydrologic units, not a box.** 031601110406 Upper
+Fivemile Creek and 031601110407 Lower Fivemile Creek, imported from
+`echo-watershed.mjs` so that who discharges into this creek and who samples it
+are answers about the same creek. A box around these towns catches Village
+Creek, the Locust Fork and five air quality monitors in Tarrant, and a reader
+counting stations would be counting somebody else's water. The count of 50 in
+the earlier note was a box count and is not the number.
+
+**What is actually there.** 60 stations, 25,745 water samples, 372 different
+things measured, from June 1952 to October 2024. Three organisations: ADEM, the
+USGS, and Alabama Water Watch, whose stations are volunteers. The best covered
+station is ADEM's on Republic Road with 2,877 samples over 23 years. This is not
+a record of what was sampled. It is a record.
+
+**A sample is not a tick off a meter, and the difference is a fifth of the
+file.** The portal returns 33,616 rows. 7,117 of them are a datasonde ADEM has
+left in the water at eight stations, logging itself every few minutes for weeks
+at a stretch, and 754 are quality control replicates, which is a lab measuring
+the same bottle twice on purpose. Counting either as a sample makes the record
+look denser than it is: 385 ticks off one instrument over one day is one visit,
+not 385 of them. `ActivityTypeCode` says which is which, every count in the file
+counts samples, and the ticks and the replicates are carried in fields of their
+own so nothing is hidden and nobody rediscovers them as a missing chart. This
+is not a nicety. It is the difference between the oxygen record being 2,459
+readings and being 728 samples, and the first of those numbers was published
+here for about an hour before it was caught.
+
+**It writes a summary.** The full pull is 17MB. `fivemile-creek-samples.json`
+is 40KB: one row per station, one row per each of the 60 best covered things
+measured, and the Black Creek readings. The tail of the other 312 is a lab
+running a pesticide panel once in 2004 and finding nothing, three hundred times
+over, and the count of them is the part of that which means anything.
+
+**Once a week, not twice a day.** 17MB is not a polite thing to ask a public
+service for every twelve hours, and the newest sample in the record is from
+2024. A run inside the window returns the file it already has.
+
+**Not in `check-freshness.mjs`, for ECHO's reason.** Nobody has sampled here
+since 2024 and nobody may sample here next year, so a quiet feed and a dead
+feed look identical from this end and the check would only ever cry wolf. This
+is the second file to sit outside decision 79 and the exception should not grow
+a third time without a better argument than convenience.
+
+### Black Creek
+
+On one day in June 2006 the USGS sampled two points on Black Creek and one on
+Five Mile Creek just above where Black Creek comes in, and named the top one
+itself: Black Creek at Bridge above Acid Mine Drainage. It is the only thing in
+this record that is shaped like an experiment, and it gets a table.
+
+**The table prints what the meters read and says nothing about what caused any
+of it.** That is decision 63 doing the same job here it does on the discharge
+page, and it matters more here, because this is the question everybody upstream
+and downstream of the mines has an opinion about. The USGS's name for the
+station is printed, in the USGS's words and our case, and the reader is left
+with it.
+
+**It is pinned to the day all three share.** One of the three was sampled again
+three days later and its metals were taken then, so a column off June 8 beside
+two columns off June 5 would be three readings of three different creeks. The
+shared day is worked out at run time, the metals it is missing show as empty
+cells, and the page says the gap is a date rather than something nobody looked
+for. If no day ever catches all three, the table is dropped rather than
+published as a comparison it is not.
+
+### Dissolved oxygen is a paragraph, and now for the right reason
+
+Joe's call when the record looked like 16 samples: if there is not much data
+there is not much data, worth a mention and not a chart. Widening the pull
+appeared to overturn that, at 2,459 readings, and he was told so. It did not.
+**1,731 of those 2,459 are the datasonde logging itself. The oxygen record is
+728 samples.**
+
+**728 over 32 years is not a series.** It is a median of 15 samples a year in
+30 of those 32 years, the leanest holding 3, from two organisations whose
+coverage takes turns: 1991 is entirely ADEM, 1996 is entirely volunteers, 2015
+and 2016 have no samples at all. Drawn by year that is a line through who was
+out sampling, not through the creek. 1996 reads 7.7 and 2013 reads 10.3, and
+the honest explanation of the gap is that different people with different
+meters stood in different places.
+
+**So the original call was right, and the reason it gives is better than the
+one it was made on.** The page says the record is thin and says how thin, in
+figures worked out from the file: the count, the span, the samples per year,
+the leanest year, the middle reading of 8.5 milligrams a litre, and the low
+end. A reader can see why there is no chart without the page explaining itself.
+
+**The zeros are said out loud.** 33 readings are under 5 and 12 of those are
+zero, all twelve at one volunteer station in 2009. A reader told the creek read
+zero and not told that is being misled by arithmetic.
+
+**The lesson worth keeping.** A count off a public portal is not a sample size
+until somebody checks what a row is. The conductance work in decision 85 had
+the same shape of trap and caught it, the wet year trap above is the same trap
+again, and this one got past a first pass and into the copy. Any new count that
+suddenly makes a thin record look rich should be assumed to be a logger until
+shown otherwise.
+
+### Saying it so it can be read
+
+Joe read the flashiness section and said he did not understand what it was
+talking about, then said not to forget how bad the literacy is here. Both
+sections were rewritten against that and the changes are the rule, not a
+one off.
+
+**Name the thing before you show a number for it.** The section had a heading
+that described the idea, a lede that described the idea, and a definition card
+that opened with the arithmetic. The word flashiness appeared over a chart of
+numbers between 0.3 and 0.9 with nothing to say whether 0.62 was a lot. Now the
+lede names it, the card defines it in short sentences, and the card anchors the
+scale: a score of 0.60 means the ups and downs came to about 60 percent of
+everything that went past. Percentages, not fractions. Fifths are harder than
+they look.
+
+**One day out of the record, beside the index.** An index is an abstraction.
+The page now also gives the sharpest rise on file: September 5, 2011, when the
+creek went from 24 cubic feet a second to 2,920 in a day and crested at 16.2
+feet after sitting at 1.3 the day before. Anybody who was here remembers that
+water. It is picked as a multiple rather than a difference, because flashiness
+is a creek multiplying rather than adding. The biggest difference on the record,
+May 7 2003, is also the highest crest the gauge has ever read, 25.41 feet, and
+it is not used because the archive has no daily mean depth for that day and the
+sentence would have no height in it.
+
+**Read the table for the reader.** Nine readings across three columns is
+arithmetic nobody does standing on a phone. The page now says that the Black
+Creek water carried 14 times the manganese, 12 times the muddiness and 2.6
+times the arsenic of the Five Mile Creek point above it, and held less oxygen.
+Ratios only, worked out in the fetcher, no adjective and no cause. Decision 63
+still holds and the numbers do not need the help. Ratios are rounded in the
+sentence, because 13.9 times is a lab result read aloud.
+
+**The plain word first, the portal's word after it.** Specific conductance is
+"Dissolved mineral (conductance)" and turbidity is "Muddiness (turbidity)" at
+the head of a row, so a reader knows what they are looking at and can still
+find it again at the portal. That is the habit the monthly edition keeps for
+old words, applied to lab words.
+
+**Fahrenheit, everywhere, including the column that has no numbers in it.** The
+portal records water temperature in Celsius and the JSON keeps it that way.
+Every temperature this site prints is Fahrenheit, `usgs-creek-quality.mjs`
+already converts for the same reason, and a column headed °C beside a reading
+of 67.3 °F reads like a mistake and makes a reader distrust both.
+
+**A unit belongs at the head of a row, not in every cell.** Except where the
+units differ, which is why the muddiness row keeps FNU on one meter and NTRU on
+the other rather than claiming they are the same measurement.
+
+### Checking for bogus numbers
+
+Joe asked, because creek gauges can be iffy. They were checked and they hold.
+
+**The flow record behind flashiness is clean.** 13,994 days carry a flow. No
+negatives, no zeros, no `-999999` sentinels, nothing non finite, and no run of
+ten or more identical daily means anywhere on the record, which is what a stuck
+gauge looks like. The range is 9.3 to 6,600 cubic feet a second.
+
+**The extremes are weather and not error, which is the real test.** The three
+sharpest overnight rises on file are September 16 2004, September 5 2011 and
+October 3 1995, all storm dates. The flashiest year on the whole index, 2004,
+is the year of the September 16 rise. The steadiest, 2007, is the drought year
+and has the lowest median flow on the record at 20 cubic feet a second. An
+index that ranked a quiet year as its wildest would have been the thing to
+worry about.
+
+**The one number the page leans on was checked against a second file.** The
+September 5 2011 crest reads 16.23 feet in `fivemile-creek-archive/2011.json`
+and 16.23 feet in `fivemile-creek-peaks.json`, which USGS compiles separately
+from the daily record. They agree to the hundredth.
+
+**The sample values are in range.** pH 5.5 to 9.4, oxygen 0 to 15.2, water
+temperature 2 to 33.2 Celsius, conductance 28 to 1,320. Nothing impossible, and
+the only zeros are the twelve oxygen readings already accounted for.
+
+**USGS has never checked most of its own.** 7,110 of the 10,028 USGS samples in
+these two units are still marked `Preliminary`, including every reading in the
+Black Creek table, nineteen years on. ADEM's are `Final`. The page says so
+under the table, because the strongest numbers on it are the ones USGS has not
+been back to.
+
+**Revisit if:** the datasonde record is ever worth a page of its own. It is
+7,117 readings at eight stations and it holds something the samples cannot, the
+daily swing of oxygen through a summer night, which is a real question about
+this creek and a different one from this. Or if the flashiness record ever does
+start to run in order, which is worth watching precisely because it does not
+today.
+

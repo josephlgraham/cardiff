@@ -108,6 +108,11 @@
   function inches(value) { return num(value) == null ? '&mdash;' : num(value).toFixed(2) + ' in'; }
   function feet(value) { return num(value) == null ? '&mdash;' : num(value).toFixed(2) + ' ft'; }
   function plural(count, one, many) { return count + ' ' + (count === 1 ? one : many); }
+  /* The same thing with the thousands marked, for counts that run past a few
+     hundred. 33,616 samples is read at a glance; 33616 has to be counted. */
+  function tally(count, one, many) {
+    return Number(count || 0).toLocaleString('en-US') + ' ' + (count === 1 ? one : many);
+  }
 
   /* A reading cell. Label on top, figure under it, which is the .d-rows grid
      the card system already uses everywhere else on the site. The mark is
@@ -3038,8 +3043,11 @@
       return frame.bottom - ((value - lo) / (hi - lo)) * (frame.bottom - frame.top);
     };
 
+    /* Microsiemens and degrees are whole numbers. Flashiness runs between 0.3
+       and 0.9, where rounding the axis to whole numbers labels the whole chart
+       0 and 1. */
     var out = svgOpen(box, options.label);
-    out += valueAxis(lo, hi, options.step, frame, yOf, function (v) { return String(Math.round(v)); });
+    out += valueAxis(lo, hi, options.step, frame, yOf, options.format || function (v) { return String(Math.round(v)); });
     out += baseline(frame);
 
     /* Every tenth year, and the last one, which is the year a reader is
@@ -3141,6 +3149,486 @@
     if (!byId('quality')) return;
     loadJson(QUALITY_FILE).then(renderQuality).catch(function () {
       var block = byId('quality');
+      if (block) block.hidden = true;
+    });
+  }
+
+  /* -------------------------------------------------------------------------
+     HOW HARD IT RISES AND FALLS
+
+     fivemile-creek-flashiness.json is the same daily flow the rest of this
+     room is drawn from, asked how steadily it came rather than how much of it
+     there was. scripts/build-creek-flashiness.mjs works it out and fetches
+     nothing.
+
+     Only whole years are drawn, same rule as the block below and for the same
+     reason: the wet season here is the winter and the spring, so a year to
+     date is not a year.
+
+     The sentence under the chart has to carry the wet year trap, because
+     flashiness follows how wet a year was and a run of wet years would
+     otherwise read as a creek getting flashier. The file counts it: how many
+     of the wettest years are in the flashier half of the record, and how many
+     of the driest. See DECISIONS.md 86.
+     ------------------------------------------------------------------------- */
+  var FLASH_FILE = 'fivemile-creek-flashiness.json';
+
+  function flashYears(data) {
+    return (data && Array.isArray(data.years) ? data.years : [])
+      .filter(function (row) { return row && row.whole_year && row.flashiness != null; });
+  }
+
+  /* Decade by decade, which is the shape of the question people ask about a
+     creek. The note under it says whether the decades run in order, because a
+     column of four numbers that goes up, down and up again is a reader's whole
+     answer and it should not be left to them to notice. */
+  function flashDecades(rows) {
+    var host = byId('flashDecades');
+    if (!host) return;
+    if (!rows || rows.length < 2) { host.innerHTML = '<div class="empty">&mdash;</div>'; return; }
+
+    var table = '<table class="arc-table"><thead><tr>' +
+      '<th scope="col">Decade</th><th scope="col">Whole years</th><th scope="col">Flashiness</th>' +
+      '</tr></thead><tbody>' +
+      rows.map(function (row) {
+        return '<tr><th scope="row">' + esc(String(row.decade)) + 's</th>' +
+          '<td>' + esc(String(row.years)) + '</td>' +
+          '<td>' + row.median.toFixed(2) + '</td></tr>';
+      }).join('') +
+      '</tbody></table>';
+
+    var rising = rows.every(function (row, i) { return i === 0 || row.median > rows[i - 1].median; });
+    var falling = rows.every(function (row, i) { return i === 0 || row.median < rows[i - 1].median; });
+    var note = rising ? 'Every decade on file runs flashier than the one before it.'
+      : falling ? 'Every decade on file runs steadier than the one before it.'
+      : 'These do not run in order. On this record the creek is not getting flashier, and it is not getting steadier either.';
+
+    host.innerHTML = table + '<p class="arc-say">' + note + '</p>';
+  }
+
+  function renderFlashiness(data) {
+    var block = byId('flashiness');
+    if (!block) return;
+    var rows = flashYears(data);
+    if (rows.length < 10) { block.hidden = true; return; }
+    block.hidden = false;
+
+    var first = rows[0].year;
+    var last = rows[rows.length - 1].year;
+    setText('flashStamp', plural(rows.length, 'whole year', 'whole years') + ' \u00b7 ' + first + ' to ' + last);
+
+    drawYearSeries(byId('flashPlot'), rows, [
+      { of: function (row) { return row.flashiness; }, color: 'var(--hold-creek)' }
+    ], {
+      step: 0.1,
+      format: function (value) { return value.toFixed(1); },
+      label: 'How hard Five Mile Creek rose and fell at the Republic gauge by year, ' + first + ' to ' + last
+    });
+
+    var counts = data.counts || {};
+    var say = [];
+    if (counts.median != null) {
+      say.push('The middle year on this record scores ' + counts.median.toFixed(2) + '.');
+    }
+    if (counts.steadiest && counts.flashiest) {
+      say.push('The steadiest was ' + counts.steadiest.year + ' at ' + counts.steadiest.flashiness.toFixed(2) +
+        '. The flashiest was ' + counts.flashiest.year + ' at ' + counts.flashiest.flashiness.toFixed(2) + '.');
+    }
+    /* One day out of the record, because an index is an abstraction and a
+       reader who has seen this creek do it will recognise the day. */
+    var rise = data.biggest_rise;
+    if (rise && rise.times) {
+      var day = 'The sharpest rise on the record is ' + esc(prosaicDate(rise.date)) + ', when the creek went from ' +
+        Math.round(rise.from).toLocaleString('en-US') + ' cubic feet a second to ' +
+        Math.round(rise.to).toLocaleString('en-US') + ' in a day';
+      if (rise.crest != null && rise.depth_from != null) {
+        day += ', and crested at ' + rise.crest.toFixed(1) + ' feet after sitting at ' +
+          rise.depth_from.toFixed(1) + ' feet the day before';
+      }
+      say.push(day + '.');
+    }
+    var wet = data.wet_test;
+    if (wet) {
+      /* Short sentences on purpose. This is the caveat that keeps the chart
+         honest and it is no use to anybody who gives up halfway through it. */
+      say.push('Wet years score higher. Of the ' + wet.take + ' wettest years on file, ' +
+        wet.wettest_in_flashier_half + ' are in the flashier half. Of the ' + wet.take + ' driest, ' +
+        wet.driest_in_flashier_half + (wet.driest_in_flashier_half === 1 ? ' is.' : ' are.'));
+    }
+    setText('flashSay', say.join(' '));
+
+    flashDecades(Array.isArray(data.decades) ? data.decades : []);
+  }
+
+  function loadFlashiness() {
+    if (!byId('flashiness')) return;
+    loadJson(FLASH_FILE).then(renderFlashiness).catch(function () {
+      var block = byId('flashiness');
+      if (block) block.hidden = true;
+    });
+  }
+
+  /* -------------------------------------------------------------------------
+     WHO ELSE HAS BEEN SAMPLING
+
+     fivemile-creek-samples.json is the Water Quality Portal summarised by
+     scripts/fetch/wqp-samples.mjs: every water sample the USGS, the EPA and
+     the states have taken inside the two hydrologic units that are Five Mile
+     Creek, one row per station and one row per thing measured.
+
+     Three of those stations get a table of their own. On one day in June 2006
+     the USGS sampled two points on Black Creek and one on Five Mile Creek just
+     above where Black Creek comes in, and gave the top one the name "Black
+     Creek at bridge above acid mine drainage". The table prints what the
+     meters read. It does not say what caused any of it, which is decision 63
+     doing the same job here that it does on the discharge page.
+
+     Every count here is of samples somebody took. The portal also returns a
+     datasonde logging itself every few minutes at eight stations, a fifth of
+     the rows, and the fetcher keeps those apart. Anything that reads them
+     together will make this record look twenty times denser than it is.
+
+     Dissolved oxygen is a paragraph rather than a chart for that exact
+     reason. See DECISIONS.md 86.
+     ------------------------------------------------------------------------- */
+  var SAMPLES_FILE = 'fivemile-creek-samples.json';
+
+  /* 1952-06-24 reads as a date to a database. A reader wants the year, and
+     wants both years when a station has been worked for thirty of them. */
+  function sampleSpan(row) {
+    var from = String(row.first || '').slice(0, 4);
+    var to = String(row.last || '').slice(0, 4);
+    if (!from) return '\u2014';
+    return from === to ? from : from + ' to ' + to;
+  }
+
+  /* The name of the place, which for ADEM is in the description and not in the
+     name: its stations are called FM-2 and FMCJ-1B. */
+  function sampleWhere(row) {
+    return row.where || row.name || row.id;
+  }
+
+  function blackCreek(block) {
+    var host = byId('blackCreek');
+    if (!host) return;
+    if (!block || !block.stations || !block.stations.length) {
+      host.innerHTML = '<div class="empty">&mdash;</div>';
+      return;
+    }
+    var stations = block.stations;
+    setText('blackCreekDate', longDate(block.date) || '\u2014');
+
+    /* The rows, in the order the fetcher put them in, which is the order they
+       are worth reading. Collecting them off the stations instead would order
+       the table by whichever station happens to be first, and that one is
+       missing its metals. */
+    var names = Array.isArray(block.readings) ? block.readings.slice() : [];
+    if (!names.length) {
+      stations.forEach(function (station) {
+        station.readings.forEach(function (reading) {
+          if (names.indexOf(reading.name) === -1) names.push(reading.name);
+        });
+      });
+    }
+
+    var head = '<table class="arc-table arc-named"><thead><tr><th scope="col">Reading</th>' +
+      stations.map(function (station) {
+        return '<th scope="col">' + esc(shortStation(station)) + '</th>';
+      }).join('') + '</tr></thead><tbody>';
+
+    var cellOf = function (station, name) {
+      var found = null;
+      station.readings.forEach(function (reading) { if (reading.name === name) found = reading; });
+      return found;
+    };
+
+    var rows = names.map(function (name) {
+      var cells = stations.map(function (station) { return cellOf(station, name); });
+      var units = cells.filter(Boolean).map(function (cell) { return unitWord(cell.unit); });
+      /* When every reading in a row is in the same unit, the unit belongs at
+         the head of the row and the cells are just numbers. Printing it three
+         times is noise a reader has to look past. When the units differ, and
+         turbidity here is FNU on one meter and NTRU on another, each cell
+         keeps its own or the row would claim they are the same measurement. */
+      var shared = units.length && units.every(function (unit) { return unit === units[0]; }) ? units[0] : null;
+      return '<tr><th scope="row">' + esc(readingName(name)) +
+        (shared ? ' <span class="u">' + esc(shared) + '</span>' : '') + '</th>' +
+        cells.map(function (cell) {
+          if (!cell) return '<td class="zero">&mdash;</td>';
+          var unit = unitWord(cell.unit);
+          return '<td>' + esc(String(cell.value)) +
+            (!shared && unit ? ' <span class="u">' + esc(unit) + '</span>' : '') + '</td>';
+        }).join('') + '</tr>';
+    }).join('');
+
+    /* Which cells are empty and why. One of the three was sampled again three
+       days later and its metals were taken then, so the gap is a date and not
+       a thing nobody looked for. */
+    var late = stations.filter(function (station) { return (station.also_sampled || []).length; });
+    var note = 'Black Creek runs down past the first two of these and into Five Mile Creek just below the third, ' +
+      'so the last column is that creek before any of Black Creek has reached it.';
+    /* The name of the top station is the evidence, so it is printed rather
+       than left for whoever follows the link. It is the USGS's, and it is the
+       USGS that is saying it. */
+    if (stations[0] && stations[0].name) {
+      note += ' The USGS named the first one itself: ' + esc(sentenceName(stations[0].name)) + '.';
+    }
+    if (late.length === 1) {
+      /* Said as a gap rather than a date, because the date is already at the
+         top of the card and a second one in the sentence reads like a
+         timetable. */
+      var apart = Math.round(Math.abs(Date.parse(late[0].also_sampled[0]) - Date.parse(block.date)) / 864e5);
+      note += ' The empty cells are readings it took there ' +
+        (apart === 1 ? 'a day later' : apart + ' days later') + ' instead.';
+    }
+
+    /* THE TABLE, READ OUT. Nine readings across three columns is arithmetic
+       most people will not do standing on a phone, so the page does it: how
+       many times over the Black Creek column runs against the Five Mile Creek
+       column above it. Ratios only, no adjective and no cause. The numbers do
+       not need the help and decision 63 does not allow it. */
+    var compare = Array.isArray(block.compare) ? block.compare : [];
+    var bigger = compare.filter(function (row) { return row.times >= 2; }).slice(0, 3);
+    var reads = '';
+    if (bigger.length) {
+      reads = 'Set against the Five Mile Creek reading above them, the Black Creek water carried ' +
+        bigger.map(function (row, i) {
+          return (i && i === bigger.length - 1 ? 'and ' : '') + timesWord(row.times) + ' times the ' + esc(readingWord(row.name));
+        }).join(bigger.length > 2 ? ', ' : ' ') + '.';
+    }
+    var less = compare.filter(function (row) { return /oxygen/i.test(row.name) && row.times < 1; })[0];
+    if (less) {
+      reads += (reads ? ' ' : '') + 'It held less oxygen: ' + less.black + ' milligrams a litre against ' +
+        less.fivemile + '.';
+    }
+
+    /* USGS has never gone back and checked any of this, nineteen years on, and
+       a reader looking at the strongest numbers on the page is owed that. */
+    var unchecked = stations.filter(function (station) { return /prelim/i.test(station.status || ''); });
+    var caveat = unchecked.length === stations.length
+      ? 'The USGS still has all of these marked preliminary, which means it published them and has not been back to check them.'
+      : unchecked.length
+        ? 'The USGS still has some of these marked preliminary, which means it published them and has not been back to check them.'
+        : '';
+
+    /* Prose sized, because an 11.5px caption is the smallest link on the page
+       and these three are the only way to the record behind the table. */
+    var links = 'All three are on the USGS site: ' + stations.map(function (station, i) {
+      return (i && i === stations.length - 1 ? 'and ' : '') +
+        '<a href="' + esc(station.usgs_url) + '" target="_blank" rel="noopener">' +
+        esc(shortStation(station).replace(', ', ' ')) + '</a>';
+    }).join(', ') + '.';
+
+    host.innerHTML = '<div class="arc-scroll">' + head + rows + '</tbody></table></div>' +
+      (reads ? '<p class="arc-say">' + reads + '</p>' : '') +
+      '<p class="arc-say">' + note + (caveat ? ' ' + caveat : '') + '</p>' +
+      '<p class="arc-say">' + links + '</p>';
+  }
+
+  /* The portal writes "Temperature, water" and "Dissolved oxygen (DO)", which
+     are column headings in a database. This is the same reading said the way a
+     person says it. Anything not on this list is printed as the portal has it,
+     because inventing a friendlier name for a lab analyte is how a reader ends
+     up unable to find it again. */
+  var READING_WORDS = {
+    'Temperature, water': 'Water temperature',
+    'Dissolved oxygen (DO)': 'Dissolved oxygen',
+    'Oxygen': 'Dissolved oxygen',
+    /* The plain word first and the portal's word after it, so a reader knows
+       what they are looking at and can still find it again at the portal.
+       Same habit as the old words in the monthly edition. */
+    'Specific conductance': 'Dissolved mineral (conductance)',
+    'Conductivity': 'Dissolved mineral (conductivity)',
+    'Turbidity': 'Muddiness (turbidity)',
+    'Alkalinity, total': 'Alkalinity',
+    'Total dissolved solids': 'Dissolved solids',
+    'Total suspended solids': 'Suspended solids',
+    'Biochemical oxygen demand, standard conditions': 'Biochemical oxygen demand',
+    'Inorganic nitrogen (nitrate and nitrite)': 'Nitrate and nitrite',
+    'Stream flow, instantaneous': 'Stream flow',
+    'Hardness, Ca, Mg': 'Hardness',
+    'Fecal Coliform': 'Fecal coliform',
+    'Escherichia coli': 'E. coli'
+  };
+  function readingName(name) { return READING_WORDS[name] || name; }
+  /* The same name inside a sentence rather than at the head of a row. */
+  function readingWord(name) {
+    return readingName(name).replace(/\s*\([^)]*\)/, '').toLowerCase();
+  }
+
+  /* The portal writes its units for a database. These are the same units
+     written for a person, and anything not on the list is printed as the
+     portal has it rather than guessed at. */
+  var UNIT_WORDS = {
+    'deg F': '\u00b0F',
+    'deg C': '\u00b0C',
+    'uS/cm @25C': '\u00b5S/cm',
+    'umho/cm': '\u00b5S/cm',
+    'ug/l': '\u00b5g/L',
+    'ug/L': '\u00b5g/L',
+    'mg/l': 'mg/L',
+    'mg/l CaCO3': 'mg/L',
+    'mg/l as N': 'mg/L',
+    'mg/l as P': 'mg/L',
+    'std units': '',
+    'None': '',
+    'ft3/s': 'cu ft/s',
+    'ft3/sec': 'cu ft/s',
+    'cfu/100ml': 'cfu/100mL'
+  };
+  function unitWord(unit) {
+    var key = String(unit || '');
+    /* The portal records water temperature in Celsius and the file keeps it
+       that way. Nothing on this site is shown in Celsius, the readings in the
+       table beside this one are converted, and a column headed °C next to one
+       headed °F reads like a mistake. */
+    if (/^deg\s*C$/i.test(key)) return '\u00b0F';
+    return Object.prototype.hasOwnProperty.call(UNIT_WORDS, key) ? UNIT_WORDS[key] : key;
+  }
+
+  /* A ratio inside a sentence. Thirteen point nine times the manganese is a
+     lab result read aloud; fourteen times is what a person says. Under ten the
+     decimal is still carrying information, so it stays. */
+  function timesWord(times) {
+    return times >= 10 ? String(Math.round(times)) : String(times);
+  }
+
+  /* longDate abbreviates the month, which is right on a card bar and wrong in
+     the middle of a sentence. */
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December'];
+  function prosaicDate(value) {
+    var parts = String(value || '').slice(0, 10).split('-');
+    if (parts.length !== 3) return longDate(value);
+    return MONTHS[Number(parts[1]) - 1] + ' ' + Number(parts[2]) + ', ' + parts[0];
+  }
+
+  /* A column heading has room for about thirty characters on a phone. The
+     fetcher writes the short name, because which creek a column is reading is
+     the whole point of that table and not something to trim off here. The full
+     name is under the table and linked. */
+  function shortStation(station) {
+    return String(station.short || station.reads || station.name || '');
+  }
+
+  /* USGS writes its station names in capitals: BLACK CREEK AT BRIDGE ABOVE
+     ACID MINE DRAINAGE. Set in a sentence that is shouting, and this site has
+     no italics to set a name apart with, so the words stay the USGS's and the
+     case becomes ours. Title case rather than sentence case, because a plain
+     lowercasing turns Black Creek into black creek. */
+  var NAME_SMALL = ['a', 'an', 'and', 'at', 'above', 'below', 'by', 'for', 'in', 'near', 'nr', 'of', 'on', 'the', 'to'];
+  function sentenceName(name) {
+    return String(name).toLowerCase().replace(/\s+/g, ' ').trim().split(' ')
+      .map(function (word, i) {
+        if (i && NAME_SMALL.indexOf(word) !== -1) return word;
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(' ');
+  }
+
+  function renderSamples(data) {
+    var block = byId('samples');
+    if (!block) return;
+    var stations = (data && Array.isArray(data.stations) ? data.stations : [])
+      .filter(function (row) { return row && row.results; });
+    if (stations.length < 5) { block.hidden = true; return; }
+    block.hidden = false;
+
+    var counts = (data && data.counts) || {};
+    setText('samplesStamp', plural(stations.length, 'station', 'stations') + ' \u00b7 ' +
+      tally(counts.results || 0, 'sample', 'samples') + ' \u00b7 ' +
+      String(counts.first || '').slice(0, 4) + ' to ' + String(counts.last || '').slice(0, 4));
+
+    blackCreek(data.black_creek);
+
+    /* Dissolved oxygen: a paragraph, not a chart. The zeros are counted out
+       loud rather than quietly dropped, because a dozen of them come off one
+       volunteer station in one summer and a reader is entitled to know that
+       before they read anything into the low end. */
+    var oxygen = data.oxygen;
+    if (oxygen && oxygen.samples) {
+      /* Thin, uneven, and said so. 728 samples over 32 years is about
+         fifteen in a year, and two of those years have none, which is why
+         there is no line drawn through it. Every figure is off the file, so
+         the sentence stays true if the record ever fills in. */
+      var say = 'Somebody has measured it ' + tally(oxygen.samples, 'time', 'times') + ' between ' +
+        String(oxygen.first || '').slice(0, 4) + ' and ' + String(oxygen.last || '').slice(0, 4) +
+        ', at ' + plural(oxygen.stations, 'place', 'places') + ' along the creek.';
+      if (oxygen.median_per_year && oxygen.years_with_any) {
+        say += ' That is thinner than it sounds: about ' +
+          plural(oxygen.median_per_year, 'sample', 'samples') + ' in a year, spread over ' +
+          oxygen.years_with_any + ' of those ' + oxygen.years_in_span + ' years';
+        if (oxygen.thinnest_year != null) {
+          say += ', and the leanest of them holds ' + oxygen.thinnest_year;
+        }
+        say += '.';
+      }
+      say += ' The middle reading is ' + oxygen.median.toFixed(1) + ' milligrams a litre.';
+      if (oxygen.under_five) {
+        say += ' There are ' + tally(oxygen.under_five, 'reading', 'readings') + ' under 5';
+        /* The zeros are said out loud, and so is the fact that they are one
+           station in one year, because a reader who is told the creek read
+           zero and not told that is being misled by arithmetic. */
+        if (oxygen.zeros) {
+          say += ', and ' + oxygen.zeros + ' of those are zero';
+          if (oxygen.zeros_at_one_station === oxygen.zeros && oxygen.zeros_at_one_station_years.length === 1) {
+            say += ', all of them at one station in ' + oxygen.zeros_at_one_station_years[0];
+          } else if (oxygen.zeros_at_one_station > 1 && oxygen.zeros_at_one_station_years.length === 1) {
+            say += ', ' + oxygen.zeros_at_one_station + ' of them at one station in ' +
+              oxygen.zeros_at_one_station_years[0];
+          }
+        }
+        say += '.';
+      }
+      setText('oxygenCount', say);
+    }
+
+    var things = (data && Array.isArray(data.characteristics) ? data.characteristics : []).slice(0, 14);
+    var thingsHost = byId('samplesThings');
+    if (thingsHost) {
+      thingsHost.innerHTML = things.length
+        ? '<div class="arc-scroll"><table class="arc-table arc-named"><thead><tr>' +
+          '<th scope="col">Reading</th><th scope="col">Samples</th><th scope="col">Stations</th><th scope="col">Years</th>' +
+          '</tr></thead><tbody>' +
+          things.map(function (row) {
+            var unit = unitWord(row.unit);
+            return '<tr><th scope="row">' + esc(readingName(row.name)) +
+              (unit ? ' <span class="u">' + esc(unit) + '</span>' : '') + '</th>' +
+              '<td>' + esc(row.results.toLocaleString('en-US')) + '</td>' +
+              '<td>' + esc(String(row.stations)) + '</td>' +
+              '<td>' + esc(sampleSpan(row)) + '</td></tr>';
+          }).join('') +
+          '</tbody></table></div>' +
+          '<p class="arc-note">' + esc(String(counts.characteristics || things.length)) +
+          ' different things have been measured in this water. These are the ones measured most.</p>'
+        : '<div class="empty">&mdash;</div>';
+    }
+
+    var stationsHost = byId('samplesStations');
+    if (stationsHost) {
+      stationsHost.innerHTML = '<div class="arc-scroll"><table class="arc-table arc-named"><thead><tr>' +
+        '<th scope="col">Where</th><th scope="col">Samples</th><th scope="col">Years</th>' +
+        '</tr></thead><tbody>' +
+        stations.map(function (row) {
+          return '<tr><th scope="row">' + esc(sampleWhere(row)) + '</th>' +
+            '<td>' + esc(row.results.toLocaleString('en-US')) + '</td>' +
+            '<td>' + esc(sampleSpan(row)) + '</td></tr>';
+        }).join('') +
+        '</tbody></table></div>' +
+        '<p class="arc-say">Every one of these is on the Water Quality Portal under the name it is listed by here, ' +
+        'and the whole record, sample by sample, can be pulled from ' +
+        '<a href="https://www.waterqualitydata.us/" target="_blank" rel="noopener">waterqualitydata.us</a> ' +
+        'by hydrologic unit.</p>' +
+        '<p class="arc-note">' + Object.keys((data && data.hucs) || {}).map(function (huc) {
+          return esc(huc) + ' ' + esc(data.hucs[huc]);
+        }).join(' \u00b7 ') + '</p>';
+    }
+  }
+
+  function loadSamples() {
+    if (!byId('samples')) return;
+    loadJson(SAMPLES_FILE).then(renderSamples).catch(function () {
+      var block = byId('samples');
       if (block) block.hidden = true;
     });
   }
@@ -3487,4 +3975,6 @@
   loadDates();
   loadSpecies();
   loadQuality();
+  loadFlashiness();
+  loadSamples();
 })();

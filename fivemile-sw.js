@@ -163,7 +163,11 @@
 // read in the water since 1988, by year. fivemile-creek-archive.html and
 // fivemile-archive.js both changed and both are served cache-first.
 // See DECISIONS.md 85.
-const CACHE_NAME = 'fivemile-v89';
+// v90 adds two more blocks to the same room: how hard the creek rises and
+// falls, and every water sample anybody has taken along it since 1952.
+// fivemile-creek-archive.html, fivemile-archive.js and fivemile-archive.css
+// all changed and all are served cache-first. See DECISIONS.md 86.
+const CACHE_NAME = 'fivemile-v90';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

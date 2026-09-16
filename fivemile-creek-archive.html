@@ -143,6 +143,58 @@
     </div>
   </section>
 
+  <!-- HOW HARD IT RISES AND FALLS ------------------------------------------
+       The same daily flow the rest of this page is drawn from, asked a third
+       question: not how much water, and not what was in it, but how steadily
+       it came. fivemile-creek-flashiness.json is worked out by
+       scripts/build-creek-flashiness.mjs and fetches nothing.
+
+       Hidden until the file has ten whole years in it, same as the block
+       below. The copy reports the reading and does not call the creek
+       anything. See DECISIONS.md 86.
+       ---------------------------------------------------------------------- -->
+  <section class="blk" id="flashiness" hidden>
+    <div class="hd"><h2>How hard it rises and falls</h2><span class="hd-note" id="flashStamp">&mdash;</span></div>
+    <div class="panel intro">
+      <p class="lede">Two creeks can carry the same water in a year and be nothing alike to live beside.
+        One comes up over a week and lets go of it over a fortnight. The other is in the yard four hours
+        after the rain and back under the bridge by dark. That difference has a name, flashiness, and a
+        way of being counted, and the gauge has kept enough days to say which of the two this creek is
+        and whether it has been changing.</p>
+    </div>
+
+    <div class="card-dept">
+      <div class="d-bar"><h3>Year by year</h3><span class="r">Every whole year on file</span></div>
+      <div class="d-body">
+        <div class="arc-plot" id="flashPlot"></div>
+        <p class="arc-say" id="flashSay">&mdash;</p>
+      </div>
+    </div>
+
+    <div class="card-notice info" style="margin-top:12px">
+      <p class="n-kick">What is being measured</p>
+      <h3>Flashiness</h3>
+      <p>Flashiness is the word for the difference between those two creeks. It is counted like this.
+        Every day, note how far the flow went up or down from the day before. Add all those ups and
+        downs together for the year. Then set that total against all the water the creek carried in
+        the same year. A score of 0.60 means the ups and downs came to about 60 percent of everything
+        that went past.</p>
+      <p>The score is a plain number with no units on it, so any year can be set against any other,
+        and a creek against a river. Water off springs and wet ground is let out slowly and scores
+        low. Water off roofs, roads and parking lots arrives all at once and scores high. That is why
+        a rising score is usually taken as a sign of more building upstream. The measure is the
+        Richards-Baker index, from a 2004 paper in the Journal of the American Water Resources
+        Association.</p>
+    </div>
+
+    <div class="card-dept brief" style="margin-top:12px">
+      <div class="d-bar"><h3>By the decade</h3><span class="r">Where the middle year lands</span></div>
+      <div class="d-body" id="flashDecades">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT THE WATER CARRIES -----------------------------------------------
        The gauge's other two daily records, gathered into years by
        scripts/fetch/usgs-creek-quality.mjs. Hidden until the file has ten
@@ -186,6 +238,65 @@
     </div>
   </section>
 
+  <!-- WHO ELSE HAS BEEN SAMPLING ---------------------------------------------
+       The Water Quality Portal, which is where the USGS, the EPA and the
+       states put every water sample any of them has taken. Summarised into
+       fivemile-creek-samples.json by scripts/fetch/wqp-samples.mjs, over the
+       same two hydrologic units the discharge page uses.
+
+       The Black Creek table is three stations the USGS sampled on one day in
+       June 2006, one of which the USGS named for the acid mine drainage beside
+       it. It prints the readings and says nothing about what they mean, which
+       is decision 63 doing the same job it does on the discharge page.
+
+       Dissolved oxygen is a paragraph and not a chart, because 728 samples
+       over 32 years is a median of fifteen a year and two of those years hold
+       none. The portal will tell you it is 2,459 readings. 1,731 of those are
+       one instrument logging itself, which is why every count in this section
+       counts samples. See DECISIONS.md 86.
+       ---------------------------------------------------------------------- -->
+  <section class="blk" id="samples" hidden>
+    <div class="hd"><h2>Who else has been sampling</h2><span class="hd-note" id="samplesStamp">&mdash;</span></div>
+    <div class="panel intro">
+      <p class="lede">The gauge at Republic is one meter in one spot, and most of this page is its
+        record. It is not the only thing anybody has measured here. The Water Quality Portal is where
+        the USGS, the EPA and the states put their samples, and for the length of Five Mile Creek it
+        holds tens of thousands of them, taken by people standing in the water with a bottle, going
+        back to the summer of 1952.</p>
+    </div>
+
+    <div class="card-dept">
+      <div class="d-bar"><h3>Black Creek, one day in June</h3><span class="r" id="blackCreekDate">&mdash;</span></div>
+      <div class="d-body" id="blackCreek">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+
+    <div class="card-notice info" style="margin-top:12px">
+      <p class="n-kick">What is being measured</p>
+      <h3>Dissolved oxygen</h3>
+      <p>The oxygen carried in the water itself, which is what a fish is breathing and
+        what everything living on the bottom of the creek is waiting on. It falls when the water warms
+        and when something in the water is being broken down.
+        <a href="https://www.usgs.gov/water-science-school/science/dissolved-oxygen-and-water" target="_blank" rel="noopener">The USGS explains it here</a>.</p>
+      <p id="oxygenCount">&mdash;</p>
+    </div>
+
+    <div class="card-dept brief" style="margin-top:12px">
+      <div class="d-bar"><h3>What they looked for</h3><span class="r">Most measured first</span></div>
+      <div class="d-body" id="samplesThings">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+
+    <div class="card-dept brief" style="margin-top:12px">
+      <div class="d-bar"><h3>Where they stood</h3><span class="r">Every station on the record</span></div>
+      <div class="d-body" id="samplesStations">
+        <div class="empty">&mdash;</div>
+      </div>
+    </div>
+  </section>
+
   <section class="blk" id="records">
     <div class="hd"><h2>The record</h2></div>
     <div class="card-dept brief">
@@ -218,6 +329,15 @@
     Specific conductance and water temperature are the same gauge's other two daily records, kept since
     September 1988 and gathered here into whole years. A year to date is left off, because the months it is
     missing are the cold ones and it would read high against every finished year for that reason alone.
+    How hard the creek rises and falls is worked out from those same daily flows and nothing else, as the
+    Richards-Baker index: every day's change in flow added up across a year and divided by all the water
+    that went past in it. The samples are somebody else's, off the
+    <a href="https://www.waterqualitydata.us/" target="_blank" rel="noopener">Water Quality Portal</a>,
+    which is where the USGS, the EPA and the states put theirs. The ones here are every water sample taken
+    inside the two hydrologic units that make up Five Mile Creek, which is the same stretch of water the
+    discharge page counts permits along. A sample means somebody went and took one. ADEM has also left a
+    recording instrument in the water at eight of these places, and it logs itself every few minutes for
+    weeks at a stretch, so its readings are counted apart from the samples rather than added to them.
   </p>
 
 </main><!-- /wrap -->

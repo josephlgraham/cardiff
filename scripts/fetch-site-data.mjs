@@ -19,6 +19,8 @@ import { updateEchoFile } from './fetch/echo-watershed.mjs';
 import { updateObservationsFile } from './fetch/inat-observations.mjs';
 import { updateSpeciesPhotos } from './fetch/inat-species-photos.mjs';
 import { updateCreekQuality } from './fetch/usgs-creek-quality.mjs';
+import { updateCreekFlashiness } from './build-creek-flashiness.mjs';
+import { updateWaterSamples } from './fetch/wqp-samples.mjs';
 import { updateAirportArchive, updateAirportNormalsFile } from './fetch/acis-airport.mjs';
 import { updateOutlooks } from './fetch/cpc-outlook.mjs';
 import { parseCsvRows } from './lib/csv.mjs';
@@ -1444,6 +1446,24 @@ async function main() {
     await updateCreekQuality();
   } catch (error) {
     console.error('Creek quality update failed (continuing):', error.message);
+  }
+  /* How hard the creek rises and falls, out of the archive the run has just
+     written. This one asks nobody for anything: every figure in it is already
+     in this repo. It goes after the archive update above for that reason.
+     See DECISIONS.md 86. */
+  try {
+    await updateCreekFlashiness();
+  } catch (error) {
+    console.error('Creek flashiness update failed (continuing):', error.message);
+  }
+  /* Every water sample anybody has taken along this creek since 1952, off the
+     Water Quality Portal. The full pull is seventeen megabytes and the newest
+     sample in it is from 2024, so it reads the portal once a week and returns
+     the file it already has the rest of the time. See DECISIONS.md 86. */
+  try {
+    await updateWaterSamples();
+  } catch (error) {
+    console.error('Watershed samples update failed (continuing):', error.message);
   }
   /* The official record at the Birmingham airport, which the weather room
      measures a normal year against. The last 45 days are asked for again every

@@ -1,0 +1,491 @@
+{
+  "updatedAt": "2026-09-16T06:21:00.101Z",
+  "source": "USGS",
+  "source_url": "https://waterdata.usgs.gov/monitoring-location/02457595/",
+  "gaugeId": "02457595",
+  "gaugeName": "Fivemile Creek near Republic, Ala",
+  "index": "Richards-Baker flashiness index",
+  "index_source": "Baker, Richards, Loftus and Kramer, Journal of the American Water Resources Association, 2004",
+  "note": "Worked out from the daily flow already in fivemile-creek-archive/, which is the Republic gauge’s own record. The index is every day’s change in flow added up across the year and divided by all the water that went past in it, so it has no units and a wet year and a dry one can be set beside each other. Only pairs of days that are actually neighbours count. A year is only comparable when all twelve months are in it, which is what whole_year says. Flashiness tracks how wet a year was, which is what wet_test counts, so each year also carries its own flow.",
+  "enough_months": 12,
+  "counts": {
+    "years": 39,
+    "whole_years": 37,
+    "first_whole_year": 1989,
+    "last_whole_year": 2025,
+    "median": 0.624,
+    "steadiest": {
+      "year": 2007,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.338,
+      "median_flow": 20,
+      "mean_flow": 29.9
+    },
+    "flashiest": {
+      "year": 2004,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.854,
+      "median_flow": 44.8,
+      "mean_flow": 114
+    }
+  },
+  "decades": [
+    {
+      "decade": 1990,
+      "years": 10,
+      "median": 0.583
+    },
+    {
+      "decade": 2000,
+      "years": 10,
+      "median": 0.676
+    },
+    {
+      "decade": 2010,
+      "years": 10,
+      "median": 0.591
+    },
+    {
+      "decade": 2020,
+      "years": 6,
+      "median": 0.638
+    }
+  ],
+  "biggest_rise": {
+    "date": "2011-09-05",
+    "from": 23.9,
+    "to": 2920,
+    "times": 122.2,
+    "depth_from": 1.26,
+    "depth_to": 6.23,
+    "crest": 16.23
+  },
+  "wet_test": {
+    "take": 10,
+    "half": 18,
+    "wettest_years": [
+      2009,
+      2003,
+      1996,
+      2020,
+      2013,
+      1998,
+      2021,
+      2004,
+      2002,
+      2022
+    ],
+    "wettest_in_flashier_half": 9,
+    "driest_years": [
+      1991,
+      1992,
+      2023,
+      1993,
+      2008,
+      2012,
+      2016,
+      2025,
+      2024,
+      2007
+    ],
+    "driest_in_flashier_half": 1
+  },
+  "years": [
+    {
+      "year": 1988,
+      "days": 225,
+      "months": 8,
+      "pairs": 224,
+      "whole_year": false,
+      "flashiness": 0.656,
+      "median_flow": 25,
+      "mean_flow": 48.1
+    },
+    {
+      "year": 1989,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.544,
+      "median_flow": 57,
+      "mean_flow": 104.2
+    },
+    {
+      "year": 1990,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.548,
+      "median_flow": 35,
+      "mean_flow": 90.9
+    },
+    {
+      "year": 1991,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.473,
+      "median_flow": 41,
+      "mean_flow": 77.8
+    },
+    {
+      "year": 1992,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.571,
+      "median_flow": 44,
+      "mean_flow": 76.3
+    },
+    {
+      "year": 1993,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.527,
+      "median_flow": 38,
+      "mean_flow": 74.9
+    },
+    {
+      "year": 1994,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.693,
+      "median_flow": 52,
+      "mean_flow": 100.8
+    },
+    {
+      "year": 1995,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.633,
+      "median_flow": 50,
+      "mean_flow": 90.9
+    },
+    {
+      "year": 1996,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.628,
+      "median_flow": 61.5,
+      "mean_flow": 127.7
+    },
+    {
+      "year": 1997,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.588,
+      "median_flow": 59,
+      "mean_flow": 93.1
+    },
+    {
+      "year": 1998,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.711,
+      "median_flow": 50,
+      "mean_flow": 122.8
+    },
+    {
+      "year": 1999,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.577,
+      "median_flow": 42,
+      "mean_flow": 80.3
+    },
+    {
+      "year": 2000,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.799,
+      "median_flow": 32,
+      "mean_flow": 85.6
+    },
+    {
+      "year": 2001,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.728,
+      "median_flow": 44,
+      "mean_flow": 103.6
+    },
+    {
+      "year": 2002,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.625,
+      "median_flow": 63,
+      "mean_flow": 113.1
+    },
+    {
+      "year": 2003,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.741,
+      "median_flow": 53.6,
+      "mean_flow": 131.8
+    },
+    {
+      "year": 2004,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.854,
+      "median_flow": 44.8,
+      "mean_flow": 114
+    },
+    {
+      "year": 2005,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.485,
+      "median_flow": 50,
+      "mean_flow": 83.5
+    },
+    {
+      "year": 2006,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.606,
+      "median_flow": 37.2,
+      "mean_flow": 81.5
+    },
+    {
+      "year": 2007,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.338,
+      "median_flow": 20,
+      "mean_flow": 29.9
+    },
+    {
+      "year": 2008,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.659,
+      "median_flow": 38.1,
+      "mean_flow": 72.2
+    },
+    {
+      "year": 2009,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.692,
+      "median_flow": 69.2,
+      "mean_flow": 142.5
+    },
+    {
+      "year": 2010,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.6,
+      "median_flow": 48,
+      "mean_flow": 88.8
+    },
+    {
+      "year": 2011,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.725,
+      "median_flow": 41.3,
+      "mean_flow": 92.7
+    },
+    {
+      "year": 2012,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.567,
+      "median_flow": 38.5,
+      "mean_flow": 71.8
+    },
+    {
+      "year": 2013,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.582,
+      "median_flow": 71.1,
+      "mean_flow": 123.7
+    },
+    {
+      "year": 2014,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.713,
+      "median_flow": 43.3,
+      "mean_flow": 88.1
+    },
+    {
+      "year": 2015,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.571,
+      "median_flow": 43.4,
+      "mean_flow": 94.2
+    },
+    {
+      "year": 2016,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.52,
+      "median_flow": 33.1,
+      "mean_flow": 68.1
+    },
+    {
+      "year": 2017,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.712,
+      "median_flow": 44.4,
+      "mean_flow": 91.9
+    },
+    {
+      "year": 2018,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.657,
+      "median_flow": 45.1,
+      "mean_flow": 96
+    },
+    {
+      "year": 2019,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.551,
+      "median_flow": 43.8,
+      "mean_flow": 95.4
+    },
+    {
+      "year": 2020,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.672,
+      "median_flow": 46.2,
+      "mean_flow": 126.7
+    },
+    {
+      "year": 2021,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.652,
+      "median_flow": 55.7,
+      "mean_flow": 120.3
+    },
+    {
+      "year": 2022,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.723,
+      "median_flow": 47.2,
+      "mean_flow": 106.5
+    },
+    {
+      "year": 2023,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.624,
+      "median_flow": 39.6,
+      "mean_flow": 75.2
+    },
+    {
+      "year": 2024,
+      "days": 366,
+      "months": 12,
+      "pairs": 365,
+      "whole_year": true,
+      "flashiness": 0.563,
+      "median_flow": 28,
+      "mean_flow": 55.5
+    },
+    {
+      "year": 2025,
+      "days": 365,
+      "months": 12,
+      "pairs": 364,
+      "whole_year": true,
+      "flashiness": 0.533,
+      "median_flow": 33.4,
+      "mean_flow": 62.5
+    },
+    {
+      "year": 2026,
+      "days": 255,
+      "months": 9,
+      "pairs": 253,
+      "whole_year": false,
+      "flashiness": 0.625,
+      "median_flow": 38.2,
+      "mean_flow": 68.7
+    }
+  ]
+}

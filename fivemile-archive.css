@@ -109,6 +109,18 @@ p.arc-count{margin:0 0 16px}
 .arc-table tbody tr{border-bottom:1px solid var(--fm-rule)}
 .arc-table tbody tr:last-child{border-bottom:none}
 .arc-table .zero{color:var(--fm-muted)}
+/* A table whose row label is a place or a reading rather than a month. Every
+   other table in here labels a row with a date and can hold every cell on one
+   line. "Fivemile Ck upstream of Sloss Discharge and above Railroad Yard" has
+   to be allowed to wrap or the table is three screens wide. */
+.arc-table.arc-named th{white-space:normal}
+.arc-table.arc-named tbody th{min-width:9em;padding-right:12px;line-height:1.35}
+.arc-table.arc-named thead th{vertical-align:bottom;line-height:1.3}
+/* The unit, which names the column rather than saying anything. */
+.arc-table .u{color:var(--fm-muted)}
+/* And a last resort for a cell that cannot wrap at all, so a wide table
+   scrolls inside its card rather than pushing the page sideways. */
+.arc-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 /* The one number in the month worth finding without reading the column. */
 .arc-table .peak{color:var(--red)}
 
