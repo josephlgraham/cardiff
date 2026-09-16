@@ -125,6 +125,22 @@ section.top{padding:24px 0 0}
    place it survived. A section opens on .panel.intro now, like everything
    else. See DECISIONS.md 54.
 
+/* The area map, wherever a page drops it. The drawing takes the width it is
+   given and keeps its own proportions, and the caption under it is a caption:
+   it keeps its size when card prose does not. See DECISIONS.md 84 and 80. */
+.fm-map{margin:0}
+.fm-map [data-fm-map]{display:block}
+.fm-map svg{display:block;width:100%;height:auto;border:1px solid var(--fm-rule,#DDCFB8);border-radius:8px}
+.fm-map img{display:block;width:100%;height:auto;border:1px solid #DDCFB8;border-radius:8px}
+.fm-map figcaption{margin-top:11px;padding-top:10px;border-top:1px solid #DDCFB8;
+  font-size:13.5px;line-height:1.55;color:#6B6156}
+@media(max-width:760px){
+  /* Squeezed into a phone card the whole drawing puts its town names at six
+     pixels, so it keeps a readable width and is pushed sideways instead. */
+  .fm-map [data-fm-map]{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .fm-map svg,.fm-map img{min-width:680px}
+}
+
 /* The send block that closes a page. Not a card in the card system sense, so
    it stays plain: paper fill, hairline border, 14px radius. Same values as
    the news page and the homepage, deliberately. */

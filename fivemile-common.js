@@ -1218,3 +1218,60 @@ window.FivemileCreekLines = Object.freeze({
     build();
   }
 })();
+
+/* ===========================================================================
+   THE AREA MAP
+
+   fivemile-area-map.svg is the three towns, the creek, the roads and the
+   gauge, drawn from survey data by scripts/build-area-map.mjs. Any page that
+   wants it writes one element:
+
+     <figure class="fm-map"><div data-fm-map></div>
+       <figcaption>...</figcaption></figure>
+
+   and this drops the drawing inside. It is inlined rather than shown as an
+   image so the page lends it DM Mono and its own colours, which an <img> can
+   do neither of. A page that wants it without script puts an <img> in a
+   <noscript> beside it.
+
+   One file, every page, so a road that moves is redrawn once. See
+   DECISIONS.md 84.
+   =========================================================================== */
+(function () {
+  'use strict';
+  var FILE = 'fivemile-area-map.svg';
+  var drawing = null;
+
+  function place(host, svg) {
+    /* A copy each, because the same node cannot hang in two places. */
+    host.innerHTML = '';
+    host.appendChild(svg.cloneNode(true));
+    host.setAttribute('data-fm-map', 'done');
+  }
+
+  function build() {
+    var hosts = document.querySelectorAll('[data-fm-map]:not([data-fm-map="done"])');
+    if (!hosts.length) return;
+    (drawing || (drawing = fetch(FILE).then(function (response) {
+      if (!response.ok) throw new Error(String(response.status));
+      return response.text();
+    }).then(function (text) {
+      var holder = document.createElement('div');
+      holder.innerHTML = text;
+      var svg = holder.querySelector('svg');
+      if (!svg) throw new Error('no drawing in the file');
+      return svg;
+    }))).then(function (svg) {
+      Array.prototype.forEach.call(hosts, function (host) { place(host, svg); });
+    }).catch(function () {
+      /* The caption under it still says what it was, which is more than a
+         broken picture would. */
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build);
+  } else {
+    build();
+  }
+})();

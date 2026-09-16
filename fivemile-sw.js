@@ -150,7 +150,11 @@
 // fivemile-archive.css and fivemile-shell.css all changed, and all are served
 // cache-first. The photographs themselves are not precached, the same as the
 // field guide's. See DECISIONS.md 83.
-const CACHE_NAME = 'fivemile-v86';
+// v87 puts the area map on the almanac's creek section.
+// fivemile-area-map.svg is new, fivemile-common.js gained the loader that
+// inlines it, and fivemile-almanac.html and fivemile-almanac.css both
+// changed. All are served cache-first. See DECISIONS.md 84.
+const CACHE_NAME = 'fivemile-v87';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
@@ -202,6 +206,9 @@ const PRECACHE_URLS = [
   '/fivemile-calendar-archive.html',
   '/fivemile-edition-archive.html',
   '/fivemile-species-archive.html',
+  /* The area map. One file, 64KB, and the almanac is precached, so a
+     reader who loses signal on the creek section still has the map. */
+  '/fivemile-area-map.svg',
   '/offline.html',
   '/fivemile-common.css',
   '/fivemile-cards.css',

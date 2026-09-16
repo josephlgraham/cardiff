@@ -5575,3 +5575,59 @@ decision 79 set for staying out.
 **Revisit if:** iNaturalist's licence mix changes enough that a photograph per
 record becomes possible, or the roll grows to where 88px squares are worth
 fetching at two sizes.
+
+---
+
+## 84. The map is drawn from survey data, once, and shared
+**Decided:** September 2026.
+
+Joe asked for a map and said the one thing that mattered about it: it should
+not look like something a machine drew, it should be a real map, or one made
+for this place. Both are the same requirement, which is that every line on it
+has to come from somebody's survey.
+
+**Where the lines come from.**
+
+| On the map | Source | Licence |
+|---|---|---|
+| Five Mile Creek | USGS National Hydrography Dataset, "Fivemile Creek" | Public domain |
+| The Republic gauge | USGS site service, the real coordinates of 02457595 | Public domain |
+| Town limits | OpenStreetMap, admin level 8 | ODbL |
+| Roads and railways | OpenStreetMap | ODbL |
+
+**OpenStreetMap has no creek here.** Not a misnamed one, none: a query for any
+waterway inside the box holding the three towns comes back empty, and the only
+things carrying the name are Five Mile Creek Road and the greenway. The
+hydrography dataset has the channel in 24 segments. Anyone who assumes OSM is
+the source for the water will be confused by this, which is why it is written
+down.
+
+**No tiles, ever.** A tile is a call to somebody else's server while a reader
+is standing on the page. `scripts/build-area-map.mjs` fetches at build time and
+writes one committed `fivemile-area-map.svg`, 64KB, the same way every number
+on this site arrives.
+
+**It is not on the schedule.** Town limits and a creek channel move on the
+order of years, and a cron asking a donated Overpass mirror twice a day for an
+answer that never changes is bad manners. Run it by hand when a source moves.
+Nothing is written unless every source answered, because half a map is worse
+than the one already committed.
+
+**Inlined, not shown as an image**, by the loader at the foot of
+`fivemile-common.js`. A page writes `<div data-fm-map>` inside a figure and
+gets the drawing, which then takes the page's DM Mono and its own colour
+tokens. An `<img>` can do neither, and a map labelled in whatever monospace the
+machine has lying around is the same fault as a favicon set in Arial. A
+`<noscript>` image sits beside it for a reader with no script.
+
+**On a phone it keeps its size and is pushed sideways.** Squeezed into a 358px
+card the whole drawing puts its town names at six pixels, well under the 16px
+floor. It holds 680px and scrolls, which is the move the month reel already
+asks of a reader, and the names land at about 15px.
+
+**It is a map of the ground, not of the sightings.** A sighting never comes
+with a spot, decision 52, and iNaturalist withholds the location on most of
+them anyway. Pins are not available and would be invented if they were.
+
+**Revisit if:** a source moves, in which case rerun the script; or another page
+wants it, in which case it writes the same three lines and nothing else.

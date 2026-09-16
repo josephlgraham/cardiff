@@ -210,6 +210,23 @@
           <a class="d-go" href="fivemile-creek-archive.html">Every day since 1988 <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
+
+      <!-- The map. One file, drawn from survey data by
+           scripts/build-area-map.mjs and dropped in by fivemile-common.js,
+           which inlines it so it gets this page's type and colours. Any other
+           page that wants it writes the same three lines. See DECISIONS.md 84. -->
+      <div class="card-dept">
+        <div class="d-bar"><h3>Where the creek runs</h3><span class="r">The three towns</span></div>
+        <div class="d-body">
+          <figure class="fm-map">
+            <div data-fm-map></div>
+            <noscript><img src="fivemile-area-map.svg" alt="A map of Graysville, Cardiff, and Brookside with Five Mile Creek running west through all three and the Republic gauge to the east." width="1000" height="862"></noscript>
+            <figcaption>The creek comes in from the east past the gauge at Republic and leaves west of Graysville
+              for the Locust Fork. The channel and the gauge are the US Geological Survey's, and the town limits,
+              roads and rails are OpenStreetMap's.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
     <p class="src-note">
