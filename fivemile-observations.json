@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T21:25:45.142Z",
+  "updatedAt": "2026-09-17T10:08:20.382Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,17 +12,34 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 37,
+    "shown": 38,
     "window_days": 365,
-    "in_window": 37,
-    "species_in_window": 31,
-    "window_total": 38,
-    "species_recorded": 31,
-    "observations_recorded": 37,
-    "area_total": 250,
+    "in_window": 38,
+    "species_in_window": 32,
+    "window_total": 39,
+    "species_recorded": 32,
+    "observations_recorded": 38,
+    "area_total": 251,
     "guide_links": 6
   },
   "observations": [
+    {
+      "id": 400737212,
+      "taxon": 48957,
+      "name": "North American Wheel Bug",
+      "latin": "Arilus cristatus",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-09-16",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "jschefano",
+      "observerLogin": "jschefano",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/400737212",
+      "firstRecord": true
+    },
     {
       "id": 399154686,
       "taxon": 104390,
@@ -849,6 +866,21 @@
       "ids": [
         319882303,
         319887961
+      ]
+    },
+    {
+      "taxon": 48957,
+      "name": "North American Wheel Bug",
+      "latin": "Arilus cristatus",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-09-16",
+      "last": "2026-09-16",
+      "latest": 400737212,
+      "guide": null,
+      "count": 1,
+      "ids": [
+        400737212
       ]
     },
     {
