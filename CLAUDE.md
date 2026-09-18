@@ -59,6 +59,10 @@ answer. If you add something the site keeps, give it a room. If you add a
 rolling window that overwrites itself, you have added something that scrolls
 away, and the creek archive in DECISIONS.md 36 is the pattern for fixing it.
 
+The hub opens on four records, not four counts: the creek crest, the wettest
+day, the hottest day and the deepest snow, each a door to the room that proves
+it. How much is on file belongs on the room panels below. See DECISIONS.md 88.
+
 The hub also carries the search, `fivemile-search.js`. It reads the same files
 and every page in `sitemap.xml`, and it answers a question only when a rule
 written in that file can count the answer from the record. It is not a chatbot

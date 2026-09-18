@@ -199,7 +199,13 @@
 // names and what the census says became of them. fivemile-heritage.html,
 // fivemile-heritage-charters.html and fivemile-hollers-rotator.json changed,
 // and the first two are served cache-first. See DECISIONS.md 70.
-const CACHE_NAME = 'fivemile-v95';
+// v96 puts four records across the top of the Archive hub: the highest the
+// creek has come, the wettest day, the hottest day and the deepest snow. The
+// three weather figures are worked out into fivemile-airport-archive/index.json
+// when a record is broken, and fivemile-archive.html and fivemile-archive.js
+// both changed. A returning reader holding the old script would get four tiles
+// of em dashes. See DECISIONS.md 88.
+const CACHE_NAME = 'fivemile-v96';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

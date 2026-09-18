@@ -6115,3 +6115,81 @@ here so nobody has to find it twice.
 **Revisit if:** a third source dates the cutters either way, or somebody works
 out what Brookside was actually cutting with between 1893 and 1913. Nothing on
 the page turns on it.
+
+## 88. The Archive opens on four records
+**Decided:** September 2026. Builds on decisions 36, 59, 61 and 72.
+
+Joe asked for four small cards across the top of the Archive hub, the way the
+home page opens with four, pointing at the most important things the site shows
+with its data.
+
+### The first draft counted the cabinet
+
+It was four tiles of inventory: 97 years of airport weather, 13,999 days of
+creek, the stories on file, the editions out. Joe read it and said it was not
+interesting for people's brains, and that what they want to see is the wettest
+day, or the most something.
+
+He is right, and the reason is worth keeping. How many days are in a filing
+cabinet is a fact about the cabinet. The seven room panels below already say how
+much is in each room, which is the right place for it, because a reader who has
+decided to open a room wants to know what is in there. At the top of the page
+nobody has decided anything yet. What gets somebody to open a record is the day
+it broke.
+
+### The four
+
+Each one is the most of its kind, and each is a door to the room that can prove
+it:
+
+- **Creek crest**, 25.41 feet, May 7, 2003, to the creek log.
+- **Wettest day**, 9.75 inches, September 16, 2004, to the weather log.
+- **Hottest day**, 107 degrees, July 29, 1930, to the weather log.
+- **Deepest snow**, 10.3 inches, March 13, 1993, to the weather log.
+
+Three of the four point at the same room, and that is correct rather than
+lazy: they are that room's records, and they land on its records section rather
+than its top. One of each kind was the rule for picking them, so no two tiles
+say the same sort of thing, and snow is in because a ten inch snow in Alabama is
+the one a reader repeats to somebody else.
+
+The coldest morning on record, six below on January 21, 1985, is worked out and
+kept with the other three. It is not on the page. When a tile is swapped it is
+there to swap in.
+
+### Where the figures come from
+
+The creek crest is `fivemile-creek-peaks.json`, which the hub's creek panel
+already reads. A crest is not a daily figure: a flood can come and go inside a
+day, which is why that file exists at all.
+
+The three weather records are new fields in `fivemile-airport-archive/index.json`,
+written by `scripts/fetch/acis-airport.mjs`. A browser is not going to read
+ninety seven year files to find the hottest day, and the hub has never asked one
+to. Every field in that index is derived from the content, so these change on
+the day a record is broken and on no other day, which keeps the no-churn promise
+the split archive was built on.
+
+Both are filled in `fivemile-archive.js`, inside the panel functions that had
+already fetched those files, so a tile costs no second request and cannot drift
+from the panel under it. A tile whose file does not come keeps its em dash.
+
+- **Snow is the airport's alone.** Our station does not measure it. See
+  decision 72.
+- **A trace is not a record.** Only a figure above nought is in the running,
+  which is also why the coldest is the one record allowed to be negative.
+- **The creek crest appears twice on the page**, once as a tile and once as a
+  row in the creek panel. That is the callout and the detail, not a
+  duplication: the tile is the reason to look and the panel is the shelf label.
+
+### The tiles are the home page's object
+
+Same `.card-gauge`, same four across, same graduated rail, because these are
+four levels read off the longest run of readings the site holds. A kicker has to
+stay on one line at four across, which is about twenty one characters with the
+mark: "Highest creek" wrapped and stepped the row of figures, so the tile says
+"Creek crest", which is what the creek room has always called it.
+
+**Revisit if:** a record is broken, which the fetcher handles on its own, or a
+fifth record is wanted. Swapping one means editing the four tiles in
+`fivemile-archive.html` and the records block in the fetcher, and nothing else.

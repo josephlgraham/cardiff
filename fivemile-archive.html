@@ -108,6 +108,49 @@
   <section class="top">
     <div class="hd"><h1>Archive</h1><a href="index.html">Front page &rarr;</a></div>
 
+    <!-- THE RECORDS ---------------------------------------------------------
+         The same four tiles the home page opens with, and the same object. The
+         home page reads what the creek and the sky are doing right now; these
+         read the four most that have ever happened here, and each one is a
+         door to the room that can prove it.
+
+         A count of what is on file was the first draft of this row and it was
+         the wrong answer: how many days are in a cabinet is a fact about the
+         cabinet. What a reader wants off a record is the day it broke.
+
+         The rail down the left of a tile is a graduated scale, which is what
+         these are: four levels, read off the longest run of readings the site
+         has. Every figure is set in fivemile-archive.js from the same file the
+         room behind it reads, so a number out front cannot drift from the
+         number inside, and a tile with nothing behind it keeps its em dash.
+         See DECISIONS.md 36, 59 and 72.
+         ---------------------------------------------------------------------- -->
+    <div class="four-eq" id="arcNow">
+      <a class="card-gauge" href="fivemile-creek-archive.html">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌊</i><span class="g-lbl">Creek crest &middot; Republic</span></p>
+        <div class="g-val" id="arcCreekVal">&mdash;</div>
+        <div class="g-sub" id="arcCreekSub">&mdash;</div>
+      </a>
+      <a class="card-gauge" href="fivemile-weather-archive.html#records">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌧️</i><span class="g-lbl">Wettest day &middot; Airport</span></p>
+        <div class="g-val" id="arcRainVal">&mdash;</div>
+        <div class="g-sub" id="arcRainSub">&mdash;</div>
+      </a>
+      <a class="card-gauge" href="fivemile-weather-archive.html#records">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">🌡️</i><span class="g-lbl">Hottest day &middot; Airport</span></p>
+        <div class="g-val" id="arcHeatVal">&mdash;</div>
+        <div class="g-sub" id="arcHeatSub">&mdash;</div>
+      </a>
+      <a class="card-gauge" href="fivemile-weather-archive.html#records">
+        <span class="g-ticks" data-ticks></span>
+        <p class="g-kick"><i class="g-mark" aria-hidden="true">❄️</i><span class="g-lbl">Deepest snow &middot; Airport</span></p>
+        <div class="g-val" id="arcSnowVal">&mdash;</div>
+        <div class="g-sub" id="arcSnowSub">&mdash;</div>
+      </a>
+    </div>
     <!-- The search. One box over every page in the sitemap and every file the
          rooms read. A question that fits a rule is answered from those files
          by fivemile-search.js; anything else gets the matching pages, dates,

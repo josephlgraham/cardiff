@@ -3846,6 +3846,21 @@
     }).catch(function () { /* the panel keeps its em dashes */ });
   }
 
+  /* THE FOUR TILES AT THE TOP
+
+     Four records, each filled from the file the room behind it reads, inside
+     the panel function that already read it, so a tile costs no second fetch
+     and cannot drift from the panel under it. A tile whose file does not come
+     keeps its em dash. The three weather records come out of the airport
+     archive's index, worked out by scripts/fetch/acis-airport.mjs when a record
+     is broken, because a browser is not going to read ninety seven year files
+     to find the hottest day. See DECISIONS.md 36, 59 and 72. */
+  function setTile(id, value, unit, sentence) {
+    var val = byId('arc' + id + 'Val');
+    if (val) val.innerHTML = esc(value) + (unit ? '<span>' + esc(unit) + '</span>' : '');
+    setText('arc' + id + 'Sub', sentence);
+  }
+
   function hubWeather() {
     loadArchive(WEATHER_DIR).then(function (data) {
       var days = sortedDays(data);
@@ -3864,6 +3879,19 @@
         if (!years.length) return;
         setText('hubWeatherNote', 'The wettest month on the books is ' + monthProse(wettest.month) +
           ', and behind it sits the official Birmingham record, every day since ' + years[0].year + '.');
+        var records = (index && index.records) || {};
+        if (records.wettestDay) {
+          setTile('Rain', num(records.wettestDay.value).toFixed(2), ' in',
+            longDate(records.wettestDay.date) + ', the most rain the airport has measured in a day.');
+        }
+        if (records.hottest) {
+          setTile('Heat', String(num(records.hottest.value)), '°F',
+            longDate(records.hottest.date) + ', and nothing since has matched it.');
+        }
+        if (records.deepestSnow) {
+          setTile('Snow', String(num(records.deepestSnow.value)), ' in',
+            longDate(records.deepestSnow.date) + ', the deepest snow on the books here.');
+        }
       }).catch(function () { /* the station line stands */ });
     }).catch(function () { /* the panel keeps its em dashes */ });
   }
@@ -3885,6 +3913,8 @@
       var crest = parts[1] && parts[1].highest;
       if (!crest || reading(crest.stage_ft) == null) return;
       setText('hubCreekHigh', num(crest.stage_ft).toFixed(2) + ' ft');
+      setTile('Creek', num(crest.stage_ft).toFixed(2), ' ft',
+        longDate(crest.date) + ', the highest Five Mile Creek has come at Republic.');
       setText('hubCreekNote', 'Since ' + years[0].year + ' the highest it has come is ' +
         num(crest.stage_ft).toFixed(2) + ' feet, on ' + longDate(crest.date) + '.');
     }).catch(function () { /* the panel keeps its em dashes */ });

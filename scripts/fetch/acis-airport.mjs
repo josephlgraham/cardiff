@@ -158,6 +158,34 @@ export async function updateAirportNormalsFile() {
 }
 
 /* since: a YYYY-MM-DD to fetch from. Without it, the last 45 days. */
+/* The four records the Archive hub calls out, worked out here and kept in the
+   archive's own index.json, because a browser cannot read ninety seven year
+   files to find the hottest day and the hub has never asked it to. Every field
+   in that index is derived from the content, so these only change on the day a
+   record is broken, which is the last time anything here churns.
+
+   Snow is the airport's alone: our station does not measure it. A trace is not
+   a record, so a day is only in the running when its figure is above nought.
+   See DECISIONS.md 72 and 88. */
+function recordsFrom(days) {
+  const best = (field, better) => {
+    let found = null;
+    for (const day of days) {
+      const value = Number(day[field]);
+      if (!Number.isFinite(value)) continue;
+      if (field !== 'low' && value <= 0) continue;
+      if (!found || better(value, found.value)) found = { value, date: day.date };
+    }
+    return found;
+  };
+  return {
+    hottest: best('high', (a, b) => a > b),
+    coldest: best('low', (a, b) => a < b),
+    wettestDay: best('rain', (a, b) => a > b),
+    deepestSnow: best('snow', (a, b) => a > b)
+  };
+}
+
 export async function updateAirportArchive(options = {}) {
   const todayKey = LOCAL_DAY.format(new Date());
   const yesterday = new Date(Date.now() - 86400000);
@@ -178,11 +206,13 @@ export async function updateAirportArchive(options = {}) {
     days.set(row.date, row);
     written += 1;
   }
+  const everyDay = [...days.values()];
   const result = await writeYearArchive(AIRPORT_ARCHIVE_DIR, {
     station: AIRPORT.name,
     sid: AIRPORT.sid,
     ghcn: AIRPORT.ghcn,
-    days: [...days.values()]
+    records: recordsFrom(everyDay),
+    days: everyDay
   });
   console.log(`Updated ${path.basename(AIRPORT_ARCHIVE_DIR)}/: ${written} day(s) written, ${result.total} on file, year file(s) touched: ${result.written.join(', ') || 'none'}`);
   return result;
