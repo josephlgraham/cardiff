@@ -4352,32 +4352,135 @@ gets committed where.
 time on the clock, and the source notes can tighten "every few hours" to
 whatever is actually kept. Not before.
 
-## 70. Coalburg and Republic are on the creek, and they are not towns
+## 70. Sixteen towns on the lower creek, and three of them filed papers
+**Decided:** September 2026. Replaces the original decision 70, which said
+Coalburg and Republic were not towns.
 
-Joe widened the heritage page to take in two places up the creek. Coalburg was
-a Sloss prison mine, and the company that opened the Brookside mine was called
-Coalburg Coal and Coke. Republic is where the only live gauge in the watershed
-sits, so every creek reading on this site is a reading from Republic.
+The first version of this took in two places up the creek and was careful to
+say they were not towns. That was the wrong line to draw. Coalburg had 842
+people in the 1890 census and Blossburg had 692, while Brookside and Cardiff
+together had 583. The Warner slope at Republic was the largest coal producer in
+Jefferson County by 1900. Calling those three something less than a town, and
+Cardiff with its 203 people something more, describes a filing cabinet rather
+than the ground.
 
-Neither is a town, and the site does not treat them as one.
+So the section takes in every community on the lower creek, and the only
+difference the site draws is the one that is real: three of them filed
+incorporation paperwork and the rest did not.
 
-- **Heritage hub only.** Two entries in an Up the creek section on
-  fivemile-heritage.html, written as static HTML rather than as facts in
-  fivemile-heritage.json, because every fact there carries a town badge and is
-  counted into a chapter. They carry their sources inline.
+### The roster
+
+Sixteen, in creek order, from Coalburg at the head down to the Graysville end:
+Coalburg, Republic, New Town, Dogtown, Mineral Springs, Watson, Scarlet Town,
+Daisey City, Brookside, Pinkney City, Cardiff, Blossburg, Graysville, Alden,
+Linn Crossing, Chetopa.
+
+The rule that picked them: a named place within about a kilometre of the
+channel, between Coalburg and the Graysville end. Distances were measured by
+projecting each place's GNIS point onto the USGS National Hydrography channel,
+the same survey `scripts/build-area-map.mjs` draws the creek from.
+
+- **Coalburg is the head of the roster.** Upper Coalburg, Lewisburg and Tarrant
+  are upstream of it and are out, though all three are within the kilometre.
+  The line is editorial, not geographic: above Coalburg the creek stops being
+  the thing these places have in common and starts being Birmingham's.
+- **Forestdale is out on the measurement.** Its own point is 3.4 km off the
+  channel. The GNIS entry "Forestdale by the Brook" sits 183 m out but is a
+  modern subdivision name, not a community with a history.
+- **Three of the sixteen sit past the kilometre** by their GNIS point: Pinkney
+  City at 1.2 km, Mineral Springs at 1.4 km, Watson at 2.1 km. They are in
+  anyway, because a GNIS point is one dot for a place that had width, and
+  because each has a record worth carrying. Graysville's own GNIS point is 2.8
+  km off the channel while the city limits it stands for run right across the
+  creek, which is the same problem showing its face.
+- **Canonical spellings are GNIS's.** Daisey City with an e, Linn Crossing with
+  an i. Chetora and Ono are historic aliases of Linn Crossing and are not
+  separate entries. Chetopa is a different name from Chetora and is its own
+  entry.
+
+### How much each one gets
+
+Every name is printed. What differs is how much the record supports, and the
+gap is written as a sentence rather than left blank, because a stated gap is
+what gets a reader to write in.
+
+1. **Full entry** where there is a history: Coalburg, Republic, Blossburg,
+   Alden, and the three towns.
+2. **Short entry** where the record is a date: Pinkney City, Mineral Springs,
+   Watson, Daisey City, Chetopa, Linn Crossing.
+3. **Named, with the gap stated,** where the only record is that the name
+   exists at that spot and GNIS or OpenStreetMap carries it: New Town, Scarlet
+   Town, Dogtown.
+
+**Never characterize what a place is like now.** The section reports the
+record. No sentence about how a place looks today, who lives there, or how it
+is doing.
+
+### What did not change
+
+- **Still heritage hub only, still static HTML.** The section is written into
+  fivemile-heritage.html rather than into fivemile-heritage.json, because every
+  fact in that file carries a town badge and is counted into a chapter. The
+  entries carry their sources inline, and `scripts/build-heritage-pages.mjs`
+  does not touch them because they sit outside the PRERENDER markers.
 - **No town badge, no nav item, no place in the Graysville, Cardiff, Brookside
-  order.** The tagline, the masthead, and the three town panels stay three.
+  order.** The tagline, the masthead and the three town panels stay three. The
+  tagline says who the publication is for, which is a different question from
+  who lived on the creek.
 - **The gauge is labelled Five Mile Creek at Republic.** That is the label in
-  scripts/fetch/usgs-gauge.mjs, so the masthead and every sentence built from
+  `scripts/fetch/usgs-gauge.mjs`, so the masthead and every sentence built from
   it say it. The station number 02457595 stays in captions and tooltips.
 - **The Coalburg entry says what it was.** Leased prisoners, the Parke death
   rate, more than 100 dead between 1899 and 1902. It is not softened, and it
   links to the Equal Justice Initiative.
 - **The news desk catches Coalburg.** It is in the nearby ring in
-  scripts/fetch-news.mjs. Unlike Republic it needs no veto list.
+  `scripts/fetch-news.mjs`. Unlike Republic it needs no veto list.
 
-**Revisit if:** another place on the creek earns an entry. It goes in the same
-section, on the same terms, and still is not a town.
+### The rename
+
+The section is **Along the creek**, `id="along-the-creek"`. It was "Up the
+creek", which was wrong once the roster ran downstream past Graysville, and the
+"Two places, not towns" hd-note went with it. The two inbound links, in
+fivemile-about.html and index.html, were moved to the new anchor, and the
+`#up-the-creek` rule in fivemile-heritage.css was renamed with it.
+
+### The census settled one of two
+
+The page's rule is to follow the census where sources disagree, and the new
+primary source disagrees twice.
+
+- **Graysville.** The University of Alabama's list says 1946; the page says
+  1897 and 1945. The census counted Graysville in 1900 and again in 1910, so
+  1946 cannot be the first charter. The 1946 is the first sitting of the
+  council, on January 16, 1946, seven weeks after the second charter on
+  November 17, 1945. The page keeps 1897 and 1945.
+- **Brookside.** The list says 1896; the page says 1898. The census counted
+  Brookside in 1890 and in 1900, on both sides of both dates, so it cannot
+  settle this one. It goes with the weight of the sources instead, and the
+  Encyclopedia of Alabama and Wikipedia both say 1898. The page keeps 1898.
+
+The source note on the heritage page says both of these out loud, because a
+page that claims to follow a rule should show the one time the rule did not
+reach.
+
+### Sources
+
+The spine is the University of Alabama's list of Jefferson County current and
+historic places, which carries dated entries and a census population table for
+nearly every name on the roster. The Library of Congress survey of the
+Birmingham Industrial District, HAER AL-105, carries the coke oven counts and
+the Warner tonnage. Wikipedia, the Encyclopedia of Alabama and GNIS fill in
+the rest. Bhamwiki has entries for several of these places and sits behind a
+bot wall that will not serve them to a script. Joe opened the Alden one by hand
+and it is the source for that entry, which is why Alden has a founder, a house
+count and a story about how it got its name. Nothing else on the roster rests
+on it, and anything it would add to Coalburg, Republic or Blossburg is still
+sitting there unread.
+
+**Revisit if:** a source turns up for New Town, Scarlet Town or Dogtown, or
+anybody writes in about them. That is most of the point of printing the names.
+A place that earns a fuller entry moves up a tier in place, and the roster only
+changes if somebody finds a name the measurement missed.
 
 ---
 
@@ -5950,3 +6053,43 @@ this creek and a different one from this. Or if the flashiness record ever does
 start to run in order, which is worth watching precisely because it does not
 today.
 
+---
+
+## 87. Brookside's 288 coke ovens are probably 200, and the copy still says 288
+**Decided:** September 2026. Open, deliberately.
+
+Five places in fivemile-heritage.json and one in fivemile-hollers-rotator.json
+say Sloss ran 288 beehive coke ovens at Brookside. The Library of Congress,
+which that fact already cites, says otherwise in two separate documents.
+
+- **HAER AL-17**, the survey of the Brookside mine and its ovens, says the
+  Sloss Company "constructed two batteries of 100 beehive coke ovens" there.
+  That is 200.
+- **HAER AL-105**, the survey of the Birmingham Industrial District, counts
+  Sloss's ovens as they stood in 1900: "288 at its City Furnaces; 350 at its
+  Blossburg mines; 214 at Coalburg; 200 at Flat Top; 99 at Brookside; and 87 at
+  New Found."
+
+So 288 is a real Sloss number and it belongs to the City Furnaces in
+Birmingham, not to Brookside. The two LOC figures for Brookside, 99 in 1900 and
+200 in the end, sit together fine: the second battery came later. 288 does not
+sit with either.
+
+**The copy was left alone anyway.** The fact cites Bhamwiki as well as the
+Library of Congress, and Bhamwiki is behind a bot wall that would not serve its
+Brookside article, so the one source that might explain where 288 came from is
+the one that has not been read. Changing a sourced figure on a hunch is worse
+than carrying a flagged one. There is a NEEDS-CONFIRMATION comment above the
+town panels in fivemile-heritage.html pointing here.
+
+**Where it appears.** In fivemile-heritage.json: the Brookside town lede, the
+`brookside-ovens` fact title and note, and the peak chapter's summary and note.
+In fivemile-hollers-rotator.json: one rotator line. The prerendered copies in
+fivemile-heritage.html and fivemile-heritage-peak.html are written from the
+JSON by scripts/build-heritage-pages.mjs, so fixing the JSON and running the
+build fixes all of it.
+
+**Revisit if:** somebody reads the Bhamwiki Brookside article, or any source
+turns up that says where 288 came from. If nothing does, the number goes to 200
+on the Library of Congress, and the Brookside ovens fact drops Bhamwiki from
+its sources.

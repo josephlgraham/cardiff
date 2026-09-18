@@ -171,7 +171,15 @@
 // what the five places have in common. index.html is the only file that
 // changed and it is served cache-first. Neither one is a town and nothing
 // about the three town order moved. See DECISIONS.md 70.
-const CACHE_NAME = 'fivemile-v91';
+// v92 widens the heritage section from two places up the creek to every
+// community on the lower creek, sixteen of them, and stops calling the
+// unincorporated ones something other than towns. The section is renamed
+// Along the creek and its anchor with it, so fivemile-heritage.css has to
+// arrive with fivemile-heritage.html or the panel loses its top margin.
+// fivemile-heritage.html, fivemile-heritage.css, index.html and
+// fivemile-about.html all changed and all are served cache-first.
+// See DECISIONS.md 70, which was rewritten.
+const CACHE_NAME = 'fivemile-v92';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
