@@ -155,14 +155,14 @@
     {
       "id": "q-first-charter",
       "fact": "graysville-incorporated",
-      "q": "Which of the three towns incorporated last?",
+      "q": "Which of the three towns incorporated first?",
       "choices": [
         "Graysville",
         "Cardiff",
         "Brookside"
       ],
-      "answer": 1,
-      "note": "Cardiff incorporated in January 1900. Graysville went first in 1897, and Brookside is somewhere in between: the sources split between 1896 and 1898 and the census cannot separate them."
+      "answer": 0,
+      "note": "Graysville incorporated in 1897, Brookside in 1898, and Cardiff in January 1900."
     },
     {
       "id": "q-slovak-share",

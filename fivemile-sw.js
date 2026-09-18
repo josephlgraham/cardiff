@@ -194,7 +194,12 @@
 // answer that the charter conflict had made unsafe. fivemile-heritage.html,
 // fivemile-heritage.css, the seven chapter pages and
 // fivemile-hollers-rotator.json all changed. See DECISIONS.md 70 and 87.
-const CACHE_NAME = 'fivemile-v94';
+// v95 settles Brookside's charter year at 1898, prints it without the
+// hedge, and gives Along the creek two paragraphs on why there are sixteen
+// names and what the census says became of them. fivemile-heritage.html,
+// fivemile-heritage-charters.html and fivemile-hollers-rotator.json changed,
+// and the first two are served cache-first. See DECISIONS.md 70.
+const CACHE_NAME = 'fivemile-v95';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

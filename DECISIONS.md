@@ -4465,8 +4465,11 @@ primary source disagrees twice.
   November 17, 1945. The page keeps 1897 and 1945.
 - **Brookside.** The list says 1896; the page says 1898. The census counted
   Brookside in 1890 and in 1900, on both sides of both dates, so it cannot
-  settle this one. It goes with the weight of the sources instead, and the
-  Encyclopedia of Alabama and Wikipedia both say 1898. The page keeps 1898.
+  settle this one, and the sources are two against two once Bhamwiki is counted
+  on the 1896 side. Joe called it for 1898, following the Encyclopedia of
+  Alabama and Wikipedia. That is a call and not a finding, and the source note
+  on the page says so: if the incorporation act turns up and disagrees, the act
+  wins.
 
 The source note on the heritage page says both of these out loud, because a
 page that claims to follow a rule should show the one time the rule did not
