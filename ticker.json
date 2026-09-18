@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-09-17T05:21:25.768Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-09-18T19:56:18.174Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "🌡️ Heat Advisory · Through Sunday 1 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Heat Advisory",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "🌡️",
+      "ends": "2026-09-19T20:00:00-05:00",
+      "endsShort": "Sunday 1 AM",
+      "headline": "Heat Advisory",
+      "description": "* WHAT...Heat index values up to 106 expected.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.59210e7c758d3a44465286444ea00d342f0cf4d9.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
