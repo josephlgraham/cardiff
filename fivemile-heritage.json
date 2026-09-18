@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-12",
+  "updated": "2026-09-18",
   "published": "2026-08-22",
   "about": "Every fact in here names the source it came from. Nothing is written from memory and nothing is here without a place to go check it. Add a fact by adding a row to facts, and if it needs one, a row to sources. The published dates are the day each page first went up, taken from the repo history, and they are what the structured data says. Do not move one to make a page look newer.",
   "sources": {
@@ -77,6 +77,16 @@
       "name": "Alabama Communities of Excellence",
       "title": "Graysville",
       "url": "https://www.alabamacommunitiesofexcellence.org/landmark/graysville"
+    },
+    "bhamwiki-brookside-mine": {
+      "name": "Bhamwiki",
+      "title": "Brookside mine",
+      "url": "https://www.bhamwiki.com/w/Brookside_mine"
+    },
+    "eoa-strike-1908": {
+      "name": "Encyclopedia of Alabama",
+      "title": "Birmingham District Coal Strike of 1908",
+      "url": "https://encyclopediaofalabama.org/article/birmingham-district-coal-strike-of-1908/"
     }
   },
   "towns": [
@@ -475,6 +485,46 @@
       "home": true,
       "source": [
         "wp-graysville"
+      ]
+    },
+    {
+      "id": "brookside-umwa-1906",
+      "town": "Brookside",
+      "topic": "people",
+      "year": 1906,
+      "when": "1906",
+      "title": "The miners organize, and win",
+      "note": "Brookside’s miners were United Mine Workers, and in 1906 they struck and won. It was violent, and it was the last one here that went their way.",
+      "home": true,
+      "source": [
+        "bhamwiki-brookside-mine"
+      ]
+    },
+    {
+      "id": "brookside-battle-jefferson",
+      "town": "Brookside",
+      "topic": "people",
+      "year": 1908,
+      "when": "July 17, 1908",
+      "title": "The Battle of Jefferson",
+      "note": "Thirty deputies went into the Jefferson Tunnel near Brookside on July 17, 1908, and more than a thousand strikers pushed them back out through it. Nobody calls it a battle for nothing, and almost nobody calls it anything at all now.",
+      "home": true,
+      "source": [
+        "bhamwiki-brookside-mine",
+        "eoa-strike-1908"
+      ]
+    },
+    {
+      "id": "strike-1908-broken",
+      "town": "Brookside",
+      "topic": "people",
+      "year": 1908,
+      "when": "August 26, 1908",
+      "title": "What the strike was, and why it was broken",
+      "note": "The 1908 strike put Black and white miners out together under District 20, one of the few interracial unions in the South, and that is the part the operators went after. They warned the union its biracial organizing would set off racial violence, and Governor B. B. Comer told its leaders that legislators would not tolerate what they saw as promoting equality between Black and white miners. On August 26 he sent the National Guard to cut down the tent colonies the evicted strikers were living in, calling them a public health nuisance. The union gave up four days later. A Black union member, William Millin, had already been taken out of the jail at Brighton and lynched by two mine deputies.",
+      "home": true,
+      "source": [
+        "eoa-strike-1908"
       ]
     },
     {

@@ -254,7 +254,7 @@
   function chapterNav(chapters, index, variant) {
     var prev = chapters[index - 1];
     var next = chapters[index + 1];
-    var place = 'Chapter ' + (index + 1) + ' of ' + chapters.length;
+    var place = 'Chapter ' + (index + 1);
 
     /* Which ends exist is worked out here and put on the element as a class,
        rather than left for the stylesheet to infer from an empty cell. CSS

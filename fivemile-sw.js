@@ -179,7 +179,14 @@
 // fivemile-heritage.html, fivemile-heritage.css, index.html and
 // fivemile-about.html all changed and all are served cache-first.
 // See DECISIONS.md 70, which was rewritten.
-const CACHE_NAME = 'fivemile-v92';
+// v93 works the 1908 strike into the record: the Battle of Jefferson at the
+// Jefferson Tunnel, the 1906 strike the miners won, and what the state did to
+// break an interracial union. It also stops counting the chapters, since the
+// number was never the point, and links the Along the creek entries into the
+// chapters that carry their years. fivemile-heritage.html, the seven chapter
+// pages and fivemile-heritage-core.js all changed and all are served
+// cache-first. See DECISIONS.md 70.
+const CACHE_NAME = 'fivemile-v93';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

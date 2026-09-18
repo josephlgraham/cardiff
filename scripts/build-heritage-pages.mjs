@@ -357,7 +357,7 @@ function structuredData(page, data) {
       url: absolute(HUB),
       name: 'Heritage',
       headline: 'How Graysville, Cardiff, and Brookside got here',
-      description: chapters.length + ' chapters, from the farms on the bottomland to the greenway on the old rail bed, every entry carrying the source it came from.',
+      description: 'From the farms on the bottomland to the greenway on the old rail bed, every entry carrying the source it came from.',
       inLanguage: 'en-US',
       isPartOf: { '@id': SITE + '#website' },
       publisher: { '@id': ORG_ID },

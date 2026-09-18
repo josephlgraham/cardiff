@@ -4412,9 +4412,18 @@ what gets a reader to write in.
    exists at that spot and GNIS or OpenStreetMap carries it: New Town, Scarlet
    Town, Dogtown.
 
-**Never characterize what a place is like now.** The section reports the
-record. No sentence about how a place looks today, who lives there, or how it
-is doing.
+**Say what a place is now, and say it straight.** The first draft of this rule
+banned the present tense outright. That was wrong for a publication whose whole
+point is what is going on here, and it quietly did the thing it was meant to
+prevent. A place with a post office building still standing, or with people who
+turned out to fight an annexation, has a present, and leaving that out writes it
+off more completely than any honest sentence about it could.
+
+What stays barred is the verdict. Nothing that grades a place, mourns it, or
+tells a reader how to feel: not struggling, not forgotten, not a shell of what
+it was, and not thriving either. Report what is there and source it, the same as
+a date. Where the site does not know what is there now, it says so, and that gap
+is an invitation like every other one on this page.
 
 ### What did not change
 
