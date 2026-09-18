@@ -6101,10 +6101,14 @@ reverse: "In 1913 the mechanical coal cutters used previously were supplanted by
 hand picks." Bhamwiki's direction fits its own paragraph, which has the mine
 jumping between seams and its workforce swinging from 54 men in 1910 to over 600
 in 1914, and it fits HAER AL-105, which has Brookside mechanized and notable for
-it as early as 1893. A mine already cutting by machine in 1893 cannot have
-machines take over in 1913. The site carries the Wikipedia version anyway,
-because one source against one source is not enough to flip a sourced line and
-nothing turns on it.
+it as early as 1893.
 
-**Revisit if:** a third source dates the cutters either way. Then the fact moves
-or stays on that, and this entry closes for good.
+**Joe called it for the machines, and the line stays as it is.** Bhamwiki's
+sentence reads like a transposition, the ordinary direction of travel in a
+1913 coal mine is toward the cutter and not away from it, and Wikipedia and the
+site have said so all along. The reading that complicates it is written down
+here so nobody has to find it twice.
+
+**Revisit if:** a third source dates the cutters either way, or somebody works
+out what Brookside was actually cutting with between 1893 and 1913. Nothing on
+the page turns on it.
