@@ -1,34 +1,80 @@
 {
-  "updatedAt": "2026-09-17T15:32:04.383Z",
+  "updatedAt": "2026-09-18T01:15:37.477Z",
   "counts": {
     "nearby": 5,
-    "county": 2,
-    "obituaries": 4
+    "county": 4,
+    "obituaries": 6
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-wbrc-have-to-look-us-in-our-face-and-take-accountability-birmingh",
-      "news-2-abc-33-40-70-year-old-sylvan-springs-man-dies-in-mulga-motorcycle-cras",
-      "news-3-wbrc-motorcyclist-killed-in-crash-in-mulga",
-      "news-4-trussville-tribune-birmingham-pd-announce-arrest-of-man-for-2024-homicide",
-      "news-6-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
+      "news-1-wvtm-13-don-t-believe-the-hype-attorney-defends-julian-morris-in-deu",
+      "news-2-wbrc-have-to-look-us-in-our-face-and-take-accountability-birmingh",
+      "news-3-abc-33-40-70-year-old-sylvan-springs-man-dies-in-mulga-motorcycle-cras",
+      "news-4-wbrc-motorcyclist-killed-in-crash-in-mulga",
+      "news-8-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const"
     ],
     "creek": [],
     "county": [
-      "news-5-abc-33-40-photos-crash-closes-eastbound-lanes-of-i-20-in-jefferson-cou",
-      "news-7-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
+      "news-5-al-com-suspended-jefferson-county-judge-argues-120-page-complaint-t",
+      "news-6-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party",
+      "news-7-abc-33-40-photos-crash-closes-eastbound-lanes-of-i-20-in-jefferson-cou",
+      "news-9-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil"
     ],
     "obituaries": [
-      "news-8-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
-      "news-9-trussville-tribune-seth-michael-allison-june-30-2006-september-13-2026",
-      "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
-      "news-11-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026"
+      "news-10-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "news-11-trussville-tribune-irene-nanny-toole-may-22-1939-september-15-2026",
+      "news-12-trussville-tribune-betty-maddox-lavier-june-22-1936-september-15-2026",
+      "news-13-trussville-tribune-seth-michael-allison-june-30-2006-september-13-2026",
+      "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "news-15-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-have-to-look-us-in-our-face-and-take-accountability-birmingh",
+      "id": "news-1-wvtm-13-don-t-believe-the-hype-attorney-defends-julian-morris-in-deu",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/84734936-8c44-47b8-b041-2149b54887fe.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 37,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "‘Don’t believe the hype’: Attorney defends Julian Morris in Deundray Cottrell murder case",
+      "summary": "More than two years after Deundray Cottrell was found dead in an abandoned Birmingham shed, his former partner is charged with murder. Julian Morris’ attorney said police have the wrong man, but Cottrell’s sister said she suspected him from the start. Here’s what both sides are saying.",
+      "description": "More than two years after Deundray Cottrell was found dead in an abandoned Birmingham shed, his former partner is charged with murder. Julian Morris’ attorney said police have the wrong man, but Cottrell’s sister said she suspected him from the start. Here’s what both sides are saying.",
+      "url": "https://www.wvtm13.com/article/alabama-birmingham-murder-case-julian-morris-deundray-cottrell-update-investigation/73781411",
+      "link": "https://www.wvtm13.com/article/alabama-birmingham-murder-case-julian-morris-deundray-cottrell-update-investigation/73781411",
+      "published_at": "2026-09-18T00:05:00.000Z",
+      "date": "2026-09-18T00:05:00.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/84734936-8c44-47b8-b041-2149b54887fe.jpg"
+    },
+    {
+      "id": "news-2-wbrc-have-to-look-us-in-our-face-and-take-accountability-birmingh",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -44,7 +90,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 37,
+      "score": 36,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -70,7 +116,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//L2COWYF5NBD7VEAU3KYLU32E7Y.jpg?auth=d63636d7289a81732e11cfca54fa447c813193b8509fd347426bdc4abb4519fc&smart=false"
     },
     {
-      "id": "news-2-abc-33-40-70-year-old-sylvan-springs-man-dies-in-mulga-motorcycle-cras",
+      "id": "news-3-abc-33-40-70-year-old-sylvan-springs-man-dies-in-mulga-motorcycle-cras",
       "section": "nearby",
       "why": "names sylvan springs",
       "town": "Sylvan Springs",
@@ -86,7 +132,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 37,
+      "score": 36,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -112,7 +158,7 @@
       "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-3-wbrc-motorcyclist-killed-in-crash-in-mulga",
+      "id": "news-4-wbrc-motorcyclist-killed-in-crash-in-mulga",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -137,8 +183,8 @@
       "description": "Robert Steven Perkins, 70, was killed around 11:47 a.m. near the 7900 block of Alliance Short Creek Road.",
       "url": "https://www.wbrc.com/2026/09/17/motorcyclist-killed-crash-mulga/",
       "link": "https://www.wbrc.com/2026/09/17/motorcyclist-killed-crash-mulga/",
-      "published_at": "2026-09-17T15:17:26.000Z",
-      "date": "2026-09-17T15:17:26.000Z",
+      "published_at": "2026-09-17T18:43:41.000Z",
+      "date": "2026-09-17T18:43:41.000Z",
       "location_tags": [
         "mulga"
       ],
@@ -154,49 +200,91 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//II3OC4BTU5DHRPIG4URASNYSVA.webp?auth=e433e8558a302d6346c12f1b9a9cd8f1e95955ef332b5a5c6c59b36a549ab905&smart=false"
     },
     {
-      "id": "news-4-trussville-tribune-birmingham-pd-announce-arrest-of-man-for-2024-homicide",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
+      "id": "news-5-al-com-suspended-jefferson-county-judge-argues-120-page-complaint-t",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
       "tags": [
-        "Public safety"
+        "Government"
       ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
+      "outlet": "AL.com",
+      "paywall": true,
       "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Julian-Morris.png",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+        "url": "https://www.al.com/resizer/v2/F2XGAUNYCFGSVH26USUPLHXBPY.jpg?auth=d356722172d6b45ffeef02f036ad997c725b921b1680e59cd5589ece5d36ef7c&smart=true&height=1200",
+        "from": "feed",
+        "width": 1888,
+        "credit": "AL.com"
       },
       "obit": null,
-      "score": 30,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Birmingham PD announce arrest of man for 2024 homicide",
-      "summary": "BIRMINGHAM, Ala. — The Birmingham Police Department has announced that a man has been arrested in connection to a murder that took place in 2024. The suspect has been identified as Julian Taylor Morris, 33, of Jonesboro, GA. According to the announcement the victim, Deundray Cottrell, was reported missing on July 4 in ",
-      "description": "BIRMINGHAM, Ala. — The Birmingham Police Department has announced that a man has been arrested in connection to a murder that took place in 2024. The suspect has been identified as Julian Taylor Morris, 33, of Jonesboro, GA. According to the announcement the victim, Deundray Cottrell, was reported missing on July 4 in ",
-      "url": "https://www.trussvilletribune.com/2026/09/15/birmingham-pd-announce-arrest-of-man-for-2024-homicide/",
-      "link": "https://www.trussvilletribune.com/2026/09/15/birmingham-pd-announce-arrest-of-man-for-2024-homicide/",
-      "published_at": "2026-09-16T02:09:59.000Z",
-      "date": "2026-09-16T02:09:59.000Z",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Suspended Jefferson County judge argues 120-page complaint tries to undo her election",
+      "summary": "Blachard denies “every paragraph, allegation, and claim” in the complaint that accuses her of bullying, intimidation and other violations of the Canons of Judicial Ethics, according to a new court filing by her lawyers.",
+      "description": "Blachard denies “every paragraph, allegation, and claim” in the complaint that accuses her of bullying, intimidation and other violations of the Canons of Judicial Ethics, according to a new court filing by her lawyers.",
+      "url": "https://www.al.com/news/birmingham/2026/09/suspended-jefferson-county-judge-argues-120-page-complaint-tries-to-undo-her-election.html",
+      "link": "https://www.al.com/news/birmingham/2026/09/suspended-jefferson-county-judge-argues-120-page-complaint-tries-to-undo-her-election.html",
+      "published_at": "2026-09-17T22:56:16.000Z",
+      "date": "2026-09-17T22:56:16.000Z",
       "location_tags": [
-        "morris"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "public-safety"
+        "government"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Julian-Morris.png"
+      "image_url": "https://www.al.com/resizer/v2/F2XGAUNYCFGSVH26USUPLHXBPY.jpg?auth=d356722172d6b45ffeef02f036ad997c725b921b1680e59cd5589ece5d36ef7c&smart=true&height=1200"
     },
     {
-      "id": "news-5-abc-33-40-photos-crash-closes-eastbound-lanes-of-i-20-in-jefferson-cou",
+      "id": "news-6-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1112/986/39x0/90/5a8fd725-3095-445b-8619-e13c2b690005-2026BlockParty_WebArt1215x62611190x626.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Road Closure Planned for UAB Center for the Arts Block Party",
+      "summary": "A portion of 10th Avenue South on the University of Alabama at Birmingham campus will close Friday, Sept. 18, as UAB hosts its 2026 Center for the Arts Block Pa",
+      "description": "A portion of 10th Avenue South on the University of Alabama at Birmingham campus will close Friday, Sept. 18, as UAB hosts its 2026 Center for the Arts Block Pa",
+      "url": "https://abc3340.com/news/local/alabama-road-closure-planned-for-uab-center-for-the-arts-block-party-september-2026",
+      "link": "https://abc3340.com/news/local/alabama-road-closure-planned-for-uab-center-for-the-arts-block-party-september-2026",
+      "published_at": "2026-09-17T21:26:52.000Z",
+      "date": "2026-09-17T21:26:52.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": true,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1112/986/39x0/90/5a8fd725-3095-445b-8619-e13c2b690005-2026BlockParty_WebArt1215x62611190x626.jpg"
+    },
+    {
+      "id": "news-7-abc-33-40-photos-crash-closes-eastbound-lanes-of-i-20-in-jefferson-cou",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -238,7 +326,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/945/986/0x9/90/7f05eb32-f697-4107-b965-35f913fc1001-Screenshot20260916095951.png"
     },
     {
-      "id": "news-6-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
+      "id": "news-8-bham-now-amfirst-reopens-rebuilt-cullman-branch-after-year-long-const",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -276,7 +364,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Cullman-Grand-Opening-48-1200x800.jpg"
     },
     {
-      "id": "news-7-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
+      "id": "news-9-bham-now-new-credit-union-branch-highway-280-apartments-among-1m-buil",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -292,7 +380,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -318,7 +406,7 @@
       "image_url": "https://thebamabuzz.com/wp-content/uploads/2026/09/Gardendale-Groundbreaking-1024x695.jpg"
     },
     {
-      "id": "news-8-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "id": "news-10-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -362,7 +450,95 @@
       "image_url": ""
     },
     {
-      "id": "news-9-trussville-tribune-seth-michael-allison-june-30-2006-september-13-2026",
+      "id": "news-11-trussville-tribune-irene-nanny-toole-may-22-1939-september-15-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Irene “Nanny” Toole (May 22, 1939 — September 15, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Irene “Nanny” Toole (May 22, 1939 — September 15, 2026)",
+      "summary": "Bertha Irene Toole, lovingly known as Nanny, was born on May 22, 1939, in Talladega, Alabama. She passed away surrounded by the love of family and friends on September 15, 2026, at 8:38 a.m. Her life was a beautiful example of faith, kindness, and devotion, and her legacy will continue to inspire all who knew […]",
+      "description": "Bertha Irene Toole, lovingly known as Nanny, was born on May 22, 1939, in Talladega, Alabama. She passed away surrounded by the love of family and friends on September 15, 2026, at 8:38 a.m. Her life was a beautiful example of faith, kindness, and devotion, and her legacy will continue to inspire all who knew […]",
+      "url": "https://www.trussvilletribune.com/2026/09/17/irene-nanny-toole-may-22-1939-september-15-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/17/irene-nanny-toole-may-22-1939-september-15-2026/",
+      "published_at": "2026-09-17T16:38:16.000Z",
+      "date": "2026-09-17T16:38:16.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-trussville-tribune-betty-maddox-lavier-june-22-1936-september-15-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Betty Maddox Lavier (June 22, 1936 — September 15, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Betty Maddox Lavier (June 22, 1936 — September 15, 2026)",
+      "summary": "Betty June Lavier, age 90, of Trussville, Alabama, passed away peacefully on September 15, 2026. Betty was born on June 22, 1936, in Dellrose, Tennessee, to Comer and Mary Maddox. She dedicated 30 years of her life to SouthTrust Bank, where she proudly served as a head teller before retiring. Betty loved the simple joy",
+      "description": "Betty June Lavier, age 90, of Trussville, Alabama, passed away peacefully on September 15, 2026. Betty was born on June 22, 1936, in Dellrose, Tennessee, to Comer and Mary Maddox. She dedicated 30 years of her life to SouthTrust Bank, where she proudly served as a head teller before retiring. Betty loved the simple joy",
+      "url": "https://www.trussvilletribune.com/2026/09/17/betty-maddox-lavier-june-22-1936-september-15-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/17/betty-maddox-lavier-june-22-1936-september-15-2026/",
+      "published_at": "2026-09-17T16:27:37.000Z",
+      "date": "2026-09-17T16:27:37.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-trussville-tribune-seth-michael-allison-june-30-2006-september-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -406,7 +582,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
+      "id": "news-14-tribute-archive-johnny-a-rice-obituary-crestview-memorial-gardens-and-fh-ada",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -450,7 +626,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026",
+      "id": "news-15-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -468,7 +644,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 5,
+      "score": 4,
       "source_type": "media_feed",
       "source_name": "wolfefuneralhomes.com",
       "source": "wolfefuneralhomes.com",
