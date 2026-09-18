@@ -167,7 +167,11 @@
 // falls, and every water sample anybody has taken along it since 1952.
 // fivemile-creek-archive.html, fivemile-archive.js and fivemile-archive.css
 // all changed and all are served cache-first. See DECISIONS.md 86.
-const CACHE_NAME = 'fivemile-v90';
+// v91 names Coalburg and Republic in the opening on the home page and says
+// what the five places have in common. index.html is the only file that
+// changed and it is served cache-first. Neither one is a town and nothing
+// about the three town order moved. See DECISIONS.md 70.
+const CACHE_NAME = 'fivemile-v91';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

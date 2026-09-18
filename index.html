@@ -120,6 +120,14 @@
 .stories{display:flex;flex-direction:column;gap:10px}
 .stories .card-stub{margin-bottom:0}
 
+/* A link inside the opening prose. The panel is the only prose on this page,
+   so the selector can stay this short. Red and bold with no rule under it is
+   what an inline link looks like in a panel on About, and a reader who has
+   seen one has seen both. Without this the link is set exactly like the
+   sentence around it and nothing says it goes anywhere. */
+.panel a{color:var(--red);font-weight:700;text-decoration:none}
+.panel a:hover,.panel a:focus-visible{text-decoration:underline}
+
 /* The send block. Not a card in the card system sense, so it stays plain:
    paper fill, hairline border, 14px radius. */
 .send{margin-top:34px;background:var(--card);border:1px solid #DDCFB8;border-radius:14px;padding:22px;text-align:center}
@@ -228,6 +236,16 @@
           and the fishing, the photographs people send in, and the coal camp history that explains how
           three towns ended up in a row along one creek. All of it is kept rather than posted, so what
           you read here in March is still here in November.</p>
+        <!-- Coalburg and Republic are named here and are still not towns. No badge, no nav item,
+             no fourth and fifth panel in The three towns below, and the tagline stays three. See
+             DECISIONS.md 70. The About page carries the longer version of this. -->
+        <p class="lede">Coalburg and Republic are up the creek from Brookside and neither one ever became a town.
+          Coalburg was a mining camp Sloss worked with prisoners leased from the county, and Republic is the bend
+          where the creek is measured, so every water reading on this site comes from there. Both are in
+          <a href="fivemile-heritage.html#up-the-creek">Heritage</a>.</p>
+        <p class="lede">The five are alike for the same two reasons. Coal put four of them on the map, Graysville
+          being the farm town that kept its own shape, and the same water runs past every one of them in turn.
+          The mines are gone. The creek is not.</p>
       </div>
       <div id="homeNotice" hidden></div>
       <div class="two-eq">
@@ -322,7 +340,7 @@
   <!-- SEND ----------------------------------------------------------------- -->
   <div class="send reveal">
     <h2>Send us something</h2>
-    <p>Photographs, announcements, and anything happening that other people ought to know about. All three towns, all welcome.</p>
+    <p>Photographs, announcements, and anything happening that other people ought to know about. Graysville, Cardiff, Brookside, Coalburg, and Republic, all welcome.</p>
     <a class="btn" id="sendMail" href="mailto:fivemilec@gmail.com">fivemilec@gmail.com</a>
   </div>
 
