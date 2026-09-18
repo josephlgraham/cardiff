@@ -6064,56 +6064,47 @@ today.
 
 ---
 
-## 87. Brookside's 288 coke ovens are probably 200, and the copy still says 288
-**Decided:** September 2026. Open, deliberately.
+## 87. Brookside had two hundred coke ovens, not 288
+**Decided:** September 2026. Closed.
 
-Five places in fivemile-heritage.json and one in fivemile-hollers-rotator.json
-say Sloss ran 288 beehive coke ovens at Brookside. The Library of Congress,
-which that fact already cites, says otherwise in two separate documents.
+Five places in fivemile-heritage.json and a quiz answer in
+fivemile-hollers-rotator.json said Sloss ran 288 beehive coke ovens at
+Brookside. The figure cited Bhamwiki and the Library of Congress. Neither
+supports it.
 
-- **HAER AL-17**, the survey of the Brookside mine and its ovens, says the
-  Sloss Company "constructed two batteries of 100 beehive coke ovens" there.
-  That is 200.
+- **HAER AL-17**, the survey of the Brookside mine and its ovens, says the Sloss
+  Company "constructed two batteries of 100 beehive coke ovens" there. That is
+  200.
 - **HAER AL-105**, the survey of the Birmingham Industrial District, counts
   Sloss's ovens as they stood in 1900: "288 at its City Furnaces; 350 at its
   Blossburg mines; 214 at Coalburg; 200 at Flat Top; 99 at Brookside; and 87 at
-  New Found."
+  New Found." 288 is a real Sloss number and it belongs to the City Furnaces in
+  Birmingham.
+- **Bhamwiki gives no number at all.** Joe read both articles by hand in
+  September 2026, the mine one and the town one. The mine article describes
+  "rows of beehive ovens banked into the hillside below the mine opening" and
+  stops there. The town article says only that advanced equipment put Brookside
+  at the forefront of mining technology.
 
-So 288 is a real Sloss number and it belongs to the City Furnaces in
-Birmingham, not to Brookside. The two LOC figures for Brookside, 99 in 1900 and
-200 in the end, sit together fine: the second battery came later. 288 does not
-sit with either.
+So the number had no source once both were read. It is two hundred everywhere
+now, described as two banks of a hundred, and the fact cites the Library of
+Congress alone. The quiz choice moved from 288 to 200 with it.
 
-**The Bhamwiki mine article does not say 288 either.** Joe read
-bhamwiki.com/w/Brookside_mine by hand in September 2026. It describes "rows of
-beehive ovens banked into the hillside below the mine opening" and gives no
-count at all. That was the likeliest home of the figure and it is not there.
+The two Library of Congress figures for Brookside, 99 in 1900 and 200 in the
+end, sit together fine: the second battery came later. Nothing here contradicts
+anything else.
 
-**The copy was left alone anyway, for now.** The fact cites the Brookside town
-article as well, at bhamwiki.com/w/Brookside, and that one is still unread. It
-is the last place 288 could have come from. Changing a sourced figure while a
-cited source sits unopened is worse than carrying a flagged one for another
-week. There is a NEEDS-CONFIRMATION comment above the town panels in
-fivemile-heritage.html pointing here.
-
-**Where it appears.** In fivemile-heritage.json: the Brookside town lede, the
-`brookside-ovens` fact title and note, and the peak chapter's summary and note.
-In fivemile-hollers-rotator.json: one rotator line. The prerendered copies in
-fivemile-heritage.html and fivemile-heritage-peak.html are written from the
-JSON by scripts/build-heritage-pages.mjs, so fixing the JSON and running the
-build fixes all of it.
-
-**A second thing to settle while somebody is in there.** The fact
+**Still open, and moved out of this entry's way.** The fact
 `brookside-cutters` says "Mechanical cutters replaced hand picks at the
 Brookside mine in 1913" and cites Wikipedia. The Bhamwiki mine article says the
-reverse: "In 1913 the mechanical coal cutters used previously were supplanted
-by hand picks." Bhamwiki's version fits its own surrounding paragraph, which
-has the mine jumping between seams and its workforce swinging from 54 men in
-1910 to over 600 in 1914, and it fits HAER AL-105, which has Brookside
-mechanized early and the District slow to follow. One of the two is backwards
-and the site is carrying the Wikipedia one.
+reverse: "In 1913 the mechanical coal cutters used previously were supplanted by
+hand picks." Bhamwiki's direction fits its own paragraph, which has the mine
+jumping between seams and its workforce swinging from 54 men in 1910 to over 600
+in 1914, and it fits HAER AL-105, which has Brookside mechanized and notable for
+it as early as 1893. A mine already cutting by machine in 1893 cannot have
+machines take over in 1913. The site carries the Wikipedia version anyway,
+because one source against one source is not enough to flip a sourced line and
+nothing turns on it.
 
-**Revisit if:** somebody reads the Bhamwiki Brookside town article, or any
-source turns up that says where 288 came from. If nothing does, the number goes
-to 200 on the Library of Congress, and the Brookside ovens fact drops Bhamwiki
-from its sources.
+**Revisit if:** a third source dates the cutters either way. Then the fact moves
+or stays on that, and this entry closes for good.

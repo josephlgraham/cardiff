@@ -2,39 +2,140 @@
   "updated": "2026-08-27",
   "about": "The jokebox and the quiz. Jokes and riddles are written for this site, so there is no licensing question hanging over them. Quiz questions come out of fivemile-heritage.json and every answer names the fact it came from, so a reader who doubts one can go and check it. Add a joke by adding a row. Nothing here needs a build step.",
   "jokes": [
-    { "id": "joke-fine-print", "title": "Fine print", "body": "I read an entire terms of service once. As far as I can tell I now own a boat, and I cannot find it." },
-    { "id": "joke-bagging-area", "title": "Bagging area", "body": "The self checkout asked if I needed help. I said yes. It said unexpected item in the bagging area." },
-    { "id": "joke-percentages", "title": "Percentages", "body": "The forecast said zero percent chance of rain. That is how I learned percentages are just a mood." },
-    { "id": "joke-shy-and-mean", "title": "Shy and mean", "body": "The printer only jams when somebody is watching. It is shy, and it is mean." },
-    { "id": "joke-battery", "title": "Battery life", "body": "My phone drops from 100 to 99 in four seconds, then sits on 1 percent for an hour. That is not a battery, that is a personality." },
-    { "id": "joke-sign-off", "title": "Sign off", "body": "I ended an email with the word best and then thought about it for the rest of the day." },
-    { "id": "joke-season-to-taste", "title": "Season to taste", "body": "The recipe said season to taste. I tasted it. It needs a different recipe." },
-    { "id": "joke-closer", "title": "Closer", "body": "I bought a treadmill so I would quit making excuses. Now the excuse is closer." },
-    { "id": "joke-backup-alarms", "title": "Backup", "body": "I set eight alarms. The first seven are only there to warn the eighth." },
-    { "id": "joke-in-for-milk", "title": "In for milk", "body": "I went in for milk and came out with eighty dollars of things that are not milk. And no milk." },
-    { "id": "joke-gifted", "title": "Gifted", "body": "I have killed four succulents. They are supposed to be impossible to kill. I am not proud, I am gifted." },
-    { "id": "joke-extra-screws", "title": "Two left over", "body": "The instructions had eleven steps and there are two screws left over. I have decided the screws are a test and that I am passing." },
-    { "id": "joke-later", "title": "Later", "body": "I said I would get to it later. Later has been fully booked since about 2019." },
-    { "id": "joke-agenda", "title": "Agenda", "body": "That meeting could have been an email. That email could have been a shrug." },
-    { "id": "joke-directions", "title": "Directions", "body": "Everybody here gives directions by what used to be there. Turn where the store was. I have never seen the store. I turn anyway." },
-    { "id": "joke-rooster", "title": "Rooster", "body": "The smoke alarm only wants a battery at three in the morning. That is not a safety device, that is a rooster." },
-    { "id": "joke-helpful", "title": "Helpful", "body": "I asked the smart speaker to turn the lights off and it ordered a lamp." },
-    { "id": "joke-legal-u-turn", "title": "Legal U turn", "body": "The GPS told me to make a legal U turn, which felt like a lot of pressure to go and find a lawyer." }
+    {
+      "id": "joke-fine-print",
+      "title": "Fine print",
+      "body": "I read an entire terms of service once. As far as I can tell I now own a boat, and I cannot find it."
+    },
+    {
+      "id": "joke-bagging-area",
+      "title": "Bagging area",
+      "body": "The self checkout asked if I needed help. I said yes. It said unexpected item in the bagging area."
+    },
+    {
+      "id": "joke-percentages",
+      "title": "Percentages",
+      "body": "The forecast said zero percent chance of rain. That is how I learned percentages are just a mood."
+    },
+    {
+      "id": "joke-shy-and-mean",
+      "title": "Shy and mean",
+      "body": "The printer only jams when somebody is watching. It is shy, and it is mean."
+    },
+    {
+      "id": "joke-battery",
+      "title": "Battery life",
+      "body": "My phone drops from 100 to 99 in four seconds, then sits on 1 percent for an hour. That is not a battery, that is a personality."
+    },
+    {
+      "id": "joke-sign-off",
+      "title": "Sign off",
+      "body": "I ended an email with the word best and then thought about it for the rest of the day."
+    },
+    {
+      "id": "joke-season-to-taste",
+      "title": "Season to taste",
+      "body": "The recipe said season to taste. I tasted it. It needs a different recipe."
+    },
+    {
+      "id": "joke-closer",
+      "title": "Closer",
+      "body": "I bought a treadmill so I would quit making excuses. Now the excuse is closer."
+    },
+    {
+      "id": "joke-backup-alarms",
+      "title": "Backup",
+      "body": "I set eight alarms. The first seven are only there to warn the eighth."
+    },
+    {
+      "id": "joke-in-for-milk",
+      "title": "In for milk",
+      "body": "I went in for milk and came out with eighty dollars of things that are not milk. And no milk."
+    },
+    {
+      "id": "joke-gifted",
+      "title": "Gifted",
+      "body": "I have killed four succulents. They are supposed to be impossible to kill. I am not proud, I am gifted."
+    },
+    {
+      "id": "joke-extra-screws",
+      "title": "Two left over",
+      "body": "The instructions had eleven steps and there are two screws left over. I have decided the screws are a test and that I am passing."
+    },
+    {
+      "id": "joke-later",
+      "title": "Later",
+      "body": "I said I would get to it later. Later has been fully booked since about 2019."
+    },
+    {
+      "id": "joke-agenda",
+      "title": "Agenda",
+      "body": "That meeting could have been an email. That email could have been a shrug."
+    },
+    {
+      "id": "joke-directions",
+      "title": "Directions",
+      "body": "Everybody here gives directions by what used to be there. Turn where the store was. I have never seen the store. I turn anyway."
+    },
+    {
+      "id": "joke-rooster",
+      "title": "Rooster",
+      "body": "The smoke alarm only wants a battery at three in the morning. That is not a safety device, that is a rooster."
+    },
+    {
+      "id": "joke-helpful",
+      "title": "Helpful",
+      "body": "I asked the smart speaker to turn the lights off and it ordered a lamp."
+    },
+    {
+      "id": "joke-legal-u-turn",
+      "title": "Legal U turn",
+      "body": "The GPS told me to make a legal U turn, which felt like a lot of pressure to go and find a lawyer."
+    }
   ],
   "riddles": [
-    { "id": "riddle-creek", "body": "I run five miles and never get tired. I have a mouth but I never speak, and a bed I never sleep in.", "answer": "A creek." },
-    { "id": "riddle-gauge", "body": "I go up when the rain comes down.", "answer": "The creek gauge." },
-    { "id": "riddle-forecast", "body": "I am read every morning and wrong by the afternoon.", "answer": "The forecast." },
-    { "id": "riddle-phone", "body": "I have keys but I open nothing, and I go everywhere with you without ever leaving your pocket.", "answer": "A phone." },
-    { "id": "riddle-moon", "body": "I am full once a month and I have never eaten a thing.", "answer": "The moon." },
-    { "id": "riddle-fog", "body": "The more of me there is, the less you can see.", "answer": "Fog." }
+    {
+      "id": "riddle-creek",
+      "body": "I run five miles and never get tired. I have a mouth but I never speak, and a bed I never sleep in.",
+      "answer": "A creek."
+    },
+    {
+      "id": "riddle-gauge",
+      "body": "I go up when the rain comes down.",
+      "answer": "The creek gauge."
+    },
+    {
+      "id": "riddle-forecast",
+      "body": "I am read every morning and wrong by the afternoon.",
+      "answer": "The forecast."
+    },
+    {
+      "id": "riddle-phone",
+      "body": "I have keys but I open nothing, and I go everywhere with you without ever leaving your pocket.",
+      "answer": "A phone."
+    },
+    {
+      "id": "riddle-moon",
+      "body": "I am full once a month and I have never eaten a thing.",
+      "answer": "The moon."
+    },
+    {
+      "id": "riddle-fog",
+      "body": "The more of me there is, the less you can see.",
+      "answer": "Fog."
+    }
   ],
   "quiz": [
     {
       "id": "q-cardiff-named",
       "fact": "cardiff-named",
       "q": "Cardiff took its name from what?",
-      "choices": ["A coal company owner", "A town in Wales", "A bend in the creek", "A railroad stop"],
+      "choices": [
+        "A coal company owner",
+        "A town in Wales",
+        "A bend in the creek",
+        "A railroad stop"
+      ],
       "answer": 1,
       "note": "Isaac Price named the mine for Cardiff in Wales, and the town took the mine's name. It is one of four places in Jefferson County named for somewhere in Britain."
     },
@@ -42,23 +143,37 @@
       "id": "q-gintown",
       "fact": "graysville-gintown",
       "q": "What did people call Graysville before it was Graysville?",
-      "choices": ["Grays Mill", "Gin Town", "Cotton Bend", "Five Mile"],
+      "choices": [
+        "Grays Mill",
+        "Gin Town",
+        "Cotton Bend",
+        "Five Mile"
+      ],
       "answer": 1,
       "note": "There was one cotton gin for miles and it was here, so Gin Town is what people called it. Who the Grays were, and when the name changed, nobody seems to have written down."
     },
     {
       "id": "q-first-charter",
       "fact": "graysville-incorporated",
-      "q": "Which of the three towns incorporated first?",
-      "choices": ["Graysville", "Cardiff", "Brookside"],
-      "answer": 0,
-      "note": "Graysville incorporated in 1897, Brookside in 1898, and Cardiff in January 1900."
+      "q": "Which of the three towns incorporated last?",
+      "choices": [
+        "Graysville",
+        "Cardiff",
+        "Brookside"
+      ],
+      "answer": 1,
+      "note": "Cardiff incorporated in January 1900. Graysville went first in 1897, and Brookside is somewhere in between: the sources split between 1896 and 1898 and the census cannot separate them."
     },
     {
       "id": "q-slovak-share",
       "fact": "brookside-slovak-share",
       "q": "By 1910, roughly how much of Brookside was Slovak?",
-      "choices": ["About 5 percent", "About 15 percent", "About 37 percent", "About 60 percent"],
+      "choices": [
+        "About 5 percent",
+        "About 15 percent",
+        "About 37 percent",
+        "About 60 percent"
+      ],
       "answer": 2,
       "note": "By 1910 Slovak families made up roughly 37 percent of Brookside."
     },
@@ -66,15 +181,25 @@
       "id": "q-ovens",
       "fact": "brookside-ovens",
       "q": "How many beehive coke ovens did Sloss run at Brookside?",
-      "choices": ["48", "112", "288", "640"],
+      "choices": [
+        "48",
+        "112",
+        "200",
+        "640"
+      ],
       "answer": 2,
-      "note": "Sloss ran 288 domed brick ovens at Brookside, built shoulder to shoulder so they would hold each other's heat."
+      "note": "Sloss ran two hundred domed brick ovens at Brookside, built shoulder to shoulder so they would hold each other's heat."
     },
     {
       "id": "q-primrose",
       "fact": "cardiff-primrose",
       "q": "The Cardiff miners put together a football club called the Primrose. What did it win in 1898?",
-      "choices": ["The Alabama Foot Ball Association Cup", "A county fair ribbon", "A brass band contest", "A coal output prize"],
+      "choices": [
+        "The Alabama Foot Ball Association Cup",
+        "A county fair ribbon",
+        "A brass band contest",
+        "A coal output prize"
+      ],
       "answer": 0,
       "note": "The Welsh and Scottish miners at Cardiff put together a football club and called it the Primrose. In 1898 it won the Alabama Foot Ball Association Cup."
     },
@@ -82,7 +207,12 @@
       "id": "q-mine-closes",
       "fact": "brookside-mine-closes",
       "q": "What shut the Brookside mine in 1920?",
-      "choices": ["A fire underground", "A strike and a collapse in coal prices", "The creek flooding the works", "The seam running out"],
+      "choices": [
+        "A fire underground",
+        "A strike and a collapse in coal prices",
+        "The creek flooding the works",
+        "The seam running out"
+      ],
       "answer": 1,
       "note": "A United Mine Workers strike and a worldwide collapse in coal prices shut the mine in 1920. The strike was settled in 1921 and the mine never went back to work."
     },
@@ -90,7 +220,12 @@
       "id": "q-charter-pulled",
       "fact": "graysville-charter-pulled",
       "q": "Alabama revoked the Graysville charter in 1927 on what grounds?",
-      "choices": ["Unpaid debts", "A boundary dispute", "Inactivity", "Failure to hold an election"],
+      "choices": [
+        "Unpaid debts",
+        "A boundary dispute",
+        "Inactivity",
+        "Failure to hold an election"
+      ],
       "answer": 2,
       "note": "The state revoked the charter in 1927 on the grounds of inactivity. For the next eighteen years there was no town government here."
     },
@@ -98,7 +233,12 @@
       "id": "q-reincorporated",
       "fact": "graysville-reincorporated",
       "q": "Graysville reincorporated in 1945 mainly so it could do what?",
-      "choices": ["Build and run its own water system", "Start a police force", "Pave the roads", "Open a school"],
+      "choices": [
+        "Build and run its own water system",
+        "Start a police force",
+        "Pave the roads",
+        "Open a school"
+      ],
       "answer": 0,
       "note": "Graysville reincorporated on November 17, 1945, mainly so it could build and run its own water system."
     },
@@ -106,7 +246,12 @@
       "id": "q-cardiff-2020",
       "fact": "cardiff-fifty-two",
       "q": "How many people did the 2020 census count in Cardiff?",
-      "choices": ["52", "146", "562", "1,409"],
+      "choices": [
+        "52",
+        "146",
+        "562",
+        "1,409"
+      ],
       "answer": 0,
       "note": "The 2020 census counted 52 people in Cardiff, on 0.21 square miles. In 1900 it was 562."
     },
@@ -114,7 +259,12 @@
       "id": "q-cardiff-fire",
       "fact": "cardiff-fire",
       "q": "What happened in Cardiff on July 20, 1919?",
-      "choices": ["The mine flooded", "Downtown burned", "The charter was pulled", "The railroad pulled out"],
+      "choices": [
+        "The mine flooded",
+        "Downtown burned",
+        "The charter was pulled",
+        "The railroad pulled out"
+      ],
       "answer": 1,
       "note": "The Cardiff downtown burned on July 20, 1919, and the fortunes of the town turned down with it."
     }

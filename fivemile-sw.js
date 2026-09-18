@@ -186,7 +186,15 @@
 // chapters that carry their years. fivemile-heritage.html, the seven chapter
 // pages and fivemile-heritage-core.js all changed and all are served
 // cache-first. See DECISIONS.md 70.
-const CACHE_NAME = 'fivemile-v93';
+// v94 gives Along the creek a two column layout on desktop, so sixteen
+// entries read as a gazetteer rather than a stack, which means
+// fivemile-heritage.css has to arrive with fivemile-heritage.html again.
+// It also settles the Brookside coke oven count at two hundred, adds nine
+// facts off the Bhamwiki Brookside and Cane Creek articles, and moves a quiz
+// answer that the charter conflict had made unsafe. fivemile-heritage.html,
+// fivemile-heritage.css, the seven chapter pages and
+// fivemile-hollers-rotator.json all changed. See DECISIONS.md 70 and 87.
+const CACHE_NAME = 'fivemile-v94';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would

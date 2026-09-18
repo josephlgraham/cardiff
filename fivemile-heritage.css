@@ -375,6 +375,41 @@ section.blk[id]{scroll-margin-top:18px}
 .hz-note a:hover{color:var(--red);text-decoration-color:var(--red)}
 #along-the-creek .hz-panel{margin-top:20px}
 
+/* ALONG THE CREEK IS A GAZETTEER, NOT A CHRONOLOGY, and sixteen of anything
+   stacked full width reads as a list to be endured. The chapter rungs solve
+   the same problem by alternating sides. That will not work here, because
+   these entries run from one paragraph to five and an alternating grid with
+   that much variance just looks broken.
+
+   So the name and its dates go into a column of their own and the prose sits
+   beside them. The left edge becomes a scannable run of place names in creek
+   order, which is the thing a reader actually came for, and the ragged
+   lengths on the right stop mattering. Mono names the place, the sans says
+   it, per the note in CLAUDE.md.
+
+   The identity block is a real element rather than two items placed by rule,
+   because a left column has to be one grid cell. Placing .hz-top and
+   .hz-title separately drops the name below the first paragraph.
+
+   Below 900px this all collapses back to the stack, which is correct on a
+   phone: there is no width to give the names. */
+@media (min-width:900px){
+  #along-the-creek .hz-row{
+    display:grid;
+    grid-template-columns:210px minmax(0,1fr);
+    column-gap:38px;
+    align-items:start;
+    padding-top:24px;
+    padding-bottom:24px;
+  }
+  #along-the-creek .hz-id{grid-column:1;position:sticky;top:20px}
+  #along-the-creek .hz-id .hz-top{margin-bottom:6px}
+  #along-the-creek .hz-id .hz-title{font-size:20px}
+  #along-the-creek .hz-note,
+  #along-the-creek .hz-src{grid-column:2}
+  #along-the-creek .hz-note{max-width:64ch}
+}
+
 /* The source line. Mono, quiet, and under every single entry, because a fact
    on this page with no source is a fact this page should not be running. */
 .hz-src{margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--fm-muted);line-height:1.5}
