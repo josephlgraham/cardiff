@@ -6075,12 +6075,17 @@ Birmingham, not to Brookside. The two LOC figures for Brookside, 99 in 1900 and
 200 in the end, sit together fine: the second battery came later. 288 does not
 sit with either.
 
-**The copy was left alone anyway.** The fact cites Bhamwiki as well as the
-Library of Congress, and Bhamwiki is behind a bot wall that would not serve its
-Brookside article, so the one source that might explain where 288 came from is
-the one that has not been read. Changing a sourced figure on a hunch is worse
-than carrying a flagged one. There is a NEEDS-CONFIRMATION comment above the
-town panels in fivemile-heritage.html pointing here.
+**The Bhamwiki mine article does not say 288 either.** Joe read
+bhamwiki.com/w/Brookside_mine by hand in September 2026. It describes "rows of
+beehive ovens banked into the hillside below the mine opening" and gives no
+count at all. That was the likeliest home of the figure and it is not there.
+
+**The copy was left alone anyway, for now.** The fact cites the Brookside town
+article as well, at bhamwiki.com/w/Brookside, and that one is still unread. It
+is the last place 288 could have come from. Changing a sourced figure while a
+cited source sits unopened is worse than carrying a flagged one for another
+week. There is a NEEDS-CONFIRMATION comment above the town panels in
+fivemile-heritage.html pointing here.
 
 **Where it appears.** In fivemile-heritage.json: the Brookside town lede, the
 `brookside-ovens` fact title and note, and the peak chapter's summary and note.
@@ -6089,7 +6094,17 @@ fivemile-heritage.html and fivemile-heritage-peak.html are written from the
 JSON by scripts/build-heritage-pages.mjs, so fixing the JSON and running the
 build fixes all of it.
 
-**Revisit if:** somebody reads the Bhamwiki Brookside article, or any source
-turns up that says where 288 came from. If nothing does, the number goes to 200
-on the Library of Congress, and the Brookside ovens fact drops Bhamwiki from
-its sources.
+**A second thing to settle while somebody is in there.** The fact
+`brookside-cutters` says "Mechanical cutters replaced hand picks at the
+Brookside mine in 1913" and cites Wikipedia. The Bhamwiki mine article says the
+reverse: "In 1913 the mechanical coal cutters used previously were supplanted
+by hand picks." Bhamwiki's version fits its own surrounding paragraph, which
+has the mine jumping between seams and its workforce swinging from 54 men in
+1910 to over 600 in 1914, and it fits HAER AL-105, which has Brookside
+mechanized early and the District slow to follow. One of the two is backwards
+and the site is carrying the Wikipedia one.
+
+**Revisit if:** somebody reads the Bhamwiki Brookside town article, or any
+source turns up that says where 288 came from. If nothing does, the number goes
+to 200 on the Library of Congress, and the Brookside ovens fact drops Bhamwiki
+from its sources.
