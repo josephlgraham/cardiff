@@ -435,6 +435,29 @@ a.card-dept:hover .d-go{color:var(--masthead)}
 .panel{background:var(--card);border:1px solid var(--fm-rule);border-radius:var(--fm-card-r);padding:22px 24px}
 .panel > p:last-child,.panel > ul:last-child,.panel > div:last-child{margin-bottom:0}
 
+/* The gap between one paragraph and the next thing in a panel.
+
+   The reset in fivemile-shell.css gives every element margin:0, and .lede
+   hands 18px of it back. So a paragraph carrying the class spaces itself and
+   a plain one does not, and a paragraph added next to a plain one runs
+   straight on from it. That is invisible in the source and only shows in a
+   render. fivemile-archive.css carried a .panel.intro > p + p rule at 12px
+   that fixed it on the two pages loading that file, and missed both the
+   other sixteen and every .panel without .intro, which is where heritage
+   keeps its openings.
+
+   One rule, in the file the panel itself is drawn in, at the number .lede
+   already uses. The gap is now the same whichever class a paragraph has and
+   on whichever page it sits, and margins collapse, so a .lede beside a plain
+   paragraph is still one 18px gap and not two. The :last-child rule above
+   still takes the margin off the one on the end.
+
+   About is the one page that does not take this, and that is not an
+   oversight. .abt p in its own style block sets a looser 1.8 line and a
+   14.4px gap for the longest read on the site, at the same specificity as
+   this rule and after it in the cascade. Leave it. */
+.panel > p{margin-bottom:18px}
+
 /* Prose alone in a mounted panel runs the panel's width, and the 24px padding
    is its measure. The 64ch in fivemile-shell.css is for a paragraph sitting on
    the open page, where nothing but the line length is holding it in. Inside a

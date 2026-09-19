@@ -40,11 +40,6 @@
    a first section, which is the one place it disagrees with the shell. */
 .wrap{padding-top:26px}
 
-/* The hub's opening runs to four paragraphs since it started saying how to ask
-   the search, and the reset in the shell gives a paragraph no margin at all.
-   Margins collapse, so the gap under the lede stays the lede's own 18px. */
-.panel.intro > p + p{margin-top:12px}
-
 /* An odd number of panels in a two column grid leaves one on its own with a
    hole beside it, so the last takes the whole row instead. The hub needed it
    while it had five rooms, did not at six, and needs it again at seven for the
