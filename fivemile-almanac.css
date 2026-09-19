@@ -132,6 +132,10 @@ section.top{padding:24px 0 0}
 .send h2{margin:0 0 6px;font-size:20px;font-weight:800}
 .send p{margin:0 auto 14px;color:#6B6156;font-size:16.5px;max-width:52ch}
 .send .btn{min-height:44px;font-size:15.5px;display:inline-flex;align-items:center;justify-content:center;padding:0 20px;text-decoration:none}
+/* Two doors rather than one, because a wildlife sighting and a creek reading
+   do not go to the same place. The address does not break, so on a phone the
+   pair stacks instead of squeezing. */
+.send-doors{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 
 /* ---------------------------------------------------------------------------
    THE DATELINE

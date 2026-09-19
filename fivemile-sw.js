@@ -205,7 +205,7 @@
 // when a record is broken, and fivemile-archive.html and fivemile-archive.js
 // both changed. A returning reader holding the old script would get four tiles
 // of em dashes. See DECISIONS.md 88.
-const CACHE_NAME = 'fivemile-v96';
+const CACHE_NAME = 'fivemile-v97';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
