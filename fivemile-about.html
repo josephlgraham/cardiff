@@ -92,9 +92,13 @@
    46. */
 
 /* The 34px section rhythm is section.blk out of the shell. .abt is only the
-   prose scope, so a section carries both. */
-.abt p{font-size:16.5px;line-height:1.8;color:var(--ink2);margin-bottom:.9rem}
-.abt p:last-child{margin-bottom:0}
+   prose scope, so a section carries both.
+
+   There is no .abt p rule any more. It set a 1.8 line and a .9rem gap, which
+   made this the one page on the site whose paragraphs did not read like the
+   rest, and every paragraph here sits in a .panel, where fivemile-shell.css
+   and fivemile-cards.css already set the size, the line, the colour and the
+   gap. Do not put a page local paragraph rule back. */
 .abt strong{color:var(--ink);font-weight:700}
 /* A link in the prose is red and bold. A support button is not prose and must
    be carved out by hand: .abt a outweighs .support-btn-primary, so without the
@@ -102,12 +106,6 @@
    block. */
 .abt a:not(.support-btn){color:var(--red);font-weight:700;text-decoration:none}
 .abt a:not(.support-btn):hover,.abt a:not(.support-btn):focus-visible{text-decoration:underline}
-
-/* The runs and does-not-run lists. Plain, one item a line, no bullets, because
-   they read as a short inventory rather than an argument. */
-.abt-list{list-style:none;margin:0 0 .9rem;padding:0}
-.abt-list li{font-size:16.5px;line-height:1.8;color:var(--ink2);padding-left:1.1rem;position:relative}
-.abt-list li::before{content:"";position:absolute;left:0;top:.78em;width:5px;height:5px;border-radius:50%;background:var(--ink3)}
 
 /* Support. The one panel on the page with buttons in it. The buttons do not
    grow to a third of a thousand pixels each: they take their content and sit

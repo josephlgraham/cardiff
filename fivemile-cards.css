@@ -452,10 +452,11 @@ a.card-dept:hover .d-go{color:var(--masthead)}
    paragraph is still one 18px gap and not two. The :last-child rule above
    still takes the margin off the one on the end.
 
-   About is the one page that does not take this, and that is not an
-   oversight. .abt p in its own style block sets a looser 1.8 line and a
-   14.4px gap for the longest read on the site, at the same specificity as
-   this rule and after it in the cascade. Leave it. */
+   About held out for a while, with an .abt p rule in its own style block at
+   a 1.8 line and a 14.4px gap, which won on equal specificity by loading
+   after this file. That rule is gone and About now reads like everywhere
+   else. A page local paragraph gap is the thing this rule exists to stop,
+   so do not put another one back. */
 .panel > p{margin-bottom:18px}
 
 /* Prose alone in a mounted panel runs the panel's width, and the 24px padding
