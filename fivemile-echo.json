@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T10:23:45.383Z",
+  "updatedAt": "2026-09-20T19:33:35.839Z",
   "source": "US EPA ECHO, Clean Water Act facility search",
   "source_url": "https://echo.epa.gov/",
   "note": "Every figure here comes from EPA. Quarters in noncompliance are out of the last twelve. This file records what EPA published and links to it, and says nothing else about any facility.",
@@ -40,8 +40,8 @@
     "read_from_permit": "ALG120453"
   },
   "counts": {
-    "basin_rows_scanned": 1931,
-    "in_watershed_active": 49,
+    "basin_rows_scanned": 1935,
+    "in_watershed_active": 50,
     "in_watershed_terminated": 77
   },
   "facilities": [
@@ -128,7 +128,7 @@
       "quarters_in_noncompliance": 8,
       "quarters_in_significant_noncompliance": 0,
       "violation_status": "Yes",
-      "last_inspection": "03/25/2025",
+      "last_inspection": "08/28/2026",
       "lat": 33.557464,
       "lon": -86.799671,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0003247",
@@ -148,7 +148,7 @@
           "quarters": 1
         }
       ],
-      "inspections": 4,
+      "inspections": 5,
       "formal_enforcement_actions": 0,
       "total_penalties": "$0"
     },
@@ -444,7 +444,7 @@
       "quarters_in_noncompliance": 1,
       "quarters_in_significant_noncompliance": 0,
       "violation_status": "No",
-      "last_inspection": "07/30/2025",
+      "last_inspection": "08/19/2026",
       "lat": 33.5937,
       "lon": -86.8619,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0026913"
@@ -465,7 +465,7 @@
       "quarters_in_noncompliance": 1,
       "quarters_in_significant_noncompliance": 1,
       "violation_status": "No",
-      "last_inspection": "04/19/2024",
+      "last_inspection": "08/19/2026",
       "lat": 33.611441,
       "lon": -86.889984,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0027642"
@@ -487,8 +487,8 @@
       "quarters_in_significant_noncompliance": 0,
       "violation_status": "No",
       "last_inspection": "02/10/2026",
-      "lat": 33.63184,
-      "lon": -86.94616,
+      "lat": 33.641555,
+      "lon": -86.952295,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=AL0056120"
     },
     {
@@ -845,6 +845,22 @@
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG640033"
     },
     {
+      "name": "R+L CARRIERS - BIR",
+      "permit": "ALG141216",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": "FIVEMILE CREEK",
+      "hydrologic_units": [],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": null,
+      "lat": 33.567703,
+      "lon": -86.85519,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG141216"
+    },
+    {
       "name": "READY MIX USA - TARRANT PLANT",
       "permit": "ALG110517",
       "city": "BIRMINGHAM",
@@ -1088,27 +1104,6 @@
     },
     {
       "name": "VENTURA FOODS, LLC - BIRMINGHAM",
-      "permit": "ALP000146",
-      "city": "BIRMINGHAM",
-      "status": "Effective",
-      "receiving_water": null,
-      "hydrologic_units": [
-        {
-          "code": "031601110406",
-          "name": "Upper Fivemile Creek"
-        }
-      ],
-      "design_flow_mgd": 0,
-      "quarters_in_noncompliance": 0,
-      "quarters_in_significant_noncompliance": 0,
-      "violation_status": "No",
-      "last_inspection": "04/30/2026",
-      "lat": 33.56117,
-      "lon": -86.78339,
-      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALP000146"
-    },
-    {
-      "name": "VENTURA FOODS, LLC - BIRMINGHAM",
       "permit": "ALG150122",
       "city": "BIRMINGHAM",
       "status": "Effective",
@@ -1127,6 +1122,27 @@
       "lat": 33.56117,
       "lon": -86.78339,
       "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALG150122"
+    },
+    {
+      "name": "VENTURA FOODS, LLC - BIRMINGHAM",
+      "permit": "ALP000146",
+      "city": "BIRMINGHAM",
+      "status": "Effective",
+      "receiving_water": null,
+      "hydrologic_units": [
+        {
+          "code": "031601110406",
+          "name": "Upper Fivemile Creek"
+        }
+      ],
+      "design_flow_mgd": 0,
+      "quarters_in_noncompliance": 0,
+      "quarters_in_significant_noncompliance": 0,
+      "violation_status": "No",
+      "last_inspection": "04/30/2026",
+      "lat": 33.56117,
+      "lon": -86.78339,
+      "echo_url": "https://echo.epa.gov/detailed-facility-report?fid=ALP000146"
     },
     {
       "name": "WATSON CLEAN WATER FACILITY",
