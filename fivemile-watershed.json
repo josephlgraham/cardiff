@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T01:33:19.426Z",
+  "updatedAt": "2026-09-20T06:58:50.435Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -25,11 +25,11 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 70,
-      "highTemp": 96,
-      "windGust": 2,
-      "label": "So far today",
-      "isMorning": false,
-      "coverageStart": "2026-09-19"
+      "highTemp": 70,
+      "windGust": 0,
+      "label": "Since midnight",
+      "isMorning": true,
+      "coverageStart": "2026-09-20"
     }
   },
   "gauges": [
@@ -48,12 +48,12 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.03,
       "discharge_cfs": 12.5,
-      "water_temp_f": 81.7,
-      "dissolved_oxygen_mgl": 7.1,
-      "specific_conductance_uscm": 583,
+      "water_temp_f": 78.8,
+      "dissolved_oxygen_mgl": 6,
+      "specific_conductance_uscm": 587,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-09-20T01:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-09-20T06:00:00+00:00",
       "stage_history": [
         {
           "at": "2026-08-21T07:30:00+00:00",
@@ -524,11 +524,11 @@
           "stage_ft": 1.04
         },
         {
-          "at": "2026-09-19T19:45:00+00:00",
-          "stage_ft": 1.04
+          "at": "2026-09-20T01:00:00+00:00",
+          "stage_ft": 1.03
         },
         {
-          "at": "2026-09-20T01:00:00+00:00",
+          "at": "2026-09-20T06:00:00+00:00",
           "stage_ft": 1.03
         }
       ],
@@ -554,7 +554,7 @@
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-09-20T01:00:00+00:00",
+      "updated_at": "2026-09-20T06:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
