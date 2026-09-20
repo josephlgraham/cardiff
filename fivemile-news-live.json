@@ -1,12 +1,15 @@
 {
-  "updatedAt": "2026-09-20T01:04:01.222Z",
+  "updatedAt": "2026-09-20T14:41:21.905Z",
   "counts": {
     "nearby": 3,
-    "county": 3,
+    "towns": 1,
+    "county": 4,
     "obituaries": 3
   },
   "sections": {
-    "towns": [],
+    "towns": [
+      "news-4-wbrc-annual-car-show-fundraiser-in-graysville"
+    ],
     "nearby": [
       "news-1-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
       "news-2-abc-33-40-70-year-old-sylvan-springs-man-dies-in-mulga-motorcycle-cras",
@@ -14,14 +17,15 @@
     ],
     "creek": [],
     "county": [
-      "news-4-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
-      "news-5-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during",
-      "news-6-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party"
+      "news-5-wbrc-man-accused-of-capital-murder-acquitted-after-jefferson-coun",
+      "news-6-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
+      "news-7-cbs-42-aldot-planning-temporary-nightly-ramp-closures-on-i-459-in-h",
+      "news-8-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party"
     ],
     "obituaries": [
-      "news-7-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
-      "news-8-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
-      "news-9-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026"
+      "news-9-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
+      "news-10-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "news-11-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026"
     ]
   },
   "stories": [
@@ -42,7 +46,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -84,7 +88,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -126,7 +130,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -152,7 +156,82 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/BB-days-1.png?w=900"
     },
     {
-      "id": "news-4-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
+      "id": "news-4-wbrc-annual-car-show-fundraiser-in-graysville",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Annual car show fundraiser in Graysville",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWGFzdTdIYXh6LU5MUXduWjRXYjVSTS1ielV1bzZLWGs4d0pnQzA1dUhQRUNvQjRhVTFVcDR1M196MFBkVGJ4NUl4SGZReHBYenplMU1wVFhiaEpTVHhac1hTbm1qZWdIRUt4cV9hRFdPRkFDTWw3eDM2dnJmd3V4WUNn?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWGFzdTdIYXh6LU5MUXduWjRXYjVSTS1ielV1bzZLWGs4d0pnQzA1dUhQRUNvQjRhVTFVcDR1M196MFBkVGJ4NUl4SGZReHBYenplMU1wVFhiaEpTVHhac1hTbm1qZWdIRUt4cV9hRFdPRkFDTWw3eDM2dnJmd3V4WUNn?oc=5",
+      "published_at": "2026-09-17T17:00:00.000Z",
+      "date": "2026-09-17T17:00:00.000Z",
+      "location_tags": [
+        "graysville"
+      ],
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-5-wbrc-man-accused-of-capital-murder-acquitted-after-jefferson-coun",
+      "section": "county",
+      "why": "jefferson county, the creek",
+      "town": "Jefferson County",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LVZB3GZZCNBCLM54MK2BZAAEEE.jpg?auth=5d8b1b090b8673a3b52146dac2a61da490511cb32f10b1665f77094adc10d56c&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Man accused of capital murder acquitted after Jefferson County jury reaches unanimous verdict",
+      "summary": "The trail started Monday and the jury reached a unanimous verdict Thursday.",
+      "description": "The trail started Monday and the jury reached a unanimous verdict Thursday.",
+      "url": "https://www.wbrc.com/2026/09/20/man-accused-capital-murder-acquitted-after-jefferson-county-jury-reaches-unanimous-verdict/",
+      "link": "https://www.wbrc.com/2026/09/20/man-accused-capital-murder-acquitted-after-jefferson-county-jury-reaches-unanimous-verdict/",
+      "published_at": "2026-09-20T03:57:34.000Z",
+      "date": "2026-09-20T03:57:34.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LVZB3GZZCNBCLM54MK2BZAAEEE.jpg?auth=5d8b1b090b8673a3b52146dac2a61da490511cb32f10b1665f77094adc10d56c&smart=false"
+    },
+    {
+      "id": "news-6-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -168,7 +247,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -194,33 +273,33 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NTVDO65WFFUHOIXZRAK3KPMA4.jpeg?auth=5e8f53820449041c78339a0d28dfff3a3a212de0bc0737f0bc5655866a8a6c7f&smart=false"
     },
     {
-      "id": "news-5-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during",
+      "id": "news-7-cbs-42-aldot-planning-temporary-nightly-ramp-closures-on-i-459-in-h",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
       "tags": [
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1079/986/0x352/90/a7dc6db0-a552-460b-a7f5-5e694da749eb-091826ROUND1I459RAMPCLOSURES.png",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/ALDOT-planning-temporary-nightly-ramp-closures-on-I-459-in-Hoover-due-to-resurfacing.png?w=720",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "CBS 42"
       },
       "obit": null,
       "score": 24,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "ALDOT announces nightly I-459 ramp closures in Hoover during resurfacing project",
-      "summary": "Drivers in Hoover should prepare for a series of overnight ramp closures along Interstate 459 as crews continue a resurfacing project that will last into 2027.T",
-      "description": "Drivers in Hoover should prepare for a series of overnight ramp closures along Interstate 459 as crews continue a resurfacing project that will last into 2027.T",
-      "url": "https://abc3340.com/news/local/alabama-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during-resurfacing-project-september-2026-to-2027",
-      "link": "https://abc3340.com/news/local/alabama-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during-resurfacing-project-september-2026-to-2027",
-      "published_at": "2026-09-18T21:55:15.000Z",
-      "date": "2026-09-18T21:55:15.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "ALDOT planning temporary nightly ramp closures on I-459 in Hoover due to resurfacing",
+      "summary": "HOOVER, Ala. (WIAT) -- The Alabama Department of Transportation (ALDOT) reported that a selection of entrance and exit ramps on I-459 will be temporarily closed starting Sept. 20 due to an ongoing resurfacing project. Each night, select ramps will remain closed from 7 p.m. to 6 a.m. Here is the tentative schedule for t",
+      "description": "HOOVER, Ala. (WIAT) -- The Alabama Department of Transportation (ALDOT) reported that a selection of entrance and exit ramps on I-459 will be temporarily closed starting Sept. 20 due to an ongoing resurfacing project. Each night, select ramps will remain closed from 7 p.m. to 6 a.m. Here is the tentative schedule for t",
+      "url": "https://www.alabamas42.com/traffic/aldot-planning-temporary-nightly-ramp-closures-on-i-459-in-hoover-due-to-resurfacing/",
+      "link": "https://www.alabamas42.com/traffic/aldot-planning-temporary-nightly-ramp-closures-on-i-459-in-hoover-due-to-resurfacing/",
+      "published_at": "2026-09-19T02:11:21.000Z",
+      "date": "2026-09-19T02:11:21.000Z",
       "location_tags": [
         "regional"
       ],
@@ -233,10 +312,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": true,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x352/90/a7dc6db0-a552-460b-a7f5-5e694da749eb-091826ROUND1I459RAMPCLOSURES.png"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/ALDOT-planning-temporary-nightly-ramp-closures-on-I-459-in-Hoover-due-to-resurfacing.png?w=720"
     },
     {
-      "id": "news-6-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party",
+      "id": "news-8-abc-33-40-road-closure-planned-for-uab-center-for-the-arts-block-party",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -252,7 +331,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -278,7 +357,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1112/986/39x0/90/5a8fd725-3095-445b-8619-e13c2b690005-2026BlockParty_WebArt1215x62611190x626.jpg"
     },
     {
-      "id": "news-7-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
+      "id": "news-9-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -296,7 +375,7 @@
         "service": "",
         "serviceLabel": "Tuesday, September 22"
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -322,7 +401,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
+      "id": "news-10-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -366,7 +445,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026",
+      "id": "news-11-wolfefuneralhomes-com-paul-durant-myrick-obituary-sep-14-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
