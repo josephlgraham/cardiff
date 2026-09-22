@@ -1,27 +1,28 @@
 {
-  "updatedAt": "2026-09-22T01:35:13.679Z",
+  "updatedAt": "2026-09-22T15:30:59.264Z",
   "counts": {
-    "nearby": 5,
-    "county": 2,
-    "obituaries": 2
+    "nearby": 4,
+    "county": 5,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
       "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
       "news-2-trussville-tribune-warrior-police-officer-arrested-on-domestic-violence-misdeme",
-      "news-3-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
-      "news-4-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe",
-      "news-5-birmingham-times-understanding-alopecia-local-dermatologist-shares-what-to-wa"
+      "news-4-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
+      "news-5-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe"
     ],
     "creek": [],
     "county": [
-      "news-6-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
-      "news-7-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during"
+      "news-3-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "news-6-wbrc-mississippi-man-dies-more-than-a-week-after-i-59-crash",
+      "news-7-al-com-alabama-senate-candidate-moore-s-support-for-trump-5-000-ele",
+      "news-8-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
+      "news-9-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during"
     ],
     "obituaries": [
-      "news-8-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
-      "news-9-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo"
+      "news-10-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026"
     ]
   },
   "stories": [
@@ -42,7 +43,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 38,
+      "score": 37,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -84,7 +85,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -110,7 +111,51 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Ricky-Pridmore.jpeg"
     },
     {
-      "id": "news-3-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
+      "id": "news-3-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads",
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1306/986/0x64/90/a86115f2-8332-4e39-a6a3-31f132a5ba7a-FLOCKLPR.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Who’s Reading Your Tag? Records show 430 police sensors approved across central Alabama",
+      "summary": "BIRMINGHAM, Ala. (WBMA) — Florida transportation officials recently ordered license plate readers removed from state highways after raising concerns about misus",
+      "description": "BIRMINGHAM, Ala. (WBMA) — Florida transportation officials recently ordered license plate readers removed from state highways after raising concerns about misus",
+      "url": "https://abc3340.com/news/local/whos-reading-your-tag-records-show-430-police-sensors-approved-across-central-alabama",
+      "link": "https://abc3340.com/news/local/whos-reading-your-tag-records-show-430-police-sensors-approved-across-central-alabama",
+      "published_at": "2026-09-22T15:07:49.000Z",
+      "date": "2026-09-22T15:07:49.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads",
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1306/986/0x64/90/a86115f2-8332-4e39-a6a3-31f132a5ba7a-FLOCKLPR.jpg"
+    },
+    {
+      "id": "news-4-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -126,7 +171,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -152,7 +197,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Deundray-Cottrells-family-speaks-about-arrest-made-in-2024-murder-case.jpg?w=800"
     },
     {
-      "id": "news-4-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe",
+      "id": "news-5-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe",
       "section": "nearby",
       "why": "names north jefferson",
       "town": "North Jefferson",
@@ -168,7 +213,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -194,45 +239,91 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/BB-days-1.png?w=900"
     },
     {
-      "id": "news-5-birmingham-times-understanding-alopecia-local-dermatologist-shares-what-to-wa",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
-      "outlet": "Birmingham Times",
+      "id": "news-6-wbrc-mississippi-man-dies-more-than-a-week-after-i-59-crash",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
       "paywall": false,
       "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/ALOPECIA_WEB4-150x150.jpg",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//2JS2SAP4JBEHDMXJ5JJNGMS2I4.png?auth=fefa55a2b54d97ee01b41f65bea92538175186c29e99ae7f5cb4c4d71cb15a9f&smart=false",
         "from": "feed",
         "width": null,
-        "credit": "Birmingham Times"
+        "credit": "WBRC"
       },
       "obit": null,
-      "score": 30,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Understanding Alopecia: Local Dermatologist Shares What to Watch For, Explains Different Types",
-      "summary": "A group of fellow alopecia warriors at the first Don’t Stare! Just Ask (DSJA) Alopecia Awareness Walk. (Solomon Crenshaw Jr., For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/ALOPECIA_WEB4-1024x683.jpg\" />By Solomon Crenshaw Jr. | For the Birmingham Times A diagnos",
-      "description": "A group of fellow alopecia warriors at the first Don’t Stare! Just Ask (DSJA) Alopecia Awareness Walk. (Solomon Crenshaw Jr., For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/ALOPECIA_WEB4-1024x683.jpg\" />By Solomon Crenshaw Jr. | For the Birmingham Times A diagnos",
-      "url": "https://www.birminghamtimes.com/2026/09/understanding-alopecia-local-dermatologist-shares-what-to-watch-for-explains-different-types/",
-      "link": "https://www.birminghamtimes.com/2026/09/understanding-alopecia-local-dermatologist-shares-what-to-watch-for-explains-different-types/",
-      "published_at": "2026-09-21T01:13:36.000Z",
-      "date": "2026-09-21T01:13:36.000Z",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Mississippi man dies more than a week after I-59 crash",
+      "summary": "The Jefferson County Coroner’s Office has identified the man as 64-year-old Terry Lynn Goolsby of Pontotic, Mississippi.",
+      "description": "The Jefferson County Coroner’s Office has identified the man as 64-year-old Terry Lynn Goolsby of Pontotic, Mississippi.",
+      "url": "https://www.wbrc.com/2026/09/22/mississippi-man-dies-more-than-week-after-i-59-crash/",
+      "link": "https://www.wbrc.com/2026/09/22/mississippi-man-dies-more-than-week-after-i-59-crash/",
+      "published_at": "2026-09-22T15:07:02.000Z",
+      "date": "2026-09-22T15:07:02.000Z",
       "location_tags": [
-        "warrior"
+        "jefferson-county"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": true,
+      "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/ALOPECIA_WEB4-150x150.jpg"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//2JS2SAP4JBEHDMXJ5JJNGMS2I4.png?auth=fefa55a2b54d97ee01b41f65bea92538175186c29e99ae7f5cb4c4d71cb15a9f&smart=false"
     },
     {
-      "id": "news-6-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
+      "id": "news-7-al-com-alabama-senate-candidate-moore-s-support-for-trump-5-000-ele",
+      "section": "county",
+      "why": "alabama senate, government",
+      "town": "Regional",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/GS5KPYUHARAYBCHF4OOLUECYUE.jpg?auth=a10f153c2f52fe41ce1104838a1650cf6d107b138191431bdc7a8c596c294b45&smart=true&height=1200",
+        "from": "feed",
+        "width": 1920,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Alabama Senate candidate: Moore’s support for Trump $5,000 election offer could be bribery",
+      "summary": "“Alabama voters should ask whether that is responsible public policy, or an attempt to turn taxpayer dollars into political leverage,\" Everett Wess said.",
+      "description": "“Alabama voters should ask whether that is responsible public policy, or an attempt to turn taxpayer dollars into political leverage,\" Everett Wess said.",
+      "url": "https://www.al.com/news/2026/09/alabama-senate-candidate-barry-moores-support-for-trump-5000-election-offer-could-be-bribery.html",
+      "link": "https://www.al.com/news/2026/09/alabama-senate-candidate-barry-moores-support-for-trump-5000-election-offer-could-be-bribery.html",
+      "published_at": "2026-09-22T14:20:53.000Z",
+      "date": "2026-09-22T14:20:53.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/GS5KPYUHARAYBCHF4OOLUECYUE.jpg?auth=a10f153c2f52fe41ce1104838a1650cf6d107b138191431bdc7a8c596c294b45&smart=true&height=1200"
+    },
+    {
+      "id": "news-8-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -248,7 +339,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -274,7 +365,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NTVDO65WFFUHOIXZRAK3KPMA4.jpeg?auth=5e8f53820449041c78339a0d28dfff3a3a212de0bc0737f0bc5655866a8a6c7f&smart=false"
     },
     {
-      "id": "news-7-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during",
+      "id": "news-9-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -290,7 +381,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -316,7 +407,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x352/90/a7dc6db0-a552-460b-a7f5-5e694da749eb-091826ROUND1I459RAMPCLOSURES.png"
     },
     {
-      "id": "news-8-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
+      "id": "news-10-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -334,7 +425,7 @@
         "service": "",
         "serviceLabel": "Tuesday, September 22"
       },
-      "score": 10,
+      "score": 9,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -347,50 +438,6 @@
       "date": "2026-09-19T18:34:40.000Z",
       "location_tags": [
         "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 1,
-      "priority": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-9-birmingham-times-remember-reflect-recommit-16th-street-baptist-church-commemo",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Remember, Reflect, Recommit: 16th Street Baptist Church Commemorates Anniversary of 1963 Bombing, Opens Education Center",
-        "age": null,
-        "town": "",
-        "home": "Birmingham Times",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 8,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Remember, Reflect, Recommit: 16th Street Baptist Church Commemorates Anniversary of 1963 Bombing, Opens Education Center",
-      "summary": "A memorial service to commemorate the four girls killed in the 1963 bombing is held annually at 16th Street Baptist Church. (Marika N. Johnson, For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/0915B-16th-str-_18-1024x683.jpg\" />By Javacia Harris Bowser | The Birmin",
-      "description": "A memorial service to commemorate the four girls killed in the 1963 bombing is held annually at 16th Street Baptist Church. (Marika N. Johnson, For The Birmingham Times) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/0915B-16th-str-_18-1024x683.jpg\" />By Javacia Harris Bowser | The Birmin",
-      "url": "https://www.birminghamtimes.com/2026/09/remember-reflect-recommit-16th-street-baptist-church-commemorates-anniversary-of-1963-bombing-opens-education-center/",
-      "link": "https://www.birminghamtimes.com/2026/09/remember-reflect-recommit-16th-street-baptist-church-commemorates-anniversary-of-1963-bombing-opens-education-center/",
-      "published_at": "2026-09-15T22:25:31.000Z",
-      "date": "2026-09-15T22:25:31.000Z",
-      "location_tags": [
-        "birmingham"
       ],
       "topic_tags": [
         "obituary"
