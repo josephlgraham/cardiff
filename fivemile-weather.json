@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-22T06:32:34.516Z",
-  "temp": 70,
+  "updatedAt": "2026-09-22T10:06:17.549Z",
+  "temp": 66,
   "humidity": 99,
   "windSpeed": 0,
   "windDir": 23,
@@ -14,14 +14,14 @@
   "weeklyRain": 0,
   "monthlyRain": 0.84,
   "yearlyRain": 56.65,
-  "feelsLike": 71,
-  "dewPoint": 70,
-  "lastUpdated": "2026-09-22T06:32:00.000Z",
+  "feelsLike": 66,
+  "dewPoint": 66,
+  "lastUpdated": "2026-09-22T10:05:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 70,
-    "feelsLike": 71,
-    "feels": 71,
+    "temp": 66,
+    "feelsLike": 66,
+    "feels": 66,
     "humidity": 99,
     "windSpeed": 0,
     "windDir": "NNE",
@@ -34,9 +34,9 @@
     "pressureIn": 29.651,
     "uv": 0,
     "solarRadiation": 0,
-    "dewPoint": 70,
-    "obsTime": "2026-09-22T06:32:00.000Z",
-    "lastUpdated": "2026-09-22T06:32:00.000Z",
+    "dewPoint": 66,
+    "obsTime": "2026-09-22T10:05:00.000Z",
+    "lastUpdated": "2026-09-22T10:05:00.000Z",
     "condition": "Clear",
     "source": "Ambient Weather",
     "sourceNote": null
@@ -51,7 +51,7 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 70,
+      "lowTemp": 66,
       "highTemp": 70,
       "windGust": 0,
       "label": "Since midnight",
@@ -63,7 +63,7 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-09-22T01:00:00-05:00",
+      "startTime": "2026-09-22T05:00:00-05:00",
       "endTime": "2026-09-22T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 70,
@@ -71,7 +71,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 14
+        "value": 12
       },
       "windSpeed": "0 mph",
       "windDirection": "",
