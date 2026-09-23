@@ -1,61 +1,64 @@
 {
-  "updatedAt": "2026-09-22T15:30:59.264Z",
+  "updatedAt": "2026-09-23T01:28:20.267Z",
   "counts": {
-    "nearby": 4,
-    "county": 5,
-    "obituaries": 1
+    "nearby": 6,
+    "county": 3,
+    "obituaries": 4
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
-      "news-2-trussville-tribune-warrior-police-officer-arrested-on-domestic-violence-misdeme",
-      "news-4-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
-      "news-5-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe"
+      "news-1-wvtm-13-suspect-wanted-on-rape-kidnapping-charges-dies-after-pursuit",
+      "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
+      "news-3-abc-33-40-suspect-dies-by-suicide-after-pursuit-shots-fired-in-forestd",
+      "news-4-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
+      "news-7-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "news-8-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
-      "news-6-wbrc-mississippi-man-dies-more-than-a-week-after-i-59-crash",
-      "news-7-al-com-alabama-senate-candidate-moore-s-support-for-trump-5-000-ele",
-      "news-8-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
-      "news-9-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during"
+      "news-5-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "news-6-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
+      "news-9-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham"
     ],
     "obituaries": [
-      "news-10-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026"
+      "news-10-trussville-tribune-ida-mae-ryant-january-17-1937-september-13-2026",
+      "news-11-trussville-tribune-frankie-charles-stephenson-june-14-1951-september-14-2026",
+      "news-12-trussville-tribune-betty-a-gillespie-may-20-1930-september-18-2026",
+      "news-13-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
+      "id": "news-1-wvtm-13-suspect-wanted-on-rape-kidnapping-charges-dies-after-pursuit",
       "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
+      "why": "names forestdale",
+      "town": "Forestdale",
       "tags": [
         "Public safety"
       ],
-      "outlet": "WBRC",
+      "outlet": "WVTM 13",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false",
+        "url": "https://kubrick.htvapps.com/htv-prod/ibmig/cms/image/wvtm/30405088-30405088.jpg",
         "from": "feed",
         "width": null,
-        "credit": "WBRC"
+        "credit": "WVTM 13"
       },
       "obit": null,
       "score": 37,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Warrior police sergeant on leave after domestic violence arrest",
-      "summary": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
-      "description": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
-      "url": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
-      "link": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
-      "published_at": "2026-09-21T18:18:39.000Z",
-      "date": "2026-09-21T18:18:39.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Suspect wanted on rape, kidnapping charges dies after pursuit ends in Forestdale",
+      "summary": "A 49-year-old man wanted on rape and kidnapping charges died Tuesday after a chase ended in Forestdale, according to the Jefferson County Sheriff’s Office.",
+      "description": "A 49-year-old man wanted on rape and kidnapping charges died Tuesday after a chase ended in Forestdale, according to the Jefferson County Sheriff’s Office.",
+      "url": "https://www.wvtm13.com/article/suspect-death-pursuit-forestdale-jefferson-county/73842551",
+      "link": "https://www.wvtm13.com/article/suspect-death-pursuit-forestdale-jefferson-county/73842551",
+      "published_at": "2026-09-22T23:39:00.000Z",
+      "date": "2026-09-22T23:39:00.000Z",
       "location_tags": [
-        "warrior"
+        "forestdale"
       ],
       "topic_tags": [
         "public-safety"
@@ -66,41 +69,125 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false"
+      "image_url": "https://kubrick.htvapps.com/htv-prod/ibmig/cms/image/wvtm/30405088-30405088.jpg"
     },
     {
-      "id": "news-2-trussville-tribune-warrior-police-officer-arrested-on-domestic-violence-misdeme",
+      "id": "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
       "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
+      "why": "names kimberly",
+      "town": "Kimberly",
+      "tags": [
+        "Business"
+      ],
+      "outlet": "BirminghamWatch",
+      "paywall": false,
+      "image": {
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-22-2026-Luke-Wingo-of-Blackwater-Real-Estate-speaks-to-commission-as-Jeff-Traywick-looks-on.jpg",
+        "from": "feed",
+        "width": 1024,
+        "credit": "BirminghamWatch"
+      },
+      "obit": null,
+      "score": 37,
+      "source_type": "media_feed",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "County considers incentives for development to address food desert in Kimberly area",
+      "summary": "The retail development would include a Publix Supermarket. The post County considers incentives for development to address food desert in Kimberly area appeared first on BirminghamWatch .",
+      "description": "The retail development would include a Publix Supermarket. The post County considers incentives for development to address food desert in Kimberly area appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/09/22/county-considers-incentives-for-development-to-address-food-desert-in-kimberly-area/",
+      "link": "https://birminghamwatch.org/2026/09/22/county-considers-incentives-for-development-to-address-food-desert-in-kimberly-area/",
+      "published_at": "2026-09-23T01:18:30.000Z",
+      "date": "2026-09-23T01:18:30.000Z",
+      "location_tags": [
+        "kimberly"
+      ],
+      "topic_tags": [
+        "business"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-22-2026-Luke-Wingo-of-Blackwater-Real-Estate-speaks-to-commission-as-Jeff-Traywick-looks-on.jpg"
+    },
+    {
+      "id": "news-3-abc-33-40-suspect-dies-by-suicide-after-pursuit-shots-fired-in-forestd",
+      "section": "nearby",
+      "why": "names forestdale",
+      "town": "Forestdale",
       "tags": [
         "Public safety"
       ],
-      "outlet": "Trussville Tribune",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Ricky-Pridmore.jpeg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+        "url": "https://abc3340.com/resources/media2/16x9/876/986/20x0/90/a1b541d2-7d5c-4119-9dd3-311ac814291a-ForestdaleChase4.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 36,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Warrior police officer arrested on domestic violence misdemeanor charge",
-      "summary": "WARRIOR, Ala. — An officer of the Warrior Police Department was recently charged with a misdemeanor related to alleged domestic violence and harassment. Arrest records from the Jefferson County Sheriff’s Office listed Ricky Thomas Pridmore, 36, as being charged with third degree domestic violence – harassment, a Class ",
-      "description": "WARRIOR, Ala. — An officer of the Warrior Police Department was recently charged with a misdemeanor related to alleged domestic violence and harassment. Arrest records from the Jefferson County Sheriff’s Office listed Ricky Thomas Pridmore, 36, as being charged with third degree domestic violence – harassment, a Class ",
-      "url": "https://www.trussvilletribune.com/2026/09/21/warrior-police-officer-arrested-on-domestic-violence-misdemeanor-charge/",
-      "link": "https://www.trussvilletribune.com/2026/09/21/warrior-police-officer-arrested-on-domestic-violence-misdemeanor-charge/",
-      "published_at": "2026-09-22T00:28:00.000Z",
-      "date": "2026-09-22T00:28:00.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Suspect dies by suicide after pursuit, shots fired in Forestdale, sheriff's office says",
+      "summary": "FORESTDALE, Ala. (WBMA) — A suspect fired shots after crashing a vehicle during a pursuit in Forestdale Tuesday morning, according to the Jefferson County Sheri",
+      "description": "FORESTDALE, Ala. (WBMA) — A suspect fired shots after crashing a vehicle during a pursuit in Forestdale Tuesday morning, according to the Jefferson County Sheri",
+      "url": "https://abc3340.com/news/local/suspect-fires-shots-after-crash-during-pursuit-in-forestdale-sheriffs-office-says",
+      "link": "https://abc3340.com/news/local/suspect-fires-shots-after-crash-during-pursuit-in-forestdale-sheriffs-office-says",
+      "published_at": "2026-09-22T17:02:05.000Z",
+      "date": "2026-09-22T17:02:05.000Z",
       "location_tags": [
-        "warrior"
+        "forestdale"
       ],
       "topic_tags": [
         "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/876/986/20x0/90/a1b541d2-7d5c-4119-9dd3-311ac814291a-ForestdaleChase4.png"
+    },
+    {
+      "id": "news-4-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
+      "section": "nearby",
+      "why": "names forestdale",
+      "town": "Forestdale",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//SU6J6JSHEJHTTN52IM2XGL7BCU.jpeg?auth=2971fd15420d0ec7cfc858743aecd1aa51c8311ab9f6eb75dd270277d7446d34&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 35,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "49-year-old man dead after chase, crash in Forestdale",
+      "summary": "An investigation is underway after an officer was injured and a man in a vehicle chase allegedly committed suicide in Forestdale, according to authorities.",
+      "description": "An investigation is underway after an officer was injured and a man in a vehicle chase allegedly committed suicide in Forestdale, according to authorities.",
+      "url": "https://www.wbrc.com/2026/09/22/man-dead-after-chase-crash-forestdale/",
+      "link": "https://www.wbrc.com/2026/09/22/man-dead-after-chase-crash-forestdale/",
+      "published_at": "2026-09-22T22:38:10.000Z",
+      "date": "2026-09-22T22:38:10.000Z",
+      "location_tags": [
+        "forestdale"
+      ],
+      "topic_tags": [
+        "roads"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -108,10 +195,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Ricky-Pridmore.jpeg"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//SU6J6JSHEJHTTN52IM2XGL7BCU.jpeg?auth=2971fd15420d0ec7cfc858743aecd1aa51c8311ab9f6eb75dd270277d7446d34&smart=false"
     },
     {
-      "id": "news-3-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "id": "news-5-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -128,7 +215,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -155,38 +242,40 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1306/986/0x64/90/a86115f2-8332-4e39-a6a3-31f132a5ba7a-FLOCKLPR.jpg"
     },
     {
-      "id": "news-4-cbs-42-deundray-cottrell-s-family-speaks-about-arrest-made-in-2024-",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
+      "id": "news-6-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
+      "section": "county",
+      "why": "birmingham, land",
+      "town": "Birmingham",
       "tags": [
-        "Public safety"
+        "Land",
+        "Business"
       ],
       "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Deundray-Cottrells-family-speaks-about-arrest-made-in-2024-murder-case.jpg?w=800",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Artistic-Cottage-View-Final-scaled.jpg.jpg?w=900",
         "from": "feed",
         "width": null,
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
-      "title": "Deundray Cottrell's family speaks about arrest made in 2024 murder case",
-      "summary": "BIRMINGHAM, Ala. (WIAT) — Tuesday, the Birmingham Police Department announced an arrest in the 2024 homicide of Deundray Cottrell. Birmingham police say 33-year-old Julian Morris, who was Cottrell's boyfriend and person of interest weeks following his death, was taken into custody in by U.S. Marshalls in Miami Monday. ",
-      "description": "BIRMINGHAM, Ala. (WIAT) — Tuesday, the Birmingham Police Department announced an arrest in the 2024 homicide of Deundray Cottrell. Birmingham police say 33-year-old Julian Morris, who was Cottrell's boyfriend and person of interest weeks following his death, was taken into custody in by U.S. Marshalls in Miami Monday. ",
-      "url": "https://www.alabamas42.com/news/deundray-cottrells-family-speaks-about-arrest-made-in-2024-murder-case/",
-      "link": "https://www.alabamas42.com/news/deundray-cottrells-family-speaks-about-arrest-made-in-2024-murder-case/",
-      "published_at": "2026-09-18T02:13:06.000Z",
-      "date": "2026-09-18T02:13:06.000Z",
+      "title": "Dobbins Group proposes $1.2 million purchase of Trussville property",
+      "summary": "A Birmingham-area developer is proposing a $33 million luxury senior living development on approximately 12 acres of city-owned property behind Food City in Trussville.",
+      "description": "A Birmingham-area developer is proposing a $33 million luxury senior living development on approximately 12 acres of city-owned property behind Food City in Trussville.",
+      "url": "https://www.alabamas42.com/trussville-tribune/dobbins-group-proposes-1-2-million-purchase-of-trussville-property/",
+      "link": "https://www.alabamas42.com/trussville-tribune/dobbins-group-proposes-1-2-million-purchase-of-trussville-property/",
+      "published_at": "2026-09-22T16:42:45.000Z",
+      "date": "2026-09-22T16:42:45.000Z",
       "location_tags": [
-        "morris"
+        "birmingham"
       ],
       "topic_tags": [
-        "public-safety"
+        "land",
+        "business"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -194,10 +283,48 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Deundray-Cottrells-family-speaks-about-arrest-made-in-2024-murder-case.jpg?w=800"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Artistic-Cottage-View-Final-scaled.jpg.jpg?w=900"
     },
     {
-      "id": "news-5-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe",
+      "id": "news-7-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "section": "nearby",
+      "why": "names gardendale",
+      "town": "Gardendale",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Santos Coffee reopens in Gardendale with revamped lobby",
+      "summary": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
+      "description": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
+      "url": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "link": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "published_at": "2026-09-22T21:06:33.000Z",
+      "date": "2026-09-22T21:06:33.000Z",
+      "location_tags": [
+        "gardendale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg"
+    },
+    {
+      "id": "news-8-cbs-42-pinson-council-hears-overview-of-upcoming-butterbean-days-fe",
       "section": "nearby",
       "why": "names north jefferson",
       "town": "North Jefferson",
@@ -213,7 +340,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -239,33 +366,33 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/BB-days-1.png?w=900"
     },
     {
-      "id": "news-6-wbrc-mississippi-man-dies-more-than-a-week-after-i-59-crash",
+      "id": "news-9-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
       "tags": [
         "Roads"
       ],
-      "outlet": "WBRC",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//2JS2SAP4JBEHDMXJ5JJNGMS2I4.png?auth=fefa55a2b54d97ee01b41f65bea92538175186c29e99ae7f5cb4c4d71cb15a9f&smart=false",
+        "url": "https://abc3340.com/resources/media2/16x9/455/986/0x25/90/3cd60d5b-619f-4eb9-a57e-1f63da0c2ba2-Ambulance2.jpg",
         "from": "feed",
         "width": null,
-        "credit": "WBRC"
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Mississippi man dies more than a week after I-59 crash",
-      "summary": "The Jefferson County Coroner’s Office has identified the man as 64-year-old Terry Lynn Goolsby of Pontotic, Mississippi.",
-      "description": "The Jefferson County Coroner’s Office has identified the man as 64-year-old Terry Lynn Goolsby of Pontotic, Mississippi.",
-      "url": "https://www.wbrc.com/2026/09/22/mississippi-man-dies-more-than-week-after-i-59-crash/",
-      "link": "https://www.wbrc.com/2026/09/22/mississippi-man-dies-more-than-week-after-i-59-crash/",
-      "published_at": "2026-09-22T15:07:02.000Z",
-      "date": "2026-09-22T15:07:02.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Mississippi man dies 10 days after I-59 crash in Birmingham",
+      "summary": "A Mississippi man has died after a multi-vehicle crash on Interstate 59 South in Birmingham.The Jefferson County Coroner’s Office identified the man as Terry Ly",
+      "description": "A Mississippi man has died after a multi-vehicle crash on Interstate 59 South in Birmingham.The Jefferson County Coroner’s Office identified the man as Terry Ly",
+      "url": "https://abc3340.com/news/local/mississippi-man-dies-10-days-after-i-59-crash-in-birmingham",
+      "link": "https://abc3340.com/news/local/mississippi-man-dies-10-days-after-i-59-crash-in-birmingham",
+      "published_at": "2026-09-22T13:38:51.000Z",
+      "date": "2026-09-22T13:38:51.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -278,136 +405,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//2JS2SAP4JBEHDMXJ5JJNGMS2I4.png?auth=fefa55a2b54d97ee01b41f65bea92538175186c29e99ae7f5cb4c4d71cb15a9f&smart=false"
+      "image_url": "https://abc3340.com/resources/media2/16x9/455/986/0x25/90/3cd60d5b-619f-4eb9-a57e-1f63da0c2ba2-Ambulance2.jpg"
     },
     {
-      "id": "news-7-al-com-alabama-senate-candidate-moore-s-support-for-trump-5-000-ele",
-      "section": "county",
-      "why": "alabama senate, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/GS5KPYUHARAYBCHF4OOLUECYUE.jpg?auth=a10f153c2f52fe41ce1104838a1650cf6d107b138191431bdc7a8c596c294b45&smart=true&height=1200",
-        "from": "feed",
-        "width": 1920,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Alabama Senate candidate: Moore’s support for Trump $5,000 election offer could be bribery",
-      "summary": "“Alabama voters should ask whether that is responsible public policy, or an attempt to turn taxpayer dollars into political leverage,\" Everett Wess said.",
-      "description": "“Alabama voters should ask whether that is responsible public policy, or an attempt to turn taxpayer dollars into political leverage,\" Everett Wess said.",
-      "url": "https://www.al.com/news/2026/09/alabama-senate-candidate-barry-moores-support-for-trump-5000-election-offer-could-be-bribery.html",
-      "link": "https://www.al.com/news/2026/09/alabama-senate-candidate-barry-moores-support-for-trump-5000-election-offer-could-be-bribery.html",
-      "published_at": "2026-09-22T14:20:53.000Z",
-      "date": "2026-09-22T14:20:53.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/GS5KPYUHARAYBCHF4OOLUECYUE.jpg?auth=a10f153c2f52fe41ce1104838a1650cf6d107b138191431bdc7a8c596c294b45&smart=true&height=1200"
-    },
-    {
-      "id": "news-8-wbrc-aldot-warns-of-upcoming-nightly-ramp-closures-along-i-459-in",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NTVDO65WFFUHOIXZRAK3KPMA4.jpeg?auth=5e8f53820449041c78339a0d28dfff3a3a212de0bc0737f0bc5655866a8a6c7f&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "ALDOT warns of upcoming nightly ramp closures along I-459 in Hoover",
-      "summary": "Entrance and exit ramps along the 3.2-mile stretch of I-459 will be closing off and on overnight during the next month or so.",
-      "description": "Entrance and exit ramps along the 3.2-mile stretch of I-459 will be closing off and on overnight during the next month or so.",
-      "url": "https://www.wbrc.com/2026/09/18/aldot-warns-upcoming-nightly-ramp-closures-along-i-459-hoover/",
-      "link": "https://www.wbrc.com/2026/09/18/aldot-warns-upcoming-nightly-ramp-closures-along-i-459-hoover/",
-      "published_at": "2026-09-21T22:10:36.000Z",
-      "date": "2026-09-21T22:10:36.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NTVDO65WFFUHOIXZRAK3KPMA4.jpeg?auth=5e8f53820449041c78339a0d28dfff3a3a212de0bc0737f0bc5655866a8a6c7f&smart=false"
-    },
-    {
-      "id": "news-9-abc-33-40-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1079/986/0x352/90/a7dc6db0-a552-460b-a7f5-5e694da749eb-091826ROUND1I459RAMPCLOSURES.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "ALDOT announces nightly I-459 ramp closures in Hoover during resurfacing project",
-      "summary": "Drivers in Hoover should prepare for a series of overnight ramp closures along Interstate 459 as crews continue a resurfacing project that will last into 2027.T",
-      "description": "Drivers in Hoover should prepare for a series of overnight ramp closures along Interstate 459 as crews continue a resurfacing project that will last into 2027.T",
-      "url": "https://abc3340.com/news/local/alabama-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during-resurfacing-project-september-2026-to-2027",
-      "link": "https://abc3340.com/news/local/alabama-aldot-announces-nightly-i-459-ramp-closures-in-hoover-during-resurfacing-project-september-2026-to-2027",
-      "published_at": "2026-09-18T21:55:15.000Z",
-      "date": "2026-09-18T21:55:15.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1079/986/0x352/90/a7dc6db0-a552-460b-a7f5-5e694da749eb-091826ROUND1I459RAMPCLOSURES.png"
-    },
-    {
-      "id": "news-10-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
+      "id": "news-10-trussville-tribune-ida-mae-ryant-january-17-1937-september-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -418,32 +419,164 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Lucy Louise Gagliano (February 13, 2013 – September 15, 2026)",
+        "name": "Ida Mae Ryant (January 17, 1937 — September 13, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
-        "serviceLabel": "Tuesday, September 22"
+        "serviceLabel": ""
       },
-      "score": 9,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Lucy Louise Gagliano (February 13, 2013 – September 15, 2026)",
-      "summary": "Lucy Louise Gagliano, 13, of Trussville, Alabama, passed away on September 15, 2026. Visitation will be held on Tuesday, September 22, 2026, from 5:00–7:00 p.m. at Jefferson Memorial Funeral Home and Gardens. Following the visitation, the Rosary will be prayed at 7:00 p.m. All are welcome to join the family in prayer a",
-      "description": "Lucy Louise Gagliano, 13, of Trussville, Alabama, passed away on September 15, 2026. Visitation will be held on Tuesday, September 22, 2026, from 5:00–7:00 p.m. at Jefferson Memorial Funeral Home and Gardens. Following the visitation, the Rosary will be prayed at 7:00 p.m. All are welcome to join the family in prayer a",
-      "url": "https://www.trussvilletribune.com/2026/09/19/lucy-louise-gagliano-february-13-2013-september-15-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/19/lucy-louise-gagliano-february-13-2013-september-15-2026/",
-      "published_at": "2026-09-19T18:34:40.000Z",
-      "date": "2026-09-19T18:34:40.000Z",
+      "title": "Ida Mae Ryant (January 17, 1937 — September 13, 2026)",
+      "summary": "Ida Mae Ryant, 89, passed away peacefully on September 13, 2026 in Springville, Alabama, at home surrounded by her family. She was born on January 17, 1937, in Fitzgerald, Georgia to Herbert and Josie Mae Boyd. She was a loving wife, mother, grandmother, and great grandmother. She is survived by her sons Larry Nicholso",
+      "description": "Ida Mae Ryant, 89, passed away peacefully on September 13, 2026 in Springville, Alabama, at home surrounded by her family. She was born on January 17, 1937, in Fitzgerald, Georgia to Herbert and Josie Mae Boyd. She was a loving wife, mother, grandmother, and great grandmother. She is survived by her sons Larry Nicholso",
+      "url": "https://www.trussvilletribune.com/2026/09/22/ida-mae-ryant-january-17-1937-september-13-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/22/ida-mae-ryant-january-17-1937-september-13-2026/",
+      "published_at": "2026-09-22T17:06:12.000Z",
+      "date": "2026-09-22T17:06:12.000Z",
       "location_tags": [
         "regional"
       ],
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-trussville-tribune-frankie-charles-stephenson-june-14-1951-september-14-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Frankie Charles Stephenson (June 14, 1951 — September 14, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Frankie Charles Stephenson (June 14, 1951 — September 14, 2026)",
+      "summary": "Frankie Stephenson, 75, passed away on Monday, September 14, 2026. He was preceded in death by his parents, John and Merle Stephenson. Frankie graduated from the University of Alabama in Huntsville with degrees in Accounting and Economics. He spent 40 years in Accounting and Finance at Central Bank of the South, remain",
+      "description": "Frankie Stephenson, 75, passed away on Monday, September 14, 2026. He was preceded in death by his parents, John and Merle Stephenson. Frankie graduated from the University of Alabama in Huntsville with degrees in Accounting and Economics. He spent 40 years in Accounting and Finance at Central Bank of the South, remain",
+      "url": "https://www.trussvilletribune.com/2026/09/22/frankie-charles-stephenson-june-14-1951-september-14-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/22/frankie-charles-stephenson-june-14-1951-september-14-2026/",
+      "published_at": "2026-09-22T16:53:24.000Z",
+      "date": "2026-09-22T16:53:24.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-trussville-tribune-betty-a-gillespie-may-20-1930-september-18-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Betty A. Gillespie (May 20, 1930 — September 18, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Betty A. Gillespie (May 20, 1930 — September 18, 2026)",
+      "summary": "Betty A. Gillespie passed away peacefully on September 18, 2026, at the age of 96. She and her husband, Joe owned and operated Gilco Machine and Welding for nearly 50 years. She continued the business after his passing in 2009. Betty enjoyed attending church, singing in the choir and her church family was very special ",
+      "description": "Betty A. Gillespie passed away peacefully on September 18, 2026, at the age of 96. She and her husband, Joe owned and operated Gilco Machine and Welding for nearly 50 years. She continued the business after his passing in 2009. Betty enjoyed attending church, singing in the choir and her church family was very special ",
+      "url": "https://www.trussvilletribune.com/2026/09/22/betty-a-gillespie-may-20-1930-september-18-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/22/betty-a-gillespie-may-20-1930-september-18-2026/",
+      "published_at": "2026-09-22T16:41:42.000Z",
+      "date": "2026-09-22T16:41:42.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-trussville-tribune-lucy-louise-gagliano-february-13-2013-september-15-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Lucy Louise Gagliano (February 13, 2013 — September 15, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": "Tuesday, September 22"
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Lucy Louise Gagliano (February 13, 2013 — September 15, 2026)",
+      "summary": "Lucy Louise Gagliano, 13, of Trussville, Alabama, passed away on September 15, 2026. Visitation will be held on Tuesday, September 22, 2026, from 5:00–7:00 p.m. at Jefferson Memorial Funeral Home and Gardens. Following the visitation, the Rosary will be prayed at 7:00 p.m. All are welcome to join the family in prayer a",
+      "description": "Lucy Louise Gagliano, 13, of Trussville, Alabama, passed away on September 15, 2026. Visitation will be held on Tuesday, September 22, 2026, from 5:00–7:00 p.m. at Jefferson Memorial Funeral Home and Gardens. Following the visitation, the Rosary will be prayed at 7:00 p.m. All are welcome to join the family in prayer a",
+      "url": "https://www.trussvilletribune.com/2026/09/22/lucy-louise-gagliano-february-13-2013-september-15-2026-2/",
+      "link": "https://www.trussvilletribune.com/2026/09/22/lucy-louise-gagliano-february-13-2013-september-15-2026-2/",
+      "published_at": "2026-09-22T16:32:15.000Z",
+      "date": "2026-09-22T16:32:15.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
