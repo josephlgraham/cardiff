@@ -1,33 +1,77 @@
 {
-  "updatedAt": "2026-09-23T15:26:55.639Z",
+  "updatedAt": "2026-09-24T01:20:52.597Z",
   "counts": {
-    "nearby": 5,
-    "county": 3,
-    "obituaries": 2
+    "nearby": 7,
+    "county": 4,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-abc-33-40-man-dies-by-suicide-after-pursuit-shots-fired-in-forestdale-",
-      "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
-      "news-3-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
-      "news-6-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
-      "news-7-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba"
+      "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
+      "news-2-abc-33-40-man-dies-by-suicide-after-pursuit-shots-fired-in-forestdale-",
+      "news-3-al-com-police-officer-allegedly-threatened-mother-of-his-child-i-co",
+      "news-4-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
+      "news-5-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
+      "news-8-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba",
+      "news-9-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby"
     ],
     "creek": [],
     "county": [
-      "news-4-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
-      "news-5-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
-      "news-8-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham"
+      "news-6-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "news-7-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
+      "news-10-abc-33-40-i-would-hate-for-someone-to-die-oak-ridge-park-residents-pus",
+      "news-11-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham"
     ],
     "obituaries": [
-      "news-9-trussville-tribune-ida-mae-ryant-january-17-1937-september-13-2026",
-      "news-10-trussville-tribune-frankie-charles-stephenson-june-14-1951-september-14-2026"
+      "news-12-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-man-dies-by-suicide-after-pursuit-shots-fired-in-forestdale-",
+      "id": "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Warrior police sergeant on leave after domestic violence arrest",
+      "summary": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
+      "description": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
+      "url": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
+      "link": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
+      "published_at": "2026-09-23T19:04:35.000Z",
+      "date": "2026-09-23T19:04:35.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false"
+    },
+    {
+      "id": "news-2-abc-33-40-man-dies-by-suicide-after-pursuit-shots-fired-in-forestdale-",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -43,7 +87,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 36,
+      "score": 35,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -60,8 +104,8 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -69,7 +113,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/876/986/20x0/90/a1b541d2-7d5c-4119-9dd3-311ac814291a-ForestdaleChase4.png"
     },
     {
-      "id": "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
+      "id": "news-3-al-com-police-officer-allegedly-threatened-mother-of-his-child-i-co",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/6KJFCXPUE5EB7ISA3AVSJK7N6A.jpg?auth=1c5b612406dca7ece256a41a93001de7fa1d56e84997b384301bb91b51af737c&smart=true&height=1200",
+        "from": "feed",
+        "width": 1290,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 35,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Police officer allegedly threatened mother of his child: ‘I could just snap your neck’",
+      "summary": "The woman also accused Warrior Police Sgt. Ricky Pridmore of telling her, “I wish you were dead. I can make that happen.”",
+      "description": "The woman also accused Warrior Police Sgt. Ricky Pridmore of telling her, “I wish you were dead. I can make that happen.”",
+      "url": "https://www.al.com/crime/2026/09/alabama-police-officer-allegedly-threatened-mother-of-his-child-i-could-just-snap-your-neck.html",
+      "link": "https://www.al.com/crime/2026/09/alabama-police-officer-allegedly-threatened-mother-of-his-child-i-could-just-snap-your-neck.html",
+      "published_at": "2026-09-23T19:55:29.000Z",
+      "date": "2026-09-23T19:55:29.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/6KJFCXPUE5EB7ISA3AVSJK7N6A.jpg?auth=1c5b612406dca7ece256a41a93001de7fa1d56e84997b384301bb91b51af737c&smart=true&height=1200"
+    },
+    {
+      "id": "news-4-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -85,7 +171,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 36,
+      "score": 35,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -102,8 +188,8 @@
       "topic_tags": [
         "business"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -111,7 +197,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-22-2026-Luke-Wingo-of-Blackwater-Real-Estate-speaks-to-commission-as-Jeff-Traywick-looks-on.jpg"
     },
     {
-      "id": "news-3-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
+      "id": "news-5-wbrc-49-year-old-man-dead-after-chase-crash-in-forestdale",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -127,7 +213,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -153,7 +239,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//SU6J6JSHEJHTTN52IM2XGL7BCU.jpeg?auth=2971fd15420d0ec7cfc858743aecd1aa51c8311ab9f6eb75dd270277d7446d34&smart=false"
     },
     {
-      "id": "news-4-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
+      "id": "news-6-abc-33-40-who-s-reading-your-tag-records-show-430-police-sensors-appro",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -197,7 +283,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1306/986/0x64/90/a86115f2-8332-4e39-a6a3-31f132a5ba7a-FLOCKLPR.jpg"
     },
     {
-      "id": "news-5-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
+      "id": "news-7-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
       "section": "county",
       "why": "birmingham, land",
       "town": "Birmingham",
@@ -241,45 +327,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Artistic-Cottage-View-Final-scaled.jpg.jpg?w=900"
     },
     {
-      "id": "news-6-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 28,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Santos Coffee reopens in Gardendale with revamped lobby",
-      "summary": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
-      "description": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
-      "url": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
-      "link": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
-      "published_at": "2026-09-22T21:06:33.000Z",
-      "date": "2026-09-22T21:06:33.000Z",
-      "location_tags": [
-        "gardendale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg"
-    },
-    {
-      "id": "news-7-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba",
+      "id": "news-8-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -321,7 +369,87 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/IMG_0857-1024x616.jpeg"
     },
     {
-      "id": "news-8-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham",
+      "id": "news-9-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "section": "nearby",
+      "why": "names gardendale",
+      "town": "Gardendale",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Santos Coffee reopens in Gardendale with revamped lobby",
+      "summary": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
+      "description": "☕ GARDENDALE'S SANTOS COFFEE REOPENED: A fresh new lobby and beans straight from the owners' family farms in Guatemala.",
+      "url": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "link": "https://bhamnow.com/2026/09/22/santos-coffee-reopens-in-gardendale-with-revamped-lobby/#utm_source=rss&utm_medium=rss&utm_campaign=santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "published_at": "2026-09-22T21:06:33.000Z",
+      "date": "2026-09-22T21:06:33.000Z",
+      "location_tags": [
+        "gardendale"
+      ],
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg"
+    },
+    {
+      "id": "news-10-abc-33-40-i-would-hate-for-someone-to-die-oak-ridge-park-residents-pus",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/d9d99205-7b3b-4846-839f-72a21eb60985-102SOTVO.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "'I would hate for someone to die': Oak Ridge Park residents push for safer streets",
+      "summary": "BIRMINGHAM, Ala. (WBMA) — Residents in Birmingham’s Oak Ridge Park neighborhood are asking city leaders for sidewalks and stronger traffic-calming measures, say",
+      "description": "BIRMINGHAM, Ala. (WBMA) — Residents in Birmingham’s Oak Ridge Park neighborhood are asking city leaders for sidewalks and stronger traffic-calming measures, say",
+      "url": "https://abc3340.com/news/local/i-would-hate-for-someone-to-die-oak-ridge-park-residents-push-for-safer-streets",
+      "link": "https://abc3340.com/news/local/i-would-hate-for-someone-to-die-oak-ridge-park-residents-push-for-safer-streets",
+      "published_at": "2026-09-23T21:57:51.000Z",
+      "date": "2026-09-23T21:57:51.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/d9d99205-7b3b-4846-839f-72a21eb60985-102SOTVO.jpg"
+    },
+    {
+      "id": "news-11-abc-33-40-mississippi-man-dies-10-days-after-i-59-crash-in-birmingham",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -363,7 +491,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/455/986/0x25/90/3cd60d5b-619f-4eb9-a57e-1f63da0c2ba2-Ambulance2.jpg"
     },
     {
-      "id": "news-9-trussville-tribune-ida-mae-ryant-january-17-1937-september-13-2026",
+      "id": "news-12-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -374,68 +502,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Ida Mae Ryant (January 17, 1937 — September 13, 2026)",
+        "name": "Billie Gayle Vernon (August 22, 1934 — September 21, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Ida Mae Ryant (January 17, 1937 — September 13, 2026)",
-      "summary": "Ida Mae Ryant, 89, passed away peacefully on September 13, 2026 in Springville, Alabama, at home surrounded by her family. She was born on January 17, 1937, in Fitzgerald, Georgia to Herbert and Josie Mae Boyd. She was a loving wife, mother, grandmother, and great grandmother. She is survived by her sons Larry Nicholso",
-      "description": "Ida Mae Ryant, 89, passed away peacefully on September 13, 2026 in Springville, Alabama, at home surrounded by her family. She was born on January 17, 1937, in Fitzgerald, Georgia to Herbert and Josie Mae Boyd. She was a loving wife, mother, grandmother, and great grandmother. She is survived by her sons Larry Nicholso",
-      "url": "https://www.trussvilletribune.com/2026/09/22/ida-mae-ryant-january-17-1937-september-13-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/22/ida-mae-ryant-january-17-1937-september-13-2026/",
-      "published_at": "2026-09-22T17:06:12.000Z",
-      "date": "2026-09-22T17:06:12.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-trussville-tribune-frankie-charles-stephenson-june-14-1951-september-14-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Frankie Charles Stephenson (June 14, 1951 — September 14, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Frankie Charles Stephenson (June 14, 1951 — September 14, 2026)",
-      "summary": "Frankie Stephenson, 75, passed away on Monday, September 14, 2026. He was preceded in death by his parents, John and Merle Stephenson. Frankie graduated from the University of Alabama in Huntsville with degrees in Accounting and Economics. He spent 40 years in Accounting and Finance at Central Bank of the South, remain",
-      "description": "Frankie Stephenson, 75, passed away on Monday, September 14, 2026. He was preceded in death by his parents, John and Merle Stephenson. Frankie graduated from the University of Alabama in Huntsville with degrees in Accounting and Economics. He spent 40 years in Accounting and Finance at Central Bank of the South, remain",
-      "url": "https://www.trussvilletribune.com/2026/09/22/frankie-charles-stephenson-june-14-1951-september-14-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/22/frankie-charles-stephenson-june-14-1951-september-14-2026/",
-      "published_at": "2026-09-22T16:53:24.000Z",
-      "date": "2026-09-22T16:53:24.000Z",
+      "title": "Billie Gayle Vernon (August 22, 1934 — September 21, 2026)",
+      "summary": "Billie Gayle Vernon, of Trussville, Alabama, passed away peacefully in her sleep, surrounded by her family, on September 21, 2026. Billie was born on August 22, 1934, in Decatur, Alabama. She was a devoted daughter, wife, mother, sister, grandmother, and great-grandmother. Her family was the greatest joy of her life, a",
+      "description": "Billie Gayle Vernon, of Trussville, Alabama, passed away peacefully in her sleep, surrounded by her family, on September 21, 2026. Billie was born on August 22, 1934, in Decatur, Alabama. She was a devoted daughter, wife, mother, sister, grandmother, and great-grandmother. Her family was the greatest joy of her life, a",
+      "url": "https://www.trussvilletribune.com/2026/09/23/billie-gayle-vernon-august-22-1934-september-21-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/23/billie-gayle-vernon-august-22-1934-september-21-2026/",
+      "published_at": "2026-09-23T18:18:30.000Z",
+      "date": "2026-09-23T18:18:30.000Z",
       "location_tags": [
         "regional"
       ],
