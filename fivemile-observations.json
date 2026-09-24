@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T20:24:37.182Z",
+  "updatedAt": "2026-09-24T10:14:03.227Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,17 +12,34 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 38,
+    "shown": 39,
     "window_days": 365,
-    "in_window": 38,
-    "species_in_window": 32,
-    "window_total": 39,
-    "species_recorded": 32,
-    "observations_recorded": 38,
-    "area_total": 251,
+    "in_window": 39,
+    "species_in_window": 33,
+    "window_total": 40,
+    "species_recorded": 33,
+    "observations_recorded": 39,
+    "area_total": 252,
     "guide_links": 6
   },
   "observations": [
+    {
+      "id": 402852170,
+      "taxon": 67707,
+      "name": "Yellow Garden Spider",
+      "latin": "Argiope aurantia",
+      "rank": "species",
+      "group": "Spider",
+      "icon": "🕷️",
+      "observedOn": "2026-09-23",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Cal",
+      "observerLogin": "diplopoda",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/402852170",
+      "firstRecord": true
+    },
     {
       "id": 400737212,
       "taxon": 48957,
@@ -1125,6 +1142,21 @@
       "count": 1,
       "ids": [
         331342593
+      ]
+    },
+    {
+      "taxon": 67707,
+      "name": "Yellow Garden Spider",
+      "latin": "Argiope aurantia",
+      "group": "Spider",
+      "rank": "species",
+      "first": "2026-09-23",
+      "last": "2026-09-23",
+      "latest": 402852170,
+      "guide": null,
+      "count": 1,
+      "ids": [
+        402852170
       ]
     },
     {
