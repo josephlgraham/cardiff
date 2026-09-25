@@ -1,61 +1,63 @@
 {
-  "updatedAt": "2026-09-24T15:48:33.690Z",
+  "updatedAt": "2026-09-25T01:27:00.246Z",
   "counts": {
     "nearby": 4,
     "county": 2,
-    "obituaries": 1
+    "obituaries": 3
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
+      "news-1-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
       "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
-      "news-4-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba",
-      "news-5-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby"
+      "news-3-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly",
+      "news-4-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby"
     ],
     "creek": [],
     "county": [
-      "news-3-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
+      "news-5-bham-now-10-spine-chilling-halloween-events-in-birmingham-for-2026",
       "news-6-abc-33-40-i-would-hate-for-someone-to-die-oak-ridge-park-residents-pus"
     ],
     "obituaries": [
-      "news-7-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026"
+      "news-7-trussville-tribune-butch-finley-july-23-1952-september-19-2026",
+      "news-8-trussville-tribune-sandra-eads-malone-february-27-1954-september-21-2026",
+      "news-9-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-warrior-police-sergeant-on-leave-after-domestic-violence-arr",
+      "id": "news-1-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
       "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
+      "why": "names kimberly",
+      "town": "Kimberly",
       "tags": [
-        "Public safety"
+        "Business"
       ],
-      "outlet": "WBRC",
+      "outlet": "BirminghamWatch",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false",
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg",
         "from": "feed",
-        "width": null,
-        "credit": "WBRC"
+        "width": 1024,
+        "credit": "BirminghamWatch"
       },
       "obit": null,
       "score": 37,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Warrior police sergeant on leave after domestic violence arrest",
-      "summary": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
-      "description": "According to Jefferson County Jail records, Ricky Pridmore, 36, was charged with domestic violence-harassment on Friday. He posted bond the same day.",
-      "url": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
-      "link": "https://www.wbrc.com/2026/09/21/warrior-police-sergeant-leave-after-domestic-violence-arrest/",
-      "published_at": "2026-09-23T19:04:35.000Z",
-      "date": "2026-09-23T19:04:35.000Z",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "JeffCo approves incentive package for Kimberly retail development",
+      "summary": "The development would bring a Publix to what now is a food desert. The post JeffCo approves incentive package for Kimberly retail development appeared first on BirminghamWatch .",
+      "description": "The development would bring a Publix to what now is a food desert. The post JeffCo approves incentive package for Kimberly retail development appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/09/24/jeffco-approves-incentive-package-for-kimberly-retail-development/",
+      "link": "https://birminghamwatch.org/2026/09/24/jeffco-approves-incentive-package-for-kimberly-retail-development/",
+      "published_at": "2026-09-24T21:24:35.000Z",
+      "date": "2026-09-24T21:24:35.000Z",
       "location_tags": [
-        "warrior"
+        "kimberly"
       ],
       "topic_tags": [
-        "public-safety"
+        "business"
       ],
       "priority_level": 5,
       "priority": 5,
@@ -63,7 +65,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XZFCZCWR2JGQZMKUDIJSS5ESSE.png?auth=98ed568b8c173d3af35686f6f73f92a451e1f456b0b979f05eea6524fa394277&smart=false"
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg"
     },
     {
       "id": "news-2-birminghamwatch-county-considers-incentives-for-development-to-address-food-",
@@ -108,93 +110,45 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-22-2026-Luke-Wingo-of-Blackwater-Real-Estate-speaks-to-commission-as-Jeff-Traywick-looks-on.jpg"
     },
     {
-      "id": "news-3-cbs-42-dobbins-group-proposes-1-2-million-purchase-of-trussville-pr",
-      "section": "county",
-      "why": "birmingham, land",
-      "town": "Birmingham",
-      "tags": [
-        "Land",
-        "Business"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Artistic-Cottage-View-Final-scaled.jpg.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Dobbins Group proposes $1.2 million purchase of Trussville property",
-      "summary": "A Birmingham-area developer is proposing a $33 million luxury senior living development on approximately 12 acres of city-owned property behind Food City in Trussville.",
-      "description": "A Birmingham-area developer is proposing a $33 million luxury senior living development on approximately 12 acres of city-owned property behind Food City in Trussville.",
-      "url": "https://www.alabamas42.com/trussville-tribune/dobbins-group-proposes-1-2-million-purchase-of-trussville-property/",
-      "link": "https://www.alabamas42.com/trussville-tribune/dobbins-group-proposes-1-2-million-purchase-of-trussville-property/",
-      "published_at": "2026-09-22T16:42:45.000Z",
-      "date": "2026-09-22T16:42:45.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "land",
-        "business"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/09/Artistic-Cottage-View-Final-scaled.jpg.jpg?w=900"
-    },
-    {
-      "id": "news-4-trussville-tribune-trussville-council-approves-2027-city-budget-waits-on-cahaba",
+      "id": "news-3-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "Trussville Tribune",
+      "tags": [],
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/IMG_0857-1024x616.jpeg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+        "url": "https://abc3340.com/resources/media2/16x9/984/986/1x0/90/c142f4fc-8903-44f5-8e93-9721350c0d84-PUBLIX.jfif",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 29,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Trussville council approves 2027 city budget, waits on Cahaba Project moratorium",
-      "summary": "Terry Schrimscher TRUSSVILLE, Ala. — The Trussville City Council approved the fiscal year 2027 city budget with a 2-1 vote Tuesday night, Sept. 22. Council members Jaime Anderson and Kimberly Farr were absent but had expressed support for the budget previously. Mayor Ben Short was also absent. The budget, which was pre",
-      "description": "Terry Schrimscher TRUSSVILLE, Ala. — The Trussville City Council approved the fiscal year 2027 city budget with a 2-1 vote Tuesday night, Sept. 22. Council members Jaime Anderson and Kimberly Farr were absent but had expressed support for the budget previously. Mayor Ben Short was also absent. The budget, which was pre",
-      "url": "https://www.trussvilletribune.com/2026/09/22/trussville-council-approves-2027-city-budget-waits-on-cahaba-project-moratorium/",
-      "link": "https://www.trussvilletribune.com/2026/09/22/trussville-council-approves-2027-city-budget-waits-on-cahaba-project-moratorium/",
-      "published_at": "2026-09-23T03:38:08.000Z",
-      "date": "2026-09-23T03:38:08.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Publix to anchor $30M shopping center planned for Kimberly",
+      "summary": "KIMBERLY, Ala. (WBMA) — A Publix grocery store will anchor a new shopping center planned for Kimberly, bringing an estimated $30 million in initial investment a",
+      "description": "KIMBERLY, Ala. (WBMA) — A Publix grocery store will anchor a new shopping center planned for Kimberly, bringing an estimated $30 million in initial investment a",
+      "url": "https://abc3340.com/news/local/publix-to-anchor-30m-shopping-center-planned-for-kimberly",
+      "link": "https://abc3340.com/news/local/publix-to-anchor-30m-shopping-center-planned-for-kimberly",
+      "published_at": "2026-09-24T17:43:15.000Z",
+      "date": "2026-09-24T17:43:15.000Z",
       "location_tags": [
         "kimberly"
       ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/IMG_0857-1024x616.jpeg"
+      "image_url": "https://abc3340.com/resources/media2/16x9/984/986/1x0/90/c142f4fc-8903-44f5-8e93-9721350c0d84-PUBLIX.jfif"
     },
     {
-      "id": "news-5-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
+      "id": "news-4-bham-now-santos-coffee-reopens-in-gardendale-with-revamped-lobby",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -232,6 +186,48 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/IMG_9368-scaled-e1790109628196-1200x630.jpeg"
     },
     {
+      "id": "news-5-bham-now-10-spine-chilling-halloween-events-in-birmingham-for-2026",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2025/10/Halloween-Decorated-Houses-Mountain-Brook-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "10 spine-chilling Halloween events in Birmingham for 2026",
+      "summary": "👻 BIRMINGHAM'S SCARIEST HALLOWEEN LINEUP: Brave a haunted house you walk through totally alone, a lantern-only blackout night, a nighttime trail race and real ghost hunts.",
+      "description": "👻 BIRMINGHAM'S SCARIEST HALLOWEEN LINEUP: Brave a haunted house you walk through totally alone, a lantern-only blackout night, a nighttime trail race and real ghost hunts.",
+      "url": "https://bhamnow.com/2026/09/24/9-spine-chilling-halloween-events-in-birmingham-for-2026/#utm_source=rss&utm_medium=rss&utm_campaign=9-spine-chilling-halloween-events-in-birmingham-for-2026",
+      "link": "https://bhamnow.com/2026/09/24/9-spine-chilling-halloween-events-in-birmingham-for-2026/#utm_source=rss&utm_medium=rss&utm_campaign=9-spine-chilling-halloween-events-in-birmingham-for-2026",
+      "published_at": "2026-09-24T17:59:48.000Z",
+      "date": "2026-09-24T17:59:48.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2025/10/Halloween-Decorated-Houses-Mountain-Brook-1200x800.jpg"
+    },
+    {
       "id": "news-6-abc-33-40-i-would-hate-for-someone-to-die-oak-ridge-park-residents-pus",
       "section": "county",
       "why": "birmingham, roads",
@@ -248,7 +244,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -274,7 +270,95 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/d9d99205-7b3b-4846-839f-72a21eb60985-102SOTVO.jpg"
     },
     {
-      "id": "news-7-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026",
+      "id": "news-7-trussville-tribune-butch-finley-july-23-1952-september-19-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Butch Finley (July 23, 1952 — September 19, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Butch Finley (July 23, 1952 — September 19, 2026)",
+      "summary": "Butch Finley, age 74 of Moody, Alabama, passed away peacefully on September 19, 2026. He was born on July 23, 1952, in Birmingham, Alabama. Butch grew up on Inglenook, just outside of Birmingham. He was a graduate of Tarrant High School. After high school, he attended the University of Montevallo briefly before moving ",
+      "description": "Butch Finley, age 74 of Moody, Alabama, passed away peacefully on September 19, 2026. He was born on July 23, 1952, in Birmingham, Alabama. Butch grew up on Inglenook, just outside of Birmingham. He was a graduate of Tarrant High School. After high school, he attended the University of Montevallo briefly before moving ",
+      "url": "https://www.trussvilletribune.com/2026/09/24/butch-finley-july-23-1952-september-19-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/24/butch-finley-july-23-1952-september-19-2026/",
+      "published_at": "2026-09-24T18:16:30.000Z",
+      "date": "2026-09-24T18:16:30.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-8-trussville-tribune-sandra-eads-malone-february-27-1954-september-21-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Sandra Eads Malone (February 27, 1954 — September 21, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Sandra Eads Malone (February 27, 1954 — September 21, 2026)",
+      "summary": "Sandra Eads Malone was “Sandy” to most, friend to many, and mother, gramma, and sister to those dearest to her. On September 21, 2026, at the age of 72, Sandy passed from this world after a brief battle with cancer. Sandy is survived by her children Stacy Cooke (Brian) and Brandon Malone; grandchildren Peyton (Hunter),",
+      "description": "Sandra Eads Malone was “Sandy” to most, friend to many, and mother, gramma, and sister to those dearest to her. On September 21, 2026, at the age of 72, Sandy passed from this world after a brief battle with cancer. Sandy is survived by her children Stacy Cooke (Brian) and Brandon Malone; grandchildren Peyton (Hunter),",
+      "url": "https://www.trussvilletribune.com/2026/09/24/sandra-eads-malone-february-27-1954-september-21-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/24/sandra-eads-malone-february-27-1954-september-21-2026/",
+      "published_at": "2026-09-24T18:36:26.000Z",
+      "date": "2026-09-24T18:36:26.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-trussville-tribune-billie-gayle-vernon-august-22-1934-september-21-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -292,7 +376,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
