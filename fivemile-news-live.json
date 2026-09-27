@@ -1,8 +1,9 @@
 {
-  "updatedAt": "2026-09-27T01:23:28.418Z",
+  "updatedAt": "2026-09-27T15:38:22.968Z",
   "counts": {
     "nearby": 6,
-    "county": 4
+    "county": 4,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
@@ -21,7 +22,9 @@
       "news-9-abc-33-40-i-would-hate-for-someone-to-die-oak-ridge-park-residents-pus",
       "news-10-bham-now-10-spine-chilling-halloween-events-in-birmingham-for-2026"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
+    ]
   },
   "stories": [
     {
@@ -41,7 +44,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -83,7 +86,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -125,7 +128,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -165,7 +168,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -180,8 +183,8 @@
         "kimberly"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -205,7 +208,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -245,7 +248,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -285,7 +288,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -325,7 +328,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -365,7 +368,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -407,7 +410,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -431,6 +434,50 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://bhamnow.com/wp-content/uploads/2025/10/Halloween-Decorated-Houses-Mountain-Brook-1200x800.jpg"
+    },
+    {
+      "id": "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Legacy obituary",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Legacy obituary",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "Legacy obituary",
+      "source": "Legacy obituary",
+      "title": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
+      "published_at": "2026-09-24T18:34:34.000Z",
+      "date": "2026-09-24T18:34:34.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
