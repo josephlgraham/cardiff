@@ -1,31 +1,71 @@
 {
-  "updatedAt": "2026-09-28T01:37:02.985Z",
+  "updatedAt": "2026-09-28T18:35:30.259Z",
   "counts": {
-    "nearby": 3,
-    "county": 3,
-    "obituaries": 2
+    "nearby": 4,
+    "county": 1,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
-      "news-2-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
-      "news-3-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly"
+      "news-1-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "news-2-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
+      "news-3-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
+      "news-4-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly"
     ],
     "creek": [],
     "county": [
-      "news-4-wbrc-aldot-announces-nightly-closures-of-i-459-entrance-exit-ramp",
-      "news-5-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
-      "news-6-bham-now-10-spine-chilling-halloween-events-in-birmingham-for-2026"
+      "news-5-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba"
     ],
     "obituaries": [
-      "news-7-wvtm-13-road-closure-planned-for-kip-tyner-memorial-in-tuscaloosa",
-      "news-8-legacy-com-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
+      "news-6-wbrc-celebration-of-life-planned-for-former-tuscaloosa-council-pr"
     ]
   },
   "stories": [
     {
-      "id": "news-1-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
+      "id": "news-1-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "section": "nearby",
+      "why": "names gardendale",
+      "town": "Gardendale",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 36,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "New Publix headed to Kimberly in North Jefferson County",
+      "summary": "🛒 PUBLIX IS COMING TO KIMBERLY: A $1 million county deal just cleared the way for a brand-new Publix off Highway 31, so no more long drives to Gardendale for a full grocery run.",
+      "description": "🛒 PUBLIX IS COMING TO KIMBERLY: A $1 million county deal just cleared the way for a brand-new Publix off Highway 31, so no more long drives to Gardendale for a full grocery run.",
+      "url": "https://bhamnow.com/2026/09/28/new-publix-headed-to-kimberly-in-north-jefferson-county/#utm_source=rss&utm_medium=rss&utm_campaign=new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "link": "https://bhamnow.com/2026/09/28/new-publix-headed-to-kimberly-in-north-jefferson-county/#utm_source=rss&utm_medium=rss&utm_campaign=new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "published_at": "2026-09-28T16:24:45.000Z",
+      "date": "2026-09-28T16:24:45.000Z",
+      "location_tags": [
+        "gardendale"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg"
+    },
+    {
+      "id": "news-2-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -41,7 +81,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -67,7 +107,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg"
     },
     {
-      "id": "news-2-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
+      "id": "news-3-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -81,7 +121,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -105,7 +145,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/3c80b488-0ce2-4d01-a652-faa6bb9b151b-5PKG.jpg"
     },
     {
-      "id": "news-3-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly",
+      "id": "news-4-abc-33-40-publix-to-anchor-30m-shopping-center-planned-for-kimberly",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -119,7 +159,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -143,48 +183,6 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/984/986/1x0/90/c142f4fc-8903-44f5-8e93-9721350c0d84-PUBLIX.jfif"
     },
     {
-      "id": "news-4-wbrc-aldot-announces-nightly-closures-of-i-459-entrance-exit-ramp",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//TSNW7AB76VGFZBNYA672PFEVBM.jpg?auth=23faff716b8498475277cadc9bd9829b047b23329ad3a39c579ab800153ab725&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "ALDOT announces nightly closures of I-459 entrance, exit ramps as part of ongoing resurfacing project",
-      "summary": "Each night, ramps will be closed form 7 p.m. - 6 a.m. for milling work.",
-      "description": "Each night, ramps will be closed form 7 p.m. - 6 a.m. for milling work.",
-      "url": "https://www.wbrc.com/2026/09/25/aldot-announces-nightly-closures-i-459-entrance-exit-ramps-part-ongoing-resurfacing-project/",
-      "link": "https://www.wbrc.com/2026/09/25/aldot-announces-nightly-closures-i-459-entrance-exit-ramps-part-ongoing-resurfacing-project/",
-      "published_at": "2026-09-26T03:13:14.000Z",
-      "date": "2026-09-26T03:13:14.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//TSNW7AB76VGFZBNYA672PFEVBM.jpg?auth=23faff716b8498475277cadc9bd9829b047b23329ad3a39c579ab800153ab725&smart=false"
-    },
-    {
       "id": "news-5-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
       "section": "county",
       "why": "birmingham, roads",
@@ -201,7 +199,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 23,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -227,123 +225,37 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/202609-Back-to-School-Scams-150x150.jpg"
     },
     {
-      "id": "news-6-bham-now-10-spine-chilling-halloween-events-in-birmingham-for-2026",
-      "section": "county",
-      "why": "birmingham, the creek",
-      "town": "Birmingham",
-      "tags": [
-        "The creek"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2025/10/Halloween-Decorated-Houses-Mountain-Brook-1200x800.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "10 spine-chilling Halloween events in Birmingham for 2026",
-      "summary": "👻 BIRMINGHAM'S SCARIEST HALLOWEEN LINEUP: Brave a haunted house you walk through totally alone, a lantern-only blackout night, a nighttime trail race and real ghost hunts.",
-      "description": "👻 BIRMINGHAM'S SCARIEST HALLOWEEN LINEUP: Brave a haunted house you walk through totally alone, a lantern-only blackout night, a nighttime trail race and real ghost hunts.",
-      "url": "https://bhamnow.com/2026/09/24/9-spine-chilling-halloween-events-in-birmingham-for-2026/#utm_source=rss&utm_medium=rss&utm_campaign=9-spine-chilling-halloween-events-in-birmingham-for-2026",
-      "link": "https://bhamnow.com/2026/09/24/9-spine-chilling-halloween-events-in-birmingham-for-2026/#utm_source=rss&utm_medium=rss&utm_campaign=9-spine-chilling-halloween-events-in-birmingham-for-2026",
-      "published_at": "2026-09-24T17:59:48.000Z",
-      "date": "2026-09-24T17:59:48.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "the-creek"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2025/10/Halloween-Decorated-Houses-Mountain-Brook-1200x800.jpg"
-    },
-    {
-      "id": "news-7-wvtm-13-road-closure-planned-for-kip-tyner-memorial-in-tuscaloosa",
+      "id": "news-6-wbrc-celebration-of-life-planned-for-former-tuscaloosa-council-pr",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
       "tags": [
         "Obituary"
       ],
-      "outlet": "WVTM 13",
+      "outlet": "WBRC",
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Road closure planned for Kip Tyner memorial in Tuscaloosa",
+        "name": "Celebration of life planned for former Tuscaloosa council president Kip Tyner at Alberta Park",
         "age": null,
         "town": "",
-        "home": "WVTM 13",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 19,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Road closure planned for Kip Tyner memorial in Tuscaloosa",
-      "summary": "Tuscaloosa is holding a public celebration of life for Kip Tyner, who helped lead Alberta’s revival after the 2011 tornadoes.",
-      "description": "Tuscaloosa is holding a public celebration of life for Kip Tyner, who helped lead Alberta’s revival after the 2011 tornadoes.",
-      "url": "https://www.wvtm13.com/article/tuscaloosa-kip-tyner-celebration-of-life/73916280",
-      "link": "https://www.wvtm13.com/article/tuscaloosa-kip-tyner-celebration-of-life/73916280",
-      "published_at": "2026-09-28T00:01:00.000Z",
-      "date": "2026-09-28T00:01:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-8-legacy-com-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "legacy.com",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
-        "age": null,
-        "town": "Adamsville",
-        "home": "legacy.com",
+        "home": "WBRC",
         "service": "",
         "serviceLabel": ""
       },
       "score": 16,
       "source_type": "media_feed",
-      "source_name": "legacy.com",
-      "source": "legacy.com",
-      "title": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
-      "published_at": "2026-09-24T18:34:34.000Z",
-      "date": "2026-09-24T18:34:34.000Z",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Celebration of life planned for former Tuscaloosa council president Kip Tyner at Alberta Park",
+      "summary": "Monday’s memorial service will take place at 6 p.m.",
+      "description": "Monday’s memorial service will take place at 6 p.m.",
+      "url": "https://www.wbrc.com/2026/09/28/celebration-life-planned-former-tuscaloosa-council-president-kip-tyner-alberta-park/",
+      "link": "https://www.wbrc.com/2026/09/28/celebration-life-planned-former-tuscaloosa-council-president-kip-tyner-alberta-park/",
+      "published_at": "2026-09-28T15:43:26.000Z",
+      "date": "2026-09-28T15:43:26.000Z",
       "location_tags": [
-        "adamsville"
+        "regional"
       ],
       "topic_tags": [
         "obituary"
