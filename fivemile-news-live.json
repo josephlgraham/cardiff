@@ -1,30 +1,77 @@
 {
-  "updatedAt": "2026-09-29T02:33:53.112Z",
+  "updatedAt": "2026-09-29T16:52:46.793Z",
   "counts": {
-    "nearby": 4,
-    "county": 2,
-    "obituaries": 1
+    "nearby": 5,
+    "county": 4,
+    "obituaries": 3
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "news-2-al-com-yaxel-lendeborg-expected-to-play-important-part-of-golden-st",
-      "news-3-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
-      "news-5-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu"
+      "news-1-al-com-first-phase-of-alabama-interstate-project-40-years-in-the-ma",
+      "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "news-4-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
+      "news-5-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
+      "news-8-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu"
     ],
     "creek": [],
     "county": [
-      "news-4-jefferson-county-fbi-warning",
-      "news-6-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba"
+      "news-3-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "news-6-al-com-hush-up-judge-sets-date-for-election-challenge-and-bars-lawy",
+      "news-7-jefferson-county-fbi-warning",
+      "news-9-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba"
     ],
     "obituaries": [
-      "news-7-wbrc-celebration-of-life-planned-for-former-tuscaloosa-council-pr"
+      "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
+      "news-11-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
+      "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "id": "news-1-al-com-first-phase-of-alabama-interstate-project-40-years-in-the-ma",
+      "section": "nearby",
+      "why": "names gardendale",
+      "town": "Gardendale",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/NN4QG72PPFGVXO7Y75YY652K7Q.png?auth=d584532a37465fa7505bda95b9f70b0e76492c19d8b94a24c332d86d66e24720&smart=true&height=1200",
+        "from": "feed",
+        "width": 691,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "First phase of Alabama interstate project 40 years in the making is finally open",
+      "summary": "ALDOT is now working on construction on the next eight miles west to US 31 in Gardendale.",
+      "description": "ALDOT is now working on construction on the next eight miles west to US 31 in Gardendale.",
+      "url": "https://www.al.com/news/2026/09/first-phase-of-alabama-interstate-project-40-years-in-the-making-is-finally-open.html",
+      "link": "https://www.al.com/news/2026/09/first-phase-of-alabama-interstate-project-40-years-in-the-making-is-finally-open.html",
+      "published_at": "2026-09-29T16:36:50.000Z",
+      "date": "2026-09-29T16:36:50.000Z",
+      "location_tags": [
+        "gardendale"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/NN4QG72PPFGVXO7Y75YY652K7Q.png?auth=d584532a37465fa7505bda95b9f70b0e76492c19d8b94a24c332d86d66e24720&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -40,7 +87,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -66,45 +113,51 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg"
     },
     {
-      "id": "news-2-al-com-yaxel-lendeborg-expected-to-play-important-part-of-golden-st",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": true,
+      "id": "news-3-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "section": "county",
+      "why": "jefferson county, beltline",
+      "town": "Jefferson County",
+      "tags": [
+        "Beltline",
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/AYHPV5QSRFA4XI7YEMO2K62LZE.jpg?auth=d1864da185d007427e3c3620ea3b76dfbb950b14e161888ac9717338baa40eff&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg",
         "from": "feed",
-        "width": 819,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Yaxel Lendeborg expected to play important part of Golden State Warriors in 2026",
-      "summary": "After leaving UAB for Michigan, Lendeborg helped lead the Michigan Wolverines to their first national title since 1989.",
-      "description": "After leaving UAB for Michigan, Lendeborg helped lead the Michigan Wolverines to their first national title since 1989.",
-      "url": "https://www.al.com/uab/2026/09/former-uab-star-expected-to-play-an-important-role-for-golden-state-in-2026.html",
-      "link": "https://www.al.com/uab/2026/09/former-uab-star-expected-to-play-an-important-role-for-golden-state-in-2026.html",
-      "published_at": "2026-09-28T21:59:13.000Z",
-      "date": "2026-09-28T21:59:13.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "First Section of Birmingham Northern Beltline Opens to Traffic",
+      "summary": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
+      "description": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
+      "url": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
+      "link": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
+      "published_at": "2026-09-29T15:19:10.000Z",
+      "date": "2026-09-29T15:19:10.000Z",
       "location_tags": [
-        "warrior"
+        "jefferson-county"
       ],
-      "topic_tags": [],
+      "topic_tags": [
+        "beltline",
+        "roads"
+      ],
       "priority_level": 4,
       "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/AYHPV5QSRFA4XI7YEMO2K62LZE.jpg?auth=d1864da185d007427e3c3620ea3b76dfbb950b14e161888ac9717338baa40eff&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg"
     },
     {
-      "id": "news-3-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
+      "id": "news-4-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -120,7 +173,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -146,7 +199,87 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg"
     },
     {
-      "id": "news-4-jefferson-county-fbi-warning",
+      "id": "news-5-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
+      "section": "nearby",
+      "why": "names north jefferson",
+      "town": "North Jefferson",
+      "tags": [],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-29-111409-300x168.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Butterbean Days this weekend elevates Pinson’s popular street festival to new heights",
+      "summary": "From Tribune staff reports PINSON, Ala. — Heather Lebischak has been praying to what she calls the “butterbean gods.” The president and CEO of the North Jefferson Chamber of Commerce showed up on “Tribune Unscripted” last week with almost no voice and a week to go before Pinson’s first Butterbean Days. She needed her v",
+      "description": "From Tribune staff reports PINSON, Ala. — Heather Lebischak has been praying to what she calls the “butterbean gods.” The president and CEO of the North Jefferson Chamber of Commerce showed up on “Tribune Unscripted” last week with almost no voice and a week to go before Pinson’s first Butterbean Days. She needed her v",
+      "url": "https://www.trussvilletribune.com/2026/09/29/butterbean-days-this-weekend-elevates-pinsons-popular-street-festival-to-new-heights/",
+      "link": "https://www.trussvilletribune.com/2026/09/29/butterbean-days-this-weekend-elevates-pinsons-popular-street-festival-to-new-heights/",
+      "published_at": "2026-09-29T16:20:43.000Z",
+      "date": "2026-09-29T16:20:43.000Z",
+      "location_tags": [
+        "north-jefferson"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-29-111409-300x168.jpg"
+    },
+    {
+      "id": "news-6-al-com-hush-up-judge-sets-date-for-election-challenge-and-bars-lawy",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/U5EZ43V5IFBFXMR4675K72TXO4.jpg?auth=2bf2f0f2844b10a5b6f534f421ecc71ba8eb10480a3e4c62a69fa66be04d91b6&smart=true&height=1200",
+        "from": "feed",
+        "width": 2016,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Hush up: Judge sets date for election challenge and bars lawyers from social media posts",
+      "summary": "Jefferson County Judge Chuck Price set an October hearing in Rep. Juandalynn Givan's challenge of Alicia Escott Lumpkin's eligibility to run for office.",
+      "description": "Jefferson County Judge Chuck Price set an October hearing in Rep. Juandalynn Givan's challenge of Alicia Escott Lumpkin's eligibility to run for office.",
+      "url": "https://www.al.com/news/birmingham/2026/09/hush-up-judge-sets-date-for-election-challenge-and-bars-lawyers-from-social-media-posts.html",
+      "link": "https://www.al.com/news/birmingham/2026/09/hush-up-judge-sets-date-for-election-challenge-and-bars-lawyers-from-social-media-posts.html",
+      "published_at": "2026-09-29T14:11:46.000Z",
+      "date": "2026-09-29T14:11:46.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/U5EZ43V5IFBFXMR4675K72TXO4.jpg?auth=2bf2f0f2844b10a5b6f534f421ecc71ba8eb10480a3e4c62a69fa66be04d91b6&smart=true&height=1200"
+    },
+    {
+      "id": "news-7-jefferson-county-fbi-warning",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -157,7 +290,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -183,7 +316,7 @@
       "image_url": ""
     },
     {
-      "id": "news-5-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
+      "id": "news-8-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
       "section": "nearby",
       "why": "names kimberly",
       "town": "Kimberly",
@@ -197,7 +330,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -221,7 +354,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/3c80b488-0ce2-4d01-a652-faa6bb9b151b-5PKG.jpg"
     },
     {
-      "id": "news-6-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
+      "id": "news-9-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -238,7 +371,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -265,7 +398,51 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/202609-Back-to-School-Scams-150x150.jpg"
     },
     {
-      "id": "news-7-wbrc-celebration-of-life-planned-for-former-tuscaloosa-council-pr",
+      "id": "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Caroline Burgess Thompson (February 9, 1935 — September 24, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Caroline Burgess Thompson (February 9, 1935 — September 24, 2026)",
+      "summary": "Caroline Burgess Thompson, age 91 of Birmingham, AL passed away on September 24, 2026. She was born on February 9, 1935, in Nashville, TN. She was a member of the United Methodist Women and The United Methodist North Alabama Conference Historical Society. A 1958 graduate of St. Thomas School of Nursing, Nashville, Tenn",
+      "description": "Caroline Burgess Thompson, age 91 of Birmingham, AL passed away on September 24, 2026. She was born on February 9, 1935, in Nashville, TN. She was a member of the United Methodist Women and The United Methodist North Alabama Conference Historical Society. A 1958 graduate of St. Thomas School of Nursing, Nashville, Tenn",
+      "url": "https://www.trussvilletribune.com/2026/09/29/caroline-burgess-thompson-february-9-1935-september-24-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/29/caroline-burgess-thompson-february-9-1935-september-24-2026/",
+      "published_at": "2026-09-29T15:57:29.000Z",
+      "date": "2026-09-29T15:57:29.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -276,7 +453,7 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Celebration of life planned for former Tuscaloosa council president Kip Tyner at Alberta Park",
+        "name": "City of Tuscaloosa honors longtime Councilman Kip Tyner during Celebration of Life service",
         "age": null,
         "town": "",
         "home": "WBRC",
@@ -287,13 +464,57 @@
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Celebration of life planned for former Tuscaloosa council president Kip Tyner at Alberta Park",
-      "summary": "Monday’s memorial service will take place at 6 p.m.",
-      "description": "Monday’s memorial service will take place at 6 p.m.",
-      "url": "https://www.wbrc.com/2026/09/28/celebration-life-planned-former-tuscaloosa-council-president-kip-tyner-alberta-park/",
-      "link": "https://www.wbrc.com/2026/09/28/celebration-life-planned-former-tuscaloosa-council-president-kip-tyner-alberta-park/",
-      "published_at": "2026-09-28T15:43:26.000Z",
-      "date": "2026-09-28T15:43:26.000Z",
+      "title": "City of Tuscaloosa honors longtime Councilman Kip Tyner during Celebration of Life service",
+      "summary": "Hundreds of people gathered in the Alberta community Monday evening for a Celebration of Life honoring longtime Tuscaloosa City Councilman Kip Tyner, who died earlier this month.",
+      "description": "Hundreds of people gathered in the Alberta community Monday evening for a Celebration of Life honoring longtime Tuscaloosa City Councilman Kip Tyner, who died earlier this month.",
+      "url": "https://www.wbrc.com/2026/09/29/city-tuscaloosa-honors-longtime-councilman-kip-tyner-during-celebration-life-service/",
+      "link": "https://www.wbrc.com/2026/09/29/city-tuscaloosa-honors-longtime-councilman-kip-tyner-during-celebration-life-service/",
+      "published_at": "2026-09-29T03:44:37.000Z",
+      "date": "2026-09-29T03:44:37.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Jordan Lusk (December 4, 1987 — September 13, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Jordan Lusk (December 4, 1987 — September 13, 2026)",
+      "summary": "Jordan Michael Lusk passed away unexpectedly on September 13, 2026. Born with a gentle spirit and a loyal heart, Jordan lived a life defined by kindness, curiosity, and deep devotion to the people he loved. A 2006 graduate of Mountain Brook High School, Jordan went on to attend the University of Alabama, where he studi",
+      "description": "Jordan Michael Lusk passed away unexpectedly on September 13, 2026. Born with a gentle spirit and a loyal heart, Jordan lived a life defined by kindness, curiosity, and deep devotion to the people he loved. A 2006 graduate of Mountain Brook High School, Jordan went on to attend the University of Alabama, where he studi",
+      "url": "https://www.trussvilletribune.com/2026/09/29/jordan-lusk-december-4-1987-september-13-2026/",
+      "link": "https://www.trussvilletribune.com/2026/09/29/jordan-lusk-december-4-1987-september-13-2026/",
+      "published_at": "2026-09-29T16:12:43.000Z",
+      "date": "2026-09-29T16:12:43.000Z",
       "location_tags": [
         "regional"
       ],
