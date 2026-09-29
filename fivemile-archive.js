@@ -175,6 +175,60 @@
     if (monthKeys.length) pick(monthKeys[0]);
   }
 
+  /* The arrows at each end of a reel, for a mouse, which cannot push a reel
+     sideways the way a thumb can. Every reel on the page gets them, whoever
+     built it, and the CSS keeps them off a touch screen. An arrow shows only
+     while there is more reel past its end. The reels fill in after their files
+     arrive, so the ends are measured again whenever the chips change. */
+  var CHEVRON = {
+    prev: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 4 7l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    next: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m5 2 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
+
+  function frameReel(reel) {
+    if (!reel.parentNode || reel.parentNode.classList.contains('reel-frame')) return;
+    var frame = document.createElement('div');
+    frame.className = 'reel-frame';
+    var style = window.getComputedStyle(reel);
+    frame.style.marginTop = style.marginTop;
+    frame.style.marginBottom = style.marginBottom;
+    reel.parentNode.insertBefore(frame, reel);
+    frame.appendChild(reel);
+    reel.style.marginTop = '0';
+    reel.style.marginBottom = '0';
+
+    function arrow(side, direction) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'reel-arrow ' + side;
+      button.tabIndex = -1;
+      button.setAttribute('aria-hidden', 'true');
+      button.innerHTML = '<span>' + CHEVRON[side] + '</span>';
+      button.addEventListener('click', function () {
+        reel.scrollBy({ left: direction * Math.max(120, reel.clientWidth * 0.8), behavior: 'smooth' });
+      });
+      frame.appendChild(button);
+      return button;
+    }
+    var prev = arrow('prev', -1);
+    var next = arrow('next', 1);
+
+    function measure() {
+      var room = reel.scrollWidth - reel.clientWidth;
+      prev.classList.toggle('is-on', room > 1 && reel.scrollLeft > 1);
+      next.classList.toggle('is-on', room > 1 && reel.scrollLeft < room - 1);
+    }
+    reel.addEventListener('scroll', measure, { passive: true });
+    window.addEventListener('resize', measure);
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(reel);
+    if (window.MutationObserver) new MutationObserver(measure).observe(reel, { childList: true, subtree: true, attributes: true });
+    measure();
+  }
+
+  function frameReels() {
+    Array.prototype.forEach.call(document.querySelectorAll('.reel'), frameReel);
+  }
+
   /* -------------------------------------------------------------------------
      PHOTOGRAPHS
 
@@ -4022,6 +4076,7 @@
      so it asks for this row rather than drawing a second kind of its own. */
   window.FivemileArchiveRows = { story: storyRow };
 
+  frameReels();
   loadHub();
   loadPhotos();
   loadWeather();

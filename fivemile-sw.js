@@ -205,7 +205,10 @@
 // when a record is broken, and fivemile-archive.html and fivemile-archive.js
 // both changed. A returning reader holding the old script would get four tiles
 // of em dashes. See DECISIONS.md 88.
-const CACHE_NAME = 'fivemile-v99';
+// v100 puts step arrows at each end of every reel in the archive family, for
+// a mouse, which cannot push a reel sideways. fivemile-archive.css and
+// fivemile-archive.js both changed, and the stylesheet is served cache-first.
+const CACHE_NAME = 'fivemile-v100';
 // Renamed with everything else. These are cache keys rather than files, so
 // nothing breaks either way, but leaving them would have been the one
 // cardiff- string left in the source and the next person to grep would
