@@ -1,33 +1,31 @@
 {
-  "updatedAt": "2026-09-30T02:04:30.443Z",
+  "updatedAt": "2026-09-30T16:48:37.867Z",
   "counts": {
     "towns": 1,
     "nearby": 2,
     "county": 6,
-    "obituaries": 4
+    "obituaries": 2
   },
   "sections": {
     "towns": [
       "news-1-fivemile-september-2026-finished-with-0-85-inches-of-rain"
     ],
     "nearby": [
-      "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "news-4-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree"
+      "news-2-al-com-atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfr",
+      "news-3-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
-      "news-5-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
-      "news-6-jefferson-county-july-10-2026-jeffco-news",
-      "news-7-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
+      "news-4-wvtm-13-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "news-5-jefferson-county-july-10-2026-jeffco-news",
+      "news-6-jefferson-county-august-6-2026-jeffco-news-primary-election",
+      "news-7-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
       "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
       "news-9-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op"
     ],
     "obituaries": [
-      "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
-      "news-11-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
-      "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026",
-      "news-13-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
+      "news-10-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
+      "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
     ]
   },
   "stories": [
@@ -52,8 +50,8 @@
       "description": "That is the total the local station measured across September 2026.",
       "url": "fivemile-almanac.html",
       "link": "fivemile-almanac.html",
-      "published_at": "2026-09-30T02:04:30.440Z",
-      "date": "2026-09-30T02:04:30.440Z",
+      "published_at": "2026-09-30T16:48:37.864Z",
+      "date": "2026-09-30T16:48:37.864Z",
       "location_tags": [
         "cardiff"
       ],
@@ -69,7 +67,49 @@
       "image_url": ""
     },
     {
-      "id": "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
+      "id": "news-2-al-com-atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfr",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/PN3RXKGL2BFELOUGKQCJTOC2RA.jpg?auth=6b68fb120b9139390edcaec5f9c9b89baec59596d062d810867026dd2282fa5e&smart=true&height=1200",
+        "from": "feed",
+        "width": 4032,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 35,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Atlanta entertainer back in Alabama to face charges in boyfriend’s strangling death",
+      "summary": "Julian Taylor Morris was arrested Sept. 14 in Miami on a charge of murder in the killing of Deundray Cottrell.",
+      "description": "Julian Taylor Morris was arrested Sept. 14 in Miami on a charge of murder in the killing of Deundray Cottrell.",
+      "url": "https://www.al.com/crime/2026/09/atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfriends-strangling-death.html",
+      "link": "https://www.al.com/crime/2026/09/atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfriends-strangling-death.html",
+      "published_at": "2026-09-30T14:00:12.000Z",
+      "date": "2026-09-30T14:00:12.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/PN3RXKGL2BFELOUGKQCJTOC2RA.jpg?auth=6b68fb120b9139390edcaec5f9c9b89baec59596d062d810867026dd2282fa5e&smart=true&height=1200"
+    },
+    {
+      "id": "news-3-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -85,7 +125,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -111,7 +151,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg"
     },
     {
-      "id": "news-3-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "id": "news-4-wvtm-13-first-section-of-birmingham-northern-beltline-opens-to-traff",
       "section": "county",
       "why": "jefferson county, beltline",
       "town": "Jefferson County",
@@ -119,26 +159,26 @@
         "Beltline",
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "WVTM 13",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg",
+        "url": "https://kubrick.htvapps.com/htv-prod/images/f7706675-9017-476c-9f49-a0e733ca7126.jpg",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "WVTM 13"
       },
       "obit": null,
-      "score": 29,
+      "score": 30,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "First Section of Birmingham Northern Beltline Opens to Traffic",
-      "summary": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
-      "description": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
-      "url": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
-      "link": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
-      "published_at": "2026-09-29T15:19:10.000Z",
-      "date": "2026-09-29T15:19:10.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "First section of Birmingham Northern Beltline opens to traffic in Jefferson County",
+      "summary": "The Northern Beltline system will create a 52-mile interstate system that loops around Birmingham.",
+      "description": "The Northern Beltline system will create a 52-mile interstate system that loops around Birmingham.",
+      "url": "https://www.wvtm13.com/article/alabama-northern-beltline-first-section-open-interstate-highway-pinson-palmerdale-jefferson-county/73945474",
+      "link": "https://www.wvtm13.com/article/alabama-northern-beltline-first-section-open-interstate-highway-pinson-palmerdale-jefferson-county/73945474",
+      "published_at": "2026-09-30T16:20:00.000Z",
+      "date": "2026-09-30T16:20:00.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -152,48 +192,47 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg"
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/f7706675-9017-476c-9f49-a0e733ca7126.jpg"
     },
     {
-      "id": "news-4-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
-      "section": "nearby",
-      "why": "names north jefferson",
-      "town": "North Jefferson",
-      "tags": [],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-29-111409-300x168.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 28,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Butterbean Days this weekend elevates Pinson’s popular street festival to new heights",
-      "summary": "From Tribune staff reports PINSON, Ala. — Heather Lebischak has been praying to what she calls the “butterbean gods.” The president and CEO of the North Jefferson Chamber of Commerce showed up on “Tribune Unscripted” last week with almost no voice and a week to go before Pinson’s first Butterbean Days. She needed her v",
-      "description": "From Tribune staff reports PINSON, Ala. — Heather Lebischak has been praying to what she calls the “butterbean gods.” The president and CEO of the North Jefferson Chamber of Commerce showed up on “Tribune Unscripted” last week with almost no voice and a week to go before Pinson’s first Butterbean Days. She needed her v",
-      "url": "https://www.trussvilletribune.com/2026/09/29/butterbean-days-this-weekend-elevates-pinsons-popular-street-festival-to-new-heights/",
-      "link": "https://www.trussvilletribune.com/2026/09/29/butterbean-days-this-weekend-elevates-pinsons-popular-street-festival-to-new-heights/",
-      "published_at": "2026-09-29T16:20:43.000Z",
-      "date": "2026-09-29T16:20:43.000Z",
-      "location_tags": [
-        "north-jefferson"
+      "id": "news-5-jefferson-county-july-10-2026-jeffco-news",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "July 10, 2026 JeffCo News",
+      "summary": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
+      "description": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
+      "published_at": "2026-09-30T13:37:00.000Z",
+      "date": "2026-09-30T13:37:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-29-111409-300x168.jpg"
+      "image_url": ""
     },
     {
-      "id": "news-5-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
+      "id": "news-6-jefferson-county-august-6-2026-jeffco-news-primary-election",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -205,6 +244,43 @@
       "image": null,
       "obit": null,
       "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "August 6, 2026 - JeffCo News Primary Election",
+      "summary": "",
+      "description": "",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=160",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=160",
+      "published_at": "2026-09-30T13:35:00.000Z",
+      "date": "2026-09-30T13:35:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-7-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -230,87 +306,6 @@
       "image_url": ""
     },
     {
-      "id": "news-6-jefferson-county-july-10-2026-jeffco-news",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "July 10, 2026 JeffCo News",
-      "summary": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "description": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "published_at": "2026-09-29T19:14:00.000Z",
-      "date": "2026-09-29T19:14:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-7-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads",
-        "Schools"
-      ],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/202609-Back-to-School-Scams-150x150.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Birmingham Times"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "As College Begins in Earnest, Don’t Let Scammers Crash the Back-to-School Season",
-      "summary": "Sponsored by JPMorganChase Today’s students and young adults are true digital natives, having grown up online, learning to navigate digital spaces as a normal part of daily life. As they transition to college, they turn to digital platforms and social media for everything from apartment hunting and job searches to shop",
-      "description": "Sponsored by JPMorganChase Today’s students and young adults are true digital natives, having grown up online, learning to navigate digital spaces as a normal part of daily life. As they transition to college, they turn to digital platforms and social media for everything from apartment hunting and job searches to shop",
-      "url": "https://www.birminghamtimes.com/2026/09/as-college-begins-in-earnest-dont-let-scammers-crash-the-back-to-school-season/",
-      "link": "https://www.birminghamtimes.com/2026/09/as-college-begins-in-earnest-dont-let-scammers-crash-the-back-to-school-season/",
-      "published_at": "2026-09-26T13:42:49.000Z",
-      "date": "2026-09-26T13:42:49.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads",
-        "schools"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/202609-Back-to-School-Scams-150x150.jpg"
-    },
-    {
       "id": "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
       "section": "county",
       "why": "jefferson county, schools",
@@ -327,7 +322,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -364,7 +359,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "1819 News",
       "source": "1819 News",
@@ -390,51 +385,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Caroline Burgess Thompson (February 9, 1935 — September 24, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Caroline Burgess Thompson (February 9, 1935 — September 24, 2026)",
-      "summary": "Caroline Burgess Thompson, age 91 of Birmingham, AL passed away on September 24, 2026. She was born on February 9, 1935, in Nashville, TN. She was a member of the United Methodist Women and The United Methodist North Alabama Conference Historical Society. A 1958 graduate of St. Thomas School of Nursing, Nashville, Tenn",
-      "description": "Caroline Burgess Thompson, age 91 of Birmingham, AL passed away on September 24, 2026. She was born on February 9, 1935, in Nashville, TN. She was a member of the United Methodist Women and The United Methodist North Alabama Conference Historical Society. A 1958 graduate of St. Thomas School of Nursing, Nashville, Tenn",
-      "url": "https://www.trussvilletribune.com/2026/09/29/caroline-burgess-thompson-february-9-1935-september-24-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/29/caroline-burgess-thompson-february-9-1935-september-24-2026/",
-      "published_at": "2026-09-29T15:57:29.000Z",
-      "date": "2026-09-29T15:57:29.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
+      "id": "news-10-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -452,7 +403,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 15,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -478,51 +429,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Jordan Lusk (December 4, 1987 — September 13, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 13,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Jordan Lusk (December 4, 1987 — September 13, 2026)",
-      "summary": "Jordan Michael Lusk passed away unexpectedly on September 13, 2026. Born with a gentle spirit and a loyal heart, Jordan lived a life defined by kindness, curiosity, and deep devotion to the people he loved. A 2006 graduate of Mountain Brook High School, Jordan went on to attend the University of Alabama, where he studi",
-      "description": "Jordan Michael Lusk passed away unexpectedly on September 13, 2026. Born with a gentle spirit and a loyal heart, Jordan lived a life defined by kindness, curiosity, and deep devotion to the people he loved. A 2006 graduate of Mountain Brook High School, Jordan went on to attend the University of Alabama, where he studi",
-      "url": "https://www.trussvilletribune.com/2026/09/29/jordan-lusk-december-4-1987-september-13-2026/",
-      "link": "https://www.trussvilletribune.com/2026/09/29/jordan-lusk-december-4-1987-september-13-2026/",
-      "published_at": "2026-09-29T16:12:43.000Z",
-      "date": "2026-09-29T16:12:43.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-13-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
+      "id": "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Adamsville",
@@ -540,7 +447,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "Legacy obituary",
       "source": "Legacy obituary",
