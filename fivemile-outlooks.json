@@ -1,7 +1,7 @@
 {
   "_readme": "NOAA Climate Prediction Center monthly outlooks, read at the middle of the three towns (the point fivemile-sky.js uses). cat is above, below, normal or equal (equal chances, no lean), prob is the percent chance NOAA gives that category, issued is the day NOAA put it out. Written by scripts/fetch/cpc-outlook.mjs. See DECISIONS.md 74.",
   "source": "NOAA Climate Prediction Center, 30 day outlook, monthly update",
-  "updated": "2026-09-15",
+  "updated": "2026-09-30",
   "months": [
     {
       "month": "2014-08",
@@ -1729,6 +1729,18 @@
       "rain": {
         "cat": "equal",
         "prob": 33
+      }
+    },
+    {
+      "month": "2026-10",
+      "issued": "2026-09-30",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 40
       }
     }
   ]
