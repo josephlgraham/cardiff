@@ -1,66 +1,64 @@
 {
-  "updatedAt": "2026-09-29T16:52:46.793Z",
+  "updatedAt": "2026-09-30T02:04:30.443Z",
   "counts": {
-    "nearby": 5,
-    "county": 4,
-    "obituaries": 3
+    "towns": 1,
+    "nearby": 2,
+    "county": 6,
+    "obituaries": 4
   },
   "sections": {
-    "towns": [],
+    "towns": [
+      "news-1-fivemile-september-2026-finished-with-0-85-inches-of-rain"
+    ],
     "nearby": [
-      "news-1-al-com-first-phase-of-alabama-interstate-project-40-years-in-the-ma",
       "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "news-4-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
-      "news-5-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
-      "news-8-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu"
+      "news-4-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree"
     ],
     "creek": [],
     "county": [
       "news-3-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
-      "news-6-al-com-hush-up-judge-sets-date-for-election-challenge-and-bars-lawy",
-      "news-7-jefferson-county-fbi-warning",
-      "news-9-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba"
+      "news-5-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
+      "news-6-jefferson-county-july-10-2026-jeffco-news",
+      "news-7-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
+      "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
+      "news-9-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op"
     ],
     "obituaries": [
       "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
       "news-11-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
-      "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026"
+      "news-12-trussville-tribune-jordan-lusk-december-4-1987-september-13-2026",
+      "news-13-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
     ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-first-phase-of-alabama-interstate-project-40-years-in-the-ma",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
+      "id": "news-1-fivemile-september-2026-finished-with-0-85-inches-of-rain",
+      "section": "towns",
+      "why": "filed by the desk",
+      "town": "Cardiff",
       "tags": [
-        "Roads"
+        "Weather"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/NN4QG72PPFGVXO7Y75YY652K7Q.png?auth=d584532a37465fa7505bda95b9f70b0e76492c19d8b94a24c332d86d66e24720&smart=true&height=1200",
-        "from": "feed",
-        "width": 691,
-        "credit": "AL.com"
-      },
+      "outlet": "FIVEMILE",
+      "paywall": false,
+      "image": null,
       "obit": null,
-      "score": 38,
+      "score": 40,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "First phase of Alabama interstate project 40 years in the making is finally open",
-      "summary": "ALDOT is now working on construction on the next eight miles west to US 31 in Gardendale.",
-      "description": "ALDOT is now working on construction on the next eight miles west to US 31 in Gardendale.",
-      "url": "https://www.al.com/news/2026/09/first-phase-of-alabama-interstate-project-40-years-in-the-making-is-finally-open.html",
-      "link": "https://www.al.com/news/2026/09/first-phase-of-alabama-interstate-project-40-years-in-the-making-is-finally-open.html",
-      "published_at": "2026-09-29T16:36:50.000Z",
-      "date": "2026-09-29T16:36:50.000Z",
+      "source_name": "FIVEMILE",
+      "source": "FIVEMILE",
+      "title": "September 2026 finished with 0.85 inches of rain",
+      "summary": "That is the total the local station measured across September 2026.",
+      "description": "That is the total the local station measured across September 2026.",
+      "url": "fivemile-almanac.html",
+      "link": "fivemile-almanac.html",
+      "published_at": "2026-09-30T02:04:30.440Z",
+      "date": "2026-09-30T02:04:30.440Z",
       "location_tags": [
-        "gardendale"
+        "cardiff"
       ],
       "topic_tags": [
-        "roads"
+        "weather"
       ],
       "priority_level": 5,
       "priority": 5,
@@ -68,7 +66,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/NN4QG72PPFGVXO7Y75YY652K7Q.png?auth=d584532a37465fa7505bda95b9f70b0e76492c19d8b94a24c332d86d66e24720&smart=true&height=1200"
+      "image_url": ""
     },
     {
       "id": "news-2-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
@@ -130,7 +128,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -157,49 +155,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg"
     },
     {
-      "id": "news-4-birminghamwatch-jeffco-approves-incentive-package-for-kimberly-retail-develo",
-      "section": "nearby",
-      "why": "names kimberly",
-      "town": "Kimberly",
-      "tags": [
-        "Business"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg",
-        "from": "feed",
-        "width": 1024,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 29,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "JeffCo approves incentive package for Kimberly retail development",
-      "summary": "The development would bring a Publix to what now is a food desert. The post JeffCo approves incentive package for Kimberly retail development appeared first on BirminghamWatch .",
-      "description": "The development would bring a Publix to what now is a food desert. The post JeffCo approves incentive package for Kimberly retail development appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/09/24/jeffco-approves-incentive-package-for-kimberly-retail-development/",
-      "link": "https://birminghamwatch.org/2026/09/24/jeffco-approves-incentive-package-for-kimberly-retail-development/",
-      "published_at": "2026-09-24T21:24:35.000Z",
-      "date": "2026-09-24T21:24:35.000Z",
-      "location_tags": [
-        "kimberly"
-      ],
-      "topic_tags": [
-        "business"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/09/9-24-2026-Jeff-Traywick.jpg"
-    },
-    {
-      "id": "news-5-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
+      "id": "news-4-trussville-tribune-butterbean-days-this-weekend-elevates-pinson-s-popular-stree",
       "section": "nearby",
       "why": "names north jefferson",
       "town": "North Jefferson",
@@ -213,7 +169,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -237,49 +193,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-29-111409-300x168.jpg"
     },
     {
-      "id": "news-6-al-com-hush-up-judge-sets-date-for-election-challenge-and-bars-lawy",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/U5EZ43V5IFBFXMR4675K72TXO4.jpg?auth=2bf2f0f2844b10a5b6f534f421ecc71ba8eb10480a3e4c62a69fa66be04d91b6&smart=true&height=1200",
-        "from": "feed",
-        "width": 2016,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Hush up: Judge sets date for election challenge and bars lawyers from social media posts",
-      "summary": "Jefferson County Judge Chuck Price set an October hearing in Rep. Juandalynn Givan's challenge of Alicia Escott Lumpkin's eligibility to run for office.",
-      "description": "Jefferson County Judge Chuck Price set an October hearing in Rep. Juandalynn Givan's challenge of Alicia Escott Lumpkin's eligibility to run for office.",
-      "url": "https://www.al.com/news/birmingham/2026/09/hush-up-judge-sets-date-for-election-challenge-and-bars-lawyers-from-social-media-posts.html",
-      "link": "https://www.al.com/news/birmingham/2026/09/hush-up-judge-sets-date-for-election-challenge-and-bars-lawyers-from-social-media-posts.html",
-      "published_at": "2026-09-29T14:11:46.000Z",
-      "date": "2026-09-29T14:11:46.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/U5EZ43V5IFBFXMR4675K72TXO4.jpg?auth=2bf2f0f2844b10a5b6f534f421ecc71ba8eb10480a3e4c62a69fa66be04d91b6&smart=true&height=1200"
-    },
-    {
-      "id": "news-7-jefferson-county-fbi-warning",
+      "id": "news-5-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -290,17 +204,17 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
-      "title": "FBI WARNING",
-      "summary": "The FBI has warned of an ongoing phishing scam in which criminals impersonate city and county officials to target individuals applying for building, planning, and zoning permits.",
-      "description": "The FBI has warned of an ongoing phishing scam in which criminals impersonate city and county officials to target individuals applying for building, planning, and zoning permits.",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=158",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=158",
-      "published_at": "2026-09-28T20:13:00.000Z",
-      "date": "2026-09-28T20:13:00.000Z",
+      "title": "Jefferson County Commission Cuts Ribbon On New Animal Care and Control Facility",
+      "summary": "The Jefferson County Commission officially cut the ribbon on the new animal care and control facility ushering in a new era.",
+      "description": "The Jefferson County Commission officially cut the ribbon on the new animal care and control facility ushering in a new era.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=162",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=162",
+      "published_at": "2026-09-29T21:59:36.000Z",
+      "date": "2026-09-29T21:59:36.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -311,50 +225,49 @@
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": true,
+      "is_alert": false,
       "is_featured": false,
       "image_url": ""
     },
     {
-      "id": "news-8-abc-33-40-after-years-without-a-grocery-store-kimberly-prepares-for-pu",
-      "section": "nearby",
-      "why": "names kimberly",
-      "town": "Kimberly",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/3c80b488-0ce2-4d01-a652-faa6bb9b151b-5PKG.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "After years without a grocery store, Kimberly prepares for Publix and more growth",
-      "summary": "KIMBERLY, Ala. (WBMA) — For years, Kimberly resident Regina Burgett has driven out of town to buy groceries.That could soon change.A Publix-anchored shopping ce",
-      "description": "KIMBERLY, Ala. (WBMA) — For years, Kimberly resident Regina Burgett has driven out of town to buy groceries.That could soon change.A Publix-anchored shopping ce",
-      "url": "https://abc3340.com/news/local/after-years-without-a-grocery-store-kimberly-prepares-for-publix-and-more-growth",
-      "link": "https://abc3340.com/news/local/after-years-without-a-grocery-store-kimberly-prepares-for-publix-and-more-growth",
-      "published_at": "2026-09-25T22:12:40.000Z",
-      "date": "2026-09-25T22:12:40.000Z",
-      "location_tags": [
-        "kimberly"
+      "id": "news-6-jefferson-county-july-10-2026-jeffco-news",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
       ],
-      "topic_tags": [],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "July 10, 2026 JeffCo News",
+      "summary": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
+      "description": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
+      "published_at": "2026-09-29T19:14:00.000Z",
+      "date": "2026-09-29T19:14:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/3c80b488-0ce2-4d01-a652-faa6bb9b151b-5PKG.jpg"
+      "image_url": ""
     },
     {
-      "id": "news-9-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
+      "id": "news-7-birmingham-times-as-college-begins-in-earnest-don-t-let-scammers-crash-the-ba",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -371,7 +284,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -398,6 +311,85 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/202609-Back-to-School-Scams-150x150.jpg"
     },
     {
+      "id": "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
+      "section": "county",
+      "why": "jefferson county, schools",
+      "town": "Jefferson County",
+      "tags": [
+        "Schools"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-at-6.49.27 AM-1024x506.png",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "More details emerge on the Cahaba Valley Innovation Center",
+      "summary": "Terry Schrimscher TRUSSVILLE, Ala. — Trussville City Schools Superintendent Patrick Martin appeared on Tribune Unplugged last week, two days after announcing a $12 million Career and Technical Education (CTE) grant awarded to the city in collaboration with Jefferson County Schools. “The legislature put forth a line ite",
+      "description": "Terry Schrimscher TRUSSVILLE, Ala. — Trussville City Schools Superintendent Patrick Martin appeared on Tribune Unplugged last week, two days after announcing a $12 million Career and Technical Education (CTE) grant awarded to the city in collaboration with Jefferson County Schools. “The legislature put forth a line ite",
+      "url": "https://www.trussvilletribune.com/2026/09/29/more-details-emerge-on-the-cahaba-valley-innovation-center/",
+      "link": "https://www.trussvilletribune.com/2026/09/29/more-details-emerge-on-the-cahaba-valley-innovation-center/",
+      "published_at": "2026-09-30T01:48:47.000Z",
+      "date": "2026-09-30T01:48:47.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "schools"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-at-6.49.27 AM-1024x506.png"
+    },
+    {
+      "id": "news-9-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op",
+      "section": "county",
+      "why": "birmingham, beltline",
+      "town": "Birmingham",
+      "tags": [
+        "Beltline"
+      ],
+      "outlet": "1819 News",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "1819 News",
+      "source": "1819 News",
+      "title": "Ivey, Tuberville, Britt among elected officials celebrating opening of first segment Birmingham Northern Beltline",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaE9GRWVVQjZ3RUpKcWVYN1dEZVJuTDRlb0c0aWZpbWo3MTFLbmo3QWtHSGV4RHk3MHJsVFVaVTBVUDQ0c0dCSG1vcGNMZWZ3VnhUSU9qVE1Jc01sb2VBVDdtZWF5SUFManNhU1BYbkVDOHVWRk83NmpkdWUtY0dGd095TFlyY3A1QkdVV1RMdktTZ1RBMXE5ekZRY3AzZVFRaWRyQldBRG5seW4xZU5QcjVPalRjeUhkQTRDMGhUNm5TdnZsM09WVEJyR2ZjTzZtaU9ULTNKcUNLdw?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaE9GRWVVQjZ3RUpKcWVYN1dEZVJuTDRlb0c0aWZpbWo3MTFLbmo3QWtHSGV4RHk3MHJsVFVaVTBVUDQ0c0dCSG1vcGNMZWZ3VnhUSU9qVE1Jc01sb2VBVDdtZWF5SUFManNhU1BYbkVDOHVWRk83NmpkdWUtY0dGd095TFlyY3A1QkdVV1RMdktTZ1RBMXE5ekZRY3AzZVFRaWRyQldBRG5seW4xZU5QcjVPalRjeUhkQTRDMGhUNm5TdnZsM09WVEJyR2ZjTzZtaU9ULTNKcUNLdw?oc=5",
+      "published_at": "2026-09-29T19:06:23.000Z",
+      "date": "2026-09-29T19:06:23.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "beltline"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
       "id": "news-10-trussville-tribune-caroline-burgess-thompson-february-9-1935-september-24-2026",
       "section": "obituaries",
       "why": "obituary wording",
@@ -416,7 +408,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -504,7 +496,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -517,6 +509,50 @@
       "date": "2026-09-29T16:12:43.000Z",
       "location_tags": [
         "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Adamsville",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Legacy obituary",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
+        "age": null,
+        "town": "Adamsville",
+        "home": "Legacy obituary",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Legacy obituary",
+      "source": "Legacy obituary",
+      "title": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
+      "published_at": "2026-09-24T18:34:34.000Z",
+      "date": "2026-09-24T18:34:34.000Z",
+      "location_tags": [
+        "adamsville"
       ],
       "topic_tags": [
         "obituary"
