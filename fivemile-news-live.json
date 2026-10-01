@@ -1,62 +1,111 @@
 {
-  "updatedAt": "2026-09-30T16:48:37.867Z",
+  "updatedAt": "2026-10-01T02:05:42.090Z",
   "counts": {
     "towns": 1,
-    "nearby": 2,
-    "county": 6,
-    "obituaries": 2
+    "creek": 1,
+    "county": 8,
+    "nearby": 1
   },
   "sections": {
     "towns": [
-      "news-1-fivemile-september-2026-finished-with-0-85-inches-of-rain"
+      "news-1-wbrc-brookside-to-consider-abolishing-police-department"
     ],
     "nearby": [
-      "news-2-al-com-atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfr",
-      "news-3-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county"
+      "news-4-wvtm-13-parent-says-north-jefferson-middle-school-employee-made-inap"
     ],
-    "creek": [],
+    "creek": [
+      "news-2-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
+    ],
     "county": [
-      "news-4-wvtm-13-first-section-of-birmingham-northern-beltline-opens-to-traff",
-      "news-5-jefferson-county-july-10-2026-jeffco-news",
-      "news-6-jefferson-county-august-6-2026-jeffco-news-primary-election",
-      "news-7-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
-      "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
-      "news-9-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op"
+      "news-3-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
+      "news-5-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "news-6-abc-33-40-aldot-makes-safety-changes-at-busy-pinson-intersection-after",
+      "news-7-jefferson-county-july-10-2026-jeffco-news",
+      "news-8-jefferson-county-august-6-2026-jeffco-news-primary-election",
+      "news-9-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
+      "news-10-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
+      "news-11-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op"
     ],
-    "obituaries": [
-      "news-10-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
-      "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria"
-    ]
+    "obituaries": []
   },
   "stories": [
     {
-      "id": "news-1-fivemile-september-2026-finished-with-0-85-inches-of-rain",
+      "id": "news-1-wbrc-brookside-to-consider-abolishing-police-department",
       "section": "towns",
-      "why": "filed by the desk",
-      "town": "Cardiff",
+      "why": "names brookside",
+      "town": "Brookside",
       "tags": [
-        "Weather"
+        "Public safety"
       ],
-      "outlet": "FIVEMILE",
+      "outlet": "WBRC",
       "paywall": false,
-      "image": null,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HZO6JBK4S5EOVMIXFF5NX7QO2E.png?auth=b60f41999ab1fbe73f8403b5b2a2b6840b061257e57a662e8bda5ef7221dd52d&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
       "obit": null,
-      "score": 40,
+      "score": 46,
       "source_type": "media_feed",
-      "source_name": "FIVEMILE",
-      "source": "FIVEMILE",
-      "title": "September 2026 finished with 0.85 inches of rain",
-      "summary": "That is the total the local station measured across September 2026.",
-      "description": "That is the total the local station measured across September 2026.",
-      "url": "fivemile-almanac.html",
-      "link": "fivemile-almanac.html",
-      "published_at": "2026-09-30T16:48:37.864Z",
-      "date": "2026-09-30T16:48:37.864Z",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Brookside to consider abolishing police department",
+      "summary": "The town of Brookside is considering abolishing its police department, according to a release posted on the town’s website.",
+      "description": "The town of Brookside is considering abolishing its police department, according to a release posted on the town’s website.",
+      "url": "https://www.wbrc.com/2026/09/30/brookside-consider-abolishing-police-department/",
+      "link": "https://www.wbrc.com/2026/09/30/brookside-consider-abolishing-police-department/",
+      "published_at": "2026-09-30T22:09:41.000Z",
+      "date": "2026-09-30T22:09:41.000Z",
       "location_tags": [
-        "cardiff"
+        "brookside"
       ],
       "topic_tags": [
-        "weather"
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HZO6JBK4S5EOVMIXFF5NX7QO2E.png?auth=b60f41999ab1fbe73f8403b5b2a2b6840b061257e57a662e8bda5ef7221dd52d&smart=false"
+    },
+    {
+      "id": "news-2-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
+      "section": "creek",
+      "why": "greenway, in the county",
+      "town": "Jefferson County",
+      "tags": [
+        "The creek",
+        "Land"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-150x150.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 37,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Jefferson County Greenways: A Legacy of Nature, Health and Community",
+      "summary": "The Crusher at Ruffner Mountain. Ruffner Mountain protects roughly 1,030 acres and 11 miles of trails. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-1024x680.jpg\" />First of Two Parts By Cherith Glover Fluker | For the Birmingham Times For most ",
+      "description": "The Crusher at Ruffner Mountain. Ruffner Mountain protects roughly 1,030 acres and 11 miles of trails. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-1024x680.jpg\" />First of Two Parts By Cherith Glover Fluker | For the Birmingham Times For most ",
+      "url": "https://www.birminghamtimes.com/2026/09/jefferson-county-greenways-a-legacy-of-nature-health-and-community/",
+      "link": "https://www.birminghamtimes.com/2026/09/jefferson-county-greenways-a-legacy-of-nature-health-and-community/",
+      "published_at": "2026-10-01T01:15:58.000Z",
+      "date": "2026-10-01T01:15:58.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "the-creek",
+        "land"
       ],
       "priority_level": 5,
       "priority": 5,
@@ -64,82 +113,42 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-150x150.jpg"
     },
     {
-      "id": "news-2-al-com-atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfr",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
+      "id": "news-3-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
+      "section": "county",
+      "why": "birmingham, beltline",
+      "town": "Birmingham",
       "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/PN3RXKGL2BFELOUGKQCJTOC2RA.jpg?auth=6b68fb120b9139390edcaec5f9c9b89baec59596d062d810867026dd2282fa5e&smart=true&height=1200",
-        "from": "feed",
-        "width": 4032,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 35,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Atlanta entertainer back in Alabama to face charges in boyfriend’s strangling death",
-      "summary": "Julian Taylor Morris was arrested Sept. 14 in Miami on a charge of murder in the killing of Deundray Cottrell.",
-      "description": "Julian Taylor Morris was arrested Sept. 14 in Miami on a charge of murder in the killing of Deundray Cottrell.",
-      "url": "https://www.al.com/crime/2026/09/atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfriends-strangling-death.html",
-      "link": "https://www.al.com/crime/2026/09/atlanta-entertainer-back-in-alabama-to-face-charges-in-boyfriends-strangling-death.html",
-      "published_at": "2026-09-30T14:00:12.000Z",
-      "date": "2026-09-30T14:00:12.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/PN3RXKGL2BFELOUGKQCJTOC2RA.jpg?auth=6b68fb120b9139390edcaec5f9c9b89baec59596d062d810867026dd2282fa5e&smart=true&height=1200"
-    },
-    {
-      "id": "news-3-bham-now-new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [
+        "Beltline",
         "Roads"
       ],
-      "outlet": "Bham Now",
+      "outlet": "WBRC",
       "paywall": false,
       "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BSF6HV46QNHMVFZ5WW2OOQ35PI.PNG?auth=39b7f8cd5de6e6c04c83f3c3998bfbaac43dfddf18c698ea930c3519b3ac4fdf&smart=false",
         "from": "feed",
         "width": null,
-        "credit": "Bham Now"
+        "credit": "WBRC"
       },
       "obit": null,
-      "score": 33,
+      "score": 31,
       "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "New Publix headed to Kimberly in North Jefferson County",
-      "summary": "🛒 PUBLIX IS COMING TO KIMBERLY: A $1 million county deal just cleared the way for a brand-new Publix off Highway 31, so no more long drives to Gardendale for a full grocery run.",
-      "description": "🛒 PUBLIX IS COMING TO KIMBERLY: A $1 million county deal just cleared the way for a brand-new Publix off Highway 31, so no more long drives to Gardendale for a full grocery run.",
-      "url": "https://bhamnow.com/2026/09/28/new-publix-headed-to-kimberly-in-north-jefferson-county/#utm_source=rss&utm_medium=rss&utm_campaign=new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "link": "https://bhamnow.com/2026/09/28/new-publix-headed-to-kimberly-in-north-jefferson-county/#utm_source=rss&utm_medium=rss&utm_campaign=new-publix-headed-to-kimberly-in-north-jefferson-county",
-      "published_at": "2026-09-28T16:24:45.000Z",
-      "date": "2026-09-28T16:24:45.000Z",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "1st phase of Birmingham Northern Beltline opens, plans for 2nd phase underway",
+      "summary": "State and local leaders have already secured the funding to construct phase two toward Highway 31.",
+      "description": "State and local leaders have already secured the funding to construct phase two toward Highway 31.",
+      "url": "https://www.wbrc.com/2026/10/01/1st-phase-birmingham-northern-beltline-opens-plans-2nd-phase-underway/",
+      "link": "https://www.wbrc.com/2026/10/01/1st-phase-birmingham-northern-beltline-opens-plans-2nd-phase-underway/",
+      "published_at": "2026-10-01T01:01:44.000Z",
+      "date": "2026-10-01T01:01:44.000Z",
       "location_tags": [
-        "gardendale"
+        "birmingham"
       ],
       "topic_tags": [
+        "beltline",
         "roads"
       ],
       "priority_level": 4,
@@ -148,21 +157,18 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2023/10/publix1-e1698686176578-1200x630.jpg"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BSF6HV46QNHMVFZ5WW2OOQ35PI.PNG?auth=39b7f8cd5de6e6c04c83f3c3998bfbaac43dfddf18c698ea930c3519b3ac4fdf&smart=false"
     },
     {
-      "id": "news-4-wvtm-13-first-section-of-birmingham-northern-beltline-opens-to-traff",
-      "section": "county",
-      "why": "jefferson county, beltline",
-      "town": "Jefferson County",
-      "tags": [
-        "Beltline",
-        "Roads"
-      ],
+      "id": "news-4-wvtm-13-parent-says-north-jefferson-middle-school-employee-made-inap",
+      "section": "nearby",
+      "why": "names north jefferson",
+      "town": "North Jefferson",
+      "tags": [],
       "outlet": "WVTM 13",
       "paywall": false,
       "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/f7706675-9017-476c-9f49-a0e733ca7126.jpg",
+        "url": "https://kubrick.htvapps.com/vidthumb/a77b66a6-48d6-45b8-abf8-4c0d197c9fa0/764ff423-d15c-43f8-8509-d60abf01bb37.jpg",
         "from": "feed",
         "width": null,
         "credit": "WVTM 13"
@@ -172,13 +178,54 @@
       "source_type": "media_feed",
       "source_name": "WVTM 13",
       "source": "WVTM 13",
-      "title": "First section of Birmingham Northern Beltline opens to traffic in Jefferson County",
-      "summary": "The Northern Beltline system will create a 52-mile interstate system that loops around Birmingham.",
-      "description": "The Northern Beltline system will create a 52-mile interstate system that loops around Birmingham.",
-      "url": "https://www.wvtm13.com/article/alabama-northern-beltline-first-section-open-interstate-highway-pinson-palmerdale-jefferson-county/73945474",
-      "link": "https://www.wvtm13.com/article/alabama-northern-beltline-first-section-open-interstate-highway-pinson-palmerdale-jefferson-county/73945474",
-      "published_at": "2026-09-30T16:20:00.000Z",
-      "date": "2026-09-30T16:20:00.000Z",
+      "title": "Parent says North Jefferson Middle School employee made inappropriate comment to son",
+      "summary": "A North Jefferson Middle School parent says a school employee made an inappropriate, sexually suggestive comment to his 12-year-old son in front of classmates.",
+      "description": "A North Jefferson Middle School parent says a school employee made an inappropriate, sexually suggestive comment to his 12-year-old son in front of classmates.",
+      "url": "https://www.wvtm13.com/article/north-jefferson-middle-school-investigation-parent-teacher/73966923",
+      "link": "https://www.wvtm13.com/article/north-jefferson-middle-school-investigation-parent-teacher/73966923",
+      "published_at": "2026-09-30T23:39:00.000Z",
+      "date": "2026-09-30T23:39:00.000Z",
+      "location_tags": [
+        "north-jefferson"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/vidthumb/a77b66a6-48d6-45b8-abf8-4c0d197c9fa0/764ff423-d15c-43f8-8509-d60abf01bb37.jpg"
+    },
+    {
+      "id": "news-5-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "section": "county",
+      "why": "jefferson county, beltline",
+      "town": "Jefferson County",
+      "tags": [
+        "Beltline",
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "First Section of Birmingham Northern Beltline Opens to Traffic",
+      "summary": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
+      "description": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
+      "url": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
+      "link": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
+      "published_at": "2026-09-29T15:19:10.000Z",
+      "date": "2026-09-29T15:19:10.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -192,10 +239,52 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/f7706675-9017-476c-9f49-a0e733ca7126.jpg"
+      "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg"
     },
     {
-      "id": "news-5-jefferson-county-july-10-2026-jeffco-news",
+      "id": "news-6-abc-33-40-aldot-makes-safety-changes-at-busy-pinson-intersection-after",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/9849e42e-0f03-4a4e-b332-7ea3b62fce14-PINSONWEBPHOTO.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "ALDOT makes safety changes at busy Pinson intersection after I-Team report",
+      "summary": "Drivers in Pinson are seeing changes at a busy intersection after months of safety concerns and a review by the Alabama Department of Transportation.The interse",
+      "description": "Drivers in Pinson are seeing changes at a busy intersection after months of safety concerns and a review by the Alabama Department of Transportation.The interse",
+      "url": "https://abc3340.com/news/local/aldot-makes-safety-changes-at-busy-pinson-intersection-after-i-team-report",
+      "link": "https://abc3340.com/news/local/aldot-makes-safety-changes-at-busy-pinson-intersection-after-i-team-report",
+      "published_at": "2026-09-30T21:38:21.000Z",
+      "date": "2026-09-30T21:38:21.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/9849e42e-0f03-4a4e-b332-7ea3b62fce14-PINSONWEBPHOTO.png"
+    },
+    {
+      "id": "news-7-jefferson-county-july-10-2026-jeffco-news",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -206,7 +295,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -232,7 +321,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-jefferson-county-august-6-2026-jeffco-news-primary-election",
+      "id": "news-8-jefferson-county-august-6-2026-jeffco-news-primary-election",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -243,7 +332,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -269,7 +358,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
+      "id": "news-9-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -280,7 +369,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -306,7 +395,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
+      "id": "news-10-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
       "section": "county",
       "why": "jefferson county, schools",
       "town": "Jefferson County",
@@ -322,7 +411,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 20,
+      "score": 19,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -339,8 +428,8 @@
       "topic_tags": [
         "schools"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -348,7 +437,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-at-6.49.27 AM-1024x506.png"
     },
     {
-      "id": "news-9-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op",
+      "id": "news-11-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op",
       "section": "county",
       "why": "birmingham, beltline",
       "town": "Birmingham",
@@ -359,7 +448,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 16,
+      "score": 15,
       "source_type": "media_feed",
       "source_name": "1819 News",
       "source": "1819 News",
@@ -375,94 +464,6 @@
       ],
       "topic_tags": [
         "beltline"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-wbrc-city-of-tuscaloosa-honors-longtime-councilman-kip-tyner-duri",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "City of Tuscaloosa honors longtime Councilman Kip Tyner during Celebration of Life service",
-        "age": null,
-        "town": "",
-        "home": "WBRC",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "City of Tuscaloosa honors longtime Councilman Kip Tyner during Celebration of Life service",
-      "summary": "Hundreds of people gathered in the Alberta community Monday evening for a Celebration of Life honoring longtime Tuscaloosa City Councilman Kip Tyner, who died earlier this month.",
-      "description": "Hundreds of people gathered in the Alberta community Monday evening for a Celebration of Life honoring longtime Tuscaloosa City Councilman Kip Tyner, who died earlier this month.",
-      "url": "https://www.wbrc.com/2026/09/29/city-tuscaloosa-honors-longtime-councilman-kip-tyner-during-celebration-life-service/",
-      "link": "https://www.wbrc.com/2026/09/29/city-tuscaloosa-honors-longtime-councilman-kip-tyner-during-celebration-life-service/",
-      "published_at": "2026-09-29T03:44:37.000Z",
-      "date": "2026-09-29T03:44:37.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-legacy-obituary-kerri-lynn-coe-obituary-2026-adamsville-al-crestview-memoria",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Legacy obituary",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Legacy obituary",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Legacy obituary",
-      "source": "Legacy obituary",
-      "title": "Kerri Lynn Coe Obituary (2026) - Adamsville, AL - Crestview Memorial Gardens & Funeral Home",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpY1JocHQtcWtFbF9reUtZRHF0TVU4Y2NMWWpIVFNDQUVqRnZUVXJJOXFUYVp3U2FJZ0J6NEhXZHNFaEhuVVVmWDVCQ0Z4M0Q5WlRndlJrc1dwd3dRUmRKWTdVd1Q2bnpNNVRnNXpTZUZLeVZwclItUE1GMjU?oc=5",
-      "published_at": "2026-09-24T18:34:34.000Z",
-      "date": "2026-09-24T18:34:34.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
       ],
       "priority_level": 2,
       "priority": 2,
