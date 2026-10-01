@@ -1,32 +1,31 @@
 {
-  "updatedAt": "2026-10-01T02:05:42.090Z",
+  "updatedAt": "2026-10-01T17:21:32.811Z",
   "counts": {
-    "towns": 1,
+    "towns": 2,
     "creek": 1,
-    "county": 8,
-    "nearby": 1
+    "county": 6,
+    "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-wbrc-brookside-to-consider-abolishing-police-department"
+      "news-1-wbrc-brookside-to-consider-abolishing-police-department",
+      "news-2-abc-33-40-policing-for-profit-brookside-1-5m-settlement-moves-forward"
     ],
-    "nearby": [
-      "news-4-wvtm-13-parent-says-north-jefferson-middle-school-employee-made-inap"
-    ],
+    "nearby": [],
     "creek": [
-      "news-2-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
+      "news-3-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
     ],
     "county": [
-      "news-3-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
-      "news-5-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "news-4-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
+      "news-5-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
       "news-6-abc-33-40-aldot-makes-safety-changes-at-busy-pinson-intersection-after",
       "news-7-jefferson-county-july-10-2026-jeffco-news",
       "news-8-jefferson-county-august-6-2026-jeffco-news-primary-election",
-      "news-9-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a",
-      "news-10-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
-      "news-11-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op"
+      "news-9-jefferson-county-jefferson-county-commission-cuts-ribbon-on-new-animal-care-a"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-10-trussville-tribune-gerald-d-ash-july-23-1943-september-28-2026"
+    ]
   },
   "stories": [
     {
@@ -55,8 +54,8 @@
       "description": "The town of Brookside is considering abolishing its police department, according to a release posted on the town’s website.",
       "url": "https://www.wbrc.com/2026/09/30/brookside-consider-abolishing-police-department/",
       "link": "https://www.wbrc.com/2026/09/30/brookside-consider-abolishing-police-department/",
-      "published_at": "2026-09-30T22:09:41.000Z",
-      "date": "2026-09-30T22:09:41.000Z",
+      "published_at": "2026-10-01T11:32:26.000Z",
+      "date": "2026-10-01T11:32:26.000Z",
       "location_tags": [
         "brookside"
       ],
@@ -72,7 +71,45 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HZO6JBK4S5EOVMIXFF5NX7QO2E.png?auth=b60f41999ab1fbe73f8403b5b2a2b6840b061257e57a662e8bda5ef7221dd52d&smart=false"
     },
     {
-      "id": "news-2-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
+      "id": "news-2-abc-33-40-policing-for-profit-brookside-1-5m-settlement-moves-forward",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/1073c06f-c997-411f-83f1-8840df307d56-Wide.00_00_20_22.Still002.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 41,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "'Policing for profit': Brookside $1.5M settlement moves forward",
+      "summary": "BROOKSIDE, Ala. (WBMA) — A federal judge has preliminarily approved a $1.5 million class-action settlement that could compensate thousands of people affected by",
+      "description": "BROOKSIDE, Ala. (WBMA) — A federal judge has preliminarily approved a $1.5 million class-action settlement that could compensate thousands of people affected by",
+      "url": "https://abc3340.com/news/local/policing-for-profit-brookside-15m-settlement-moves-forward",
+      "link": "https://abc3340.com/news/local/policing-for-profit-brookside-15m-settlement-moves-forward",
+      "published_at": "2026-10-01T13:47:26.000Z",
+      "date": "2026-10-01T13:47:26.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/1073c06f-c997-411f-83f1-8840df307d56-Wide.00_00_20_22.Still002.png"
+    },
+    {
+      "id": "news-3-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
       "section": "creek",
       "why": "greenway, in the county",
       "town": "Jefferson County",
@@ -89,7 +126,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 37,
+      "score": 36,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -116,7 +153,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-150x150.jpg"
     },
     {
-      "id": "news-3-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
+      "id": "news-4-wbrc-1st-phase-of-birmingham-northern-beltline-opens-plans-for-2n",
       "section": "county",
       "why": "birmingham, beltline",
       "town": "Birmingham",
@@ -133,7 +170,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -160,86 +197,48 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BSF6HV46QNHMVFZ5WW2OOQ35PI.PNG?auth=39b7f8cd5de6e6c04c83f3c3998bfbaac43dfddf18c698ea930c3519b3ac4fdf&smart=false"
     },
     {
-      "id": "news-4-wvtm-13-parent-says-north-jefferson-middle-school-employee-made-inap",
-      "section": "nearby",
-      "why": "names north jefferson",
-      "town": "North Jefferson",
-      "tags": [],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/a77b66a6-48d6-45b8-abf8-4c0d197c9fa0/764ff423-d15c-43f8-8509-d60abf01bb37.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Parent says North Jefferson Middle School employee made inappropriate comment to son",
-      "summary": "A North Jefferson Middle School parent says a school employee made an inappropriate, sexually suggestive comment to his 12-year-old son in front of classmates.",
-      "description": "A North Jefferson Middle School parent says a school employee made an inappropriate, sexually suggestive comment to his 12-year-old son in front of classmates.",
-      "url": "https://www.wvtm13.com/article/north-jefferson-middle-school-investigation-parent-teacher/73966923",
-      "link": "https://www.wvtm13.com/article/north-jefferson-middle-school-investigation-parent-teacher/73966923",
-      "published_at": "2026-09-30T23:39:00.000Z",
-      "date": "2026-09-30T23:39:00.000Z",
-      "location_tags": [
-        "north-jefferson"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/a77b66a6-48d6-45b8-abf8-4c0d197c9fa0/764ff423-d15c-43f8-8509-d60abf01bb37.jpg"
-    },
-    {
-      "id": "news-5-abc-33-40-first-section-of-birmingham-northern-beltline-opens-to-traff",
+      "id": "news-5-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
       "section": "county",
-      "why": "jefferson county, beltline",
-      "town": "Jefferson County",
+      "why": "birmingham, beltline",
+      "town": "Birmingham",
       "tags": [
         "Beltline",
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "Bham Now",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg",
+        "url": "https://bhamnow.com/wp-content/uploads/2026/09/Northern-Beltline-1-1-scaled.jpg",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "First Section of Birmingham Northern Beltline Opens to Traffic",
-      "summary": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
-      "description": "Gov. Kay Ivey announced Tuesday that the first segment of the Birmingham Northern Beltline (SR-959) is now open to traffic in northeast Jefferson County.The Ala",
-      "url": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
-      "link": "https://abc3340.com/news/local/alabama-montgomery-first-section-of-birmingham-northern-beltline-opens-to-traffic-september-2026-kay-ivey-i-459-in-bessemer-to-i-59-in-northeast-jefferson-county",
-      "published_at": "2026-09-29T15:19:10.000Z",
-      "date": "2026-09-29T15:19:10.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "First section of new Birmingham Northern Beltline now open to traffic",
+      "summary": "🚗 BIRMINGHAM NORTHERN BELTLINE NOW OPEN: The first 1.88-mile section of the long-awaited bypass is officially open to traffic, marking the first phase of the future 52-mile I-422 👇",
+      "description": "🚗 BIRMINGHAM NORTHERN BELTLINE NOW OPEN: The first 1.88-mile section of the long-awaited bypass is officially open to traffic, marking the first phase of the future 52-mile I-422 👇",
+      "url": "https://bhamnow.com/2026/09/30/first-section-of-new-birmingham-northern-beltline-now-open-to-traffic/#utm_source=rss&utm_medium=rss&utm_campaign=first-section-of-new-birmingham-northern-beltline-now-open-to-traffic",
+      "link": "https://bhamnow.com/2026/09/30/first-section-of-new-birmingham-northern-beltline-now-open-to-traffic/#utm_source=rss&utm_medium=rss&utm_campaign=first-section-of-new-birmingham-northern-beltline-now-open-to-traffic",
+      "published_at": "2026-09-30T16:18:21.000Z",
+      "date": "2026-09-30T16:18:21.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
         "beltline",
         "roads"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x321/90/1a9f0b57-4b2e-4575-8dba-a214d9d539cc-NorthernBeltline1.jpg"
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Northern-Beltline-1-1-scaled.jpg"
     },
     {
       "id": "news-6-abc-33-40-aldot-makes-safety-changes-at-busy-pinson-intersection-after",
@@ -258,7 +257,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -295,7 +294,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -332,7 +331,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -369,7 +368,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -395,78 +394,43 @@
       "image_url": ""
     },
     {
-      "id": "news-10-trussville-tribune-more-details-emerge-on-the-cahaba-valley-innovation-center",
-      "section": "county",
-      "why": "jefferson county, schools",
-      "town": "Jefferson County",
+      "id": "news-10-trussville-tribune-gerald-d-ash-july-23-1943-september-28-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
       "tags": [
-        "Schools"
+        "Obituary"
       ],
       "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-at-6.49.27 AM-1024x506.png",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+      "image": null,
+      "obit": {
+        "name": "Gerald D. Ash (July 23, 1943 — September 28, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 19,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "More details emerge on the Cahaba Valley Innovation Center",
-      "summary": "Terry Schrimscher TRUSSVILLE, Ala. — Trussville City Schools Superintendent Patrick Martin appeared on Tribune Unplugged last week, two days after announcing a $12 million Career and Technical Education (CTE) grant awarded to the city in collaboration with Jefferson County Schools. “The legislature put forth a line ite",
-      "description": "Terry Schrimscher TRUSSVILLE, Ala. — Trussville City Schools Superintendent Patrick Martin appeared on Tribune Unplugged last week, two days after announcing a $12 million Career and Technical Education (CTE) grant awarded to the city in collaboration with Jefferson County Schools. “The legislature put forth a line ite",
-      "url": "https://www.trussvilletribune.com/2026/09/29/more-details-emerge-on-the-cahaba-valley-innovation-center/",
-      "link": "https://www.trussvilletribune.com/2026/09/29/more-details-emerge-on-the-cahaba-valley-innovation-center/",
-      "published_at": "2026-09-30T01:48:47.000Z",
-      "date": "2026-09-30T01:48:47.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "schools"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-at-6.49.27 AM-1024x506.png"
-    },
-    {
-      "id": "news-11-1819-news-ivey-tuberville-britt-among-elected-officials-celebrating-op",
-      "section": "county",
-      "why": "birmingham, beltline",
-      "town": "Birmingham",
-      "tags": [
-        "Beltline"
-      ],
-      "outlet": "1819 News",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 15,
-      "source_type": "media_feed",
-      "source_name": "1819 News",
-      "source": "1819 News",
-      "title": "Ivey, Tuberville, Britt among elected officials celebrating opening of first segment Birmingham Northern Beltline",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaE9GRWVVQjZ3RUpKcWVYN1dEZVJuTDRlb0c0aWZpbWo3MTFLbmo3QWtHSGV4RHk3MHJsVFVaVTBVUDQ0c0dCSG1vcGNMZWZ3VnhUSU9qVE1Jc01sb2VBVDdtZWF5SUFManNhU1BYbkVDOHVWRk83NmpkdWUtY0dGd095TFlyY3A1QkdVV1RMdktTZ1RBMXE5ekZRY3AzZVFRaWRyQldBRG5seW4xZU5QcjVPalRjeUhkQTRDMGhUNm5TdnZsM09WVEJyR2ZjTzZtaU9ULTNKcUNLdw?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaE9GRWVVQjZ3RUpKcWVYN1dEZVJuTDRlb0c0aWZpbWo3MTFLbmo3QWtHSGV4RHk3MHJsVFVaVTBVUDQ0c0dCSG1vcGNMZWZ3VnhUSU9qVE1Jc01sb2VBVDdtZWF5SUFManNhU1BYbkVDOHVWRk83NmpkdWUtY0dGd095TFlyY3A1QkdVV1RMdktTZ1RBMXE5ekZRY3AzZVFRaWRyQldBRG5seW4xZU5QcjVPalRjeUhkQTRDMGhUNm5TdnZsM09WVEJyR2ZjTzZtaU9ULTNKcUNLdw?oc=5",
-      "published_at": "2026-09-29T19:06:23.000Z",
-      "date": "2026-09-29T19:06:23.000Z",
+      "title": "Gerald D. Ash (July 23, 1943 — September 28, 2026)",
+      "summary": "Mr. Gerald D. Ash passed away at his home in Irondale on September 28, 2026. He was 83. “Mr. Jerry” was a lifelong resident of Birmingham. He dedicated his life to serving his community as a firefighter at both Birmingham and Irondale fire departments for 45 years and carried this loyalty and brotherhood throughout the",
+      "description": "Mr. Gerald D. Ash passed away at his home in Irondale on September 28, 2026. He was 83. “Mr. Jerry” was a lifelong resident of Birmingham. He dedicated his life to serving his community as a firefighter at both Birmingham and Irondale fire departments for 45 years and carried this loyalty and brotherhood throughout the",
+      "url": "https://www.trussvilletribune.com/2026/10/01/gerald-d-ash-july-23-1943-september-28-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/01/gerald-d-ash-july-23-1943-september-28-2026/",
+      "published_at": "2026-10-01T17:14:37.000Z",
+      "date": "2026-10-01T17:14:37.000Z",
       "location_tags": [
         "birmingham"
       ],
       "topic_tags": [
-        "beltline"
+        "obituary"
       ],
-      "priority_level": 2,
-      "priority": 2,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
