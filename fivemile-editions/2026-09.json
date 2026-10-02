@@ -1,0 +1,266 @@
+{
+  "month": "2026-09",
+  "title": "The September 2026 Edition",
+  "built": "2026-10-02",
+  "backfilled": false,
+  "lede": "September ran well warmer than usual and came in dry, and Five Mile Creek never reached the high water line.",
+  "was": {
+    "station": {
+      "days": 30,
+      "daysInMonth": 30,
+      "hot": {
+        "value": 101,
+        "date": "2026-09-05"
+      },
+      "cold": {
+        "value": 46,
+        "date": "2026-09-29"
+      },
+      "avg": 79.9,
+      "tempDiff": 4.3,
+      "rain": 0.85,
+      "rainNormal": 4,
+      "wettest": {
+        "value": 0.53,
+        "date": "2026-09-11"
+      },
+      "ninety": 24,
+      "freezing": 0
+    },
+    "ranks": {
+      "temp": {
+        "rank": 2,
+        "high": true,
+        "of": 97
+      }
+    },
+    "creek": {
+      "days": 30,
+      "peak": {
+        "value": 2.27,
+        "date": "2026-09-21"
+      },
+      "low": {
+        "value": 1.03,
+        "date": "2026-09-18"
+      },
+      "daysHigh": 0,
+      "rises": 0,
+      "typicalPeak": 3.58,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": {
+      "count": 130,
+      "towns": [
+        {
+          "town": "Graysville",
+          "n": 4
+        },
+        {
+          "town": "Cardiff",
+          "n": 1
+        },
+        {
+          "town": "Brookside",
+          "n": 1
+        }
+      ],
+      "startsLate": null
+    },
+    "sightings": {
+      "count": 4,
+      "names": [
+        "Plicate Rocksnail",
+        "North American Wheel Bug",
+        "Orangenacre Mucket"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "normal"
+    },
+    "noaa": {
+      "issued": "2026-08-31",
+      "temp": {
+        "cat": "above",
+        "prob": 50
+      },
+      "rain": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "tempVerdict": "right",
+      "rainVerdict": "none"
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 12,
+      "n": 25,
+      "counts": {
+        "above": 12,
+        "normal": 8,
+        "below": 5
+      },
+      "verdict": "right"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 65,
+        "wrong": 33,
+        "none": 46
+      },
+      "rain": {
+        "right": 39,
+        "wrong": 42,
+        "none": 63
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 3,
+      "wrong": 0,
+      "none": 6
+    },
+    "sayings": [
+      {
+        "id": "dog-days",
+        "result": {
+          "held": false,
+          "high": 102,
+          "day": "2026-09-04"
+        }
+      }
+    ]
+  },
+  "ahead": {
+    "month": "2026-10",
+    "noaa": {
+      "issued": "2026-09-30",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 40
+      }
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 18,
+      "n": 33,
+      "counts": {
+        "above": 18,
+        "normal": 10,
+        "below": 5
+      }
+    },
+    "normals": {
+      "highFrom": 82,
+      "highTo": 70,
+      "lowFrom": 60,
+      "lowTo": 48,
+      "rain": 3.34,
+      "recordHigh": {
+        "value": 101,
+        "date": "2019-10-03"
+      },
+      "recordLow": {
+        "value": 27,
+        "date": "1952-10-29"
+      },
+      "frost": {
+        "froze": 22,
+        "years": 96,
+        "edge": {
+          "date": "1948-10-18",
+          "low": 31
+        },
+        "spring": false
+      }
+    },
+    "sky": {
+      "first": 710,
+      "last": 650,
+      "turning": null
+    },
+    "saying": null,
+    "dates": [
+      {
+        "date": "2026-10-01",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-05",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-07",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-13",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-15",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-17",
+        "word": null,
+        "title": "Household Hazardous Waste Collection",
+        "blurb": "Jefferson County HHW drop-off. The nearest site to these towns is Camp Ketona (121 County Shop Road). Accepts chemicals, paint, batteries, and other household hazardous materials. 8:00 AM to 11:30 AM.",
+        "url": "https://www.jccal.org/Default.asp?ID=2294&pg=Electronics+Hazardous+Materials",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-10-25",
+        "word": null,
+        "title": "Hunter's Moon",
+        "blurb": "The first full moon after the Harvest Moon.",
+        "url": "https://en.wikipedia.org/wiki/Hunter%27s_moon",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      }
+    ]
+  }
+}
