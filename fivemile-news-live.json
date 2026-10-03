@@ -1,108 +1,105 @@
 {
-  "updatedAt": "2026-10-03T01:54:43.281Z",
+  "updatedAt": "2026-10-03T15:08:01.267Z",
   "counts": {
-    "towns": 2,
-    "nearby": 1,
+    "towns": 4,
     "creek": 1,
-    "county": 6
+    "county": 7
   },
   "sections": {
     "towns": [
-      "news-1-cbs-42-town-of-brookside-may-abolish-police-department",
-      "news-5-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b"
+      "news-1-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
+      "news-2-wvtm13-com-brookside-weighs-dissolving-police-department-over-insurance",
+      "news-4-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
+      "news-6-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b"
     ],
-    "nearby": [
-      "news-2-wvtm-13-publix-anchored-shopping-center-coming-to-kimberly"
-    ],
+    "nearby": [],
     "creek": [
       "news-3-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
     ],
     "county": [
-      "news-4-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
-      "news-6-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
-      "news-7-trussville-tribune-edwards-lake-road-paving-moved-up-to-oct-12",
-      "news-8-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
-      "news-9-jefferson-county-july-10-2026-jeffco-news",
-      "news-10-jefferson-county-august-6-2026-jeffco-news-primary-election"
+      "news-5-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
+      "news-7-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
+      "news-8-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
+      "news-9-trussville-tribune-edwards-lake-road-paving-moved-up-to-oct-12",
+      "news-10-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
+      "news-11-jefferson-county-july-10-2026-jeffco-news",
+      "news-12-jefferson-county-august-6-2026-jeffco-news-primary-election"
     ],
     "obituaries": []
   },
   "stories": [
     {
-      "id": "news-1-cbs-42-town-of-brookside-may-abolish-police-department",
+      "id": "news-1-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/GK4ITGD3OVGNHOYF5P2PXUMEAU.jpg?auth=b200c4a604265ef81fffbe08fbdc0efd5c608418b97804ea7aaed478ee6bd2be&smart=true&height=1200",
+        "from": "feed",
+        "width": 2200,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 50,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Brookside chief takes town to court over plans to shut down police department",
+      "summary": "A small-town police chief is taking his own mayor and council to keep his department from being dissolved.",
+      "description": "A small-town police chief is taking his own mayor and council to keep his department from being dissolved.",
+      "url": "https://www.al.com/news/birmingham/2026/10/brookside-chief-takes-town-to-court-over-plans-to-shut-down-police-department.html",
+      "link": "https://www.al.com/news/birmingham/2026/10/brookside-chief-takes-town-to-court-over-plans-to-shut-down-police-department.html",
+      "published_at": "2026-10-03T11:00:01.000Z",
+      "date": "2026-10-03T11:00:01.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/GK4ITGD3OVGNHOYF5P2PXUMEAU.jpg?auth=b200c4a604265ef81fffbe08fbdc0efd5c608418b97804ea7aaed478ee6bd2be&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-wvtm13-com-brookside-weighs-dissolving-police-department-over-insurance",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
       "tags": [
         "Public safety"
       ],
-      "outlet": "CBS 42",
+      "outlet": "wvtm13.com",
       "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2022/02/D5647B6FB9FADEAA18CA03071D9894A7.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
+      "image": null,
       "obit": null,
-      "score": 41,
+      "score": 34,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Town of Brookside may abolish police department",
-      "summary": "BROOKSIDE, Ala. (WIAT) -- The town of Brookside is considering abolishing its police department after receiving an advisory from an insurance carrier. According to press release Wednesday, the town's insurance carrier stated it will not renew insurance coverage if the the Brookside Police Department remains in operatio",
-      "description": "BROOKSIDE, Ala. (WIAT) -- The town of Brookside is considering abolishing its police department after receiving an advisory from an insurance carrier. According to press release Wednesday, the town's insurance carrier stated it will not renew insurance coverage if the the Brookside Police Department remains in operatio",
-      "url": "https://www.alabamas42.com/news/local/town-of-brookside-may-abolish-police-department/",
-      "link": "https://www.alabamas42.com/news/local/town-of-brookside-may-abolish-police-department/",
-      "published_at": "2026-09-30T19:09:57.000Z",
-      "date": "2026-09-30T19:09:57.000Z",
+      "source_name": "wvtm13.com",
+      "source": "wvtm13.com",
+      "title": "Brookside weighs dissolving police department over insurance challenges",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOc3c0cVJva1VjUFNpZEdlb1Zqay1TcE52bTJnWTd2Y1ZTbV9Wa2FhU2tYNEF1Vmp4OGVHVXFzSUd5VjdFc0FCRTlkWVZrNkNCUXd1eEs1MHQ2MGdSMUNScDJHZmQ5bjNRb3FGR2huZXhLM2JMM04zcDBCX1JGem9zVTVMcUZCSkx3UVFnY3JjVUszeEduaWY0?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOc3c0cVJva1VjUFNpZEdlb1Zqay1TcE52bTJnWTd2Y1ZTbV9Wa2FhU2tYNEF1Vmp4OGVHVXFzSUd5VjdFc0FCRTlkWVZrNkNCUXd1eEs1MHQ2MGdSMUNScDJHZmQ5bjNRb3FGR2huZXhLM2JMM04zcDBCX1JGem9zVTVMcUZCSkx3UVFnY3JjVUszeEduaWY0?oc=5",
+      "published_at": "2026-10-02T12:17:00.000Z",
+      "date": "2026-10-02T12:17:00.000Z",
       "location_tags": [
         "brookside"
       ],
       "topic_tags": [
         "public-safety"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2022/02/D5647B6FB9FADEAA18CA03071D9894A7.jpg?w=900"
-    },
-    {
-      "id": "news-2-wvtm-13-publix-anchored-shopping-center-coming-to-kimberly",
-      "section": "nearby",
-      "why": "names kimberly",
-      "town": "Kimberly",
-      "tags": [
-        "Beltline"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/e20d4860-a9f8-47e4-9fdd-d7e5e9163c5e/42450dd0-19ac-4168-aa08-af0c7ddd1b2b.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 34,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Publix-anchored shopping center coming to Kimberly",
-      "summary": "Kimberly leaders say a new shopping center near the Northern Beltline will be a big boost for jobs and growth.",
-      "description": "Kimberly leaders say a new shopping center near the Northern Beltline will be a big boost for jobs and growth.",
-      "url": "https://www.wvtm13.com/article/kimberly-publix-shopping-center-jobs-growth/74000027",
-      "link": "https://www.wvtm13.com/article/kimberly-publix-shopping-center-jobs-growth/74000027",
-      "published_at": "2026-10-02T23:06:00.000Z",
-      "date": "2026-10-02T23:06:00.000Z",
-      "location_tags": [
-        "kimberly"
-      ],
-      "topic_tags": [
-        "beltline"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -110,7 +107,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/e20d4860-a9f8-47e4-9fdd-d7e5e9163c5e/42450dd0-19ac-4168-aa08-af0c7ddd1b2b.jpg"
+      "image_url": ""
     },
     {
       "id": "news-3-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
@@ -130,7 +127,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -157,7 +154,44 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-150x150.jpg"
     },
     {
-      "id": "news-4-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
+      "id": "news-4-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Brookside could abolish police department after insurer says it won't renew coverage",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPVHpLRGRLdTNfUE90MjBoZDVlenJFZ3FCekpyNjhPMUlDTG9UdmhkcXhZT19NUC03dktMd2tMMUFiYUl6ZmcwOEJYRHhTMjFhVVJqWVRCNWhPQXRfYUZIam5tb0t0bXk5ZkM5enhwMkR0amV1YjYwUmtnTzBWM01uaVpZTkp5LVc0UXNGYUpOS1ZUSkh5eVhGU1lWb3doV29KTkVxMENRYnpPWUh3cFcxcVNnSmVEbXMwNERRTjBmLUFic2dJYkxlUUxR?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPVHpLRGRLdTNfUE90MjBoZDVlenJFZ3FCekpyNjhPMUlDTG9UdmhkcXhZT19NUC03dktMd2tMMUFiYUl6ZmcwOEJYRHhTMjFhVVJqWVRCNWhPQXRfYUZIam5tb0t0bXk5ZkM5enhwMkR0amV1YjYwUmtnTzBWM01uaVpZTkp5LVc0UXNGYUpOS1ZUSkh5eVhGU1lWb3doV29KTkVxMENRYnpPWUh3cFcxcVNnSmVEbXMwNERRTjBmLUFic2dJYkxlUUxR?oc=5",
+      "published_at": "2026-09-30T23:25:11.000Z",
+      "date": "2026-09-30T23:25:11.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-5-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
       "section": "county",
       "why": "birmingham, land",
       "town": "Birmingham",
@@ -173,7 +207,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -199,7 +233,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/Photo-Sep-30-2026-4-41-03-PM-e1790874134454.png"
     },
     {
-      "id": "news-5-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
+      "id": "news-6-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -208,7 +242,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "The Institute for Justice",
       "source": "The Institute for Justice",
@@ -232,7 +266,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
+      "id": "news-7-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
       "section": "county",
       "why": "birmingham, beltline",
       "town": "Birmingham",
@@ -249,7 +283,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -276,7 +310,49 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Northern-Beltline-1-1-scaled.jpg"
     },
     {
-      "id": "news-7-trussville-tribune-edwards-lake-road-paving-moved-up-to-oct-12",
+      "id": "news-8-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/Bham-Mtn-Hikers-2-scaled-e1790996870646-150x150.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Birmingham Mountain High Hikers is Building Community, One Trail at a Time",
+      "summary": "What started as three grieving friends holding each other accountable has grown into Birmingham Mountain High Hikers (BMHH), which has introduced more than 1,000 people to hiking. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/Bham-Mtn-Hikers-2-scaled-e1790996870646-1024x669.jp",
+      "description": "What started as three grieving friends holding each other accountable has grown into Birmingham Mountain High Hikers (BMHH), which has introduced more than 1,000 people to hiking. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/09/Bham-Mtn-Hikers-2-scaled-e1790996870646-1024x669.jp",
+      "url": "https://www.birminghamtimes.com/2026/10/birmingham-mountain-high-hikers-is-building-community-one-trail-at-a-time/",
+      "link": "https://www.birminghamtimes.com/2026/10/birmingham-mountain-high-hikers-is-building-community-one-trail-at-a-time/",
+      "published_at": "2026-10-03T03:08:13.000Z",
+      "date": "2026-10-03T03:08:13.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/Bham-Mtn-Hikers-2-scaled-e1790996870646-150x150.jpeg"
+    },
+    {
+      "id": "news-9-trussville-tribune-edwards-lake-road-paving-moved-up-to-oct-12",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -292,7 +368,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -318,7 +394,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/10/HTn8Fr3WcAIsVGZ-232x300.jpg"
     },
     {
-      "id": "news-8-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
+      "id": "news-10-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -334,7 +410,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -360,7 +436,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/COMMISSION-150x150.jpg"
     },
     {
-      "id": "news-9-jefferson-county-july-10-2026-jeffco-news",
+      "id": "news-11-jefferson-county-july-10-2026-jeffco-news",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -371,7 +447,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -397,7 +473,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-jefferson-county-august-6-2026-jeffco-news-primary-election",
+      "id": "news-12-jefferson-county-august-6-2026-jeffco-news-primary-election",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -408,7 +484,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
