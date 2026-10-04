@@ -1,34 +1,36 @@
 {
-  "updatedAt": "2026-10-04T02:33:58.322Z",
+  "updatedAt": "2026-10-04T15:46:50.813Z",
   "counts": {
-    "towns": 7,
+    "towns": 10,
+    "creek": 2,
     "nearby": 1,
-    "creek": 1,
-    "county": 6
+    "county": 4
   },
   "sections": {
     "towns": [
       "news-1-abc-33-40-wildfire-burning-in-adamsville-graysville-area-no-structures",
-      "news-2-wvtm-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
-      "news-3-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
-      "news-5-wvtm-channel-13-brookside-weighs-dissolving-police-department-over-insurance",
-      "news-7-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
-      "news-9-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
-      "news-11-the-peninsula-qatar-cardiff-indian-school-opens-its-doors-in-al-khor"
+      "news-2-wbrc-jefferson-county-judge-says-city-of-brookside-cannot-disband",
+      "news-3-cbs-42-brookside-police-department-remains-in-operation-following-t",
+      "news-4-wvtm-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
+      "news-5-abc-33-40-brookside-police-chief-files-lawsuit-as-town-moves-to-abolis",
+      "news-7-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
+      "news-9-wvtm-channel-13-brookside-weighs-dissolving-police-department-over-insurance",
+      "news-11-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
+      "news-13-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
+      "news-16-thepeninsulaqatar-com-cardiff-indian-school-opens-its-doors-in-al-khor"
     ],
     "nearby": [
-      "news-4-wbrc-authorities-west-jefferson-county-brushfire-now-contained"
+      "news-8-wbrc-authorities-west-jefferson-county-brushfire-now-contained"
     ],
     "creek": [
-      "news-6-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
+      "news-6-al-com-second-major-brush-fire-this-week-burns-more-than-200-acres-",
+      "news-10-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com"
     ],
     "county": [
-      "news-8-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
-      "news-10-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
-      "news-12-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
-      "news-13-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
-      "news-14-jefferson-county-july-10-2026-jeffco-news",
-      "news-15-jefferson-county-august-6-2026-jeffco-news-primary-election"
+      "news-12-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
+      "news-14-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
+      "news-15-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
+      "news-17-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-"
     ],
     "obituaries": []
   },
@@ -50,7 +52,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 64,
+      "score": 63,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -76,7 +78,91 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/942/986/5x0/90/b19c190e-6839-4cc0-b6d3-57335080ed46-SBG.png"
     },
     {
-      "id": "news-2-wvtm-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
+      "id": "news-2-wbrc-jefferson-county-judge-says-city-of-brookside-cannot-disband",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HZO6JBK4S5EOVMIXFF5NX7QO2E.png?auth=b60f41999ab1fbe73f8403b5b2a2b6840b061257e57a662e8bda5ef7221dd52d&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 48,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Jefferson County judge says city of Brookside cannot disband police department for now",
+      "summary": "The TRO also prevents leaders from restructuring the department or disposing of its property.",
+      "description": "The TRO also prevents leaders from restructuring the department or disposing of its property.",
+      "url": "https://www.wbrc.com/2026/10/04/jefferson-county-judge-says-city-brookside-cannot-disband-police-department-now/",
+      "link": "https://www.wbrc.com/2026/10/04/jefferson-county-judge-says-city-brookside-cannot-disband-police-department-now/",
+      "published_at": "2026-10-04T03:33:32.000Z",
+      "date": "2026-10-04T03:33:32.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HZO6JBK4S5EOVMIXFF5NX7QO2E.png?auth=b60f41999ab1fbe73f8403b5b2a2b6840b061257e57a662e8bda5ef7221dd52d&smart=false"
+    },
+    {
+      "id": "news-3-cbs-42-brookside-police-department-remains-in-operation-following-t",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2022/02/D5647B6FB9FADEAA18CA03071D9894A7.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 48,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Brookside Police Department remains in operation following temporary restraining order",
+      "summary": "The Brookside Police Department will stay in operation following a temporary restraining order from a Jefferson County judge.",
+      "description": "The Brookside Police Department will stay in operation following a temporary restraining order from a Jefferson County judge.",
+      "url": "https://www.alabamas42.com/news/local/brookside-police-department-remains-in-operation-following-temporary-restraining-order/",
+      "link": "https://www.alabamas42.com/news/local/brookside-police-department-remains-in-operation-following-temporary-restraining-order/",
+      "published_at": "2026-10-04T13:54:53.000Z",
+      "date": "2026-10-04T13:54:53.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2022/02/D5647B6FB9FADEAA18CA03071D9894A7.jpg?w=900"
+    },
+    {
+      "id": "news-4-wvtm-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -92,7 +178,7 @@
         "credit": "WVTM 13"
       },
       "obit": null,
-      "score": 48,
+      "score": 47,
       "source_type": "media_feed",
       "source_name": "WVTM 13",
       "source": "WVTM 13",
@@ -101,8 +187,8 @@
       "description": "A Jefferson County judge has temporarily blocked Brookside from shutting down its police department as the chief alleges retaliation for whistleblowing.",
       "url": "https://www.wvtm13.com/article/brookside-police-department-temporarily-blocked/74009189",
       "link": "https://www.wvtm13.com/article/brookside-police-department-temporarily-blocked/74009189",
-      "published_at": "2026-10-04T01:53:00.000Z",
-      "date": "2026-10-04T01:53:00.000Z",
+      "published_at": "2026-10-04T03:37:00.000Z",
+      "date": "2026-10-04T03:37:00.000Z",
       "location_tags": [
         "brookside"
       ],
@@ -118,7 +204,91 @@
       "image_url": "https://kubrick.htvapps.com/vidthumb/13ce7121-9306-4627-b51e-3a95b76e4050/4cfabc14-dd67-4f36-859b-42604fd4bcd5.jpg"
     },
     {
-      "id": "news-3-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
+      "id": "news-5-abc-33-40-brookside-police-chief-files-lawsuit-as-town-moves-to-abolis",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1244/986/7x0/90/f3b2861f-840e-4f31-9506-fb7dc120d25e-ABC3340sITeamreporterValerieBellsitsdownwithBrooksidePoliceChiefMarcusSellersabc3340.com.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 47,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Brookside police chief files lawsuit as town moves to abolish police department",
+      "summary": "A Jefferson County judge is temporarily blocking the Town of Brookside from closing, dissolving or substantially restructuring its police department while a law",
+      "description": "A Jefferson County judge is temporarily blocking the Town of Brookside from closing, dissolving or substantially restructuring its police department while a law",
+      "url": "https://abc3340.com/news/local/brookside-police-chief-files-lawsuit-as-town-moves-to-abolish-police-department",
+      "link": "https://abc3340.com/news/local/brookside-police-chief-files-lawsuit-as-town-moves-to-abolish-police-department",
+      "published_at": "2026-10-04T03:59:52.000Z",
+      "date": "2026-10-04T03:59:52.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1244/986/7x0/90/f3b2861f-840e-4f31-9506-fb7dc120d25e-ABC3340sITeamreporterValerieBellsitsdownwithBrooksidePoliceChiefMarcusSellersabc3340.com.png"
+    },
+    {
+      "id": "news-6-al-com-second-major-brush-fire-this-week-burns-more-than-200-acres-",
+      "section": "creek",
+      "why": "wildfire, in the county",
+      "town": "Jefferson County",
+      "tags": [
+        "Land"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/NUBRWZYHKJG37A23VURXIQCBM4.png?auth=45b23e53d40cd10ce8bf96afa1b6add1da8955d4aa9c32e075c6ec8790d87ee5&smart=true&height=1200",
+        "from": "feed",
+        "width": 563,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 35,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Second major brush fire this week burns more than 200 acres in Jefferson County",
+      "summary": "The blaze is the second major brush fire reported in central Alabama this week, following a wildfire at Oak Mountain State Park.",
+      "description": "The blaze is the second major brush fire reported in central Alabama this week, following a wildfire at Oak Mountain State Park.",
+      "url": "https://www.al.com/news/2026/10/second-major-brush-fire-this-week-burns-more-than-200-acres-in-jefferson-county.html",
+      "link": "https://www.al.com/news/2026/10/second-major-brush-fire-this-week-burns-more-than-200-acres-in-jefferson-county.html",
+      "published_at": "2026-10-04T14:50:25.000Z",
+      "date": "2026-10-04T14:50:25.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "land"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/NUBRWZYHKJG37A23VURXIQCBM4.png?auth=45b23e53d40cd10ce8bf96afa1b6add1da8955d4aa9c32e075c6ec8790d87ee5&smart=true&height=1200"
+    },
+    {
+      "id": "news-7-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -129,7 +299,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -155,7 +325,7 @@
       "image_url": ""
     },
     {
-      "id": "news-4-wbrc-authorities-west-jefferson-county-brushfire-now-contained",
+      "id": "news-8-wbrc-authorities-west-jefferson-county-brushfire-now-contained",
       "section": "nearby",
       "why": "names west jefferson",
       "town": "West Jefferson",
@@ -169,7 +339,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -178,8 +348,8 @@
       "description": "The brushfire had sent smoke into the air that could be seen from Red Mountain.",
       "url": "https://www.wbrc.com/2026/10/04/authorities-west-jefferson-county-brushfire-now-contained/",
       "link": "https://www.wbrc.com/2026/10/04/authorities-west-jefferson-county-brushfire-now-contained/",
-      "published_at": "2026-10-04T02:26:37.000Z",
-      "date": "2026-10-04T02:26:37.000Z",
+      "published_at": "2026-10-04T03:20:36.000Z",
+      "date": "2026-10-04T03:20:36.000Z",
       "location_tags": [
         "west-jefferson"
       ],
@@ -193,7 +363,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//U7XYNDVA3VBDTIU2EG2FGKZEQQ.jpeg?auth=7d7bf667a753256481e34ef2b52792d51f5c29563b171df26ca2fadc8c334e0f&smart=false"
     },
     {
-      "id": "news-5-wvtm-channel-13-brookside-weighs-dissolving-police-department-over-insurance",
+      "id": "news-9-wvtm-channel-13-brookside-weighs-dissolving-police-department-over-insurance",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -230,7 +400,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
+      "id": "news-10-birmingham-times-jefferson-county-greenways-a-legacy-of-nature-health-and-com",
       "section": "creek",
       "why": "greenway, in the county",
       "town": "Jefferson County",
@@ -247,7 +417,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -274,7 +444,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/The-Crusher-at-Ruffner-Mountain-150x150.jpg"
     },
     {
-      "id": "news-7-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
+      "id": "news-11-abc-33-40-brookside-could-abolish-police-department-after-insurer-says",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -285,7 +455,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -311,7 +481,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
+      "id": "news-12-bham-now-black-warrior-riverkeeper-unveils-25-year-map-of-170-wins",
       "section": "county",
       "why": "birmingham, land",
       "town": "Birmingham",
@@ -327,7 +497,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -353,7 +523,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/Photo-Sep-30-2026-4-41-03-PM-e1790874134454.png"
     },
     {
-      "id": "news-9-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
+      "id": "news-13-the-institute-for-justice-federal-court-grants-preliminary-approval-to-settlement-in-b",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -362,7 +532,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "The Institute for Justice",
       "source": "The Institute for Justice",
@@ -377,8 +547,8 @@
         "brookside"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -386,7 +556,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
+      "id": "news-14-bham-now-first-section-of-new-birmingham-northern-beltline-now-open-t",
       "section": "county",
       "why": "birmingham, beltline",
       "town": "Birmingham",
@@ -403,7 +573,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -430,40 +600,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/09/Northern-Beltline-1-1-scaled.jpg"
     },
     {
-      "id": "news-11-the-peninsula-qatar-cardiff-indian-school-opens-its-doors-in-al-khor",
-      "section": "towns",
-      "why": "names cardiff",
-      "town": "Cardiff",
-      "tags": [],
-      "outlet": "The Peninsula Qatar",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "The Peninsula Qatar",
-      "source": "The Peninsula Qatar",
-      "title": "Cardiff Indian School opens its doors in Al Khor",
-      "summary": "Cardiff Indian School opens its doors in Al Khor The Peninsula Qatar",
-      "description": "Cardiff Indian School opens its doors in Al Khor The Peninsula Qatar",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOd0o4eEhYbU1KdVdtNTBTUTNlQTc4N3c0VFRpczNvclRjRFN0bW5KQWFHajFmVXBtM0h1ZVpFSEhyUVJMaFJsYTVxdlBWV1lFZHkwYXdXQ05iZXFDUnpNcjIwMzJlYTJTTkxnTlAzTXBRWUZPRUpzd1NpQi02cGIzR3h3cHdGcmhyX2l2T25vTmU2bFk4TW1icGY1QzRxUQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOd0o4eEhYbU1KdVdtNTBTUTNlQTc4N3c0VFRpczNvclRjRFN0bW5KQWFHajFmVXBtM0h1ZVpFSEhyUVJMaFJsYTVxdlBWV1lFZHkwYXdXQ05iZXFDUnpNcjIwMzJlYTJTTkxnTlAzTXBRWUZPRUpzd1NpQi02cGIzR3h3cHdGcmhyX2l2T25vTmU2bFk4TW1icGY1QzRxUQ?oc=5",
-      "published_at": "2026-09-29T06:12:57.000Z",
-      "date": "2026-09-29T06:12:57.000Z",
-      "location_tags": [
-        "cardiff"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
+      "id": "news-15-birmingham-times-birmingham-mountain-high-hikers-is-building-community-one-tr",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -505,7 +642,40 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/09/Bham-Mtn-Hikers-2-scaled-e1790996870646-150x150.jpeg"
     },
     {
-      "id": "news-13-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
+      "id": "news-16-thepeninsulaqatar-com-cardiff-indian-school-opens-its-doors-in-al-khor",
+      "section": "towns",
+      "why": "names cardiff",
+      "town": "Cardiff",
+      "tags": [],
+      "outlet": "thepeninsulaqatar.com",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 23,
+      "source_type": "media_feed",
+      "source_name": "thepeninsulaqatar.com",
+      "source": "thepeninsulaqatar.com",
+      "title": "Cardiff Indian School opens its doors in Al Khor",
+      "summary": "Cardiff Indian School opens its doors in Al Khor thepeninsulaqatar.com",
+      "description": "Cardiff Indian School opens its doors in Al Khor thepeninsulaqatar.com",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOd0o4eEhYbU1KdVdtNTBTUTNlQTc4N3c0VFRpczNvclRjRFN0bW5KQWFHajFmVXBtM0h1ZVpFSEhyUVJMaFJsYTVxdlBWV1lFZHkwYXdXQ05iZXFDUnpNcjIwMzJlYTJTTkxnTlAzTXBRWUZPRUpzd1NpQi02cGIzR3h3cHdGcmhyX2l2T25vTmU2bFk4TW1icGY1QzRxUQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOd0o4eEhYbU1KdVdtNTBTUTNlQTc4N3c0VFRpczNvclRjRFN0bW5KQWFHajFmVXBtM0h1ZVpFSEhyUVJMaFJsYTVxdlBWV1lFZHkwYXdXQ05iZXFDUnpNcjIwMzJlYTJTTkxnTlAzTXBRWUZPRUpzd1NpQi02cGIzR3h3cHdGcmhyX2l2T25vTmU2bFk4TW1icGY1QzRxUQ?oc=5",
+      "published_at": "2026-09-29T06:12:57.000Z",
+      "date": "2026-09-29T06:12:57.000Z",
+      "location_tags": [
+        "cardiff"
+      ],
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-17-birmingham-times-jefferson-county-commission-celebrates-new-state-of-the-art-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -521,7 +691,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -545,80 +715,6 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/COMMISSION-150x150.jpg"
-    },
-    {
-      "id": "news-14-jefferson-county-july-10-2026-jeffco-news",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "July 10, 2026 JeffCo News",
-      "summary": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "description": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "published_at": "2026-09-30T13:37:00.000Z",
-      "date": "2026-09-30T13:37:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-15-jefferson-county-august-6-2026-jeffco-news-primary-election",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "August 6, 2026 - JeffCo News Primary Election",
-      "summary": "",
-      "description": "",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=160",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=160",
-      "published_at": "2026-09-30T13:35:00.000Z",
-      "date": "2026-09-30T13:35:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
     }
   ]
 }
