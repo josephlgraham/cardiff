@@ -1,76 +1,37 @@
 {
-  "updatedAt": "2026-10-09T02:55:43.071Z",
+  "updatedAt": "2026-10-09T17:25:47.389Z",
   "counts": {
-    "towns": 5,
-    "county": 9,
+    "towns": 3,
+    "county": 7,
     "nearby": 1,
-    "obituaries": 3
+    "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-abc-33-40-wildfire-burning-in-adamsville-graysville-area-no-structures",
-      "news-2-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
-      "news-4-yahoo-brookside-police-department-remains-in-operation-following-t",
-      "news-5-wvtm-channel-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
-      "news-7-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-"
+      "news-1-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
+      "news-3-yahoo-brookside-police-department-remains-in-operation-following-t",
+      "news-5-wvtm-channel-13-judge-freezes-brookside-police-shutdown-after-whistleblower-"
     ],
     "nearby": [
-      "news-13-wvtm-channel-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva"
+      "news-10-wvtm-channel-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva"
     ],
     "creek": [],
     "county": [
-      "news-3-birminghamwatch-jeffco-renews-resident-report-app",
-      "news-6-wbrc-state-closes-coastal-parks-offices-ahead-of-hurricane-isaias",
-      "news-8-wvtm-13-jefferson-county-prepares-for-hurricane-isaias-with-pre-depl",
-      "news-9-wvtm-13-hit-and-run-kills-man-walking-on-alabama-highway-75-in-pinso",
-      "news-10-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
-      "news-11-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
-      "news-12-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-",
-      "news-14-bham-now-plan-ahead-i-459-ramp-closures-october-5-6",
-      "news-15-trussville-tribune-pedestrian-killed-in-pinson-by-apparent-hit-and-run-driver"
+      "news-2-birminghamwatch-jeffco-renews-resident-report-app",
+      "news-4-wbrc-man-killed-in-hit-and-run-while-walking-in-pinson-identified",
+      "news-6-wvtm-13-hit-and-run-kills-man-walking-on-alabama-highway-75-in-pinso",
+      "news-7-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
+      "news-8-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
+      "news-9-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-",
+      "news-11-trussville-tribune-pedestrian-killed-in-pinson-by-apparent-hit-and-run-driver"
     ],
     "obituaries": [
-      "news-16-trussville-tribune-gray-bubba-lynn-scarborough-october-20-1950-october-6-2026",
-      "news-17-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
-      "news-18-trussville-tribune-grover-william-bill-sims-january-20-1949-october-3-2026"
+      "news-12-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-wildfire-burning-in-adamsville-graysville-area-no-structures",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 44,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Wildfire burning in Adamsville-Graysville area; no structures threatened",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNFdIQTgyN0NzS2J6U3dURUZIZDFnRTRmNGxnbng5M1k4RGtJS3Jibm9lMVFYVnlRYzhHRUtOd1Y5XzdUMmZPMk5Xd0IxMVpSRFlwZi1iY2oyZVlqYThENVJ4b0RoMjRSR2k5NEJkOGNPdGlleVRzUDg0WFpDUjl4VlJsODlUOFA1YzlmR1V1UV9ZNGxuM3U4MU9IN3kwWlgtRWJOVg?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNFdIQTgyN0NzS2J6U3dURUZIZDFnRTRmNGxnbng5M1k4RGtJS3Jibm9lMVFYVnlRYzhHRUtOd1Y5XzdUMmZPMk5Xd0IxMVpSRFlwZi1iY2oyZVlqYThENVJ4b0RoMjRSR2k5NEJkOGNPdGlleVRzUDg0WFpDUjl4VlJsODlUOFA1YzlmR1V1UV9ZNGxuM3U4MU9IN3kwWlgtRWJOVg?oc=5",
-      "published_at": "2026-10-04T10:41:34.000Z",
-      "date": "2026-10-04T10:41:34.000Z",
-      "location_tags": [
-        "graysville"
-      ],
-      "topic_tags": [],
-      "priority_level": 6,
-      "priority": 6,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-2-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
+      "id": "news-1-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -82,7 +43,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -109,7 +70,7 @@
       "image_url": ""
     },
     {
-      "id": "news-3-birminghamwatch-jeffco-renews-resident-report-app",
+      "id": "news-2-birminghamwatch-jeffco-renews-resident-report-app",
       "section": "county",
       "why": "county commission, government",
       "town": "Birmingham",
@@ -125,7 +86,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -151,7 +112,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/10/My-JeffCo-front.jpg"
     },
     {
-      "id": "news-4-yahoo-brookside-police-department-remains-in-operation-following-t",
+      "id": "news-3-yahoo-brookside-police-department-remains-in-operation-following-t",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -162,7 +123,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Yahoo",
       "source": "Yahoo",
@@ -188,6 +149,48 @@
       "image_url": ""
     },
     {
+      "id": "news-4-wbrc-man-killed-in-hit-and-run-while-walking-in-pinson-identified",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YY257J4M5ZHLFH7TKZJOQB3SPE.jpeg?auth=84425238faf4d14125b922845cefbfe9fb9c7948f331b246f7003a4ad77d3c7f&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Man killed in hit-and-run while walking in Pinson identified",
+      "summary": "The man was hit near the 7500 block of Alabama Highway 75 South around 7:32 p.m. The driver did not stay at the scene, according to the Jefferson County Coroner’s Office.",
+      "description": "The man was hit near the 7500 block of Alabama Highway 75 South around 7:32 p.m. The driver did not stay at the scene, according to the Jefferson County Coroner’s Office.",
+      "url": "https://www.wbrc.com/2026/10/09/man-killed-hit-and-run-while-walking-pinson-identified/",
+      "link": "https://www.wbrc.com/2026/10/09/man-killed-hit-and-run-while-walking-pinson-identified/",
+      "published_at": "2026-10-09T13:44:45.000Z",
+      "date": "2026-10-09T13:44:45.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YY257J4M5ZHLFH7TKZJOQB3SPE.jpeg?auth=84425238faf4d14125b922845cefbfe9fb9c7948f331b246f7003a4ad77d3c7f&smart=false"
+    },
+    {
       "id": "news-5-wvtm-channel-13-judge-freezes-brookside-police-shutdown-after-whistleblower-",
       "section": "towns",
       "why": "names brookside",
@@ -199,7 +202,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "WVTM Channel 13",
       "source": "WVTM Channel 13",
@@ -216,85 +219,6 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-wbrc-state-closes-coastal-parks-offices-ahead-of-hurricane-isaias",
-      "section": "county",
-      "why": "alabama department, land",
-      "town": "Regional",
-      "tags": [
-        "Land"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//P5S4PBMGXJDX5NOILHDQRCQOIU.png?auth=4631312a832386f6371a3e0c71a69a67b2f5cef1ec1903a2c2ab755c008ae6db&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "State closes coastal parks, offices ahead of Hurricane Isaias",
-      "summary": "The Alabama Department of Conservation and Natural Resources is temporarily closing several coastal facilities as Hurricane Isaias approaches the Gulf Coast.",
-      "description": "The Alabama Department of Conservation and Natural Resources is temporarily closing several coastal facilities as Hurricane Isaias approaches the Gulf Coast.",
-      "url": "https://www.wbrc.com/2026/10/08/state-closes-coastal-parks-offices-ahead-hurricane-isaias/",
-      "link": "https://www.wbrc.com/2026/10/08/state-closes-coastal-parks-offices-ahead-hurricane-isaias/",
-      "published_at": "2026-10-08T21:57:58.000Z",
-      "date": "2026-10-08T21:57:58.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "land"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//P5S4PBMGXJDX5NOILHDQRCQOIU.png?auth=4631312a832386f6371a3e0c71a69a67b2f5cef1ec1903a2c2ab755c008ae6db&smart=false"
-    },
-    {
-      "id": "news-7-al-com-brookside-chief-takes-town-to-court-over-plans-to-shut-down-",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Brookside chief takes town to court over plans to shut down police department",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQOU9TR1ZNOVpySVpYanlOTDVYdFNQa0lZYTN3dUZuSzd0ckFTZEVPenhjMlpqZm9ha2VyenV4My1Rd0ZyMHEyX2ZQMElwZHVnME45OEd0cng3dXlYUVgwZ3Y3MnV3eThTZ2dQc1B6Q3h0N05ENk1YZWNQMEdmOWh0NzRGeUdKODhQaV9pR3pwVWgtWnFFTmRNNjlwY0dCdWdrNkRxTm03dFBGVGE1NlJXeDBIUEhZSkNMNm1rMUVVUWhHLU0?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQOU9TR1ZNOVpySVpYanlOTDVYdFNQa0lZYTN3dUZuSzd0ckFTZEVPenhjMlpqZm9ha2VyenV4My1Rd0ZyMHEyX2ZQMElwZHVnME45OEd0cng3dXlYUVgwZ3Y3MnV3eThTZ2dQc1B6Q3h0N05ENk1YZWNQMEdmOWh0NzRGeUdKODhQaV9pR3pwVWgtWnFFTmRNNjlwY0dCdWdrNkRxTm03dFBGVGE1NlJXeDBIUEhZSkNMNm1rMUVVUWhHLU0?oc=5",
-      "published_at": "2026-10-03T11:00:00.000Z",
-      "date": "2026-10-03T11:00:00.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
@@ -304,49 +228,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-wvtm-13-jefferson-county-prepares-for-hurricane-isaias-with-pre-depl",
-      "section": "county",
-      "why": "jefferson county, utilities",
-      "town": "Jefferson County",
-      "tags": [
-        "Utilities"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/efee670b-6466-4933-8b35-94ae2c6b6369/80981bab-265a-4413-a007-57b201829fd5.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Jefferson County prepares for Hurricane Isaias with pre-deployed teams and safety warnings",
-      "summary": "Emergency responders in Jefferson County are sending teams to the coast and urging residents to prepare for Hurricane Isaias, which is expected to bring heavy rain, wind, and potential power outages.",
-      "description": "Emergency responders in Jefferson County are sending teams to the coast and urging residents to prepare for Hurricane Isaias, which is expected to bring heavy rain, wind, and potential power outages.",
-      "url": "https://www.wvtm13.com/article/jefferson-county-prepares-for-hurricane-isaias-with-pre-deployed-teams-and-safety-warnings/74085096",
-      "link": "https://www.wvtm13.com/article/jefferson-county-prepares-for-hurricane-isaias-with-pre-deployed-teams-and-safety-warnings/74085096",
-      "published_at": "2026-10-09T02:29:00.000Z",
-      "date": "2026-10-09T02:29:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "utilities"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/efee670b-6466-4933-8b35-94ae2c6b6369/80981bab-265a-4413-a007-57b201829fd5.jpg"
-    },
-    {
-      "id": "news-9-wvtm-13-hit-and-run-kills-man-walking-on-alabama-highway-75-in-pinso",
+      "id": "news-6-wvtm-13-hit-and-run-kills-man-walking-on-alabama-highway-75-in-pinso",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -371,8 +253,8 @@
       "description": "Jefferson County authorities are investigating after a man was killed in a hit-and-run on Alabama Highway 75 South in Pinson.",
       "url": "https://www.wvtm13.com/article/man-killed-hit-and-run-walking-highway-pinson/74080240",
       "link": "https://www.wvtm13.com/article/man-killed-hit-and-run-walking-highway-pinson/74080240",
-      "published_at": "2026-10-08T22:32:00.000Z",
-      "date": "2026-10-08T22:32:00.000Z",
+      "published_at": "2026-10-09T14:35:00.000Z",
+      "date": "2026-10-09T14:35:00.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -388,7 +270,7 @@
       "image_url": "https://kubrick.htvapps.com/htv-prod/ibmig/cms/image/wvtm/24521356-24521356.jpg"
     },
     {
-      "id": "news-10-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
+      "id": "news-7-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
       "section": "county",
       "why": "birmingham, utilities",
       "town": "Birmingham",
@@ -404,7 +286,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -430,7 +312,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Alabama-Power-Red-Cross-prepare-for-potential-Hurricane-Isaias-impacts.jpg?w=800"
     },
     {
-      "id": "news-11-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
+      "id": "news-8-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -446,7 +328,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -472,7 +354,7 @@
       "image_url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png"
     },
     {
-      "id": "news-12-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-",
+      "id": "news-9-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-",
       "section": "county",
       "why": "birmingham, weather",
       "town": "Birmingham",
@@ -488,7 +370,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -514,7 +396,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1499/986/0x14/90/5b1d20a6-bf01-4e47-82f7-3978933a5479-Screenshot20261008053513.png"
     },
     {
-      "id": "news-13-wvtm-channel-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva",
+      "id": "news-10-wvtm-channel-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -525,7 +407,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "WVTM Channel 13",
       "source": "WVTM Channel 13",
@@ -551,49 +433,7 @@
       "image_url": ""
     },
     {
-      "id": "news-14-bham-now-plan-ahead-i-459-ramp-closures-october-5-6",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2020/07/Hoover-Entertainment-District-Stadium-Trace-e1791225051148-1200x630.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Plan ahead: I-459 ramp closures October 5-6",
-      "summary": "🚧 HOOVER I-459 RAMPS GOING DARK: Heading to the Galleria or Stadium Trace Oct. 5-6? ALDOT is closing three ramps overnight from 7 PM to 6AM, so here's where to detour.",
-      "description": "🚧 HOOVER I-459 RAMPS GOING DARK: Heading to the Galleria or Stadium Trace Oct. 5-6? ALDOT is closing three ramps overnight from 7 PM to 6AM, so here's where to detour.",
-      "url": "https://bhamnow.com/2026/10/05/plan-ahead-i-459-ramp-closures-october-5-6/#utm_source=rss&utm_medium=rss&utm_campaign=plan-ahead-i-459-ramp-closures-october-5-6",
-      "link": "https://bhamnow.com/2026/10/05/plan-ahead-i-459-ramp-closures-october-5-6/#utm_source=rss&utm_medium=rss&utm_campaign=plan-ahead-i-459-ramp-closures-october-5-6",
-      "published_at": "2026-10-05T18:49:48.000Z",
-      "date": "2026-10-05T18:49:48.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2020/07/Hoover-Entertainment-District-Stadium-Trace-e1791225051148-1200x630.jpg"
-    },
-    {
-      "id": "news-15-trussville-tribune-pedestrian-killed-in-pinson-by-apparent-hit-and-run-driver",
+      "id": "news-11-trussville-tribune-pedestrian-killed-in-pinson-by-apparent-hit-and-run-driver",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -609,7 +449,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 20,
+      "score": 19,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -626,8 +466,8 @@
       "topic_tags": [
         "roads"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -635,51 +475,7 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2020/11/125548410_497142961244960_7553291529889655223_n-1024x478.jpg"
     },
     {
-      "id": "news-16-trussville-tribune-gray-bubba-lynn-scarborough-october-20-1950-october-6-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Gray (Bubba) Lynn Scarborough (October 20, 1950 — October 6, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Gray (Bubba) Lynn Scarborough (October 20, 1950 — October 6, 2026)",
-      "summary": "Gray “Bubba” Lynn Scarborough, 75, of Pinson, Alabama, passed away peacefully on October 6, 2026. He was born on October 20, 1950, in Birmingham, Alabama. Gray attended West End High School and Glenn Technical High School. He went on to build a successful career in HVAC services, working for corporations including CLP ",
-      "description": "Gray “Bubba” Lynn Scarborough, 75, of Pinson, Alabama, passed away peacefully on October 6, 2026. He was born on October 20, 1950, in Birmingham, Alabama. Gray attended West End High School and Glenn Technical High School. He went on to build a successful career in HVAC services, working for corporations including CLP ",
-      "url": "https://www.trussvilletribune.com/2026/10/08/gray-bubba-lynn-scarborough-october-20-1950-october-6-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/08/gray-bubba-lynn-scarborough-october-20-1950-october-6-2026/",
-      "published_at": "2026-10-08T15:17:48.000Z",
-      "date": "2026-10-08T15:17:48.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-17-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-12-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -697,7 +493,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 15,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -710,50 +506,6 @@
       "date": "2026-10-08T03:50:31.000Z",
       "location_tags": [
         "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-18-trussville-tribune-grover-william-bill-sims-january-20-1949-october-3-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Grover William “Bill” Sims (January 20, 1949 — October 3, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 13,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Grover William “Bill” Sims (January 20, 1949 — October 3, 2026)",
-      "summary": "Grover William “Bill” Sims, age 77, of Dothan, Alabama, passed away on October 3, 2026, surrounded by his family. Bill proudly served in the United States Air Force and was a graduate of the University of Alabama. He worked as an aviation pilot with AAA Cooper Transportation for 33 years. An avid football fan, he […]",
-      "description": "Grover William “Bill” Sims, age 77, of Dothan, Alabama, passed away on October 3, 2026, surrounded by his family. Bill proudly served in the United States Air Force and was a graduate of the University of Alabama. He worked as an aviation pilot with AAA Cooper Transportation for 33 years. An avid football fan, he […]",
-      "url": "https://www.trussvilletribune.com/2026/10/08/grover-william-bill-sims-january-20-1949-october-3-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/08/grover-william-bill-sims-january-20-1949-october-3-2026/",
-      "published_at": "2026-10-08T15:24:09.000Z",
-      "date": "2026-10-08T15:24:09.000Z",
-      "location_tags": [
-        "regional"
       ],
       "topic_tags": [
         "obituary"
