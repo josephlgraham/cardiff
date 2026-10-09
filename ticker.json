@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-09T02:35:43.993Z",
+  "updatedAt": "2026-10-09T09:39:26.218Z",
   "hasAlerts": true,
   "alertCount": 3,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "🌧️ Tropical Storm Watch · Through today 8 AM    ·    🌊 Flood Watch · Through Sunday 12 PM    ·    ⚠️ Tropical Cyclone Local Statement · Through today 8 AM",
+  "ticker": "🌧️ Tropical Storm Watch · Through today 5 PM    ·    🌊 Flood Watch · Through Sunday 12 PM    ·    ⚠️ Tropical Cyclone Local Statement · Through today 5 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -15,11 +15,11 @@
       "severity": "Severe",
       "urgency": "Future",
       "emoji": "🌧️",
-      "ends": "2026-10-09T03:15:00-05:00",
-      "endsShort": "today 8 AM",
+      "ends": "2026-10-09T12:15:00-05:00",
+      "endsShort": "today 5 PM",
       "headline": "Tropical Storm Watch",
       "description": "* LOCATIONS AFFECTED",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a176df2fcb9a96e76bc4ea83e324f239080957c8.001.1"
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.6f7d230cb86da0999f93148325003fd882776fd2.001.1"
     },
     {
       "event": "Flood Watch",
@@ -29,19 +29,19 @@
       "ends": "2026-10-11T07:00:00-05:00",
       "endsShort": "Sunday 12 PM",
       "headline": "Flood Watch",
-      "description": "* WHAT...Flooding caused by excessive rainfall is possible.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2b93300d099052baf21ac72a38ba22bb99550e14.001.1"
+      "description": "* WHAT...Flooding caused by excessive rainfall continues to be",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a17cd5810dabe2c7f7f5bdde866c316dcba22bb3.001.1"
     },
     {
       "event": "Tropical Cyclone Local Statement",
       "severity": "Moderate",
       "urgency": "Expected",
       "emoji": "⚠️",
-      "ends": "2026-10-09T03:30:00-05:00",
-      "endsShort": "today 8 AM",
+      "ends": "2026-10-09T12:30:00-05:00",
+      "endsShort": "today 5 PM",
       "headline": "Tropical Cyclone Local Statement",
       "description": "HLSBMX",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.2da2d82d9d7761acf6a4044ceee04ece3d2aa4ec.001.1"
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9b8ba15cbff21d6744128bf2da7b2038475d97f8.001.1"
     }
   ],
   "spcOutlook": [],
