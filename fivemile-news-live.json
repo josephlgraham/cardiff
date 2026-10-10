@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-10-10T02:17:34.720Z",
+  "updatedAt": "2026-10-10T16:13:26.895Z",
   "counts": {
-    "towns": 5,
-    "nearby": 1,
-    "county": 7,
+    "towns": 4,
+    "nearby": 3,
+    "county": 6,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "news-2-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
-      "news-3-abc-33-40-wildfire-burning-in-adamsville-graysville-area-no-structures",
+      "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
+      "news-2-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "news-5-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
-      "news-9-yahoo-brookside-police-department-remains-in-operation-following-t"
+      "news-6-abc-33-40-brookside-mayor-answers-i-team-s-questions-about-future-of-p"
     ],
     "nearby": [
-      "news-4-al-com-nearly-60-pounds-of-meth-seized-in-jefferson-county-traffic-"
+      "news-3-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
+      "news-4-wbrc-unpermitted-tamales-missing-sanitizer-among-jefferson-county",
+      "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates"
     ],
     "creek": [],
     "county": [
-      "news-6-trussville-tribune-jefferson-county-man-held-on-706k-bond-after-59-pound-meth-s",
-      "news-7-al-com-aldot-faces-backlash-after-i-65-lane-closures-amid-hurricane",
-      "news-8-birminghamwatch-jeffco-renews-resident-report-app",
-      "news-10-wbrc-man-killed-in-hit-and-run-while-walking-in-pinson-identified",
-      "news-11-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
-      "news-12-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
-      "news-13-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-"
+      "news-8-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
+      "news-9-wvtm-13-deputies-seize-nearly-60-pounds-of-meth-during-area-traffic-",
+      "news-10-abc-33-40-alabama-power-reports-233-000-customers-impacted-by-isaias-r",
+      "news-11-cbs-42-power-outages-tracking-power-outages-during-isaias",
+      "news-12-birminghamwatch-jeffco-renews-resident-report-app",
+      "news-13-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai"
     ],
     "obituaries": [
       "news-14-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
@@ -33,49 +33,7 @@
   },
   "stories": [
     {
-      "id": "news-1-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/GK4ITGD3OVGNHOYF5P2PXUMEAU.jpg?auth=b200c4a604265ef81fffbe08fbdc0efd5c608418b97804ea7aaed478ee6bd2be&smart=true&height=1200",
-        "from": "feed",
-        "width": 2200,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 49,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Brookside police chief loses court fight over department’s closure",
-      "summary": "A Jefferson County Judge Frid lifted the restraining order that blocked town leaders from voting on the proposal to disband its police department.",
-      "description": "A Jefferson County Judge Frid lifted the restraining order that blocked town leaders from voting on the proposal to disband its police department.",
-      "url": "https://www.al.com/news/birmingham/2026/10/brookside-police-chief-loses-court-fight-over-departments-closure.html",
-      "link": "https://www.al.com/news/birmingham/2026/10/brookside-police-chief-loses-court-fight-over-departments-closure.html",
-      "published_at": "2026-10-10T00:20:00.000Z",
-      "date": "2026-10-10T00:20:00.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 6,
-      "priority": 6,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/GK4ITGD3OVGNHOYF5P2PXUMEAU.jpg?auth=b200c4a604265ef81fffbe08fbdc0efd5c608418b97804ea7aaed478ee6bd2be&smart=true&height=1200"
-    },
-    {
-      "id": "news-2-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
+      "id": "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -91,7 +49,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 48,
+      "score": 47,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -117,79 +75,121 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/794/986/6x0/90/e1bf6591-de76-40f3-9837-afe59205be82-Screenshot20261009171837.png"
     },
     {
-      "id": "news-3-abc-33-40-wildfire-burning-in-adamsville-graysville-area-no-structures",
+      "id": "news-2-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
-      "tags": [],
-      "outlet": "ABC 33/40",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 42,
+      "score": 35,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Wildfire burning in Adamsville-Graysville area; no structures threatened",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Brookside police chief loses court fight over department’s closure",
       "summary": "",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNFdIQTgyN0NzS2J6U3dURUZIZDFnRTRmNGxnbng5M1k4RGtJS3Jibm9lMVFYVnlRYzhHRUtOd1Y5XzdUMmZPMk5Xd0IxMVpSRFlwZi1iY2oyZVlqYThENVJ4b0RoMjRSR2k5NEJkOGNPdGlleVRzUDg0WFpDUjl4VlJsODlUOFA1YzlmR1V1UV9ZNGxuM3U4MU9IN3kwWlgtRWJOVg?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNFdIQTgyN0NzS2J6U3dURUZIZDFnRTRmNGxnbng5M1k4RGtJS3Jibm9lMVFYVnlRYzhHRUtOd1Y5XzdUMmZPMk5Xd0IxMVpSRFlwZi1iY2oyZVlqYThENVJ4b0RoMjRSR2k5NEJkOGNPdGlleVRzUDg0WFpDUjl4VlJsODlUOFA1YzlmR1V1UV9ZNGxuM3U4MU9IN3kwWlgtRWJOVg?oc=5",
-      "published_at": "2026-10-04T10:41:34.000Z",
-      "date": "2026-10-04T10:41:34.000Z",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmFmM2gzRm9iRkowamFfRXZHWlp4N1FxMXRqVEZrSGZ5ejQwQmJLSWJvdnRPdjUydEtRN212RktNenlkaFNyeDFLOTVmRWNCTF9RcFRNVjAxOUtyVUFKcWJHeDM1ZUw5SV9NRWhOSUtHRjNZdGpFRjZSbXdjUzNvWkpXSmtXR1BhYTdzRXpQaGRTVm9vVTVOZWR0eEIxUlVlOXo0WlhaOFoxeFNnajVlVm1oRQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmFmM2gzRm9iRkowamFfRXZHWlp4N1FxMXRqVEZrSGZ5ejQwQmJLSWJvdnRPdjUydEtRN212RktNenlkaFNyeDFLOTVmRWNCTF9RcFRNVjAxOUtyVUFKcWJHeDM1ZUw5SV9NRWhOSUtHRjNZdGpFRjZSbXdjUzNvWkpXSmtXR1BhYTdzRXpQaGRTVm9vVTVOZWR0eEIxUlVlOXo0WlhaOFoxeFNnajVlVm1oRQ?oc=5",
+      "published_at": "2026-10-10T00:20:00.000Z",
+      "date": "2026-10-10T00:20:00.000Z",
       "location_tags": [
-        "graysville"
+        "brookside"
       ],
-      "topic_tags": [],
-      "priority_level": 5,
-      "priority": 5,
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": false,
+      "is_alert": true,
       "is_featured": false,
       "image_url": ""
     },
     {
-      "id": "news-4-al-com-nearly-60-pounds-of-meth-seized-in-jefferson-county-traffic-",
+      "id": "news-3-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
       "section": "nearby",
-      "why": "names western jefferson",
-      "town": "Western Jefferson",
+      "why": "names fultondale",
+      "town": "Fultondale",
       "tags": [
-        "Roads"
+        "Public safety"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/XOTWSCNTHFEJDKDAWKYG3OIROM.jpg?auth=f6f9ba27a1fe605c7efb52d713120d2977cbb008a3d8c0d8dbfb437a31780d28&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg",
         "from": "feed",
-        "width": 1361,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 38,
+      "score": 34,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Nearly 60 pounds of meth seized in Jefferson County traffic stop",
-      "summary": "A traffic stop earlier this week in western Jefferson County led to the seizure of nearly 60 pounds of meth and landed a 37-year-old man behind bars.",
-      "description": "A traffic stop earlier this week in western Jefferson County led to the seizure of nearly 60 pounds of meth and landed a 37-year-old man behind bars.",
-      "url": "https://www.al.com/news/2026/10/nearly-60-pounds-of-meth-seized-in-jefferson-county-traffic-stop.html",
-      "link": "https://www.al.com/news/2026/10/nearly-60-pounds-of-meth-seized-in-jefferson-county-traffic-stop.html",
-      "published_at": "2026-10-09T22:26:06.000Z",
-      "date": "2026-10-09T22:26:06.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and Wind",
+      "summary": "# Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and WindFultondale Fire & Rescue crews responded to a residential structure fire in the Fult",
+      "description": "# Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and WindFultondale Fire & Rescue crews responded to a residential structure fire in the Fult",
+      "url": "https://abc3340.com/news/local/fultondale-fire-crews-respond-to-residential-fire-amid-heavy-rain-and-wind-fultondale-estates-neighborhood-october-2026",
+      "link": "https://abc3340.com/news/local/fultondale-fire-crews-respond-to-residential-fire-amid-heavy-rain-and-wind-fultondale-estates-neighborhood-october-2026",
+      "published_at": "2026-10-10T11:22:30.000Z",
+      "date": "2026-10-10T11:22:30.000Z",
       "location_tags": [
-        "western-jefferson"
+        "fultondale"
       ],
       "topic_tags": [
-        "roads"
+        "public-safety"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/XOTWSCNTHFEJDKDAWKYG3OIROM.jpg?auth=f6f9ba27a1fe605c7efb52d713120d2977cbb008a3d8c0d8dbfb437a31780d28&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg"
+    },
+    {
+      "id": "news-4-wbrc-unpermitted-tamales-missing-sanitizer-among-jefferson-county",
+      "section": "nearby",
+      "why": "names mulga",
+      "town": "Mulga",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NQ7FLNMYJGWLA3VWIVNX2FD7Q.jpeg?auth=ece6f09bffadbca938cae98f05bcfc57dee6365d76f4973840ae047e4d83127f&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 33,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Unpermitted tamales, missing sanitizer among Jefferson County health violations",
+      "summary": "Three Jefferson County food establishments, Sunshine Foodmart #8 in Mulga, Johnny Brusco's NY Style Pizza in Hoover, and Bessemer Academy in Bessemer, scored below 85 in recent health inspections.",
+      "description": "Three Jefferson County food establishments, Sunshine Foodmart #8 in Mulga, Johnny Brusco's NY Style Pizza in Hoover, and Bessemer Academy in Bessemer, scored below 85 in recent health inspections.",
+      "url": "https://www.wbrc.com/2026/10/10/unpermitted-tamales-missing-sanitizer-among-jefferson-county-health-violations/",
+      "link": "https://www.wbrc.com/2026/10/10/unpermitted-tamales-missing-sanitizer-among-jefferson-county-health-violations/",
+      "published_at": "2026-10-10T02:18:15.000Z",
+      "date": "2026-10-10T02:18:15.000Z",
+      "location_tags": [
+        "mulga"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//4NQ7FLNMYJGWLA3VWIVNX2FD7Q.jpeg?auth=ece6f09bffadbca938cae98f05bcfc57dee6365d76f4973840ae047e4d83127f&smart=false"
     },
     {
       "id": "news-5-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
@@ -204,7 +204,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -231,7 +231,84 @@
       "image_url": ""
     },
     {
-      "id": "news-6-trussville-tribune-jefferson-county-man-held-on-706k-bond-after-59-pound-meth-s",
+      "id": "news-6-abc-33-40-brookside-mayor-answers-i-team-s-questions-about-future-of-p",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 33,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Brookside mayor answers I-Team's questions about future of police department",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxOYVpFbzNNckE4YkRPTFQxSW1vcXZGWU5oRlpFWVhYTlZsZmpSSm83Z1NzRnFZSm83N0h5YnNUMThtN1RQSHZmenExRUZDeG5yVklfNC1wN2RuYkEzd2lvMXF4VmJaQ0dPdGcwaUR0QlQyVE9pemZQemJqWXc4VFhJRzQ4TDBoUXBheXJwZjFWc0F4SEd5cE8xek1wWEZyek4yUF9TaFhqZWVFbWVrN1VHQU90SDFQZXNVQ0RnLVA4ZjRlVVFvX3RodWJ5SlhWYTJrdThDU2o3TVpWN091RVNJRkNrVWdhMjJVTHBOZ0syS3kwSWQ3WFh5ZWtmLXhaUHJabTY4LVNSZWpxRGJWRmtvQWMwaTVUOTJCT1FYSlU1QTVRT200NVVyaDFSRFFQN1lrVGZRWi1EWlpFWHRBdHZINzBueHJzczdJM3NtMzU2TGdjc2kwWUxEemFyNTVpdFR5aUp5VDBYbFpfYUF6Z1AzQ2JqbTItdw?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxOYVpFbzNNckE4YkRPTFQxSW1vcXZGWU5oRlpFWVhYTlZsZmpSSm83Z1NzRnFZSm83N0h5YnNUMThtN1RQSHZmenExRUZDeG5yVklfNC1wN2RuYkEzd2lvMXF4VmJaQ0dPdGcwaUR0QlQyVE9pemZQemJqWXc4VFhJRzQ4TDBoUXBheXJwZjFWc0F4SEd5cE8xek1wWEZyek4yUF9TaFhqZWVFbWVrN1VHQU90SDFQZXNVQ0RnLVA4ZjRlVVFvX3RodWJ5SlhWYTJrdThDU2o3TVpWN091RVNJRkNrVWdhMjJVTHBOZ0syS3kwSWQ3WFh5ZWtmLXhaUHJabTY4LVNSZWpxRGJWRmtvQWMwaTVUOTJCT1FYSlU1QTVRT200NVVyaDFSRFFQN1lrVGZRWi1EWlpFWHRBdHZINzBueHJzczdJM3NtMzU2TGdjc2kwWUxEemFyNTVpdFR5aUp5VDBYbFpfYUF6Z1AzQ2JqbTItdw?oc=5",
+      "published_at": "2026-10-06T07:00:36.000Z",
+      "date": "2026-10-06T07:00:36.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//VWG6GCQQYNDI3KXPTTLD3ZH7JU.jpg?auth=216e9c5588c3fe5aa54fba68910c4170603eb69b4752632f9650131e3983cb05&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Resident displaced after fire in Fultondale Estates",
+      "summary": "The fire marshal will continue to investigate the cause.",
+      "description": "The fire marshal will continue to investigate the cause.",
+      "url": "https://www.wbrc.com/2026/10/10/resident-displaced-after-fire-fultondale-estates/",
+      "link": "https://www.wbrc.com/2026/10/10/resident-displaced-after-fire-fultondale-estates/",
+      "published_at": "2026-10-10T15:10:40.000Z",
+      "date": "2026-10-10T15:10:40.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//VWG6GCQQYNDI3KXPTTLD3ZH7JU.jpg?auth=216e9c5588c3fe5aa54fba68910c4170603eb69b4752632f9650131e3983cb05&smart=false"
+    },
+    {
+      "id": "news-8-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -239,26 +316,26 @@
         "Roads",
         "Public safety"
       ],
-      "outlet": "Trussville Tribune",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/10/Narcotics-Seizure-10-5-26-300x200.jpg",
+        "url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg",
         "from": "feed",
         "width": null,
-        "credit": "Trussville Tribune"
+        "credit": "ABC 33/40"
       },
       "obit": null,
       "score": 29,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Jefferson County man held on $706K bond after 59 pound meth seizure",
-      "summary": "BESSEMER — Jefferson County sheriff’s investigators say a Monday traffic stop in Bessemer ended with one man in jail and almost 60 pounds of methamphetamine off the street. The stop was made in the 5400 block of Park Avenue South by Jefferson County narcotics investigators, working with SNET and the Vestavia Hills Poli",
-      "description": "BESSEMER — Jefferson County sheriff’s investigators say a Monday traffic stop in Bessemer ended with one man in jail and almost 60 pounds of methamphetamine off the street. The stop was made in the 5400 block of Park Avenue South by Jefferson County narcotics investigators, working with SNET and the Vestavia Hills Poli",
-      "url": "https://www.trussvilletribune.com/2026/10/09/jefferson-county-man-held-on-706k-bond-after-59-pound-meth-seizure/",
-      "link": "https://www.trussvilletribune.com/2026/10/09/jefferson-county-man-held-on-706k-bond-after-59-pound-meth-seizure/",
-      "published_at": "2026-10-09T23:50:48.000Z",
-      "date": "2026-10-09T23:50:48.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Nearly 60 pounds of meth seized in Bessemer traffic stop, sheriff says",
+      "summary": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
+      "description": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
+      "url": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
+      "link": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
+      "published_at": "2026-10-09T22:20:10.000Z",
+      "date": "2026-10-09T22:20:10.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -272,38 +349,38 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/10/Narcotics-Seizure-10-5-26-300x200.jpg"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg"
     },
     {
-      "id": "news-7-al-com-aldot-faces-backlash-after-i-65-lane-closures-amid-hurricane",
+      "id": "news-9-wvtm-13-deputies-seize-nearly-60-pounds-of-meth-during-area-traffic-",
       "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
       "tags": [
         "Roads"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "WVTM 13",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/6V3FLZPGWNFYLFQQCYMSMROYX4.jpg?auth=ab5006734efab1987fc8f0a326b8bf20ff58ba657655302fa3ed4bb72e93e776&smart=true&height=1200",
+        "url": "https://kubrick.htvapps.com/htv-prod/images/5e865d16-54ea-47c2-964c-516fa2cfbcf7.jpg",
         "from": "feed",
-        "width": 2000,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "WVTM 13"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "ALDOT faces backlash after I-65 lane closures amid Hurricane Isaias evacuations",
-      "summary": "ALDOT conducted overnight lane closures on I-65 amid Hurricane Isaias evacuations, drawing public backlash.",
-      "description": "ALDOT conducted overnight lane closures on I-65 amid Hurricane Isaias evacuations, drawing public backlash.",
-      "url": "https://www.al.com/news/2026/10/aldot-faces-backlash-after-i-65-lane-closures-amid-hurricane-isaias-evacuations.html",
-      "link": "https://www.al.com/news/2026/10/aldot-faces-backlash-after-i-65-lane-closures-amid-hurricane-isaias-evacuations.html",
-      "published_at": "2026-10-09T21:31:27.000Z",
-      "date": "2026-10-09T21:31:27.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Deputies seize nearly 60 pounds of meth during area traffic stop",
+      "summary": "A traffic stop in Bessemer led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old Birmingham man.",
+      "description": "A traffic stop in Bessemer led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old Birmingham man.",
+      "url": "https://www.wvtm13.com/article/major-drug-bust-60-pound-meth-found-traffic-stop/74098129",
+      "link": "https://www.wvtm13.com/article/major-drug-bust-60-pound-meth-found-traffic-stop/74098129",
+      "published_at": "2026-10-10T12:02:00.000Z",
+      "date": "2026-10-10T12:02:00.000Z",
       "location_tags": [
-        "regional"
+        "birmingham"
       ],
       "topic_tags": [
         "roads"
@@ -312,12 +389,96 @@
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": true,
+      "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/6V3FLZPGWNFYLFQQCYMSMROYX4.jpg?auth=ab5006734efab1987fc8f0a326b8bf20ff58ba657655302fa3ed4bb72e93e776&smart=true&height=1200"
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/5e865d16-54ea-47c2-964c-516fa2cfbcf7.jpg"
     },
     {
-      "id": "news-8-birminghamwatch-jeffco-renews-resident-report-app",
+      "id": "news-10-abc-33-40-alabama-power-reports-233-000-customers-impacted-by-isaias-r",
+      "section": "county",
+      "why": "statewide, utilities",
+      "town": "Regional",
+      "tags": [
+        "Utilities"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media/c5ac392a-8b46-4b89-974a-8e25541bc391-large16x9_ALAPOWERNICHOLAS.jpg?1631748989682",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Alabama Power Reports 233,000 Customers Impacted by Isaias, Restoration Efforts Underway",
+      "summary": "Alabama Power Reports 233,000 Customers Impacted by Isaias, Restoration Efforts UnderwayApproximately 233,000 Alabama Power customers statewide have experienced",
+      "description": "Alabama Power Reports 233,000 Customers Impacted by Isaias, Restoration Efforts UnderwayApproximately 233,000 Alabama Power customers statewide have experienced",
+      "url": "https://abc3340.com/news/local/alabama-power-reports-233000-customers-impacted-by-isaias-restoration-efforts-underway-october-2027",
+      "link": "https://abc3340.com/news/local/alabama-power-reports-233000-customers-impacted-by-isaias-restoration-efforts-underway-october-2027",
+      "published_at": "2026-10-10T12:15:50.000Z",
+      "date": "2026-10-10T12:15:50.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "utilities"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media/c5ac392a-8b46-4b89-974a-8e25541bc391-large16x9_ALAPOWERNICHOLAS.jpg?1631748989682"
+    },
+    {
+      "id": "news-11-cbs-42-power-outages-tracking-power-outages-during-isaias",
+      "section": "county",
+      "why": "birmingham, utilities",
+      "town": "Birmingham",
+      "tags": [
+        "Utilities"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/power-outage.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "POWER OUTAGES: Tracking power outages during Isaias",
+      "summary": "BIRMINGHAM, Ala. (WIAT) -- Power outages continue to trend up as Hurricane Isaias makes its way through Alabama.",
+      "description": "BIRMINGHAM, Ala. (WIAT) -- Power outages continue to trend up as Hurricane Isaias makes its way through Alabama.",
+      "url": "https://www.alabamas42.com/news/local/power-outages-tracking-power-outages-during-isaias/",
+      "link": "https://www.alabamas42.com/news/local/power-outages-tracking-power-outages-during-isaias/",
+      "published_at": "2026-10-10T10:31:24.000Z",
+      "date": "2026-10-10T10:31:24.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "utilities"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": true,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/power-outage.jpg?w=900"
+    },
+    {
+      "id": "news-12-birminghamwatch-jeffco-renews-resident-report-app",
       "section": "county",
       "why": "county commission, government",
       "town": "Birmingham",
@@ -333,7 +494,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -359,128 +520,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/10/My-JeffCo-front.jpg"
     },
     {
-      "id": "news-9-yahoo-brookside-police-department-remains-in-operation-following-t",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "Yahoo",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "Yahoo",
-      "source": "Yahoo",
-      "title": "Brookside Police Department remains in operation following temporary restraining order",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRXNkcWw1Tm9hc0hGZk5aeUFlaTFKMUtObk0xdHNZRm5PODFvalBWZ2lrc3lUazUtbFRJUzNDMXduTEY2Q3VybkNWUU5TUGRCWEpWaTVPTkdaM21jMHEwR3UzX0UyZ1BtVnN2M0tzVXoxa2Zsd0JGbXd3UHJEMXZVend3SzRvMnJNTXU2VGJzLUJicnR0Wmlrd0oxZlpfVTJR?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRXNkcWw1Tm9hc0hGZk5aeUFlaTFKMUtObk0xdHNZRm5PODFvalBWZ2lrc3lUazUtbFRJUzNDMXduTEY2Q3VybkNWUU5TUGRCWEpWaTVPTkdaM21jMHEwR3UzX0UyZ1BtVnN2M0tzVXoxa2Zsd0JGbXd3UHJEMXZVend3SzRvMnJNTXU2VGJzLUJicnR0Wmlrd0oxZlpfVTJR?oc=5",
-      "published_at": "2026-10-04T13:54:53.000Z",
-      "date": "2026-10-04T13:54:53.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-wbrc-man-killed-in-hit-and-run-while-walking-in-pinson-identified",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YY257J4M5ZHLFH7TKZJOQB3SPE.jpeg?auth=84425238faf4d14125b922845cefbfe9fb9c7948f331b246f7003a4ad77d3c7f&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Man killed in hit-and-run while walking in Pinson identified",
-      "summary": "The man was hit near the 7500 block of Alabama Highway 75 South around 7:32 p.m. The driver did not stay at the scene, according to the Jefferson County Coroner’s Office.",
-      "description": "The man was hit near the 7500 block of Alabama Highway 75 South around 7:32 p.m. The driver did not stay at the scene, according to the Jefferson County Coroner’s Office.",
-      "url": "https://www.wbrc.com/2026/10/09/man-killed-hit-and-run-while-walking-pinson-identified/",
-      "link": "https://www.wbrc.com/2026/10/09/man-killed-hit-and-run-while-walking-pinson-identified/",
-      "published_at": "2026-10-09T13:44:45.000Z",
-      "date": "2026-10-09T13:44:45.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YY257J4M5ZHLFH7TKZJOQB3SPE.jpeg?auth=84425238faf4d14125b922845cefbfe9fb9c7948f331b246f7003a4ad77d3c7f&smart=false"
-    },
-    {
-      "id": "news-11-abc-33-40-unidentified-man-killed-in-hit-and-run-on-highway-75-in-pins",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Unidentified man killed in hit-and-run on Highway 75 in Pinson",
-      "summary": "An unidentified man was killed Wednesday night when he was hit by a vehicle in Pinson, according to the Jefferson County Coroner’s Office.The man was walking in",
-      "description": "An unidentified man was killed Wednesday night when he was hit by a vehicle in Pinson, according to the Jefferson County Coroner’s Office.The man was walking in",
-      "url": "https://abc3340.com/news/local/unidentified-man-killed-in-hit-and-run-on-highway-75-in-pinson",
-      "link": "https://abc3340.com/news/local/unidentified-man-killed-in-hit-and-run-on-highway-75-in-pinson",
-      "published_at": "2026-10-08T13:59:20.000Z",
-      "date": "2026-10-08T13:59:20.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media/b982f9b5-f23b-4d14-bd8f-542379166043-large16x9_thumb_110642.png"
-    },
-    {
-      "id": "news-12-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
+      "id": "news-13-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
       "section": "county",
       "why": "birmingham, utilities",
       "town": "Birmingham",
@@ -496,7 +536,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -522,48 +562,6 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Alabama-Power-Red-Cross-prepare-for-potential-Hurricane-Isaias-impacts.jpg?w=800"
     },
     {
-      "id": "news-13-abc-33-40-isaias-strengthens-to-100-mph-as-central-alabama-braces-for-",
-      "section": "county",
-      "why": "birmingham, weather",
-      "town": "Birmingham",
-      "tags": [
-        "Weather"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1499/986/0x14/90/5b1d20a6-bf01-4e47-82f7-3978933a5479-Screenshot20261008053513.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Isaias strengthens to 100 mph as Central Alabama braces for damaging winds, flooding",
-      "summary": "BIRMINGHAM, Ala. (WBMA) — Tropical Storm Watches are now in effect across much of Central Alabama as Hurricane Isaias strengthens in the Gulf of Mexico, with fo",
-      "description": "BIRMINGHAM, Ala. (WBMA) — Tropical Storm Watches are now in effect across much of Central Alabama as Hurricane Isaias strengthens in the Gulf of Mexico, with fo",
-      "url": "https://abc3340.com/news/local/hurricane-isaias-strengthens-as-alabama-braces-for-damaging-winds-flooding-tornadoes",
-      "link": "https://abc3340.com/news/local/hurricane-isaias-strengthens-as-alabama-braces-for-damaging-winds-flooding-tornadoes",
-      "published_at": "2026-10-08T11:15:18.000Z",
-      "date": "2026-10-08T11:15:18.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "weather"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1499/986/0x14/90/5b1d20a6-bf01-4e47-82f7-3978933a5479-Screenshot20261008053513.png"
-    },
-    {
       "id": "news-14-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
@@ -582,7 +580,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 14,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
