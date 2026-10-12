@@ -1,32 +1,31 @@
 {
-  "updatedAt": "2026-10-11T16:38:10.136Z",
+  "updatedAt": "2026-10-12T02:20:05.483Z",
   "counts": {
-    "towns": 4,
-    "nearby": 3,
-    "county": 4,
+    "towns": 3,
+    "nearby": 2,
+    "county": 5,
     "obituaries": 1
   },
   "sections": {
     "towns": [
       "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
       "news-2-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "news-4-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
-      "news-5-abc-33-40-brookside-mayor-answers-i-team-s-questions-about-future-of-p"
+      "news-5-wbrc-6-news-brookside-mayor-says-insurer-forcing-move-to-abolish-police-"
     ],
     "nearby": [
       "news-3-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
-      "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates-saturday",
-      "news-11-wvtm-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva"
+      "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates-saturday"
     ],
     "creek": [],
     "county": [
+      "news-4-al-com-jefferson-county-deputy-arrested-on-dui-after-predawn-hoover",
       "news-6-wbrc-jefferson-county-sheriff-s-deputies-seize-nearly-60-pounds-o",
       "news-8-birminghamwatch-jeffco-renews-resident-report-app",
       "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
       "news-10-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai"
     ],
     "obituaries": [
-      "news-12-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-11-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
@@ -126,7 +125,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -152,34 +151,39 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg"
     },
     {
-      "id": "news-4-wbrc-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
+      "id": "news-4-al-com-jefferson-county-deputy-arrested-on-dui-after-predawn-hoover",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
       "tags": [
-        "Government",
+        "Roads",
         "Public safety"
       ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": null,
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/KIB456VHDBAMZBZ6CLJJPLHM54.png?auth=4b3d38a193074e6966193ce48a2159661eb5d6c4fdbb913f77f520baf250c81a&smart=true&height=1200",
+        "from": "feed",
+        "width": 1024,
+        "credit": "AL.com"
+      },
       "obit": null,
       "score": 31,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Brookside mayor says insurer forcing move to abolish police department",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
-      "published_at": "2026-10-06T04:04:00.000Z",
-      "date": "2026-10-06T04:04:00.000Z",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Jefferson County deputy arrested on DUI after predawn Hoover crash",
+      "summary": "Deputy Chester Mason is charged with DUI, Hoover police confirmed.",
+      "description": "Deputy Chester Mason is charged with DUI, Hoover police confirmed.",
+      "url": "https://www.al.com/crime/2026/10/jefferson-county-deputy-arrested-on-dui-after-predawn-hoover-crash.html",
+      "link": "https://www.al.com/crime/2026/10/jefferson-county-deputy-arrested-on-dui-after-predawn-hoover-crash.html",
+      "published_at": "2026-10-11T20:59:03.000Z",
+      "date": "2026-10-11T20:59:03.000Z",
       "location_tags": [
-        "brookside"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "government",
+        "roads",
         "public-safety"
       ],
       "priority_level": 4,
@@ -188,10 +192,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://www.al.com/resizer/v2/KIB456VHDBAMZBZ6CLJJPLHM54.png?auth=4b3d38a193074e6966193ce48a2159661eb5d6c4fdbb913f77f520baf250c81a&smart=true&height=1200"
     },
     {
-      "id": "news-5-abc-33-40-brookside-mayor-answers-i-team-s-questions-about-future-of-p",
+      "id": "news-5-wbrc-6-news-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -199,21 +203,21 @@
         "Government",
         "Public safety"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "WBRC 6 News",
       "paywall": false,
       "image": null,
       "obit": null,
       "score": 31,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Brookside mayor answers I-Team's questions about future of police department",
+      "source_name": "WBRC 6 News",
+      "source": "WBRC 6 News",
+      "title": "Brookside mayor says insurer forcing move to abolish police department",
       "summary": "",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxOYVpFbzNNckE4YkRPTFQxSW1vcXZGWU5oRlpFWVhYTlZsZmpSSm83Z1NzRnFZSm83N0h5YnNUMThtN1RQSHZmenExRUZDeG5yVklfNC1wN2RuYkEzd2lvMXF4VmJaQ0dPdGcwaUR0QlQyVE9pemZQemJqWXc4VFhJRzQ4TDBoUXBheXJwZjFWc0F4SEd5cE8xek1wWEZyek4yUF9TaFhqZWVFbWVrN1VHQU90SDFQZXNVQ0RnLVA4ZjRlVVFvX3RodWJ5SlhWYTJrdThDU2o3TVpWN091RVNJRkNrVWdhMjJVTHBOZ0syS3kwSWQ3WFh5ZWtmLXhaUHJabTY4LVNSZWpxRGJWRmtvQWMwaTVUOTJCT1FYSlU1QTVRT200NVVyaDFSRFFQN1lrVGZRWi1EWlpFWHRBdHZINzBueHJzczdJM3NtMzU2TGdjc2kwWUxEemFyNTVpdFR5aUp5VDBYbFpfYUF6Z1AzQ2JqbTItdw?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxOYVpFbzNNckE4YkRPTFQxSW1vcXZGWU5oRlpFWVhYTlZsZmpSSm83Z1NzRnFZSm83N0h5YnNUMThtN1RQSHZmenExRUZDeG5yVklfNC1wN2RuYkEzd2lvMXF4VmJaQ0dPdGcwaUR0QlQyVE9pemZQemJqWXc4VFhJRzQ4TDBoUXBheXJwZjFWc0F4SEd5cE8xek1wWEZyek4yUF9TaFhqZWVFbWVrN1VHQU90SDFQZXNVQ0RnLVA4ZjRlVVFvX3RodWJ5SlhWYTJrdThDU2o3TVpWN091RVNJRkNrVWdhMjJVTHBOZ0syS3kwSWQ3WFh5ZWtmLXhaUHJabTY4LVNSZWpxRGJWRmtvQWMwaTVUOTJCT1FYSlU1QTVRT200NVVyaDFSRFFQN1lrVGZRWi1EWlpFWHRBdHZINzBueHJzczdJM3NtMzU2TGdjc2kwWUxEemFyNTVpdFR5aUp5VDBYbFpfYUF6Z1AzQ2JqbTItdw?oc=5",
-      "published_at": "2026-10-06T07:00:36.000Z",
-      "date": "2026-10-06T07:00:36.000Z",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
+      "published_at": "2026-10-06T04:04:00.000Z",
+      "date": "2026-10-06T04:04:00.000Z",
       "location_tags": [
         "brookside"
       ],
@@ -328,7 +332,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -370,7 +374,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -412,7 +416,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -438,44 +442,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Alabama-Power-Red-Cross-prepare-for-potential-Hurricane-Isaias-impacts.jpg?w=800"
     },
     {
-      "id": "news-11-wvtm-13-mulga-s-bayview-haunted-trail-vandalized-by-groups-from-riva",
-      "section": "nearby",
-      "why": "names mulga",
-      "town": "Mulga",
-      "tags": [
-        "The creek"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 18,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Mulga's Bayview Haunted Trail vandalized by groups from rival haunted attraction",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNX1p4bDN3QnJ3aXpLank0dlFhUS1pOERZTnJObU5hUVIzZGwwUXhxTkZDdXQ5Slk3SE1hR3QxRkVMLVVYdTBHdmpVTktJVlFmb2pjNUQxSUN0NWRmVUVmbldYcEx6Sk1FYXdWbmNIYmtlQm4tZFJYeExheHJEYVR2anNrMnRmRkJaNUROV0pTX09JRXpsMkRyWDRZbw?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNX1p4bDN3QnJ3aXpLank0dlFhUS1pOERZTnJObU5hUVIzZGwwUXhxTkZDdXQ5Slk3SE1hR3QxRkVMLVVYdTBHdmpVTktJVlFmb2pjNUQxSUN0NWRmVUVmbldYcEx6Sk1FYXdWbmNIYmtlQm4tZFJYeExheHJEYVR2anNrMnRmRkJaNUROV0pTX09JRXpsMkRyWDRZbw?oc=5",
-      "published_at": "2026-10-07T00:57:00.000Z",
-      "date": "2026-10-07T00:57:00.000Z",
-      "location_tags": [
-        "mulga"
-      ],
-      "topic_tags": [
-        "the-creek"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-11-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
