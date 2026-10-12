@@ -1,31 +1,30 @@
 {
-  "updatedAt": "2026-10-12T02:20:05.483Z",
+  "updatedAt": "2026-10-12T20:15:52.681Z",
   "counts": {
-    "towns": 3,
-    "nearby": 2,
+    "towns": 2,
+    "nearby": 1,
     "county": 5,
-    "obituaries": 1
+    "obituaries": 2
   },
   "sections": {
     "towns": [
       "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
-      "news-2-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "news-5-wbrc-6-news-brookside-mayor-says-insurer-forcing-move-to-abolish-police-"
+      "news-2-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
     ],
     "nearby": [
-      "news-3-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
-      "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates-saturday"
+      "news-3-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy"
     ],
     "creek": [],
     "county": [
-      "news-4-al-com-jefferson-county-deputy-arrested-on-dui-after-predawn-hoover",
-      "news-6-wbrc-jefferson-county-sheriff-s-deputies-seize-nearly-60-pounds-o",
-      "news-8-birminghamwatch-jeffco-renews-resident-report-app",
-      "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
-      "news-10-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai"
+      "news-4-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "news-5-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
+      "news-6-birminghamwatch-jeffco-renews-resident-report-app",
+      "news-7-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
+      "news-8-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai"
     ],
     "obituaries": [
-      "news-11-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-9-trussville-tribune-john-richard-rick-murphy-jr-july-18-1951-october-4-2026",
+      "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
@@ -46,7 +45,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 45,
+      "score": 43,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -63,8 +62,8 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 6,
-      "priority": 6,
+      "priority_level": 5,
+      "priority": 5,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -83,7 +82,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 33,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -125,7 +124,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -151,7 +150,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg"
     },
     {
-      "id": "news-4-al-com-jefferson-county-deputy-arrested-on-dui-after-predawn-hoover",
+      "id": "news-4-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Birmingham Zoo welcomes young giraffe Onduli to Trails of Africa",
+      "summary": "The Birmingham Zoo has welcomed a young male giraffe named Onduli to its Trails of Africa habitat.Onduli was born Sept. 24, 2025, to mother Katie and father Teb",
+      "description": "The Birmingham Zoo has welcomed a young male giraffe named Onduli to its Trails of Africa habitat.Onduli was born Sept. 24, 2025, to mother Katie and father Teb",
+      "url": "https://abc3340.com/news/local/birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-africa",
+      "link": "https://abc3340.com/news/local/birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-africa",
+      "published_at": "2026-10-12T17:43:41.000Z",
+      "date": "2026-10-12T17:43:41.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
+    },
+    {
+      "id": "news-5-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -159,26 +200,26 @@
         "Roads",
         "Public safety"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/KIB456VHDBAMZBZ6CLJJPLHM54.png?auth=4b3d38a193074e6966193ce48a2159661eb5d6c4fdbb913f77f520baf250c81a&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg",
         "from": "feed",
-        "width": 1024,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Jefferson County deputy arrested on DUI after predawn Hoover crash",
-      "summary": "Deputy Chester Mason is charged with DUI, Hoover police confirmed.",
-      "description": "Deputy Chester Mason is charged with DUI, Hoover police confirmed.",
-      "url": "https://www.al.com/crime/2026/10/jefferson-county-deputy-arrested-on-dui-after-predawn-hoover-crash.html",
-      "link": "https://www.al.com/crime/2026/10/jefferson-county-deputy-arrested-on-dui-after-predawn-hoover-crash.html",
-      "published_at": "2026-10-11T20:59:03.000Z",
-      "date": "2026-10-11T20:59:03.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Nearly 60 pounds of meth seized in Bessemer traffic stop, sheriff says",
+      "summary": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
+      "description": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
+      "url": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
+      "link": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
+      "published_at": "2026-10-09T22:20:10.000Z",
+      "date": "2026-10-09T22:20:10.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -186,137 +227,16 @@
         "roads",
         "public-safety"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/KIB456VHDBAMZBZ6CLJJPLHM54.png?auth=4b3d38a193074e6966193ce48a2159661eb5d6c4fdbb913f77f520baf250c81a&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg"
     },
     {
-      "id": "news-5-wbrc-6-news-brookside-mayor-says-insurer-forcing-move-to-abolish-police-",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Government",
-        "Public safety"
-      ],
-      "outlet": "WBRC 6 News",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "WBRC 6 News",
-      "source": "WBRC 6 News",
-      "title": "Brookside mayor says insurer forcing move to abolish police department",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcVNYamZOU2FkbXI5SWhhajQ1cnFNNWNmVEl2MDRGYkFNYTRCeTVmTV96S3ZVZXN2NlFtbWZiOWs1Z0MtTTJLM2dsYUdScllfQUkwVDlDS0dQYklTWktqT3h5SUh1QkgtU05Ob0J6a2ZKVHVaRVhsZGhXWG1JNzVJTzV0MnJlenIwOEVQV01mUVdXWjNwRzhjQ0s3eVNtUm82bGfSAbYBQVVfeXFMUEF0Q28wQjRoRW1PRzBJLXh2UFd1SnNyTEw0YTlDTl9SajBCUUlCalJyT25BMHJWM0tuN0ZibkpnNFY1N255QXdzdW1GcVkyOGFVWS1RNHJfZm5SNEJPUGEtZnNlZmt4QWdPb3lGcWhaUllwYVprLUFFbTJWNXZKWlRhOVZoQjNyZ1B1ZGx6V2cxTG5vYkg5TXRJMlo4MVFRRFp1eW1XNl9YbS0xcnhnV1ZVX1VWSVE?oc=5",
-      "published_at": "2026-10-06T04:04:00.000Z",
-      "date": "2026-10-06T04:04:00.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "government",
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-wbrc-jefferson-county-sheriff-s-deputies-seize-nearly-60-pounds-o",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//M6IOKJPG5JDSTNCXB2IUYU2WUE.png?auth=5f101717d00ddc3a895b946fdfec0fe1c28aa533629e5691dfb1bb5be5941df1&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 29,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Jefferson County Sheriff’s deputies seize nearly 60 pounds of methamphetamine during traffic stop",
-      "summary": "He is being held in the Jefferson County Jail on a $706,000 bond.",
-      "description": "He is being held in the Jefferson County Jail on a $706,000 bond.",
-      "url": "https://www.wbrc.com/2026/10/10/jefferson-county-sheriffs-deputies-seize-nearly-60-pounds-methamphetamine-during-traffic-stop/",
-      "link": "https://www.wbrc.com/2026/10/10/jefferson-county-sheriffs-deputies-seize-nearly-60-pounds-methamphetamine-during-traffic-stop/",
-      "published_at": "2026-10-10T17:07:15.000Z",
-      "date": "2026-10-10T17:07:15.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//M6IOKJPG5JDSTNCXB2IUYU2WUE.png?auth=5f101717d00ddc3a895b946fdfec0fe1c28aa533629e5691dfb1bb5be5941df1&smart=false"
-    },
-    {
-      "id": "news-7-wbrc-resident-displaced-after-fire-in-fultondale-estates-saturday",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//ENQLZI6D65CW7GJ34F2VMEIG3U.png?auth=8d1fe1ec326167f1c9abb6513c35a17c788e4a3a2c9f3de481f79e3cb8cf7d38&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 29,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Resident displaced after fire in Fultondale Estates Saturday morning",
-      "summary": "The fire marshal will continue to investigate the cause.",
-      "description": "The fire marshal will continue to investigate the cause.",
-      "url": "https://www.wbrc.com/2026/10/10/resident-displaced-after-fire-fultondale-estates/",
-      "link": "https://www.wbrc.com/2026/10/10/resident-displaced-after-fire-fultondale-estates/",
-      "published_at": "2026-10-10T16:29:04.000Z",
-      "date": "2026-10-10T16:29:04.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//ENQLZI6D65CW7GJ34F2VMEIG3U.png?auth=8d1fe1ec326167f1c9abb6513c35a17c788e4a3a2c9f3de481f79e3cb8cf7d38&smart=false"
-    },
-    {
-      "id": "news-8-birminghamwatch-jeffco-renews-resident-report-app",
+      "id": "news-6-birminghamwatch-jeffco-renews-resident-report-app",
       "section": "county",
       "why": "county commission, government",
       "town": "Birmingham",
@@ -332,7 +252,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -358,7 +278,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/10/My-JeffCo-front.jpg"
     },
     {
-      "id": "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
+      "id": "news-7-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
       "section": "county",
       "why": "statewide, utilities",
       "town": "Regional",
@@ -374,7 +294,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -400,7 +320,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/6000/986/0x257/90/e923cc9d-23d9-466d-82c3-befb87b63d40-GettyImages2299536144.jpg"
     },
     {
-      "id": "news-10-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
+      "id": "news-8-cbs-42-alabama-power-red-cross-prepare-for-potential-hurricane-isai",
       "section": "county",
       "why": "birmingham, utilities",
       "town": "Birmingham",
@@ -416,7 +336,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -442,7 +362,51 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Alabama-Power-Red-Cross-prepare-for-potential-Hurricane-Isaias-impacts.jpg?w=800"
     },
     {
-      "id": "news-11-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-9-trussville-tribune-john-richard-rick-murphy-jr-july-18-1951-october-4-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "John Richard “Rick” Murphy, Jr. (July 18, 1951 — October 4, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "John Richard “Rick” Murphy, Jr. (July 18, 1951 — October 4, 2026)",
+      "summary": "Mr. John Richard “Rick” Murphy, Jr., age 75 of Birmingham, passed away on Sunday, October 4, 2026, at Jacksonville Health & Rehab. Born in Birmingham, he was a lifelong resident and native of Alabama. After graduating high school, his first job was at Sears & Roebuck for several years. But for most of his life, […]",
+      "description": "Mr. John Richard “Rick” Murphy, Jr., age 75 of Birmingham, passed away on Sunday, October 4, 2026, at Jacksonville Health & Rehab. Born in Birmingham, he was a lifelong resident and native of Alabama. After graduating high school, his first job was at Sears & Roebuck for several years. But for most of his life, […]",
+      "url": "https://www.trussvilletribune.com/2026/10/12/john-richard-rick-murphy-jr-july-18-1951-october-4-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/12/john-richard-rick-murphy-jr-july-18-1951-october-4-2026/",
+      "published_at": "2026-10-12T18:05:24.000Z",
+      "date": "2026-10-12T18:05:24.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -460,7 +424,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 11,
+      "score": 10,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
