@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T13:03:09.412Z",
+  "updatedAt": "2026-10-14T17:58:23.921Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -25,10 +25,10 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 58,
-      "highTemp": 59,
-      "windGust": 0,
-      "label": "Since midnight",
-      "isMorning": true,
+      "highTemp": 88,
+      "windGust": 1,
+      "label": "So far today",
+      "isMorning": false,
       "coverageStart": "2026-10-14"
     }
   },
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.19,
       "discharge_cfs": 22.4,
-      "water_temp_f": 66.9,
-      "dissolved_oxygen_mgl": 8,
-      "specific_conductance_uscm": 495,
+      "water_temp_f": 68,
+      "dissolved_oxygen_mgl": 8.8,
+      "specific_conductance_uscm": 499,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-14T12:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.007,
+      "updated_at": "2026-10-14T17:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-14T16:30:00+00:00",
-          "stage_ft": 1.13
-        },
         {
           "at": "2026-09-14T22:30:00+00:00",
           "stage_ft": 1.12
@@ -530,6 +526,10 @@
         {
           "at": "2026-10-14T12:00:00+00:00",
           "stage_ft": 1.19
+        },
+        {
+          "at": "2026-10-14T17:00:00+00:00",
+          "stage_ft": 1.19
         }
       ],
       "note": "This reach looks fairly steady right now."
@@ -547,14 +547,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 3.2,
-      "discharge_cfs": 276,
+      "stage_ft": 3.14,
+      "discharge_cfs": 257,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": -0.013,
-      "updated_at": "2026-10-14T12:00:00+00:00",
+      "updated_at": "2026-10-14T17:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
