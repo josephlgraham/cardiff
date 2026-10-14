@@ -1,82 +1,35 @@
 {
-  "updatedAt": "2026-10-13T18:14:14.058Z",
+  "updatedAt": "2026-10-14T01:52:10.044Z",
   "counts": {
-    "towns": 2,
-    "nearby": 8,
-    "county": 4,
+    "nearby": 6,
+    "towns": 1,
+    "county": 2,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
-      "news-8-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
+      "news-5-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
     ],
     "nearby": [
-      "news-2-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
-      "news-3-wvtm-13-proposed-marriott-or-hilton-hotel-near-gardendale-homes-rais",
-      "news-4-abc-33-40-authorities-seek-public-s-help-finding-missing-jefferson-cou",
-      "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "news-6-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
-      "news-7-wvtm-13-trump-s-ambassador-to-greece-kimberly-guilfoyle-resigns-afte",
-      "news-9-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
-      "news-10-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy"
+      "news-1-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
+      "news-2-abc-33-40-missing-jefferson-county-woman-found",
+      "news-3-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
+      "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-6-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
+      "news-7-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy"
     ],
     "creek": [],
     "county": [
-      "news-11-wbrc-1-week-left-to-register-to-vote-in-2026-midterms",
-      "news-12-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
-      "news-13-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
-      "news-14-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d"
+      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d"
     ],
     "obituaries": [
-      "news-15-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/794/986/6x0/90/e1bf6591-de76-40f3-9837-afe59205be82-Screenshot20261009171837.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 42,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Judge dismisses Brookside police chief’s lawsuit",
-      "summary": "A Jefferson County judge has dismissed Brookside Police Chief Marcus Sellers’ lawsuit challenging town officials’ plans to potentially abolish or restructure th",
-      "description": "A Jefferson County judge has dismissed Brookside Police Chief Marcus Sellers’ lawsuit challenging town officials’ plans to potentially abolish or restructure th",
-      "url": "https://abc3340.com/news/local/judge-dismisses-brookside-police-chiefs-lawsuit-brookside-town-officials-police-chief-marcus-sellers-update-court-jefferson-county-october-9-hearing",
-      "link": "https://abc3340.com/news/local/judge-dismisses-brookside-police-chiefs-lawsuit-brookside-town-officials-police-chief-marcus-sellers-update-court-jefferson-county-october-9-hearing",
-      "published_at": "2026-10-09T22:26:41.000Z",
-      "date": "2026-10-09T22:26:41.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/794/986/6x0/90/e1bf6591-de76-40f3-9837-afe59205be82-Screenshot20261009171837.png"
-    },
-    {
-      "id": "news-2-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
+      "id": "news-1-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -92,7 +45,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 37,
+      "score": 38,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -101,8 +54,8 @@
       "description": "The Jefferson County Sheriff’s Office and Alabama Law Enforcement Agency (ALEA) are asking for help finding a 50-year-old woman.",
       "url": "https://www.wbrc.com/2026/10/12/authorities-asking-if-youve-seen-50-year-old-woman-forestdale/",
       "link": "https://www.wbrc.com/2026/10/12/authorities-asking-if-youve-seen-50-year-old-woman-forestdale/",
-      "published_at": "2026-10-12T23:04:20.000Z",
-      "date": "2026-10-12T23:04:20.000Z",
+      "published_at": "2026-10-13T21:08:39.000Z",
+      "date": "2026-10-13T21:08:39.000Z",
       "location_tags": [
         "forestdale"
       ],
@@ -118,49 +71,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YIV3WLJQRVEEXEIOM3ZB7VW6N4.png?auth=4a350a9acf5c3416e7f4ebe7d178071ef7864ce972c870cc86c5f727a516e033&smart=false"
     },
     {
-      "id": "news-3-wvtm-13-proposed-marriott-or-hilton-hotel-near-gardendale-homes-rais",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/cdfc6c9a-5d46-4e4c-ad40-40545c87fcf4/b8f9063b-f257-4045-9d1c-73046893147a.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 34,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Proposed Marriott or Hilton hotel near Gardendale homes raises traffic, noise and privacy concerns",
-      "summary": "A proposed four-story Marriott or Hilton hotel could soon rise near Gardendale homes, but neighbors say traffic, noise and privacy concerns make it too close for comfort. Here’s what city leaders say could happen next.",
-      "description": "A proposed four-story Marriott or Hilton hotel could soon rise near Gardendale homes, but neighbors say traffic, noise and privacy concerns make it too close for comfort. Here’s what city leaders say could happen next.",
-      "url": "https://www.wvtm13.com/article/alabama-gardendale-city-council-development-hotel-marriott-hilton-traffic/74114513",
-      "link": "https://www.wvtm13.com/article/alabama-gardendale-city-council-development-hotel-marriott-hilton-traffic/74114513",
-      "published_at": "2026-10-13T15:35:00.000Z",
-      "date": "2026-10-13T15:35:00.000Z",
-      "location_tags": [
-        "gardendale"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/cdfc6c9a-5d46-4e4c-ad40-40545c87fcf4/b8f9063b-f257-4045-9d1c-73046893147a.jpg"
-    },
-    {
-      "id": "news-4-abc-33-40-authorities-seek-public-s-help-finding-missing-jefferson-cou",
+      "id": "news-2-abc-33-40-missing-jefferson-county-woman-found",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -174,11 +85,11 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Authorities Seek Public's Help Finding Missing Jefferson County Woman",
+      "title": "Missing Jefferson County Woman Found",
       "summary": "Authorities in Jefferson County are asking for the public’s help finding a missing 50-year-old woman last seen Sunday evening in Forestdale.",
       "description": "Authorities in Jefferson County are asking for the public’s help finding a missing 50-year-old woman last seen Sunday evening in Forestdale.",
       "url": "https://abc3340.com/news/local/jefferson-county-deputies-seek-publics-help-locating-missing-woman-in-forestdale-jennifer-suree-moses-alabama-law-enforcement-agency",
@@ -198,45 +109,7 @@
       "image_url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Birmingham Times"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "From Gallion to the Statewide Stage: Dr. Valencia Wells Makes History in Optometry",
-      "summary": "Dr. Valencia Wells of Morris Avenue Eyecare has been part of the Alabama Optometric Association Board since 2020. She currently serves as president of the ALOA. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-1024x729.jpeg\" />By Sym Posey |",
-      "description": "Dr. Valencia Wells of Morris Avenue Eyecare has been part of the Alabama Optometric Association Board since 2020. She currently serves as president of the ALOA. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-1024x729.jpeg\" />By Sym Posey |",
-      "url": "https://www.birminghamtimes.com/2026/10/from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-history-in-optometry/",
-      "link": "https://www.birminghamtimes.com/2026/10/from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-history-in-optometry/",
-      "published_at": "2026-10-12T23:28:43.000Z",
-      "date": "2026-10-12T23:28:43.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
-    },
-    {
-      "id": "news-6-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
+      "id": "news-3-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -274,33 +147,33 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XQO4TJK56VCONCXJXV5LVIZJEE.png?auth=8b7cb481d8109195734b5901bcf60610fd558b5ad0f5b225a5f7a4f7ffad10d9&smart=false"
     },
     {
-      "id": "news-7-wvtm-13-trump-s-ambassador-to-greece-kimberly-guilfoyle-resigns-afte",
+      "id": "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
-      "why": "names kimberly",
-      "town": "Kimberly",
+      "why": "names morris",
+      "town": "Morris",
       "tags": [],
-      "outlet": "WVTM 13",
+      "outlet": "Birmingham Times",
       "paywall": false,
       "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/84b06201-846f-4d84-b3f4-8e94d4d8f1cd.jpg",
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg",
         "from": "feed",
         "width": null,
-        "credit": "WVTM 13"
+        "credit": "Birmingham Times"
       },
       "obit": null,
       "score": 30,
       "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Trump's ambassador to Greece, Kimberly Guilfoyle, resigns after allegations of improper conduct",
-      "summary": "U.S. ambassador to Greece Kimberly Guilfoyle resigned after allegations she has engaged in improper conduct.",
-      "description": "U.S. ambassador to Greece Kimberly Guilfoyle resigned after allegations she has engaged in improper conduct.",
-      "url": "https://www.wvtm13.com/article/white-house-kimberly-guilfoyle-resign/74120231",
-      "link": "https://www.wvtm13.com/article/white-house-kimberly-guilfoyle-resign/74120231",
-      "published_at": "2026-10-13T15:44:00.000Z",
-      "date": "2026-10-13T15:44:00.000Z",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "From Gallion to the Statewide Stage: Dr. Valencia Wells Makes History in Optometry",
+      "summary": "Dr. Valencia Wells of Morris Avenue Eyecare has been part of the Alabama Optometric Association Board since 2020. She currently serves as president of the ALOA. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-1024x729.jpeg\" />By Sym Posey |",
+      "description": "Dr. Valencia Wells of Morris Avenue Eyecare has been part of the Alabama Optometric Association Board since 2020. She currently serves as president of the ALOA. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-1024x729.jpeg\" />By Sym Posey |",
+      "url": "https://www.birminghamtimes.com/2026/10/from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-history-in-optometry/",
+      "link": "https://www.birminghamtimes.com/2026/10/from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-history-in-optometry/",
+      "published_at": "2026-10-12T23:28:43.000Z",
+      "date": "2026-10-12T23:28:43.000Z",
       "location_tags": [
-        "kimberly"
+        "morris"
       ],
       "topic_tags": [],
       "priority_level": 4,
@@ -309,10 +182,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/84b06201-846f-4d84-b3f4-8e94d4d8f1cd.jpg"
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-8-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
+      "id": "news-5-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -323,7 +196,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -349,7 +222,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
+      "id": "news-6-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -363,7 +236,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -387,7 +260,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png"
     },
     {
-      "id": "news-10-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
+      "id": "news-7-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -403,7 +276,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -429,49 +302,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg"
     },
     {
-      "id": "news-11-wbrc-1-week-left-to-register-to-vote-in-2026-midterms",
-      "section": "county",
-      "why": "alabama house, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//NW5KLWTU7JAFXMGDUDX572J2FY.bmp?auth=ace6728b46b518f68d4acbe4ae47234956346958fdc4509b80e2d6040c6c9eea&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "1 week left to register to vote in 2026 midterms",
-      "summary": "The last day to register to vote in Alabama is Monday, Oct. 19. Every Alabama House of Representatives and Senate seat is on the ballot.",
-      "description": "The last day to register to vote in Alabama is Monday, Oct. 19. Every Alabama House of Representatives and Senate seat is on the ballot.",
-      "url": "https://www.wbrc.com/2026/10/13/1-week-left-register-vote-2026-midterms/",
-      "link": "https://www.wbrc.com/2026/10/13/1-week-left-register-vote-2026-midterms/",
-      "published_at": "2026-10-13T00:34:27.000Z",
-      "date": "2026-10-13T00:34:27.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//NW5KLWTU7JAFXMGDUDX572J2FY.bmp?auth=ace6728b46b518f68d4acbe4ae47234956346958fdc4509b80e2d6040c6c9eea&smart=false"
-    },
-    {
-      "id": "news-12-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "id": "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -513,51 +344,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
     },
     {
-      "id": "news-13-abc-33-40-nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-she",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Nearly 60 pounds of meth seized in Bessemer traffic stop, sheriff says",
-      "summary": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
-      "description": "A Bessemer traffic stop led to the seizure of nearly 60 pounds of methamphetamine and the arrest of a 37-year-old man, according to the Jefferson County Sheriff",
-      "url": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
-      "link": "https://abc3340.com/news/local/nearly-60-pounds-of-meth-seized-in-bessemer-traffic-stop-sheriff-says",
-      "published_at": "2026-10-09T22:20:10.000Z",
-      "date": "2026-10-09T22:20:10.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1361/986/0x72/90/53cda757-a863-427e-b868-d3f9369beab3-asdfaf.jpg"
-    },
-    {
-      "id": "news-14-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
+      "id": "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
       "section": "county",
       "why": "statewide, utilities",
       "town": "Regional",
@@ -573,7 +360,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -599,7 +386,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/6000/986/0x257/90/e923cc9d-23d9-466d-82c3-befb87b63d40-GettyImages2299536144.jpg"
     },
     {
-      "id": "news-15-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
