@@ -1,30 +1,29 @@
 {
-  "updatedAt": "2026-10-14T01:52:10.044Z",
+  "updatedAt": "2026-10-14T15:48:26.710Z",
   "counts": {
-    "nearby": 6,
+    "nearby": 4,
     "towns": 1,
-    "county": 2,
+    "county": 3,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-5-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
+      "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
     ],
     "nearby": [
       "news-1-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
       "news-2-abc-33-40-missing-jefferson-county-woman-found",
-      "news-3-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
-      "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "news-6-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
-      "news-7-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy"
+      "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen"
     ],
     "creek": [],
     "county": [
-      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
-      "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d"
+      "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
+      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
     ],
     "obituaries": [
-      "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-9-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
@@ -45,7 +44,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 38,
+      "score": 37,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -85,7 +84,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -109,45 +108,7 @@
       "image_url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-3-wbrc-gardendale-hotel-proposal-draws-opposition-from-neighbors",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XQO4TJK56VCONCXJXV5LVIZJEE.png?auth=8b7cb481d8109195734b5901bcf60610fd558b5ad0f5b225a5f7a4f7ffad10d9&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Gardendale hotel proposal draws opposition from neighbors",
-      "summary": "Developers presented plans Monday night for a 126-room hotel near Interstate 65. The property backs up to several homes on Meadow Lane.",
-      "description": "Developers presented plans Monday night for a 126-room hotel near Interstate 65. The property backs up to several homes on Meadow Lane.",
-      "url": "https://www.wbrc.com/2026/10/13/gardendale-hotel-proposal-draws-opposition-neighbors/",
-      "link": "https://www.wbrc.com/2026/10/13/gardendale-hotel-proposal-draws-opposition-neighbors/",
-      "published_at": "2026-10-13T03:50:32.000Z",
-      "date": "2026-10-13T03:50:32.000Z",
-      "location_tags": [
-        "gardendale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//XQO4TJK56VCONCXJXV5LVIZJEE.png?auth=8b7cb481d8109195734b5901bcf60610fd558b5ad0f5b225a5f7a4f7ffad10d9&smart=false"
-    },
-    {
-      "id": "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "id": "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -161,7 +122,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -185,7 +146,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-5-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
+      "id": "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -222,7 +183,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
+      "id": "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -260,46 +221,88 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png"
     },
     {
-      "id": "news-7-abc-33-40-fultondale-fire-crews-respond-to-residential-fire-amid-heavy",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
+      "id": "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
       "tags": [
-        "Public safety"
+        "Roads"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Bessemer man killed in head-on crash",
+      "summary": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
+      "description": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
+      "url": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
+      "link": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
+      "published_at": "2026-10-14T15:10:48.000Z",
+      "date": "2026-10-14T15:10:48.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
+    },
+    {
+      "id": "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
+      "section": "county",
+      "why": "statewide, government",
+      "town": "Birmingham",
+      "tags": [
+        "Government"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg",
+        "url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and Wind",
-      "summary": "# Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and WindFultondale Fire & Rescue crews responded to a residential structure fire in the Fult",
-      "description": "# Fultondale Fire Crews Respond to Residential Fire Amid Heavy Rain and WindFultondale Fire & Rescue crews responded to a residential structure fire in the Fult",
-      "url": "https://abc3340.com/news/local/fultondale-fire-crews-respond-to-residential-fire-amid-heavy-rain-and-wind-fultondale-estates-neighborhood-october-2026",
-      "link": "https://abc3340.com/news/local/fultondale-fire-crews-respond-to-residential-fire-amid-heavy-rain-and-wind-fultondale-estates-neighborhood-october-2026",
-      "published_at": "2026-10-10T11:22:30.000Z",
-      "date": "2026-10-10T11:22:30.000Z",
+      "title": "Alabama voters to decide on four constitutional amendments in November election",
+      "summary": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
+      "description": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
+      "url": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
+      "link": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
+      "published_at": "2026-10-14T03:20:08.000Z",
+      "date": "2026-10-14T03:20:08.000Z",
       "location_tags": [
-        "fultondale"
+        "birmingham"
       ],
       "topic_tags": [
-        "public-safety"
+        "government"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1440/986/0x315/90/78eacf77-1ed0-4cad-aa7d-6b5fbf9b2578-844773227_18227675626331998_1933374952666787904_n.jpg"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
     },
     {
       "id": "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
@@ -318,7 +321,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -344,49 +347,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
     },
     {
-      "id": "news-9-abc-33-40-more-than-267-000-alabama-power-customers-lose-electricity-d",
-      "section": "county",
-      "why": "statewide, utilities",
-      "town": "Regional",
-      "tags": [
-        "Utilities"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/6000/986/0x257/90/e923cc9d-23d9-466d-82c3-befb87b63d40-GettyImages2299536144.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "More than 267,000 Alabama Power customers lose electricity during Isaias",
-      "summary": "Alabama Power Reports 233,000 Customers Impacted by Isaias, Restoration Efforts UnderwayApproximately 233,000 Alabama Power customers statewide have experienced",
-      "description": "Alabama Power Reports 233,000 Customers Impacted by Isaias, Restoration Efforts UnderwayApproximately 233,000 Alabama Power customers statewide have experienced",
-      "url": "https://abc3340.com/news/local/alabama-power-reports-233000-customers-impacted-by-isaias-restoration-efforts-underway-october-2027",
-      "link": "https://abc3340.com/news/local/alabama-power-reports-233000-customers-impacted-by-isaias-restoration-efforts-underway-october-2027",
-      "published_at": "2026-10-10T12:15:50.000Z",
-      "date": "2026-10-10T12:15:50.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "utilities"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/6000/986/0x257/90/e923cc9d-23d9-466d-82c3-befb87b63d40-GettyImages2299536144.jpg"
-    },
-    {
-      "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-9-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
