@@ -1,76 +1,35 @@
 {
-  "updatedAt": "2026-10-14T15:48:26.710Z",
+  "updatedAt": "2026-10-15T01:26:03.184Z",
   "counts": {
-    "nearby": 4,
-    "towns": 1,
-    "county": 3,
+    "nearby": 3,
+    "towns": 2,
+    "county": 4,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
+      "news-3-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
+      "news-4-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit"
     ],
     "nearby": [
-      "news-1-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
-      "news-2-abc-33-40-missing-jefferson-county-woman-found",
-      "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-1-abc-33-40-missing-jefferson-county-woman-found",
+      "news-2-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen"
     ],
     "creek": [],
     "county": [
-      "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-6-al-com-former-candidate-says-criminal-probe-underway-into-her-alaba",
       "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
-      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
+      "news-8-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-9-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
     ],
     "obituaries": [
-      "news-9-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-authorities-asking-if-you-ve-seen-50-year-old-woman-from-for",
-      "section": "nearby",
-      "why": "names forestdale",
-      "town": "Forestdale",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YIV3WLJQRVEEXEIOM3ZB7VW6N4.png?auth=4a350a9acf5c3416e7f4ebe7d178071ef7864ce972c870cc86c5f727a516e033&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 37,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Authorities asking if you’ve seen 50-year-old woman from Forestdale",
-      "summary": "The Jefferson County Sheriff’s Office and Alabama Law Enforcement Agency (ALEA) are asking for help finding a 50-year-old woman.",
-      "description": "The Jefferson County Sheriff’s Office and Alabama Law Enforcement Agency (ALEA) are asking for help finding a 50-year-old woman.",
-      "url": "https://www.wbrc.com/2026/10/12/authorities-asking-if-youve-seen-50-year-old-woman-forestdale/",
-      "link": "https://www.wbrc.com/2026/10/12/authorities-asking-if-youve-seen-50-year-old-woman-forestdale/",
-      "published_at": "2026-10-13T21:08:39.000Z",
-      "date": "2026-10-13T21:08:39.000Z",
-      "location_tags": [
-        "forestdale"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YIV3WLJQRVEEXEIOM3ZB7VW6N4.png?auth=4a350a9acf5c3416e7f4ebe7d178071ef7864ce972c870cc86c5f727a516e033&smart=false"
-    },
-    {
-      "id": "news-2-abc-33-40-missing-jefferson-county-woman-found",
+      "id": "news-1-abc-33-40-missing-jefferson-county-woman-found",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -84,7 +43,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -108,7 +67,7 @@
       "image_url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "id": "news-2-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -146,7 +105,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
+      "id": "news-3-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -157,7 +116,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -183,6 +142,43 @@
       "image_url": ""
     },
     {
+      "id": "news-4-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Judge dismisses Brookside police chief’s lawsuit",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxONXdxQTdvM0ttWlpNYWRiQ1FWQmJONFU4RVZYZ3JBajQtRk5CY1ZkdEVqTVNhbmtPaUY1LTFycWIxLVJudWhWS2tOOEtmMjN1aVFSWGpOeE1EZ01xQ25ZWXVOTkdlNjBYWUoxeU9fZjlfNFZIbDRWY3JkYzVLanN6Q0ZTTnBDV1pLdTdPX0dLbDlHV1NnV3BHVGw3Vmx2M2dGQUxodTczenpYWFJiYk9DSjVlSF9CM2lmQms3WW5HYl9xcGNEQ01BcUxLS2dwTnVsdHdjeUJZQjFNWTZZem85d3BuSFhQcFZYUF9Jek5kc05wYUJMU0V4d2RjcnhMQUpCMmtvNE1KeEFCVkMyVGUwdjJMTEYyV25KSW5yXzNn?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxONXdxQTdvM0ttWlpNYWRiQ1FWQmJONFU4RVZYZ3JBajQtRk5CY1ZkdEVqTVNhbmtPaUY1LTFycWIxLVJudWhWS2tOOEtmMjN1aVFSWGpOeE1EZ01xQ25ZWXVOTkdlNjBYWUoxeU9fZjlfNFZIbDRWY3JkYzVLanN6Q0ZTTnBDV1pLdTdPX0dLbDlHV1NnV3BHVGw3Vmx2M2dGQUxodTczenpYWFJiYk9DSjVlSF9CM2lmQms3WW5HYl9xcGNEQ01BcUxLS2dwTnVsdHdjeUJZQjFNWTZZem85d3BuSFhQcFZYUF9Jek5kc05wYUJMU0V4d2RjcnhMQUpCMmtvNE1KeEFCVkMyVGUwdjJMTEYyV25KSW5yXzNn?oc=5",
+      "published_at": "2026-10-09T22:31:25.000Z",
+      "date": "2026-10-09T22:31:25.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
       "id": "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
       "section": "nearby",
       "why": "names gardendale",
@@ -197,7 +193,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -212,8 +208,8 @@
         "gardendale"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -221,38 +217,38 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png"
     },
     {
-      "id": "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "id": "news-6-al-com-former-candidate-says-criminal-probe-underway-into-her-alaba",
       "section": "county",
-      "why": "jefferson county, roads",
+      "why": "jefferson county, government",
       "town": "Jefferson County",
       "tags": [
-        "Roads"
+        "Government"
       ],
-      "outlet": "CBS 42",
-      "paywall": false,
+      "outlet": "AL.com",
+      "paywall": true,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789",
+        "url": "https://www.al.com/resizer/v2/CAZHYYVQOREFDBLYT4IU4H2HH4.png?auth=0c09c18ddde5cae5a82271b9dbda6439bbe7fe788ea4c68a623c5a6eabf69033&smart=true&height=1200",
         "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
+        "width": 512,
+        "credit": "AL.com"
       },
       "obit": null,
-      "score": 26,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Bessemer man killed in head-on crash",
-      "summary": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
-      "description": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
-      "url": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
-      "link": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
-      "published_at": "2026-10-14T15:10:48.000Z",
-      "date": "2026-10-14T15:10:48.000Z",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Former candidate says criminal probe underway into her Alabama election misconduct claims",
+      "summary": "Mara Ruffin Blackmon, who filed civil allegations against suspended Jefferson County Probate Judge Yashiba Blanchard and others, said she was interviewed as part of a criminal probe into election misconduct.",
+      "description": "Mara Ruffin Blackmon, who filed civil allegations against suspended Jefferson County Probate Judge Yashiba Blanchard and others, said she was interviewed as part of a criminal probe into election misconduct.",
+      "url": "https://www.al.com/news/2026/10/former-candidate-says-criminal-probe-underway-into-alabama-election-misconduct-claims.html",
+      "link": "https://www.al.com/news/2026/10/former-candidate-says-criminal-probe-underway-into-alabama-election-misconduct-claims.html",
+      "published_at": "2026-10-14T20:08:23.000Z",
+      "date": "2026-10-14T20:08:23.000Z",
       "location_tags": [
         "jefferson-county"
       ],
       "topic_tags": [
-        "roads"
+        "government"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -260,7 +256,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
+      "image_url": "https://www.al.com/resizer/v2/CAZHYYVQOREFDBLYT4IU4H2HH4.png?auth=0c09c18ddde5cae5a82271b9dbda6439bbe7fe788ea4c68a623c5a6eabf69033&smart=true&height=1200"
     },
     {
       "id": "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
@@ -305,7 +301,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
     },
     {
-      "id": "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "id": "news-8-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Bessemer man killed in head-on crash",
+      "summary": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
+      "description": "An 80-year-old man was killed in a crash Tuesday morning, according to the Jefferson County Coroner's Office.",
+      "url": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
+      "link": "https://www.alabamas42.com/news/traffic-news/bessemer-man-killed-in-head-on-crash/",
+      "published_at": "2026-10-14T15:10:48.000Z",
+      "date": "2026-10-14T15:10:48.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
+    },
+    {
+      "id": "news-9-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -321,7 +359,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -347,7 +385,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
     },
     {
-      "id": "news-9-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
