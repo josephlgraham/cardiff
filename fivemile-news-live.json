@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-10-15T01:26:03.184Z",
+  "updatedAt": "2026-10-15T15:34:48.147Z",
   "counts": {
-    "nearby": 3,
-    "towns": 2,
     "county": 4,
+    "nearby": 4,
+    "towns": 1,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-3-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "news-4-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit"
+      "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
     ],
     "nearby": [
-      "news-1-abc-33-40-missing-jefferson-county-woman-found",
-      "news-2-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen"
+      "news-2-abc-33-40-missing-jefferson-county-woman-found",
+      "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
+      "news-9-alabamas42-com-adamsville-hosts-community-unity-program"
     ],
     "creek": [],
     "county": [
-      "news-6-al-com-former-candidate-says-criminal-probe-underway-into-her-alaba",
-      "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
-      "news-8-cbs-42-bessemer-man-killed-in-head-on-crash",
-      "news-9-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
+      "news-1-al-com-jones-counters-tuberville-interstate-plan-as-aldot-s-future-",
+      "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
+      "news-7-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
     ],
     "obituaries": [
       "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
@@ -29,7 +29,51 @@
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-missing-jefferson-county-woman-found",
+      "id": "news-1-al-com-jones-counters-tuberville-interstate-plan-as-aldot-s-future-",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads",
+        "Government"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/HG5MZXMST5GFDHFGCSRCWXPZQA.jpg?auth=0b307621b387225769cc48b8fcd5e76c3085fa8e30548f8096b0f3583b6c9e27&smart=true&height=1200",
+        "from": "feed",
+        "width": 3240,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Jones counters Tuberville interstate plan as ALDOT’s future becomes key campaign issue",
+      "summary": "ALDOT operates on an annual budget of approximately $2.7 billion and has been led by John Cooper for the 15 years.",
+      "description": "ALDOT operates on an annual budget of approximately $2.7 billion and has been led by John Cooper for the 15 years.",
+      "url": "https://www.al.com/politics/2026/10/jones-counters-tuberville-interstate-plan-as-aldots-future-becomes-key-campaign-issue.html",
+      "link": "https://www.al.com/politics/2026/10/jones-counters-tuberville-interstate-plan-as-aldots-future-becomes-key-campaign-issue.html",
+      "published_at": "2026-10-15T11:45:00.000Z",
+      "date": "2026-10-15T11:45:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads",
+        "government"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/HG5MZXMST5GFDHFGCSRCWXPZQA.jpg?auth=0b307621b387225769cc48b8fcd5e76c3085fa8e30548f8096b0f3583b6c9e27&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-abc-33-40-missing-jefferson-county-woman-found",
       "section": "nearby",
       "why": "names forestdale",
       "town": "Forestdale",
@@ -67,7 +111,7 @@
       "image_url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552"
     },
     {
-      "id": "news-2-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "id": "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -81,7 +125,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -105,7 +149,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-3-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
+      "id": "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -116,7 +160,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -133,48 +177,11 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": true,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-4-abc-33-40-judge-dismisses-brookside-police-chief-s-lawsuit",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 28,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Judge dismisses Brookside police chief’s lawsuit",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxONXdxQTdvM0ttWlpNYWRiQ1FWQmJONFU4RVZYZ3JBajQtRk5CY1ZkdEVqTVNhbmtPaUY1LTFycWIxLVJudWhWS2tOOEtmMjN1aVFSWGpOeE1EZ01xQ25ZWXVOTkdlNjBYWUoxeU9fZjlfNFZIbDRWY3JkYzVLanN6Q0ZTTnBDV1pLdTdPX0dLbDlHV1NnV3BHVGw3Vmx2M2dGQUxodTczenpYWFJiYk9DSjVlSF9CM2lmQms3WW5HYl9xcGNEQ01BcUxLS2dwTnVsdHdjeUJZQjFNWTZZem85d3BuSFhQcFZYUF9Jek5kc05wYUJMU0V4d2RjcnhMQUpCMmtvNE1KeEFCVkMyVGUwdjJMTEYyV25KSW5yXzNn?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxONXdxQTdvM0ttWlpNYWRiQ1FWQmJONFU4RVZYZ3JBajQtRk5CY1ZkdEVqTVNhbmtPaUY1LTFycWIxLVJudWhWS2tOOEtmMjN1aVFSWGpOeE1EZ01xQ25ZWXVOTkdlNjBYWUoxeU9fZjlfNFZIbDRWY3JkYzVLanN6Q0ZTTnBDV1pLdTdPX0dLbDlHV1NnV3BHVGw3Vmx2M2dGQUxodTczenpYWFJiYk9DSjVlSF9CM2lmQms3WW5HYl9xcGNEQ01BcUxLS2dwTnVsdHdjeUJZQjFNWTZZem85d3BuSFhQcFZYUF9Jek5kc05wYUJMU0V4d2RjcnhMQUpCMmtvNE1KeEFCVkMyVGUwdjJMTEYyV25KSW5yXzNn?oc=5",
-      "published_at": "2026-10-09T22:31:25.000Z",
-      "date": "2026-10-09T22:31:25.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
       "is_featured": false,
       "image_url": ""
     },
@@ -193,7 +200,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -217,49 +224,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png"
     },
     {
-      "id": "news-6-al-com-former-candidate-says-criminal-probe-underway-into-her-alaba",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/CAZHYYVQOREFDBLYT4IU4H2HH4.png?auth=0c09c18ddde5cae5a82271b9dbda6439bbe7fe788ea4c68a623c5a6eabf69033&smart=true&height=1200",
-        "from": "feed",
-        "width": 512,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Former candidate says criminal probe underway into her Alabama election misconduct claims",
-      "summary": "Mara Ruffin Blackmon, who filed civil allegations against suspended Jefferson County Probate Judge Yashiba Blanchard and others, said she was interviewed as part of a criminal probe into election misconduct.",
-      "description": "Mara Ruffin Blackmon, who filed civil allegations against suspended Jefferson County Probate Judge Yashiba Blanchard and others, said she was interviewed as part of a criminal probe into election misconduct.",
-      "url": "https://www.al.com/news/2026/10/former-candidate-says-criminal-probe-underway-into-alabama-election-misconduct-claims.html",
-      "link": "https://www.al.com/news/2026/10/former-candidate-says-criminal-probe-underway-into-alabama-election-misconduct-claims.html",
-      "published_at": "2026-10-14T20:08:23.000Z",
-      "date": "2026-10-14T20:08:23.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/CAZHYYVQOREFDBLYT4IU4H2HH4.png?auth=0c09c18ddde5cae5a82271b9dbda6439bbe7fe788ea4c68a623c5a6eabf69033&smart=true&height=1200"
-    },
-    {
-      "id": "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
+      "id": "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
       "section": "county",
       "why": "statewide, government",
       "town": "Birmingham",
@@ -275,7 +240,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -301,7 +266,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
     },
     {
-      "id": "news-8-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "id": "news-7-cbs-42-bessemer-man-killed-in-head-on-crash",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -317,7 +282,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -343,7 +308,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
     },
     {
-      "id": "news-9-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "id": "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -359,7 +324,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -383,6 +348,39 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
+    },
+    {
+      "id": "news-9-alabamas42-com-adamsville-hosts-community-unity-program",
+      "section": "nearby",
+      "why": "names adamsville",
+      "town": "Adamsville",
+      "tags": [],
+      "outlet": "alabamas42.com",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "alabamas42.com",
+      "source": "alabamas42.com",
+      "title": "Adamsville hosts community unity program",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQck55WElPdmd5ZUdfNUYwVkZxc1NjVEVPUEVwR0VtZnZKWDMzV3B1dmcxVkhidmVJV3VqNm53azJSMXk5SjFyeGZReWV3RHZtZ0dYaE5lUUFmNnQ3VlBLUXFVSFpDWjIzMTBQQkVWTFJCTHV1M2pHdWdndlNJYm9SWG4wWk96UC12WVdN?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQck55WElPdmd5ZUdfNUYwVkZxc1NjVEVPUEVwR0VtZnZKWDMzV3B1dmcxVkhidmVJV3VqNm53azJSMXk5SjFyeGZReWV3RHZtZ0dYaE5lUUFmNnQ3VlBLUXFVSFpDWjIzMTBQQkVWTFJCTHV1M2pHdWdndlNJYm9SWG4wWk96UC12WVdN?oc=5",
+      "published_at": "2026-10-12T11:44:43.000Z",
+      "date": "2026-10-12T11:44:43.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     },
     {
       "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
