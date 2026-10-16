@@ -1,87 +1,170 @@
 {
-  "updatedAt": "2026-10-15T15:34:48.147Z",
+  "updatedAt": "2026-10-16T01:17:18.405Z",
   "counts": {
-    "county": 4,
-    "nearby": 4,
     "towns": 1,
-    "obituaries": 1
+    "nearby": 5,
+    "county": 2,
+    "obituaries": 3
   },
   "sections": {
     "towns": [
-      "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c"
+      "news-1-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
     ],
     "nearby": [
-      "news-2-abc-33-40-missing-jefferson-county-woman-found",
-      "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
-      "news-9-alabamas42-com-adamsville-hosts-community-unity-program"
+      "news-2-wbrc-sheriff-s-office-investigating-after-1-shot-in-jefferson-cou",
+      "news-3-al-com-1-injured-in-shooting-at-northern-jefferson-county-home",
+      "news-4-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
+      "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-8-alabamas42-com-adamsville-hosts-community-unity-program"
     ],
     "creek": [],
     "county": [
-      "news-1-al-com-jones-counters-tuberville-interstate-plan-as-aldot-s-future-",
-      "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
-      "news-7-cbs-42-bessemer-man-killed-in-head-on-crash",
-      "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af"
+      "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i"
     ],
     "obituaries": [
-      "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre"
+      "news-9-trussville-tribune-john-bob-whitlock-iii-march-15-1934-october-9-2026",
+      "news-10-trussville-tribune-aida-ann-parks-april-1-1929-october-13-2026",
+      "news-11-trussville-tribune-carolyn-smith-mcclellan-july-24-1942-october-12-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-jones-counters-tuberville-interstate-plan-as-aldot-s-future-",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
+      "id": "news-1-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville",
+      "section": "towns",
+      "why": "names graysville",
+      "town": "Graysville",
       "tags": [
-        "Roads",
-        "Government"
+        "Public safety"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/HG5MZXMST5GFDHFGCSRCWXPZQA.jpg?auth=0b307621b387225769cc48b8fcd5e76c3085fa8e30548f8096b0f3583b6c9e27&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/41c42c49-2185-4e15-80e8-9be4e7cfb74f-Px2.jpg",
         "from": "feed",
-        "width": 3240,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 48,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Jones counters Tuberville interstate plan as ALDOT’s future becomes key campaign issue",
-      "summary": "ALDOT operates on an annual budget of approximately $2.7 billion and has been led by John Cooper for the 15 years.",
-      "description": "ALDOT operates on an annual budget of approximately $2.7 billion and has been led by John Cooper for the 15 years.",
-      "url": "https://www.al.com/politics/2026/10/jones-counters-tuberville-interstate-plan-as-aldots-future-becomes-key-campaign-issue.html",
-      "link": "https://www.al.com/politics/2026/10/jones-counters-tuberville-interstate-plan-as-aldots-future-becomes-key-campaign-issue.html",
-      "published_at": "2026-10-15T11:45:00.000Z",
-      "date": "2026-10-15T11:45:00.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "One taken to hospital after shooting in Graysville",
+      "summary": "Deputies are investigating a shooting that sent one person to the hospital Thursday afternoon in Graysville.The Jefferson County Sheriff’s Office confirmed the",
+      "description": "Deputies are investigating a shooting that sent one person to the hospital Thursday afternoon in Graysville.The Jefferson County Sheriff’s Office confirmed the",
+      "url": "https://abc3340.com/news/local/alabama-one-taken-to-hospital-after-shooting-in-graysville-jefferson-county-sheriffs-office-levine-avenue-sayre-thursday-october-15-2026",
+      "link": "https://abc3340.com/news/local/alabama-one-taken-to-hospital-after-shooting-in-graysville-jefferson-county-sheriffs-office-levine-avenue-sayre-thursday-october-15-2026",
+      "published_at": "2026-10-15T20:05:42.000Z",
+      "date": "2026-10-15T20:05:42.000Z",
       "location_tags": [
-        "regional"
+        "graysville"
       ],
       "topic_tags": [
-        "roads",
-        "government"
+        "public-safety"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 6,
+      "priority": 6,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/HG5MZXMST5GFDHFGCSRCWXPZQA.jpg?auth=0b307621b387225769cc48b8fcd5e76c3085fa8e30548f8096b0f3583b6c9e27&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/41c42c49-2185-4e15-80e8-9be4e7cfb74f-Px2.jpg"
     },
     {
-      "id": "news-2-abc-33-40-missing-jefferson-county-woman-found",
+      "id": "news-2-wbrc-sheriff-s-office-investigating-after-1-shot-in-jefferson-cou",
       "section": "nearby",
-      "why": "names forestdale",
-      "town": "Forestdale",
+      "why": "names sayre",
+      "town": "Sayre",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HKRWIQBJ45HV5OGVIGOHIEXNSE.jpeg?auth=a2baaff44ec9db3bf0c5cd5e0a7097e01c74955bdf193d85173932e48134e3db&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Sheriff’s office investigating after 1 shot in Jefferson County",
+      "summary": "Deputies with the sheriff’s office were called to Levine Avenue in the Sayre community to investigate a shooting.",
+      "description": "Deputies with the sheriff’s office were called to Levine Avenue in the Sayre community to investigate a shooting.",
+      "url": "https://www.wbrc.com/2026/10/15/sheriffs-office-investigating-after-1-shot-jefferson-county/",
+      "link": "https://www.wbrc.com/2026/10/15/sheriffs-office-investigating-after-1-shot-jefferson-county/",
+      "published_at": "2026-10-15T21:41:50.000Z",
+      "date": "2026-10-15T21:41:50.000Z",
+      "location_tags": [
+        "sayre"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HKRWIQBJ45HV5OGVIGOHIEXNSE.jpeg?auth=a2baaff44ec9db3bf0c5cd5e0a7097e01c74955bdf193d85173932e48134e3db&smart=false"
+    },
+    {
+      "id": "news-3-al-com-1-injured-in-shooting-at-northern-jefferson-county-home",
+      "section": "nearby",
+      "why": "names sayre",
+      "town": "Sayre",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200",
+        "from": "feed",
+        "width": 1150,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "1 injured in shooting at northern Jefferson County home",
+      "summary": "The shooting happened shortly before 2 p.m. Thursday at a house in the 4200 block of Levine Avenue in the Sayre community.",
+      "description": "The shooting happened shortly before 2 p.m. Thursday at a house in the 4200 block of Levine Avenue in the Sayre community.",
+      "url": "https://www.al.com/news/2026/10/1-injured-in-shooting-at-northern-jefferson-county-home.html",
+      "link": "https://www.al.com/news/2026/10/1-injured-in-shooting-at-northern-jefferson-county-home.html",
+      "published_at": "2026-10-15T22:00:30.000Z",
+      "date": "2026-10-15T22:00:30.000Z",
+      "location_tags": [
+        "sayre"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200"
+    },
+    {
+      "id": "news-4-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
       "tags": [],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552",
+        "url": "https://abc3340.com/resources/media2/4x5/240/986/0x0/90/77df30dc-46b7-4d64-8c8d-541d0b8104ce-zxcvvzx.jpg?crop_fill=1&size=986x554",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
@@ -91,15 +174,15 @@
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Missing Jefferson County Woman Found",
-      "summary": "Authorities in Jefferson County are asking for the public’s help finding a missing 50-year-old woman last seen Sunday evening in Forestdale.",
-      "description": "Authorities in Jefferson County are asking for the public’s help finding a missing 50-year-old woman last seen Sunday evening in Forestdale.",
-      "url": "https://abc3340.com/news/local/jefferson-county-deputies-seek-publics-help-locating-missing-woman-in-forestdale-jennifer-suree-moses-alabama-law-enforcement-agency",
-      "link": "https://abc3340.com/news/local/jefferson-county-deputies-seek-publics-help-locating-missing-woman-in-forestdale-jennifer-suree-moses-alabama-law-enforcement-agency",
-      "published_at": "2026-10-12T20:35:39.000Z",
-      "date": "2026-10-12T20:35:39.000Z",
+      "title": "Warrior man booked on eight charges, including sexual abuse of child under 12",
+      "summary": "A Warrior man is facing multiple charges, including sexual abuse of a child.Jail records show 38-year-old Randy Cantrell was booked last night by the Blount Cou",
+      "description": "A Warrior man is facing multiple charges, including sexual abuse of a child.Jail records show 38-year-old Randy Cantrell was booked last night by the Blount Cou",
+      "url": "https://abc3340.com/news/local/warrior-man-booked-on-eight-charges-including-sexual-abuse-of-child-under-12",
+      "link": "https://abc3340.com/news/local/warrior-man-booked-on-eight-charges-including-sexual-abuse-of-child-under-12",
+      "published_at": "2026-10-15T15:45:35.000Z",
+      "date": "2026-10-15T15:45:35.000Z",
       "location_tags": [
-        "forestdale"
+        "warrior"
       ],
       "topic_tags": [],
       "priority_level": 4,
@@ -108,10 +191,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/355x441/355/986/0x0/90/c73b7475-15bc-44d4-ad07-7e6996aa4c3f-Screenshot20261012153156.png?crop_fill=1&size=982x552"
+      "image_url": "https://abc3340.com/resources/media2/4x5/240/986/0x0/90/77df30dc-46b7-4d64-8c8d-541d0b8104ce-zxcvvzx.jpg?crop_fill=1&size=986x554"
     },
     {
-      "id": "news-3-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "id": "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -125,7 +208,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -140,8 +223,8 @@
         "morris"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -149,124 +232,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-4-al-com-brookside-police-chief-loses-court-fight-over-department-s-c",
-      "section": "towns",
-      "why": "names brookside",
-      "town": "Brookside",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Brookside police chief loses court fight over department’s closure",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmFmM2gzRm9iRkowamFfRXZHWlp4N1FxMXRqVEZrSGZ5ejQwQmJLSWJvdnRPdjUydEtRN212RktNenlkaFNyeDFLOTVmRWNCTF9RcFRNVjAxOUtyVUFKcWJHeDM1ZUw5SV9NRWhOSUtHRjNZdGpFRjZSbXdjUzNvWkpXSmtXR1BhYTdzRXpQaGRTVm9vVTVOZWR0eEIxUlVlOXo0WlhaOFoxeFNnajVlVm1oRQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSmFmM2gzRm9iRkowamFfRXZHWlp4N1FxMXRqVEZrSGZ5ejQwQmJLSWJvdnRPdjUydEtRN212RktNenlkaFNyeDFLOTVmRWNCTF9RcFRNVjAxOUtyVUFKcWJHeDM1ZUw5SV9NRWhOSUtHRjNZdGpFRjZSbXdjUzNvWkpXSmtXR1BhYTdzRXpQaGRTVm9vVTVOZWR0eEIxUlVlOXo0WlhaOFoxeFNnajVlVm1oRQ?oc=5",
-      "published_at": "2026-10-10T00:20:00.000Z",
-      "date": "2026-10-10T00:20:00.000Z",
-      "location_tags": [
-        "brookside"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": true,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-5-abc-33-40-gardendale-citizens-oppose-proposed-hotel-in-current-residen",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Gardendale citizens oppose proposed hotel in current residential area",
-      "summary": "Members of the Gardendale community say they’re concerned a proposed hotel could affect their privacy and change the feel of a residential street.One resident,",
-      "description": "Members of the Gardendale community say they’re concerned a proposed hotel could affect their privacy and change the feel of a residential street.One resident,",
-      "url": "https://abc3340.com/news/local/gardendale-citizens-oppose-proposed-hotel-in-current-residential-area",
-      "link": "https://abc3340.com/news/local/gardendale-citizens-oppose-proposed-hotel-in-current-residential-area",
-      "published_at": "2026-10-13T02:48:18.000Z",
-      "date": "2026-10-13T02:48:18.000Z",
-      "location_tags": [
-        "gardendale"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/536/986/0x1/90/4d9b0ed0-9774-419c-84a4-7221e04a7680-Screenshot20261012214610.png"
-    },
-    {
-      "id": "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
-      "section": "county",
-      "why": "statewide, government",
-      "town": "Birmingham",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Alabama voters to decide on four constitutional amendments in November election",
-      "summary": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
-      "description": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
-      "url": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
-      "link": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
-      "published_at": "2026-10-14T03:20:08.000Z",
-      "date": "2026-10-14T03:20:08.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
-    },
-    {
-      "id": "news-7-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "id": "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -308,38 +274,38 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
     },
     {
-      "id": "news-8-abc-33-40-birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-af",
+      "id": "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
       "section": "county",
-      "why": "birmingham, the creek",
+      "why": "statewide, government",
       "town": "Birmingham",
       "tags": [
-        "The creek"
+        "Government"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG",
+        "url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Birmingham Zoo welcomes young giraffe Onduli to Trails of Africa",
-      "summary": "The Birmingham Zoo has welcomed a young male giraffe named Onduli to its Trails of Africa habitat.Onduli was born Sept. 24, 2025, to mother Katie and father Teb",
-      "description": "The Birmingham Zoo has welcomed a young male giraffe named Onduli to its Trails of Africa habitat.Onduli was born Sept. 24, 2025, to mother Katie and father Teb",
-      "url": "https://abc3340.com/news/local/birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-africa",
-      "link": "https://abc3340.com/news/local/birmingham-zoo-welcomes-young-giraffe-onduli-to-trails-of-africa",
-      "published_at": "2026-10-12T17:43:41.000Z",
-      "date": "2026-10-12T17:43:41.000Z",
+      "title": "Alabama voters to decide on four constitutional amendments in November election",
+      "summary": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
+      "description": "BIRMINGHAM, Ala. (WBMA) — Alabama voters will decide on four statewide constitutional amendments in the November 3 general election, including proposals dealing",
+      "url": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
+      "link": "https://abc3340.com/news/local/alabama-voters-to-decide-on-four-constitutional-amendments-in-november-election",
+      "published_at": "2026-10-14T03:20:08.000Z",
+      "date": "2026-10-14T03:20:08.000Z",
       "location_tags": [
         "birmingham"
       ],
       "topic_tags": [
-        "the-creek"
+        "government"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -347,10 +313,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/5190/986/0x54/90/f352ba86-5eb0-4591-89c5-bd1337d5e4d9-IMG_1605.JPG"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
     },
     {
-      "id": "news-9-alabamas42-com-adamsville-hosts-community-unity-program",
+      "id": "news-8-alabamas42-com-adamsville-hosts-community-unity-program",
       "section": "nearby",
       "why": "names adamsville",
       "town": "Adamsville",
@@ -359,7 +325,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 16,
+      "score": 15,
       "source_type": "media_feed",
       "source_name": "alabamas42.com",
       "source": "alabamas42.com",
@@ -383,43 +349,131 @@
       "image_url": ""
     },
     {
-      "id": "news-10-birmingham-times-beyond-the-diagnosis-birmingham-organizations-supporting-bre",
+      "id": "news-9-trussville-tribune-john-bob-whitlock-iii-march-15-1934-october-9-2026",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Birmingham",
+      "town": "Regional",
       "tags": [
         "Obituary"
       ],
-      "outlet": "Birmingham Times",
+      "outlet": "Trussville Tribune",
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Beyond the Diagnosis: Birmingham Organizations Supporting Breast Cancer Patients and Survivors",
+        "name": "John “Bob” Whitlock, III (March 15, 1934 — October 9, 2026)",
         "age": null,
         "town": "",
-        "home": "Birmingham Times",
+        "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 8,
+      "score": 13,
       "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Beyond the Diagnosis: Birmingham Organizations Supporting Breast Cancer Patients and Survivors",
-      "summary": "First of Two Parts By Monique Jones | For the Birmingham Times Breast Cancer Awareness Month is an important and sobering time to celebrate breast cancer survivors, honor the memories of those who have passed away, and promote awareness about early detection, symptoms and ways to help fight against the disease. Breast ",
-      "description": "First of Two Parts By Monique Jones | For the Birmingham Times Breast Cancer Awareness Month is an important and sobering time to celebrate breast cancer survivors, honor the memories of those who have passed away, and promote awareness about early detection, symptoms and ways to help fight against the disease. Breast ",
-      "url": "https://www.birminghamtimes.com/2026/10/beyond-the-diagnosis-birmingham-organizations-supporting-breast-cancer-patients-and-survivors/",
-      "link": "https://www.birminghamtimes.com/2026/10/beyond-the-diagnosis-birmingham-organizations-supporting-breast-cancer-patients-and-survivors/",
-      "published_at": "2026-10-08T03:50:31.000Z",
-      "date": "2026-10-08T03:50:31.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "John “Bob” Whitlock, III (March 15, 1934 — October 9, 2026)",
+      "summary": "John Robert Alexander “Bob” Whitlock III John Robert Alexander “Bob” Whitlock III, 92, of Huntsville, Alabama, passed away peacefully on October 9, 2026, in Alabaster, Alabama, in the loving company of his wife, Barbara, while enjoying one of his favorite pastimes—watching SEC football. After 92½ years of a life well l",
+      "description": "John Robert Alexander “Bob” Whitlock III John Robert Alexander “Bob” Whitlock III, 92, of Huntsville, Alabama, passed away peacefully on October 9, 2026, in Alabaster, Alabama, in the loving company of his wife, Barbara, while enjoying one of his favorite pastimes—watching SEC football. After 92½ years of a life well l",
+      "url": "https://www.trussvilletribune.com/2026/10/15/john-bob-whitlock-iii-march-15-1934-october-9-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/15/john-bob-whitlock-iii-march-15-1934-october-9-2026/",
+      "published_at": "2026-10-15T17:30:02.000Z",
+      "date": "2026-10-15T17:30:02.000Z",
       "location_tags": [
-        "birmingham"
+        "regional"
       ],
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-trussville-tribune-aida-ann-parks-april-1-1929-october-13-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Aida “Ann” Parks (April 1, 1929 — October 13, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Aida “Ann” Parks (April 1, 1929 — October 13, 2026)",
+      "summary": "Aida “Ann” Colangelo Parks, age 97, of Trussville, Alabama, passed away on October 13, 2026. She was born on April 1, 1929, in Brooklyn, New York to Antonio and Amalia Colangelo. Ann was a devoted wife, mother, grandmother, and friend. You could always find her cooking Italian meals for her family, tending her large ve",
+      "description": "Aida “Ann” Colangelo Parks, age 97, of Trussville, Alabama, passed away on October 13, 2026. She was born on April 1, 1929, in Brooklyn, New York to Antonio and Amalia Colangelo. Ann was a devoted wife, mother, grandmother, and friend. You could always find her cooking Italian meals for her family, tending her large ve",
+      "url": "https://www.trussvilletribune.com/2026/10/15/aida-ann-parks-april-1-1929-october-13-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/15/aida-ann-parks-april-1-1929-october-13-2026/",
+      "published_at": "2026-10-15T17:18:20.000Z",
+      "date": "2026-10-15T17:18:20.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-trussville-tribune-carolyn-smith-mcclellan-july-24-1942-october-12-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Carolyn Smith McClellan (July 24, 1942 — October 12, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Carolyn Smith McClellan (July 24, 1942 — October 12, 2026)",
+      "summary": "Carolyn Smith McClellan, a beloved wife, mother, grandmother, and great-grandmother, passed away on October 12, 2026, at the age of 84. She leaves behind a beautiful legacy of love, kindness, and treasured memories that will live on in the hearts of all who knew her. Born on July 24, 1942, Carolyn was a warmhearted wom",
+      "description": "Carolyn Smith McClellan, a beloved wife, mother, grandmother, and great-grandmother, passed away on October 12, 2026, at the age of 84. She leaves behind a beautiful legacy of love, kindness, and treasured memories that will live on in the hearts of all who knew her. Born on July 24, 1942, Carolyn was a warmhearted wom",
+      "url": "https://www.trussvilletribune.com/2026/10/15/carolyn-smith-mcclellan-july-24-1942-october-12-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/15/carolyn-smith-mcclellan-july-24-1942-october-12-2026/",
+      "published_at": "2026-10-15T17:08:39.000Z",
+      "date": "2026-10-15T17:08:39.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
