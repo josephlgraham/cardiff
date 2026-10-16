@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-16T01:17:18.405Z",
+  "updatedAt": "2026-10-16T15:21:37.058Z",
   "counts": {
     "towns": 1,
-    "nearby": 5,
+    "nearby": 4,
     "county": 2,
-    "obituaries": 3
+    "obituaries": 4
   },
   "sections": {
     "towns": [
@@ -12,17 +12,17 @@
     ],
     "nearby": [
       "news-2-wbrc-sheriff-s-office-investigating-after-1-shot-in-jefferson-cou",
-      "news-3-al-com-1-injured-in-shooting-at-northern-jefferson-county-home",
-      "news-4-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
-      "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "news-3-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
+      "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "news-8-alabamas42-com-adamsville-hosts-community-unity-program"
     ],
     "creek": [],
     "county": [
-      "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
-      "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i"
+      "news-5-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i"
     ],
     "obituaries": [
+      "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
       "news-9-trussville-tribune-john-bob-whitlock-iii-march-15-1934-october-9-2026",
       "news-10-trussville-tribune-aida-ann-parks-april-1-1929-october-13-2026",
       "news-11-trussville-tribune-carolyn-smith-mcclellan-july-24-1942-october-12-2026"
@@ -46,7 +46,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 48,
+      "score": 47,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -88,7 +88,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 38,
+      "score": 37,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -114,49 +114,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HKRWIQBJ45HV5OGVIGOHIEXNSE.jpeg?auth=a2baaff44ec9db3bf0c5cd5e0a7097e01c74955bdf193d85173932e48134e3db&smart=false"
     },
     {
-      "id": "news-3-al-com-1-injured-in-shooting-at-northern-jefferson-county-home",
-      "section": "nearby",
-      "why": "names sayre",
-      "town": "Sayre",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200",
-        "from": "feed",
-        "width": 1150,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 38,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "1 injured in shooting at northern Jefferson County home",
-      "summary": "The shooting happened shortly before 2 p.m. Thursday at a house in the 4200 block of Levine Avenue in the Sayre community.",
-      "description": "The shooting happened shortly before 2 p.m. Thursday at a house in the 4200 block of Levine Avenue in the Sayre community.",
-      "url": "https://www.al.com/news/2026/10/1-injured-in-shooting-at-northern-jefferson-county-home.html",
-      "link": "https://www.al.com/news/2026/10/1-injured-in-shooting-at-northern-jefferson-county-home.html",
-      "published_at": "2026-10-15T22:00:30.000Z",
-      "date": "2026-10-15T22:00:30.000Z",
-      "location_tags": [
-        "sayre"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200"
-    },
-    {
-      "id": "news-4-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
+      "id": "news-3-abc-33-40-warrior-man-booked-on-eight-charges-including-sexual-abuse-o",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -170,7 +128,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -194,7 +152,7 @@
       "image_url": "https://abc3340.com/resources/media2/4x5/240/986/0x0/90/77df30dc-46b7-4d64-8c8d-541d0b8104ce-zxcvvzx.jpg?crop_fill=1&size=986x554"
     },
     {
-      "id": "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
+      "id": "news-4-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -208,7 +166,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -232,7 +190,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/Valencia-Wells-2-scaled-e1791833013169-150x150.jpeg"
     },
     {
-      "id": "news-6-cbs-42-bessemer-man-killed-in-head-on-crash",
+      "id": "news-5-cbs-42-bessemer-man-killed-in-head-on-crash",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -248,7 +206,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -274,7 +232,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Police-lights-4_5b67d0.jpg?w=789"
     },
     {
-      "id": "news-7-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
+      "id": "news-6-abc-33-40-alabama-voters-to-decide-on-four-constitutional-amendments-i",
       "section": "county",
       "why": "statewide, government",
       "town": "Birmingham",
@@ -290,7 +248,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -316,6 +274,50 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1541/986/22x90/90/b6053232-98dd-414d-b5d3-d2bb160eda71-3078979d97e4452997ef8e42882b88a8.png"
     },
     {
+      "id": "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Jefferson County",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Jefferson County funeral homes host 'votercade' encouraging people to vote ahead of general election",
+        "age": null,
+        "town": "",
+        "home": "CBS 42",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Jefferson County funeral homes host 'votercade' encouraging people to vote ahead of general election",
+      "summary": "BIRMINGHAM, Ala. (WIAT) — A group of Jefferson County funeral homes are coming together once a week throughout October to encourage people to get out and vote for in the upcoming general election on Nov. 3. On Thursday evening, community members gathered at Grey-Bushelon Funeral Services before driving around neighborh",
+      "description": "BIRMINGHAM, Ala. (WIAT) — A group of Jefferson County funeral homes are coming together once a week throughout October to encourage people to get out and vote for in the upcoming general election on Nov. 3. On Thursday evening, community members gathered at Grey-Bushelon Funeral Services before driving around neighborh",
+      "url": "https://www.alabamas42.com/news/jefferson-county-funeral-homes-host-votercade-encouraging-people-to-vote-ahead-of-general-election/",
+      "link": "https://www.alabamas42.com/news/jefferson-county-funeral-homes-host-votercade-encouraging-people-to-vote-ahead-of-general-election/",
+      "published_at": "2026-10-16T02:46:15.000Z",
+      "date": "2026-10-16T02:46:15.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
       "id": "news-8-alabamas42-com-adamsville-hosts-community-unity-program",
       "section": "nearby",
       "why": "names adamsville",
@@ -325,7 +327,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 15,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "alabamas42.com",
       "source": "alabamas42.com",
