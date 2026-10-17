@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-17T01:16:30.006Z",
+  "updatedAt": "2026-10-17T14:11:09.717Z",
   "counts": {
     "towns": 1,
-    "nearby": 5,
+    "nearby": 4,
     "county": 2,
-    "obituaries": 2
+    "obituaries": 1
   },
   "sections": {
     "towns": [
@@ -14,8 +14,7 @@
       "news-2-wbrc-alea-cancels-missing-person-alert-for-50-year-old-woman-from",
       "news-3-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
       "news-4-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
-      "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-",
-      "news-9-alabamas42-com-adamsville-hosts-community-unity-program"
+      "news-5-birmingham-times-from-gallion-to-the-statewide-stage-dr-valencia-wells-makes-"
     ],
     "creek": [],
     "county": [
@@ -23,8 +22,7 @@
       "news-7-jefferson-county-july-10-2026-jeffco-news"
     ],
     "obituaries": [
-      "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
-      "news-10-trussville-tribune-john-bob-whitlock-iii-march-15-1934-october-9-2026"
+      "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
     ]
   },
   "stories": [
@@ -45,7 +43,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 46,
+      "score": 45,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -87,7 +85,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 38,
+      "score": 37,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -127,7 +125,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -165,7 +163,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -238,7 +236,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -275,7 +273,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -338,83 +336,6 @@
       ],
       "priority_level": 3,
       "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-9-alabamas42-com-adamsville-hosts-community-unity-program",
-      "section": "nearby",
-      "why": "names adamsville",
-      "town": "Adamsville",
-      "tags": [],
-      "outlet": "alabamas42.com",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "alabamas42.com",
-      "source": "alabamas42.com",
-      "title": "Adamsville hosts community unity program",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQck55WElPdmd5ZUdfNUYwVkZxc1NjVEVPUEVwR0VtZnZKWDMzV3B1dmcxVkhidmVJV3VqNm53azJSMXk5SjFyeGZReWV3RHZtZ0dYaE5lUUFmNnQ3VlBLUXFVSFpDWjIzMTBQQkVWTFJCTHV1M2pHdWdndlNJYm9SWG4wWk96UC12WVdN?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQck55WElPdmd5ZUdfNUYwVkZxc1NjVEVPUEVwR0VtZnZKWDMzV3B1dmcxVkhidmVJV3VqNm53azJSMXk5SjFyeGZReWV3RHZtZ0dYaE5lUUFmNnQ3VlBLUXFVSFpDWjIzMTBQQkVWTFJCTHV1M2pHdWdndlNJYm9SWG4wWk96UC12WVdN?oc=5",
-      "published_at": "2026-10-12T11:44:43.000Z",
-      "date": "2026-10-12T11:44:43.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-trussville-tribune-john-bob-whitlock-iii-march-15-1934-october-9-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "John “Bob” Whitlock, III (March 15, 1934 — October 9, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 12,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "John “Bob” Whitlock, III (March 15, 1934 — October 9, 2026)",
-      "summary": "John Robert Alexander “Bob” Whitlock III John Robert Alexander “Bob” Whitlock III, 92, of Huntsville, Alabama, passed away peacefully on October 9, 2026, in Alabaster, Alabama, in the loving company of his wife, Barbara, while enjoying one of his favorite pastimes—watching SEC football. After 92½ years of a life well l",
-      "description": "John Robert Alexander “Bob” Whitlock III John Robert Alexander “Bob” Whitlock III, 92, of Huntsville, Alabama, passed away peacefully on October 9, 2026, in Alabaster, Alabama, in the loving company of his wife, Barbara, while enjoying one of his favorite pastimes—watching SEC football. After 92½ years of a life well l",
-      "url": "https://www.trussvilletribune.com/2026/10/15/john-bob-whitlock-iii-march-15-1934-october-9-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/15/john-bob-whitlock-iii-march-15-1934-october-9-2026/",
-      "published_at": "2026-10-15T17:30:02.000Z",
-      "date": "2026-10-15T17:30:02.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
