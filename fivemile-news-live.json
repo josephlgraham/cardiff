@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-18T00:59:09.299Z",
+  "updatedAt": "2026-10-18T14:32:34.255Z",
   "counts": {
     "towns": 1,
-    "nearby": 2,
+    "nearby": 3,
     "county": 2,
     "obituaries": 1
   },
@@ -11,16 +11,17 @@
       "news-1-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
     ],
     "nearby": [
-      "news-2-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
-      "news-3-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
+      "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
+      "news-3-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
+      "news-4-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
     ],
     "creek": [],
     "county": [
-      "news-4-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
-      "news-5-jefferson-county-july-10-2026-jeffco-news"
+      "news-5-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
+      "news-6-jefferson-county-july-10-2026-jeffco-news"
     ],
     "obituaries": [
-      "news-6-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
+      "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
     ]
   },
   "stories": [
@@ -67,7 +68,44 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/41c42c49-2185-4e15-80e8-9be4e7cfb74f-Px2.jpg"
     },
     {
-      "id": "news-2-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
+      "id": "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
+      "section": "nearby",
+      "why": "names gardendale",
+      "town": "Gardendale",
+      "tags": [
+        "Business"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Restaurant scores in Jefferson County 10/12 – 10/15",
+      "summary": "From Tribune staff reports JEFFERSON COUNTY — The following restaurant scores in Jefferson County were reported between Oct. 12, 2026 and Oct. 15, 2026. Permit Score Name 27790 100 CHEF CHEF CATERING7753 1ST AVE S BIRMINGHAM 35206Smoke Free: YDate: 10/15/26 29694 70 YOGURT MOUNTAIN521 FIELDSTOWN RD GARDENDALE 35071Smok",
+      "description": "From Tribune staff reports JEFFERSON COUNTY — The following restaurant scores in Jefferson County were reported between Oct. 12, 2026 and Oct. 15, 2026. Permit Score Name 27790 100 CHEF CHEF CATERING7753 1ST AVE S BIRMINGHAM 35206Smoke Free: YDate: 10/15/26 29694 70 YOGURT MOUNTAIN521 FIELDSTOWN RD GARDENDALE 35071Smok",
+      "url": "https://www.trussvilletribune.com/2026/10/18/restaurant-scores-in-jefferson-county-10-12-10-15/",
+      "link": "https://www.trussvilletribune.com/2026/10/18/restaurant-scores-in-jefferson-county-10-12-10-15/",
+      "published_at": "2026-10-18T11:35:39.000Z",
+      "date": "2026-10-18T11:35:39.000Z",
+      "location_tags": [
+        "gardendale"
+      ],
+      "topic_tags": [
+        "business"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-3-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -81,7 +119,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -96,8 +134,8 @@
         "pleasant-grove"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -105,7 +143,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg"
     },
     {
-      "id": "news-3-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
+      "id": "news-4-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -119,7 +157,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -134,8 +172,8 @@
         "morris"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -143,7 +181,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1624/986/6x0/90/58841387-dbd5-4c88-b426-8cca789ee251-INSTAGRAMPOST.png"
     },
     {
-      "id": "news-4-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
+      "id": "news-5-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -154,7 +192,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -180,7 +218,7 @@
       "image_url": ""
     },
     {
-      "id": "news-5-jefferson-county-july-10-2026-jeffco-news",
+      "id": "news-6-jefferson-county-july-10-2026-jeffco-news",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -191,7 +229,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -217,7 +255,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
+      "id": "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Jefferson County",
@@ -235,7 +273,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 19,
+      "score": 18,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
