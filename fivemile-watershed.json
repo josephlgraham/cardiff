@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T14:52:07.568Z",
+  "updatedAt": "2026-10-18T17:50:11.946Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -25,10 +25,10 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 38,
-      "highTemp": 60,
+      "highTemp": 68,
       "windGust": 4,
-      "label": "Since midnight",
-      "isMorning": true,
+      "label": "So far today",
+      "isMorning": false,
       "coverageStart": "2026-10-18"
     }
   },
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.11,
       "discharge_cfs": 16.7,
-      "water_temp_f": 57.4,
-      "dissolved_oxygen_mgl": 9.2,
-      "specific_conductance_uscm": 536,
+      "water_temp_f": 57.9,
+      "dissolved_oxygen_mgl": 10.1,
+      "specific_conductance_uscm": 537,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-18T14:00:00+00:00",
+      "updated_at": "2026-10-18T17:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-18T15:45:00+00:00",
-          "stage_ft": 1.04
-        },
         {
           "at": "2026-09-18T21:45:00+00:00",
           "stage_ft": 1.05
@@ -528,11 +524,11 @@
           "stage_ft": 1.11
         },
         {
-          "at": "2026-10-18T09:00:00+00:00",
+          "at": "2026-10-18T12:00:00+00:00",
           "stage_ft": 1.11
         },
         {
-          "at": "2026-10-18T14:00:00+00:00",
+          "at": "2026-10-18T17:00:00+00:00",
           "stage_ft": 1.11
         }
       ],
@@ -551,14 +547,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 2.61,
-      "discharge_cfs": 102,
+      "stage_ft": 2.6,
+      "discharge_cfs": 99.9,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-10-18T14:00:00+00:00",
+      "rise_rate_ft_per_hr": 0.013,
+      "updated_at": "2026-10-18T17:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
