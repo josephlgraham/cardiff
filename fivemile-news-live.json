@@ -1,32 +1,77 @@
 {
-  "updatedAt": "2026-10-19T01:10:45.877Z",
+  "updatedAt": "2026-10-19T17:27:09.808Z",
   "counts": {
+    "county": 3,
     "nearby": 3,
     "towns": 1,
-    "county": 2,
     "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-2-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
+      "news-3-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
     ],
     "nearby": [
-      "news-1-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
-      "news-3-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
-      "news-4-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
+      "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
+      "news-4-cbs-42-pleasant-grove-receives-700-000-in-federal-funding-for-sidew",
+      "news-5-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
     ],
     "creek": [],
     "county": [
-      "news-5-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
-      "news-6-jefferson-county-july-10-2026-jeffco-news"
+      "news-1-abc-33-40-birmingham-trussville-select-firm-for-railroad-crossing-proj",
+      "news-6-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
+      "news-7-jefferson-county-july-10-2026-jeffco-news"
     ],
     "obituaries": [
-      "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
+      "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
     ]
   },
   "stories": [
     {
-      "id": "news-1-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
+      "id": "news-1-abc-33-40-birmingham-trussville-select-firm-for-railroad-crossing-proj",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains",
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Birmingham, Trussville select firm for railroad crossing project",
+      "summary": "Birmingham, Trussville and Norfolk Southern have selected Kimley-Horn to lead design and environmental reviews for a project aimed at reducing traffic delays an",
+      "description": "Birmingham, Trussville and Norfolk Southern have selected Kimley-Horn to lead design and environmental reviews for a project aimed at reducing traffic delays an",
+      "url": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
+      "link": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
+      "published_at": "2026-10-19T16:27:01.000Z",
+      "date": "2026-10-19T16:27:01.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains",
+        "roads"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png"
+    },
+    {
+      "id": "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -37,7 +82,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -63,7 +108,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville",
+      "id": "news-3-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville",
       "section": "towns",
       "why": "names graysville",
       "town": "Graysville",
@@ -74,7 +119,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -100,31 +145,31 @@
       "image_url": ""
     },
     {
-      "id": "news-3-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
+      "id": "news-4-cbs-42-pleasant-grove-receives-700-000-in-federal-funding-for-sidew",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
       "tags": [],
-      "outlet": "ABC 33/40",
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Pleasant-Grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements.jpg?w=512",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "CBS 42"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Pleasant Grove gets $700,000 in federal funding for sidewalk improvements",
-      "summary": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
-      "description": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
-      "url": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
-      "link": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
-      "published_at": "2026-10-16T21:12:44.000Z",
-      "date": "2026-10-16T21:12:44.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Pleasant Grove receives $700,000 in federal funding for sidewalk and pedestrian safety improvements",
+      "summary": "PLEASANT GROVE, Ala. (WIAT) — Pleasant Grove received $700,000 in federal funding to improve sidewalks and pedestrian safety throughout the city. The funding will support the installation of 2.57 miles of new sidewalks, repairs to 1.26 miles of existing sidewalks, and the addition of pedestrian lighting. For residents ",
+      "description": "PLEASANT GROVE, Ala. (WIAT) — Pleasant Grove received $700,000 in federal funding to improve sidewalks and pedestrian safety throughout the city. The funding will support the installation of 2.57 miles of new sidewalks, repairs to 1.26 miles of existing sidewalks, and the addition of pedestrian lighting. For residents ",
+      "url": "https://www.alabamas42.com/news/pleasant-grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements/",
+      "link": "https://www.alabamas42.com/news/pleasant-grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements/",
+      "published_at": "2026-10-16T23:43:20.000Z",
+      "date": "2026-10-16T23:43:20.000Z",
       "location_tags": [
         "pleasant-grove"
       ],
@@ -135,10 +180,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Pleasant-Grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements.jpg?w=512"
     },
     {
-      "id": "news-4-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
+      "id": "news-5-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -152,7 +197,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -176,7 +221,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1624/986/6x0/90/58841387-dbd5-4c88-b426-8cca789ee251-INSTAGRAMPOST.png"
     },
     {
-      "id": "news-5-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
+      "id": "news-6-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -187,7 +232,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -213,7 +258,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-jefferson-county-july-10-2026-jeffco-news",
+      "id": "news-7-jefferson-county-july-10-2026-jeffco-news",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -224,7 +269,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -250,7 +295,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
+      "id": "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Jefferson County",
@@ -268,7 +313,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 17,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
