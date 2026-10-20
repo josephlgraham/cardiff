@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-20T05:23:28.460Z",
-  "temp": 42,
+  "updatedAt": "2026-10-20T10:11:42.264Z",
+  "temp": 38,
   "humidity": 99,
   "windSpeed": 0,
-  "windDir": 28,
+  "windDir": 73,
   "windGust": 0,
-  "pressure": 29.97,
+  "pressure": 29.955,
   "pressureTrend": "steady",
   "uv": 0,
   "solarRadiation": 0,
@@ -14,29 +14,29 @@
   "weeklyRain": 0,
   "monthlyRain": 4.03,
   "yearlyRain": 60.67,
-  "feelsLike": 42,
-  "dewPoint": 41,
-  "lastUpdated": "2026-10-20T05:23:00.000Z",
+  "feelsLike": 38,
+  "dewPoint": 37,
+  "lastUpdated": "2026-10-20T10:10:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 42,
-    "feelsLike": 42,
-    "feels": 42,
+    "temp": 38,
+    "feelsLike": 38,
+    "feels": 38,
     "humidity": 99,
     "windSpeed": 0,
-    "windDir": "NNE",
+    "windDir": "ENE",
     "windGust": 0,
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0,
     "precipTotal": 0,
-    "pressure": 29.97,
-    "pressureIn": 29.97,
+    "pressure": 29.955,
+    "pressureIn": 29.955,
     "uv": 0,
     "solarRadiation": 0,
-    "dewPoint": 41,
-    "obsTime": "2026-10-20T05:23:00.000Z",
-    "lastUpdated": "2026-10-20T05:23:00.000Z",
+    "dewPoint": 37,
+    "obsTime": "2026-10-20T10:10:00.000Z",
+    "lastUpdated": "2026-10-20T10:10:00.000Z",
     "condition": "Clear",
     "source": "Ambient Weather",
     "sourceNote": null
@@ -51,7 +51,7 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 42,
+      "lowTemp": 38,
       "highTemp": 42,
       "windGust": 0,
       "label": "Since midnight",
@@ -63,7 +63,7 @@
     {
       "number": 1,
       "name": "Overnight",
-      "startTime": "2026-10-20T00:00:00-05:00",
+      "startTime": "2026-10-20T05:00:00-05:00",
       "endTime": "2026-10-20T06:00:00-05:00",
       "isDaytime": false,
       "temperature": 42,
@@ -210,7 +210,7 @@
       "startTime": "2026-10-23T18:00:00-05:00",
       "endTime": "2026-10-24T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 47,
+      "temperature": 46,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -228,14 +228,14 @@
       "startTime": "2026-10-24T06:00:00-05:00",
       "endTime": "2026-10-24T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 75,
+      "temperature": 74,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
         "value": 0
       },
-      "windSpeed": "5 to 10 mph",
+      "windSpeed": "10 mph",
       "windDirection": "E",
       "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
       "shortForecast": "Sunny"
@@ -246,7 +246,7 @@
       "startTime": "2026-10-24T18:00:00-05:00",
       "endTime": "2026-10-25T06:00:00-05:00",
       "isDaytime": false,
-      "temperature": 46,
+      "temperature": 45,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -264,7 +264,7 @@
       "startTime": "2026-10-25T06:00:00-05:00",
       "endTime": "2026-10-25T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 75,
+      "temperature": 74,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -300,7 +300,7 @@
       "startTime": "2026-10-26T06:00:00-05:00",
       "endTime": "2026-10-26T18:00:00-05:00",
       "isDaytime": true,
-      "temperature": 77,
+      "temperature": 76,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -309,8 +309,8 @@
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-      "shortForecast": "Sunny"
+      "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+      "shortForecast": "Mostly Sunny"
     }
   ],
   "weekly": [
@@ -335,31 +335,31 @@
     {
       "date": "2026-10-23",
       "hi": 79,
-      "lo": 47,
-      "shortForecast": "Sunny"
-    },
-    {
-      "date": "2026-10-24",
-      "hi": 75,
       "lo": 46,
       "shortForecast": "Sunny"
     },
     {
+      "date": "2026-10-24",
+      "hi": 74,
+      "lo": 45,
+      "shortForecast": "Sunny"
+    },
+    {
       "date": "2026-10-25",
-      "hi": 75,
+      "hi": 74,
       "lo": 45,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-10-26",
-      "hi": 77,
+      "hi": 76,
       "lo": null,
-      "shortForecast": "Sunny"
+      "shortForecast": "Mostly Sunny"
     }
   ],
   "dailySummary": {
-    "yesterdayHigh": 72,
-    "yesterdayLow": 42,
+    "yesterdayHigh": 74,
+    "yesterdayLow": 35,
     "yesterdayRain": 0,
     "todayHigh": null,
     "todayLow": null,
