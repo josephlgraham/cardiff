@@ -1,29 +1,31 @@
 {
-  "updatedAt": "2026-10-20T01:46:25.318Z",
+  "updatedAt": "2026-10-20T15:38:35.221Z",
   "counts": {
-    "county": 3,
-    "nearby": 3,
+    "county": 4,
+    "obituaries": 4,
     "towns": 1,
-    "obituaries": 2
+    "nearby": 2
   },
   "sections": {
     "towns": [
       "news-3-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
     ],
     "nearby": [
-      "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
       "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
       "news-6-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
     ],
     "creek": [],
     "county": [
       "news-1-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
-      "news-4-wvtm-13-10m-project-aims-to-ease-train-delays-in-birmingham-and-trus",
-      "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo"
+      "news-4-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
+      "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
+      "news-8-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen"
     ],
     "obituaries": [
-      "news-8-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
-      "news-9-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026"
+      "news-2-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
+      "news-9-wbrc-hoover-police-mourn-loss-of-k-9-ace",
+      "news-10-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
+      "news-11-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026"
     ]
   },
   "stories": [
@@ -45,7 +47,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -72,33 +74,40 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900"
     },
     {
-      "id": "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
+      "id": "news-2-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Edgewater",
       "tags": [
-        "Business"
+        "Obituary"
       ],
       "outlet": "Trussville Tribune",
       "paywall": false,
       "image": null,
-      "obit": null,
-      "score": 29,
+      "obit": {
+        "name": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Restaurant scores in Jefferson County 10/12 – 10/15",
-      "summary": "From Tribune staff reports JEFFERSON COUNTY — The following restaurant scores in Jefferson County were reported between Oct. 12, 2026 and Oct. 15, 2026. Permit Score Name 27790 100 CHEF CHEF CATERING7753 1ST AVE S BIRMINGHAM 35206Smoke Free: YDate: 10/15/26 29694 70 YOGURT MOUNTAIN521 FIELDSTOWN RD GARDENDALE 35071Smok",
-      "description": "From Tribune staff reports JEFFERSON COUNTY — The following restaurant scores in Jefferson County were reported between Oct. 12, 2026 and Oct. 15, 2026. Permit Score Name 27790 100 CHEF CHEF CATERING7753 1ST AVE S BIRMINGHAM 35206Smoke Free: YDate: 10/15/26 29694 70 YOGURT MOUNTAIN521 FIELDSTOWN RD GARDENDALE 35071Smok",
-      "url": "https://www.trussvilletribune.com/2026/10/18/restaurant-scores-in-jefferson-county-10-12-10-15/",
-      "link": "https://www.trussvilletribune.com/2026/10/18/restaurant-scores-in-jefferson-county-10-12-10-15/",
-      "published_at": "2026-10-18T11:35:39.000Z",
-      "date": "2026-10-18T11:35:39.000Z",
+      "title": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
+      "summary": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
+      "description": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
+      "url": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
+      "published_at": "2026-10-20T15:00:34.000Z",
+      "date": "2026-10-20T15:00:34.000Z",
       "location_tags": [
-        "gardendale"
+        "edgewater"
       ],
       "topic_tags": [
-        "business"
+        "obituary"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -120,7 +129,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -146,33 +155,33 @@
       "image_url": ""
     },
     {
-      "id": "news-4-wvtm-13-10m-project-aims-to-ease-train-delays-in-birmingham-and-trus",
+      "id": "news-4-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
       "tags": [
         "Trains"
       ],
-      "outlet": "WVTM 13",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/4c898e4a-5456-41b1-a2d9-5ac3131ecb51.jpg",
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png",
         "from": "feed",
         "width": null,
-        "credit": "WVTM 13"
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 24,
       "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "$10M project aims to ease train delays in Birmingham and Trussville",
-      "summary": "A $10 million project aims to improve safety and reduce train delays at busy railroad crossings in Birmingham and Trussville.",
-      "description": "A $10 million project aims to improve safety and reduce train delays at busy railroad crossings in Birmingham and Trussville.",
-      "url": "https://www.wvtm13.com/article/10m-railroad-crossing-upgrade-birmingham-trussville/74184779",
-      "link": "https://www.wvtm13.com/article/10m-railroad-crossing-upgrade-birmingham-trussville/74184779",
-      "published_at": "2026-10-19T22:58:00.000Z",
-      "date": "2026-10-19T22:58:00.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Birmingham-Trussville rail redesign aims to cut delays, boost safety and quiet train horns",
+      "summary": "BIRMINGHAM, Ala. — A project meant to reduce train delays between Woodlawn and Trussville is moving into design, but construction is still years away and will r",
+      "description": "BIRMINGHAM, Ala. — A project meant to reduce train delays between Woodlawn and Trussville is moving into design, but construction is still years away and will r",
+      "url": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
+      "link": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
+      "published_at": "2026-10-19T16:27:01.000Z",
+      "date": "2026-10-19T16:27:01.000Z",
       "location_tags": [
         "birmingham"
       ],
@@ -185,7 +194,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/4c898e4a-5456-41b1-a2d9-5ac3131ecb51.jpg"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png"
     },
     {
       "id": "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
@@ -202,7 +211,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -240,7 +249,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -280,7 +289,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -306,7 +315,93 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/IMG_7079-1200x675.jpg"
     },
     {
-      "id": "news-8-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
+      "id": "news-8-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Engineering Firm Selected for Major Rail Crossing Improvement Project for Birmingham and Trussville",
+      "summary": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
+      "description": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
+      "url": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
+      "link": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
+      "published_at": "2026-10-19T23:59:15.000Z",
+      "date": "2026-10-19T23:59:15.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg"
+    },
+    {
+      "id": "news-9-wbrc-hoover-police-mourn-loss-of-k-9-ace",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Hoover police mourn loss of K-9 ‘Ace’",
+        "age": null,
+        "town": "",
+        "home": "WBRC",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 19,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Hoover police mourn loss of K-9 ‘Ace’",
+      "summary": "The Hoover Police Department said one of their beloved K-9 officers, Ace, passed away Saturday morning.",
+      "description": "The Hoover Police Department said one of their beloved K-9 officers, Ace, passed away Saturday morning.",
+      "url": "https://www.wbrc.com/2026/10/20/hoover-police-mourn-loss-k-9-ace/",
+      "link": "https://www.wbrc.com/2026/10/20/hoover-police-mourn-loss-k-9-ace/",
+      "published_at": "2026-10-20T04:05:47.000Z",
+      "date": "2026-10-20T04:05:47.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -350,7 +445,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026",
+      "id": "news-11-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
