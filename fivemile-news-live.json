@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-19T17:27:09.808Z",
+  "updatedAt": "2026-10-20T01:46:25.318Z",
   "counts": {
     "county": 3,
     "nearby": 3,
     "towns": 1,
-    "obituaries": 1
+    "obituaries": 2
   },
   "sections": {
     "towns": [
@@ -12,22 +12,23 @@
     ],
     "nearby": [
       "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
-      "news-4-cbs-42-pleasant-grove-receives-700-000-in-federal-funding-for-sidew",
-      "news-5-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
+      "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
+      "news-6-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
     ],
     "creek": [],
     "county": [
-      "news-1-abc-33-40-birmingham-trussville-select-firm-for-railroad-crossing-proj",
-      "news-6-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
-      "news-7-jefferson-county-july-10-2026-jeffco-news"
+      "news-1-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
+      "news-4-wvtm-13-10m-project-aims-to-ease-train-delays-in-birmingham-and-trus",
+      "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo"
     ],
     "obituaries": [
-      "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe"
+      "news-8-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
+      "news-9-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-birmingham-trussville-select-firm-for-railroad-crossing-proj",
+      "id": "news-1-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -35,26 +36,26 @@
         "Trains",
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "CBS 42"
       },
       "obit": null,
       "score": 30,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Birmingham, Trussville select firm for railroad crossing project",
-      "summary": "Birmingham, Trussville and Norfolk Southern have selected Kimley-Horn to lead design and environmental reviews for a project aimed at reducing traffic delays an",
-      "description": "Birmingham, Trussville and Norfolk Southern have selected Kimley-Horn to lead design and environmental reviews for a project aimed at reducing traffic delays an",
-      "url": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
-      "link": "https://abc3340.com/news/local/birmingham-trussville-select-firm-for-railroad-crossing-project",
-      "published_at": "2026-10-19T16:27:01.000Z",
-      "date": "2026-10-19T16:27:01.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Birmingham, Trussville take steps toward railroad crossing improvements",
+      "summary": "Leaders in Birmingham and Trussville are taking the first steps toward a project aimed at improving safety and reducing traffic disruptions caused by trains blocking railroad crossings.",
+      "description": "Leaders in Birmingham and Trussville are taking the first steps toward a project aimed at improving safety and reducing traffic disruptions caused by trains blocking railroad crossings.",
+      "url": "https://www.alabamas42.com/news/local/birmingham-trussville-take-steps-toward-railroad-crossing-improvements/",
+      "link": "https://www.alabamas42.com/news/local/birmingham-trussville-take-steps-toward-railroad-crossing-improvements/",
+      "published_at": "2026-10-19T22:44:59.000Z",
+      "date": "2026-10-19T22:44:59.000Z",
       "location_tags": [
         "birmingham"
       ],
@@ -68,7 +69,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900"
     },
     {
       "id": "news-2-trussville-tribune-restaurant-scores-in-jefferson-county-10-12-10-15",
@@ -82,7 +83,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -119,7 +120,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -145,31 +146,73 @@
       "image_url": ""
     },
     {
-      "id": "news-4-cbs-42-pleasant-grove-receives-700-000-in-federal-funding-for-sidew",
-      "section": "nearby",
-      "why": "names pleasant grove",
-      "town": "Pleasant Grove",
-      "tags": [],
-      "outlet": "CBS 42",
+      "id": "news-4-wvtm-13-10m-project-aims-to-ease-train-delays-in-birmingham-and-trus",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "WVTM 13",
       "paywall": false,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Pleasant-Grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements.jpg?w=512",
+        "url": "https://kubrick.htvapps.com/htv-prod/images/4c898e4a-5456-41b1-a2d9-5ac3131ecb51.jpg",
         "from": "feed",
         "width": null,
-        "credit": "CBS 42"
+        "credit": "WVTM 13"
       },
       "obit": null,
       "score": 26,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Pleasant Grove receives $700,000 in federal funding for sidewalk and pedestrian safety improvements",
-      "summary": "PLEASANT GROVE, Ala. (WIAT) — Pleasant Grove received $700,000 in federal funding to improve sidewalks and pedestrian safety throughout the city. The funding will support the installation of 2.57 miles of new sidewalks, repairs to 1.26 miles of existing sidewalks, and the addition of pedestrian lighting. For residents ",
-      "description": "PLEASANT GROVE, Ala. (WIAT) — Pleasant Grove received $700,000 in federal funding to improve sidewalks and pedestrian safety throughout the city. The funding will support the installation of 2.57 miles of new sidewalks, repairs to 1.26 miles of existing sidewalks, and the addition of pedestrian lighting. For residents ",
-      "url": "https://www.alabamas42.com/news/pleasant-grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements/",
-      "link": "https://www.alabamas42.com/news/pleasant-grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements/",
-      "published_at": "2026-10-16T23:43:20.000Z",
-      "date": "2026-10-16T23:43:20.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "$10M project aims to ease train delays in Birmingham and Trussville",
+      "summary": "A $10 million project aims to improve safety and reduce train delays at busy railroad crossings in Birmingham and Trussville.",
+      "description": "A $10 million project aims to improve safety and reduce train delays at busy railroad crossings in Birmingham and Trussville.",
+      "url": "https://www.wvtm13.com/article/10m-railroad-crossing-upgrade-birmingham-trussville/74184779",
+      "link": "https://www.wvtm13.com/article/10m-railroad-crossing-upgrade-birmingham-trussville/74184779",
+      "published_at": "2026-10-19T22:58:00.000Z",
+      "date": "2026-10-19T22:58:00.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/4c898e4a-5456-41b1-a2d9-5ac3131ecb51.jpg"
+    },
+    {
+      "id": "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Pleasant Grove gets $700,000 in federal funding for sidewalk improvements",
+      "summary": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
+      "description": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
+      "url": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
+      "link": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
+      "published_at": "2026-10-16T21:12:44.000Z",
+      "date": "2026-10-16T21:12:44.000Z",
       "location_tags": [
         "pleasant-grove"
       ],
@@ -180,10 +223,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Pleasant-Grove-receives-700000-in-federal-funding-for-sidewalk-and-pedestrian-safety-improvements.jpg?w=512"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg"
     },
     {
-      "id": "news-5-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
+      "id": "news-6-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -221,33 +264,38 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1624/986/6x0/90/58841387-dbd5-4c88-b426-8cca789ee251-INSTAGRAMPOST.png"
     },
     {
-      "id": "news-6-jefferson-county-podcast-for-the-people-what-you-need-to-know-about-voting-on",
+      "id": "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
       "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
       "tags": [
-        "Government"
+        "Trains"
       ],
-      "outlet": "Jefferson County",
+      "outlet": "Bham Now",
       "paywall": false,
-      "image": null,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/10/IMG_7079-1200x675.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
       "obit": null,
-      "score": 21,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "Podcast for the People: What you need to know about voting on Nov. 3",
-      "summary": "We sat down with the Barry Stephenson, Chair of the Board of Registrars, to talk about deadlines for the upcoming Nov. 3rd election.",
-      "description": "We sat down with the Barry Stephenson, Chair of the Board of Registrars, to talk about deadlines for the upcoming Nov. 3rd election.",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=168",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=168",
-      "published_at": "2026-10-15T22:24:00.000Z",
-      "date": "2026-10-15T22:24:00.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "What’s planned to keep trains from blocking roads between Woodlawn and Trussville",
+      "summary": "🚂 RAIL CROSSING PROJECT: Birmingham + Trussville selected engineering firm Kimley-Horn to design REDESIGN Alabama, a plan to reduce blocked railroad crossings between Woodlawn + Trussville.",
+      "description": "🚂 RAIL CROSSING PROJECT: Birmingham + Trussville selected engineering firm Kimley-Horn to design REDESIGN Alabama, a plan to reduce blocked railroad crossings between Woodlawn + Trussville.",
+      "url": "https://bhamnow.com/2026/10/19/whats-planned-to-keep-trains-from-blocking-roads-between-woodlawn-and-trussville/#utm_source=rss&utm_medium=rss&utm_campaign=whats-planned-to-keep-trains-from-blocking-roads-between-woodlawn-and-trussville",
+      "link": "https://bhamnow.com/2026/10/19/whats-planned-to-keep-trains-from-blocking-roads-between-woodlawn-and-trussville/#utm_source=rss&utm_medium=rss&utm_campaign=whats-planned-to-keep-trains-from-blocking-roads-between-woodlawn-and-trussville",
+      "published_at": "2026-10-19T20:07:28.000Z",
+      "date": "2026-10-19T20:07:28.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
-        "government"
+        "trains"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -255,77 +303,84 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/IMG_7079-1200x675.jpg"
     },
     {
-      "id": "news-7-jefferson-county-july-10-2026-jeffco-news",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "July 10, 2026 JeffCo News",
-      "summary": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "description": "Read about 2026 contract paving projects that are about to start, a road closure starting Monday and recognitions from Commission Meeting this week!",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=131",
-      "published_at": "2026-10-15T21:12:00.000Z",
-      "date": "2026-10-15T21:12:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-8-cbs-42-jefferson-county-funeral-homes-host-votercade-encouraging-pe",
+      "id": "news-8-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Jefferson County",
+      "town": "Birmingham",
       "tags": [
         "Obituary"
       ],
-      "outlet": "CBS 42",
+      "outlet": "Trussville Tribune",
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Jefferson County funeral homes host 'votercade' encouraging people to vote ahead of general election",
+        "name": "Norma Ann Crawford (August 20, 1927 — October 16, 2026)",
         "age": null,
         "town": "",
-        "home": "CBS 42",
+        "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
       "score": 16,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Jefferson County funeral homes host 'votercade' encouraging people to vote ahead of general election",
-      "summary": "BIRMINGHAM, Ala. (WIAT) — A group of Jefferson County funeral homes are coming together once a week throughout October to encourage people to get out and vote for in the upcoming general election on Nov. 3. On Thursday evening, community members gathered at Grey-Bushelon Funeral Services before driving around neighborh",
-      "description": "BIRMINGHAM, Ala. (WIAT) — A group of Jefferson County funeral homes are coming together once a week throughout October to encourage people to get out and vote for in the upcoming general election on Nov. 3. On Thursday evening, community members gathered at Grey-Bushelon Funeral Services before driving around neighborh",
-      "url": "https://www.alabamas42.com/news/jefferson-county-funeral-homes-host-votercade-encouraging-people-to-vote-ahead-of-general-election/",
-      "link": "https://www.alabamas42.com/news/jefferson-county-funeral-homes-host-votercade-encouraging-people-to-vote-ahead-of-general-election/",
-      "published_at": "2026-10-16T02:46:15.000Z",
-      "date": "2026-10-16T02:46:15.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Norma Ann Crawford (August 20, 1927 — October 16, 2026)",
+      "summary": "Mrs. Norma Ann (Jones) Crawford of Birmingham passed peacefully from this life on October 16th, 2026. She was preceded in death by her first husband of almost 60 years, Jack Crawford Sr., and her second husband, Alfred Walker. Norma was born in Blakely, GA on August 20, 1927, to Will and Norma Lee Jones. She […]",
+      "description": "Mrs. Norma Ann (Jones) Crawford of Birmingham passed peacefully from this life on October 16th, 2026. She was preceded in death by her first husband of almost 60 years, Jack Crawford Sr., and her second husband, Alfred Walker. Norma was born in Blakely, GA on August 20, 1927, to Will and Norma Lee Jones. She […]",
+      "url": "https://www.trussvilletribune.com/2026/10/19/norma-ann-crawford-august-20-1927-october-16-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/19/norma-ann-crawford-august-20-1927-october-16-2026/",
+      "published_at": "2026-10-19T17:38:13.000Z",
+      "date": "2026-10-19T17:38:13.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Pamela Ann Mataya Murphy (November 15, 1962 — October 11, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 13,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Pamela Ann Mataya Murphy (November 15, 1962 — October 11, 2026)",
+      "summary": "Pamela Ann Mataya Murphy peacefully passed away on Sunday, October 11, 2026, at the age of 63 in her home of Odenville, Alabama surrounded by her devoted husband and daughter. Born in New Orleans, Louisiana, on November 15, 1962, she was the youngest in her family. Throughout her life, she deeply cared for those she […",
+      "description": "Pamela Ann Mataya Murphy peacefully passed away on Sunday, October 11, 2026, at the age of 63 in her home of Odenville, Alabama surrounded by her devoted husband and daughter. Born in New Orleans, Louisiana, on November 15, 1962, she was the youngest in her family. Throughout her life, she deeply cared for those she […",
+      "url": "https://www.trussvilletribune.com/2026/10/19/pamela-ann-mataya-murphy-november-15-1962-october-11-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/19/pamela-ann-mataya-murphy-november-15-1962-october-11-2026/",
+      "published_at": "2026-10-19T17:44:46.000Z",
+      "date": "2026-10-19T17:44:46.000Z",
+      "location_tags": [
+        "regional"
       ],
       "topic_tags": [
         "obituary"
