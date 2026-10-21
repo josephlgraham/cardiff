@@ -1,36 +1,73 @@
 {
-  "updatedAt": "2026-10-20T15:38:35.221Z",
+  "updatedAt": "2026-10-21T01:31:20.488Z",
   "counts": {
-    "county": 4,
-    "obituaries": 4,
+    "nearby": 1,
+    "county": 5,
     "towns": 1,
-    "nearby": 2
+    "obituaries": 3
   },
   "sections": {
     "towns": [
       "news-3-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville"
     ],
     "nearby": [
-      "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
-      "news-6-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder"
+      "news-1-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob"
     ],
     "creek": [],
     "county": [
-      "news-1-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
-      "news-4-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
+      "news-2-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
+      "news-5-abc-33-40-former-hoover-substitute-teacher-convicted-on-child-pornogra",
+      "news-6-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
       "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
       "news-8-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen"
     ],
     "obituaries": [
-      "news-2-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
+      "news-4-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
       "news-9-wbrc-hoover-police-mourn-loss-of-k-9-ace",
-      "news-10-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
-      "news-11-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026"
+      "news-10-trussville-tribune-melinda-w-standridge-april-18-1960-october-16-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
+      "id": "news-1-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "New antique store + art gallery opening on Morris Avenue, October 29",
+      "summary": "🪑 NEW ANTIQUE + ART GALLERY IN DOWNTOWN BIRMINGHAM: Nostalgic on Morris opens October 29 on Morris Avenue, bringing antique treasures, retro collectibles + artwork from local artists to the Magic City 👇",
+      "description": "🪑 NEW ANTIQUE + ART GALLERY IN DOWNTOWN BIRMINGHAM: Nostalgic on Morris opens October 29 on Morris Avenue, bringing antique treasures, retro collectibles + artwork from local artists to the Magic City 👇",
+      "url": "https://bhamnow.com/2026/10/20/new-antique-store-art-gallery-opening-on-morris-avenue-october-29/#utm_source=rss&utm_medium=rss&utm_campaign=new-antique-store-art-gallery-opening-on-morris-avenue-october-29",
+      "link": "https://bhamnow.com/2026/10/20/new-antique-store-art-gallery-opening-on-morris-avenue-october-29/#utm_source=rss&utm_medium=rss&utm_campaign=new-antique-store-art-gallery-opening-on-morris-avenue-october-29",
+      "published_at": "2026-10-20T19:32:32.000Z",
+      "date": "2026-10-20T19:32:32.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg"
+    },
+    {
+      "id": "news-2-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -47,7 +84,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -72,50 +109,6 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900"
-    },
-    {
-      "id": "news-2-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Edgewater",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 28,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
-      "summary": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
-      "description": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
-      "url": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
-      "published_at": "2026-10-20T15:00:34.000Z",
-      "date": "2026-10-20T15:00:34.000Z",
-      "location_tags": [
-        "edgewater"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
     },
     {
       "id": "news-3-abc-33-40-one-taken-to-hospital-after-shooting-in-graysville",
@@ -155,7 +148,93 @@
       "image_url": ""
     },
     {
-      "id": "news-4-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
+      "id": "news-4-trussville-tribune-janice-ellen-harris-february-21-1943-october-15-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Edgewater",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Janice Ellen Harris (February 21, 1943 — October 15, 2026)",
+      "summary": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
+      "description": "Janice Ellen Harris, age 83, of Trussville, Alabama, passed away on October 15, 2026, in Trussville. Janice was born on February 21, 1943, in Birmingham, Alabama. Janice was raised in the Edgewater community and graduated from Minor High School. She spent her career with American General Insurance Company, where she se",
+      "url": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/20/janice-ellen-harris-february-21-1943-october-15-2026/",
+      "published_at": "2026-10-20T15:00:34.000Z",
+      "date": "2026-10-20T15:00:34.000Z",
+      "location_tags": [
+        "edgewater"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-5-abc-33-40-former-hoover-substitute-teacher-convicted-on-child-pornogra",
+      "section": "county",
+      "why": "jefferson county, schools",
+      "town": "Jefferson County",
+      "tags": [
+        "Schools"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/5b3bf0de-2cac-47d7-96c7-d1a59a7cc887-child_conviction_graphic.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Former Hoover substitute teacher convicted on child pornography charges",
+      "summary": "A Jefferson County man and former Hoover substitute teacher has been convicted on four counts of possessing obscene material, class C felonies, Attorney General",
+      "description": "A Jefferson County man and former Hoover substitute teacher has been convicted on four counts of possessing obscene material, class C felonies, Attorney General",
+      "url": "https://abc3340.com/news/local/former-hoover-substitute-teacher-convicted-on-child-pornography-charges",
+      "link": "https://abc3340.com/news/local/former-hoover-substitute-teacher-convicted-on-child-pornography-charges",
+      "published_at": "2026-10-20T21:03:05.000Z",
+      "date": "2026-10-20T21:03:05.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "schools"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/5b3bf0de-2cac-47d7-96c7-d1a59a7cc887-child_conviction_graphic.png"
+    },
+    {
+      "id": "news-6-abc-33-40-birmingham-trussville-rail-redesign-aims-to-cut-delays-boost",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -197,82 +276,6 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/f4edb889-6df0-4a3c-9ccf-d94c998dc75d-railroad_CROSSING.png"
     },
     {
-      "id": "news-5-abc-33-40-pleasant-grove-gets-700-000-in-federal-funding-for-sidewalk-",
-      "section": "nearby",
-      "why": "names pleasant grove",
-      "town": "Pleasant Grove",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Pleasant Grove gets $700,000 in federal funding for sidewalk improvements",
-      "summary": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
-      "description": "Pleasant Grove is receiving $700,000 in federal funding to improve sidewalks and pedestrian lighting, with construction expected to begin in early 2027.The proj",
-      "url": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
-      "link": "https://abc3340.com/news/local/pleasant-grove-gets-700000-in-federal-funding-for-sidewalk-improvements",
-      "published_at": "2026-10-16T21:12:44.000Z",
-      "date": "2026-10-16T21:12:44.000Z",
-      "location_tags": [
-        "pleasant-grove"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/161245c5-dc74-4418-a1c5-5ad83c8636a4-pics066.jpg"
-    },
-    {
-      "id": "news-6-abc-33-40-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1624/986/6x0/90/58841387-dbd5-4c88-b426-8cca789ee251-INSTAGRAMPOST.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Julian Morris Seeks Speedy Trial in Deundray Cottrell Murder Case",
-      "summary": "Julian Morris, who is charged with murder in the 2024 death of Deundray Cottrell, has asked the court to move his case forward, with a hearing scheduled for Nov",
-      "description": "Julian Morris, who is charged with murder in the 2024 death of Deundray Cottrell, has asked the court to move his case forward, with a hearing scheduled for Nov",
-      "url": "https://abc3340.com/news/local/alabama-jefferson-county-birmingham-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder-case",
-      "link": "https://abc3340.com/news/local/alabama-jefferson-county-birmingham-julian-morris-seeks-speedy-trial-in-deundray-cottrell-murder-case",
-      "published_at": "2026-10-16T19:48:22.000Z",
-      "date": "2026-10-16T19:48:22.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1624/986/6x0/90/58841387-dbd5-4c88-b426-8cca789ee251-INSTAGRAMPOST.png"
-    },
-    {
       "id": "news-7-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
       "section": "county",
       "why": "birmingham, trains",
@@ -289,7 +292,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -331,7 +334,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -401,51 +404,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-trussville-tribune-norma-ann-crawford-august-20-1927-october-16-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Norma Ann Crawford (August 20, 1927 — October 16, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Norma Ann Crawford (August 20, 1927 — October 16, 2026)",
-      "summary": "Mrs. Norma Ann (Jones) Crawford of Birmingham passed peacefully from this life on October 16th, 2026. She was preceded in death by her first husband of almost 60 years, Jack Crawford Sr., and her second husband, Alfred Walker. Norma was born in Blakely, GA on August 20, 1927, to Will and Norma Lee Jones. She […]",
-      "description": "Mrs. Norma Ann (Jones) Crawford of Birmingham passed peacefully from this life on October 16th, 2026. She was preceded in death by her first husband of almost 60 years, Jack Crawford Sr., and her second husband, Alfred Walker. Norma was born in Blakely, GA on August 20, 1927, to Will and Norma Lee Jones. She […]",
-      "url": "https://www.trussvilletribune.com/2026/10/19/norma-ann-crawford-august-20-1927-october-16-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/19/norma-ann-crawford-august-20-1927-october-16-2026/",
-      "published_at": "2026-10-19T17:38:13.000Z",
-      "date": "2026-10-19T17:38:13.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-trussville-tribune-pamela-ann-mataya-murphy-november-15-1962-october-11-2026",
+      "id": "news-10-trussville-tribune-melinda-w-standridge-april-18-1960-october-16-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -456,24 +415,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Pamela Ann Mataya Murphy (November 15, 1962 — October 11, 2026)",
+        "name": "Melinda W Standridge (April 18, 1960 — October 16, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
-        "serviceLabel": ""
+        "serviceLabel": "Wednesday, October 21"
       },
       "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Pamela Ann Mataya Murphy (November 15, 1962 — October 11, 2026)",
-      "summary": "Pamela Ann Mataya Murphy peacefully passed away on Sunday, October 11, 2026, at the age of 63 in her home of Odenville, Alabama surrounded by her devoted husband and daughter. Born in New Orleans, Louisiana, on November 15, 1962, she was the youngest in her family. Throughout her life, she deeply cared for those she […",
-      "description": "Pamela Ann Mataya Murphy peacefully passed away on Sunday, October 11, 2026, at the age of 63 in her home of Odenville, Alabama surrounded by her devoted husband and daughter. Born in New Orleans, Louisiana, on November 15, 1962, she was the youngest in her family. Throughout her life, she deeply cared for those she […",
-      "url": "https://www.trussvilletribune.com/2026/10/19/pamela-ann-mataya-murphy-november-15-1962-october-11-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/19/pamela-ann-mataya-murphy-november-15-1962-october-11-2026/",
-      "published_at": "2026-10-19T17:44:46.000Z",
-      "date": "2026-10-19T17:44:46.000Z",
+      "title": "Melinda W Standridge (April 18, 1960 — October 16, 2026)",
+      "summary": "Funeral Services for Mrs. Melinda W. Standridge, age 66 of Sterrett, will be held on Wednesday, October 21, 2026, at 12:00 p.m. at Jefferson Memorial Funeral Home with Pastor David Wooten officiating. Burial will follow in the adjoining gardens. Visitation will be held on Wednesday, October 21, 2026, from 11:00 a.m. un",
+      "description": "Funeral Services for Mrs. Melinda W. Standridge, age 66 of Sterrett, will be held on Wednesday, October 21, 2026, at 12:00 p.m. at Jefferson Memorial Funeral Home with Pastor David Wooten officiating. Burial will follow in the adjoining gardens. Visitation will be held on Wednesday, October 21, 2026, from 11:00 a.m. un",
+      "url": "https://www.trussvilletribune.com/2026/10/20/melinda-w-standridge-april-18-1960-october-16-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/20/melinda-w-standridge-april-18-1960-october-16-2026/",
+      "published_at": "2026-10-20T15:40:47.000Z",
+      "date": "2026-10-20T15:40:47.000Z",
       "location_tags": [
         "regional"
       ],
