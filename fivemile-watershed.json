@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T16:07:39.138Z",
+  "updatedAt": "2026-10-21T20:10:59.426Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -13,7 +13,7 @@
     "first": "2026-07-23",
     "last": "2026-10-20"
   },
-  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.12 ft with about 17.3 cfs moving through the channel. Month-to-date rain is 3.29 inches.",
+  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.10 ft with about 16.1 cfs moving through the channel. Month-to-date rain is 3.29 inches.",
   "rainContext": {
     "today": 0,
     "monthToDate": 3.29,
@@ -25,7 +25,7 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 40,
-      "highTemp": 73,
+      "highTemp": 78,
       "windGust": 1,
       "label": "So far today",
       "isMorning": false,
@@ -46,19 +46,15 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 1.12,
-      "discharge_cfs": 17.3,
-      "water_temp_f": 56.1,
-      "dissolved_oxygen_mgl": 9.7,
-      "specific_conductance_uscm": 557,
+      "stage_ft": 1.1,
+      "discharge_cfs": 16.1,
+      "water_temp_f": 60.4,
+      "dissolved_oxygen_mgl": 11.4,
+      "specific_conductance_uscm": 560,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0.02,
-      "updated_at": "2026-10-21T15:00:00+00:00",
+      "rise_rate_ft_per_hr": 0,
+      "updated_at": "2026-10-21T19:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-21T16:30:00+00:00",
-          "stage_ft": 1.09
-        },
         {
           "at": "2026-09-21T22:30:00+00:00",
           "stage_ft": 2.24
@@ -488,10 +484,6 @@
           "stage_ft": 1.11
         },
         {
-          "at": "2026-10-18T21:45:00+00:00",
-          "stage_ft": 1.11
-        },
-        {
           "at": "2026-10-19T03:45:00+00:00",
           "stage_ft": 1.1
         },
@@ -528,12 +520,12 @@
           "stage_ft": 1.08
         },
         {
-          "at": "2026-10-21T10:15:00+00:00",
+          "at": "2026-10-21T14:15:00+00:00",
           "stage_ft": 1.09
         },
         {
-          "at": "2026-10-21T15:00:00+00:00",
-          "stage_ft": 1.12
+          "at": "2026-10-21T19:00:00+00:00",
+          "stage_ft": 1.1
         }
       ],
       "note": "This reach looks fairly steady right now."
@@ -558,7 +550,7 @@
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-21T15:00:00+00:00",
+      "updated_at": "2026-10-21T19:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
