@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-22T15:52:03.959Z",
+  "updatedAt": "2026-10-23T01:27:16.532Z",
   "counts": {
     "towns": 2,
-    "nearby": 2,
-    "county": 6,
+    "county": 7,
+    "nearby": 1,
     "obituaries": 2
   },
   "sections": {
@@ -12,21 +12,21 @@
       "news-2-wbrc-man-shot-in-graysville-dies-nearly-a-week-later"
     ],
     "nearby": [
-      "news-3-al-com-man-dies-6-days-after-domestic-shooting-at-north-jefferson-c",
-      "news-6-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob"
+      "news-5-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob"
     ],
     "creek": [],
     "county": [
-      "news-4-wbrc-jefferson-county-ema-asks-residents-to-prepare-ahead-of-torn",
-      "news-5-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
-      "news-7-wbrc-our-students-deserve-to-be-comfortable-air-conditioning-comi",
-      "news-8-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
-      "news-9-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen",
-      "news-10-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo"
+      "news-3-wbrc-jefferson-county-ema-asks-people-to-prepare-ahead-of-tornado",
+      "news-4-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
+      "news-6-wbrc-our-students-deserve-to-be-comfortable-air-conditioning-comi",
+      "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "news-8-wvtm-13-jefferson-county-schools-begins-adding-air-conditioning-to-b",
+      "news-9-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
+      "news-10-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen"
     ],
     "obituaries": [
-      "news-11-trussville-tribune-james-todd-shelnut-january-12-1965-october-17-2026",
-      "news-12-trussville-tribune-arvel-monroe-crumpton-january-27-1943-october-18-2026"
+      "news-11-trussville-tribune-paul-jane-jones-april-29-1939-october-18-2026-may-30-1942-oc",
+      "news-12-trussville-tribune-thomas-wayne-noe-january-22-1941-october-18-2026"
     ]
   },
   "stories": [
@@ -47,7 +47,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 59,
+      "score": 58,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -89,7 +89,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 49,
+      "score": 48,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -115,49 +115,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//HDONBAJZLBFMRKTHDJJYZ6PKMI.png?auth=72bddfe129f3dfeccc36b5792d8dad7257589cb1941eb435c98332a9770e1dbd&smart=false"
     },
     {
-      "id": "news-3-al-com-man-dies-6-days-after-domestic-shooting-at-north-jefferson-c",
-      "section": "nearby",
-      "why": "names north jefferson",
-      "town": "North Jefferson",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200",
-        "from": "feed",
-        "width": 1150,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 38,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Man dies 6 days after domestic shooting at north Jefferson County home",
-      "summary": "According to the Jefferson County Coroner’s Office, Trenton Scott Ingram died just before 8 p.m. Thursday, Oct. 21, at UAB Hospital.",
-      "description": "According to the Jefferson County Coroner’s Office, Trenton Scott Ingram died just before 8 p.m. Thursday, Oct. 21, at UAB Hospital.",
-      "url": "https://www.al.com/news/2026/10/man-dies-6-days-after-domestic-shooting-at-north-jefferson-county-home.html",
-      "link": "https://www.al.com/news/2026/10/man-dies-6-days-after-domestic-shooting-at-north-jefferson-county-home.html",
-      "published_at": "2026-10-22T14:20:13.000Z",
-      "date": "2026-10-22T14:20:13.000Z",
-      "location_tags": [
-        "north-jefferson"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/G7EDCFYEUFFJBC3EMKP5QV6CDI.png?auth=05d2d3ef0e2f36241dc86c122d944760d852475a3eb220106361112a8e5c05ae&smart=true&height=1200"
-    },
-    {
-      "id": "news-4-wbrc-jefferson-county-ema-asks-residents-to-prepare-ahead-of-torn",
+      "id": "news-3-wbrc-jefferson-county-ema-asks-people-to-prepare-ahead-of-tornado",
       "section": "county",
       "why": "jefferson county, weather",
       "town": "Jefferson County",
@@ -178,13 +136,13 @@
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Jefferson County EMA asks residents to prepare ahead of tornado season",
+      "title": "Jefferson County EMA asks people to prepare ahead of tornado season",
       "summary": "Jefferson Count EMA officials prepare residents for severe weather season.",
       "description": "Jefferson Count EMA officials prepare residents for severe weather season.",
-      "url": "https://www.wbrc.com/2026/10/22/jefferson-county-ema-asks-residents-prepare-ahead-tornado-season/",
-      "link": "https://www.wbrc.com/2026/10/22/jefferson-county-ema-asks-residents-prepare-ahead-tornado-season/",
-      "published_at": "2026-10-22T03:46:50.000Z",
-      "date": "2026-10-22T03:46:50.000Z",
+      "url": "https://www.wbrc.com/2026/10/22/jefferson-county-ema-asks-people-prepare-ahead-tornado-season/",
+      "link": "https://www.wbrc.com/2026/10/22/jefferson-county-ema-asks-people-prepare-ahead-tornado-season/",
+      "published_at": "2026-10-22T16:05:43.000Z",
+      "date": "2026-10-22T16:05:43.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -201,7 +159,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MCUHTVLEFFB4HMOYYXTCE5HK4U.jpg?auth=d22d05aee4cc4bb8033d07841afc564c2543585c7b17af3d55bd002c7fa50063&smart=false"
     },
     {
-      "id": "news-5-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
+      "id": "news-4-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -218,7 +176,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -245,7 +203,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1024/986/center/90/c8f6010f-fa7a-4efd-b980-1b4bd9c3f3fa-JeffersonCountySheriffsOfficevehicleJCSO.JPG"
     },
     {
-      "id": "news-6-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob",
+      "id": "news-5-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob",
       "section": "nearby",
       "why": "names morris",
       "town": "Morris",
@@ -259,7 +217,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -283,7 +241,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg"
     },
     {
-      "id": "news-7-wbrc-our-students-deserve-to-be-comfortable-air-conditioning-comi",
+      "id": "news-6-wbrc-our-students-deserve-to-be-comfortable-air-conditioning-comi",
       "section": "county",
       "why": "jefferson county, schools",
       "town": "Jefferson County",
@@ -308,8 +266,8 @@
       "description": "A bid to retrofit around 500 buses with air conditioning was approved by the Jefferson County Board of Education.",
       "url": "https://www.wbrc.com/2026/10/22/our-students-deserve-be-comfortable-air-conditioning-coming-all-jefferson-county-school-buses/",
       "link": "https://www.wbrc.com/2026/10/22/our-students-deserve-be-comfortable-air-conditioning-coming-all-jefferson-county-school-buses/",
-      "published_at": "2026-10-22T13:29:52.000Z",
-      "date": "2026-10-22T13:29:52.000Z",
+      "published_at": "2026-10-22T22:06:59.000Z",
+      "date": "2026-10-22T22:06:59.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -325,40 +283,75 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J4XBIEZMLFGWNAPKLLQ3FF63TM.png?auth=5d0c4a40f420d2d4517ab034d1047d51d409d8ded8c1693294b4f8f03895875c&smart=false"
     },
     {
-      "id": "news-8-cbs-42-birmingham-trussville-take-steps-toward-railroad-crossing-im",
+      "id": "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
-      "why": "birmingham, trains",
-      "town": "Birmingham",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
       "tags": [
-        "Trains",
-        "Roads"
+        "Government"
       ],
-      "outlet": "CBS 42",
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "PUBLIC MEETING NOTICE OF JEFFERSON COUNTY COMMISSION NOV.2 AND NOV. 11",
+      "summary": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
+      "description": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
+      "published_at": "2026-10-22T21:13:14.000Z",
+      "date": "2026-10-22T21:13:14.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-8-wvtm-13-jefferson-county-schools-begins-adding-air-conditioning-to-b",
+      "section": "county",
+      "why": "jefferson county, schools",
+      "town": "Jefferson County",
+      "tags": [
+        "Schools"
+      ],
+      "outlet": "WVTM 13",
       "paywall": false,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900",
+        "url": "https://kubrick.htvapps.com/vidthumb/3947cddf-054d-4e0d-82d2-7d11955f36a3/b533fad7-0d0c-4199-97ea-533649e1a646.jpg",
         "from": "feed",
         "width": null,
-        "credit": "CBS 42"
+        "credit": "WVTM 13"
       },
       "obit": null,
       "score": 26,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Birmingham, Trussville take steps toward railroad crossing improvements",
-      "summary": "Leaders in Birmingham and Trussville are taking the first steps toward a project aimed at improving safety and reducing traffic disruptions caused by trains blocking railroad crossings.",
-      "description": "Leaders in Birmingham and Trussville are taking the first steps toward a project aimed at improving safety and reducing traffic disruptions caused by trains blocking railroad crossings.",
-      "url": "https://www.alabamas42.com/news/local/birmingham-trussville-take-steps-toward-railroad-crossing-improvements/",
-      "link": "https://www.alabamas42.com/news/local/birmingham-trussville-take-steps-toward-railroad-crossing-improvements/",
-      "published_at": "2026-10-19T22:44:59.000Z",
-      "date": "2026-10-19T22:44:59.000Z",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Jefferson County Schools begins adding air conditioning to buses in $3.9 million project",
+      "summary": "Relief from the Alabama heat is on the way for thousands of Jefferson County students and bus drivers.",
+      "description": "Relief from the Alabama heat is on the way for thousands of Jefferson County students and bus drivers.",
+      "url": "https://www.wvtm13.com/article/jefferson-county-schools-bus-air-conditioning-project/74223514",
+      "link": "https://www.wvtm13.com/article/jefferson-county-schools-bus-air-conditioning-project/74223514",
+      "published_at": "2026-10-23T00:02:00.000Z",
+      "date": "2026-10-23T00:02:00.000Z",
       "location_tags": [
-        "birmingham"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "trains",
-        "roads"
+        "schools"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -366,52 +359,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Screenshot-2026-10-19-174211.jpg?w=900"
+      "image_url": "https://kubrick.htvapps.com/vidthumb/3947cddf-054d-4e0d-82d2-7d11955f36a3/b533fad7-0d0c-4199-97ea-533649e1a646.jpg"
     },
     {
-      "id": "news-9-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen",
-      "section": "county",
-      "why": "birmingham, trains",
-      "town": "Birmingham",
-      "tags": [
-        "Trains"
-      ],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Birmingham Times"
-      },
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Engineering Firm Selected for Major Rail Crossing Improvement Project for Birmingham and Trussville",
-      "summary": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
-      "description": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
-      "url": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
-      "link": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
-      "published_at": "2026-10-19T23:59:15.000Z",
-      "date": "2026-10-19T23:59:15.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "trains"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg"
-    },
-    {
-      "id": "news-10-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
+      "id": "news-9-bham-now-what-s-planned-to-keep-trains-from-blocking-roads-between-wo",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -453,10 +404,52 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/IMG_7079-1200x675.jpg"
     },
     {
-      "id": "news-11-trussville-tribune-james-todd-shelnut-january-12-1965-october-17-2026",
+      "id": "news-10-birmingham-times-engineering-firm-selected-for-major-rail-crossing-improvemen",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 20,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Engineering Firm Selected for Major Rail Crossing Improvement Project for Birmingham and Trussville",
+      "summary": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
+      "description": "Reduce Extended Delays; Enhance Safety; and Invest in Growing Neighborhoods (R.E.D.E.S.I.G.N.) Alabama – is supported by a federal grant as well as significant funding from Norfolk Southern. (Greg Johnson, Adobe Stock) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-1",
+      "url": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
+      "link": "https://www.birminghamtimes.com/2026/10/engineering-firm-selected-for-major-rail-crossing-improvement-project-for-birmingham-and-trussville/",
+      "published_at": "2026-10-19T23:59:15.000Z",
+      "date": "2026-10-19T23:59:15.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/10/AdobeStock_1235395580-150x150.jpeg"
+    },
+    {
+      "id": "news-11-trussville-tribune-paul-jane-jones-april-29-1939-october-18-2026-may-30-1942-oc",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Birmingham",
+      "town": "Regional",
       "tags": [
         "Obituary"
       ],
@@ -464,26 +457,26 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "James Todd Shelnut (January 12, 1965 — October 17, 2026)",
+        "name": "Paul & Jane Jones (April 29, 1939 – October 18, 2026",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 15,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "James Todd Shelnut (January 12, 1965 — October 17, 2026)",
-      "summary": "James Todd Shelnutt, a beloved son, brother, and friend, passed away on October 17, 2026, at the age of 61. Born on January 12, 1965, in Birmingham, Alabama, Todd was a beacon of warmth and humor to all who knew him. His journey through life was marked by kindness, creativity, and a profound love for […]",
-      "description": "James Todd Shelnutt, a beloved son, brother, and friend, passed away on October 17, 2026, at the age of 61. Born on January 12, 1965, in Birmingham, Alabama, Todd was a beacon of warmth and humor to all who knew him. His journey through life was marked by kindness, creativity, and a profound love for […]",
-      "url": "https://www.trussvilletribune.com/2026/10/21/james-todd-shelnut-january-12-1965-october-17-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/21/james-todd-shelnut-january-12-1965-october-17-2026/",
-      "published_at": "2026-10-21T17:21:22.000Z",
-      "date": "2026-10-21T17:21:22.000Z",
+      "title": "Paul & Jane Jones (April 29, 1939 – October 18, 2026 | May 30, 1942 – October 18, 2026)",
+      "summary": "Memorial Services for Mr. Paul & Mrs. Jane Jones, ages 87 and 84 of Trussville, will be held on Tuesday, October 27, 2026, at 11:00 a.m. at First Baptist Church – Trussville. Visitation will be held from 9:30 a.m. until service time at 11:00 a.m. Jane Self Jones May 30, 1942 – October 18, 2026 […]",
+      "description": "Memorial Services for Mr. Paul & Mrs. Jane Jones, ages 87 and 84 of Trussville, will be held on Tuesday, October 27, 2026, at 11:00 a.m. at First Baptist Church – Trussville. Visitation will be held from 9:30 a.m. until service time at 11:00 a.m. Jane Self Jones May 30, 1942 – October 18, 2026 […]",
+      "url": "https://www.trussvilletribune.com/2026/10/22/paul-jane-jones-april-29-1939-october-18-2026-may-30-1942-october-18-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/22/paul-jane-jones-april-29-1939-october-18-2026-may-30-1942-october-18-2026/",
+      "published_at": "2026-10-22T16:12:52.000Z",
+      "date": "2026-10-22T16:12:52.000Z",
       "location_tags": [
-        "birmingham"
+        "regional"
       ],
       "topic_tags": [
         "obituary"
@@ -497,7 +490,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-trussville-tribune-arvel-monroe-crumpton-january-27-1943-october-18-2026",
+      "id": "news-12-trussville-tribune-thomas-wayne-noe-january-22-1941-october-18-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -508,24 +501,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Arvel Monroe Crumpton (January 27, 1943 — October 18, 2026)",
+        "name": "Thomas Wayne Noe (January 22, 1941 — October 18, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 12,
+      "score": 13,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Arvel Monroe Crumpton (January 27, 1943 — October 18, 2026)",
-      "summary": "ARVEL M. CRUMPTON, age 83 passed away Sunday, October 18, 2026 Arvel Monroe Crumpton born January 27, 1943, passed away peacefully into the arms of his Savior and Lord with his wife and daughter by his side. Our father, her husband and their grandfather spent most of his life singing about his Lord in church […]",
-      "description": "ARVEL M. CRUMPTON, age 83 passed away Sunday, October 18, 2026 Arvel Monroe Crumpton born January 27, 1943, passed away peacefully into the arms of his Savior and Lord with his wife and daughter by his side. Our father, her husband and their grandfather spent most of his life singing about his Lord in church […]",
-      "url": "https://www.trussvilletribune.com/2026/10/21/arvel-monroe-crumpton-january-27-1943-october-18-2026/",
-      "link": "https://www.trussvilletribune.com/2026/10/21/arvel-monroe-crumpton-january-27-1943-october-18-2026/",
-      "published_at": "2026-10-21T17:10:01.000Z",
-      "date": "2026-10-21T17:10:01.000Z",
+      "title": "Thomas Wayne Noe (January 22, 1941 — October 18, 2026)",
+      "summary": "Thomas Wayne Noe, 85, of Trussville, AL passed away peacefully on October 18, 2026. Wayne was born on January 22, 1941, in his Great Grandparents house in Mulberry Springs (Sulligent) AL to Rueben Willard Noe and Grace Pope Noe. He graduated in 1959 from Phillips High School. He also attended Howard College, now Samfor",
+      "description": "Thomas Wayne Noe, 85, of Trussville, AL passed away peacefully on October 18, 2026. Wayne was born on January 22, 1941, in his Great Grandparents house in Mulberry Springs (Sulligent) AL to Rueben Willard Noe and Grace Pope Noe. He graduated in 1959 from Phillips High School. He also attended Howard College, now Samfor",
+      "url": "https://www.trussvilletribune.com/2026/10/22/thomas-wayne-noe-january-22-1941-october-18-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/22/thomas-wayne-noe-january-22-1941-october-18-2026/",
+      "published_at": "2026-10-22T16:02:15.000Z",
+      "date": "2026-10-22T16:02:15.000Z",
       "location_tags": [
         "regional"
       ],
