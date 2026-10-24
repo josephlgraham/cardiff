@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T13:00:32.953Z",
+  "updatedAt": "2026-10-24T16:32:32.113Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -25,10 +25,10 @@
     "morningReport": {
       "amount": 0,
       "lowTemp": 43,
-      "highTemp": 45,
-      "windGust": 0,
-      "label": "Since midnight",
-      "isMorning": true,
+      "highTemp": 71,
+      "windGust": 3,
+      "label": "So far today",
+      "isMorning": false,
       "coverageStart": "2026-10-24"
     }
   },
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.07,
       "discharge_cfs": 14.3,
-      "water_temp_f": 57.4,
-      "dissolved_oxygen_mgl": 9,
+      "water_temp_f": 57.2,
+      "dissolved_oxygen_mgl": 9.9,
       "specific_conductance_uscm": 570,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-24T12:00:00+00:00",
+      "updated_at": "2026-10-24T16:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-24T15:45:00+00:00",
-          "stage_ft": 1.08
-        },
         {
           "at": "2026-09-24T21:45:00+00:00",
           "stage_ft": 1.08
@@ -528,7 +524,11 @@
           "stage_ft": 1.09
         },
         {
-          "at": "2026-10-24T12:00:00+00:00",
+          "at": "2026-10-24T10:45:00+00:00",
+          "stage_ft": 1.07
+        },
+        {
+          "at": "2026-10-24T16:00:00+00:00",
           "stage_ft": 1.07
         }
       ],
@@ -547,14 +547,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 2.48,
-      "discharge_cfs": 95,
+      "stage_ft": 2.47,
+      "discharge_cfs": 92.6,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-24T12:00:00+00:00",
+      "updated_at": "2026-10-24T16:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
