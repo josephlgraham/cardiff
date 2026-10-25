@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-10-25T01:05:32.245Z",
+  "updatedAt": "2026-10-25T14:56:31.447Z",
   "counts": {
     "towns": 2,
-    "nearby": 2,
-    "county": 3
+    "nearby": 1,
+    "county": 4,
+    "obituaries": 1
   },
   "sections": {
     "towns": [
@@ -11,16 +12,18 @@
       "news-3-wbrc-6-news-man-shot-in-graysville-dies-nearly-a-week-later"
     ],
     "nearby": [
-      "news-2-wbrc-just-do-something-mulga-mayor-raises-concerns-about-gunfire-",
-      "news-5-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob"
+      "news-2-wbrc-just-do-something-mulga-mayor-raises-concerns-about-gunfire-"
     ],
     "creek": [],
     "county": [
-      "news-4-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
-      "news-6-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
+      "news-4-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville",
+      "news-5-wvtm-13-paving-work-will-reduce-lanes-on-northbound-i-59-in-trussvil",
+      "news-6-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
       "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-8-cbs-42-mother-of-trussville-mayor-ben-short-dies"
+    ]
   },
   "stories": [
     {
@@ -40,7 +43,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 55,
+      "score": 54,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -82,7 +85,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -117,7 +120,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "WBRC 6 News",
       "source": "WBRC 6 News",
@@ -132,8 +135,8 @@
         "graysville"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -141,7 +144,91 @@
       "image_url": ""
     },
     {
-      "id": "news-4-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
+      "id": "news-4-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "ALDOT crews to lay final paving on I-59 NB in Trussville",
+      "summary": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
+      "description": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
+      "url": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
+      "link": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
+      "published_at": "2026-10-25T13:45:32.000Z",
+      "date": "2026-10-25T13:45:32.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720"
+    },
+    {
+      "id": "news-5-wvtm-13-paving-work-will-reduce-lanes-on-northbound-i-59-in-trussvil",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/vidthumb/bdeb9729-80df-4a61-9c5d-943c2d9119bc/75633cf8-3d85-4bfa-9dbc-ff66b8e3ed40.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Paving work will reduce lanes on northbound I-59 in Trussville",
+      "summary": "Drivers in Trussville should expect lane closures starting Monday as ALDOT begins paving work on northbound I-59.",
+      "description": "Drivers in Trussville should expect lane closures starting Monday as ALDOT begins paving work on northbound I-59.",
+      "url": "https://www.wvtm13.com/article/trussville-i-59-paving-lane-closures/74239339",
+      "link": "https://www.wvtm13.com/article/trussville-i-59-paving-lane-closures/74239339",
+      "published_at": "2026-10-25T03:00:00.000Z",
+      "date": "2026-10-25T03:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/vidthumb/bdeb9729-80df-4a61-9c5d-943c2d9119bc/75633cf8-3d85-4bfa-9dbc-ff66b8e3ed40.jpg"
+    },
+    {
+      "id": "news-6-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -158,7 +245,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -185,86 +272,6 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1024/986/center/90/c8f6010f-fa7a-4efd-b980-1b4bd9c3f3fa-JeffersonCountySheriffsOfficevehicleJCSO.JPG"
     },
     {
-      "id": "news-5-bham-now-new-antique-store-art-gallery-opening-on-morris-avenue-octob",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "New antique store + art gallery opening on Morris Avenue, October 29",
-      "summary": "🪑 NEW ANTIQUE + ART GALLERY IN DOWNTOWN BIRMINGHAM: Nostalgic on Morris opens October 29 on Morris Avenue, bringing antique treasures, retro collectibles + artwork from local artists to the Magic City 👇",
-      "description": "🪑 NEW ANTIQUE + ART GALLERY IN DOWNTOWN BIRMINGHAM: Nostalgic on Morris opens October 29 on Morris Avenue, bringing antique treasures, retro collectibles + artwork from local artists to the Magic City 👇",
-      "url": "https://bhamnow.com/2026/10/20/new-antique-store-art-gallery-opening-on-morris-avenue-october-29/#utm_source=rss&utm_medium=rss&utm_campaign=new-antique-store-art-gallery-opening-on-morris-avenue-october-29",
-      "link": "https://bhamnow.com/2026/10/20/new-antique-store-art-gallery-opening-on-morris-avenue-october-29/#utm_source=rss&utm_medium=rss&utm_campaign=new-antique-store-art-gallery-opening-on-morris-avenue-october-29",
-      "published_at": "2026-10-20T19:32:32.000Z",
-      "date": "2026-10-20T19:32:32.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg"
-    },
-    {
-      "id": "news-6-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Final paving work begins Monday on I-59 in Trussville",
-      "summary": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
-      "description": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
-      "url": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
-      "link": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
-      "published_at": "2026-10-23T20:54:21.000Z",
-      "date": "2026-10-23T20:54:21.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg"
-    },
-    {
       "id": "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
       "why": "jefferson county, government",
@@ -276,7 +283,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -295,6 +302,50 @@
       ],
       "priority_level": 3,
       "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-8-cbs-42-mother-of-trussville-mayor-ben-short-dies",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Mother of Trussville Mayor Ben Short dies",
+        "age": null,
+        "town": "",
+        "home": "CBS 42",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 19,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Mother of Trussville Mayor Ben Short dies",
+      "summary": "The mother of Trussville Mayor Ben Short has passed away. Debbie Short, of Oneonta, died shortly after a medical diagnosis of leukemia.",
+      "description": "The mother of Trussville Mayor Ben Short has passed away. Debbie Short, of Oneonta, died shortly after a medical diagnosis of leukemia.",
+      "url": "https://www.alabamas42.com/trussville-tribune/mother-of-trussville-mayor-ben-short-dies/",
+      "link": "https://www.alabamas42.com/trussville-tribune/mother-of-trussville-mayor-ben-short-dies/",
+      "published_at": "2026-10-25T13:55:31.000Z",
+      "date": "2026-10-25T13:55:31.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
