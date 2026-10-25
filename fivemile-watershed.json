@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T09:55:45.419Z",
+  "updatedAt": "2026-10-25T12:31:36.194Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -24,7 +24,7 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 42,
+      "lowTemp": 41,
       "highTemp": 44,
       "windGust": 0,
       "label": "Since midnight",
@@ -48,17 +48,13 @@
       "source_type": "watershed_gauge",
       "stage_ft": 1.09,
       "discharge_cfs": 15.5,
-      "water_temp_f": 58.1,
-      "dissolved_oxygen_mgl": 9,
+      "water_temp_f": 56.8,
+      "dissolved_oxygen_mgl": 9.2,
       "specific_conductance_uscm": 574,
       "trend": "steady",
-      "rise_rate_ft_per_hr": -0.007,
-      "updated_at": "2026-10-25T09:00:00+00:00",
+      "rise_rate_ft_per_hr": 0.007,
+      "updated_at": "2026-10-25T12:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-25T10:00:00+00:00",
-          "stage_ft": 1.07
-        },
         {
           "at": "2026-09-25T16:00:00+00:00",
           "stage_ft": 1.12
@@ -528,11 +524,11 @@
           "stage_ft": 1.07
         },
         {
-          "at": "2026-10-25T03:00:00+00:00",
+          "at": "2026-10-25T06:45:00+00:00",
           "stage_ft": 1.11
         },
         {
-          "at": "2026-10-25T09:00:00+00:00",
+          "at": "2026-10-25T12:00:00+00:00",
           "stage_ft": 1.09
         }
       ],
@@ -551,14 +547,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 2.47,
-      "discharge_cfs": 92.6,
+      "stage_ft": 2.46,
+      "discharge_cfs": 90.2,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-25T09:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.007,
+      "updated_at": "2026-10-25T12:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
