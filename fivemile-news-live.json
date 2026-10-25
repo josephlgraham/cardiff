@@ -1,10 +1,9 @@
 {
-  "updatedAt": "2026-10-24T14:28:43.436Z",
+  "updatedAt": "2026-10-25T01:05:32.245Z",
   "counts": {
     "towns": 2,
     "nearby": 2,
-    "county": 4,
-    "obituaries": 3
+    "county": 3
   },
   "sections": {
     "towns": [
@@ -18,15 +17,10 @@
     "creek": [],
     "county": [
       "news-4-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
-      "news-6-wvtm-13-100-black-men-cast-ballots-together-across-alabama-and-captu",
-      "news-7-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
-      "news-8-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a"
+      "news-6-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
+      "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a"
     ],
-    "obituaries": [
-      "news-9-trussville-tribune-debbie-short-mother-of-mayor-ben-short-passes-away-in-oneont",
-      "news-10-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
-      "news-11-https-www-wolfefuneralhomes-com-lori-wiggins-koppersmith-obituary-oct-19-2026"
-    ]
+    "obituaries": []
   },
   "stories": [
     {
@@ -46,7 +40,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 56,
+      "score": 55,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -123,7 +117,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "WBRC 6 News",
       "source": "WBRC 6 News",
@@ -164,7 +158,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -205,7 +199,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -229,49 +223,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-scaled.jpg"
     },
     {
-      "id": "news-6-wvtm-13-100-black-men-cast-ballots-together-across-alabama-and-captu",
-      "section": "county",
-      "why": "statewide, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/vidthumb/97ef34ff-3121-4bfc-a68d-0c3b84a910ed/a74417b5-5f41-49ee-8b72-b050c31131c5.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "100 Black men cast ballots together across Alabama—and captured the movement on video",
-      "summary": "They voted together, documented the moment and ended the day with a donated meal at Eugene’s Hot Chicken. See how 100 Black men across Alabama turned a trip to the polls into a statewide call for civic action.",
-      "description": "They voted together, documented the moment and ended the day with a donated meal at Eugene’s Hot Chicken. See how 100 Black men across Alabama turned a trip to the polls into a statewide call for civic action.",
-      "url": "https://www.wvtm13.com/article/birmingham-black-men-vote-together/74235950",
-      "link": "https://www.wvtm13.com/article/birmingham-black-men-vote-together/74235950",
-      "published_at": "2026-10-24T04:01:00.000Z",
-      "date": "2026-10-24T04:01:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/vidthumb/97ef34ff-3121-4bfc-a68d-0c3b84a910ed/a74417b5-5f41-49ee-8b72-b050c31131c5.jpg"
-    },
-    {
-      "id": "news-7-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
+      "id": "news-6-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -287,7 +239,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -313,7 +265,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg"
     },
     {
-      "id": "news-8-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "id": "news-7-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -343,138 +295,6 @@
       ],
       "priority_level": 3,
       "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-9-trussville-tribune-debbie-short-mother-of-mayor-ben-short-passes-away-in-oneont",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Debbie Short, Mother of Mayor Ben Short passes away in Oneonta",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 17,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Debbie Short, Mother of Mayor Ben Short passes away in Oneonta",
-      "summary": "TRUSSVILLE — The mother of Trussville Mayor Ben Short has passed away. Debbie Short, of Oneonta, died shortly after a medical diagnosis of leukemia. Services are planned for Monday, October 26, 2026, at 11:00 a.m. at Lemley Funeral Home in Oneonta. According to her obituary, “Debbie lived a life centered on faith, fami",
-      "description": "TRUSSVILLE — The mother of Trussville Mayor Ben Short has passed away. Debbie Short, of Oneonta, died shortly after a medical diagnosis of leukemia. Services are planned for Monday, October 26, 2026, at 11:00 a.m. at Lemley Funeral Home in Oneonta. According to her obituary, “Debbie lived a life centered on faith, fami",
-      "url": "https://www.trussvilletribune.com/2026/10/23/debbie-short-mother-of-mother-of-mayor-ben-short-passes-away-in-oneonta/",
-      "link": "https://www.trussvilletribune.com/2026/10/23/debbie-short-mother-of-mother-of-mayor-ben-short-passes-away-in-oneonta/",
-      "published_at": "2026-10-23T17:38:39.000Z",
-      "date": "2026-10-23T17:38:39.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Cheryl Markland Obituary Oct 21, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 5,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Cheryl Markland Obituary Oct 21, 2026",
-      "summary": "Cheryl Markland Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Cheryl Markland Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrd1MxT1FjQmRHb0trSlUybmM4cU40bkdyZ1l4X1pCeUJvdVFPNW5jUXl3LTBVUlZSbGxiT0Vob1Iyc3oxNmFVWmdvUnFMRG5yMVdxRE1fOTJleXNtazdxQkZqODFYcXppMjRVTg?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrd1MxT1FjQmRHb0trSlUybmM4cU40bkdyZ1l4X1pCeUJvdVFPNW5jUXl3LTBVUlZSbGxiT0Vob1Iyc3oxNmFVWmdvUnFMRG5yMVdxRE1fOTJleXNtazdxQkZqODFYcXppMjRVTg?oc=5",
-      "published_at": "2026-10-21T07:00:00.000Z",
-      "date": "2026-10-21T07:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 1,
-      "priority": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-https-www-wolfefuneralhomes-com-lori-wiggins-koppersmith-obituary-oct-19-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Lori Wiggins Koppersmith Obituary Oct 19, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 2,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Lori Wiggins Koppersmith Obituary Oct 19, 2026",
-      "summary": "Lori Wiggins Koppersmith Obituary Oct 19, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Lori Wiggins Koppersmith Obituary Oct 19, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vLUpPUG50YTVGbXVEMWRCZm5uMDlkbl9MQUhFZnN3Y1VYaElvY3BfSUJCXzFfMWdKUFpHdGY4MTNLVVViWjExc09PUlJ6S0lzckpCNm56NUlXUHRtQXctR2hUdjRWZFVWZFdxclh3?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vLUpPUG50YTVGbXVEMWRCZm5uMDlkbl9MQUhFZnN3Y1VYaElvY3BfSUJCXzFfMWdKUFpHdGY4MTNLVVViWjExc09PUlJ6S0lzckpCNm56NUlXUHRtQXctR2hUdjRWZFVWZFdxclh3?oc=5",
-      "published_at": "2026-10-19T07:00:00.000Z",
-      "date": "2026-10-19T07:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
