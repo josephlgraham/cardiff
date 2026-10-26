@@ -1,22 +1,20 @@
 {
-  "updatedAt": "2026-10-26T01:07:44.509Z",
+  "updatedAt": "2026-10-26T17:20:07.900Z",
   "counts": {
-    "towns": 1,
     "nearby": 1,
-    "county": 4,
+    "county": 5,
     "obituaries": 1
   },
   "sections": {
-    "towns": [
-      "news-1-abc-33-40-warrior-man-dies-after-shooting-in-graysville-death-investig"
-    ],
+    "towns": [],
     "nearby": [
-      "news-2-wbrc-just-do-something-mulga-mayor-raises-concerns-about-gunfire-"
+      "news-1-abc-33-40-fultondale-fire-rescue-s-new-iso-class-2-rating-takes-rescue"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
-      "news-4-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville",
+      "news-2-al-com-traffic-delays-expected-as-aldot-starts-week-long-i-59-pavin",
+      "news-3-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
+      "news-4-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
       "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "news-6-trussville-tribune-living-and-dying-by-affordability"
     ],
@@ -26,80 +24,38 @@
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-warrior-man-dies-after-shooting-in-graysville-death-investig",
-      "section": "towns",
-      "why": "names graysville",
-      "town": "Graysville",
+      "id": "news-1-abc-33-40-fultondale-fire-rescue-s-new-iso-class-2-rating-takes-rescue",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
       "tags": [
         "Public safety"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/41c42c49-2185-4e15-80e8-9be4e7cfb74f-Px2.jpg",
+        "url": "https://abc3340.com/resources/media2/16x9/1173/986/1x0/90/61d39134-3f2f-4e18-bb4d-16eb9327d228-dea27811e1ef4b4694f881b098ea1d1elarge16x9_fireman.webp",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 53,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Warrior man dies after shooting in Graysville; death investigated as homicide",
-      "summary": "JEFFERSON COUNTY, Ala. (WBMA) - A 34-year-old Warrior man has died from a gunshot wound he suffered during a reported domestic assault in Graysville, according",
-      "description": "JEFFERSON COUNTY, Ala. (WBMA) - A 34-year-old Warrior man has died from a gunshot wound he suffered during a reported domestic assault in Graysville, according",
-      "url": "https://abc3340.com/news/local/warrior-man-dies-after-shooting-in-graysville-death-investigated-as-homicide",
-      "link": "https://abc3340.com/news/local/warrior-man-dies-after-shooting-in-graysville-death-investigated-as-homicide",
-      "published_at": "2026-10-22T14:27:49.000Z",
-      "date": "2026-10-22T14:27:49.000Z",
+      "title": "Fultondale Fire & Rescue’s new ISO Class 2 rating takes  & Rescue earns ISO Class 2 rating",
+      "summary": "Fultondale Fire & Rescue’s new ISO Class 2 rating takes effect Nov. 1 and could affect local property insurance rates.",
+      "description": "Fultondale Fire & Rescue’s new ISO Class 2 rating takes effect Nov. 1 and could affect local property insurance rates.",
+      "url": "https://abc3340.com/news/local/fultondale-fire-rescue-earns-iso-class-2-rating",
+      "link": "https://abc3340.com/news/local/fultondale-fire-rescue-earns-iso-class-2-rating",
+      "published_at": "2026-10-26T16:04:24.000Z",
+      "date": "2026-10-26T16:04:24.000Z",
       "location_tags": [
-        "graysville"
+        "fultondale"
       ],
       "topic_tags": [
         "public-safety"
-      ],
-      "priority_level": 7,
-      "priority": 7,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/41c42c49-2185-4e15-80e8-9be4e7cfb74f-Px2.jpg"
-    },
-    {
-      "id": "news-2-wbrc-just-do-something-mulga-mayor-raises-concerns-about-gunfire-",
-      "section": "nearby",
-      "why": "names mulga",
-      "town": "Mulga",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MRPF2FUYZBEPPLZORVSLUHTDO4.png?auth=f7a33eae831d5132b7e14d0c932758e3f3372c47a38255b07dcd8132c622b739&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 32,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "‘Just do something’: Mulga mayor raises concerns about gunfire near Bayview Lake",
-      "summary": "People living in Mulga have said repeated gunfire near Bayview Lake is putting their safety at risk, with bullets striking homes and raising fears that someone could be seriously hurt or killed.",
-      "description": "People living in Mulga have said repeated gunfire near Bayview Lake is putting their safety at risk, with bullets striking homes and raising fears that someone could be seriously hurt or killed.",
-      "url": "https://www.wbrc.com/2026/10/24/just-do-something-mulga-mayor-raises-concerns-about-gunfire-near-bayview-lake/",
-      "link": "https://www.wbrc.com/2026/10/24/just-do-something-mulga-mayor-raises-concerns-about-gunfire-near-bayview-lake/",
-      "published_at": "2026-10-24T02:51:26.000Z",
-      "date": "2026-10-24T02:51:26.000Z",
-      "location_tags": [
-        "mulga"
-      ],
-      "topic_tags": [
-        "government"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -107,80 +63,36 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//MRPF2FUYZBEPPLZORVSLUHTDO4.png?auth=f7a33eae831d5132b7e14d0c932758e3f3372c47a38255b07dcd8132c622b739&smart=false"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1173/986/1x0/90/61d39134-3f2f-4e18-bb4d-16eb9327d228-dea27811e1ef4b4694f881b098ea1d1elarge16x9_fireman.webp"
     },
     {
-      "id": "news-3-abc-33-40-man-arrested-after-running-from-deputies-in-midfield",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1024/986/center/90/c8f6010f-fa7a-4efd-b980-1b4bd9c3f3fa-JeffersonCountySheriffsOfficevehicleJCSO.JPG",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Man arrested after running from deputies in Midfield",
-      "summary": "A man was arrested after fleeing from deputies during a traffic stop in Midfield, according to the Jefferson County Sheriff’s Office.Deputies with the Neighborh",
-      "description": "A man was arrested after fleeing from deputies during a traffic stop in Midfield, according to the Jefferson County Sheriff’s Office.Deputies with the Neighborh",
-      "url": "https://abc3340.com/news/local/man-arrested-after-running-from-deputies-in-midfield",
-      "link": "https://abc3340.com/news/local/man-arrested-after-running-from-deputies-in-midfield",
-      "published_at": "2026-10-22T15:04:38.000Z",
-      "date": "2026-10-22T15:04:38.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1024/986/center/90/c8f6010f-fa7a-4efd-b980-1b4bd9c3f3fa-JeffersonCountySheriffsOfficevehicleJCSO.JPG"
-    },
-    {
-      "id": "news-4-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville",
+      "id": "news-2-al-com-traffic-delays-expected-as-aldot-starts-week-long-i-59-pavin",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
       "tags": [
         "Roads"
       ],
-      "outlet": "CBS 42",
-      "paywall": false,
+      "outlet": "AL.com",
+      "paywall": true,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720",
+        "url": "https://www.al.com/resizer/v2/GLNPSZBRWZEWFCX5KJMQR6S2VU.png?auth=ed621f344fca63b6b8712da674884c960d59ef42ba20059564534789394ee914&smart=true&height=1200",
         "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
+        "width": 1294,
+        "credit": "AL.com"
       },
       "obit": null,
-      "score": 25,
+      "score": 27,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "ALDOT crews to lay final paving on I-59 NB in Trussville",
-      "summary": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
-      "description": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
-      "url": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
-      "link": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
-      "published_at": "2026-10-25T13:45:32.000Z",
-      "date": "2026-10-25T13:45:32.000Z",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Traffic delays expected as ALDOT starts week long I-59 paving in Trussville",
+      "summary": "Construction is part of a $70 million I-59 Trussville widening project.",
+      "description": "Construction is part of a $70 million I-59 Trussville widening project.",
+      "url": "https://www.al.com/news/birmingham/2026/10/traffic-delays-expected-as-aldot-starts-week-long-i-59-paving-in-trussville.html",
+      "link": "https://www.al.com/news/birmingham/2026/10/traffic-delays-expected-as-aldot-starts-week-long-i-59-paving-in-trussville.html",
+      "published_at": "2026-10-26T16:12:47.000Z",
+      "date": "2026-10-26T16:12:47.000Z",
       "location_tags": [
         "regional"
       ],
@@ -193,7 +105,91 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720"
+      "image_url": "https://www.al.com/resizer/v2/GLNPSZBRWZEWFCX5KJMQR6S2VU.png?auth=ed621f344fca63b6b8712da674884c960d59ef42ba20059564534789394ee914&smart=true&height=1200"
+    },
+    {
+      "id": "news-3-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Update: All northbound lanes reopen on I-65 in Jefferson County after crash",
+      "summary": "All northbound lanes of I-65 are open after a multi-vehicle crash near mile marker 283 in Jefferson County.",
+      "description": "All northbound lanes of I-65 are open after a multi-vehicle crash near mile marker 283 in Jefferson County.",
+      "url": "https://abc3340.com/news/local/crash-blocks-all-northbound-lanes-of-i-65-in-jefferson-county",
+      "link": "https://abc3340.com/news/local/crash-blocks-all-northbound-lanes-of-i-65-in-jefferson-county",
+      "published_at": "2026-10-26T14:08:26.000Z",
+      "date": "2026-10-26T14:08:26.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
+    },
+    {
+      "id": "news-4-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Final paving work begins Monday on I-59 in Trussville",
+      "summary": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
+      "description": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
+      "url": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
+      "link": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
+      "published_at": "2026-10-23T20:54:21.000Z",
+      "date": "2026-10-23T20:54:21.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg"
     },
     {
       "id": "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
@@ -207,7 +203,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -244,7 +240,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -288,7 +284,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 18,
+      "score": 17,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
