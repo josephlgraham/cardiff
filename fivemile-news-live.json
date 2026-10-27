@@ -1,25 +1,31 @@
 {
-  "updatedAt": "2026-10-26T17:20:07.900Z",
+  "updatedAt": "2026-10-27T02:01:18.845Z",
   "counts": {
-    "nearby": 1,
-    "county": 5,
-    "obituaries": 1
+    "nearby": 2,
+    "county": 3,
+    "obituaries": 8
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-abc-33-40-fultondale-fire-rescue-s-new-iso-class-2-rating-takes-rescue"
+      "news-1-abc-33-40-fultondale-fire-rescue-s-new-iso-class-2-rating-takes-rescue",
+      "news-2-bham-now-3-new-businesses-3-coming-soon-in-birmingham"
     ],
     "creek": [],
     "county": [
-      "news-2-al-com-traffic-delays-expected-as-aldot-starts-week-long-i-59-pavin",
-      "news-3-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
-      "news-4-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
-      "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
-      "news-6-trussville-tribune-living-and-dying-by-affordability"
+      "news-3-wbrc-man-charged-after-deadly-pedestrian-hit-and-run-in-brighton",
+      "news-4-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
+      "news-5-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville"
     ],
     "obituaries": [
-      "news-7-cbs-42-mother-of-trussville-mayor-ben-short-dies"
+      "news-6-cbs-42-mother-of-trussville-mayor-ben-short-dies",
+      "news-7-trussville-tribune-kurt-w-kralovec-october-25-1955-october18-2026",
+      "news-8-al-com-beloved-soap-opera-star-dead-at-75",
+      "news-9-trussville-tribune-james-edward-thomas-december-13-1943-october-22-2026",
+      "news-10-cbs-42-alan-dysert-of-all-my-children-fame-dies",
+      "news-11-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
+      "news-12-https-www-wolfefuneralhomes-com-lori-wiggins-koppersmith-obituary-oct-19-2026",
+      "news-13-https-www-wolfefuneralhomes-com-barry-lee-winters-obituary-oct-21-2026"
     ]
   },
   "stories": [
@@ -40,7 +46,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -66,35 +72,73 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1173/986/1x0/90/61d39134-3f2f-4e18-bb4d-16eb9327d228-dea27811e1ef4b4694f881b098ea1d1elarge16x9_fireman.webp"
     },
     {
-      "id": "news-2-al-com-traffic-delays-expected-as-aldot-starts-week-long-i-59-pavin",
+      "id": "news-2-bham-now-3-new-businesses-3-coming-soon-in-birmingham",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "3 new businesses + 3 coming soon in Birmingham",
+      "summary": "🌟 NEW + COMING SOON: From a new English-inspired pub in Pepper Place to a quirky antiques shop coming to Morris Ave, here are three new businesses and three more coming soon that should be on your radar.",
+      "description": "🌟 NEW + COMING SOON: From a new English-inspired pub in Pepper Place to a quirky antiques shop coming to Morris Ave, here are three new businesses and three more coming soon that should be on your radar.",
+      "url": "https://bhamnow.com/2026/10/26/3-new-businesses-3-coming-soon-in-birmingham/#utm_source=rss&utm_medium=rss&utm_campaign=3-new-businesses-3-coming-soon-in-birmingham",
+      "link": "https://bhamnow.com/2026/10/26/3-new-businesses-3-coming-soon-in-birmingham/#utm_source=rss&utm_medium=rss&utm_campaign=3-new-businesses-3-coming-soon-in-birmingham",
+      "published_at": "2026-10-26T17:41:33.000Z",
+      "date": "2026-10-26T17:41:33.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-1200x800.jpg"
+    },
+    {
+      "id": "news-3-wbrc-man-charged-after-deadly-pedestrian-hit-and-run-in-brighton",
       "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
       "tags": [
         "Roads"
       ],
-      "outlet": "AL.com",
-      "paywall": true,
+      "outlet": "WBRC",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/GLNPSZBRWZEWFCX5KJMQR6S2VU.png?auth=ed621f344fca63b6b8712da674884c960d59ef42ba20059564534789394ee914&smart=true&height=1200",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//OOYAXGQLIJE5VIJDSP4LF4VXSU.png?auth=9450430bad5a00ef587cc9ddd4a629974bde8f65731636398141701dcf9f30d1&smart=false",
         "from": "feed",
-        "width": 1294,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "WBRC"
       },
       "obit": null,
       "score": 27,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Traffic delays expected as ALDOT starts week long I-59 paving in Trussville",
-      "summary": "Construction is part of a $70 million I-59 Trussville widening project.",
-      "description": "Construction is part of a $70 million I-59 Trussville widening project.",
-      "url": "https://www.al.com/news/birmingham/2026/10/traffic-delays-expected-as-aldot-starts-week-long-i-59-paving-in-trussville.html",
-      "link": "https://www.al.com/news/birmingham/2026/10/traffic-delays-expected-as-aldot-starts-week-long-i-59-paving-in-trussville.html",
-      "published_at": "2026-10-26T16:12:47.000Z",
-      "date": "2026-10-26T16:12:47.000Z",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Man charged after deadly pedestrian hit-and-run in Brighton",
+      "summary": "A man has been charged with leaving the scene of an accident after a deadly crash involving a pedestrian Monday morning in Jefferson County.",
+      "description": "A man has been charged with leaving the scene of an accident after a deadly crash involving a pedestrian Monday morning in Jefferson County.",
+      "url": "https://www.wbrc.com/2026/10/26/man-charged-after-deadly-pedestrian-hit-and-run-brighton/",
+      "link": "https://www.wbrc.com/2026/10/26/man-charged-after-deadly-pedestrian-hit-and-run-brighton/",
+      "published_at": "2026-10-26T22:10:04.000Z",
+      "date": "2026-10-26T22:10:04.000Z",
       "location_tags": [
-        "regional"
+        "jefferson-county"
       ],
       "topic_tags": [
         "roads"
@@ -105,10 +149,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/GLNPSZBRWZEWFCX5KJMQR6S2VU.png?auth=ed621f344fca63b6b8712da674884c960d59ef42ba20059564534789394ee914&smart=true&height=1200"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//OOYAXGQLIJE5VIJDSP4LF4VXSU.png?auth=9450430bad5a00ef587cc9ddd4a629974bde8f65731636398141701dcf9f30d1&smart=false"
     },
     {
-      "id": "news-3-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
+      "id": "news-4-abc-33-40-update-all-northbound-lanes-reopen-on-i-65-in-jefferson-coun",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -124,7 +168,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -150,33 +194,33 @@
       "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-4-abc-33-40-final-paving-work-begins-monday-on-i-59-in-trussville",
+      "id": "news-5-cbs-42-aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
       "tags": [
         "Roads"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "CBS 42"
       },
       "obit": null,
-      "score": 21,
+      "score": 24,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Final paving work begins Monday on I-59 in Trussville",
-      "summary": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
-      "description": "ALDOT crews will begin laying the final paving surface Monday, Oct. 26, on the I-59 Trussville project.Work is scheduled from 5 a.m. to 4 p.m. daily, Monday thr",
-      "url": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
-      "link": "https://abc3340.com/news/local/final-paving-work-begins-monday-on-i-59-in-trussville",
-      "published_at": "2026-10-23T20:54:21.000Z",
-      "date": "2026-10-23T20:54:21.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "ALDOT crews to lay final paving on I-59 NB in Trussville",
+      "summary": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
+      "description": "Alabama Department of Transportation (ALDOT) crews are expected to begin the final phase of laying paving surface on I-59 Northbound in Trussville on Oct. 26.",
+      "url": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
+      "link": "https://www.alabamas42.com/trussville-tribune/aldot-crews-to-lay-final-paving-on-i-59-nb-in-trussville/",
+      "published_at": "2026-10-25T13:45:32.000Z",
+      "date": "2026-10-25T13:45:32.000Z",
       "location_tags": [
         "regional"
       ],
@@ -189,84 +233,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/48388ba9-2a9e-4e51-8a42-d9cd2e5e7a94-zxcvzxc.jpg"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/090426-I59-WIDENING-PROJECT.png?w=720"
     },
     {
-      "id": "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "PUBLIC MEETING NOTICE OF JEFFERSON COUNTY COMMISSION NOV.2 AND NOV. 11",
-      "summary": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
-      "description": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
-      "published_at": "2026-10-22T21:13:14.000Z",
-      "date": "2026-10-22T21:13:14.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-6-trussville-tribune-living-and-dying-by-affordability",
-      "section": "county",
-      "why": "statewide, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Living and dying by ‘affordability’",
-      "summary": "Commentary by Jeff Poor More than two-thirds of respondents to a recent statewide Cygnal poll said “inflation and cost of living” were their top concern heading into next week’s midterm elections. It was a consistent response across party affiliation, gender, age, college education and race. It was more than double the",
-      "description": "Commentary by Jeff Poor More than two-thirds of respondents to a recent statewide Cygnal poll said “inflation and cost of living” were their top concern heading into next week’s midterm elections. It was a consistent response across party affiliation, gender, age, college education and race. It was more than double the",
-      "url": "https://www.trussvilletribune.com/2026/10/25/living-and-dying-by-affordability/",
-      "link": "https://www.trussvilletribune.com/2026/10/25/living-and-dying-by-affordability/",
-      "published_at": "2026-10-25T20:25:36.000Z",
-      "date": "2026-10-25T20:25:36.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-7-cbs-42-mother-of-trussville-mayor-ben-short-dies",
+      "id": "news-6-cbs-42-mother-of-trussville-mayor-ben-short-dies",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -303,6 +273,314 @@
       ],
       "priority_level": 2,
       "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-7-trussville-tribune-kurt-w-kralovec-october-25-1955-october18-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Kurt W Kralovec (October 25, 1955 — October18, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Kurt W Kralovec (October 25, 1955 — October18, 2026)",
+      "summary": "Kurt Warren Kralovec, 70, of Trussville, Alabama, passed away on October 18, 2026, in Birmingham. He was born on October 25, 1955, in Appleton, Wisconsin, one of ten children of Earl and Marie Kralovec. Kurt was a hard worker through and through, and he took pride in a job done right. He spent many years […]",
+      "description": "Kurt Warren Kralovec, 70, of Trussville, Alabama, passed away on October 18, 2026, in Birmingham. He was born on October 25, 1955, in Appleton, Wisconsin, one of ten children of Earl and Marie Kralovec. Kurt was a hard worker through and through, and he took pride in a job done right. He spent many years […]",
+      "url": "https://www.trussvilletribune.com/2026/10/26/kurt-w-kralovec-october-25-1955-october18-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/26/kurt-w-kralovec-october-25-1955-october18-2026/",
+      "published_at": "2026-10-26T18:32:15.000Z",
+      "date": "2026-10-26T18:32:15.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-8-al-com-beloved-soap-opera-star-dead-at-75",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": null,
+      "obit": {
+        "name": "Beloved soap opera star dead at 75",
+        "age": null,
+        "town": "",
+        "home": "AL.com",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Beloved soap opera star dead at 75",
+      "summary": "“My heart is broken as I share that my beloved husband, Alan, passed away on October 23, 2026,” began a Facebook post penned by his wife.",
+      "description": "“My heart is broken as I share that my beloved husband, Alan, passed away on October 23, 2026,” began a Facebook post penned by his wife.",
+      "url": "https://www.al.com/life/2026/10/beloved-soap-opera-star-dead-at-75.html",
+      "link": "https://www.al.com/life/2026/10/beloved-soap-opera-star-dead-at-75.html",
+      "published_at": "2026-10-26T20:39:58.000Z",
+      "date": "2026-10-26T20:39:58.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-trussville-tribune-james-edward-thomas-december-13-1943-october-22-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "James Edward Thomas (December 13, 1943 — October 22, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "James Edward Thomas (December 13, 1943 — October 22, 2026)",
+      "summary": "James Edward Thomas (Eddie), age 82 of Birmingham, AL, passed away peacefully on October 22, 2026. Mr. Thomas was preceded in death by his parents, Clint and Lois Thomas; brothers, Billy Ray Thomas, Johnny Mack Thomas and Roy T. Smith; and sisters, Robbie Rogers and Frances Burns. He is survived by his wife of 30 […]",
+      "description": "James Edward Thomas (Eddie), age 82 of Birmingham, AL, passed away peacefully on October 22, 2026. Mr. Thomas was preceded in death by his parents, Clint and Lois Thomas; brothers, Billy Ray Thomas, Johnny Mack Thomas and Roy T. Smith; and sisters, Robbie Rogers and Frances Burns. He is survived by his wife of 30 […]",
+      "url": "https://www.trussvilletribune.com/2026/10/26/james-edward-thomas-december-13-1943-october-22-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/26/james-edward-thomas-december-13-1943-october-22-2026/",
+      "published_at": "2026-10-26T18:27:02.000Z",
+      "date": "2026-10-26T18:27:02.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-cbs-42-alan-dysert-of-all-my-children-fame-dies",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Alan Dysert of ‘All My Children’ fame dies",
+        "age": null,
+        "town": "",
+        "home": "CBS 42",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 15,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Alan Dysert of ‘All My Children’ fame dies",
+      "summary": "“My heart is broken as I share that my beloved husband, Alan, passed away on October 23, 2026,\" his wife said.",
+      "description": "“My heart is broken as I share that my beloved husband, Alan, passed away on October 23, 2026,\" his wife said.",
+      "url": "https://www.alabamas42.com/entertainment/alan-dysert-of-all-my-children-fame-dies/",
+      "link": "https://www.alabamas42.com/entertainment/alan-dysert-of-all-my-children-fame-dies/",
+      "published_at": "2026-10-26T21:13:31.000Z",
+      "date": "2026-10-26T21:13:31.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Cheryl Markland Obituary Oct 21, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 6,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Cheryl Markland Obituary Oct 21, 2026",
+      "summary": "Cheryl Markland Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Cheryl Markland Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrd1MxT1FjQmRHb0trSlUybmM4cU40bkdyZ1l4X1pCeUJvdVFPNW5jUXl3LTBVUlZSbGxiT0Vob1Iyc3oxNmFVWmdvUnFMRG5yMVdxRE1fOTJleXNtazdxQkZqODFYcXppMjRVTg?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrd1MxT1FjQmRHb0trSlUybmM4cU40bkdyZ1l4X1pCeUJvdVFPNW5jUXl3LTBVUlZSbGxiT0Vob1Iyc3oxNmFVWmdvUnFMRG5yMVdxRE1fOTJleXNtazdxQkZqODFYcXppMjRVTg?oc=5",
+      "published_at": "2026-10-24T13:04:51.000Z",
+      "date": "2026-10-24T13:04:51.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-https-www-wolfefuneralhomes-com-lori-wiggins-koppersmith-obituary-oct-19-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Lori Wiggins Koppersmith Obituary Oct 19, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 1,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Lori Wiggins Koppersmith Obituary Oct 19, 2026",
+      "summary": "Lori Wiggins Koppersmith Obituary Oct 19, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Lori Wiggins Koppersmith Obituary Oct 19, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vLUpPUG50YTVGbXVEMWRCZm5uMDlkbl9MQUhFZnN3Y1VYaElvY3BfSUJCXzFfMWdKUFpHdGY4MTNLVVViWjExc09PUlJ6S0lzckpCNm56NUlXUHRtQXctR2hUdjRWZFVWZFdxclh3?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5vLUpPUG50YTVGbXVEMWRCZm5uMDlkbl9MQUhFZnN3Y1VYaElvY3BfSUJCXzFfMWdKUFpHdGY4MTNLVVViWjExc09PUlJ6S0lzckpCNm56NUlXUHRtQXctR2hUdjRWZFVWZFdxclh3?oc=5",
+      "published_at": "2026-10-19T07:00:00.000Z",
+      "date": "2026-10-19T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-https-www-wolfefuneralhomes-com-barry-lee-winters-obituary-oct-21-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Barry Lee Winters Obituary Oct 21, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 1,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Barry Lee Winters Obituary Oct 21, 2026",
+      "summary": "Barry Lee Winters Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Barry Lee Winters Obituary Oct 21, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBDaHc5QlItNUsxRDZ2YzFSZ1A3VHFnb1pyd0lNS2VaU0QzQWNxUklZM0RyeFU5ZkZ2RHdLVnBVVl9HTWdVaWdFb2RPTEFXb3NSTTdvV2wzeVU5MDRmd3I4S2NseUpnYTYxcVE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBDaHc5QlItNUsxRDZ2YzFSZ1A3VHFnb1pyd0lNS2VaU0QzQWNxUklZM0RyeFU5ZkZ2RHdLVnBVVl9HTWdVaWdFb2RPTEFXb3NSTTdvV2wzeVU5MDRmd3I4S2NseUpnYTYxcVE?oc=5",
+      "published_at": "2026-10-21T07:00:00.000Z",
+      "date": "2026-10-21T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
