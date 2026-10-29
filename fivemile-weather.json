@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-29T09:48:47.285Z",
-  "temp": 43,
+  "updatedAt": "2026-10-29T11:37:03.788Z",
+  "temp": 42,
   "humidity": 99,
   "windSpeed": 0,
   "windDir": 28,
   "windGust": 0,
-  "pressure": 29.911,
+  "pressure": 29.923,
   "pressureTrend": "steady",
   "uv": 0,
   "solarRadiation": 0,
@@ -14,14 +14,14 @@
   "weeklyRain": 0,
   "monthlyRain": 4.03,
   "yearlyRain": 60.67,
-  "feelsLike": 43,
-  "dewPoint": 43,
-  "lastUpdated": "2026-10-29T09:48:00.000Z",
+  "feelsLike": 42,
+  "dewPoint": 42,
+  "lastUpdated": "2026-10-29T11:36:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 43,
-    "feelsLike": 43,
-    "feels": 43,
+    "temp": 42,
+    "feelsLike": 42,
+    "feels": 42,
     "humidity": 99,
     "windSpeed": 0,
     "windDir": "NNE",
@@ -30,13 +30,13 @@
     "precipRate": 0,
     "dailyRain": 0,
     "precipTotal": 0,
-    "pressure": 29.911,
-    "pressureIn": 29.911,
+    "pressure": 29.923,
+    "pressureIn": 29.923,
     "uv": 0,
     "solarRadiation": 0,
-    "dewPoint": 43,
-    "obsTime": "2026-10-29T09:48:00.000Z",
-    "lastUpdated": "2026-10-29T09:48:00.000Z",
+    "dewPoint": 42,
+    "obsTime": "2026-10-29T11:36:00.000Z",
+    "lastUpdated": "2026-10-29T11:36:00.000Z",
     "condition": "Clear",
     "source": "Ambient Weather",
     "sourceNote": null
@@ -51,7 +51,7 @@
     "sourceNote": null,
     "morningReport": {
       "amount": 0,
-      "lowTemp": 43,
+      "lowTemp": 42,
       "highTemp": 43,
       "windGust": 0,
       "label": "Since midnight",
@@ -62,25 +62,7 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Overnight",
-      "startTime": "2026-10-29T04:00:00-05:00",
-      "endTime": "2026-10-29T06:00:00-05:00",
-      "isDaytime": false,
-      "temperature": 47,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 0
-      },
-      "windSpeed": "5 mph",
-      "windDirection": "NE",
-      "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-      "shortForecast": "Clear"
-    },
-    {
-      "number": 2,
-      "name": "Thursday",
+      "name": "Today",
       "startTime": "2026-10-29T06:00:00-05:00",
       "endTime": "2026-10-29T18:00:00-05:00",
       "isDaytime": true,
@@ -97,8 +79,8 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 3,
-      "name": "Thursday Night",
+      "number": 2,
+      "name": "Tonight",
       "startTime": "2026-10-29T18:00:00-05:00",
       "endTime": "2026-10-30T06:00:00-05:00",
       "isDaytime": false,
@@ -115,7 +97,7 @@
       "shortForecast": "Mostly Clear"
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Friday",
       "startTime": "2026-10-30T06:00:00-05:00",
       "endTime": "2026-10-30T18:00:00-05:00",
@@ -133,7 +115,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 5,
+      "number": 4,
       "name": "Friday Night",
       "startTime": "2026-10-30T18:00:00-05:00",
       "endTime": "2026-10-31T06:00:00-05:00",
@@ -151,7 +133,7 @@
       "shortForecast": "Mostly Cloudy"
     },
     {
-      "number": 6,
+      "number": 5,
       "name": "Saturday",
       "startTime": "2026-10-31T06:00:00-05:00",
       "endTime": "2026-10-31T18:00:00-05:00",
@@ -169,7 +151,7 @@
       "shortForecast": "Cloudy"
     },
     {
-      "number": 7,
+      "number": 6,
       "name": "Saturday Night",
       "startTime": "2026-10-31T18:00:00-05:00",
       "endTime": "2026-11-01T06:00:00-06:00",
@@ -187,7 +169,7 @@
       "shortForecast": "Showers And Thunderstorms Likely"
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Sunday",
       "startTime": "2026-11-01T06:00:00-06:00",
       "endTime": "2026-11-01T18:00:00-06:00",
@@ -205,7 +187,7 @@
       "shortForecast": "Showers And Thunderstorms Likely"
     },
     {
-      "number": 9,
+      "number": 8,
       "name": "Sunday Night",
       "startTime": "2026-11-01T18:00:00-06:00",
       "endTime": "2026-11-02T06:00:00-06:00",
@@ -223,7 +205,7 @@
       "shortForecast": "Slight Chance Rain Showers then Mostly Cloudy"
     },
     {
-      "number": 10,
+      "number": 9,
       "name": "Monday",
       "startTime": "2026-11-02T06:00:00-06:00",
       "endTime": "2026-11-02T18:00:00-06:00",
@@ -241,7 +223,7 @@
       "shortForecast": "Partly Sunny"
     },
     {
-      "number": 11,
+      "number": 10,
       "name": "Monday Night",
       "startTime": "2026-11-02T18:00:00-06:00",
       "endTime": "2026-11-03T06:00:00-06:00",
@@ -259,7 +241,7 @@
       "shortForecast": "Partly Cloudy"
     },
     {
-      "number": 12,
+      "number": 11,
       "name": "Tuesday",
       "startTime": "2026-11-03T06:00:00-06:00",
       "endTime": "2026-11-03T18:00:00-06:00",
@@ -277,7 +259,7 @@
       "shortForecast": "Partly Sunny then Chance Rain Showers"
     },
     {
-      "number": 13,
+      "number": 12,
       "name": "Tuesday Night",
       "startTime": "2026-11-03T18:00:00-06:00",
       "endTime": "2026-11-04T06:00:00-06:00",
@@ -295,7 +277,7 @@
       "shortForecast": "Chance Rain Showers"
     },
     {
-      "number": 14,
+      "number": 13,
       "name": "Wednesday",
       "startTime": "2026-11-04T06:00:00-06:00",
       "endTime": "2026-11-04T18:00:00-06:00",
@@ -310,6 +292,24 @@
       "windSpeed": "10 to 15 mph",
       "windDirection": "SE",
       "icon": "https://api.weather.gov/icons/land/day/rain_showers,50?size=medium",
+      "shortForecast": "Chance Rain Showers"
+    },
+    {
+      "number": 14,
+      "name": "Wednesday Night",
+      "startTime": "2026-11-04T18:00:00-06:00",
+      "endTime": "2026-11-05T06:00:00-06:00",
+      "isDaytime": false,
+      "temperature": 52,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 35
+      },
+      "windSpeed": "5 to 10 mph",
+      "windDirection": "SE",
+      "icon": "https://api.weather.gov/icons/land/night/rain_showers,40/rain_showers,30?size=medium",
       "shortForecast": "Chance Rain Showers"
     }
   ],
@@ -353,13 +353,13 @@
     {
       "date": "2026-11-04",
       "hi": 74,
-      "lo": null,
+      "lo": 52,
       "shortForecast": "Chance Rain Showers"
     }
   ],
   "dailySummary": {
-    "yesterdayHigh": 77,
-    "yesterdayLow": 50,
+    "yesterdayHigh": 79,
+    "yesterdayLow": 45,
     "yesterdayRain": 0,
     "todayHigh": null,
     "todayLow": null,
