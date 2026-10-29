@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T16:31:03.188Z",
+  "updatedAt": "2026-10-29T21:24:04.711Z",
   "leadGaugeId": "02457595",
   "oxygenRecord": {
     "parameter": "Dissolved oxygen, daily minimum",
@@ -13,7 +13,7 @@
     "first": "2026-07-31",
     "last": "2026-10-28"
   },
-  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.17 ft with about 18.0 cfs moving through the channel. Month-to-date rain is 3.29 inches.",
+  "summary": "It is dry across the area today, and Five Mile Creek at Republic is holding fairly steady. Lead stage is 1.14 ft with about 16.1 cfs moving through the channel. Month-to-date rain is 3.29 inches.",
   "rainContext": {
     "today": 0,
     "monthToDate": 3.29,
@@ -46,19 +46,15 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 1.17,
-      "discharge_cfs": 18,
-      "water_temp_f": 57.2,
-      "dissolved_oxygen_mgl": 10,
-      "specific_conductance_uscm": 599,
+      "stage_ft": 1.14,
+      "discharge_cfs": 16.1,
+      "water_temp_f": 63.3,
+      "dissolved_oxygen_mgl": 11.3,
+      "specific_conductance_uscm": 600,
       "trend": "steady",
-      "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-29T16:00:00+00:00",
+      "rise_rate_ft_per_hr": -0.013,
+      "updated_at": "2026-10-29T21:00:00+00:00",
       "stage_history": [
-        {
-          "at": "2026-09-29T17:45:00+00:00",
-          "stage_ft": 1.13
-        },
         {
           "at": "2026-09-29T23:45:00+00:00",
           "stage_ft": 1.08
@@ -532,8 +528,12 @@
           "stage_ft": 1.12
         },
         {
-          "at": "2026-10-29T16:00:00+00:00",
+          "at": "2026-10-29T15:30:00+00:00",
           "stage_ft": 1.17
+        },
+        {
+          "at": "2026-10-29T21:00:00+00:00",
+          "stage_ft": 1.14
         }
       ],
       "note": "This reach looks fairly steady right now."
@@ -551,14 +551,14 @@
       ],
       "source_name": "USGS",
       "source_type": "watershed_gauge",
-      "stage_ft": 2.43,
-      "discharge_cfs": 83,
+      "stage_ft": 2.42,
+      "discharge_cfs": 80.7,
       "water_temp_f": null,
       "dissolved_oxygen_mgl": null,
       "specific_conductance_uscm": null,
       "trend": "steady",
       "rise_rate_ft_per_hr": 0,
-      "updated_at": "2026-10-29T16:00:00+00:00",
+      "updated_at": "2026-10-29T21:00:00+00:00",
       "stage_history": [],
       "note": "This reach looks fairly steady right now."
     }
