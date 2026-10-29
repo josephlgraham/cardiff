@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-29T02:23:36.943Z",
+  "updatedAt": "2026-10-29T17:24:32.394Z",
   "counts": {
     "nearby": 5,
-    "county": 6,
-    "obituaries": 3
+    "county": 7,
+    "obituaries": 8
   },
   "sections": {
     "towns": [],
@@ -17,16 +17,22 @@
     "creek": [],
     "county": [
       "news-5-birminghamwatch-birmingham-council-invests-75k-in-community-driven-career-se",
-      "news-7-wbrc-aldot-construction-to-begin-on-east-alabama-road-lane-closur",
-      "news-8-jefferson-county-2027-free-household-drop-off-recycling-events",
-      "news-9-wbrc-jefferson-county-making-final-preps-for-midterm-elections-ne",
+      "news-7-wbrc-aldot-giving-pedestrian-safety-tips-ahead-of-halloween-magic",
+      "news-8-wbrc-aldot-construction-to-begin-on-east-alabama-road-lane-closur",
+      "news-9-jefferson-county-2027-free-household-drop-off-recycling-events",
       "news-10-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t",
-      "news-11-abc-33-40-birmingham-man-dies-after-saturday-night-motorcycle-crash"
+      "news-11-trussville-tribune-clay-council-approves-annexation-of-property-for-housing-dev",
+      "news-13-abc-33-40-birmingham-man-dies-after-saturday-night-motorcycle-crash"
     ],
     "obituaries": [
-      "news-12-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026",
-      "news-13-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
-      "news-14-https-www-wolfefuneralhomes-com-brandi-l-fulford-obituary-oct-18-2026"
+      "news-12-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
+      "news-14-trussville-tribune-bonita-howington-hall-august-15-1950-october-26-2026",
+      "news-15-trussville-tribune-terry-lee-ballew-january-6-1952-october-22-2026",
+      "news-16-trussville-tribune-nancy-vee-smith-october-13-1944-october-24-2026",
+      "news-17-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026",
+      "news-18-https-www-wolfefuneralhomes-com-lee-robinson-gwynn-obituary-oct-25-2026",
+      "news-19-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
+      "news-20-https-www-wolfefuneralhomes-com-brandi-l-fulford-obituary-oct-18-2026"
     ]
   },
   "stories": [
@@ -47,7 +53,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -89,7 +95,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -129,7 +135,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -167,7 +173,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -182,8 +188,8 @@
         "forestdale"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -207,7 +213,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -224,8 +230,8 @@
       "topic_tags": [
         "trains"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -247,7 +253,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -262,8 +268,8 @@
         "morris"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -271,7 +277,49 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/10/nostalgiconmorris-34-1200x800.jpg"
     },
     {
-      "id": "news-7-wbrc-aldot-construction-to-begin-on-east-alabama-road-lane-closur",
+      "id": "news-7-wbrc-aldot-giving-pedestrian-safety-tips-ahead-of-halloween-magic",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//QA4VPASV25FSTLNZQWMXJZF3YY.jpg?auth=e1341e1f18cad44c3e88c6b1a4defe797c873354a0578b6ec3cb0fe03bd5bb43&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "ALDOT giving pedestrian safety tips ahead of Halloween, Magic City Classic this weekend",
+      "summary": "The Alabama Department of Transportation (ALDOT) said it is important for families to be aware of their surroundings this weekend.",
+      "description": "The Alabama Department of Transportation (ALDOT) said it is important for families to be aware of their surroundings this weekend.",
+      "url": "https://www.wbrc.com/2026/10/29/aldot-giving-pedestrian-safety-tips-ahead-halloween-magic-city-classic-this-weekend/",
+      "link": "https://www.wbrc.com/2026/10/29/aldot-giving-pedestrian-safety-tips-ahead-halloween-magic-city-classic-this-weekend/",
+      "published_at": "2026-10-29T03:54:55.000Z",
+      "date": "2026-10-29T03:54:55.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//QA4VPASV25FSTLNZQWMXJZF3YY.jpg?auth=e1341e1f18cad44c3e88c6b1a4defe797c873354a0578b6ec3cb0fe03bd5bb43&smart=false"
+    },
+    {
+      "id": "news-8-wbrc-aldot-construction-to-begin-on-east-alabama-road-lane-closur",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -287,7 +335,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -313,7 +361,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//EP3AOCOC4JCDNOTWGQGOTMEA5E.png?auth=678a130e738c398fcb0d525a97961f74abcf012d9f32d12b9105e057bf5e020e&smart=false"
     },
     {
-      "id": "news-8-jefferson-county-2027-free-household-drop-off-recycling-events",
+      "id": "news-9-jefferson-county-2027-free-household-drop-off-recycling-events",
       "section": "county",
       "why": "jefferson county, utilities",
       "town": "Jefferson County",
@@ -324,7 +372,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -350,48 +398,6 @@
       "image_url": ""
     },
     {
-      "id": "news-9-wbrc-jefferson-county-making-final-preps-for-midterm-elections-ne",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FFBL44EQRRHV5J27ECKKLOK34Y.png?auth=f007ff9d596b150eaf501912080634e03b18ebb9449fb1bc8d2b4662501ae639&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Jefferson County making final preps for midterm elections next week",
-      "summary": "Jefferson County officials have been preparing for Election Day for weeks, with the midterms one week away. The county’s Board of Registrars said as many as 200,000 voters could go to the polls.",
-      "description": "Jefferson County officials have been preparing for Election Day for weeks, with the midterms one week away. The county’s Board of Registrars said as many as 200,000 voters could go to the polls.",
-      "url": "https://www.wbrc.com/2026/10/28/jefferson-county-making-final-preps-midterm-elections-next-week/",
-      "link": "https://www.wbrc.com/2026/10/28/jefferson-county-making-final-preps-midterm-elections-next-week/",
-      "published_at": "2026-10-28T04:18:24.000Z",
-      "date": "2026-10-28T04:18:24.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FFBL44EQRRHV5J27ECKKLOK34Y.png?auth=f007ff9d596b150eaf501912080634e03b18ebb9449fb1bc8d2b4662501ae639&smart=false"
-    },
-    {
       "id": "news-10-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t",
       "section": "county",
       "why": "aldot, roads",
@@ -408,7 +414,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -434,7 +440,95 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/725/986/15x0/90/53a85dad-8358-4dbb-8a8c-e9ed5759bc17-Screenshot20261028175843.png"
     },
     {
-      "id": "news-11-abc-33-40-birmingham-man-dies-after-saturday-night-motorcycle-crash",
+      "id": "news-11-trussville-tribune-clay-council-approves-annexation-of-property-for-housing-dev",
+      "section": "county",
+      "why": "jefferson county, land",
+      "town": "Jefferson County",
+      "tags": [
+        "Land",
+        "Government"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2015/06/4-2-15-Clay-City-Hall-sign-300x225.jpg",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Clay Council approves annexation of property for housing development",
+      "summary": "CLAY, Ala. — At a meeting on Tuesday night the Clay City Council approved a request from the owner of a property near the intersection of Trussville-Clay Road and Old Springville Road to be annexed from Jefferson County. The owner, Charles Poe, spoke and said that he wanted to have the property annexed to allow for […]",
+      "description": "CLAY, Ala. — At a meeting on Tuesday night the Clay City Council approved a request from the owner of a property near the intersection of Trussville-Clay Road and Old Springville Road to be annexed from Jefferson County. The owner, Charles Poe, spoke and said that he wanted to have the property annexed to allow for […]",
+      "url": "https://www.trussvilletribune.com/2026/10/28/clay-council-approves-annexation-of-property-for-housing-development/",
+      "link": "https://www.trussvilletribune.com/2026/10/28/clay-council-approves-annexation-of-property-for-housing-development/",
+      "published_at": "2026-10-29T02:43:47.000Z",
+      "date": "2026-10-29T02:43:47.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "land",
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2015/06/4-2-15-Clay-City-Hall-sign-300x225.jpg"
+    },
+    {
+      "id": "news-12-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Prattville police corporal killed in Autauga County motorcycle crash",
+        "age": null,
+        "town": "",
+        "home": "ABC 33/40",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 23,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Prattville police corporal killed in Autauga County motorcycle crash",
+      "summary": "Prattville police corporal Dakota Davis, 25, was killed in a motorcycle crash Monday on U.S. 31 in Autauga County. Funeral services are Saturday.",
+      "description": "Prattville police corporal Dakota Davis, 25, was killed in a motorcycle crash Monday on U.S. 31 in Autauga County. Funeral services are Saturday.",
+      "url": "https://abc3340.com/news/local/prattville-police-corporal-killed-in-autauga-county-motorcycle-crash",
+      "link": "https://abc3340.com/news/local/prattville-police-corporal-killed-in-autauga-county-motorcycle-crash",
+      "published_at": "2026-10-29T15:45:24.000Z",
+      "date": "2026-10-29T15:45:24.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-abc-33-40-birmingham-man-dies-after-saturday-night-motorcycle-crash",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -450,7 +544,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -476,7 +570,139 @@
       "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-12-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026",
+      "id": "news-14-trussville-tribune-bonita-howington-hall-august-15-1950-october-26-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Bonita Howington Hall (August 15, 1950 — October 26, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Bonita Howington Hall (August 15, 1950 — October 26, 2026)",
+      "summary": "A Celebration of Life for Mrs. Bonita Howington Hall, age 76 of Springville, will be held on Thursday, October 29, 2026 at 6:00 p.m. at Central Baptist Church with Pastor Paul Brasher officiating. Bonita passed away on Monday, October 26, 2026 at her home. Born in Birmingham, Alabama, she worked for the American Cancer",
+      "description": "A Celebration of Life for Mrs. Bonita Howington Hall, age 76 of Springville, will be held on Thursday, October 29, 2026 at 6:00 p.m. at Central Baptist Church with Pastor Paul Brasher officiating. Bonita passed away on Monday, October 26, 2026 at her home. Born in Birmingham, Alabama, she worked for the American Cancer",
+      "url": "https://www.trussvilletribune.com/2026/10/29/bonita-howington-hall-august-15-1950-october-26-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/29/bonita-howington-hall-august-15-1950-october-26-2026/",
+      "published_at": "2026-10-29T16:42:50.000Z",
+      "date": "2026-10-29T16:42:50.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-15-trussville-tribune-terry-lee-ballew-january-6-1952-october-22-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Terry Lee Ballew (January 6, 1952 — October 22, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Terry Lee Ballew (January 6, 1952 — October 22, 2026)",
+      "summary": "Terry Lee Ballew, devoted and beloved husband, father, grandfather, brother, uncle, and friend, passed away on October 22, 2026, at the age of 74. Born on January 6, 1952, to Billie and Athel Ballew, in Birmingham, AL, Terry lived a life defined by faith, family, friendship, hard work, and a deep love of the outdoors. ",
+      "description": "Terry Lee Ballew, devoted and beloved husband, father, grandfather, brother, uncle, and friend, passed away on October 22, 2026, at the age of 74. Born on January 6, 1952, to Billie and Athel Ballew, in Birmingham, AL, Terry lived a life defined by faith, family, friendship, hard work, and a deep love of the outdoors. ",
+      "url": "https://www.trussvilletribune.com/2026/10/29/terry-lee-ballew-january-6-1952-october-22-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/29/terry-lee-ballew-january-6-1952-october-22-2026/",
+      "published_at": "2026-10-29T16:36:39.000Z",
+      "date": "2026-10-29T16:36:39.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-16-trussville-tribune-nancy-vee-smith-october-13-1944-october-24-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Nancy Vee Smith (October 13, 1944 — October 24, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Nancy Vee Smith (October 13, 1944 — October 24, 2026)",
+      "summary": "Ms. Nancy Vee Smith, MPH. (née MacVeigh), age 82, of Trussville, Alabama, passed away peacefully on October 24, 2026. Born on October 13, 1944, in Connecticut, she was the daughter of Albert Frederick MacVeigh and Anna Katherine (Smith) MacVeigh. Nancy graduated from West Haven High School in Connecticut in 1962 and ea",
+      "description": "Ms. Nancy Vee Smith, MPH. (née MacVeigh), age 82, of Trussville, Alabama, passed away peacefully on October 24, 2026. Born on October 13, 1944, in Connecticut, she was the daughter of Albert Frederick MacVeigh and Anna Katherine (Smith) MacVeigh. Nancy graduated from West Haven High School in Connecticut in 1962 and ea",
+      "url": "https://www.trussvilletribune.com/2026/10/29/nancy-vee-smith-october-13-1944-october-24-2026/",
+      "link": "https://www.trussvilletribune.com/2026/10/29/nancy-vee-smith-october-13-1944-october-24-2026/",
+      "published_at": "2026-10-29T16:52:56.000Z",
+      "date": "2026-10-29T16:52:56.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-17-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -494,7 +720,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 4,
+      "score": 3,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -511,8 +737,8 @@
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -520,7 +746,51 @@
       "image_url": ""
     },
     {
-      "id": "news-13-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
+      "id": "news-18-https-www-wolfefuneralhomes-com-lee-robinson-gwynn-obituary-oct-25-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Lee Robinson Gwynn Obituary Oct 25, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 3,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Lee Robinson Gwynn Obituary Oct 25, 2026",
+      "summary": "Lee Robinson Gwynn Obituary Oct 25, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Lee Robinson Gwynn Obituary Oct 25, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NWTdjUzlYbWVCWFJyUUFLRmtGMW1FcVd5N3JncVVaSFFWZWNjZzROeVN5azV1X25UamZMMzdVNzNsdm5JR2xOckVscktqVzdOLWs4Tl9qbUNtMmpEOXRsemNub1g?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NWTdjUzlYbWVCWFJyUUFLRmtGMW1FcVd5N3JncVVaSFFWZWNjZzROeVN5azV1X25UamZMMzdVNzNsdm5JR2xOckVscktqVzdOLWs4Tl9qbUNtMmpEOXRsemNub1g?oc=5",
+      "published_at": "2026-10-25T07:00:00.000Z",
+      "date": "2026-10-25T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-19-https-www-wolfefuneralhomes-com-cheryl-markland-obituary-oct-21-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -538,7 +808,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -564,7 +834,7 @@
       "image_url": ""
     },
     {
-      "id": "news-14-https-www-wolfefuneralhomes-com-brandi-l-fulford-obituary-oct-18-2026",
+      "id": "news-20-https-www-wolfefuneralhomes-com-brandi-l-fulford-obituary-oct-18-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
