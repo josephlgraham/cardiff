@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T09:57:02.249Z",
+  "updatedAt": "2026-10-30T21:36:56.024Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,17 +12,34 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 23,
+    "shown": 24,
     "window_days": 365,
-    "in_window": 23,
-    "species_in_window": 21,
-    "window_total": 24,
-    "species_recorded": 33,
-    "observations_recorded": 39,
-    "area_total": 252,
+    "in_window": 24,
+    "species_in_window": 22,
+    "window_total": 25,
+    "species_recorded": 34,
+    "observations_recorded": 40,
+    "area_total": 253,
     "guide_links": 4
   },
   "observations": [
+    {
+      "id": 411808509,
+      "taxon": 119994,
+      "name": "Eastern Yellowjacket",
+      "latin": "Vespula maculifrons",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-10-30",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Diplopoda",
+      "observerLogin": "diplopoda",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/411808509",
+      "firstRecord": true
+    },
     {
       "id": 402852170,
       "taxon": 67707,
@@ -535,6 +552,21 @@
       "count": 1,
       "ids": [
         358134165
+      ]
+    },
+    {
+      "taxon": 119994,
+      "name": "Eastern Yellowjacket",
+      "latin": "Vespula maculifrons",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-10-30",
+      "last": "2026-10-30",
+      "latest": 411808509,
+      "guide": null,
+      "count": 1,
+      "ids": [
+        411808509
       ]
     },
     {
