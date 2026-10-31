@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T21:36:56.024Z",
+  "updatedAt": "2026-10-31T10:59:25.779Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,14 +12,14 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 24,
+    "shown": 25,
     "window_days": 365,
-    "in_window": 24,
-    "species_in_window": 22,
-    "window_total": 25,
-    "species_recorded": 34,
-    "observations_recorded": 40,
-    "area_total": 253,
+    "in_window": 25,
+    "species_in_window": 23,
+    "window_total": 26,
+    "species_recorded": 35,
+    "observations_recorded": 41,
+    "area_total": 254,
     "guide_links": 4
   },
   "observations": [
@@ -38,7 +38,7 @@
       "observerLogin": "diplopoda",
       "guide": null,
       "url": "https://www.inaturalist.org/observations/411808509",
-      "firstRecord": true
+      "firstRecord": false
     },
     {
       "id": 402852170,
@@ -296,6 +296,23 @@
       "firstRecord": false
     },
     {
+      "id": 367215181,
+      "taxon": 129272,
+      "name": "Chestnut Carpenter Ant",
+      "latin": "Camponotus castaneus",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-05-31",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "krasik",
+      "observerLogin": "krasik",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/367215181",
+      "firstRecord": true
+    },
+    {
       "id": 381728858,
       "taxon": 60839,
       "name": "Virginian Tiger Moth",
@@ -507,6 +524,21 @@
       "count": 1,
       "ids": [
         319882496
+      ]
+    },
+    {
+      "taxon": 129272,
+      "name": "Chestnut Carpenter Ant",
+      "latin": "Camponotus castaneus",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-05-31",
+      "last": "2026-05-31",
+      "latest": 367215181,
+      "guide": null,
+      "count": 1,
+      "ids": [
+        367215181
       ]
     },
     {
