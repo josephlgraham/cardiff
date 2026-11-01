@@ -1,30 +1,27 @@
 {
-  "updatedAt": "2026-11-01T02:09:35.473Z",
+  "updatedAt": "2026-11-01T17:05:56.403Z",
   "counts": {
-    "nearby": 4,
-    "county": 4,
-    "obituaries": 4
+    "nearby": 3,
+    "county": 3,
+    "obituaries": 3
   },
   "sections": {
     "towns": [],
     "nearby": [
       "news-1-wbrc-temperature-issues-ice-machine-residue-found-in-jefferson-co",
       "news-2-cbs-42-2-5m-grant-to-reclaim-mine-land-for-alabama-farm-center-at-h",
-      "news-3-trussville-tribune-one-person-shot-at-riverchase-galleria-in-hoover",
-      "news-4-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating"
+      "news-3-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating"
     ],
     "creek": [],
     "county": [
-      "news-5-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-",
-      "news-6-birminghamwatch-birmingham-council-invests-75k-in-community-driven-career-se",
-      "news-7-jefferson-county-2027-free-household-drop-off-recycling-events",
-      "news-8-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t"
+      "news-4-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-",
+      "news-5-jefferson-county-2027-free-household-drop-off-recycling-events",
+      "news-6-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t"
     ],
     "obituaries": [
-      "news-9-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
-      "news-10-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
-      "news-11-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r",
-      "news-12-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026"
+      "news-7-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
+      "news-8-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
+      "news-9-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r"
     ]
   },
   "stories": [
@@ -43,7 +40,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -81,7 +78,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -96,8 +93,8 @@
         "warrior"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -105,49 +102,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Hallmark-Farms-4-e1793209135269.jpg?w=900"
     },
     {
-      "id": "news-3-trussville-tribune-one-person-shot-at-riverchase-galleria-in-hoover",
-      "section": "nearby",
-      "why": "names morris",
-      "town": "Morris",
-      "tags": [
-        "Public safety"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2018/12/riverchase-galleria-1024x683.jpg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "One person shot at Riverchase Galleria in Hoover",
-      "summary": "From Tribune staff reports HOOVER — One person has been shot at the Riverchase Galleria near the food court, according to Hoover Police Chief Clay Morris. “One person was shot in the arm and transported to the hospital with non-life threatening injuries,” Morris said. The shooting occurred just before noon on Friday du",
-      "description": "From Tribune staff reports HOOVER — One person has been shot at the Riverchase Galleria near the food court, according to Hoover Police Chief Clay Morris. “One person was shot in the arm and transported to the hospital with non-life threatening injuries,” Morris said. The shooting occurred just before noon on Friday du",
-      "url": "https://www.trussvilletribune.com/2026/10/30/one-person-shot-at-riverchase-galleria-in-hoover/",
-      "link": "https://www.trussvilletribune.com/2026/10/30/one-person-shot-at-riverchase-galleria-in-hoover/",
-      "published_at": "2026-10-30T19:33:27.000Z",
-      "date": "2026-10-30T19:33:27.000Z",
-      "location_tags": [
-        "morris"
-      ],
-      "topic_tags": [
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2018/12/riverchase-galleria-1024x683.jpg"
-    },
-    {
-      "id": "news-4-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating",
+      "id": "news-3-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -161,7 +116,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -185,7 +140,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/1fa2ca13-2672-40f0-8fca-35b5c6541f07-PIC000.jpg"
     },
     {
-      "id": "news-5-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-",
+      "id": "news-4-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -201,7 +156,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -227,49 +182,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/542/986/0x121/90/5ccaedab-2fc1-4d20-a927-75832f45a35e-Screenshot20261030163051.png"
     },
     {
-      "id": "news-6-birminghamwatch-birmingham-council-invests-75k-in-community-driven-career-se",
-      "section": "county",
-      "why": "birmingham, trains",
-      "town": "Birmingham",
-      "tags": [
-        "Trains"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/10/Birmingham-Corps-website.png",
-        "from": "feed",
-        "width": 1492,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "Birmingham Council invests $75k in community-driven career services",
-      "summary": "The city intends to donate money to support Birmingham Corps’ efforts to train candidates to move into or improve their performance in their chosen fields. The post Birmingham Council invests $75k in community-driven career services appeared first on BirminghamWatch .",
-      "description": "The city intends to donate money to support Birmingham Corps’ efforts to train candidates to move into or improve their performance in their chosen fields. The post Birmingham Council invests $75k in community-driven career services appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/10/28/birmingham-council-invests-75k-in-community-driven-career-services/",
-      "link": "https://birminghamwatch.org/2026/10/28/birmingham-council-invests-75k-in-community-driven-career-services/",
-      "published_at": "2026-10-28T07:59:00.000Z",
-      "date": "2026-10-28T07:59:00.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "trains"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/10/Birmingham-Corps-website.png"
-    },
-    {
-      "id": "news-7-jefferson-county-2027-free-household-drop-off-recycling-events",
+      "id": "news-5-jefferson-county-2027-free-household-drop-off-recycling-events",
       "section": "county",
       "why": "jefferson county, utilities",
       "town": "Jefferson County",
@@ -280,7 +193,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -306,7 +219,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t",
+      "id": "news-6-abc-33-40-aldot-urges-caution-for-pedestrians-ahead-of-halloween-and-t",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -322,7 +235,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -348,7 +261,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/725/986/15x0/90/53a85dad-8358-4dbb-8a8c-e9ed5759bc17-Screenshot20261028175843.png"
     },
     {
-      "id": "news-9-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
+      "id": "news-7-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -366,7 +279,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 19,
+      "score": 18,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -392,7 +305,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
+      "id": "news-8-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -410,7 +323,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 12,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -436,7 +349,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r",
+      "id": "news-9-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -454,7 +367,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 12,
+      "score": 11,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -471,52 +384,8 @@
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-https-www-wolfefuneralhomes-com-harvey-leon-ikner-obituary-oct-25-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Harvey Leon Ikner Obituary Oct 25, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 1,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Harvey Leon Ikner Obituary Oct 25, 2026",
-      "summary": "Harvey Leon Ikner Obituary Oct 25, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Harvey Leon Ikner Obituary Oct 25, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1oSlBjNWZQa3ZnNFpKdmhrM0V2RWgtelZYLXBQNXFLWWRQdjY1Z2ZtbThOYWhXTUJ0WlJNZzBjZlZNVEdfN2NRa0t6U2E3TW16VGpyRURvN0lFRlpDZWhoU0U4a2EzX2Z4?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1oSlBjNWZQa3ZnNFpKdmhrM0V2RWgtelZYLXBQNXFLWWRQdjY1Z2ZtbThOYWhXTUJ0WlJNZzBjZlZNVEdfN2NRa0t6U2E3TW16VGpyRURvN0lFRlpDZWhoU0U4a2EzX2Z4?oc=5",
-      "published_at": "2026-10-25T07:00:00.000Z",
-      "date": "2026-10-25T07:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
+      "priority_level": 1,
+      "priority": 1,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
