@@ -1,26 +1,25 @@
 {
-  "updatedAt": "2026-11-02T02:27:07.084Z",
+  "updatedAt": "2026-11-02T20:44:33.473Z",
   "counts": {
-    "nearby": 4,
-    "county": 1,
-    "obituaries": 3
+    "nearby": 1,
+    "county": 4,
+    "obituaries": 2
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-trussville-tribune-restaurant-scores-in-jefferson-county-10-20-26-10-29-26",
-      "news-2-wbrc-temperature-issues-ice-machine-residue-found-in-jefferson-co",
-      "news-3-cbs-42-2-5m-grant-to-reclaim-mine-land-for-alabama-farm-center-at-h",
-      "news-4-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating"
+      "news-1-trussville-tribune-restaurant-scores-in-jefferson-county-10-20-26-10-29-26"
     ],
     "creek": [],
     "county": [
+      "news-2-wbrc-birmingham-woman-61-killed-in-crash-sunday-morning",
+      "news-3-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "news-4-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
       "news-5-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-"
     ],
     "obituaries": [
-      "news-6-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
-      "news-7-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
-      "news-8-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r"
+      "news-6-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
+      "news-7-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r"
     ]
   },
   "stories": [
@@ -41,7 +40,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -67,53 +66,96 @@
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2018/12/Food-Thermo.jpg"
     },
     {
-      "id": "news-2-wbrc-temperature-issues-ice-machine-residue-found-in-jefferson-co",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [],
+      "id": "news-2-wbrc-birmingham-woman-61-killed-in-crash-sunday-morning",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
       "outlet": "WBRC",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//B6MU6SIOXZFLNNLG6MMOFGSNQE.jpg?auth=099425ae2ef5a7ea31d082b2debe6cb617720133d1968fa6ef12856397ed37b2&smart=false",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FRUPAZBT5NGXZMKVEKZES7O4FI.jpeg?auth=8a67cdbd236d66103b745d26c9971558b13aeecaff9d88d022524014269ce496&smart=false",
         "from": "feed",
         "width": null,
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 31,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Temperature issues, ice machine residue found in Jefferson County inspections",
-      "summary": "A total of three food establishments scored below 85 during Jefferson County Department of Health inspections between Oct. 15 and Oct. 22, 2026. The lowest scorer of the week, Fieldstown Shell in Gardendale, has already been reinspected and now has a passing score.",
-      "description": "A total of three food establishments scored below 85 during Jefferson County Department of Health inspections between Oct. 15 and Oct. 22, 2026. The lowest scorer of the week, Fieldstown Shell in Gardendale, has already been reinspected and now has a passing score.",
-      "url": "https://www.wbrc.com/2026/10/30/temperature-issues-ice-machine-residue-found-jefferson-county-inspections/",
-      "link": "https://www.wbrc.com/2026/10/30/temperature-issues-ice-machine-residue-found-jefferson-county-inspections/",
-      "published_at": "2026-10-30T23:07:24.000Z",
-      "date": "2026-10-30T23:07:24.000Z",
+      "title": "Birmingham woman, 61, killed in crash Sunday morning",
+      "summary": "The crash happened at 5:01 a.m.",
+      "description": "The crash happened at 5:01 a.m.",
+      "url": "https://www.wbrc.com/2026/11/02/birmingham-woman-61-killed-crash-sunday-morning/",
+      "link": "https://www.wbrc.com/2026/11/02/birmingham-woman-61-killed-crash-sunday-morning/",
+      "published_at": "2026-11-02T14:58:34.000Z",
+      "date": "2026-11-02T14:58:34.000Z",
       "location_tags": [
-        "gardendale"
+        "birmingham"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//B6MU6SIOXZFLNNLG6MMOFGSNQE.jpg?auth=099425ae2ef5a7ea31d082b2debe6cb617720133d1968fa6ef12856397ed37b2&smart=false"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FRUPAZBT5NGXZMKVEKZES7O4FI.jpeg?auth=8a67cdbd236d66103b745d26c9971558b13aeecaff9d88d022524014269ce496&smart=false"
     },
     {
-      "id": "news-3-cbs-42-2-5m-grant-to-reclaim-mine-land-for-alabama-farm-center-at-h",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
+      "id": "news-3-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "PUBLIC MEETING NOTICE OF JEFFERSON COUNTY COMMISSION NOV.2 AND NOV. 11",
+      "summary": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
+      "description": "This is a notice regarding the last meeting of the sitting Jefferson County Commission, and when the first meeting of the new Commission will be held following the Nov. 3 election.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=170",
+      "published_at": "2026-11-02T19:53:00.000Z",
+      "date": "2026-11-02T19:53:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-4-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
       "outlet": "CBS 42",
       "paywall": false,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Hallmark-Farms-4-e1793209135269.jpg?w=900",
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/05/GettyImages-1801085827_806133_5d9e84.jpg?w=724",
         "from": "feed",
         "width": null,
         "credit": "CBS 42"
@@ -123,62 +165,26 @@
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
-      "title": "$2.5M grant to reclaim mine land for Alabama Farm Center at Hallmark Farm in Warrior",
-      "summary": "Alabama Department of Workforce Secretary Greg Reed announced Wednesday that the agency has awarded a $2.5 million 2025 Abandoned Mine Land Economic Revitalization grant to support the Alabama Farm Center on historically mined land in Warrior.",
-      "description": "Alabama Department of Workforce Secretary Greg Reed announced Wednesday that the agency has awarded a $2.5 million 2025 Abandoned Mine Land Economic Revitalization grant to support the Alabama Farm Center on historically mined land in Warrior.",
-      "url": "https://www.alabamas42.com/trussville-tribune/2-5m-grant-to-reclaim-mine-land-for-alabama-farm-center-at-hallmark-farm-in-warrior/",
-      "link": "https://www.alabamas42.com/trussville-tribune/2-5m-grant-to-reclaim-mine-land-for-alabama-farm-center-at-hallmark-farm-in-warrior/",
-      "published_at": "2026-10-28T17:53:41.000Z",
-      "date": "2026-10-28T17:53:41.000Z",
+      "title": "Birmingham man killed in crash involving electric scooter",
+      "summary": "A Birmingham man was killed in a crash involving an electric scooter early Saturday morning, according to the Jefferson County Coroner's Office.",
+      "description": "A Birmingham man was killed in a crash involving an electric scooter early Saturday morning, according to the Jefferson County Coroner's Office.",
+      "url": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-crash-involving-electric-scooter/",
+      "link": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-crash-involving-electric-scooter/",
+      "published_at": "2026-11-02T14:30:15.000Z",
+      "date": "2026-11-02T14:30:15.000Z",
       "location_tags": [
-        "warrior"
+        "jefferson-county"
       ],
-      "topic_tags": [],
+      "topic_tags": [
+        "roads"
+      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Hallmark-Farms-4-e1793209135269.jpg?w=900"
-    },
-    {
-      "id": "news-4-abc-33-40-fultondale-earns-iso-class-2-fire-protection-rating",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/1fa2ca13-2672-40f0-8fca-35b5c6541f07-PIC000.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Fultondale earns ISO Class 2 fire protection rating",
-      "summary": "Fultondale’s ISO Class 2 rating takes effect Nov. 1. The chief credits staffing, equipment upgrades and joint training; insurance savings aren’t guaranteed.",
-      "description": "Fultondale’s ISO Class 2 rating takes effect Nov. 1. The chief credits staffing, equipment upgrades and joint training; insurance savings aren’t guaranteed.",
-      "url": "https://abc3340.com/news/local/fultondale-earns-iso-class-2-fire-protection-rating",
-      "link": "https://abc3340.com/news/local/fultondale-earns-iso-class-2-fire-protection-rating",
-      "published_at": "2026-10-29T18:26:11.000Z",
-      "date": "2026-10-29T18:26:11.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/1fa2ca13-2672-40f0-8fca-35b5c6541f07-PIC000.jpg"
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/05/GettyImages-1801085827_806133_5d9e84.jpg?w=724"
     },
     {
       "id": "news-5-abc-33-40-lane-closures-continue-on-northbound-i-59-in-trussville-for-",
@@ -197,7 +203,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -223,51 +229,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/542/986/0x121/90/5ccaedab-2fc1-4d20-a927-75832f45a35e-Screenshot20261030163051.png"
     },
     {
-      "id": "news-6-abc-33-40-prattville-police-corporal-killed-in-autauga-county-motorcyc",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Prattville police corporal killed in Autauga County motorcycle crash",
-        "age": null,
-        "town": "",
-        "home": "ABC 33/40",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 17,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Prattville police corporal killed in Autauga County motorcycle crash",
-      "summary": "Prattville police corporal Dakota Davis, 25, was killed in a motorcycle crash Monday on U.S. 31 in Autauga County. Funeral services are Saturday.",
-      "description": "Prattville police corporal Dakota Davis, 25, was killed in a motorcycle crash Monday on U.S. 31 in Autauga County. Funeral services are Saturday.",
-      "url": "https://abc3340.com/news/local/prattville-police-corporal-killed-in-autauga-county-motorcycle-crash",
-      "link": "https://abc3340.com/news/local/prattville-police-corporal-killed-in-autauga-county-motorcycle-crash",
-      "published_at": "2026-10-29T15:45:24.000Z",
-      "date": "2026-10-29T15:45:24.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-7-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
+      "id": "news-6-abc-33-40-a-mother-s-legacy-inspired-a-mission-to-help-single-moms-ach",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -285,7 +247,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 11,
+      "score": 10,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -311,7 +273,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r",
+      "id": "news-7-abc-33-40-service-arrangements-announced-for-bessemer-utility-worker-r",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -329,7 +291,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 10,
+      "score": 9,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
