@@ -1,0 +1,237 @@
+{
+  "month": "2026-10",
+  "title": "The October 2026 Edition",
+  "built": "2026-11-02",
+  "backfilled": false,
+  "lede": "October ran a little warmer than usual and came in wetter than usual, and Five Mile Creek rose over the high water line once.",
+  "was": {
+    "station": {
+      "days": 31,
+      "daysInMonth": 31,
+      "hot": {
+        "value": 94,
+        "date": "2026-10-01"
+      },
+      "cold": {
+        "value": 35,
+        "date": "2026-10-19"
+      },
+      "avg": 66.2,
+      "tempDiff": 1.3,
+      "rain": 4.01,
+      "rainNormal": 3.34,
+      "wettest": {
+        "value": 3.03,
+        "date": "2026-10-10"
+      },
+      "ninety": 8,
+      "freezing": 0
+    },
+    "ranks": {
+      "temp": {
+        "rank": 7,
+        "high": true,
+        "of": 97
+      }
+    },
+    "creek": {
+      "days": 31,
+      "peak": {
+        "value": 3.79,
+        "date": "2026-10-10"
+      },
+      "low": {
+        "value": 1.02,
+        "date": "2026-10-02"
+      },
+      "daysHigh": 1,
+      "rises": 1,
+      "typicalPeak": 2.8,
+      "typicalYears": 18,
+      "line": 3.5
+    },
+    "stories": {
+      "count": 163,
+      "towns": [
+        {
+          "town": "Graysville",
+          "n": 7
+        },
+        {
+          "town": "Cardiff",
+          "n": 1
+        },
+        {
+          "town": "Brookside",
+          "n": 25
+        }
+      ],
+      "startsLate": "2026-09-30"
+    },
+    "sightings": {
+      "count": 1,
+      "names": [
+        "Eastern Yellowjacket"
+      ]
+    }
+  },
+  "calls": {
+    "outcome": {
+      "temp": "above",
+      "rain": "normal"
+    },
+    "noaa": {
+      "issued": "2026-09-30",
+      "temp": {
+        "cat": "equal",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 40
+      },
+      "tempVerdict": "none",
+      "rainVerdict": "wrong"
+    },
+    "fivemile": {
+      "cat": "above",
+      "prevThird": "above",
+      "hits": 18,
+      "n": 33,
+      "counts": {
+        "above": 18,
+        "normal": 10,
+        "below": 5
+      },
+      "verdict": "right"
+    },
+    "noaaTally": {
+      "temp": {
+        "right": 65,
+        "wrong": 33,
+        "none": 47
+      },
+      "rain": {
+        "right": 39,
+        "wrong": 43,
+        "none": 63
+      },
+      "since": "2014-08"
+    },
+    "fivemileTally": {
+      "right": 4,
+      "wrong": 0,
+      "none": 6
+    },
+    "sayings": []
+  },
+  "ahead": {
+    "month": "2026-11",
+    "noaa": {
+      "issued": "2026-10-31",
+      "temp": {
+        "cat": "above",
+        "prob": 33
+      },
+      "rain": {
+        "cat": "above",
+        "prob": 40
+      }
+    },
+    "fivemile": {
+      "cat": "none",
+      "prevThird": "above",
+      "hits": 13,
+      "n": 32,
+      "counts": {
+        "above": 10,
+        "normal": 13,
+        "below": 9
+      }
+    },
+    "normals": {
+      "highFrom": 70,
+      "highTo": 60,
+      "lowFrom": 47,
+      "lowTo": 40,
+      "rain": 4.23,
+      "recordHigh": {
+        "value": 88,
+        "date": "2016-11-01"
+      },
+      "recordLow": {
+        "value": 5,
+        "date": "1950-11-25"
+      },
+      "frost": null
+    },
+    "sky": {
+      "first": 649,
+      "last": 606,
+      "turning": null
+    },
+    "saying": null,
+    "dates": [
+      {
+        "date": "2026-11-02",
+        "word": null,
+        "title": "Brookside Town Council meeting",
+        "blurb": "Brookside's council meets on the first Monday of the month at 6:00 PM at Brookside Town Hall. When that Monday falls on a holiday the meeting moves to the second Monday.",
+        "url": "",
+        "subject": "civic",
+        "town": "Brookside",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-11-04",
+        "word": null,
+        "title": "Jefferson County tornado siren test",
+        "blurb": "Jefferson County tests its outdoor warning sirens on the first Wednesday of each month at 10:00 AM. No action needed, it is a scheduled test.",
+        "url": "",
+        "subject": "civic",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-11-05",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-11-10",
+        "word": null,
+        "title": "Cardiff City Council meeting",
+        "blurb": "Cardiff City Council meets on the second Tuesday of each month at 6:00 PM.",
+        "url": "",
+        "subject": "civic",
+        "town": "Cardiff",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-11-17",
+        "word": null,
+        "title": "Leonid meteor shower peaks",
+        "blurb": "One of the year's reliable meteor showers.",
+        "url": "https://en.wikipedia.org/wiki/Leonids",
+        "subject": "sky",
+        "town": "",
+        "shiftNote": ""
+      },
+      {
+        "date": "2026-11-19",
+        "word": null,
+        "title": "Graysville City Council meeting",
+        "blurb": "Graysville's council meets twice a month, on the first and third Thursday, at 6:00 PM at Graysville City Hall.",
+        "url": "",
+        "subject": "civic",
+        "town": "Graysville",
+        "shiftNote": ""
+      }
+    ]
+  }
+}
