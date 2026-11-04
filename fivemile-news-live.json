@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-04T02:59:28.280Z",
+  "updatedAt": "2026-11-04T18:36:42.212Z",
   "counts": {
     "nearby": 5,
     "county": 7,
-    "obituaries": 3
+    "obituaries": 5
   },
   "sections": {
     "towns": [],
@@ -11,23 +11,25 @@
       "news-1-abc-33-40-man-charged-with-attempted-murder-after-woman-shot-in-forest",
       "news-2-cbs-42-jefferson-county-sheriff-s-office-arrest-suspect-in-connecti",
       "news-3-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
-      "news-4-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
-      "news-6-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
+      "news-5-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
+      "news-9-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
     ],
     "creek": [],
     "county": [
-      "news-5-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
-      "news-7-wvtm-13-alabama-election-results-track-statewide-congressional-and-l",
-      "news-8-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
-      "news-9-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
-      "news-10-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
-      "news-11-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
-      "news-12-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter"
+      "news-4-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
+      "news-6-abc-33-40-camara-blue-says-he-will-request-recount-in-jefferson-county",
+      "news-7-abc-33-40-alabama-voters-approve-daily-pledge-student-led-prayer-polic",
+      "news-8-abc-33-40-alabama-voters-approve-weekly-national-anthem-requirement-in",
+      "news-10-abc-33-40-alabama-voters-approve-special-election-process-for-lieutena",
+      "news-12-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "news-13-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate"
     ],
     "obituaries": [
-      "news-13-trussville-tribune-susan-self-dunn-april-4-1953-october-28-2026",
-      "news-14-trussville-tribune-linda-mcdowell-barrett-january-7-1946-october-28-2026",
-      "news-15-trussville-tribune-howard-high-davis-january-5-1933-october-27-2026"
+      "news-11-trussville-tribune-james-edward-ed-mcintyre-september-7-1936-october-31-2026",
+      "news-14-trussville-tribune-carol-ann-henry-etheridge-december-18-1942-october-20-2026",
+      "news-15-trussville-tribune-john-sessums-braswell-january-23-1956-october-26-2026",
+      "news-16-trussville-tribune-robert-williams-january-1-1929-october-30-2026",
+      "news-17-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026"
     ]
   },
   "stories": [
@@ -48,7 +50,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 36,
+      "score": 35,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -65,8 +67,8 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -90,7 +92,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 36,
+      "score": 35,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -107,8 +109,8 @@
       "topic_tags": [
         "public-safety"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -130,7 +132,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -154,7 +156,51 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/13230219_589469367877666_7934882119488889197_n-edited.jpg"
     },
     {
-      "id": "news-4-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
+      "id": "news-4-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-150x150.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Jefferson County Leaders Celebrate Sheriff Mark Pettway’s Third-Term Victory",
+      "summary": "Jefferson County Sheriff Mark Pettway, right, secured a third term Tuesday, and celebrated with Rep. Terri Sewell at a joint election night party. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-1024x846.jpg\" />By Forrest Terrell | For the Birmingh",
+      "description": "Jefferson County Sheriff Mark Pettway, right, secured a third term Tuesday, and celebrated with Rep. Terri Sewell at a joint election night party. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-1024x846.jpg\" />By Forrest Terrell | For the Birmingh",
+      "url": "https://www.birminghamtimes.com/2026/11/jefferson-county-leaders-celebrate-sheriff-mark-pettways-third-term-victory/",
+      "link": "https://www.birminghamtimes.com/2026/11/jefferson-county-leaders-celebrate-sheriff-mark-pettways-third-term-victory/",
+      "published_at": "2026-11-04T12:15:02.000Z",
+      "date": "2026-11-04T12:15:02.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-150x150.jpg"
+    },
+    {
+      "id": "news-5-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
       "section": "nearby",
       "why": "names west jefferson",
       "town": "West Jefferson",
@@ -168,7 +214,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -183,8 +229,8 @@
         "west-jefferson"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -192,51 +238,133 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x378/90/ad737b8a-faa4-4006-b48d-bd1af020859e-asdf.jpg"
     },
     {
-      "id": "news-5-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
+      "id": "news-6-abc-33-40-camara-blue-says-he-will-request-recount-in-jefferson-county",
       "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
       "tags": [
-        "Roads",
-        "Public safety"
+        "Government"
       ],
       "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/03ddba61-ff69-4d52-9008-eaa50f9fb558-Screenshot20261102153151.png",
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c2a1cda6-9ee8-4a43-9178-f5225a4ac75d-d3.png",
         "from": "feed",
         "width": null,
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
-      "title": "Man shot before crashing vehicle in Birmingham",
-      "summary": "A man was taken to a hospital after being shot in Birmingham, police said.Officers responded to a crash and shooting report in the 2400 block of 4th Avenue Sout",
-      "description": "A man was taken to a hospital after being shot in Birmingham, police said.Officers responded to a crash and shooting report in the 2400 block of 4th Avenue Sout",
-      "url": "https://abc3340.com/news/local/man-shot-before-crashing-vehicle-in-birmingham",
-      "link": "https://abc3340.com/news/local/man-shot-before-crashing-vehicle-in-birmingham",
-      "published_at": "2026-11-02T21:36:45.000Z",
-      "date": "2026-11-02T21:36:45.000Z",
+      "title": "Camara Blue says he will request recount in Jefferson County Commission race",
+      "summary": "Camara Blue says he is taking the first steps to request a recount in the Jefferson County Commission District 3 race.In a Facebook post, Blue said his lead nar",
+      "description": "Camara Blue says he is taking the first steps to request a recount in the Jefferson County Commission District 3 race.In a Facebook post, Blue said his lead nar",
+      "url": "https://abc3340.com/news/local/camara-blue-says-she-will-request-recount-in-jefferson-county-commission-race",
+      "link": "https://abc3340.com/news/local/camara-blue-says-she-will-request-recount-in-jefferson-county-commission-race",
+      "published_at": "2026-11-04T14:41:07.000Z",
+      "date": "2026-11-04T14:41:07.000Z",
       "location_tags": [
-        "birmingham"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "roads",
-        "public-safety"
+        "government"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/03ddba61-ff69-4d52-9008-eaa50f9fb558-Screenshot20261102153151.png"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c2a1cda6-9ee8-4a43-9178-f5225a4ac75d-d3.png"
     },
     {
-      "id": "news-6-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
+      "id": "news-7-abc-33-40-alabama-voters-approve-daily-pledge-student-led-prayer-polic",
+      "section": "county",
+      "why": "statewide, schools",
+      "town": "Regional",
+      "tags": [
+        "Schools"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/63827f3d-23d5-4147-957e-5129f9adf9f1-am3.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Alabama voters approve daily Pledge, student-led prayer policies in schools",
+      "summary": "Alabama voters approved Statewide Amendment 3, requiring local school boards to adopt policies for the Pledge of Allegiance and voluntary, student-initiated pra",
+      "description": "Alabama voters approved Statewide Amendment 3, requiring local school boards to adopt policies for the Pledge of Allegiance and voluntary, student-initiated pra",
+      "url": "https://abc3340.com/news/local/alabama-voters-approve-daily-pledge-student-led-prayer-policies-in-schools",
+      "link": "https://abc3340.com/news/local/alabama-voters-approve-daily-pledge-student-led-prayer-policies-in-schools",
+      "published_at": "2026-11-04T14:25:01.000Z",
+      "date": "2026-11-04T14:25:01.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "schools"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/63827f3d-23d5-4147-957e-5129f9adf9f1-am3.png"
+    },
+    {
+      "id": "news-8-abc-33-40-alabama-voters-approve-weekly-national-anthem-requirement-in",
+      "section": "county",
+      "why": "statewide, schools",
+      "town": "Regional",
+      "tags": [
+        "Schools"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c3485622-5eb9-4eb8-9c19-1180a1366c1c-am4.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Alabama voters approve weekly national anthem requirement in schools",
+      "summary": "Alabama voters approved Statewide Amendment 4, requiring local school boards to adopt policies for public schools to play or perform the first stanza of “The St",
+      "description": "Alabama voters approved Statewide Amendment 4, requiring local school boards to adopt policies for public schools to play or perform the first stanza of “The St",
+      "url": "https://abc3340.com/news/local/alabama-voters-approve-weekly-national-anthem-requirement-in-schools",
+      "link": "https://abc3340.com/news/local/alabama-voters-approve-weekly-national-anthem-requirement-in-schools",
+      "published_at": "2026-11-04T14:20:42.000Z",
+      "date": "2026-11-04T14:20:42.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "schools"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c3485622-5eb9-4eb8-9c19-1180a1366c1c-am4.png"
+    },
+    {
+      "id": "news-9-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -250,7 +378,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -274,33 +402,33 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2022/01/IMG_2498-scaled-e1643631392818-2048x1070.jpg"
     },
     {
-      "id": "news-7-wvtm-13-alabama-election-results-track-statewide-congressional-and-l",
+      "id": "news-10-abc-33-40-alabama-voters-approve-special-election-process-for-lieutena",
       "section": "county",
       "why": "statewide, government",
       "town": "Regional",
       "tags": [
         "Government"
       ],
-      "outlet": "WVTM 13",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/7e6dcb27-7796-49d8-ba3f-782b8db01187.png",
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/e750ef00-e0e7-4c8a-9fd7-8c8ec6d51245-am1.png",
         "from": "feed",
         "width": null,
-        "credit": "WVTM 13"
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Alabama election results: Track statewide, congressional and local races",
-      "summary": "Track live Alabama election results as voters decide statewide, congressional and local races across the state.",
-      "description": "Track live Alabama election results as voters decide statewide, congressional and local races across the state.",
-      "url": "https://www.wvtm13.com/article/track-live-election-results-alabama-2026/74230329",
-      "link": "https://www.wvtm13.com/article/track-live-election-results-alabama-2026/74230329",
-      "published_at": "2026-11-04T02:56:00.000Z",
-      "date": "2026-11-04T02:56:00.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Alabama voters approve special election process for lieutenant governor vacancies",
+      "summary": "Alabama voters approved Statewide Amendment 1, changing how the state fills a vacancy in the lieutenant governor’s office and giving lawmakers new authority ove",
+      "description": "Alabama voters approved Statewide Amendment 1, changing how the state fills a vacancy in the lieutenant governor’s office and giving lawmakers new authority ove",
+      "url": "https://abc3340.com/news/local/alabama-voters-approve-special-election-process-for-lieutenant-governor-vacancies",
+      "link": "https://abc3340.com/news/local/alabama-voters-approve-special-election-process-for-lieutenant-governor-vacancies",
+      "published_at": "2026-11-04T04:36:14.000Z",
+      "date": "2026-11-04T04:36:14.000Z",
       "location_tags": [
         "regional"
       ],
@@ -313,41 +441,43 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/7e6dcb27-7796-49d8-ba3f-782b8db01187.png"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/e750ef00-e0e7-4c8a-9fd7-8c8ec6d51245-am1.png"
     },
     {
-      "id": "news-8-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
-      "section": "county",
-      "why": "alabama house, government",
-      "town": "Regional",
+      "id": "news-11-trussville-tribune-james-edward-ed-mcintyre-september-7-1936-october-31-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Gardendale",
       "tags": [
-        "Government"
+        "Obituary"
       ],
-      "outlet": "WVTM 13",
+      "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
+      "image": null,
+      "obit": {
+        "name": "James Edward (Ed) McIntyre (September 7, 1936 — October 31, 2026)",
+        "age": null,
+        "town": "Gardendale",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Track live district-by-district results in Alabama House races",
-      "summary": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
-      "description": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
-      "url": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
-      "link": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
-      "published_at": "2026-11-04T02:52:00.000Z",
-      "date": "2026-11-04T02:52:00.000Z",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "James Edward (Ed) McIntyre (September 7, 1936 — October 31, 2026)",
+      "summary": "James Edward (Ed) McIntyre, age 90, a resident of Trussville for over 50 years, passed away October 31, 2026, after a brief illness. He was born September 7, 1936, in Gardendale to Etta and Eugene McIntyre. Ed is survived by his wife, love of his life and best friend, Gail Peoples McIntyre. They were blessed […]",
+      "description": "James Edward (Ed) McIntyre, age 90, a resident of Trussville for over 50 years, passed away October 31, 2026, after a brief illness. He was born September 7, 1936, in Gardendale to Etta and Eugene McIntyre. Ed is survived by his wife, love of his life and best friend, Gail Peoples McIntyre. They were blessed […]",
+      "url": "https://www.trussvilletribune.com/2026/11/04/james-edward-ed-mcintyre-september-7-1936-october-31-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/04/james-edward-ed-mcintyre-september-7-1936-october-31-2026/",
+      "published_at": "2026-11-04T15:14:43.000Z",
+      "date": "2026-11-04T15:14:43.000Z",
       "location_tags": [
-        "regional"
+        "gardendale"
       ],
       "topic_tags": [
-        "government"
+        "obituary"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -355,10 +485,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png"
+      "image_url": ""
     },
     {
-      "id": "news-9-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "id": "news-12-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -369,7 +499,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -395,7 +525,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
+      "id": "news-13-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -411,7 +541,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -437,91 +567,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/What-candidates-Jimmie-Stephens-and-Camara-Blue-want-voters-to-know.jpg?w=900"
     },
     {
-      "id": "news-11-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2024/04/GettyImages-943697000-1-1-3-2-2-e1697928619486-1-e1704121479302-1.jpg?w=800",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Birmingham woman killed in weekend 2-vehicle crash",
-      "summary": "A Birmingham woman was killed in a two-vehicle crash Sunday morning, according to the Jefferson County Coroner's Office.",
-      "description": "A Birmingham woman was killed in a two-vehicle crash Sunday morning, according to the Jefferson County Coroner's Office.",
-      "url": "https://www.alabamas42.com/news/traffic-news/birmingham-woman-killed-in-weekend-2-vehicle-crash/",
-      "link": "https://www.alabamas42.com/news/traffic-news/birmingham-woman-killed-in-weekend-2-vehicle-crash/",
-      "published_at": "2026-11-02T14:35:45.000Z",
-      "date": "2026-11-02T14:35:45.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2024/04/GettyImages-943697000-1-1-3-2-2-e1697928619486-1-e1704121479302-1.jpg?w=800"
-    },
-    {
-      "id": "news-12-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/05/GettyImages-1801085827_806133_5d9e84.jpg?w=724",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Birmingham man killed in crash involving electric scooter",
-      "summary": "A Birmingham man was killed in a crash involving an electric scooter early Saturday morning, according to the Jefferson County Coroner's Office.",
-      "description": "A Birmingham man was killed in a crash involving an electric scooter early Saturday morning, according to the Jefferson County Coroner's Office.",
-      "url": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-crash-involving-electric-scooter/",
-      "link": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-crash-involving-electric-scooter/",
-      "published_at": "2026-11-02T14:30:15.000Z",
-      "date": "2026-11-02T14:30:15.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/05/GettyImages-1801085827_806133_5d9e84.jpg?w=724"
-    },
-    {
-      "id": "news-13-trussville-tribune-susan-self-dunn-april-4-1953-october-28-2026",
+      "id": "news-14-trussville-tribune-carol-ann-henry-etheridge-december-18-1942-october-20-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Birmingham",
@@ -532,24 +578,24 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Susan Self Dunn (April 4, 1953 — October 28, 2026)",
+        "name": "Carol Ann Henry Etheridge (December 18, 1942 — October 20, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 16,
+      "score": 17,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Susan Self Dunn (April 4, 1953 — October 28, 2026)",
-      "summary": "Susan Self Dunn, 73, of Pinson, Alabama, passed away peacefully on Wednesday, October 28, 2026, leaving behind a lifetime of cherished memories, an extraordinary legacy of love, and a family forever blessed to have been loved by her. Born on April 4, 1953, in Birmingham, Alabama, Susan was the daughter of Harold Elton ",
-      "description": "Susan Self Dunn, 73, of Pinson, Alabama, passed away peacefully on Wednesday, October 28, 2026, leaving behind a lifetime of cherished memories, an extraordinary legacy of love, and a family forever blessed to have been loved by her. Born on April 4, 1953, in Birmingham, Alabama, Susan was the daughter of Harold Elton ",
-      "url": "https://www.trussvilletribune.com/2026/11/03/susan-self-dunn-april-4-1953-october-28-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/03/susan-self-dunn-april-4-1953-october-28-2026/",
-      "published_at": "2026-11-03T19:27:53.000Z",
-      "date": "2026-11-03T19:27:53.000Z",
+      "title": "Carol Ann Henry Etheridge (December 18, 1942 — October 20, 2026)",
+      "summary": "Carol Ann Henry Etheridge, age 83 of Birmingham, AL, passed away peacefully on October 20, 2026. Carol was born on December 18, 1942, in Birmingham, AL. Carol will be remembered for her loving kindness, generosity, and love for animals and nature. She is survived by Jessica (Tommy) Watkins; her daughter and their daugh",
+      "description": "Carol Ann Henry Etheridge, age 83 of Birmingham, AL, passed away peacefully on October 20, 2026. Carol was born on December 18, 1942, in Birmingham, AL. Carol will be remembered for her loving kindness, generosity, and love for animals and nature. She is survived by Jessica (Tommy) Watkins; her daughter and their daugh",
+      "url": "https://www.trussvilletribune.com/2026/11/04/carol-ann-henry-etheridge-december-18-1942-october-20-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/04/carol-ann-henry-etheridge-december-18-1942-october-20-2026/",
+      "published_at": "2026-11-04T15:38:31.000Z",
+      "date": "2026-11-04T15:38:31.000Z",
       "location_tags": [
         "birmingham"
       ],
@@ -565,10 +611,10 @@
       "image_url": ""
     },
     {
-      "id": "news-14-trussville-tribune-linda-mcdowell-barrett-january-7-1946-october-28-2026",
+      "id": "news-15-trussville-tribune-john-sessums-braswell-january-23-1956-october-26-2026",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Birmingham",
+      "town": "Regional",
       "tags": [
         "Obituary"
       ],
@@ -576,26 +622,26 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Linda McDowell Barrett (January 7, 1946 — October 28, 2026)",
+        "name": "John Sessums Braswell (January 23, 1956 — October 26, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 16,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Linda McDowell Barrett (January 7, 1946 — October 28, 2026)",
-      "summary": "Linda McDowell Barrett was born January 7, 1946, in Birmingham, AL, and peacefully passed away October 28, 2026, in Trussville, AL. Linda lived a life filled with love, grace, and joy, leaving a mark on all who knew her. She attended Tarrant High School and graduated in 1964. She married the love of her life, […]",
-      "description": "Linda McDowell Barrett was born January 7, 1946, in Birmingham, AL, and peacefully passed away October 28, 2026, in Trussville, AL. Linda lived a life filled with love, grace, and joy, leaving a mark on all who knew her. She attended Tarrant High School and graduated in 1964. She married the love of her life, […]",
-      "url": "https://www.trussvilletribune.com/2026/11/03/linda-mcdowell-barrett-january-7-1946-october-28-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/03/linda-mcdowell-barrett-january-7-1946-october-28-2026/",
-      "published_at": "2026-11-03T19:22:10.000Z",
-      "date": "2026-11-03T19:22:10.000Z",
+      "title": "John Sessums Braswell (January 23, 1956 — October 26, 2026)",
+      "summary": "John Sessums Braswell, age 70, passed away on October 26, 2026, in Trussville AL from Pancreatic Cancer. He was born on January 23, 1956, in Annapolis MD. John was born in Annapolis, MD at a U.S. Naval Hospital to William and Norma Jo Braswell. Named after Air Force Major General John Walker Sessums Jr, John’s […]",
+      "description": "John Sessums Braswell, age 70, passed away on October 26, 2026, in Trussville AL from Pancreatic Cancer. He was born on January 23, 1956, in Annapolis MD. John was born in Annapolis, MD at a U.S. Naval Hospital to William and Norma Jo Braswell. Named after Air Force Major General John Walker Sessums Jr, John’s […]",
+      "url": "https://www.trussvilletribune.com/2026/11/04/john-sessums-braswell-january-23-1956-october-26-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/04/john-sessums-braswell-january-23-1956-october-26-2026/",
+      "published_at": "2026-11-04T15:27:04.000Z",
+      "date": "2026-11-04T15:27:04.000Z",
       "location_tags": [
-        "birmingham"
+        "regional"
       ],
       "topic_tags": [
         "obituary"
@@ -609,10 +655,10 @@
       "image_url": ""
     },
     {
-      "id": "news-15-trussville-tribune-howard-high-davis-january-5-1933-october-27-2026",
+      "id": "news-16-trussville-tribune-robert-williams-january-1-1929-october-30-2026",
       "section": "obituaries",
       "why": "obituary wording",
-      "town": "Birmingham",
+      "town": "Regional",
       "tags": [
         "Obituary"
       ],
@@ -620,32 +666,76 @@
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Howard High Davis (January 5, 1933 — October 27, 2026)",
+        "name": "Robert Williams (January 1, 1929 — October 30, 2026)",
         "age": null,
         "town": "",
         "home": "Trussville Tribune",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 16,
+      "score": 14,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Howard High Davis (January 5, 1933 — October 27, 2026)",
-      "summary": "Mr. Howard Hugh Davis, 93, of Clay, passed away on Tuesday, October 27, 2026 Mr. Davis graduated from Lanett High School in 1951. He went on to work for Swift Meat Packing Company for 13 years until the company closed its Birmingham location and transferred him to North Carolina. Not finding North Carolina to his […]",
-      "description": "Mr. Howard Hugh Davis, 93, of Clay, passed away on Tuesday, October 27, 2026 Mr. Davis graduated from Lanett High School in 1951. He went on to work for Swift Meat Packing Company for 13 years until the company closed its Birmingham location and transferred him to North Carolina. Not finding North Carolina to his […]",
-      "url": "https://www.trussvilletribune.com/2026/11/03/howard-high-davis-january-5-1933-october-27-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/03/howard-high-davis-january-5-1933-october-27-2026/",
-      "published_at": "2026-11-03T19:17:08.000Z",
-      "date": "2026-11-03T19:17:08.000Z",
+      "title": "Robert Williams (January 1, 1929 — October 30, 2026)",
+      "summary": "Robert Williams of Palmerdale, Alabama, age 97, passed away peacefully at his home on October 30, 2026, surrounded by his loving family. Robert was born on January 1, 1929, in Irvin, Kentucky, to Willie and Lily Williams. He proudly served four years in the United States Army during the Korean War. Following his milita",
+      "description": "Robert Williams of Palmerdale, Alabama, age 97, passed away peacefully at his home on October 30, 2026, surrounded by his loving family. Robert was born on January 1, 1929, in Irvin, Kentucky, to Willie and Lily Williams. He proudly served four years in the United States Army during the Korean War. Following his milita",
+      "url": "https://www.trussvilletribune.com/2026/11/04/robert-williams-january-1-1929-october-30-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/04/robert-williams-january-1-1929-october-30-2026/",
+      "published_at": "2026-11-04T15:19:31.000Z",
+      "date": "2026-11-04T15:19:31.000Z",
       "location_tags": [
-        "birmingham"
+        "regional"
       ],
       "topic_tags": [
         "obituary"
       ],
       "priority_level": 2,
       "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-17-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 4,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+      "summary": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "published_at": "2026-11-01T07:00:00.000Z",
+      "date": "2026-11-01T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
