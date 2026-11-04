@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-11-04T13:06:32.247Z",
-  "temp": 69,
-  "humidity": 99,
-  "windSpeed": 0,
-  "windDir": 211,
+  "updatedAt": "2026-11-04T18:00:18.163Z",
+  "temp": 77,
+  "humidity": 89,
+  "windSpeed": 2,
+  "windDir": 142,
   "windGust": 3,
-  "pressure": 29.568,
-  "pressureTrend": "steady",
-  "uv": 0,
-  "solarRadiation": 4.26,
+  "pressure": 29.542,
+  "pressureTrend": "falling",
+  "uv": 1,
+  "solarRadiation": 163.64,
   "dailyRain": 0.63,
   "hourlyRain": 0,
   "weeklyRain": 0.73,
   "monthlyRain": 0.73,
   "yearlyRain": 61.4,
-  "feelsLike": 70,
-  "dewPoint": 69,
-  "lastUpdated": "2026-11-04T13:05:00.000Z",
+  "feelsLike": 78,
+  "dewPoint": 73,
+  "lastUpdated": "2026-11-04T17:59:00.000Z",
   "source": "Ambient Weather",
   "current": {
-    "temp": 69,
-    "feelsLike": 70,
-    "feels": 70,
-    "humidity": 99,
-    "windSpeed": 0,
-    "windDir": "SSW",
+    "temp": 77,
+    "feelsLike": 78,
+    "feels": 78,
+    "humidity": 89,
+    "windSpeed": 2,
+    "windDir": "SE",
     "windGust": 3,
     "hourlyRain": 0,
     "precipRate": 0,
     "dailyRain": 0.63,
     "precipTotal": 0.63,
-    "pressure": 29.568,
-    "pressureIn": 29.568,
-    "uv": 0,
-    "solarRadiation": 4.26,
-    "dewPoint": 69,
-    "obsTime": "2026-11-04T13:05:00.000Z",
-    "lastUpdated": "2026-11-04T13:05:00.000Z",
-    "condition": "Clear",
+    "pressure": 29.542,
+    "pressureIn": 29.542,
+    "uv": 1,
+    "solarRadiation": 163.64,
+    "dewPoint": 73,
+    "obsTime": "2026-11-04T17:59:00.000Z",
+    "lastUpdated": "2026-11-04T17:59:00.000Z",
+    "condition": "Mostly cloudy",
     "source": "Ambient Weather",
     "sourceNote": null
   },
@@ -52,18 +52,18 @@
     "morningReport": {
       "amount": 0.63,
       "lowTemp": 69,
-      "highTemp": 69,
+      "highTemp": 77,
       "windGust": 3,
-      "label": "Since midnight",
-      "isMorning": true,
+      "label": "So far today",
+      "isMorning": false,
       "coverageStart": "2026-11-04"
     }
   },
   "forecast": [
     {
       "number": 1,
-      "name": "Today",
-      "startTime": "2026-11-04T07:00:00-06:00",
+      "name": "This Afternoon",
+      "startTime": "2026-11-04T12:00:00-06:00",
       "endTime": "2026-11-04T18:00:00-06:00",
       "isDaytime": true,
       "temperature": 76,
@@ -71,12 +71,12 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 87
+        "value": 93
       },
       "windSpeed": "5 to 15 mph",
-      "windDirection": "S",
-      "icon": "https://api.weather.gov/icons/land/day/rain_showers,90/tsra,80?size=medium",
-      "shortForecast": "Rain Showers"
+      "windDirection": "SW",
+      "icon": "https://api.weather.gov/icons/land/day/tsra_sct,90?size=medium",
+      "shortForecast": "Showers And Thunderstorms"
     },
     {
       "number": 2,
@@ -84,17 +84,17 @@
       "startTime": "2026-11-04T18:00:00-06:00",
       "endTime": "2026-11-05T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 54,
+      "temperature": 53,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 19
+        "value": 14
       },
       "windSpeed": "0 mph",
       "windDirection": "",
-      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20/bkn?size=medium",
-      "shortForecast": "Slight Chance Rain Showers then Mostly Cloudy"
+      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+      "shortForecast": "Partly Cloudy"
     },
     {
       "number": 3,
@@ -102,17 +102,17 @@
       "startTime": "2026-11-05T06:00:00-06:00",
       "endTime": "2026-11-05T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 75,
+      "temperature": 74,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 4
+        "value": 0
       },
       "windSpeed": "0 mph",
       "windDirection": "",
-      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-      "shortForecast": "Partly Sunny"
+      "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+      "shortForecast": "Mostly Sunny"
     },
     {
       "number": 4,
@@ -120,12 +120,12 @@
       "startTime": "2026-11-05T18:00:00-06:00",
       "endTime": "2026-11-06T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 49,
+      "temperature": 47,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 1
+        "value": 0
       },
       "windSpeed": "0 mph",
       "windDirection": "",
@@ -138,12 +138,12 @@
       "startTime": "2026-11-06T06:00:00-06:00",
       "endTime": "2026-11-06T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 74,
+      "temperature": 73,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 1
+        "value": 0
       },
       "windSpeed": "0 to 10 mph",
       "windDirection": "N",
@@ -174,7 +174,7 @@
       "startTime": "2026-11-07T06:00:00-06:00",
       "endTime": "2026-11-07T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 65,
+      "temperature": 64,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -317,24 +317,24 @@
     {
       "date": "2026-11-04",
       "hi": 76,
-      "lo": 54,
-      "shortForecast": "Rain Showers"
+      "lo": 53,
+      "shortForecast": "Showers And Thunderstorms"
     },
     {
       "date": "2026-11-05",
-      "hi": 75,
-      "lo": 49,
-      "shortForecast": "Partly Sunny"
+      "hi": 74,
+      "lo": 47,
+      "shortForecast": "Mostly Sunny"
     },
     {
       "date": "2026-11-06",
-      "hi": 74,
+      "hi": 73,
       "lo": 43,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-11-07",
-      "hi": 65,
+      "hi": 64,
       "lo": 36,
       "shortForecast": "Mostly Sunny"
     },
