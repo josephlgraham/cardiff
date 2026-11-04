@@ -1,33 +1,122 @@
 {
-  "updatedAt": "2026-11-03T18:25:00.006Z",
+  "updatedAt": "2026-11-04T02:59:28.280Z",
   "counts": {
-    "nearby": 3,
-    "county": 9
+    "nearby": 5,
+    "county": 7,
+    "obituaries": 3
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
-      "news-2-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
-      "news-4-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
+      "news-1-abc-33-40-man-charged-with-attempted-murder-after-woman-shot-in-forest",
+      "news-2-cbs-42-jefferson-county-sheriff-s-office-arrest-suspect-in-connecti",
+      "news-3-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
+      "news-4-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
+      "news-6-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
-      "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
-      "news-6-wvtm-13-jefferson-county-voters-pack-polls-in-hoover-on-election-day",
-      "news-7-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
-      "news-8-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
-      "news-9-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
-      "news-10-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
-      "news-11-trussville-tribune-trussville-pd-receives-grant-for-additional-k-9",
-      "news-12-trussville-tribune-ribbon-cutting-to-be-held-for-new-storm-shelter-in-irondale"
+      "news-5-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
+      "news-7-wvtm-13-alabama-election-results-track-statewide-congressional-and-l",
+      "news-8-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
+      "news-9-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "news-10-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
+      "news-11-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
+      "news-12-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-13-trussville-tribune-susan-self-dunn-april-4-1953-october-28-2026",
+      "news-14-trussville-tribune-linda-mcdowell-barrett-january-7-1946-october-28-2026",
+      "news-15-trussville-tribune-howard-high-davis-january-5-1933-october-27-2026"
+    ]
   },
   "stories": [
     {
-      "id": "news-1-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
+      "id": "news-1-abc-33-40-man-charged-with-attempted-murder-after-woman-shot-in-forest",
+      "section": "nearby",
+      "why": "names forestdale",
+      "town": "Forestdale",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/94x125/188/986/0x0/90/370df000-c648-4064-9e24-c133b5982a8c-RashardDwightColeman.jpg?crop_fill=1&size=979x550",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 36,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Man charged with attempted murder after woman shot in Forestdale",
+      "summary": "A 19-year-old man has been charged with attempted murder after a woman was shot in Forestdale early Saturday, according to the Jefferson County Sheriff’s Office",
+      "description": "A 19-year-old man has been charged with attempted murder after a woman was shot in Forestdale early Saturday, according to the Jefferson County Sheriff’s Office",
+      "url": "https://abc3340.com/news/local/man-charged-with-attempted-murder-after-woman-shot-in-forestdale",
+      "link": "https://abc3340.com/news/local/man-charged-with-attempted-murder-after-woman-shot-in-forestdale",
+      "published_at": "2026-11-03T18:48:05.000Z",
+      "date": "2026-11-03T18:48:05.000Z",
+      "location_tags": [
+        "forestdale"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/94x125/188/986/0x0/90/370df000-c648-4064-9e24-c133b5982a8c-RashardDwightColeman.jpg?crop_fill=1&size=979x550"
+    },
+    {
+      "id": "news-2-cbs-42-jefferson-county-sheriff-s-office-arrest-suspect-in-connecti",
+      "section": "nearby",
+      "why": "names forestdale",
+      "town": "Forestdale",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/arrest-handcuffs.jpg?w=600",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 36,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Jefferson County Sheriff's Office arrest suspect in connection to Forestdale shooting",
+      "summary": "JEFFERSON COUNTY, Ala. (WIAT) -- The Jefferson County Sheriff's Office has arrested a 19-year-old suspect in connection to a shooting that occurred Saturday in Forestdale. According to the JCSO, deputies responded to the 2200 block of Arcadia Road at around 3:32 a.m. on a report of a person shot. Deputies found an adul",
+      "description": "JEFFERSON COUNTY, Ala. (WIAT) -- The Jefferson County Sheriff's Office has arrested a 19-year-old suspect in connection to a shooting that occurred Saturday in Forestdale. According to the JCSO, deputies responded to the 2200 block of Arcadia Road at around 3:32 a.m. on a report of a person shot. Deputies found an adul",
+      "url": "https://www.alabamas42.com/news/jefferson-county-sheriffs-office-arrest-suspect-in-connection-to-forestdale-shooting/",
+      "link": "https://www.alabamas42.com/news/jefferson-county-sheriffs-office-arrest-suspect-in-connection-to-forestdale-shooting/",
+      "published_at": "2026-11-03T19:17:44.000Z",
+      "date": "2026-11-03T19:17:44.000Z",
+      "location_tags": [
+        "forestdale"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/arrest-handcuffs.jpg?w=600"
+    },
+    {
+      "id": "news-3-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -41,7 +130,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -65,7 +154,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/13230219_589469367877666_7934882119488889197_n-edited.jpg"
     },
     {
-      "id": "news-2-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
+      "id": "news-4-abc-33-40-one-person-is-dead-after-a-brush-fire-in-west-jefferson",
       "section": "nearby",
       "why": "names west jefferson",
       "town": "West Jefferson",
@@ -79,7 +168,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -103,7 +192,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/4032/986/0x378/90/ad737b8a-faa4-4006-b48d-bd1af020859e-asdf.jpg"
     },
     {
-      "id": "news-3-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
+      "id": "news-5-abc-33-40-man-shot-before-crashing-vehicle-in-birmingham",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -120,7 +209,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -147,7 +236,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/977/986/5x0/90/03ddba61-ff69-4d52-9008-eaa50f9fb558-Screenshot20261102153151.png"
     },
     {
-      "id": "news-4-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
+      "id": "news-6-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -161,7 +250,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -176,8 +265,8 @@
         "gardendale"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -185,7 +274,91 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2022/01/IMG_2498-scaled-e1643631392818-2048x1070.jpg"
     },
     {
-      "id": "news-5-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "id": "news-7-wvtm-13-alabama-election-results-track-statewide-congressional-and-l",
+      "section": "county",
+      "why": "statewide, government",
+      "town": "Regional",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/7e6dcb27-7796-49d8-ba3f-782b8db01187.png",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Alabama election results: Track statewide, congressional and local races",
+      "summary": "Track live Alabama election results as voters decide statewide, congressional and local races across the state.",
+      "description": "Track live Alabama election results as voters decide statewide, congressional and local races across the state.",
+      "url": "https://www.wvtm13.com/article/track-live-election-results-alabama-2026/74230329",
+      "link": "https://www.wvtm13.com/article/track-live-election-results-alabama-2026/74230329",
+      "published_at": "2026-11-04T02:56:00.000Z",
+      "date": "2026-11-04T02:56:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/7e6dcb27-7796-49d8-ba3f-782b8db01187.png"
+    },
+    {
+      "id": "news-8-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
+      "section": "county",
+      "why": "alabama house, government",
+      "town": "Regional",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Track live district-by-district results in Alabama House races",
+      "summary": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
+      "description": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
+      "url": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
+      "link": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
+      "published_at": "2026-11-04T02:52:00.000Z",
+      "date": "2026-11-04T02:52:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png"
+    },
+    {
+      "id": "news-9-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -196,7 +369,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -222,91 +395,7 @@
       "image_url": ""
     },
     {
-      "id": "news-6-wvtm-13-jefferson-county-voters-pack-polls-in-hoover-on-election-day",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/eb19f066-ca16-4d9c-85dd-be70586f4097.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Jefferson County voters pack polls in Hoover on Election Day",
-      "summary": "Voters packed a Hoover polling place Tuesday morning as Jefferson County officials prepared for a busy Election Day.",
-      "description": "Voters packed a Hoover polling place Tuesday morning as Jefferson County officials prepared for a busy Election Day.",
-      "url": "https://www.wvtm13.com/article/voter-turnout-midterm-election/74322280",
-      "link": "https://www.wvtm13.com/article/voter-turnout-midterm-election/74322280",
-      "published_at": "2026-11-03T16:08:00.000Z",
-      "date": "2026-11-03T16:08:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/eb19f066-ca16-4d9c-85dd-be70586f4097.jpg"
-    },
-    {
-      "id": "news-7-wvtm-13-track-live-district-by-district-results-in-alabama-house-rac",
-      "section": "county",
-      "why": "alabama house, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Track live district-by-district results in Alabama House races",
-      "summary": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
-      "description": "Track live Alabama U.S. House election results, including district-by-district vote totals, winners and updates.",
-      "url": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
-      "link": "https://www.wvtm13.com/article/alabama-election-results-2026-us-house/74194798",
-      "published_at": "2026-11-03T15:23:00.000Z",
-      "date": "2026-11-03T15:23:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/bf348d0c-17e8-4ecb-b892-d1202e31b6f1.png"
-    },
-    {
-      "id": "news-8-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
+      "id": "news-10-cbs-42-jefferson-county-district-3-commissioner-race-what-candidate",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -322,7 +411,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -348,7 +437,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/What-candidates-Jimmie-Stephens-and-Camara-Blue-want-voters-to-know.jpg?w=900"
     },
     {
-      "id": "news-9-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
+      "id": "news-11-cbs-42-birmingham-woman-killed-in-weekend-2-vehicle-crash",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -390,7 +479,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2024/04/GettyImages-943697000-1-1-3-2-2-e1697928619486-1-e1704121479302-1.jpg?w=800"
     },
     {
-      "id": "news-10-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
+      "id": "news-12-cbs-42-birmingham-man-killed-in-crash-involving-electric-scooter",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -432,90 +521,136 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/05/GettyImages-1801085827_806133_5d9e84.jpg?w=724"
     },
     {
-      "id": "news-11-trussville-tribune-trussville-pd-receives-grant-for-additional-k-9",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
+      "id": "news-13-trussville-tribune-susan-self-dunn-april-4-1953-october-28-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
       "tags": [
-        "Government",
-        "Public safety"
+        "Obituary"
       ],
       "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/police-dog.png",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+      "image": null,
+      "obit": {
+        "name": "Susan Self Dunn (April 4, 1953 — October 28, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 24,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Trussville PD receives grant for additional K-9",
-      "summary": "TRUSSVILLE, Ala. — The Trussville Police Department (TPD) has received a grant to add another police dog to its ranks, said an announcement from Mayor Ben Short. Short’s announcement stated that TPD received $25,000 from the Jefferson County Commission, which he said will cover the equipment and specialized officer tra",
-      "description": "TRUSSVILLE, Ala. — The Trussville Police Department (TPD) has received a grant to add another police dog to its ranks, said an announcement from Mayor Ben Short. Short’s announcement stated that TPD received $25,000 from the Jefferson County Commission, which he said will cover the equipment and specialized officer tra",
-      "url": "https://www.trussvilletribune.com/2026/11/02/trussville-pd-receives-grant-for-additional-k-9/",
-      "link": "https://www.trussvilletribune.com/2026/11/02/trussville-pd-receives-grant-for-additional-k-9/",
-      "published_at": "2026-11-03T01:28:05.000Z",
-      "date": "2026-11-03T01:28:05.000Z",
+      "title": "Susan Self Dunn (April 4, 1953 — October 28, 2026)",
+      "summary": "Susan Self Dunn, 73, of Pinson, Alabama, passed away peacefully on Wednesday, October 28, 2026, leaving behind a lifetime of cherished memories, an extraordinary legacy of love, and a family forever blessed to have been loved by her. Born on April 4, 1953, in Birmingham, Alabama, Susan was the daughter of Harold Elton ",
+      "description": "Susan Self Dunn, 73, of Pinson, Alabama, passed away peacefully on Wednesday, October 28, 2026, leaving behind a lifetime of cherished memories, an extraordinary legacy of love, and a family forever blessed to have been loved by her. Born on April 4, 1953, in Birmingham, Alabama, Susan was the daughter of Harold Elton ",
+      "url": "https://www.trussvilletribune.com/2026/11/03/susan-self-dunn-april-4-1953-october-28-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/03/susan-self-dunn-april-4-1953-october-28-2026/",
+      "published_at": "2026-11-03T19:27:53.000Z",
+      "date": "2026-11-03T19:27:53.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
-        "government",
-        "public-safety"
+        "obituary"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/police-dog.png"
+      "image_url": ""
     },
     {
-      "id": "news-12-trussville-tribune-ribbon-cutting-to-be-held-for-new-storm-shelter-in-irondale",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
+      "id": "news-14-trussville-tribune-linda-mcdowell-barrett-january-7-1946-october-28-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
       "tags": [
-        "Government"
+        "Obituary"
       ],
       "outlet": "Trussville Tribune",
       "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/RibbonCutting.jpg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
+      "image": null,
+      "obit": {
+        "name": "Linda McDowell Barrett (January 7, 1946 — October 28, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
       },
-      "obit": null,
-      "score": 20,
+      "score": 16,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
-      "title": "Ribbon cutting to be held for new storm shelter in Irondale",
-      "summary": "IRONDALE, Ala. — A ribbon cutting for a new storm shelter in Irondale will be held on Nov. 17. Mayor James D. Stewart, Jr. will be joined by Jefferson County Commissioner Joe Knight at the event. “Designed to accommodate up to 200 people, this new facility will provide an important place of protection for Irondale […]",
-      "description": "IRONDALE, Ala. — A ribbon cutting for a new storm shelter in Irondale will be held on Nov. 17. Mayor James D. Stewart, Jr. will be joined by Jefferson County Commissioner Joe Knight at the event. “Designed to accommodate up to 200 people, this new facility will provide an important place of protection for Irondale […]",
-      "url": "https://www.trussvilletribune.com/2026/11/02/ribbon-cutting-to-be-held-for-new-storm-shelter-in-irondale/",
-      "link": "https://www.trussvilletribune.com/2026/11/02/ribbon-cutting-to-be-held-for-new-storm-shelter-in-irondale/",
-      "published_at": "2026-11-02T23:59:52.000Z",
-      "date": "2026-11-02T23:59:52.000Z",
+      "title": "Linda McDowell Barrett (January 7, 1946 — October 28, 2026)",
+      "summary": "Linda McDowell Barrett was born January 7, 1946, in Birmingham, AL, and peacefully passed away October 28, 2026, in Trussville, AL. Linda lived a life filled with love, grace, and joy, leaving a mark on all who knew her. She attended Tarrant High School and graduated in 1964. She married the love of her life, […]",
+      "description": "Linda McDowell Barrett was born January 7, 1946, in Birmingham, AL, and peacefully passed away October 28, 2026, in Trussville, AL. Linda lived a life filled with love, grace, and joy, leaving a mark on all who knew her. She attended Tarrant High School and graduated in 1964. She married the love of her life, […]",
+      "url": "https://www.trussvilletribune.com/2026/11/03/linda-mcdowell-barrett-january-7-1946-october-28-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/03/linda-mcdowell-barrett-january-7-1946-october-28-2026/",
+      "published_at": "2026-11-03T19:22:10.000Z",
+      "date": "2026-11-03T19:22:10.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
-        "government"
+        "obituary"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/RibbonCutting.jpg"
+      "image_url": ""
+    },
+    {
+      "id": "news-15-trussville-tribune-howard-high-davis-january-5-1933-october-27-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Howard High Davis (January 5, 1933 — October 27, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 16,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Howard High Davis (January 5, 1933 — October 27, 2026)",
+      "summary": "Mr. Howard Hugh Davis, 93, of Clay, passed away on Tuesday, October 27, 2026 Mr. Davis graduated from Lanett High School in 1951. He went on to work for Swift Meat Packing Company for 13 years until the company closed its Birmingham location and transferred him to North Carolina. Not finding North Carolina to his […]",
+      "description": "Mr. Howard Hugh Davis, 93, of Clay, passed away on Tuesday, October 27, 2026 Mr. Davis graduated from Lanett High School in 1951. He went on to work for Swift Meat Packing Company for 13 years until the company closed its Birmingham location and transferred him to North Carolina. Not finding North Carolina to his […]",
+      "url": "https://www.trussvilletribune.com/2026/11/03/howard-high-davis-january-5-1933-october-27-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/03/howard-high-davis-january-5-1933-october-27-2026/",
+      "published_at": "2026-11-03T19:17:08.000Z",
+      "date": "2026-11-03T19:17:08.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
