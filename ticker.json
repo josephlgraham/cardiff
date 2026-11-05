@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-11-04T10:09:57.358Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-11-05T03:44:43.871Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": true,
   "calendarReminderCount": 1,
-  "ticker": "🏛️ Tomorrow: Graysville City Council meeting · Graysville City Hall · 6:00 PM",
+  "ticker": "🌫️ Dense Fog Advisory · Through today 3 PM    ·    🏛️ Tomorrow: Graysville City Council meeting · Graysville City Hall · 6:00 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Dense Fog Advisory",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "🌫️",
+      "ends": "2026-11-05T09:00:00-06:00",
+      "endsShort": "today 3 PM",
+      "headline": "Dense Fog Advisory",
+      "description": "* WHAT...Visibility one quarter mile or less in dense fog.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9508ac97904a67889c615e339bacc0582fffb80e.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": [
