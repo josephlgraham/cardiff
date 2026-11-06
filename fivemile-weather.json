@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T22:43:02.658Z",
+  "updatedAt": "2026-11-06T00:10:40.688Z",
   "temp": 74,
   "humidity": 99,
   "windSpeed": 0,
@@ -62,29 +62,11 @@
   "forecast": [
     {
       "number": 1,
-      "name": "This Afternoon",
-      "startTime": "2026-11-05T16:00:00-06:00",
-      "endTime": "2026-11-05T18:00:00-06:00",
-      "isDaytime": true,
-      "temperature": 74,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 0
-      },
-      "windSpeed": "0 mph",
-      "windDirection": "",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-      "shortForecast": "Sunny"
-    },
-    {
-      "number": 2,
       "name": "Tonight",
       "startTime": "2026-11-05T18:00:00-06:00",
       "endTime": "2026-11-06T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 46,
+      "temperature": 47,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -93,11 +75,11 @@
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "N",
-      "icon": "https://api.weather.gov/icons/land/night/fog?size=medium",
-      "shortForecast": "Areas Of Fog"
+      "icon": "https://api.weather.gov/icons/land/night/sct/fog?size=medium",
+      "shortForecast": "Partly Cloudy then Patchy Fog"
     },
     {
-      "number": 3,
+      "number": 2,
       "name": "Friday",
       "startTime": "2026-11-06T06:00:00-06:00",
       "endTime": "2026-11-06T18:00:00-06:00",
@@ -115,7 +97,7 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Friday Night",
       "startTime": "2026-11-06T18:00:00-06:00",
       "endTime": "2026-11-07T06:00:00-06:00",
@@ -133,7 +115,7 @@
       "shortForecast": "Partly Cloudy"
     },
     {
-      "number": 5,
+      "number": 4,
       "name": "Saturday",
       "startTime": "2026-11-07T06:00:00-06:00",
       "endTime": "2026-11-07T18:00:00-06:00",
@@ -151,7 +133,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 6,
+      "number": 5,
       "name": "Saturday Night",
       "startTime": "2026-11-07T18:00:00-06:00",
       "endTime": "2026-11-08T06:00:00-06:00",
@@ -169,7 +151,7 @@
       "shortForecast": "Mostly Clear then Patchy Frost"
     },
     {
-      "number": 7,
+      "number": 6,
       "name": "Sunday",
       "startTime": "2026-11-08T06:00:00-06:00",
       "endTime": "2026-11-08T18:00:00-06:00",
@@ -187,7 +169,7 @@
       "shortForecast": "Patchy Frost then Sunny"
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Sunday Night",
       "startTime": "2026-11-08T18:00:00-06:00",
       "endTime": "2026-11-09T06:00:00-06:00",
@@ -205,7 +187,7 @@
       "shortForecast": "Partly Cloudy then Patchy Frost"
     },
     {
-      "number": 9,
+      "number": 8,
       "name": "Monday",
       "startTime": "2026-11-09T06:00:00-06:00",
       "endTime": "2026-11-09T18:00:00-06:00",
@@ -223,7 +205,7 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 10,
+      "number": 9,
       "name": "Monday Night",
       "startTime": "2026-11-09T18:00:00-06:00",
       "endTime": "2026-11-10T06:00:00-06:00",
@@ -241,7 +223,7 @@
       "shortForecast": "Partly Cloudy"
     },
     {
-      "number": 11,
+      "number": 10,
       "name": "Tuesday",
       "startTime": "2026-11-10T06:00:00-06:00",
       "endTime": "2026-11-10T18:00:00-06:00",
@@ -259,7 +241,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 12,
+      "number": 11,
       "name": "Tuesday Night",
       "startTime": "2026-11-10T18:00:00-06:00",
       "endTime": "2026-11-11T06:00:00-06:00",
@@ -277,7 +259,7 @@
       "shortForecast": "Mostly Clear"
     },
     {
-      "number": 13,
+      "number": 12,
       "name": "Veterans Day",
       "startTime": "2026-11-11T06:00:00-06:00",
       "endTime": "2026-11-11T18:00:00-06:00",
@@ -295,7 +277,7 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 14,
+      "number": 13,
       "name": "Wednesday Night",
       "startTime": "2026-11-11T18:00:00-06:00",
       "endTime": "2026-11-12T06:00:00-06:00",
@@ -311,14 +293,32 @@
       "windDirection": "",
       "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
       "shortForecast": "Mostly Clear"
+    },
+    {
+      "number": 14,
+      "name": "Thursday",
+      "startTime": "2026-11-12T06:00:00-06:00",
+      "endTime": "2026-11-12T18:00:00-06:00",
+      "isDaytime": true,
+      "temperature": 68,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 7
+      },
+      "windSpeed": "0 to 10 mph",
+      "windDirection": "NW",
+      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+      "shortForecast": "Sunny"
     }
   ],
   "weekly": [
     {
       "date": "2026-11-05",
-      "hi": 74,
-      "lo": 46,
-      "shortForecast": "Sunny"
+      "hi": null,
+      "lo": 47,
+      "shortForecast": "Partly Cloudy then Patchy Fog"
     },
     {
       "date": "2026-11-06",
