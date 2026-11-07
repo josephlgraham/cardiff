@@ -1,65 +1,109 @@
 {
-  "updatedAt": "2026-11-06T17:56:04.945Z",
+  "updatedAt": "2026-11-07T02:45:00.945Z",
   "counts": {
     "county": 8,
-    "nearby": 2,
-    "obituaries": 1
+    "nearby": 1,
+    "obituaries": 2
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-2-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
-      "news-9-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
+      "news-7-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend"
     ],
     "creek": [],
     "county": [
-      "news-1-wbrc-jefferson-county-commission-candidate-seeking-recount-after-",
+      "news-1-trussville-tribune-pinson-council-recognizes-retiring-jcso-deputy",
+      "news-2-wbrc-aldot-awards-over-12-million-in-state-grants-to-public-use-a",
       "news-3-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
       "news-4-abc-33-40-crash-closed-lanes-on-i-65-in-jefferson-county-thursday-morn",
-      "news-5-abc-33-40-alabama-voters-approve-daily-pledge-student-led-prayer-polic",
-      "news-6-abc-33-40-alabama-voters-approve-weekly-national-anthem-requirement-in",
-      "news-7-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
-      "news-8-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
-      "news-10-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a"
+      "news-5-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
+      "news-6-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
+      "news-8-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "news-9-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8"
     ],
     "obituaries": [
-      "news-11-trussville-tribune-dorothy-jackson-december-11-1945-october-31-2026"
+      "news-10-https-www-wolfefuneralhomes-com-mark-anthony-hellmich-obituary-nov-2-2026",
+      "news-11-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-jefferson-county-commission-candidate-seeking-recount-after-",
+      "id": "news-1-trussville-tribune-pinson-council-recognizes-retiring-jcso-deputy",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
       "tags": [
-        "Government"
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/Deputies-300x208.png",
+        "from": "feed",
+        "width": null,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Pinson Council recognizes retiring JCSO deputy",
+      "summary": "PINSON, Ala. — Pinson Mayor Hoyt Sanders read a proclamation during a relatively brief city council on Thursday night recognizing retiring Jefferson County Sheriff’s Office (JCSO) deputy Brad Self as he retired before swearing in a new deputy. Self started as a reserve deputy in 1995. He worked full time at the Jeffers",
+      "description": "PINSON, Ala. — Pinson Mayor Hoyt Sanders read a proclamation during a relatively brief city council on Thursday night recognizing retiring Jefferson County Sheriff’s Office (JCSO) deputy Brad Self as he retired before swearing in a new deputy. Self started as a reserve deputy in 1995. He worked full time at the Jeffers",
+      "url": "https://www.trussvilletribune.com/2026/11/06/pinson-council-recognizes-retiring-jcso-deputy/",
+      "link": "https://www.trussvilletribune.com/2026/11/06/pinson-council-recognizes-retiring-jcso-deputy/",
+      "published_at": "2026-11-07T01:57:48.000Z",
+      "date": "2026-11-07T01:57:48.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/Deputies-300x208.png"
+    },
+    {
+      "id": "news-2-wbrc-aldot-awards-over-12-million-in-state-grants-to-public-use-a",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
       ],
       "outlet": "WBRC",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//27YS4PFP4FHQROISGCUA65RG2Y.png?auth=7dfeb05124edf5bc9190c2635ca01a078f8c92055098ed4f7a3ed5c53ae52a37&smart=false",
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YGCMS5OVQ5DCJNZZAOM57GF6CA.jpg?auth=a0bb4f467580beb1b1b99191165d4af0f2c5f6821ae14aafa22847893c4e6a4c&smart=false",
         "from": "feed",
         "width": null,
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 26,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
-      "title": "Jefferson County commission candidate seeking recount after District 3 loss",
-      "summary": "RECOUNT REQUEST: Democrat Camara Blue says he is taking steps to request a recount in the Jefferson County District 3 commission race.",
-      "description": "RECOUNT REQUEST: Democrat Camara Blue says he is taking steps to request a recount in the Jefferson County District 3 commission race.",
-      "url": "https://www.wbrc.com/2026/11/05/jefferson-county-commission-candidate-seeking-recount-after-district-3-loss/",
-      "link": "https://www.wbrc.com/2026/11/05/jefferson-county-commission-candidate-seeking-recount-after-district-3-loss/",
-      "published_at": "2026-11-05T22:53:08.000Z",
-      "date": "2026-11-05T22:53:08.000Z",
+      "title": "ALDOT awards over $12 million in state grants to public-use airports across Alabama",
+      "summary": "The Alabama Department of Transportation (ALDOT) has awarded over $12 million in state grants through the Alabama Airport Improvement Funding Program to public-use airports across the state.",
+      "description": "The Alabama Department of Transportation (ALDOT) has awarded over $12 million in state grants through the Alabama Airport Improvement Funding Program to public-use airports across the state.",
+      "url": "https://www.wbrc.com/2026/11/06/aldot-awards-over-12-million-state-grants-public-use-airports-across-alabama/",
+      "link": "https://www.wbrc.com/2026/11/06/aldot-awards-over-12-million-state-grants-public-use-airports-across-alabama/",
+      "published_at": "2026-11-06T23:49:30.000Z",
+      "date": "2026-11-06T23:49:30.000Z",
       "location_tags": [
-        "jefferson-county"
+        "regional"
       ],
       "topic_tags": [
-        "government"
+        "roads"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -67,45 +111,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//27YS4PFP4FHQROISGCUA65RG2Y.png?auth=7dfeb05124edf5bc9190c2635ca01a078f8c92055098ed4f7a3ed5c53ae52a37&smart=false"
-    },
-    {
-      "id": "news-2-bham-now-4-new-businesses-3-coming-soon-to-birmingham",
-      "section": "nearby",
-      "why": "names gardendale",
-      "town": "Gardendale",
-      "tags": [],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/11/13230219_589469367877666_7934882119488889197_n-edited.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "4 new businesses + 3 coming soon to Birmingham",
-      "summary": "🛍️ NEW + COMING SOON: Academy just opened in Gardendale + CAVA landed in Alabaster, while Shipley Do-Nuts and Yum Yai Street Thai are on the way. Here's what's new around Birmingham.",
-      "description": "🛍️ NEW + COMING SOON: Academy just opened in Gardendale + CAVA landed in Alabaster, while Shipley Do-Nuts and Yum Yai Street Thai are on the way. Here's what's new around Birmingham.",
-      "url": "https://bhamnow.com/2026/11/02/4-new-businesses-3-coming-soon-to-birmingham/#utm_source=rss&utm_medium=rss&utm_campaign=4-new-businesses-3-coming-soon-to-birmingham",
-      "link": "https://bhamnow.com/2026/11/02/4-new-businesses-3-coming-soon-to-birmingham/#utm_source=rss&utm_medium=rss&utm_campaign=4-new-businesses-3-coming-soon-to-birmingham",
-      "published_at": "2026-11-02T21:10:43.000Z",
-      "date": "2026-11-02T21:10:43.000Z",
-      "location_tags": [
-        "gardendale"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/13230219_589469367877666_7934882119488889197_n-edited.jpg"
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YGCMS5OVQ5DCJNZZAOM57GF6CA.jpg?auth=a0bb4f467580beb1b1b99191165d4af0f2c5f6821ae14aafa22847893c4e6a4c&smart=false"
     },
     {
       "id": "news-3-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
@@ -194,91 +200,7 @@
       "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-5-abc-33-40-alabama-voters-approve-daily-pledge-student-led-prayer-polic",
-      "section": "county",
-      "why": "statewide, schools",
-      "town": "Regional",
-      "tags": [
-        "Schools"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/63827f3d-23d5-4147-957e-5129f9adf9f1-am3.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Alabama voters approve daily Pledge, student-led prayer policies in schools",
-      "summary": "Alabama voters approved Statewide Amendment 3, requiring local school boards to adopt policies for the Pledge of Allegiance and voluntary, student-initiated pra",
-      "description": "Alabama voters approved Statewide Amendment 3, requiring local school boards to adopt policies for the Pledge of Allegiance and voluntary, student-initiated pra",
-      "url": "https://abc3340.com/news/local/alabama-voters-approve-daily-pledge-student-led-prayer-policies-in-schools",
-      "link": "https://abc3340.com/news/local/alabama-voters-approve-daily-pledge-student-led-prayer-policies-in-schools",
-      "published_at": "2026-11-04T14:25:01.000Z",
-      "date": "2026-11-04T14:25:01.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "schools"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/63827f3d-23d5-4147-957e-5129f9adf9f1-am3.png"
-    },
-    {
-      "id": "news-6-abc-33-40-alabama-voters-approve-weekly-national-anthem-requirement-in",
-      "section": "county",
-      "why": "statewide, schools",
-      "town": "Regional",
-      "tags": [
-        "Schools"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c3485622-5eb9-4eb8-9c19-1180a1366c1c-am4.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Alabama voters approve weekly national anthem requirement in schools",
-      "summary": "Alabama voters approved Statewide Amendment 4, requiring local school boards to adopt policies for public schools to play or perform the first stanza of “The St",
-      "description": "Alabama voters approved Statewide Amendment 4, requiring local school boards to adopt policies for public schools to play or perform the first stanza of “The St",
-      "url": "https://abc3340.com/news/local/alabama-voters-approve-weekly-national-anthem-requirement-in-schools",
-      "link": "https://abc3340.com/news/local/alabama-voters-approve-weekly-national-anthem-requirement-in-schools",
-      "published_at": "2026-11-04T14:20:42.000Z",
-      "date": "2026-11-04T14:20:42.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "schools"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/c3485622-5eb9-4eb8-9c19-1180a1366c1c-am4.png"
-    },
-    {
-      "id": "news-7-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
+      "id": "news-5-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -320,7 +242,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Jimmie-Stephens-wins-close-Jefferson-County-Commission-race-as-Camara-Blue-seeks-recount.jpg?w=800"
     },
     {
-      "id": "news-8-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
+      "id": "news-6-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -362,7 +284,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2025/10/traffic-3-scaled.jpg"
     },
     {
-      "id": "news-9-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
+      "id": "news-7-bham-now-shrimp-basket-shutters-5-alabama-locations-including-gardend",
       "section": "nearby",
       "why": "names gardendale",
       "town": "Gardendale",
@@ -376,7 +298,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -400,7 +322,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2022/01/IMG_2498-scaled-e1643631392818-2048x1070.jpg"
     },
     {
-      "id": "news-10-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
+      "id": "news-8-jefferson-county-public-meeting-notice-of-jefferson-county-commission-nov-2-a",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -437,43 +359,129 @@
       "image_url": ""
     },
     {
-      "id": "news-11-trussville-tribune-dorothy-jackson-december-11-1945-october-31-2026",
+      "id": "news-9-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/aldot-1024x1024.png",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Crews to perform concrete work on I-59 starting Nov. 8",
+      "summary": "TRUSSVILLE, Ala. — Crews from the Alabama Department of Transportation (ALDOT) will continue a concrete project on I-59 starting on Sunday, Nov. 8. Work will be performed on Sunday through Thursday nights from 7 p.m. to 6 a.m. On Nov. 8 the I-59 northbound ramp onto I-459 southbound near Trussville will be closed. On N",
+      "description": "TRUSSVILLE, Ala. — Crews from the Alabama Department of Transportation (ALDOT) will continue a concrete project on I-59 starting on Sunday, Nov. 8. Work will be performed on Sunday through Thursday nights from 7 p.m. to 6 a.m. On Nov. 8 the I-59 northbound ramp onto I-459 southbound near Trussville will be closed. On N",
+      "url": "https://www.trussvilletribune.com/2026/11/06/crews-to-perform-concrete-work-on-i-59-starting-nov-8/",
+      "link": "https://www.trussvilletribune.com/2026/11/06/crews-to-perform-concrete-work-on-i-59-starting-nov-8/",
+      "published_at": "2026-11-07T02:35:55.000Z",
+      "date": "2026-11-07T02:35:55.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/aldot-1024x1024.png"
+    },
+    {
+      "id": "news-10-https-www-wolfefuneralhomes-com-mark-anthony-hellmich-obituary-nov-2-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
       "tags": [
         "Obituary"
       ],
-      "outlet": "Trussville Tribune",
+      "outlet": "https://www.wolfefuneralhomes.com/",
       "paywall": false,
       "image": null,
       "obit": {
-        "name": "Dorothy Jackson (December 11, 1945 — October 31, 2026)",
+        "name": "Mark Anthony Hellmich Obituary Nov 2, 2026",
         "age": null,
         "town": "",
-        "home": "Trussville Tribune",
+        "home": "https://www.wolfefuneralhomes.com/",
         "service": "",
         "serviceLabel": ""
       },
-      "score": 13,
+      "score": 2,
       "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Dorothy Jackson (December 11, 1945 — October 31, 2026)",
-      "summary": "Dianne Jackson, age 80, of Center Point, Alabama, passed away on October 31, 2026. Born on December 12, 1945, in Hall Summit, Louisiana, Dianne was a devoted wife, mother, grandmother, Nana, and friend who dedicated her life to bringing warmth, creativity, and joy to everyone around her. Above all, Dianne loved her Lor",
-      "description": "Dianne Jackson, age 80, of Center Point, Alabama, passed away on October 31, 2026. Born on December 12, 1945, in Hall Summit, Louisiana, Dianne was a devoted wife, mother, grandmother, Nana, and friend who dedicated her life to bringing warmth, creativity, and joy to everyone around her. Above all, Dianne loved her Lor",
-      "url": "https://www.trussvilletribune.com/2026/11/05/dorothy-jackson-december-11-1945-october-31-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/05/dorothy-jackson-december-11-1945-october-31-2026/",
-      "published_at": "2026-11-05T19:37:41.000Z",
-      "date": "2026-11-05T19:37:41.000Z",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Mark Anthony Hellmich Obituary Nov 2, 2026",
+      "summary": "Mark Anthony Hellmich Obituary Nov 2, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Mark Anthony Hellmich Obituary Nov 2, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5sZ25uX0Qzd2w1VW1WR1RXREF5SWJUUDZDVHR6akRMc3A5Z0M5RDRJSnBWeFR4NEp4czUyNkdCM2pMeGNzdHQzZkZpeHk5NUZJekRPd0hZMS1tSFY0VXNubndFSHlFNjJ5dmc?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5sZ25uX0Qzd2w1VW1WR1RXREF5SWJUUDZDVHR6akRMc3A5Z0M5RDRJSnBWeFR4NEp4czUyNkdCM2pMeGNzdHQzZkZpeHk5NUZJekRPd0hZMS1tSFY0VXNubndFSHlFNjJ5dmc?oc=5",
+      "published_at": "2026-11-02T08:00:00.000Z",
+      "date": "2026-11-02T08:00:00.000Z",
       "location_tags": [
         "regional"
       ],
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 2,
-      "priority": 2,
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 1,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+      "summary": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "published_at": "2026-11-01T07:00:00.000Z",
+      "date": "2026-11-01T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
