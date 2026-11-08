@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-11-08T15:01:43.576Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-11-08T19:36:01.861Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "🥶 Frost Advisory · Through tomorrow 2 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Frost Advisory",
+      "severity": "Minor",
+      "urgency": "Expected",
+      "emoji": "🥶",
+      "ends": "2026-11-09T08:00:00-06:00",
+      "endsShort": "tomorrow 2 PM",
+      "headline": "Frost Advisory",
+      "description": "* WHAT...Temperatures as low as 33 will result in frost formation.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e904223d73b5694fb56ead924a3ff10f790023ba.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
