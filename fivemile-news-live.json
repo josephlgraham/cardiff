@@ -1,28 +1,26 @@
 {
-  "updatedAt": "2026-11-08T02:23:48.026Z",
+  "updatedAt": "2026-11-08T17:01:39.583Z",
   "counts": {
-    "nearby": 3,
-    "county": 8
+    "nearby": 2,
+    "county": 4,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
       "news-1-abc-33-40-one-person-found-dead-after-house-fire-in-fultondale",
-      "news-2-cbs-42-person-killed-in-overnight-jefferson-county-house-fire",
-      "news-3-wvtm-13-firefighters-find-one-person-dead-in-central-alabama-late-ni"
+      "news-2-cbs-42-person-killed-in-overnight-jefferson-county-house-fire"
     ],
     "creek": [],
     "county": [
-      "news-4-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
-      "news-5-wbrc-alabama-house-leadership-outline-legislative-priorities-post",
-      "news-6-wbrc-aldot-awards-over-12-million-in-state-grants-to-public-use-a",
-      "news-7-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
-      "news-8-abc-33-40-crash-closed-lanes-on-i-65-in-jefferson-county-thursday-morn",
-      "news-9-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
-      "news-10-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
-      "news-11-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8"
+      "news-3-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
+      "news-4-abc-33-40-crash-closed-lanes-on-i-65-in-jefferson-county-thursday-morn",
+      "news-5-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
+      "news-6-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-7-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026"
+    ]
   },
   "stories": [
     {
@@ -42,7 +40,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -82,7 +80,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -106,45 +104,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900"
     },
     {
-      "id": "news-3-wvtm-13-firefighters-find-one-person-dead-in-central-alabama-late-ni",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/8b10ba8f-4dd8-4882-83f6-01b56ebe9b56.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Firefighters find one person dead in Central Alabama late-night house fire",
-      "summary": "One person was found dead inside a home after a fire late Friday in Fultondale, according to Fire Chief Justin McKenzie.",
-      "description": "One person was found dead inside a home after a fire late Friday in Fultondale, according to Fire Chief Justin McKenzie.",
-      "url": "https://www.wvtm13.com/article/one-person-dead-house-fire-fultondale-alabama/74365709",
-      "link": "https://www.wvtm13.com/article/one-person-dead-house-fire-fultondale-alabama/74365709",
-      "published_at": "2026-11-08T01:04:00.000Z",
-      "date": "2026-11-08T01:04:00.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/8b10ba8f-4dd8-4882-83f6-01b56ebe9b56.jpg"
-    },
-    {
-      "id": "news-4-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
+      "id": "news-3-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -161,7 +121,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -188,135 +148,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Self-and-Sanders.png?w=900"
     },
     {
-      "id": "news-5-wbrc-alabama-house-leadership-outline-legislative-priorities-post",
-      "section": "county",
-      "why": "alabama house, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//NSCBR3DF3JAFLPKJKXGEM5XAKA.jpg?auth=0a4c16f73b75501257c36e7d59057ff7fd5c5d6b8cc1ce3ab4e02b80da77c0ba&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Alabama House leadership outline legislative priorities post-midterm election",
-      "summary": "Alabama republicans still have control of the House of Representatives, but they did lose a few seats to democrats in the midterms.",
-      "description": "Alabama republicans still have control of the House of Representatives, but they did lose a few seats to democrats in the midterms.",
-      "url": "https://www.wbrc.com/2026/11/07/alabama-house-leadership-outline-legislative-priorities-post-midterm-election/",
-      "link": "https://www.wbrc.com/2026/11/07/alabama-house-leadership-outline-legislative-priorities-post-midterm-election/",
-      "published_at": "2026-11-07T00:08:37.000Z",
-      "date": "2026-11-07T00:08:37.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//NSCBR3DF3JAFLPKJKXGEM5XAKA.jpg?auth=0a4c16f73b75501257c36e7d59057ff7fd5c5d6b8cc1ce3ab4e02b80da77c0ba&smart=false"
-    },
-    {
-      "id": "news-6-wbrc-aldot-awards-over-12-million-in-state-grants-to-public-use-a",
-      "section": "county",
-      "why": "aldot, roads",
-      "town": "Regional",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YGCMS5OVQ5DCJNZZAOM57GF6CA.jpg?auth=a0bb4f467580beb1b1b99191165d4af0f2c5f6821ae14aafa22847893c4e6a4c&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "ALDOT awards over $12 million in state grants to public-use airports across Alabama",
-      "summary": "The Alabama Department of Transportation (ALDOT) has awarded over $12 million in state grants through the Alabama Airport Improvement Funding Program to public-use airports across the state.",
-      "description": "The Alabama Department of Transportation (ALDOT) has awarded over $12 million in state grants through the Alabama Airport Improvement Funding Program to public-use airports across the state.",
-      "url": "https://www.wbrc.com/2026/11/06/aldot-awards-over-12-million-state-grants-public-use-airports-across-alabama/",
-      "link": "https://www.wbrc.com/2026/11/06/aldot-awards-over-12-million-state-grants-public-use-airports-across-alabama/",
-      "published_at": "2026-11-06T23:49:30.000Z",
-      "date": "2026-11-06T23:49:30.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//YGCMS5OVQ5DCJNZZAOM57GF6CA.jpg?auth=a0bb4f467580beb1b1b99191165d4af0f2c5f6821ae14aafa22847893c4e6a4c&smart=false"
-    },
-    {
-      "id": "news-7-birmingham-times-jefferson-county-leaders-celebrate-sheriff-mark-pettway-s-th",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government",
-        "Public safety"
-      ],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-150x150.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Birmingham Times"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Jefferson County Leaders Celebrate Sheriff Mark Pettway’s Third-Term Victory",
-      "summary": "Jefferson County Sheriff Mark Pettway, right, secured a third term Tuesday, and celebrated with Rep. Terri Sewell at a joint election night party. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-1024x846.jpg\" />By Forrest Terrell | For the Birmingh",
-      "description": "Jefferson County Sheriff Mark Pettway, right, secured a third term Tuesday, and celebrated with Rep. Terri Sewell at a joint election night party. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-1024x846.jpg\" />By Forrest Terrell | For the Birmingh",
-      "url": "https://www.birminghamtimes.com/2026/11/jefferson-county-leaders-celebrate-sheriff-mark-pettways-third-term-victory/",
-      "link": "https://www.birminghamtimes.com/2026/11/jefferson-county-leaders-celebrate-sheriff-mark-pettways-third-term-victory/",
-      "published_at": "2026-11-04T12:15:02.000Z",
-      "date": "2026-11-04T12:15:02.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government",
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/DSCF6539-scaled-e1793796699982-150x150.jpg"
-    },
-    {
-      "id": "news-8-abc-33-40-crash-closed-lanes-on-i-65-in-jefferson-county-thursday-morn",
+      "id": "news-4-abc-33-40-crash-closed-lanes-on-i-65-in-jefferson-county-thursday-morn",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -332,7 +164,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -358,49 +190,7 @@
       "image_url": "https://abc3340.com/resources/media/9c678151-c933-429e-b587-c0416e9da17d-large16x9_emergencyvehiclelights.JPG"
     },
     {
-      "id": "news-9-cbs-42-jimmie-stephens-wins-close-jefferson-county-commission-race-",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Jimmie-Stephens-wins-close-Jefferson-County-Commission-race-as-Camara-Blue-seeks-recount.jpg?w=800",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Jimmie Stephens wins close Jefferson County Commission race as Camara Blue seeks recount",
-      "summary": "JEFFERSON COUNTY, Ala. (WIAT) — The race for Jefferson County Commission District 3 came down to fewer than 600 votes, and incumbent Jimmie Stephens was declared the winner over challenger Camara Blue. According to election results, Stephens received 27,745 votes, or 50.50% of the vote. Blue finished with 27,152 votes,",
-      "description": "JEFFERSON COUNTY, Ala. (WIAT) — The race for Jefferson County Commission District 3 came down to fewer than 600 votes, and incumbent Jimmie Stephens was declared the winner over challenger Camara Blue. According to election results, Stephens received 27,745 votes, or 50.50% of the vote. Blue finished with 27,152 votes,",
-      "url": "https://www.alabamas42.com/news/politics/your-local-election-hq/jimmie-stephens-wins-close-jefferson-county-commission-race-as-camara-blue-seeks-recount/",
-      "link": "https://www.alabamas42.com/news/politics/your-local-election-hq/jimmie-stephens-wins-close-jefferson-county-commission-race-as-camara-blue-seeks-recount/",
-      "published_at": "2026-11-05T00:55:44.000Z",
-      "date": "2026-11-05T00:55:44.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Jimmie-Stephens-wins-close-Jefferson-County-Commission-race-as-Camara-Blue-seeks-recount.jpg?w=800"
-    },
-    {
-      "id": "news-10-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
+      "id": "news-5-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -416,7 +206,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -442,7 +232,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2025/10/traffic-3-scaled.jpg"
     },
     {
-      "id": "news-11-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8",
+      "id": "news-6-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -458,7 +248,7 @@
         "credit": "Trussville Tribune"
       },
       "obit": null,
-      "score": 19,
+      "score": 18,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -482,6 +272,50 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/aldot-1024x1024.png"
+    },
+    {
+      "id": "news-7-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 1,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
+      "summary": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
+      "published_at": "2026-11-01T07:00:00.000Z",
+      "date": "2026-11-01T07:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
