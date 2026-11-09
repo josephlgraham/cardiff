@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-09T02:41:53.031Z",
+  "updatedAt": "2026-11-09T10:24:34.342Z",
   "hasAlerts": true,
   "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
-  "hasCalendarReminders": false,
-  "calendarReminderCount": 0,
-  "ticker": "🥶 Frost Advisory · Through today 2 PM",
+  "hasCalendarReminders": true,
+  "calendarReminderCount": 1,
+  "ticker": "🥶 Frost Advisory · Through today 2 PM    ·    🏛️ Tomorrow: Cardiff City Council meeting · 6:00 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
   "alerts": [
@@ -19,10 +19,12 @@
       "endsShort": "today 2 PM",
       "headline": "Frost Advisory",
       "description": "* WHAT...Temperatures as low as 33 will result in frost formation.",
-      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e904223d73b5694fb56ead924a3ff10f790023ba.001.1"
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.13dd23f33079c7ebe6e179f814eba9e2458390b3.001.1"
     }
   ],
   "spcOutlook": [],
   "gaugeAlerts": [],
-  "calendarReminders": []
+  "calendarReminders": [
+    "🏛️ Tomorrow: Cardiff City Council meeting · 6:00 PM"
+  ]
 }
