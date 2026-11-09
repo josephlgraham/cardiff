@@ -1,9 +1,8 @@
 {
-  "updatedAt": "2026-11-08T17:01:39.583Z",
+  "updatedAt": "2026-11-09T02:37:53.688Z",
   "counts": {
     "nearby": 2,
-    "county": 4,
-    "obituaries": 1
+    "county": 4
   },
   "sections": {
     "towns": [],
@@ -18,9 +17,7 @@
       "news-5-bham-now-birmingham-to-introduce-real-time-road-updates-with-new-digi",
       "news-6-trussville-tribune-crews-to-perform-concrete-work-on-i-59-starting-nov-8"
     ],
-    "obituaries": [
-      "news-7-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026"
-    ]
+    "obituaries": []
   },
   "stories": [
     {
@@ -164,7 +161,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -272,50 +269,6 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/aldot-1024x1024.png"
-    },
-    {
-      "id": "news-7-https-www-wolfefuneralhomes-com-joyce-maurice-denmark-demouy-obituary-nov-1-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 1,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026",
-      "summary": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Joyce Maurice Denmark DeMouy Obituary Nov 1, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1FNk53c3VteDFrVmluRXlfRk9OYUdHWmV0WGkzOFlBT2ZURW5GSXNrTS1ZMFdWWWx0OE9qOWotTlh4U2FuUUI5bTVTRWJvbkZRbkdkT0FkbmtpWEl2bHhvQjF4Z0d4dDg4b1FUV1djQVZRc00?oc=5",
-      "published_at": "2026-11-01T07:00:00.000Z",
-      "date": "2026-11-01T07:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
     }
   ]
 }
