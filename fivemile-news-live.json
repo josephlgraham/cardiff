@@ -1,24 +1,29 @@
 {
-  "updatedAt": "2026-11-10T04:36:16.839Z",
+  "updatedAt": "2026-11-10T18:39:04.782Z",
   "counts": {
-    "nearby": 4,
-    "county": 3
+    "nearby": 5,
+    "county": 4,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
       "news-1-abc-33-40-birmingham-man-dies-in-atv-crash",
-      "news-2-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
+      "news-2-wbrc-pleasant-grove-family-says-contractor-left-deck-unfinished-u",
+      "news-3-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
       "news-5-cbs-42-man-killed-in-fultondale-fire",
-      "news-6-cbs-42-person-killed-in-overnight-jefferson-county-house-fire"
+      "news-8-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
     ],
     "creek": [],
     "county": [
-      "news-3-al-com-woodfin-we-re-synching-the-lights-in-birmingham",
       "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
-      "news-7-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy"
+      "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
+      "news-7-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
+      "news-9-trussville-tribune-birmingham-man-54-killed-in-jefferson-county-atv-incident"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-10-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026"
+    ]
   },
   "stories": [
     {
@@ -38,7 +43,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 36,
+      "score": 35,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -55,8 +60,8 @@
       "topic_tags": [
         "roads"
       ],
-      "priority_level": 5,
-      "priority": 5,
+      "priority_level": 4,
+      "priority": 4,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -64,7 +69,45 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/5607/986/0x294/90/89fe33c6-a2c3-4fad-90b7-69ff9ea327c2-GettyImages78029895.jpg"
     },
     {
-      "id": "news-2-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
+      "id": "news-2-wbrc-pleasant-grove-family-says-contractor-left-deck-unfinished-u",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LJXGPI6GVFBJNOGS7DD2CWRS6I.jpg?auth=e277f0f636709b671d682797189c1d4e8e0a69ff05a36aff9175182176853ad2&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Pleasant Grove family says contractor left deck unfinished, unsafe months after payments",
+      "summary": "A Pleasant Grove family said the contractor they hired to rebuild their back deck told them he could not finish the job, months into the project, leaving it up to 12 feet off the ground with unfinished railings.",
+      "description": "A Pleasant Grove family said the contractor they hired to rebuild their back deck told them he could not finish the job, months into the project, leaving it up to 12 feet off the ground with unfinished railings.",
+      "url": "https://www.wbrc.com/2026/11/10/pleasant-grove-family-says-contractor-left-deck-unfinished-unsafe-months-after-payments/",
+      "link": "https://www.wbrc.com/2026/11/10/pleasant-grove-family-says-contractor-left-deck-unfinished-unsafe-months-after-payments/",
+      "published_at": "2026-11-10T05:13:54.000Z",
+      "date": "2026-11-10T05:13:54.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//LJXGPI6GVFBJNOGS7DD2CWRS6I.jpg?auth=e277f0f636709b671d682797189c1d4e8e0a69ff05a36aff9175182176853ad2&smart=false"
+    },
+    {
+      "id": "news-3-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -78,7 +121,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -102,50 +145,6 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//Y3JCFQ37INE6TK2NCVI5VWITE4.bmp?auth=d63f678077e55ee244c8f9a208e1b65d6f697a774cf820837f92a0d03056debf&smart=false"
     },
     {
-      "id": "news-3-al-com-woodfin-we-re-synching-the-lights-in-birmingham",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads",
-        "Government"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/U7BIECL2JVD6JANV5S5CSZ5LX4.jpeg?auth=12ae3be321df741ae12fbcf298e93635f37897370ab75be053a5738caf7ed179&smart=true&height=1200",
-        "from": "feed",
-        "width": 3821,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Woodfin: 'We're synching the lights' in Birmingham",
-      "summary": "Synchronized traffic lights will improve traffic flow and safety, mayor says",
-      "description": "Synchronized traffic lights will improve traffic flow and safety, mayor says",
-      "url": "https://www.al.com/news/2026/11/birmingham-just-got-83-million-to-finally-fix-its-maddening-traffic-lights-heres-whats-changing.html",
-      "link": "https://www.al.com/news/2026/11/birmingham-just-got-83-million-to-finally-fix-its-maddening-traffic-lights-heres-whats-changing.html",
-      "published_at": "2026-11-09T22:06:22.000Z",
-      "date": "2026-11-09T22:06:22.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads",
-        "government"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/U7BIECL2JVD6JANV5S5CSZ5LX4.jpeg?auth=12ae3be321df741ae12fbcf298e93635f37897370ab75be053a5738caf7ed179&smart=true&height=1200"
-    },
-    {
       "id": "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
       "section": "county",
       "why": "birmingham, roads",
@@ -163,7 +162,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -204,7 +203,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -228,42 +227,46 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900"
     },
     {
-      "id": "news-6-cbs-42-person-killed-in-overnight-jefferson-county-house-fire",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "CBS 42",
+      "id": "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900",
+        "url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg",
         "from": "feed",
         "width": null,
-        "credit": "CBS 42"
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 29,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Person killed in overnight Jefferson County house fire",
-      "summary": "A person was killed in a house fire overnight in Fultondale.",
-      "description": "A person was killed in a house fire overnight in Fultondale.",
-      "url": "https://www.alabamas42.com/news/local/person-killed-in-overnight-jefferson-county-house-fire/",
-      "link": "https://www.alabamas42.com/news/local/person-killed-in-overnight-jefferson-county-house-fire/",
-      "published_at": "2026-11-07T14:14:38.000Z",
-      "date": "2026-11-07T14:14:38.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Norfolk Southern awards $146,460 grant for Sloss Furnaces entrance project",
+      "summary": "Norfolk Southern has awarded a $146,460 grant to the Sloss Furnaces Foundation to improve the entrance to the Birmingham landmark.The grant will fund the 32nd S",
+      "description": "Norfolk Southern has awarded a $146,460 grant to the Sloss Furnaces Foundation to improve the entrance to the Birmingham landmark.The grant will fund the 32nd S",
+      "url": "https://abc3340.com/news/local/norfolk-southern-awards-146460-grant-for-sloss-furnaces-entrance-project",
+      "link": "https://abc3340.com/news/local/norfolk-southern-awards-146460-grant-for-sloss-furnaces-entrance-project",
+      "published_at": "2026-11-10T18:04:45.000Z",
+      "date": "2026-11-10T18:04:45.000Z",
       "location_tags": [
-        "fultondale"
+        "birmingham"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900"
+      "image_url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg"
     },
     {
       "id": "news-7-cbs-42-pinson-council-recognizes-retiring-jefferson-county-deputy",
@@ -283,7 +286,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -308,6 +311,125 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Self-and-Sanders.png?w=900"
+    },
+    {
+      "id": "news-8-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
+      "section": "nearby",
+      "why": "names mulga",
+      "town": "Mulga",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 22,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "2 men killed in separate weekend crashes in Birmingham and Mulga",
+      "summary": "",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZW9rOHBpWkloSUtpLUJOdzJ5SHlWdkl3ajFocWF0WmMtQlU2SHJTdmkxN3Q2QllQSUlIZDdMdFpiZjZ3X1B0Z0FjaXZrdUdhamU3ZzJFRV9SRE51MkJuZnR3YjQ0TlAtRWRxcEhuT1JfY0M2RDVsenZZeHlUaGJWUnJTRDUyeFZPRDB6NlhCb2hPOTh4a1RwVXRZZHE5WHhXT2tV0gG3AUFVX3lxTE1nR3A4c1Vlb3lFMkFkRkEzV2o3U19MSG55OWxHb0RTWllrUU15T1VfQWNRNU5hemFPTHFNSW1oRGRRYlg1VGFUMWFEczZISE9OTm5UZUtzUjh6SzkyTzhsVzY1UkJXZGpyZzRWOXd2aHVlY2hJWnFYZVF5TmlBeG0tbUdETThVUmJDUTFEOTd6Tk5MZnFRdzM4TDI0STVMWW9INUZURGhOY2xGbzV1N0d0OWxzYnlVRQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZW9rOHBpWkloSUtpLUJOdzJ5SHlWdkl3ajFocWF0WmMtQlU2SHJTdmkxN3Q2QllQSUlIZDdMdFpiZjZ3X1B0Z0FjaXZrdUdhamU3ZzJFRV9SRE51MkJuZnR3YjQ0TlAtRWRxcEhuT1JfY0M2RDVsenZZeHlUaGJWUnJTRDUyeFZPRDB6NlhCb2hPOTh4a1RwVXRZZHE5WHhXT2tV0gG3AUFVX3lxTE1nR3A4c1Vlb3lFMkFkRkEzV2o3U19MSG55OWxHb0RTWllrUU15T1VfQWNRNU5hemFPTHFNSW1oRGRRYlg1VGFUMWFEczZISE9OTm5UZUtzUjh6SzkyTzhsVzY1UkJXZGpyZzRWOXd2aHVlY2hJWnFYZVF5TmlBeG0tbUdETThVUmJDUTFEOTd6Tk5MZnFRdzM4TDI0STVMWW9INUZURGhOY2xGbzV1N0d0OWxzYnlVRQ?oc=5",
+      "published_at": "2026-11-09T19:13:00.000Z",
+      "date": "2026-11-09T19:13:00.000Z",
+      "location_tags": [
+        "mulga"
+      ],
+      "topic_tags": [],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-trussville-tribune-birmingham-man-54-killed-in-jefferson-county-atv-incident",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2020/11/125548410_497142961244960_7553291529889655223_n-1024x478.jpg",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 20,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Birmingham man, 54, killed in Jefferson County ATV incident",
+      "summary": "From Tribune staff reports JEFFERSON COUNTY — A 54-year-old Birmingham man was killed in an ATV incident on Sunday, according to Jefferson County Chief Deputy Coroner Bill Yates. Eddie Lee Gray, Jr. was killed in the incident which occurred sometime between 4:45 p.m. and 5:45 p.m. The crash occurred in the 200 block of",
+      "description": "From Tribune staff reports JEFFERSON COUNTY — A 54-year-old Birmingham man was killed in an ATV incident on Sunday, according to Jefferson County Chief Deputy Coroner Bill Yates. Eddie Lee Gray, Jr. was killed in the incident which occurred sometime between 4:45 p.m. and 5:45 p.m. The crash occurred in the 200 block of",
+      "url": "https://www.trussvilletribune.com/2026/11/09/birmingham-man-54-killed-in-jefferson-county-atv-incident/",
+      "link": "https://www.trussvilletribune.com/2026/11/09/birmingham-man-54-killed-in-jefferson-county-atv-incident/",
+      "published_at": "2026-11-09T21:19:38.000Z",
+      "date": "2026-11-09T21:19:38.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2020/11/125548410_497142961244960_7553291529889655223_n-1024x478.jpg"
+    },
+    {
+      "id": "news-10-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Gary Bankston Obituary Nov 8, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 6,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Gary Bankston Obituary Nov 8, 2026",
+      "summary": "Gary Bankston Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Gary Bankston Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1NQXFTSEk1TlczdEhYbE5uVHF1ZVhBellzV3BVNFd3MlFEN1ZCZU1JcGNjcWpOekpHZV9od0ZnbzRPZ1ZvUGgzNHBnejdrbjNuakw1Y3dkUFpfSURWbG01M29CejVINTJvR0E?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1NQXFTSEk1TlczdEhYbE5uVHF1ZVhBellzV3BVNFd3MlFEN1ZCZU1JcGNjcWpOekpHZV9od0ZnbzRPZ1ZvUGgzNHBnejdrbjNuakw1Y3dkUFpfSURWbG01M29CejVINTJvR0E?oc=5",
+      "published_at": "2026-11-08T08:00:00.000Z",
+      "date": "2026-11-08T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
