@@ -1,74 +1,32 @@
 {
-  "updatedAt": "2026-11-11T02:45:18.908Z",
+  "updatedAt": "2026-11-11T18:38:55.436Z",
   "counts": {
     "nearby": 4,
-    "county": 2,
-    "obituaries": 1
+    "county": 3,
+    "obituaries": 2
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-wbrc-police-in-warrior-ask-for-your-help-solving-2019-homicide",
-      "news-2-abc-33-40-birmingham-man-dies-in-atv-crash",
-      "news-4-cbs-42-man-killed-in-fultondale-fire",
-      "news-6-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
+      "news-1-abc-33-40-birmingham-man-dies-in-atv-crash",
+      "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "news-5-cbs-42-man-killed-in-fultondale-fire",
+      "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
-      "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent"
+      "news-2-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
+      "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent"
     ],
     "obituaries": [
-      "news-7-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026"
+      "news-8-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "news-9-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-police-in-warrior-ask-for-your-help-solving-2019-homicide",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [
-        "Roads",
-        "Land"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//UINSIBYTXFHEHORF2SFM5JH6MA.png?auth=8cd907f941001b8f4b36772659d22678cd6a191905301bfb02524be9ea1d5f34&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 39,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Police in Warrior ask for your help solving 2019 homicide",
-      "summary": "Police officers in Warrior were sent to investigate a death on Feb. 24, 2019 on a logging road near Baker Street and U.S. Highway 31.",
-      "description": "Police officers in Warrior were sent to investigate a death on Feb. 24, 2019 on a logging road near Baker Street and U.S. Highway 31.",
-      "url": "https://www.wbrc.com/2026/11/10/police-warrior-ask-your-help-solving-2019-homicide/",
-      "link": "https://www.wbrc.com/2026/11/10/police-warrior-ask-your-help-solving-2019-homicide/",
-      "published_at": "2026-11-10T22:36:55.000Z",
-      "date": "2026-11-10T22:36:55.000Z",
-      "location_tags": [
-        "warrior"
-      ],
-      "topic_tags": [
-        "roads",
-        "land"
-      ],
-      "priority_level": 5,
-      "priority": 5,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//UINSIBYTXFHEHORF2SFM5JH6MA.png?auth=8cd907f941001b8f4b36772659d22678cd6a191905301bfb02524be9ea1d5f34&smart=false"
-    },
-    {
-      "id": "news-2-abc-33-40-birmingham-man-dies-in-atv-crash",
+      "id": "news-1-abc-33-40-birmingham-man-dies-in-atv-crash",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -84,7 +42,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -110,7 +68,89 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/5607/986/0x294/90/89fe33c6-a2c3-4fad-90b7-69ff9ea327c2-GettyImages78029895.jpg"
     },
     {
-      "id": "news-3-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
+      "id": "news-2-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "section": "county",
+      "why": "county commission, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek",
+        "Government"
+      ],
+      "outlet": "BirminghamWatch",
+      "paywall": false,
+      "image": {
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/11-10-2026-Camara-Blue.jpg",
+        "from": "feed",
+        "width": 1024,
+        "credit": "BirminghamWatch"
+      },
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "Blue still trails after final vote tally, will request recount in County Commission race",
+      "summary": "Democrat Camara Blue closed the gap with incumbent Commission President Jimmie Stephens but still trailed by 392 votes in the final but still-unofficial vote count. The post Blue still trails after final vote tally, will request recount in County Commission race appeared first on BirminghamWatch .",
+      "description": "Democrat Camara Blue closed the gap with incumbent Commission President Jimmie Stephens but still trailed by 392 votes in the final but still-unofficial vote count. The post Blue still trails after final vote tally, will request recount in County Commission race appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/11/10/blue-still-trails-after-final-vote-tally-will-request-recount-in-county-commission-race/",
+      "link": "https://birminghamwatch.org/2026/11/10/blue-still-trails-after-final-vote-tally-will-request-recount-in-county-commission-race/",
+      "published_at": "2026-11-11T02:53:33.000Z",
+      "date": "2026-11-11T02:53:33.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek",
+        "government"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/11-10-2026-Camara-Blue.jpg"
+    },
+    {
+      "id": "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Spectrum and The HISTORY Channel Bring Take a Veteran to School Day to Pleasant Grove Elementary",
+      "summary": "Elected officials with VIPs and Veterans including: Pleasant Grove City Councilman J. Stevens Wilkerson, Assistant Principal Dr. Dorielle Sellers, Principal Staci Lewis, State Representative Patrick Sellers and Spectrum Manager of Field Service, Antonio Smith. (Provided) \" data-large-file=\"https://www.birminghamtimes.c",
+      "description": "Elected officials with VIPs and Veterans including: Pleasant Grove City Councilman J. Stevens Wilkerson, Assistant Principal Dr. Dorielle Sellers, Principal Staci Lewis, State Representative Patrick Sellers and Spectrum Manager of Field Service, Antonio Smith. (Provided) \" data-large-file=\"https://www.birminghamtimes.c",
+      "url": "https://www.birminghamtimes.com/2026/11/spectrum-and-the-history-channel-bring-take-a-veteran-to-school-day-to-pleasant-grove-elementary/",
+      "link": "https://www.birminghamtimes.com/2026/11/spectrum-and-the-history-channel-bring-take-a-veteran-to-school-day-to-pleasant-grove-elementary/",
+      "published_at": "2026-11-11T02:55:57.000Z",
+      "date": "2026-11-11T02:55:57.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg"
+    },
+    {
+      "id": "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -127,7 +167,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -145,8 +185,8 @@
         "roads",
         "government"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -154,7 +194,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/181bd336-18c4-4a28-a89a-67373b5ad950-SOCIAL.00_00_59_45.Still001.jpg"
     },
     {
-      "id": "news-4-cbs-42-man-killed-in-fultondale-fire",
+      "id": "news-5-cbs-42-man-killed-in-fultondale-fire",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -168,7 +208,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -183,8 +223,8 @@
         "fultondale"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -192,7 +232,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900"
     },
     {
-      "id": "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
+      "id": "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -208,7 +248,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -234,7 +274,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg"
     },
     {
-      "id": "news-6-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
+      "id": "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -243,7 +283,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -267,7 +307,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "id": "news-8-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -285,7 +325,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 6,
+      "score": 4,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -304,6 +344,50 @@
       ],
       "priority_level": 1,
       "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 3,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026",
+      "summary": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aZTVETlczMHZHU0xidkZ1aC1zTzZVazZOcmduSmVUMzJSNC0yamFUcUsyaW1XSENJVzJ3S1U3ckFsMXpBY1p2UHN5cUkzUlRHazI1RUxNUmxvUlp6SzlmUmRiVkFpbU9qSEMw?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aZTVETlczMHZHU0xidkZ1aC1zTzZVazZOcmduSmVUMzJSNC0yamFUcUsyaW1XSENJVzJ3S1U3ckFsMXpBY1p2UHN5cUkzUlRHazI1RUxNUmxvUlp6SzlmUmRiVkFpbU9qSEMw?oc=5",
+      "published_at": "2026-11-07T08:00:00.000Z",
+      "date": "2026-11-07T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
