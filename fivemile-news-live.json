@@ -1,74 +1,34 @@
 {
-  "updatedAt": "2026-11-11T18:38:55.436Z",
+  "updatedAt": "2026-11-12T03:47:08.635Z",
   "counts": {
-    "nearby": 4,
-    "county": 3,
-    "obituaries": 2
+    "county": 4,
+    "nearby": 2,
+    "obituaries": 5
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-abc-33-40-birmingham-man-dies-in-atv-crash",
-      "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
-      "news-5-cbs-42-man-killed-in-fultondale-fire",
+      "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
       "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
     ],
     "creek": [],
     "county": [
-      "news-2-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "news-1-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "news-3-wbrc-woman-charged-with-manslaughter-in-deadly-2025-jefferson-cou",
       "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
-      "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent"
+      "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent"
     ],
     "obituaries": [
+      "news-6-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
       "news-8-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
-      "news-9-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026"
+      "news-9-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "news-10-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
+      "news-11-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-abc-33-40-birmingham-man-dies-in-atv-crash",
-      "section": "nearby",
-      "why": "names mulga",
-      "town": "Mulga",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/5607/986/0x294/90/89fe33c6-a2c3-4fad-90b7-69ff9ea327c2-GettyImages78029895.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 34,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Birmingham man dies in ATV crash",
-      "summary": "A 54-year-old Birmingham man died Sunday after the ATV he was riding crashed into a ditch in Mulga, according to the Jefferson County Coroner’s Office.Eddie Lee",
-      "description": "A 54-year-old Birmingham man died Sunday after the ATV he was riding crashed into a ditch in Mulga, according to the Jefferson County Coroner’s Office.Eddie Lee",
-      "url": "https://abc3340.com/news/local/birmingham-man-dies-in-atv-crash",
-      "link": "https://abc3340.com/news/local/birmingham-man-dies-in-atv-crash",
-      "published_at": "2026-11-09T17:49:24.000Z",
-      "date": "2026-11-09T17:49:24.000Z",
-      "location_tags": [
-        "mulga"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/5607/986/0x294/90/89fe33c6-a2c3-4fad-90b7-69ff9ea327c2-GettyImages78029895.jpg"
-    },
-    {
-      "id": "news-2-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "id": "news-1-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
       "section": "county",
       "why": "county commission, the creek",
       "town": "Birmingham",
@@ -85,7 +45,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -112,7 +72,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/11-10-2026-Camara-Blue.jpg"
     },
     {
-      "id": "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "id": "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -126,7 +86,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -148,6 +108,48 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg"
+    },
+    {
+      "id": "news-3-wbrc-woman-charged-with-manslaughter-in-deadly-2025-jefferson-cou",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//C2QKKCW4BNFH3LCMIJ5P77LNFA.jpg?auth=2d64098ab73ffd6aec2d0349bae73a59af6f3a8e155c233249db2684a1fcd2cd&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Woman charged with manslaughter in deadly 2025 Jefferson County crash",
+      "summary": "Stacey Mosley, 37, is charged with manslaughter after 57-year-old Jodie Owens of Cordova died in a car crash back in 2025.",
+      "description": "Stacey Mosley, 37, is charged with manslaughter after 57-year-old Jodie Owens of Cordova died in a car crash back in 2025.",
+      "url": "https://www.wbrc.com/2026/03/05/woman-charged-with-manslaughter-deadly-2025-jefferson-county-crash/",
+      "link": "https://www.wbrc.com/2026/03/05/woman-charged-with-manslaughter-deadly-2025-jefferson-county-crash/",
+      "published_at": "2026-11-11T21:51:26.000Z",
+      "date": "2026-11-11T21:51:26.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//C2QKKCW4BNFH3LCMIJ5P77LNFA.jpg?auth=2d64098ab73ffd6aec2d0349bae73a59af6f3a8e155c233249db2684a1fcd2cd&smart=false"
     },
     {
       "id": "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
@@ -194,45 +196,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/181bd336-18c4-4a28-a89a-67373b5ad950-SOCIAL.00_00_59_45.Still001.jpg"
     },
     {
-      "id": "news-5-cbs-42-man-killed-in-fultondale-fire",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Man killed in Fultondale fire",
-      "summary": "A man was killed in a fire in Fultondale over the weekend.",
-      "description": "A man was killed in a fire in Fultondale over the weekend.",
-      "url": "https://www.alabamas42.com/news/local/man-killed-in-fultondale-fire/",
-      "link": "https://www.alabamas42.com/news/local/man-killed-in-fultondale-fire/",
-      "published_at": "2026-11-09T17:37:50.000Z",
-      "date": "2026-11-09T17:37:50.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/585ca296-609c-4e3f-b2dd-271f705a1572.jpg?w=900"
-    },
-    {
-      "id": "news-6-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
+      "id": "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -274,6 +238,50 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg"
     },
     {
+      "id": "news-6-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Sandusky",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Sandusky Register",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Nora Monegan Obituary (1950 - 2026) - Sandusky, OH",
+        "age": null,
+        "town": "",
+        "home": "Sandusky Register",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "Sandusky Register",
+      "source": "Sandusky Register",
+      "title": "Nora Monegan Obituary (1950 - 2026) - Sandusky, OH",
+      "summary": "Nora Monegan Obituary (1950 - 2026) - Sandusky, OH Sandusky Register",
+      "description": "Nora Monegan Obituary (1950 - 2026) - Sandusky, OH Sandusky Register",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWlRPc2dMZzZqWXpSeWlfdmN5TEZFdUlhdW9FVE11SmVtOE93ZTYxS3hnZTdkb1dtT3NXWkQ2eDY0TmpyTVBzWEhOWjlfZ3VhWUxUb3c3eks1aDZlOExWRlF1VG1pMWU5bWVwVlExUUlWbTJEY0ZjRlNKRWJFdmhPdVFDckQ0QmRVc0F4VlZiOTdsSzVYd3kxYW40TGN2MDNlTFFsYjRNLVN2c0M2V2c?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWlRPc2dMZzZqWXpSeWlfdmN5TEZFdUlhdW9FVE11SmVtOE93ZTYxS3hnZTdkb1dtT3NXWkQ2eDY0TmpyTVBzWEhOWjlfZ3VhWUxUb3c3eks1aDZlOExWRlF1VG1pMWU5bWVwVlExUUlWbTJEY0ZjRlNKRWJFdmhPdVFDckQ0QmRVc0F4VlZiOTdsSzVYd3kxYW40TGN2MDNlTFFsYjRNLVN2c0M2V2c?oc=5",
+      "published_at": "2026-11-12T00:02:43.000Z",
+      "date": "2026-11-12T00:02:43.000Z",
+      "location_tags": [
+        "sandusky"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
       "id": "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
       "section": "nearby",
       "why": "names mulga",
@@ -283,7 +291,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -351,7 +359,95 @@
       "image_url": ""
     },
     {
-      "id": "news-9-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
+      "id": "news-9-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joann Marie Collins Obituary Nov 8, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 4,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Joann Marie Collins Obituary Nov 8, 2026",
+      "summary": "Joann Marie Collins Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Joann Marie Collins Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5jYkZTTUtfdjNWS1dZTnlaSFpGOXlDWUtuYlpIdEZ1MV94RzZqOFA2cGxfYWk0VU53M2YxdFdPc0JRR0g5TGE4czVCZEdkeFIydnJlUUdrcEg5XzhEZEFLeFk2anhDZndtQ0E?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5jYkZTTUtfdjNWS1dZTnlaSFpGOXlDWUtuYlpIdEZ1MV94RzZqOFA2cGxfYWk0VU53M2YxdFdPc0JRR0g5TGE4czVCZEdkeFIydnJlUUdrcEg5XzhEZEFLeFk2anhDZndtQ0E?oc=5",
+      "published_at": "2026-11-08T08:00:00.000Z",
+      "date": "2026-11-08T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Betty Joyce Carlisle Obituary Nov 8, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 4,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Betty Joyce Carlisle Obituary Nov 8, 2026",
+      "summary": "Betty Joyce Carlisle Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Betty Joyce Carlisle Obituary Nov 8, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE03X0tJTTNQTFRwbWVPWXhiM1B3WFdlYnhZTzdlMm9PNW80d1JMZ05WMDI3bnY2NlRlWVlkRmg0VjdBc2g2Zjg3bERLR291TEhVSWpzZU9pNkdNTDVSVmtHZnV6Tnl1SmhZcEdj?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE03X0tJTTNQTFRwbWVPWXhiM1B3WFdlYnhZTzdlMm9PNW80d1JMZ05WMDI3bnY2NlRlWVlkRmg0VjdBc2g2Zjg3bERLR291TEhVSWpzZU9pNkdNTDVSVmtHZnV6Tnl1SmhZcEdj?oc=5",
+      "published_at": "2026-11-08T08:00:00.000Z",
+      "date": "2026-11-08T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -369,7 +465,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
