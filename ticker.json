@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-11-10T11:41:13.733Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-11-12T18:20:39.349Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "🥶 Freeze Watch · Through Saturday 2 PM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Freeze Watch",
+      "severity": "Severe",
+      "urgency": "Future",
+      "emoji": "🥶",
+      "ends": "2026-11-14T08:00:00-06:00",
+      "endsShort": "Saturday 2 PM",
+      "headline": "Freeze Watch",
+      "description": "* WHAT...Sub-freezing temperatures as low as 28-32 degrees.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3d8976a4f51bac0e49479729cef9aa49b6c98044.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
