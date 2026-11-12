@@ -1,34 +1,238 @@
 {
-  "updatedAt": "2026-11-12T03:47:08.635Z",
+  "updatedAt": "2026-11-12T18:52:16.712Z",
   "counts": {
-    "county": 4,
-    "nearby": 2,
-    "obituaries": 5
+    "nearby": 8,
+    "county": 3,
+    "obituaries": 10
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
-      "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
+      "news-1-cbs-42-birmingham-man-killed-in-jefferson-county-atv-crash",
+      "news-2-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
+      "news-3-al-com-stephen-curry-injury-update-warriors-announce-mri-results",
+      "news-4-al-com-steve-kerr-updates-stephen-curry-injury-concern-is-high",
+      "news-5-wvtm-13-man-found-dead-by-firefighters-in-central-alabama-late-night",
+      "news-7-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
+      "news-8-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "news-12-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
     ],
     "creek": [],
     "county": [
-      "news-1-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
-      "news-3-wbrc-woman-charged-with-manslaughter-in-deadly-2025-jefferson-cou",
-      "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
-      "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent"
+      "news-6-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "news-9-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
+      "news-10-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-"
     ],
     "obituaries": [
-      "news-6-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
-      "news-8-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
-      "news-9-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
-      "news-10-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
-      "news-11-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026"
+      "news-11-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
+      "news-13-trussville-tribune-lee-roy-lee-april-8-1934-november-7-2026",
+      "news-14-trussville-tribune-shirley-ann-foster-november-7-1937-november-5-2026",
+      "news-15-trussville-tribune-stephen-w-alford-august-5-1952-november-10-2026",
+      "news-16-trussville-tribune-bonnie-gardner-grant-september-15-1941-november-4-2026",
+      "news-17-trussville-tribune-janice-carlene-parker-black-february-6-1940-november-7-2026",
+      "news-18-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "news-19-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "news-20-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
+      "news-21-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
+      "id": "news-1-cbs-42-birmingham-man-killed-in-jefferson-county-atv-crash",
+      "section": "nearby",
+      "why": "names mulga",
+      "town": "Mulga",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2024/04/GettyImages-943697000-1-1-3-2-2-e1706007983138_6107a1.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 32,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "Birmingham man killed in Jefferson County ATV crash",
+      "summary": "A Birmingham man was killed in an ATV crash in Mulga on Sunday evening.",
+      "description": "A Birmingham man was killed in an ATV crash in Mulga on Sunday evening.",
+      "url": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-jefferson-county-atv-crash/",
+      "link": "https://www.alabamas42.com/news/traffic-news/birmingham-man-killed-in-jefferson-county-atv-crash/",
+      "published_at": "2026-11-09T18:04:52.000Z",
+      "date": "2026-11-09T18:04:52.000Z",
+      "location_tags": [
+        "mulga"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2024/04/GettyImages-943697000-1-1-3-2-2-e1706007983138_6107a1.jpg?w=900"
+    },
+    {
+      "id": "news-2-wbrc-fultondale-fire-chief-urges-prevention-after-deadly-house-fi",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//Y3JCFQ37INE6TK2NCVI5VWITE4.bmp?auth=d63f678077e55ee244c8f9a208e1b65d6f697a774cf820837f92a0d03056debf&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Fultondale fire chief urges prevention after deadly house fire",
+      "summary": "A person died in a house fire Friday night on Donafred Road in Fultondale, marking the city’s first fire-related death in seven years.",
+      "description": "A person died in a house fire Friday night on Donafred Road in Fultondale, marking the city’s first fire-related death in seven years.",
+      "url": "https://www.wbrc.com/2026/11/10/fultondale-fire-chief-urges-prevention-after-deadly-house-fire/",
+      "link": "https://www.wbrc.com/2026/11/10/fultondale-fire-chief-urges-prevention-after-deadly-house-fire/",
+      "published_at": "2026-11-12T13:50:07.000Z",
+      "date": "2026-11-12T13:50:07.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//Y3JCFQ37INE6TK2NCVI5VWITE4.bmp?auth=d63f678077e55ee244c8f9a208e1b65d6f697a774cf820837f92a0d03056debf&smart=false"
+    },
+    {
+      "id": "news-3-al-com-stephen-curry-injury-update-warriors-announce-mri-results",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/FSBVD2XXZBGYRI4JSON4QWQ6DU.jpg?auth=3747bc28703e2d24c4e18f548e08a6c7dc3cfa067ee5147525b31046297eaa0f&smart=true&height=1200",
+        "from": "feed",
+        "width": 4200,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Stephen Curry injury update: Warriors announce MRI results",
+      "summary": "The team also revealed when Curry will be reevaluated.",
+      "description": "The team also revealed when Curry will be reevaluated.",
+      "url": "https://www.al.com/sports/2026/11/stephen-curry-injury-update-warriors-announce-mri-results.html",
+      "link": "https://www.al.com/sports/2026/11/stephen-curry-injury-update-warriors-announce-mri-results.html",
+      "published_at": "2026-11-12T17:08:49.000Z",
+      "date": "2026-11-12T17:08:49.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/FSBVD2XXZBGYRI4JSON4QWQ6DU.jpg?auth=3747bc28703e2d24c4e18f548e08a6c7dc3cfa067ee5147525b31046297eaa0f&smart=true&height=1200"
+    },
+    {
+      "id": "news-4-al-com-steve-kerr-updates-stephen-curry-injury-concern-is-high",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/PNRIM2XCD5CAVKZKNHOFN6AUEM.jpg?auth=19a1f8be57f1ba870f8d87f288f0bccc5c3f7852c86647bc61a6cde3e8de1564&smart=true&height=1200",
+        "from": "feed",
+        "width": 6107,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Steve Kerr updates Stephen Curry injury: ‘Concern is high’",
+      "summary": "The Golden State Warriors star was injured during Wednesday's game against the Houston Rockets.",
+      "description": "The Golden State Warriors star was injured during Wednesday's game against the Houston Rockets.",
+      "url": "https://www.al.com/sports/2026/11/steve-kerr-updates-stephen-curry-injury-concern-is-high.html",
+      "link": "https://www.al.com/sports/2026/11/steve-kerr-updates-stephen-curry-injury-concern-is-high.html",
+      "published_at": "2026-11-12T16:27:02.000Z",
+      "date": "2026-11-12T16:27:02.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/PNRIM2XCD5CAVKZKNHOFN6AUEM.jpg?auth=19a1f8be57f1ba870f8d87f288f0bccc5c3f7852c86647bc61a6cde3e8de1564&smart=true&height=1200"
+    },
+    {
+      "id": "news-5-wvtm-13-man-found-dead-by-firefighters-in-central-alabama-late-night",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/8b10ba8f-4dd8-4882-83f6-01b56ebe9b56.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 30,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Man found dead by firefighters in Central Alabama late-night house fire identified",
+      "summary": "One person was found dead inside a home after a fire late Friday in Fultondale, according to Fire Chief Justin McKenzie.",
+      "description": "One person was found dead inside a home after a fire late Friday in Fultondale, according to Fire Chief Justin McKenzie.",
+      "url": "https://www.wvtm13.com/article/one-person-dead-house-fire-fultondale-alabama/74365709",
+      "link": "https://www.wvtm13.com/article/one-person-dead-house-fire-fultondale-alabama/74365709",
+      "published_at": "2026-11-12T15:26:00.000Z",
+      "date": "2026-11-12T15:26:00.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/8b10ba8f-4dd8-4882-83f6-01b56ebe9b56.jpg"
+    },
+    {
+      "id": "news-6-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
       "section": "county",
       "why": "county commission, the creek",
       "town": "Birmingham",
@@ -45,7 +249,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 31,
+      "score": 30,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -72,7 +276,45 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/11-10-2026-Camara-Blue.jpg"
     },
     {
-      "id": "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "id": "news-7-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
+      "section": "nearby",
+      "why": "names corner",
+      "town": "Corner",
+      "tags": [],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/02/IMG_5848-scaled-e1771793906438-1200x628.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 29,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Real & Rosemary moving to former Maple Street Biscuit Co. space in Homewood",
+      "summary": "🥗 REAL & ROSEMARY IS ON THE MOVE: After 10 years in Homewood, the comfort-food favorite is taking over the empty Maple Street Biscuit Co. corner on 18th Street South (with a parking lot!) and plans to open there in spring 2027.",
+      "description": "🥗 REAL & ROSEMARY IS ON THE MOVE: After 10 years in Homewood, the comfort-food favorite is taking over the empty Maple Street Biscuit Co. corner on 18th Street South (with a parking lot!) and plans to open there in spring 2027.",
+      "url": "https://bhamnow.com/2026/11/12/real-rosemary-moving-to-former-maple-street-biscuit-co-space-in-homewood/#utm_source=rss&utm_medium=rss&utm_campaign=real-rosemary-moving-to-former-maple-street-biscuit-co-space-in-homewood",
+      "link": "https://bhamnow.com/2026/11/12/real-rosemary-moving-to-former-maple-street-biscuit-co-space-in-homewood/#utm_source=rss&utm_medium=rss&utm_campaign=real-rosemary-moving-to-former-maple-street-biscuit-co-space-in-homewood",
+      "published_at": "2026-11-12T16:41:32.000Z",
+      "date": "2026-11-12T16:41:32.000Z",
+      "location_tags": [
+        "corner"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/02/IMG_5848-scaled-e1771793906438-1200x628.jpg"
+    },
+    {
+      "id": "news-8-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -86,7 +328,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -110,35 +352,35 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg"
     },
     {
-      "id": "news-3-wbrc-woman-charged-with-manslaughter-in-deadly-2025-jefferson-cou",
+      "id": "news-9-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
       "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
       "tags": [
         "Roads"
       ],
-      "outlet": "WBRC",
+      "outlet": "ABC 33/40",
       "paywall": false,
       "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//C2QKKCW4BNFH3LCMIJ5P77LNFA.jpg?auth=2d64098ab73ffd6aec2d0349bae73a59af6f3a8e155c233249db2684a1fcd2cd&smart=false",
+        "url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/0eacd95a-380f-4533-9a9a-dd485b78007a-BirminghamPolice.png",
         "from": "feed",
         "width": null,
-        "credit": "WBRC"
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Woman charged with manslaughter in deadly 2025 Jefferson County crash",
-      "summary": "Stacey Mosley, 37, is charged with manslaughter after 57-year-old Jodie Owens of Cordova died in a car crash back in 2025.",
-      "description": "Stacey Mosley, 37, is charged with manslaughter after 57-year-old Jodie Owens of Cordova died in a car crash back in 2025.",
-      "url": "https://www.wbrc.com/2026/03/05/woman-charged-with-manslaughter-deadly-2025-jefferson-county-crash/",
-      "link": "https://www.wbrc.com/2026/03/05/woman-charged-with-manslaughter-deadly-2025-jefferson-county-crash/",
-      "published_at": "2026-11-11T21:51:26.000Z",
-      "date": "2026-11-11T21:51:26.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Miami man dies in Birmingham crash with utility pole",
+      "summary": "",
+      "description": "",
+      "url": "https://abc3340.com/news/local/miami-man-dies-in-birmingham-crash-with-utility-pole",
+      "link": "https://abc3340.com/news/local/miami-man-dies-in-birmingham-crash-with-utility-pole",
+      "published_at": "2026-11-12T13:41:27.000Z",
+      "date": "2026-11-12T13:41:27.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
         "roads"
@@ -149,80 +391,36 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//C2QKKCW4BNFH3LCMIJ5P77LNFA.jpg?auth=2d64098ab73ffd6aec2d0349bae73a59af6f3a8e155c233249db2684a1fcd2cd&smart=false"
+      "image_url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/0eacd95a-380f-4533-9a9a-dd485b78007a-BirminghamPolice.png"
     },
     {
-      "id": "news-4-abc-33-40-birmingham-targets-256-high-risk-intersections-in-8-3-millio",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads",
-        "Government"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/181bd336-18c4-4a28-a89a-67373b5ad950-SOCIAL.00_00_59_45.Still001.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Birmingham targets 256 high-risk intersections in $8.3 million safety push",
-      "summary": "BIRMINGHAM, Ala. — Birmingham has been awarded more than $8.3 million to improve traffic signals and pedestrian safety at 256 intersections, Mayor Randall Woodf",
-      "description": "BIRMINGHAM, Ala. — Birmingham has been awarded more than $8.3 million to improve traffic signals and pedestrian safety at 256 intersections, Mayor Randall Woodf",
-      "url": "https://abc3340.com/news/local/birmingham-targets-256-high-risk-intersections-in-83-million-safety-push",
-      "link": "https://abc3340.com/news/local/birmingham-targets-256-high-risk-intersections-in-83-million-safety-push",
-      "published_at": "2026-11-10T00:16:21.000Z",
-      "date": "2026-11-10T00:16:21.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads",
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/181bd336-18c4-4a28-a89a-67373b5ad950-SOCIAL.00_00_59_45.Still001.jpg"
-    },
-    {
-      "id": "news-5-abc-33-40-norfolk-southern-awards-146-460-grant-for-sloss-furnaces-ent",
+      "id": "news-10-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
       "tags": [
         "Trains"
       ],
-      "outlet": "ABC 33/40",
+      "outlet": "Bham Now",
       "paywall": false,
       "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg",
+        "url": "https://bhamnow.com/wp-content/uploads/2026/01/sloss-9.jpg",
         "from": "feed",
         "width": null,
-        "credit": "ABC 33/40"
+        "credit": "Bham Now"
       },
       "obit": null,
-      "score": 24,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Norfolk Southern awards $146,460 grant for Sloss Furnaces entrance project",
-      "summary": "Norfolk Southern has awarded a $146,460 grant to the Sloss Furnaces Foundation to improve the entrance to the Birmingham landmark.The grant will fund the 32nd S",
-      "description": "Norfolk Southern has awarded a $146,460 grant to the Sloss Furnaces Foundation to improve the entrance to the Birmingham landmark.The grant will fund the 32nd S",
-      "url": "https://abc3340.com/news/local/norfolk-southern-awards-146460-grant-for-sloss-furnaces-entrance-project",
-      "link": "https://abc3340.com/news/local/norfolk-southern-awards-146460-grant-for-sloss-furnaces-entrance-project",
-      "published_at": "2026-11-10T18:04:45.000Z",
-      "date": "2026-11-10T18:04:45.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Sloss Furnaces receives $146,460 grant for entrance upgrades from Norfolk Southern",
+      "summary": "🏭 SLOSS IS GETTING A NEW FRONT DOOR: A $146,460 Norfolk Southern grant will pay for a new gateway, walkways and landscaping, and it's just the first step in turning Birmingham's iron-making landmark into a park 👇",
+      "description": "🏭 SLOSS IS GETTING A NEW FRONT DOOR: A $146,460 Norfolk Southern grant will pay for a new gateway, walkways and landscaping, and it's just the first step in turning Birmingham's iron-making landmark into a park 👇",
+      "url": "https://bhamnow.com/2026/11/12/sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern/#utm_source=rss&utm_medium=rss&utm_campaign=sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern",
+      "link": "https://bhamnow.com/2026/11/12/sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern/#utm_source=rss&utm_medium=rss&utm_campaign=sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern",
+      "published_at": "2026-11-12T15:41:45.000Z",
+      "date": "2026-11-12T15:41:45.000Z",
       "location_tags": [
         "birmingham"
       ],
@@ -235,10 +433,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/3902/986/0x204/90/5d122cf3-d45c-4eb0-9cb2-0fbf60606515-SlossNorfolkSouthernGrantPicture.jpg"
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/01/sloss-9.jpg"
     },
     {
-      "id": "news-6-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
+      "id": "news-11-sandusky-register-nora-monegan-obituary-1950-2026-sandusky-oh",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Sandusky",
@@ -256,7 +454,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "Sandusky Register",
       "source": "Sandusky Register",
@@ -282,7 +480,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
+      "id": "news-12-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -291,7 +489,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 20,
+      "score": 19,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -306,8 +504,8 @@
         "mulga"
       ],
       "topic_tags": [],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -315,7 +513,227 @@
       "image_url": ""
     },
     {
-      "id": "news-8-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "id": "news-13-trussville-tribune-lee-roy-lee-april-8-1934-november-7-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Lee Roy Lee (April 8, 1934 — November 7, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 18,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Lee Roy Lee (April 8, 1934 — November 7, 2026)",
+      "summary": "Graveside Services for Mr. Lee Roy Lee, age 92 of Springville, will be held on Saturday, November 14, 2026 at 10:00 a.m. at Jefferson Memorial Funeral Home & Gardens – Last Supper Mausoleum with Pastor Bob Murray officiating. To send flowers with our preferred florist or plant a memorial tree, please visit our flower s",
+      "description": "Graveside Services for Mr. Lee Roy Lee, age 92 of Springville, will be held on Saturday, November 14, 2026 at 10:00 a.m. at Jefferson Memorial Funeral Home & Gardens – Last Supper Mausoleum with Pastor Bob Murray officiating. To send flowers with our preferred florist or plant a memorial tree, please visit our flower s",
+      "url": "https://www.trussvilletribune.com/2026/11/12/lee-roy-lee-april-8-1934-november-7-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/12/lee-roy-lee-april-8-1934-november-7-2026/",
+      "published_at": "2026-11-12T18:21:54.000Z",
+      "date": "2026-11-12T18:21:54.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-14-trussville-tribune-shirley-ann-foster-november-7-1937-november-5-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Birmingham",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Shirley Ann Foster ( November 7, 1937 — November 5, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 17,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Shirley Ann Foster ( November 7, 1937 — November 5, 2026)",
+      "summary": "Shirley Ann Foster, born Shirley Ann Benson, age 88, passed away on Thursday, November 5, 2026, in Birmingham, Alabama, just two days shy of her 89th birthday. Born in Henry County, Alabama, on November 7, 1937, Shirley spent most of her life in the Roebuck community of Birmingham, where she built a lifetime of love, [",
+      "description": "Shirley Ann Foster, born Shirley Ann Benson, age 88, passed away on Thursday, November 5, 2026, in Birmingham, Alabama, just two days shy of her 89th birthday. Born in Henry County, Alabama, on November 7, 1937, Shirley spent most of her life in the Roebuck community of Birmingham, where she built a lifetime of love, [",
+      "url": "https://www.trussvilletribune.com/2026/11/12/shirley-ann-foster-november-7-1937-november-5-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/12/shirley-ann-foster-november-7-1937-november-5-2026/",
+      "published_at": "2026-11-12T18:14:31.000Z",
+      "date": "2026-11-12T18:14:31.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-15-trussville-tribune-stephen-w-alford-august-5-1952-november-10-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Stephen W Alford (August 5, 1952 — November 10, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Stephen W Alford (August 5, 1952 — November 10, 2026)",
+      "summary": "Stephen Wade Alford, age 74, of Pinson, Alabama, passed away on Tuesday, November 10, 2026. He was born on August 5, 1952, to the late Hubert Carlton Alford and Myrtice Thomason Alford. A graduate of Tarrant High School, Steve began his working career at Winn-Dixie while furthering his education at United Electronics I",
+      "description": "Stephen Wade Alford, age 74, of Pinson, Alabama, passed away on Tuesday, November 10, 2026. He was born on August 5, 1952, to the late Hubert Carlton Alford and Myrtice Thomason Alford. A graduate of Tarrant High School, Steve began his working career at Winn-Dixie while furthering his education at United Electronics I",
+      "url": "https://www.trussvilletribune.com/2026/11/12/stephen-w-alford-august-5-1952-november-10-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/12/stephen-w-alford-august-5-1952-november-10-2026/",
+      "published_at": "2026-11-12T18:31:51.000Z",
+      "date": "2026-11-12T18:31:51.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-16-trussville-tribune-bonnie-gardner-grant-september-15-1941-november-4-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Bonnie Gardner Grant (September 15, 1941 — November 4, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Bonnie Gardner Grant (September 15, 1941 — November 4, 2026)",
+      "summary": "Funeral Services for Mrs. Bonnie Gardner Grant, age 85 of Leeds, will be held on Monday, November 9, 2026 at 2:00 p.m. at Jefferson Memorial Funeral Home with Pastor Billy Abrams officiating. Burial will follow in the adjoining gardens. Bonnie passed away on Wednesday, November 4, 2026, at UAB St. Vincents East Hospita",
+      "description": "Funeral Services for Mrs. Bonnie Gardner Grant, age 85 of Leeds, will be held on Monday, November 9, 2026 at 2:00 p.m. at Jefferson Memorial Funeral Home with Pastor Billy Abrams officiating. Burial will follow in the adjoining gardens. Bonnie passed away on Wednesday, November 4, 2026, at UAB St. Vincents East Hospita",
+      "url": "https://www.trussvilletribune.com/2026/11/12/bonnie-gardner-grant-september-15-1941-november-4-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/12/bonnie-gardner-grant-september-15-1941-november-4-2026/",
+      "published_at": "2026-11-12T18:26:40.000Z",
+      "date": "2026-11-12T18:26:40.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-17-trussville-tribune-janice-carlene-parker-black-february-6-1940-november-7-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Janice Carlene Parker Black (February 6, 1940 — November 7, 2026)",
+        "age": null,
+        "town": "",
+        "home": "Trussville Tribune",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 14,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Janice Carlene Parker Black (February 6, 1940 — November 7, 2026)",
+      "summary": "Janice Carlene Parker Black passed away on November 7, 2026, leaving behind a beautiful legacy of faith, music, love, and devotion to her family. Above all else, Janice loved Jesus Christ and faithfully served Him throughout her life. Her greatest joy was knowing the Lord, and her family finds comfort in knowing that s",
+      "description": "Janice Carlene Parker Black passed away on November 7, 2026, leaving behind a beautiful legacy of faith, music, love, and devotion to her family. Above all else, Janice loved Jesus Christ and faithfully served Him throughout her life. Her greatest joy was knowing the Lord, and her family finds comfort in knowing that s",
+      "url": "https://www.trussvilletribune.com/2026/11/12/janice-carlene-parker-black-february-6-1940-november-7-2026/",
+      "link": "https://www.trussvilletribune.com/2026/11/12/janice-carlene-parker-black-february-6-1940-november-7-2026/",
+      "published_at": "2026-11-12T18:09:42.000Z",
+      "date": "2026-11-12T18:09:42.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 2,
+      "priority": 2,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-18-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -333,7 +751,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 4,
+      "score": 3,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -350,8 +768,8 @@
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -359,7 +777,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "id": "news-19-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -377,7 +795,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 4,
+      "score": 3,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -394,8 +812,8 @@
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -403,7 +821,7 @@
       "image_url": ""
     },
     {
-      "id": "news-10-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
+      "id": "news-20-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -421,7 +839,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 4,
+      "score": 3,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -438,8 +856,8 @@
       "topic_tags": [
         "obituary"
       ],
-      "priority_level": 1,
-      "priority": 1,
+      "priority_level": 0,
+      "priority": 0,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -447,7 +865,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
+      "id": "news-21-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -465,7 +883,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 2,
+      "score": 1,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
