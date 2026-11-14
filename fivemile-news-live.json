@@ -1,38 +1,73 @@
 {
-  "updatedAt": "2026-11-13T18:29:41.966Z",
+  "updatedAt": "2026-11-14T03:09:19.658Z",
   "counts": {
     "nearby": 4,
-    "county": 6,
-    "obituaries": 5
+    "county": 9,
+    "obituaries": 4
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
-      "news-2-wbrc-man-who-died-in-fultondale-house-fire-identified",
-      "news-6-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
-      "news-10-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
+      "news-1-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
+      "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "news-5-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
+      "news-13-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m"
     ],
     "creek": [],
     "county": [
-      "news-3-wvtm-13-birmingham-fire-and-rescue-ambulance-involved-in-traffic-cra",
+      "news-3-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
       "news-4-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
-      "news-5-al-com-reynolds-keeps-top-budget-role-in-alabama-house-49-chars",
-      "news-7-jefferson-county-jefferson-county-commission-sworn-in-jimmie-stephens-re-elec",
-      "news-8-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
-      "news-9-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-"
+      "news-6-jefferson-county-nov-13-edition-of-jeffco-news",
+      "news-7-wvtm-13-faa-issues-first-nationwide-ground-stop-since-2023-disruptin",
+      "news-8-jefferson-county-2026-contract-resurfacing-projects",
+      "news-9-jefferson-county-jefferson-county-commission-sworn-in-jimmie-stephens-re-elec",
+      "news-10-trussville-tribune-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "news-11-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
+      "news-12-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-"
     ],
     "obituaries": [
-      "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
-      "news-12-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
-      "news-13-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
-      "news-14-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
-      "news-15-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026"
+      "news-14-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
+      "news-15-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "news-16-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "news-17-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
+      "id": "news-1-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 33,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Qualification Based Selection process for the Warrior WRF Expansion project",
+      "summary": "",
+      "description": "",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=176",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=176",
+      "published_at": "2026-11-13T18:52:04.000Z",
+      "date": "2026-11-13T18:52:04.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-2-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
       "section": "nearby",
       "why": "names pleasant grove",
       "town": "Pleasant Grove",
@@ -48,7 +83,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -74,78 +109,38 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg"
     },
     {
-      "id": "news-2-wbrc-man-who-died-in-fultondale-house-fire-identified",
-      "section": "nearby",
-      "why": "names fultondale",
-      "town": "Fultondale",
-      "tags": [],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FINFWNVLFVBPLHR5HK77LACXPI.png?auth=c4d23c1f6bd4881688dab28a6c5e304a54376d8ed2a1f5bc09d0879dd095ca2a&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 30,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Man who died in Fultondale house fire identified",
-      "summary": "The cause of the fire is still under investigation.",
-      "description": "The cause of the fire is still under investigation.",
-      "url": "https://www.wbrc.com/2026/11/12/man-who-died-fultondale-house-fire-identified/",
-      "link": "https://www.wbrc.com/2026/11/12/man-who-died-fultondale-house-fire-identified/",
-      "published_at": "2026-11-12T22:04:27.000Z",
-      "date": "2026-11-12T22:04:27.000Z",
-      "location_tags": [
-        "fultondale"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//FINFWNVLFVBPLHR5HK77LACXPI.png?auth=c4d23c1f6bd4881688dab28a6c5e304a54376d8ed2a1f5bc09d0879dd095ca2a&smart=false"
-    },
-    {
-      "id": "news-3-wvtm-13-birmingham-fire-and-rescue-ambulance-involved-in-traffic-cra",
+      "id": "news-3-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
       "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
       "tags": [
-        "Roads",
-        "Public safety"
+        "Government"
       ],
-      "outlet": "WVTM 13",
+      "outlet": "BirminghamWatch",
       "paywall": false,
       "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/bae47ab3-354f-46da-a3e5-04e3a8ebc0b8.jpg",
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg",
         "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
+        "width": 1204,
+        "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Birmingham Fire and Rescue ambulance involved in traffic crash",
-      "summary": "A Birmingham Fire & Rescue Service ambulance was involved in a crash Friday morning in the Roebuck area.",
-      "description": "A Birmingham Fire & Rescue Service ambulance was involved in a crash Friday morning in the Roebuck area.",
-      "url": "https://www.wvtm13.com/article/ambulance-involved-crash-birmingham-fire-rescue-alabama/74421977",
-      "link": "https://www.wvtm13.com/article/ambulance-involved-crash-birmingham-fire-rescue-alabama/74421977",
-      "published_at": "2026-11-13T14:39:00.000Z",
-      "date": "2026-11-13T14:39:00.000Z",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "Blue gets $46K+ bill for vote recount",
+      "summary": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
+      "description": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
+      "link": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
+      "published_at": "2026-11-14T00:49:10.000Z",
+      "date": "2026-11-14T00:49:10.000Z",
       "location_tags": [
-        "birmingham"
+        "jefferson-county"
       ],
       "topic_tags": [
-        "roads",
-        "public-safety"
+        "government"
       ],
       "priority_level": 4,
       "priority": 4,
@@ -153,7 +148,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/bae47ab3-354f-46da-a3e5-04e3a8ebc0b8.jpg"
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg"
     },
     {
       "id": "news-4-birminghamwatch-blue-still-trails-after-final-vote-tally-will-request-recoun",
@@ -173,7 +168,7 @@
         "credit": "BirminghamWatch"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "BirminghamWatch",
       "source": "BirminghamWatch",
@@ -200,49 +195,7 @@
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/11-10-2026-Camara-Blue.jpg"
     },
     {
-      "id": "news-5-al-com-reynolds-keeps-top-budget-role-in-alabama-house-49-chars",
-      "section": "county",
-      "why": "alabama house, government",
-      "town": "Regional",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": {
-        "url": "https://www.al.com/resizer/v2/EPBTQUCQ2RH55HM6HZH24VOE34.JPG?auth=7b5775bfd7ca54aca3296e5e3ed4966260c48fab889394942d6a35403a789604&smart=true&height=1200",
-        "from": "feed",
-        "width": 4782,
-        "credit": "AL.com"
-      },
-      "obit": null,
-      "score": 27,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Reynolds keeps top budget role in Alabama House (49 chars)",
-      "summary": "Alabama House Speaker Nathaniel Ledbetter reappointed Rep. Rex Reynolds as chairman of the House Ways and Means General Fund Committee, citing his work expanding mental health services and law enforcement initiatives.",
-      "description": "Alabama House Speaker Nathaniel Ledbetter reappointed Rep. Rex Reynolds as chairman of the House Ways and Means General Fund Committee, citing his work expanding mental health services and law enforcement initiatives.",
-      "url": "https://www.al.com/politics/2026/11/rex-reynolds-keeps-top-budget-role-in-alabama-house.html",
-      "link": "https://www.al.com/politics/2026/11/rex-reynolds-keeps-top-budget-role-in-alabama-house.html",
-      "published_at": "2026-11-13T17:12:58.000Z",
-      "date": "2026-11-13T17:12:58.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/EPBTQUCQ2RH55HM6HZH24VOE34.JPG?auth=7b5775bfd7ca54aca3296e5e3ed4966260c48fab889394942d6a35403a789604&smart=true&height=1200"
-    },
-    {
-      "id": "news-6-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
+      "id": "news-5-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -280,7 +233,123 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/02/IMG_5848-scaled-e1771793906438-1200x628.jpg"
     },
     {
-      "id": "news-7-jefferson-county-jefferson-county-commission-sworn-in-jimmie-stephens-re-elec",
+      "id": "news-6-jefferson-county-nov-13-edition-of-jeffco-news",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 27,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Nov. 13 Edition of JeffCo News",
+      "summary": "Commissioners take office, some of our contract paving projects have moved up their start dates, and more!",
+      "description": "Commissioners take office, some of our contract paving projects have moved up their start dates, and more!",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=180",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=180",
+      "published_at": "2026-11-13T22:03:00.000Z",
+      "date": "2026-11-13T22:03:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-7-wvtm-13-faa-issues-first-nationwide-ground-stop-since-2023-disruptin",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/b9cd5db6-3404-4253-8fb8-4d1cda759517.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "FAA issues first nationwide ground stop since 2023, disrupting flights at Birmingham airport",
+      "summary": "The Federal Aviation Administration grounded flights nationwide Friday afternoon because of communications problems at regional air traffic control centers, disrupting service for travelers across the country, including at Birmingham-Shuttlesworth International Airport.",
+      "description": "The Federal Aviation Administration grounded flights nationwide Friday afternoon because of communications problems at regional air traffic control centers, disrupting service for travelers across the country, including at Birmingham-Shuttlesworth International Airport.",
+      "url": "https://www.wvtm13.com/article/faa-ground-stop-birmingham-airport-flights/74427549",
+      "link": "https://www.wvtm13.com/article/faa-ground-stop-birmingham-airport-flights/74427549",
+      "published_at": "2026-11-14T01:42:00.000Z",
+      "date": "2026-11-14T01:42:00.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/b9cd5db6-3404-4253-8fb8-4d1cda759517.jpg"
+    },
+    {
+      "id": "news-8-jefferson-county-2026-contract-resurfacing-projects",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "2026 Contract Resurfacing Projects",
+      "summary": "As part of its 2026 Contract Resurfacing, Jefferson County is preparing several roadways for paving. Citizens should be prepared for intermittent lane closures, traffic delays, and changes in traffic patterns in these areas.",
+      "description": "As part of its 2026 Contract Resurfacing, Jefferson County is preparing several roadways for paving. Citizens should be prepared for intermittent lane closures, traffic delays, and changes in traffic patterns in these areas.",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=148",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=148",
+      "published_at": "2026-11-13T18:56:00.000Z",
+      "date": "2026-11-13T18:56:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-9-jefferson-county-jefferson-county-commission-sworn-in-jimmie-stephens-re-elec",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -291,7 +360,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -317,7 +386,51 @@
       "image_url": ""
     },
     {
-      "id": "news-8-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
+      "id": "news-10-trussville-tribune-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/Commissioners-Swearing-in-Nov-11-2026.jpg",
+        "from": "page",
+        "width": 1024,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Knight named president pro tem as Jefferson County Commission begins new term",
+      "summary": "by Scott Buttram, publisher BIRMINGHAM, Ala. — Trussville resident Joe Knight will serve as president pro tempore of the Jefferson County Commission for its new four-year term, and he will lead the committee that oversees county finance and emergency management. The commission was sworn in Wednesday, Nov. 11, by Judge ",
+      "description": "by Scott Buttram, publisher BIRMINGHAM, Ala. — Trussville resident Joe Knight will serve as president pro tempore of the Jefferson County Commission for its new four-year term, and he will lead the committee that oversees county finance and emergency management. The commission was sworn in Wednesday, Nov. 11, by Judge ",
+      "url": "https://www.trussvilletribune.com/2026/11/13/knight-named-president-pro-tem-as-jefferson-county-commission-begins-new-term/",
+      "link": "https://www.trussvilletribune.com/2026/11/13/knight-named-president-pro-tem-as-jefferson-county-commission-begins-new-term/",
+      "published_at": "2026-11-13T22:16:00.000Z",
+      "date": "2026-11-13T22:16:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/Commissioners-Swearing-in-Nov-11-2026.jpg"
+    },
+    {
+      "id": "news-11-abc-33-40-miami-man-dies-in-birmingham-crash-with-utility-pole",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -359,7 +472,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/712/986/3x0/90/0eacd95a-380f-4533-9a9a-dd485b78007a-BirminghamPolice.png"
     },
     {
-      "id": "news-9-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-",
+      "id": "news-12-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-",
       "section": "county",
       "why": "birmingham, trains",
       "town": "Birmingham",
@@ -401,7 +514,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/01/sloss-9.jpg"
     },
     {
-      "id": "news-10-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
+      "id": "news-13-al-com-2-men-killed-in-separate-weekend-crashes-in-birmingham-and-m",
       "section": "nearby",
       "why": "names mulga",
       "town": "Mulga",
@@ -410,7 +523,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 18,
+      "score": 17,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -434,7 +547,7 @@
       "image_url": ""
     },
     {
-      "id": "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
+      "id": "news-14-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -452,7 +565,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 8,
+      "score": 7,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -478,7 +591,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
+      "id": "news-15-https-www-wolfefuneralhomes-com-gary-bankston-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -522,7 +635,7 @@
       "image_url": ""
     },
     {
-      "id": "news-13-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
+      "id": "news-16-https-www-wolfefuneralhomes-com-joann-marie-collins-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -566,51 +679,7 @@
       "image_url": ""
     },
     {
-      "id": "news-14-https-www-wolfefuneralhomes-com-irby-morgan-perrin-jr-obituary-nov-7-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 1,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026",
-      "summary": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Irby Morgan Perrin, Jr. Obituary Nov 7, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aZTVETlczMHZHU0xidkZ1aC1zTzZVazZOcmduSmVUMzJSNC0yamFUcUsyaW1XSENJVzJ3S1U3ckFsMXpBY1p2UHN5cUkzUlRHazI1RUxNUmxvUlp6SzlmUmRiVkFpbU9qSEMw?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aZTVETlczMHZHU0xidkZ1aC1zTzZVazZOcmduSmVUMzJSNC0yamFUcUsyaW1XSENJVzJ3S1U3ckFsMXpBY1p2UHN5cUkzUlRHazI1RUxNUmxvUlp6SzlmUmRiVkFpbU9qSEMw?oc=5",
-      "published_at": "2026-11-07T08:00:00.000Z",
-      "date": "2026-11-07T08:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-15-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
+      "id": "news-17-https-www-wolfefuneralhomes-com-betty-joyce-carlisle-obituary-nov-8-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
