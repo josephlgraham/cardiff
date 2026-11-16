@@ -1,34 +1,78 @@
 {
-  "updatedAt": "2026-11-16T02:42:20.650Z",
+  "updatedAt": "2026-11-16T20:58:47.909Z",
   "counts": {
-    "nearby": 3,
-    "county": 6,
-    "obituaries": 2
+    "county": 8,
+    "nearby": 2,
+    "obituaries": 1
   },
   "sections": {
     "towns": [],
     "nearby": [
-      "news-1-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
-      "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
-      "news-6-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space"
+      "news-2-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
+      "news-8-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space"
     ],
     "creek": [],
     "county": [
-      "news-2-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
-      "news-4-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
-      "news-5-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
-      "news-7-jefferson-county-nov-13-edition-of-jeffco-news",
-      "news-8-jefferson-county-2026-contract-resurfacing-projects",
-      "news-9-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-"
+      "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
+      "news-3-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "news-4-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "news-5-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "news-6-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
+      "news-7-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
+      "news-9-jefferson-county-nov-13-edition-of-jeffco-news",
+      "news-10-jefferson-county-2026-contract-resurfacing-projects"
     ],
     "obituaries": [
-      "news-10-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
-      "news-11-https-www-wolfefuneralhomes-com-larry-van-wilkinson-obituary-nov-11-2026"
+      "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
+      "id": "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek",
+        "History"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2020/10/Turkey-Creek-Nature-Preserve-Fall-e1785357809754-1200x628.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 37,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Freshwater Land Trust marks 30 years with historic land acquisition, $1M grant + new trail",
+      "summary": "🎉 30 YEARS, 3 BIG REVEALS: A record 2,115-acre land deal, $1 million to save a rare fish, and the official name of Birmingham's future 36-mile trail loop. The Freshwater Land Trust dropped it all in one night.",
+      "description": "🎉 30 YEARS, 3 BIG REVEALS: A record 2,115-acre land deal, $1 million to save a rare fish, and the official name of Birmingham's future 36-mile trail loop. The Freshwater Land Trust dropped it all in one night.",
+      "url": "https://bhamnow.com/2026/11/16/freshwater-land-trust-marks-30-years-with-historic-land-aquisition-1m-grant-new-trail/#utm_source=rss&utm_medium=rss&utm_campaign=freshwater-land-trust-marks-30-years-with-historic-land-aquisition-1m-grant-new-trail",
+      "link": "https://bhamnow.com/2026/11/16/freshwater-land-trust-marks-30-years-with-historic-land-aquisition-1m-grant-new-trail/#utm_source=rss&utm_medium=rss&utm_campaign=freshwater-land-trust-marks-30-years-with-historic-land-aquisition-1m-grant-new-trail",
+      "published_at": "2026-11-16T14:15:25.000Z",
+      "date": "2026-11-16T14:15:25.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek",
+        "history"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2020/10/Turkey-Creek-Nature-Preserve-Fall-e1785357809754-1200x628.jpg"
+    },
+    {
+      "id": "news-2-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
       "section": "nearby",
       "why": "names warrior",
       "town": "Warrior",
@@ -37,7 +81,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 30,
+      "score": 29,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -61,7 +105,51 @@
       "image_url": ""
     },
     {
-      "id": "news-2-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "id": "news-3-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek",
+        "Business"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Live HealthSmart Alabama Celebrates Neighborhood Revitalization Projects in Birmingham Communities",
+      "summary": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
+      "description": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
+      "url": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
+      "link": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
+      "published_at": "2026-11-16T02:55:59.000Z",
+      "date": "2026-11-16T02:55:59.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek",
+        "business"
+      ],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
+    },
+    {
+      "id": "news-4-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -78,7 +166,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 28,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -96,8 +184,8 @@
         "government",
         "public-safety"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -105,80 +193,38 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Commissioners-Swearing-in-Nov-11-2026.jpg?w=640"
     },
     {
-      "id": "news-3-birmingham-times-spectrum-and-the-history-channel-bring-take-a-veteran-to-sch",
-      "section": "nearby",
-      "why": "names pleasant grove",
-      "town": "Pleasant Grove",
+      "id": "news-5-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
       "tags": [
-        "Schools"
+        "Roads"
       ],
-      "outlet": "Birmingham Times",
+      "outlet": "Bham Now",
       "paywall": false,
       "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg",
+        "url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg",
         "from": "feed",
         "width": null,
-        "credit": "Birmingham Times"
+        "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 25,
       "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Spectrum and The HISTORY Channel Bring Take a Veteran to School Day to Pleasant Grove Elementary",
-      "summary": "Special to The Times Last week Spectrum hosted Take a Veteran to School Day at Pleasant Grove Elementary School. Take a Veteran to School Day is The HISTORY Channel’s popular public affairs outreach program, connecting veterans from all walks of life with students in schools and communities nationwide. In 2026, schools",
-      "description": "Special to The Times Last week Spectrum hosted Take a Veteran to School Day at Pleasant Grove Elementary School. Take a Veteran to School Day is The HISTORY Channel’s popular public affairs outreach program, connecting veterans from all walks of life with students in schools and communities nationwide. In 2026, schools",
-      "url": "https://www.birminghamtimes.com/2026/11/spectrum-and-the-history-channel-bring-take-a-veteran-to-school-day-to-pleasant-grove-elementary/",
-      "link": "https://www.birminghamtimes.com/2026/11/spectrum-and-the-history-channel-bring-take-a-veteran-to-school-day-to-pleasant-grove-elementary/",
-      "published_at": "2026-11-11T02:55:57.000Z",
-      "date": "2026-11-11T02:55:57.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Dutch Bros bringing more coffee to Birmingham with new Hoover location",
+      "summary": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
+      "description": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
+      "url": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
+      "link": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
+      "published_at": "2026-11-16T16:32:33.000Z",
+      "date": "2026-11-16T16:32:33.000Z",
       "location_tags": [
-        "pleasant-grove"
+        "birmingham"
       ],
       "topic_tags": [
-        "schools"
-      ],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/TAVS-group-150x150.jpg"
-    },
-    {
-      "id": "news-4-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg",
-        "from": "feed",
-        "width": 1204,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "Blue gets $46K+ bill for vote recount",
-      "summary": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
-      "description": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
-      "link": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
-      "published_at": "2026-11-14T00:49:10.000Z",
-      "date": "2026-11-14T00:49:10.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
+        "roads"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -186,10 +232,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg"
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
     },
     {
-      "id": "news-5-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
+      "id": "news-6-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
       "section": "county",
       "why": "birmingham, land",
       "town": "Birmingham",
@@ -205,7 +251,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -231,7 +277,49 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BRPKIRQU3RBMZGMZRVJALIQDL4.png?auth=a2d7066fa388ff46b5663ad5723ed5911ecd205f28d8ccdf24c6708be2526184&smart=false"
     },
     {
-      "id": "news-6-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
+      "id": "news-7-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "BirminghamWatch",
+      "paywall": false,
+      "image": {
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg",
+        "from": "feed",
+        "width": 1204,
+        "credit": "BirminghamWatch"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "Blue gets $46K+ bill for vote recount",
+      "summary": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
+      "description": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
+      "link": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
+      "published_at": "2026-11-14T00:49:10.000Z",
+      "date": "2026-11-14T00:49:10.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg"
+    },
+    {
+      "id": "news-8-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
       "section": "nearby",
       "why": "names corner",
       "town": "Corner",
@@ -245,7 +333,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 24,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -269,7 +357,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/02/IMG_5848-scaled-e1771793906438-1200x628.jpg"
     },
     {
-      "id": "news-7-jefferson-county-nov-13-edition-of-jeffco-news",
+      "id": "news-9-jefferson-county-nov-13-edition-of-jeffco-news",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -280,7 +368,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -306,7 +394,7 @@
       "image_url": ""
     },
     {
-      "id": "news-8-jefferson-county-2026-contract-resurfacing-projects",
+      "id": "news-10-jefferson-county-2026-contract-resurfacing-projects",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -317,7 +405,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -343,49 +431,7 @@
       "image_url": ""
     },
     {
-      "id": "news-9-bham-now-sloss-furnaces-receives-146-460-grant-for-entrance-upgrades-",
-      "section": "county",
-      "why": "birmingham, trains",
-      "town": "Birmingham",
-      "tags": [
-        "Trains"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/01/sloss-9.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 19,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Sloss Furnaces receives $146,460 grant for entrance upgrades from Norfolk Southern",
-      "summary": "🏭 SLOSS IS GETTING A NEW FRONT DOOR: A $146,460 Norfolk Southern grant will pay for a new gateway, walkways and landscaping, and it's just the first step in turning Birmingham's iron-making landmark into a park 👇",
-      "description": "🏭 SLOSS IS GETTING A NEW FRONT DOOR: A $146,460 Norfolk Southern grant will pay for a new gateway, walkways and landscaping, and it's just the first step in turning Birmingham's iron-making landmark into a park 👇",
-      "url": "https://bhamnow.com/2026/11/12/sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern/#utm_source=rss&utm_medium=rss&utm_campaign=sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern",
-      "link": "https://bhamnow.com/2026/11/12/sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern/#utm_source=rss&utm_medium=rss&utm_campaign=sloss-furnaces-receives-146460-grant-for-entrance-upgrades-from-norfolk-southern",
-      "published_at": "2026-11-12T15:41:45.000Z",
-      "date": "2026-11-12T15:41:45.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "trains"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/01/sloss-9.jpg"
-    },
-    {
-      "id": "news-10-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
+      "id": "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -403,7 +449,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 4,
+      "score": 3,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -414,50 +460,6 @@
       "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0zZVJnWmtrcFUzYTU1dHYzTGYwb0dScmkzUlZkSlpSQlBHY1h3blpCOXNkQ3B5UlNGYlBQbUxrdDlKN0hudVVZVnlUY1E3Qklfb2VWUGdNR0FTbUFyYVFVZjhVWHltdw?oc=5",
       "published_at": "2026-11-12T08:00:00.000Z",
       "date": "2026-11-12T08:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 1,
-      "priority": 1,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-11-https-www-wolfefuneralhomes-com-larry-van-wilkinson-obituary-nov-11-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Larry Van Wilkinson Obituary Nov 11, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 2,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Larry Van Wilkinson Obituary Nov 11, 2026",
-      "summary": "Larry Van Wilkinson Obituary Nov 11, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Larry Van Wilkinson Obituary Nov 11, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0yaW11aFBJSjZUYW1fWlZMV1ZTYzBUYUZ3Nm1lQ2RQNzdxYmNwcllnZTdjZC16RmFGLUhaMHZPMUotcGp1SWZ3NFFpdHk0bzZwSXZvWG1VSGJkN3A1NVlFbUZnX0paVlVBeWtsWg?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0yaW11aFBJSjZUYW1fWlZMV1ZTYzBUYUZ3Nm1lQ2RQNzdxYmNwcllnZTdjZC16RmFGLUhaMHZPMUotcGp1SWZ3NFFpdHk0bzZwSXZvWG1VSGJkN3A1NVlFbUZnX0paVlVBeWtsWg?oc=5",
-      "published_at": "2026-11-11T08:00:00.000Z",
-      "date": "2026-11-11T08:00:00.000Z",
       "location_tags": [
         "regional"
       ],
