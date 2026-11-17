@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T14:41:34.446Z",
+  "updatedAt": "2026-11-17T19:55:03.256Z",
   "temp": 74,
   "humidity": 99,
   "windSpeed": 0,
@@ -62,8 +62,8 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Today",
-      "startTime": "2026-11-17T08:00:00-06:00",
+      "name": "This Afternoon",
+      "startTime": "2026-11-17T13:00:00-06:00",
       "endTime": "2026-11-17T18:00:00-06:00",
       "isDaytime": true,
       "temperature": 65,
@@ -84,7 +84,7 @@
       "startTime": "2026-11-17T18:00:00-06:00",
       "endTime": "2026-11-18T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 41,
+      "temperature": 40,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -111,7 +111,7 @@
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+      "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
       "shortForecast": "Sunny"
     },
     {
@@ -120,17 +120,17 @@
       "startTime": "2026-11-18T18:00:00-06:00",
       "endTime": "2026-11-19T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 49,
+      "temperature": 47,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 7
+        "value": 3
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
-      "shortForecast": "Partly Cloudy"
+      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+      "shortForecast": "Mostly Clear"
     },
     {
       "number": 5,
@@ -143,12 +143,12 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 15
+        "value": 8
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/day/bkn/rain,20?size=medium",
-      "shortForecast": "Partly Sunny then Slight Chance Light Rain"
+      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+      "shortForecast": "Partly Sunny"
     },
     {
       "number": 6,
@@ -161,7 +161,7 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 9
+        "value": 8
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "E",
@@ -174,12 +174,12 @@
       "startTime": "2026-11-20T06:00:00-06:00",
       "endTime": "2026-11-20T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 71,
+      "temperature": 70,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 8
+        "value": 11
       },
       "windSpeed": "10 mph",
       "windDirection": "E",
@@ -192,17 +192,17 @@
       "startTime": "2026-11-20T18:00:00-06:00",
       "endTime": "2026-11-21T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 52,
+      "temperature": 53,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 7
+        "value": 23
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
-      "shortForecast": "Mostly Cloudy"
+      "icon": "https://api.weather.gov/icons/land/night/rain,20?size=medium",
+      "shortForecast": "Slight Chance Light Rain"
     },
     {
       "number": 9,
@@ -210,17 +210,17 @@
       "startTime": "2026-11-21T06:00:00-06:00",
       "endTime": "2026-11-21T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 71,
+      "temperature": 70,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 11
+        "value": 20
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
-      "shortForecast": "Partly Sunny"
+      "icon": "https://api.weather.gov/icons/land/day/rain,20/sct?size=medium",
+      "shortForecast": "Slight Chance Light Rain then Mostly Sunny"
     },
     {
       "number": 10,
@@ -228,12 +228,12 @@
       "startTime": "2026-11-21T18:00:00-06:00",
       "endTime": "2026-11-22T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 51,
+      "temperature": 53,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 4
+        "value": 5
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "E",
@@ -251,10 +251,10 @@
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 5
+        "value": 3
       },
       "windSpeed": "0 to 5 mph",
-      "windDirection": "N",
+      "windDirection": "W",
       "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
       "shortForecast": "Partly Sunny"
     },
@@ -264,7 +264,7 @@
       "startTime": "2026-11-22T18:00:00-06:00",
       "endTime": "2026-11-23T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 45,
+      "temperature": 48,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
@@ -282,12 +282,12 @@
       "startTime": "2026-11-23T06:00:00-06:00",
       "endTime": "2026-11-23T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 65,
+      "temperature": 66,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 2
+        "value": 3
       },
       "windSpeed": "5 to 10 mph",
       "windDirection": "N",
@@ -300,12 +300,12 @@
       "startTime": "2026-11-23T18:00:00-06:00",
       "endTime": "2026-11-24T06:00:00-06:00",
       "isDaytime": false,
-      "temperature": 39,
+      "temperature": 41,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
-        "value": 3
+        "value": 4
       },
       "windSpeed": "0 to 5 mph",
       "windDirection": "NE",
@@ -317,43 +317,43 @@
     {
       "date": "2026-11-17",
       "hi": 65,
-      "lo": 41,
+      "lo": 40,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-11-18",
       "hi": 69,
-      "lo": 49,
+      "lo": 47,
       "shortForecast": "Sunny"
     },
     {
       "date": "2026-11-19",
       "hi": 69,
       "lo": 51,
-      "shortForecast": "Partly Sunny then Slight Chance Light Rain"
+      "shortForecast": "Partly Sunny"
     },
     {
       "date": "2026-11-20",
-      "hi": 71,
-      "lo": 52,
+      "hi": 70,
+      "lo": 53,
       "shortForecast": "Partly Sunny"
     },
     {
       "date": "2026-11-21",
-      "hi": 71,
-      "lo": 51,
-      "shortForecast": "Partly Sunny"
+      "hi": 70,
+      "lo": 53,
+      "shortForecast": "Slight Chance Light Rain then Mostly Sunny"
     },
     {
       "date": "2026-11-22",
       "hi": 73,
-      "lo": 45,
+      "lo": 48,
       "shortForecast": "Partly Sunny"
     },
     {
       "date": "2026-11-23",
-      "hi": 65,
-      "lo": 39,
+      "hi": 66,
+      "lo": 41,
       "shortForecast": "Mostly Sunny"
     }
   ],
