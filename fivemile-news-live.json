@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-16T20:58:47.909Z",
+  "updatedAt": "2026-11-17T05:03:30.292Z",
   "counts": {
     "county": 8,
     "nearby": 2,
-    "obituaries": 1
+    "obituaries": 3
   },
   "sections": {
     "towns": [],
@@ -15,15 +15,17 @@
     "county": [
       "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
       "news-3-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
-      "news-4-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
-      "news-5-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
-      "news-6-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
-      "news-7-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
+      "news-4-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "news-5-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "news-6-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
+      "news-7-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
       "news-9-jefferson-county-nov-13-edition-of-jeffco-news",
       "news-10-jefferson-county-2026-contract-resurfacing-projects"
     ],
     "obituaries": [
-      "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026"
+      "news-11-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "news-12-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026",
+      "news-13-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026"
     ]
   },
   "stories": [
@@ -45,7 +47,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 37,
+      "score": 36,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -122,7 +124,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -140,8 +142,8 @@
         "the-creek",
         "business"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -149,7 +151,49 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
     },
     {
-      "id": "news-4-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
+      "id": "news-4-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "section": "county",
+      "why": "aldot, roads",
+      "town": "Regional",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/887aa91f-0dbe-4507-9a96-a3b1ac8a4012-webphoto.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "'I want to fight for this home': Randolph County family fears losing home to ALDOT project",
+      "summary": "A Wadley family of seven says ALDOT’s Highway 22 bridge replacement could force them from their river home of 23 years.",
+      "description": "A Wadley family of seven says ALDOT’s Highway 22 bridge replacement could force them from their river home of 23 years.",
+      "url": "https://abc3340.com/news/local/i-want-to-fight-for-this-home-randolph-county-family-fears-losing-home-to-aldot-project",
+      "link": "https://abc3340.com/news/local/i-want-to-fight-for-this-home-randolph-county-family-fears-losing-home-to-aldot-project",
+      "published_at": "2026-11-16T23:14:23.000Z",
+      "date": "2026-11-16T23:14:23.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/887aa91f-0dbe-4507-9a96-a3b1ac8a4012-webphoto.png"
+    },
+    {
+      "id": "news-5-cbs-42-knight-named-president-pro-tem-as-jefferson-county-commissio",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -193,91 +237,7 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Commissioners-Swearing-in-Nov-11-2026.jpg?w=640"
     },
     {
-      "id": "news-5-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Dutch Bros bringing more coffee to Birmingham with new Hoover location",
-      "summary": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
-      "description": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
-      "url": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
-      "link": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
-      "published_at": "2026-11-16T16:32:33.000Z",
-      "date": "2026-11-16T16:32:33.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
-    },
-    {
-      "id": "news-6-wbrc-conservation-groups-threaten-lawsuit-over-protections-for-bi",
-      "section": "county",
-      "why": "birmingham, land",
-      "town": "Birmingham",
-      "tags": [
-        "Land"
-      ],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BRPKIRQU3RBMZGMZRVJALIQDL4.png?auth=a2d7066fa388ff46b5663ad5723ed5911ecd205f28d8ccdf24c6708be2526184&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Conservation groups threaten lawsuit over protections for Birmingham Darter",
-      "summary": "Three conservation groups are threatening to sue the U.S. Fish and Wildlife Service, saying the agency missed a deadline to consider federal protections for a rare fish found only in Alabama.",
-      "description": "Three conservation groups are threatening to sue the U.S. Fish and Wildlife Service, saying the agency missed a deadline to consider federal protections for a rare fish found only in Alabama.",
-      "url": "https://www.wbrc.com/2026/11/15/conservation-groups-threaten-lawsuit-over-protections-birmingham-darter/",
-      "link": "https://www.wbrc.com/2026/11/15/conservation-groups-threaten-lawsuit-over-protections-birmingham-darter/",
-      "published_at": "2026-11-15T01:00:49.000Z",
-      "date": "2026-11-15T01:00:49.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "land"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//BRPKIRQU3RBMZGMZRVJALIQDL4.png?auth=a2d7066fa388ff46b5663ad5723ed5911ecd205f28d8ccdf24c6708be2526184&smart=false"
-    },
-    {
-      "id": "news-7-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
+      "id": "news-6-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -317,6 +277,48 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg"
+    },
+    {
+      "id": "news-7-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Dutch Bros bringing more coffee to Birmingham with new Hoover location",
+      "summary": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
+      "description": "☕️ HOOVER'S GETTING DUTCH BROS COFFEE: We just spotted a new drive-thru at the Plaza at Riverchase on Highway 31, and it's expected to open in early 2027.",
+      "url": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
+      "link": "https://bhamnow.com/2026/11/16/dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location/#utm_source=rss&utm_medium=rss&utm_campaign=dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoover-location",
+      "published_at": "2026-11-16T16:32:33.000Z",
+      "date": "2026-11-16T16:32:33.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
     },
     {
       "id": "news-8-bham-now-real-rosemary-moving-to-former-maple-street-biscuit-co-space",
@@ -431,7 +433,95 @@
       "image_url": ""
     },
     {
-      "id": "news-11-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
+      "id": "news-11-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Beverly Diane Green Obituary Nov 13, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 4,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Beverly Diane Green Obituary Nov 13, 2026",
+      "summary": "Beverly Diane Green Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Beverly Diane Green Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zOWhVZFZucDdDbnhBTkVteUZKbXVmZWJ5Y3FHTnVNZl85b0N4aXNxMXY5Wkdrczk0Q3IxUHR3aTM1d2s1TVBzbVdRVzVOMkh5RFZOcGpBNzBobHYwSkJiX015Z0dOZnQxWkE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zOWhVZFZucDdDbnhBTkVteUZKbXVmZWJ5Y3FHTnVNZl85b0N4aXNxMXY5Wkdrczk0Q3IxUHR3aTM1d2s1TVBzbVdRVzVOMkh5RFZOcGpBNzBobHYwSkJiX015Z0dOZnQxWkE?oc=5",
+      "published_at": "2026-11-13T08:00:00.000Z",
+      "date": "2026-11-13T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 4,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026",
+      "summary": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9wNnNjcC00ZWhMRHo3UVBhRWEyaUxLUkpXbm1uSGJVd1dMd0RBa00wNmhWd1ZlTW1FbTRta21FUFVFZ3Q2Wlc5dUpKUkVHbUdab0NoVEs3UDJYaWRzZnRGdG12aG1jUkZwbmJIT0dmdEtwT3ZHY1dVdQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9wNnNjcC00ZWhMRHo3UVBhRWEyaUxLUkpXbm1uSGJVd1dMd0RBa00wNmhWd1ZlTW1FbTRta21FUFVFZ3Q2Wlc5dUpKUkVHbUdab0NoVEs3UDJYaWRzZnRGdG12aG1jUkZwbmJIT0dmdEtwT3ZHY1dVdQ?oc=5",
+      "published_at": "2026-11-13T08:00:00.000Z",
+      "date": "2026-11-13T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 1,
+      "priority": 1,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-13-https-www-wolfefuneralhomes-com-emory-eugene-moss-obituary-nov-12-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -449,7 +539,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
