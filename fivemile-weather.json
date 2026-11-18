@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T10:27:00.473Z",
+  "updatedAt": "2026-11-18T14:19:45.138Z",
   "temp": 74,
   "humidity": 99,
   "windSpeed": 0,
@@ -62,26 +62,8 @@
   "forecast": [
     {
       "number": 1,
-      "name": "Overnight",
-      "startTime": "2026-11-18T04:00:00-06:00",
-      "endTime": "2026-11-18T06:00:00-06:00",
-      "isDaytime": false,
-      "temperature": 40,
-      "temperatureUnit": "F",
-      "temperatureTrend": null,
-      "probabilityOfPrecipitation": {
-        "unitCode": "wmoUnit:percent",
-        "value": 0
-      },
-      "windSpeed": "10 mph",
-      "windDirection": "E",
-      "icon": "https://api.weather.gov/icons/land/night/skc?size=medium",
-      "shortForecast": "Clear"
-    },
-    {
-      "number": 2,
-      "name": "Wednesday",
-      "startTime": "2026-11-18T06:00:00-06:00",
+      "name": "Today",
+      "startTime": "2026-11-18T08:00:00-06:00",
       "endTime": "2026-11-18T18:00:00-06:00",
       "isDaytime": true,
       "temperature": 69,
@@ -97,8 +79,8 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 3,
-      "name": "Wednesday Night",
+      "number": 2,
+      "name": "Tonight",
       "startTime": "2026-11-18T18:00:00-06:00",
       "endTime": "2026-11-19T06:00:00-06:00",
       "isDaytime": false,
@@ -115,7 +97,7 @@
       "shortForecast": "Mostly Clear"
     },
     {
-      "number": 4,
+      "number": 3,
       "name": "Thursday",
       "startTime": "2026-11-19T06:00:00-06:00",
       "endTime": "2026-11-19T18:00:00-06:00",
@@ -133,7 +115,7 @@
       "shortForecast": "Sunny"
     },
     {
-      "number": 5,
+      "number": 4,
       "name": "Thursday Night",
       "startTime": "2026-11-19T18:00:00-06:00",
       "endTime": "2026-11-20T06:00:00-06:00",
@@ -151,7 +133,7 @@
       "shortForecast": "Partly Cloudy"
     },
     {
-      "number": 6,
+      "number": 5,
       "name": "Friday",
       "startTime": "2026-11-20T06:00:00-06:00",
       "endTime": "2026-11-20T18:00:00-06:00",
@@ -169,7 +151,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 7,
+      "number": 6,
       "name": "Friday Night",
       "startTime": "2026-11-20T18:00:00-06:00",
       "endTime": "2026-11-21T06:00:00-06:00",
@@ -187,7 +169,7 @@
       "shortForecast": "Slight Chance Light Rain then Partly Cloudy"
     },
     {
-      "number": 8,
+      "number": 7,
       "name": "Saturday",
       "startTime": "2026-11-21T06:00:00-06:00",
       "endTime": "2026-11-21T18:00:00-06:00",
@@ -205,7 +187,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 9,
+      "number": 8,
       "name": "Saturday Night",
       "startTime": "2026-11-21T18:00:00-06:00",
       "endTime": "2026-11-22T06:00:00-06:00",
@@ -223,7 +205,7 @@
       "shortForecast": "Partly Cloudy"
     },
     {
-      "number": 10,
+      "number": 9,
       "name": "Sunday",
       "startTime": "2026-11-22T06:00:00-06:00",
       "endTime": "2026-11-22T18:00:00-06:00",
@@ -241,7 +223,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 11,
+      "number": 10,
       "name": "Sunday Night",
       "startTime": "2026-11-22T18:00:00-06:00",
       "endTime": "2026-11-23T06:00:00-06:00",
@@ -259,7 +241,7 @@
       "shortForecast": "Mostly Cloudy"
     },
     {
-      "number": 12,
+      "number": 11,
       "name": "Monday",
       "startTime": "2026-11-23T06:00:00-06:00",
       "endTime": "2026-11-23T18:00:00-06:00",
@@ -277,7 +259,7 @@
       "shortForecast": "Mostly Sunny"
     },
     {
-      "number": 13,
+      "number": 12,
       "name": "Monday Night",
       "startTime": "2026-11-23T18:00:00-06:00",
       "endTime": "2026-11-24T06:00:00-06:00",
@@ -295,7 +277,7 @@
       "shortForecast": "Mostly Clear"
     },
     {
-      "number": 14,
+      "number": 13,
       "name": "Tuesday",
       "startTime": "2026-11-24T06:00:00-06:00",
       "endTime": "2026-11-24T18:00:00-06:00",
@@ -311,6 +293,24 @@
       "windDirection": "NE",
       "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
       "shortForecast": "Mostly Sunny"
+    },
+    {
+      "number": 14,
+      "name": "Tuesday Night",
+      "startTime": "2026-11-24T18:00:00-06:00",
+      "endTime": "2026-11-25T06:00:00-06:00",
+      "isDaytime": false,
+      "temperature": 43,
+      "temperatureUnit": "F",
+      "temperatureTrend": null,
+      "probabilityOfPrecipitation": {
+        "unitCode": "wmoUnit:percent",
+        "value": 21
+      },
+      "windSpeed": "5 to 10 mph",
+      "windDirection": "E",
+      "icon": "https://api.weather.gov/icons/land/night/rain,20?size=medium",
+      "shortForecast": "Slight Chance Light Rain"
     }
   ],
   "weekly": [
@@ -353,7 +353,7 @@
     {
       "date": "2026-11-24",
       "hi": 65,
-      "lo": null,
+      "lo": 43,
       "shortForecast": "Mostly Sunny"
     }
   ],

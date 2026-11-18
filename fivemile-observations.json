@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T20:30:27.255Z",
+  "updatedAt": "2026-11-18T14:19:59.148Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,14 +12,14 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 25,
+    "shown": 26,
     "window_days": 365,
-    "in_window": 25,
-    "species_in_window": 23,
-    "window_total": 26,
-    "species_recorded": 35,
-    "observations_recorded": 41,
-    "area_total": 254,
+    "in_window": 26,
+    "species_in_window": 24,
+    "window_total": 27,
+    "species_recorded": 36,
+    "observations_recorded": 42,
+    "area_total": 255,
     "guide_links": 4
   },
   "observations": [
@@ -39,6 +39,23 @@
       "guide": null,
       "url": "https://www.inaturalist.org/observations/411808509",
       "firstRecord": false
+    },
+    {
+      "id": 406925589,
+      "taxon": 67327,
+      "name": "Obscure Bird Grasshopper",
+      "latin": "Schistocerca obscura",
+      "rank": "species",
+      "group": "Insect",
+      "icon": "🦋",
+      "observedOn": "2026-10-08",
+      "place": "Graysville",
+      "obscured": false,
+      "observer": "Diplopoda",
+      "observerLogin": "diplopoda",
+      "guide": null,
+      "url": "https://www.inaturalist.org/observations/406925589",
+      "firstRecord": true
     },
     {
       "id": 402852170,
@@ -690,6 +707,21 @@
       "count": 1,
       "ids": [
         400737212
+      ]
+    },
+    {
+      "taxon": 67327,
+      "name": "Obscure Bird Grasshopper",
+      "latin": "Schistocerca obscura",
+      "group": "Insect",
+      "rank": "species",
+      "first": "2026-10-08",
+      "last": "2026-10-08",
+      "latest": 406925589,
+      "guide": null,
+      "count": 1,
+      "ids": [
+        406925589
       ]
     },
     {
