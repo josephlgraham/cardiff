@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-17T19:48:15.449Z",
+  "updatedAt": "2026-11-18T04:13:55.573Z",
   "counts": {
-    "county": 10,
+    "county": 7,
     "nearby": 1,
-    "obituaries": 6
+    "obituaries": 2
   },
   "sections": {
     "towns": [],
@@ -14,22 +14,15 @@
     "county": [
       "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
       "news-2-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
-      "news-4-jefferson-county-jefferson-county-commission-2027-meeting-dates",
-      "news-5-wvtm-13-authorities-investigate-deadly-two-vehicle-crash",
-      "news-6-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "news-4-cbs-42-new-storm-shelter-opens-in-irondale",
+      "news-5-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
       "news-7-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
-      "news-8-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
-      "news-9-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
-      "news-10-trussville-tribune-32-year-old-woman-killed-in-two-vehicle-crash-in-pinson",
-      "news-11-jefferson-county-nov-13-edition-of-jeffco-news"
+      "news-8-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove"
     ],
     "obituaries": [
-      "news-12-trussville-tribune-fred-freddie-william-byers-jr-october-18-0972-november-7-202",
-      "news-13-trussville-tribune-mary-alice-chaney-keene-march-11-1940-november-8-2026",
-      "news-14-trussville-tribune-james-a-andy-shadix-may-24-1957-november-10-2026",
-      "news-15-trussville-tribune-maurice-sandy-emanuel-bell-june-20-1940-november-11-2026",
-      "news-16-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
-      "news-17-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026"
+      "news-9-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "news-10-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026"
     ]
   },
   "stories": [
@@ -51,7 +44,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -95,7 +88,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 29,
+      "score": 28,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -131,7 +124,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -146,8 +139,8 @@
         "warrior"
       ],
       "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -155,28 +148,33 @@
       "image_url": ""
     },
     {
-      "id": "news-4-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "id": "news-4-cbs-42-new-storm-shelter-opens-in-irondale",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
       "tags": [
         "Government"
       ],
-      "outlet": "Jefferson County",
+      "outlet": "CBS 42",
       "paywall": false,
-      "image": null,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "Jefferson County Commission 2027 Meeting Dates",
-      "summary": "Here are the 2027 Jefferson County, AL meeting dates",
-      "description": "Here are the 2027 Jefferson County, AL meeting dates",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
-      "published_at": "2026-11-17T17:38:41.000Z",
-      "date": "2026-11-17T17:38:41.000Z",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "New storm shelter opens in Irondale",
+      "summary": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
+      "description": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
+      "url": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
+      "link": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
+      "published_at": "2026-11-17T21:48:25.000Z",
+      "date": "2026-11-17T21:48:25.000Z",
       "location_tags": [
         "jefferson-county"
       ],
@@ -189,52 +187,10 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": ""
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900"
     },
     {
-      "id": "news-5-wvtm-13-authorities-investigate-deadly-two-vehicle-crash",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "WVTM 13",
-      "paywall": false,
-      "image": {
-        "url": "https://kubrick.htvapps.com/htv-prod/images/2049e95d-ba98-4d69-8eb6-b601f5c63347.png",
-        "from": "feed",
-        "width": null,
-        "credit": "WVTM 13"
-      },
-      "obit": null,
-      "score": 26,
-      "source_type": "media_feed",
-      "source_name": "WVTM 13",
-      "source": "WVTM 13",
-      "title": "Authorities investigate deadly two-vehicle crash",
-      "summary": "A Birmingham woman was killed in a crash over the weekend. The investigation remains ongoing.",
-      "description": "A Birmingham woman was killed in a crash over the weekend. The investigation remains ongoing.",
-      "url": "https://www.wvtm13.com/article/woman-killed-multi-vehicle-collision-pinson-alabama/74455280",
-      "link": "https://www.wvtm13.com/article/woman-killed-multi-vehicle-collision-pinson-alabama/74455280",
-      "published_at": "2026-11-17T17:42:00.000Z",
-      "date": "2026-11-17T17:42:00.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://kubrick.htvapps.com/htv-prod/images/2049e95d-ba98-4d69-8eb6-b601f5c63347.png"
-    },
-    {
-      "id": "news-6-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "id": "news-5-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -278,6 +234,43 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
     },
     {
+      "id": "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Jefferson County Commission 2027 Meeting Dates",
+      "summary": "Here are the 2027 Jefferson County, AL meeting dates",
+      "description": "Here are the 2027 Jefferson County, AL meeting dates",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
+      "published_at": "2026-11-17T17:38:41.000Z",
+      "date": "2026-11-17T17:38:41.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
       "id": "news-7-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
       "section": "county",
       "why": "aldot, roads",
@@ -294,7 +287,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -320,49 +313,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/887aa91f-0dbe-4507-9a96-a3b1ac8a4012-webphoto.png"
     },
     {
-      "id": "news-8-birminghamwatch-blue-gets-46k-bill-for-vote-recount",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg",
-        "from": "feed",
-        "width": 1204,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "Blue gets $46K+ bill for vote recount",
-      "summary": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
-      "description": "The Jefferson County Commission candidate says he will pay Monday for a recount in his race against Jimmie Stephens. The post Blue gets $46K+ bill for vote recount appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
-      "link": "https://birminghamwatch.org/2026/11/13/blue-gets-45k-bill-for-vote-recount/",
-      "published_at": "2026-11-14T00:49:10.000Z",
-      "date": "2026-11-14T00:49:10.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/Vote-canvass-11.13.26.jpg"
-    },
-    {
-      "id": "news-9-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "id": "news-8-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -404,262 +355,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
     },
     {
-      "id": "news-10-trussville-tribune-32-year-old-woman-killed-in-two-vehicle-crash-in-pinson",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/crashweb_640x360_1.jpg",
-        "from": "page",
-        "width": 1024,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "32-year-old woman killed in two-vehicle crash in Pinson",
-      "summary": "From Tribune staff reports PINSON — A Birmingham woman died following a two-vehicle crash in Pinson on Sunday night, according to the Jefferson County Coroner/Medical Examiner’s Office. The coroner’s office identified the victim as Skylar Elizabeth Irvin, 32. Irvin was a passenger and one of two people in a vehicle inv",
-      "description": "From Tribune staff reports PINSON — A Birmingham woman died following a two-vehicle crash in Pinson on Sunday night, according to the Jefferson County Coroner/Medical Examiner’s Office. The coroner’s office identified the victim as Skylar Elizabeth Irvin, 32. Irvin was a passenger and one of two people in a vehicle inv",
-      "url": "https://www.trussvilletribune.com/2026/11/17/32-year-old-woman-killed-in-two-vehicle-crash-in-pinson/",
-      "link": "https://www.trussvilletribune.com/2026/11/17/32-year-old-woman-killed-in-two-vehicle-crash-in-pinson/",
-      "published_at": "2026-11-17T17:16:52.000Z",
-      "date": "2026-11-17T17:16:52.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/crashweb_640x360_1.jpg"
-    },
-    {
-      "id": "news-11-jefferson-county-nov-13-edition-of-jeffco-news",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Jefferson County",
-      "paywall": false,
-      "image": null,
-      "obit": null,
-      "score": 21,
-      "source_type": "media_feed",
-      "source_name": "Jefferson County",
-      "source": "Jefferson County",
-      "title": "Nov. 13 Edition of JeffCo News",
-      "summary": "Commissioners take office, some of our contract paving projects have moved up their start dates, and more!",
-      "description": "Commissioners take office, some of our contract paving projects have moved up their start dates, and more!",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=180",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=180",
-      "published_at": "2026-11-13T22:03:00.000Z",
-      "date": "2026-11-13T22:03:00.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-trussville-tribune-fred-freddie-william-byers-jr-october-18-0972-november-7-202",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Fred “Freddie” William Byers, Jr. (October 18, 0972 — November 7, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 17,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Fred “Freddie” William Byers, Jr. (October 18, 0972 — November 7, 2026)",
-      "summary": "Fred “Freddie” William Byers Jr. passed away on November 7th, 2026, in Birmingham, AL. He was a lifelong member of the Seventh Day Adventist Church and was baptized in his early teens. In recent years he was a member of North Highlands Seventh Day Adventist Church, and he loved his church. Freddie also attended Jeffers",
-      "description": "Fred “Freddie” William Byers Jr. passed away on November 7th, 2026, in Birmingham, AL. He was a lifelong member of the Seventh Day Adventist Church and was baptized in his early teens. In recent years he was a member of North Highlands Seventh Day Adventist Church, and he loved his church. Freddie also attended Jeffers",
-      "url": "https://www.trussvilletribune.com/2026/11/17/fred-freddie-william-byers-jr-october-18-0972-november-7-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/17/fred-freddie-william-byers-jr-october-18-0972-november-7-2026/",
-      "published_at": "2026-11-17T16:25:41.000Z",
-      "date": "2026-11-17T16:25:41.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-13-trussville-tribune-mary-alice-chaney-keene-march-11-1940-november-8-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Mary Alice Chaney Keene (March 11, 1940 — November 8, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Mary Alice Chaney Keene (March 11, 1940 — November 8, 2026)",
-      "summary": "Mary Alice Chaney Keene, 86, of Irondale, Alabama, passed away on November 8, 2026, from injuries sustained in a fall. Known as Mary to her may friends and lovingly called Nutty Nana by her grandchildren, she was small in stature and big in personality and she filled every room she entered with energy and fun. […]",
-      "description": "Mary Alice Chaney Keene, 86, of Irondale, Alabama, passed away on November 8, 2026, from injuries sustained in a fall. Known as Mary to her may friends and lovingly called Nutty Nana by her grandchildren, she was small in stature and big in personality and she filled every room she entered with energy and fun. […]",
-      "url": "https://www.trussvilletribune.com/2026/11/17/mary-alice-chaney-keene-march-11-1940-november-8-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/17/mary-alice-chaney-keene-march-11-1940-november-8-2026/",
-      "published_at": "2026-11-17T16:20:03.000Z",
-      "date": "2026-11-17T16:20:03.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-14-trussville-tribune-james-a-andy-shadix-may-24-1957-november-10-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "James A. “Andy” Shadix (May 24, 1957 — November 10, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "James A. “Andy” Shadix (May 24, 1957 — November 10, 2026)",
-      "summary": "Funeral Services for Mr. James A. “Andy” Shadix, age 69 of Pinson, will be held on Monday, November 16, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with Pastor Rick Hopkins officiating. Burial will follow in the adjoining gardens. Andy passed away on Tuesday, November 10, 2026, at St. Martins in the Pines. Bo",
-      "description": "Funeral Services for Mr. James A. “Andy” Shadix, age 69 of Pinson, will be held on Monday, November 16, 2026, at 2:00 p.m. at Jefferson Memorial Funeral Home with Pastor Rick Hopkins officiating. Burial will follow in the adjoining gardens. Andy passed away on Tuesday, November 10, 2026, at St. Martins in the Pines. Bo",
-      "url": "https://www.trussvilletribune.com/2026/11/17/james-a-andy-shadix-may-24-1957-november-10-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/17/james-a-andy-shadix-may-24-1957-november-10-2026/",
-      "published_at": "2026-11-17T16:14:03.000Z",
-      "date": "2026-11-17T16:14:03.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-15-trussville-tribune-maurice-sandy-emanuel-bell-june-20-1940-november-11-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Maurice “Sandy” Emanuel Bell (June 20, 1940 — November 11, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Maurice “Sandy” Emanuel Bell (June 20, 1940 — November 11, 2026)",
-      "summary": "Maurice “Sandy” Emanuel Bell, of Vestavia Hills, Alabama passed away peacefully surrounded by family on November 11, 2026. Born in Philadelphia, Pennsylvania, on June 20, 1940, Sandy was a graduate of Auburn University with a double major in Forestry and Electrical Engineering. He was a member of Sigma Phi Epsilon soci",
-      "description": "Maurice “Sandy” Emanuel Bell, of Vestavia Hills, Alabama passed away peacefully surrounded by family on November 11, 2026. Born in Philadelphia, Pennsylvania, on June 20, 1940, Sandy was a graduate of Auburn University with a double major in Forestry and Electrical Engineering. He was a member of Sigma Phi Epsilon soci",
-      "url": "https://www.trussvilletribune.com/2026/11/17/maurice-sandy-emanuel-bell-june-20-1940-november-11-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/17/maurice-sandy-emanuel-bell-june-20-1940-november-11-2026/",
-      "published_at": "2026-11-17T16:03:59.000Z",
-      "date": "2026-11-17T16:03:59.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-16-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "id": "news-9-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -677,7 +373,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -703,7 +399,7 @@
       "image_url": ""
     },
     {
-      "id": "news-17-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026",
+      "id": "news-10-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -721,7 +417,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
