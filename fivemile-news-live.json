@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-11-18T04:13:55.573Z",
+  "updatedAt": "2026-11-18T19:23:30.087Z",
   "counts": {
-    "county": 7,
-    "nearby": 1,
+    "county": 10,
     "obituaries": 2
   },
   "sections": {
     "towns": [],
-    "nearby": [
-      "news-3-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex"
-    ],
+    "nearby": [],
     "creek": [],
     "county": [
       "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
       "news-2-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
+      "news-3-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
       "news-4-cbs-42-new-storm-shelter-opens-in-irondale",
-      "news-5-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
-      "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
-      "news-7-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
-      "news-8-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove"
+      "news-5-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
+      "news-6-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
+      "news-7-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "news-8-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "news-9-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "news-10-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove"
     ],
     "obituaries": [
-      "news-9-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
-      "news-10-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026"
+      "news-11-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
+      "news-12-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026"
     ]
   },
   "stories": [
@@ -44,7 +44,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -88,7 +88,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 28,
+      "score": 27,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -106,8 +106,8 @@
         "the-creek",
         "history"
       ],
-      "priority_level": 4,
-      "priority": 4,
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
@@ -115,11 +115,13 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2022/08/Westrogon-4-2048x1365.jpg"
     },
     {
-      "id": "news-3-jefferson-county-qualification-based-selection-process-for-the-warrior-wrf-ex",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
+      "id": "news-3-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
       "outlet": "Jefferson County",
       "paywall": false,
       "image": null,
@@ -128,17 +130,19 @@
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
-      "title": "Qualification Based Selection process for the Warrior WRF Expansion project",
-      "summary": "",
-      "description": "",
-      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=176",
-      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=176",
-      "published_at": "2026-11-13T18:52:04.000Z",
-      "date": "2026-11-13T18:52:04.000Z",
+      "title": "Public Test of Voting Machines and Recount for Jefferson County District 3",
+      "summary": "The Nov. 3rd election recount requested by Democratic candidate Camara Blue for Jefferson County Commission District 3 will be conducted as follows:",
+      "description": "The Nov. 3rd election recount requested by Democratic candidate Camara Blue for Jefferson County Commission District 3 will be conducted as follows:",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=183",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=183",
+      "published_at": "2026-11-18T17:58:32.000Z",
+      "date": "2026-11-18T17:58:32.000Z",
       "location_tags": [
-        "warrior"
+        "jefferson-county"
       ],
-      "topic_tags": [],
+      "topic_tags": [
+        "government"
+      ],
       "priority_level": 3,
       "priority": 3,
       "section_target": "news",
@@ -164,7 +168,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -190,7 +194,91 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900"
     },
     {
-      "id": "news-5-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "id": "news-5-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "18 holiday tree lightings in Birmingham your family will love",
+      "summary": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
+      "description": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
+      "url": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
+      "link": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
+      "published_at": "2026-11-18T17:01:24.000Z",
+      "date": "2026-11-18T17:01:24.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg"
+    },
+    {
+      "id": "news-6-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 25,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "19 weekend events in Birmingham: KultureCity Race, Glow Wild + more, Nov. 19–22, 2026",
+      "summary": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
+      "description": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
+      "url": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
+      "link": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
+      "published_at": "2026-11-18T14:44:58.000Z",
+      "date": "2026-11-18T14:44:58.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg"
+    },
+    {
+      "id": "news-7-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -207,7 +295,7 @@
         "credit": "Birmingham Times"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Birmingham Times",
       "source": "Birmingham Times",
@@ -234,7 +322,7 @@
       "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
     },
     {
-      "id": "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "id": "news-8-jefferson-county-jefferson-county-commission-2027-meeting-dates",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -245,7 +333,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -271,7 +359,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "id": "news-9-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -287,7 +375,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -313,7 +401,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/887aa91f-0dbe-4507-9a96-a3b1ac8a4012-webphoto.png"
     },
     {
-      "id": "news-8-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "id": "news-10-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -329,7 +417,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -355,7 +443,51 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
     },
     {
-      "id": "news-9-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "id": "news-11-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Billy Allen Nugent Obituary Nov 14, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 3,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Billy Allen Nugent Obituary Nov 14, 2026",
+      "summary": "Billy Allen Nugent Obituary Nov 14, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Billy Allen Nugent Obituary Nov 14, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE91dV9yMm91R21oUGp1LWR5Nk14UlNTVFR2N0hZM2tHUzYtT2RwM21WZG9ic1J5Yl9RTXVpbXZsYXhxeWl5X0JpNkVhRGl6UTUteUM5SmxjRDJqT2lUZnZTeWdWTWF4LTNy?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE91dV9yMm91R21oUGp1LWR5Nk14UlNTVFR2N0hZM2tHUzYtT2RwM21WZG9ic1J5Yl9RTXVpbXZsYXhxeWl5X0JpNkVhRGl6UTUteUM5SmxjRDJqT2lUZnZTeWdWTWF4LTNy?oc=5",
+      "published_at": "2026-11-14T08:00:00.000Z",
+      "date": "2026-11-14T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-12-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -373,7 +505,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 2,
+      "score": 1,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -382,50 +514,6 @@
       "description": "Beverly Diane Green Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zOWhVZFZucDdDbnhBTkVteUZKbXVmZWJ5Y3FHTnVNZl85b0N4aXNxMXY5Wkdrczk0Q3IxUHR3aTM1d2s1TVBzbVdRVzVOMkh5RFZOcGpBNzBobHYwSkJiX015Z0dOZnQxWkE?oc=5",
       "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8zOWhVZFZucDdDbnhBTkVteUZKbXVmZWJ5Y3FHTnVNZl85b0N4aXNxMXY5Wkdrczk0Q3IxUHR3aTM1d2s1TVBzbVdRVzVOMkh5RFZOcGpBNzBobHYwSkJiX015Z0dOZnQxWkE?oc=5",
-      "published_at": "2026-11-13T08:00:00.000Z",
-      "date": "2026-11-13T08:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-10-https-www-wolfefuneralhomes-com-joyce-marie-grimsley-corbridge-obituary-nov-13-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 2,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026",
-      "summary": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Joyce Marie Grimsley Corbridge Obituary Nov 13, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9wNnNjcC00ZWhMRHo3UVBhRWEyaUxLUkpXbm1uSGJVd1dMd0RBa00wNmhWd1ZlTW1FbTRta21FUFVFZ3Q2Wlc5dUpKUkVHbUdab0NoVEs3UDJYaWRzZnRGdG12aG1jUkZwbmJIT0dmdEtwT3ZHY1dVdQ?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9wNnNjcC00ZWhMRHo3UVBhRWEyaUxLUkpXbm1uSGJVd1dMd0RBa00wNmhWd1ZlTW1FbTRta21FUFVFZ3Q2Wlc5dUpKUkVHbUdab0NoVEs3UDJYaWRzZnRGdG12aG1jUkZwbmJIT0dmdEtwT3ZHY1dVdQ?oc=5",
       "published_at": "2026-11-13T08:00:00.000Z",
       "date": "2026-11-13T08:00:00.000Z",
       "location_tags": [
