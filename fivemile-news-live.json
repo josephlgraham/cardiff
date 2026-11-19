@@ -1,33 +1,83 @@
 {
-  "updatedAt": "2026-11-18T19:23:30.087Z",
+  "updatedAt": "2026-11-19T04:08:09.746Z",
   "counts": {
+    "towns": 1,
     "county": 10,
+    "nearby": 1,
     "obituaries": 2
   },
   "sections": {
-    "towns": [],
-    "nearby": [],
+    "towns": [
+      "news-1-abc-33-40-brookside-officers-resign-as-town-moves-to-dissolve-departme"
+    ],
+    "nearby": [
+      "news-3-wbrc-they-got-me-pretty-good-wild-hogs-tear-up-adamsville-homeown"
+    ],
     "creek": [],
     "county": [
-      "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
-      "news-2-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
-      "news-3-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
-      "news-4-cbs-42-new-storm-shelter-opens-in-irondale",
-      "news-5-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
-      "news-6-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
-      "news-7-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
-      "news-8-jefferson-county-jefferson-county-commission-2027-meeting-dates",
-      "news-9-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
-      "news-10-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove"
+      "news-2-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
+      "news-4-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
+      "news-5-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
+      "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "news-7-cbs-42-new-storm-shelter-opens-in-irondale",
+      "news-8-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
+      "news-9-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
+      "news-10-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "news-11-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "news-12-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove"
     ],
     "obituaries": [
-      "news-11-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
-      "news-12-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026"
+      "news-13-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
+      "news-14-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
+      "id": "news-1-abc-33-40-brookside-officers-resign-as-town-moves-to-dissolve-departme",
+      "section": "towns",
+      "why": "names brookside",
+      "town": "Brookside",
+      "tags": [
+        "Government",
+        "Public safety"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
+      "image": {
+        "url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/1073c06f-c997-411f-83f1-8840df307d56-Wide.00_00_20_22.Still002.png",
+        "from": "feed",
+        "width": null,
+        "credit": "ABC 33/40"
+      },
+      "obit": null,
+      "score": 49,
+      "source_type": "media_feed",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Brookside officers resign as town moves to dissolve department",
+      "summary": "Brookside leaders are preparing to shut down the town’s police department, a move Mayor Mike Bryan says is tied to the town’s ability to keep insurance coverage.In a statement dated Nov. 18, 2026, the Town of Brookside",
+      "description": "Brookside leaders are preparing to shut down the town’s police department, a move Mayor Mike Bryan says is tied to the town’s ability to keep insurance coverage.In a statement dated Nov. 18, 2026, the Town of Brookside",
+      "url": "https://abc3340.com/news/local/brookside-officers-resign-as-town-moves-to-dissolve-department",
+      "link": "https://abc3340.com/news/local/brookside-officers-resign-as-town-moves-to-dissolve-department",
+      "published_at": "2026-11-19T02:47:51.000Z",
+      "date": "2026-11-19T02:47:51.000Z",
+      "location_tags": [
+        "brookside"
+      ],
+      "topic_tags": [
+        "government",
+        "public-safety"
+      ],
+      "priority_level": 6,
+      "priority": 6,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://abc3340.com/resources/media2/16x9/1280/986/center/90/1073c06f-c997-411f-83f1-8840df307d56-Wide.00_00_20_22.Still002.png"
+    },
+    {
+      "id": "news-2-bham-now-freshwater-land-trust-marks-30-years-with-historic-land-acqu",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -71,7 +121,45 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2020/10/Turkey-Creek-Nature-Preserve-Fall-e1785357809754-1200x628.jpg"
     },
     {
-      "id": "news-2-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
+      "id": "news-3-wbrc-they-got-me-pretty-good-wild-hogs-tear-up-adamsville-homeown",
+      "section": "nearby",
+      "why": "names adamsville",
+      "town": "Adamsville",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//RUV6XJA6RNGZHCIT2PFGNLRTUI.jpg?auth=6ae5145dabc9867d9dff5f121d3bcfa2f4dbb94a64b8db2db971b653c2329364&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "‘They got me pretty good’: Wild hogs tear up Adamsville homeowner’s yard again after years of issues",
+      "summary": "Johnson, who has lived in Adamsville for years, said the hogs have damaged both his front and back yards.",
+      "description": "Johnson, who has lived in Adamsville for years, said the hogs have damaged both his front and back yards.",
+      "url": "https://www.wbrc.com/2026/11/18/they-got-me-pretty-good-wild-hogs-tear-up-adamsville-homeowners-yard-again-after-years-issues/",
+      "link": "https://www.wbrc.com/2026/11/18/they-got-me-pretty-good-wild-hogs-tear-up-adamsville-homeowners-yard-again-after-years-issues/",
+      "published_at": "2026-11-18T23:27:38.000Z",
+      "date": "2026-11-18T23:27:38.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//RUV6XJA6RNGZHCIT2PFGNLRTUI.jpg?auth=6ae5145dabc9867d9dff5f121d3bcfa2f4dbb94a64b8db2db971b653c2329364&smart=false"
+    },
+    {
+      "id": "news-4-bham-now-historic-trails-at-birmingham-s-avondale-park-restored-by-vo",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -115,7 +203,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2022/08/Westrogon-4-2048x1365.jpg"
     },
     {
-      "id": "news-3-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
+      "id": "news-5-jefferson-county-public-test-of-voting-machines-and-recount-for-jefferson-cou",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -126,7 +214,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "Jefferson County",
       "source": "Jefferson County",
@@ -152,177 +240,7 @@
       "image_url": ""
     },
     {
-      "id": "news-4-cbs-42-new-storm-shelter-opens-in-irondale",
-      "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "New storm shelter opens in Irondale",
-      "summary": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
-      "description": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
-      "url": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
-      "link": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
-      "published_at": "2026-11-17T21:48:25.000Z",
-      "date": "2026-11-17T21:48:25.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900"
-    },
-    {
-      "id": "news-5-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
-      "section": "county",
-      "why": "birmingham, trains",
-      "town": "Birmingham",
-      "tags": [
-        "Trains"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "18 holiday tree lightings in Birmingham your family will love",
-      "summary": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
-      "description": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
-      "url": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
-      "link": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
-      "published_at": "2026-11-18T17:01:24.000Z",
-      "date": "2026-11-18T17:01:24.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "trains"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg"
-    },
-    {
-      "id": "news-6-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
-      "section": "county",
-      "why": "birmingham, the creek",
-      "town": "Birmingham",
-      "tags": [
-        "The creek"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "19 weekend events in Birmingham: KultureCity Race, Glow Wild + more, Nov. 19–22, 2026",
-      "summary": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
-      "description": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
-      "url": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
-      "link": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
-      "published_at": "2026-11-18T14:44:58.000Z",
-      "date": "2026-11-18T14:44:58.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "the-creek"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg"
-    },
-    {
-      "id": "news-7-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
-      "section": "county",
-      "why": "birmingham, the creek",
-      "town": "Birmingham",
-      "tags": [
-        "The creek",
-        "Business"
-      ],
-      "outlet": "Birmingham Times",
-      "paywall": false,
-      "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Birmingham Times"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Live HealthSmart Alabama Celebrates Neighborhood Revitalization Projects in Birmingham Communities",
-      "summary": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
-      "description": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
-      "url": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
-      "link": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
-      "published_at": "2026-11-16T02:55:59.000Z",
-      "date": "2026-11-16T02:55:59.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "the-creek",
-        "business"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
-    },
-    {
-      "id": "news-8-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "id": "news-6-jefferson-county-jefferson-county-commission-2027-meeting-dates",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -359,7 +277,177 @@
       "image_url": ""
     },
     {
-      "id": "news-9-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
+      "id": "news-7-cbs-42-new-storm-shelter-opens-in-irondale",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "CBS 42",
+      "paywall": false,
+      "image": {
+        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900",
+        "from": "feed",
+        "width": null,
+        "credit": "CBS 42"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "CBS 42",
+      "source": "CBS 42",
+      "title": "New storm shelter opens in Irondale",
+      "summary": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
+      "description": "A new storm shelter has opened in Irondale. Mayor James D. Stewart Jr., alongside the City Council and the Jefferson County Commission, held a ribbon cutting at the shelter Tuesday afternoon.",
+      "url": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
+      "link": "https://www.alabamas42.com/news/local/new-storm-shelter-opens-in-irondale/",
+      "published_at": "2026-11-17T21:48:25.000Z",
+      "date": "2026-11-17T21:48:25.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Screenshot-2026-11-17-154700.jpg?w=900"
+    },
+    {
+      "id": "news-8-bham-now-18-holiday-tree-lightings-in-birmingham-your-family-will-lov",
+      "section": "county",
+      "why": "birmingham, trains",
+      "town": "Birmingham",
+      "tags": [
+        "Trains"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "18 holiday tree lightings in Birmingham your family will love",
+      "summary": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
+      "description": "✨ 18 TREES, ZERO TICKETS: From the Regions Center glowing downtown to train rides in Hueytown, here's every free tree lighting around Birmingham, starting Nov. 19.",
+      "url": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
+      "link": "https://bhamnow.com/2026/11/18/18-holiday-tree-lightings-in-birmingham-your-family-will-love/#utm_source=rss&utm_medium=rss&utm_campaign=18-holiday-tree-lightings-in-birmingham-your-family-will-love",
+      "published_at": "2026-11-18T17:01:24.000Z",
+      "date": "2026-11-18T17:01:24.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "trains"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/IMG_0144-scaled-e1671882433512-1200x627.jpeg"
+    },
+    {
+      "id": "news-9-bham-now-19-weekend-events-in-birmingham-kulturecity-race-glow-wild-m",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "19 weekend events in Birmingham: KultureCity Race, Glow Wild + more, Nov. 19–22, 2026",
+      "summary": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
+      "description": "🎉 19 WAYS TO FILL YOUR WEEKEND: Ghost hunting, tree lighting, a craft club meeting, ¡HICA! tamale pre-orders + Glow Wild's lantern trail—Birmingham's Nov. 19–22 lineup is stacked.",
+      "url": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
+      "link": "https://bhamnow.com/2026/11/18/19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026/#utm_source=rss&utm_medium=rss&utm_campaign=19-weekend-events-in-birmingham-kulturecity-race-glow-wild-more-nov-19-22-2026",
+      "published_at": "2026-11-18T14:44:58.000Z",
+      "date": "2026-11-18T14:44:58.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://bhamnow.com/wp-content/uploads/2024/11/illuminights_2023_ZA_2T0A5371-1200x800.jpg"
+    },
+    {
+      "id": "news-10-birmingham-times-live-healthsmart-alabama-celebrates-neighborhood-revitalizat",
+      "section": "county",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
+      "tags": [
+        "The creek",
+        "Business"
+      ],
+      "outlet": "Birmingham Times",
+      "paywall": false,
+      "image": {
+        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "Birmingham Times"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "Birmingham Times",
+      "source": "Birmingham Times",
+      "title": "Live HealthSmart Alabama Celebrates Neighborhood Revitalization Projects in Birmingham Communities",
+      "summary": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
+      "description": "UAB Live HealthSmart Alabama partnered with Cool Green Trees to plant 51 native trees along a new walking trail and in the lower park at Fountain Heights Park in Birmingham. (Cool Green Trees) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-",
+      "url": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
+      "link": "https://www.birminghamtimes.com/2026/11/live-healthsmart-alabama-celebrates-neighborhood-revitalization-projects-in-birmingham-communities/",
+      "published_at": "2026-11-16T02:55:59.000Z",
+      "date": "2026-11-16T02:55:59.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "the-creek",
+        "business"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/887184133_1122567447408391_9018120588935560964_n-150x150.jpg"
+    },
+    {
+      "id": "news-11-abc-33-40-i-want-to-fight-for-this-home-randolph-county-family-fears-l",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -375,7 +463,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -401,7 +489,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/887aa91f-0dbe-4507-9a96-a3b1ac8a4012-webphoto.png"
     },
     {
-      "id": "news-10-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
+      "id": "news-12-bham-now-dutch-bros-bringing-more-coffee-to-birmingham-with-new-hoove",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -417,7 +505,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -443,7 +531,7 @@
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/Unknown-1200x900.jpeg"
     },
     {
-      "id": "news-11-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
+      "id": "news-13-https-www-wolfefuneralhomes-com-billy-allen-nugent-obituary-nov-14-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
@@ -461,7 +549,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 3,
+      "score": 2,
       "source_type": "media_feed",
       "source_name": "https://www.wolfefuneralhomes.com/",
       "source": "https://www.wolfefuneralhomes.com/",
@@ -487,7 +575,7 @@
       "image_url": ""
     },
     {
-      "id": "news-12-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
+      "id": "news-14-https-www-wolfefuneralhomes-com-beverly-diane-green-obituary-nov-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
       "town": "Regional",
