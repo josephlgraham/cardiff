@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T19:28:17.679Z",
+  "updatedAt": "2026-11-22T22:36:28.999Z",
   "temp": 74,
   "humidity": 99,
   "windSpeed": 0,
@@ -63,20 +63,20 @@
     {
       "number": 1,
       "name": "This Afternoon",
-      "startTime": "2026-11-22T13:00:00-06:00",
+      "startTime": "2026-11-22T16:00:00-06:00",
       "endTime": "2026-11-22T18:00:00-06:00",
       "isDaytime": true,
-      "temperature": 70,
+      "temperature": 66,
       "temperatureUnit": "F",
       "temperatureTrend": null,
       "probabilityOfPrecipitation": {
         "unitCode": "wmoUnit:percent",
         "value": 1
       },
-      "windSpeed": "0 to 5 mph",
-      "windDirection": "NW",
-      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
-      "shortForecast": "Sunny"
+      "windSpeed": "0 mph",
+      "windDirection": "",
+      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+      "shortForecast": "Mostly Cloudy"
     },
     {
       "number": 2,
@@ -316,9 +316,9 @@
   "weekly": [
     {
       "date": "2026-11-22",
-      "hi": 70,
+      "hi": 66,
       "lo": 53,
-      "shortForecast": "Sunny"
+      "shortForecast": "Mostly Cloudy"
     },
     {
       "date": "2026-11-23",
