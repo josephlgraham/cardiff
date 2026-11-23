@@ -1,34 +1,74 @@
 {
-  "updatedAt": "2026-11-22T18:28:22.644Z",
+  "updatedAt": "2026-11-23T03:42:03.082Z",
   "counts": {
+    "nearby": 1,
     "towns": 1,
-    "county": 9,
-    "obituaries": 1
+    "county": 11
   },
   "sections": {
     "towns": [
-      "news-1-al-com-brookside-police-department-is-disbanding"
+      "news-2-al-com-brookside-police-department-is-disbanding"
     ],
-    "nearby": [],
+    "nearby": [
+      "news-1-al-com-church-prays-for-rep-patrick-sellers-after-federal-charges-b"
+    ],
     "creek": [],
     "county": [
-      "news-2-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "news-3-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
-      "news-4-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
-      "news-5-cbs-42-alabama-power-reports-2027-rate-reduction",
-      "news-6-abc-33-40-jefferson-county-recount-leaves-stephens-ahead-blue-says-pro",
-      "news-7-bham-now-glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-t",
-      "news-8-abc-33-40-ambulance-pickup-collide-in-birmingham-7-year-old-and-two-ot",
-      "news-9-birmingham-times-camara-blue-is-ready-for-the-next-chapter-after-jefferson-co",
-      "news-10-trussville-tribune-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-"
+      "news-3-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
+      "news-4-wvtm-13-car-and-tractor-trailer-catch-fire-after-fatal-head-on-crash",
+      "news-5-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
+      "news-6-birminghamwatch-stephens-retains-district-3-county-commission-seat-after-rec",
+      "news-7-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
+      "news-8-cbs-42-alabama-power-reports-2027-rate-reduction",
+      "news-9-jefferson-county-2027-free-household-drop-off-recycling-events",
+      "news-10-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "news-11-abc-33-40-jefferson-county-recount-leaves-stephens-ahead-blue-says-pro",
+      "news-12-abc-33-40-ambulance-pickup-collide-in-birmingham-7-year-old-and-two-ot",
+      "news-13-bham-now-glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-t"
     ],
-    "obituaries": [
-      "news-11-https-www-wolfefuneralhomes-com-carl-phillip-rhodes-obituary-nov-16-2026"
-    ]
+    "obituaries": []
   },
   "stories": [
     {
-      "id": "news-1-al-com-brookside-police-department-is-disbanding",
+      "id": "news-1-al-com-church-prays-for-rep-patrick-sellers-after-federal-charges-b",
+      "section": "nearby",
+      "why": "names pleasant grove",
+      "town": "Pleasant Grove",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/QLWZXNFTK5HERM4BDM2Q3WL5E4.jpeg?auth=5cf92c9369800b822855e2dde0929a775d6b0697e0bcc851e8c797ff6c8a4976&smart=true&height=1200",
+        "from": "feed",
+        "width": 5712,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "Church prays for Rep. Patrick Sellers after federal charges: ‘Bless’ him",
+      "summary": "Sellers has pastored the church since 2008. He was elected to the House of Representatives for a district that includes parts of Pleasant Grove and Hueytown, in 2022.",
+      "description": "Sellers has pastored the church since 2008. He was elected to the House of Representatives for a district that includes parts of Pleasant Grove and Hueytown, in 2022.",
+      "url": "https://www.al.com/news/2026/11/church-prays-for-alabama-lawmaker-pastor-patrick-sellers-after-federal-charges.html",
+      "link": "https://www.al.com/news/2026/11/church-prays-for-alabama-lawmaker-pastor-patrick-sellers-after-federal-charges.html",
+      "published_at": "2026-11-22T20:58:29.000Z",
+      "date": "2026-11-22T20:58:29.000Z",
+      "location_tags": [
+        "pleasant-grove"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/QLWZXNFTK5HERM4BDM2Q3WL5E4.jpeg?auth=5cf92c9369800b822855e2dde0929a775d6b0697e0bcc851e8c797ff6c8a4976&smart=true&height=1200"
+    },
+    {
+      "id": "news-2-al-com-brookside-police-department-is-disbanding",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -65,7 +105,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
+      "id": "news-3-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -109,7 +149,49 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/568/986/0x68/90/d702df3a-d12d-4e6e-ad69-2295efe2af94-Screenshot20261120184012.png"
     },
     {
-      "id": "news-3-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
+      "id": "news-4-wvtm-13-car-and-tractor-trailer-catch-fire-after-fatal-head-on-crash",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/23b69f61-2f32-4c87-a854-40fc8d3c916c.png",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Car and tractor-trailer catch fire after fatal head-on crash Alabama interstate",
+      "summary": "An unidentified man was killed early Saturday in a head-on crash involving a car and a tractor-trailer in Birmingham, according to the Alabama Law Enforcement Agency.",
+      "description": "An unidentified man was killed early Saturday in a head-on crash involving a car and a tractor-trailer in Birmingham, according to the Alabama Law Enforcement Agency.",
+      "url": "https://www.wvtm13.com/article/man-killed-fiery-head-on-i-459-crash-hoover-birmingham-alabama/74499084",
+      "link": "https://www.wvtm13.com/article/man-killed-fiery-head-on-i-459-crash-hoover-birmingham-alabama/74499084",
+      "published_at": "2026-11-22T23:03:00.000Z",
+      "date": "2026-11-22T23:03:00.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/23b69f61-2f32-4c87-a854-40fc8d3c916c.png"
+    },
+    {
+      "id": "news-5-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
       "section": "county",
       "why": "jefferson county, roads",
       "town": "Jefferson County",
@@ -126,7 +208,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 27,
+      "score": 26,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -153,7 +235,49 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Fatal-Crash_522d4f.jpg?w=900"
     },
     {
-      "id": "news-4-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
+      "id": "news-6-birminghamwatch-stephens-retains-district-3-county-commission-seat-after-rec",
+      "section": "county",
+      "why": "county commission, government",
+      "town": "Birmingham",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "BirminghamWatch",
+      "paywall": false,
+      "image": {
+        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/JeffCo-Commission-District-3-Recount-11-19-2026-.jpg",
+        "from": "feed",
+        "width": 1024,
+        "credit": "BirminghamWatch"
+      },
+      "obit": null,
+      "score": 24,
+      "source_type": "media_feed",
+      "source_name": "BirminghamWatch",
+      "source": "BirminghamWatch",
+      "title": "Stephens retains District 3 County Commission seat after recount",
+      "summary": "The recount changed totals by three votes in the close race. The post Stephens retains District 3 County Commission seat after recount appeared first on BirminghamWatch .",
+      "description": "The recount changed totals by three votes in the close race. The post Stephens retains District 3 County Commission seat after recount appeared first on BirminghamWatch .",
+      "url": "https://birminghamwatch.org/2026/11/19/stephens-retains-district-3-county-commission-seat-after-recount/",
+      "link": "https://birminghamwatch.org/2026/11/19/stephens-retains-district-3-county-commission-seat-after-recount/",
+      "published_at": "2026-11-20T00:13:33.000Z",
+      "date": "2026-11-20T00:13:33.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/JeffCo-Commission-District-3-Recount-11-19-2026-.jpg"
+    },
+    {
+      "id": "news-7-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -169,7 +293,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -195,7 +319,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1024/986/88x0/90/54f5b694-8af0-4461-aac5-e48b8454afaa-Screenshot20261120145929.png"
     },
     {
-      "id": "news-5-cbs-42-alabama-power-reports-2027-rate-reduction",
+      "id": "news-8-cbs-42-alabama-power-reports-2027-rate-reduction",
       "section": "county",
       "why": "birmingham, utilities",
       "town": "Birmingham",
@@ -211,7 +335,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -237,7 +361,81 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2022/11/alabama-power-pic.png?w=474"
     },
     {
-      "id": "news-6-abc-33-40-jefferson-county-recount-leaves-stephens-ahead-blue-says-pro",
+      "id": "news-9-jefferson-county-2027-free-household-drop-off-recycling-events",
+      "section": "county",
+      "why": "jefferson county, utilities",
+      "town": "Jefferson County",
+      "tags": [
+        "Utilities"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 22,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "2027 Free Household Drop-off Recycling Events",
+      "summary": "Based on volume and citizen feedback. We've added recycling to ALL events this year and added a 3rd Household Hazardous Waste Day in June. Thank you for continuing to show up and take advantage of these FREE events!",
+      "description": "Based on volume and citizen feedback. We've added recycling to ALL events this year and added a 3rd Household Hazardous Waste Day in June. Thank you for continuing to show up and take advantage of these FREE events!",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=171",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=171",
+      "published_at": "2026-11-19T22:12:00.000Z",
+      "date": "2026-11-19T22:12:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "utilities"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-10-jefferson-county-jefferson-county-commission-2027-meeting-dates",
+      "section": "county",
+      "why": "jefferson county, government",
+      "town": "Jefferson County",
+      "tags": [
+        "Government"
+      ],
+      "outlet": "Jefferson County",
+      "paywall": false,
+      "image": null,
+      "obit": null,
+      "score": 22,
+      "source_type": "media_feed",
+      "source_name": "Jefferson County",
+      "source": "Jefferson County",
+      "title": "Jefferson County Commission 2027 Meeting Dates",
+      "summary": "Here are the 2027 Jefferson County, AL meeting dates",
+      "description": "Here are the 2027 Jefferson County, AL meeting dates",
+      "url": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
+      "link": "https://www.jccal.org/CivicAlerts.aspx?aid=182",
+      "published_at": "2026-11-19T21:37:00.000Z",
+      "date": "2026-11-19T21:37:00.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "government"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
+    },
+    {
+      "id": "news-11-abc-33-40-jefferson-county-recount-leaves-stephens-ahead-blue-says-pro",
       "section": "county",
       "why": "jefferson county, government",
       "town": "Jefferson County",
@@ -253,7 +451,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 22,
+      "score": 21,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -279,49 +477,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/366/986/0x18/90/703a056b-c66c-44a3-9ebe-c67aa933f3fa-Screenshot20261119221809.png"
     },
     {
-      "id": "news-7-bham-now-glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-t",
-      "section": "county",
-      "why": "birmingham, the creek",
-      "town": "Birmingham",
-      "tags": [
-        "The creek"
-      ],
-      "outlet": "Bham Now",
-      "paywall": false,
-      "image": {
-        "url": "https://bhamnow.com/wp-content/uploads/2026/11/DSC_5317-1200x800.jpg",
-        "from": "feed",
-        "width": null,
-        "credit": "Bham Now"
-      },
-      "obit": null,
-      "score": 22,
-      "source_type": "media_feed",
-      "source_name": "Bham Now",
-      "source": "Bham Now",
-      "title": "Glow Wild 2026 will light up the Birmingham Zoo + how to get tickets, 11/21–1/3",
-      "summary": "✨ OVER A MILLION LIGHTS AT THE ZOO: Glow Wild lights up the Bham Zoo starting Nov. 21, with a mile-long lantern trail, spiked cocoa + the newly restored Protective Carousel back in action. Get tickets before they sell out.👇 NowPartner",
-      "description": "✨ OVER A MILLION LIGHTS AT THE ZOO: Glow Wild lights up the Bham Zoo starting Nov. 21, with a mile-long lantern trail, spiked cocoa + the newly restored Protective Carousel back in action. Get tickets before they sell out.👇 NowPartner",
-      "url": "https://bhamnow.com/2026/11/20/glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3/#utm_source=rss&utm_medium=rss&utm_campaign=glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3",
-      "link": "https://bhamnow.com/2026/11/20/glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3/#utm_source=rss&utm_medium=rss&utm_campaign=glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3",
-      "published_at": "2026-11-20T16:25:43.000Z",
-      "date": "2026-11-20T16:25:43.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "the-creek"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/DSC_5317-1200x800.jpg"
-    },
-    {
-      "id": "news-8-abc-33-40-ambulance-pickup-collide-in-birmingham-7-year-old-and-two-ot",
+      "id": "news-12-abc-33-40-ambulance-pickup-collide-in-birmingham-7-year-old-and-two-ot",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -363,38 +519,38 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1102/986/27x0/90/bf0d64dd-9a60-4687-aa46-5d3fdad2a566-Screenshot20261119123914.png"
     },
     {
-      "id": "news-9-birmingham-times-camara-blue-is-ready-for-the-next-chapter-after-jefferson-co",
+      "id": "news-13-bham-now-glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-t",
       "section": "county",
-      "why": "jefferson county, government",
-      "town": "Jefferson County",
+      "why": "birmingham, the creek",
+      "town": "Birmingham",
       "tags": [
-        "Government"
+        "The creek"
       ],
-      "outlet": "Birmingham Times",
+      "outlet": "Bham Now",
       "paywall": false,
       "image": {
-        "url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/Blue-150x150.jpg",
+        "url": "https://bhamnow.com/wp-content/uploads/2026/11/DSC_5317-1200x800.jpg",
         "from": "feed",
         "width": null,
-        "credit": "Birmingham Times"
+        "credit": "Bham Now"
       },
       "obit": null,
       "score": 21,
       "source_type": "media_feed",
-      "source_name": "Birmingham Times",
-      "source": "Birmingham Times",
-      "title": "Camara Blue is Ready for ‘The Next Chapter’ After Jefferson County Commission District 3 Race Recount Shows Same Result",
-      "summary": "Camara Blue, a candidate for District 3 Jefferson County Commissioner, is looking toward his future after an unsuccessful vote recount. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/Blue-1024x870.jpg\" />By Javacia Harris Bowser | The Birmingham Times The recount of the Nov. 3 ",
-      "description": "Camara Blue, a candidate for District 3 Jefferson County Commissioner, is looking toward his future after an unsuccessful vote recount. (Provided) \" data-large-file=\"https://www.birminghamtimes.com/wp-content/uploads/2026/11/Blue-1024x870.jpg\" />By Javacia Harris Bowser | The Birmingham Times The recount of the Nov. 3 ",
-      "url": "https://www.birminghamtimes.com/2026/11/camara-blue-is-ready-for-the-next-chapter-after-jefferson-county-commission-district-3-race-recount-shows-same-result/",
-      "link": "https://www.birminghamtimes.com/2026/11/camara-blue-is-ready-for-the-next-chapter-after-jefferson-county-commission-district-3-race-recount-shows-same-result/",
-      "published_at": "2026-11-20T02:34:30.000Z",
-      "date": "2026-11-20T02:34:30.000Z",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "Glow Wild 2026 will light up the Birmingham Zoo + how to get tickets, 11/21–1/3",
+      "summary": "✨ OVER A MILLION LIGHTS AT THE ZOO: Glow Wild lights up the Bham Zoo starting Nov. 21, with a mile-long lantern trail, spiked cocoa + the newly restored Protective Carousel back in action. Get tickets before they sell out.👇 NowPartner",
+      "description": "✨ OVER A MILLION LIGHTS AT THE ZOO: Glow Wild lights up the Bham Zoo starting Nov. 21, with a mile-long lantern trail, spiked cocoa + the newly restored Protective Carousel back in action. Get tickets before they sell out.👇 NowPartner",
+      "url": "https://bhamnow.com/2026/11/20/glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3/#utm_source=rss&utm_medium=rss&utm_campaign=glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3",
+      "link": "https://bhamnow.com/2026/11/20/glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3/#utm_source=rss&utm_medium=rss&utm_campaign=glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-tickets-11-21-1-3",
+      "published_at": "2026-11-20T16:25:43.000Z",
+      "date": "2026-11-20T16:25:43.000Z",
       "location_tags": [
-        "jefferson-county"
+        "birmingham"
       ],
       "topic_tags": [
-        "government"
+        "the-creek"
       ],
       "priority_level": 3,
       "priority": 3,
@@ -402,93 +558,7 @@
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.birminghamtimes.com/wp-content/uploads/2026/11/Blue-150x150.jpg"
-    },
-    {
-      "id": "news-10-trussville-tribune-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg",
-        "from": "page",
-        "width": 960,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 19,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Man killed in fiery head-on crash with tractor-trailer on I-459",
-      "summary": "From Tribune staff reports BIRMINGHAM — A man was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County, according to the Alabama Law Enforcement Agency. The two-vehicle crash happened at about 3:38 a.m. The man was driving a 2016 Dodge",
-      "description": "From Tribune staff reports BIRMINGHAM — A man was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County, according to the Alabama Law Enforcement Agency. The two-vehicle crash happened at about 3:38 a.m. The man was driving a 2016 Dodge",
-      "url": "https://www.trussvilletribune.com/2026/11/21/man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459/",
-      "link": "https://www.trussvilletribune.com/2026/11/21/man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459/",
-      "published_at": "2026-11-21T13:24:02.000Z",
-      "date": "2026-11-21T13:24:02.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg"
-    },
-    {
-      "id": "news-11-https-www-wolfefuneralhomes-com-carl-phillip-rhodes-obituary-nov-16-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "https://www.wolfefuneralhomes.com/",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Carl Phillip Rhodes Obituary Nov 16, 2026",
-        "age": null,
-        "town": "",
-        "home": "https://www.wolfefuneralhomes.com/",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 1,
-      "source_type": "media_feed",
-      "source_name": "https://www.wolfefuneralhomes.com/",
-      "source": "https://www.wolfefuneralhomes.com/",
-      "title": "Carl Phillip Rhodes Obituary Nov 16, 2026",
-      "summary": "Carl Phillip Rhodes Obituary Nov 16, 2026 https://www.wolfefuneralhomes.com/",
-      "description": "Carl Phillip Rhodes Obituary Nov 16, 2026 https://www.wolfefuneralhomes.com/",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5CYTJxRkQwT2FiUUhhU2VROWRyQ0h1UkZyR1Y1WEItT0o4ZXJ3WVhpWC1DSW9acmdFTTBEdXNwRlgyakZ6em01ank2UzMzLWJjRUJyMkliaEhqWHJMY3dySTJSblJpS3c?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5CYTJxRkQwT2FiUUhhU2VROWRyQ0h1UkZyR1Y1WEItT0o4ZXJ3WVhpWC1DSW9acmdFTTBEdXNwRlgyakZ6em01ank2UzMzLWJjRUJyMkliaEhqWHJMY3dySTJSblJpS3c?oc=5",
-      "published_at": "2026-11-16T08:00:00.000Z",
-      "date": "2026-11-16T08:00:00.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 0,
-      "priority": 0,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
+      "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/DSC_5317-1200x800.jpg"
     }
   ]
 }
