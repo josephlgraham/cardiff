@@ -1,78 +1,35 @@
 {
-  "updatedAt": "2026-11-23T22:35:39.593Z",
+  "updatedAt": "2026-11-24T06:56:05.087Z",
   "counts": {
-    "nearby": 1,
     "towns": 1,
+    "nearby": 1,
     "county": 7,
-    "obituaries": 6
+    "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-2-al-com-brookside-police-department-is-disbanding"
+      "news-1-al-com-brookside-police-department-is-disbanding"
     ],
     "nearby": [
-      "news-1-wbrc-adamsville-man-sentenced-to-more-than-15-years-in-federal-dr"
+      "news-2-trussville-tribune-career-drug-trafficker-from-adamsville-sentenced-to-more-tha"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
-      "news-4-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "news-5-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
-      "news-7-birminghamwatch-stephens-retains-district-3-county-commission-seat-after-rec",
-      "news-8-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
+      "news-3-wvtm-13-damage-to-elevated-pedestrian-bridge-in-birmingham-causes-ro",
+      "news-4-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
+      "news-5-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
+      "news-7-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
+      "news-8-trussville-tribune-birmingham-man-killed-in-fiery-head-on-crash-with-tractor-tr",
       "news-9-cbs-42-alabama-power-reports-2027-rate-reduction",
       "news-10-bham-now-glow-wild-2026-will-light-up-the-birmingham-zoo-how-to-get-t"
     ],
     "obituaries": [
-      "news-6-trussville-tribune-frances-c-bagwell-august-5-1925-november-13-2026",
-      "news-11-trussville-tribune-carole-janice-green-september-11-1944-november-14-2026",
-      "news-12-trussville-tribune-norma-mae-champion-november-12-1925-november-14-2026",
-      "news-13-trussville-tribune-terry-m-long-january-11-1954-november-16-2026",
-      "news-14-al-com-actress-68-shares-heartbreaking-truth-on-her-birthday-only-s",
-      "news-15-tribute-archive-jeffrey-leon-burgess-sr-obituary-crestview-memorial-gardens-"
+      "news-6-trussville-tribune-frances-c-bagwell-august-5-1925-november-13-2026"
     ]
   },
   "stories": [
     {
-      "id": "news-1-wbrc-adamsville-man-sentenced-to-more-than-15-years-in-federal-dr",
-      "section": "nearby",
-      "why": "names adamsville",
-      "town": "Adamsville",
-      "tags": [],
-      "outlet": "WBRC",
-      "paywall": false,
-      "image": {
-        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//DOOPEAYE5NEWFHSDLC6ZQIWRMQ.jfif?auth=85847e06ffa1b326b868a45a30fdba146e4cd72b94939626ed7aaeda9d3fde3d&smart=false",
-        "from": "feed",
-        "width": null,
-        "credit": "WBRC"
-      },
-      "obit": null,
-      "score": 31,
-      "source_type": "media_feed",
-      "source_name": "WBRC",
-      "source": "WBRC",
-      "title": "Adamsville man sentenced to more than 15 years in federal drug trafficking case",
-      "summary": "Corderius Darnell Hill, 39, also known as “Rylo,” pleaded guilty to distribution of fentanyl, distribution of methamphetamine and fentanyl, and possession of a firearm as a convicted felon.",
-      "description": "Corderius Darnell Hill, 39, also known as “Rylo,” pleaded guilty to distribution of fentanyl, distribution of methamphetamine and fentanyl, and possession of a firearm as a convicted felon.",
-      "url": "https://www.wbrc.com/2026/11/23/adamsville-man-sentenced-more-than-15-years-federal-drug-trafficking-case/",
-      "link": "https://www.wbrc.com/2026/11/23/adamsville-man-sentenced-more-than-15-years-federal-drug-trafficking-case/",
-      "published_at": "2026-11-23T19:20:45.000Z",
-      "date": "2026-11-23T19:20:45.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//DOOPEAYE5NEWFHSDLC6ZQIWRMQ.jfif?auth=85847e06ffa1b326b868a45a30fdba146e4cd72b94939626ed7aaeda9d3fde3d&smart=false"
-    },
-    {
-      "id": "news-2-al-com-brookside-police-department-is-disbanding",
+      "id": "news-1-al-com-brookside-police-department-is-disbanding",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -109,7 +66,87 @@
       "image_url": ""
     },
     {
-      "id": "news-3-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
+      "id": "news-2-trussville-tribune-career-drug-trafficker-from-adamsville-sentenced-to-more-tha",
+      "section": "nearby",
+      "why": "names adamsville",
+      "town": "Adamsville",
+      "tags": [],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/Scales-of-Justice-01-1.jpg",
+        "from": "page",
+        "width": 1698,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 28,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "‘Career’ drug trafficker from Adamsville sentenced to more than 15 years",
+      "summary": "BIRMINGHAM, Ala. — A “career offender and repeat” drug trafficker from Adamsville has been sentenced to 15 years and six months for the distribution of fentanyl and methamphetamine, said a statement from U.S. Attorney Phillip W. Williams Jr. Corderius Darnell Hill, also known as “Rylo,” 39, of Adamsville, was sentenced",
+      "description": "BIRMINGHAM, Ala. — A “career offender and repeat” drug trafficker from Adamsville has been sentenced to 15 years and six months for the distribution of fentanyl and methamphetamine, said a statement from U.S. Attorney Phillip W. Williams Jr. Corderius Darnell Hill, also known as “Rylo,” 39, of Adamsville, was sentenced",
+      "url": "https://www.trussvilletribune.com/2026/11/23/career-drug-trafficker-from-adamsville-sentenced-to-more-than-15-years/",
+      "link": "https://www.trussvilletribune.com/2026/11/23/career-drug-trafficker-from-adamsville-sentenced-to-more-than-15-years/",
+      "published_at": "2026-11-24T03:22:18.000Z",
+      "date": "2026-11-24T03:22:18.000Z",
+      "location_tags": [
+        "adamsville"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2017/09/Scales-of-Justice-01-1.jpg"
+    },
+    {
+      "id": "news-3-wvtm-13-damage-to-elevated-pedestrian-bridge-in-birmingham-causes-ro",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "WVTM 13",
+      "paywall": false,
+      "image": {
+        "url": "https://kubrick.htvapps.com/htv-prod/images/9b647635-c0a2-4088-805c-6f25cbbdcda5.jpg",
+        "from": "feed",
+        "width": null,
+        "credit": "WVTM 13"
+      },
+      "obit": null,
+      "score": 26,
+      "source_type": "media_feed",
+      "source_name": "WVTM 13",
+      "source": "WVTM 13",
+      "title": "Damage to elevated pedestrian bridge in Birmingham causes road closure",
+      "summary": "The street is closed until further notice, the city said.",
+      "description": "The street is closed until further notice, the city said.",
+      "url": "https://www.wvtm13.com/article/damage-to-elevated-pedestrian-bridge-in-birmingham-causes-road-closure/74514092",
+      "link": "https://www.wvtm13.com/article/damage-to-elevated-pedestrian-bridge-in-birmingham-causes-road-closure/74514092",
+      "published_at": "2026-11-24T04:26:00.000Z",
+      "date": "2026-11-24T04:26:00.000Z",
+      "location_tags": [
+        "birmingham"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": true,
+      "is_featured": false,
+      "image_url": "https://kubrick.htvapps.com/htv-prod/images/9b647635-c0a2-4088-805c-6f25cbbdcda5.jpg"
+    },
+    {
+      "id": "news-4-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -125,7 +162,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 26,
+      "score": 25,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -151,7 +188,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/714/986/0x1/90/c3fda236-5a3c-42b5-b31d-8f87d16159bd-Screenshot20261123094721.png"
     },
     {
-      "id": "news-4-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
+      "id": "news-5-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -195,50 +232,6 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/568/986/0x68/90/d702df3a-d12d-4e6e-ad69-2295efe2af94-Screenshot20261120184012.png"
     },
     {
-      "id": "news-5-cbs-42-68-year-old-dora-woman-identified-in-fatal-jefferson-county-",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Fatal-Crash_522d4f.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "68-year-old Dora woman identified in fatal Jefferson County crash",
-      "summary": "DORA, Ala. (WIAT) -- A 68-year-old woman who was killed in a single-vehicle crash Thursday has been identified. Nancy Campbell, of Dora, was driving a vehicle involved in a single-vehicle crash around 11:49 a.m. in the 5800 block of Littleton Kilgore Road. She was pronounced dead at the scene. Jefferson County Sheriff'",
-      "description": "DORA, Ala. (WIAT) -- A 68-year-old woman who was killed in a single-vehicle crash Thursday has been identified. Nancy Campbell, of Dora, was driving a vehicle involved in a single-vehicle crash around 11:49 a.m. in the 5800 block of Littleton Kilgore Road. She was pronounced dead at the scene. Jefferson County Sheriff'",
-      "url": "https://www.alabamas42.com/traffic/68-year-old-dora-woman-identified-in-fatal-jefferson-county-crash/",
-      "link": "https://www.alabamas42.com/traffic/68-year-old-dora-woman-identified-in-fatal-jefferson-county-crash/",
-      "published_at": "2026-11-20T16:17:53.000Z",
-      "date": "2026-11-20T16:17:53.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/10/Fatal-Crash_522d4f.jpg?w=900"
-    },
-    {
       "id": "news-6-trussville-tribune-frances-c-bagwell-august-5-1925-november-13-2026",
       "section": "obituaries",
       "why": "obituary wording",
@@ -257,7 +250,7 @@
         "service": "",
         "serviceLabel": ""
       },
-      "score": 25,
+      "score": 24,
       "source_type": "media_feed",
       "source_name": "Trussville Tribune",
       "source": "Trussville Tribune",
@@ -283,49 +276,7 @@
       "image_url": ""
     },
     {
-      "id": "news-7-birminghamwatch-stephens-retains-district-3-county-commission-seat-after-rec",
-      "section": "county",
-      "why": "county commission, government",
-      "town": "Birmingham",
-      "tags": [
-        "Government"
-      ],
-      "outlet": "BirminghamWatch",
-      "paywall": false,
-      "image": {
-        "url": "https://birminghamwatch.org/wp-content/uploads/2026/11/JeffCo-Commission-District-3-Recount-11-19-2026-.jpg",
-        "from": "feed",
-        "width": 1024,
-        "credit": "BirminghamWatch"
-      },
-      "obit": null,
-      "score": 23,
-      "source_type": "media_feed",
-      "source_name": "BirminghamWatch",
-      "source": "BirminghamWatch",
-      "title": "Stephens retains District 3 County Commission seat after recount",
-      "summary": "The recount changed totals by three votes in the close race. The post Stephens retains District 3 County Commission seat after recount appeared first on BirminghamWatch .",
-      "description": "The recount changed totals by three votes in the close race. The post Stephens retains District 3 County Commission seat after recount appeared first on BirminghamWatch .",
-      "url": "https://birminghamwatch.org/2026/11/19/stephens-retains-district-3-county-commission-seat-after-recount/",
-      "link": "https://birminghamwatch.org/2026/11/19/stephens-retains-district-3-county-commission-seat-after-recount/",
-      "published_at": "2026-11-20T00:13:33.000Z",
-      "date": "2026-11-20T00:13:33.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "government"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://birminghamwatch.org/wp-content/uploads/2026/11/JeffCo-Commission-District-3-Recount-11-19-2026-.jpg"
-    },
-    {
-      "id": "news-8-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
+      "id": "news-7-abc-33-40-glow-wild-returns-to-birmingham-zoo-with-more-than-1-million",
       "section": "county",
       "why": "birmingham, the creek",
       "town": "Birmingham",
@@ -367,6 +318,48 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1024/986/88x0/90/54f5b694-8af0-4461-aac5-e48b8454afaa-Screenshot20261120145929.png"
     },
     {
+      "id": "news-8-trussville-tribune-birmingham-man-killed-in-fiery-head-on-crash-with-tractor-tr",
+      "section": "county",
+      "why": "jefferson county, roads",
+      "town": "Jefferson County",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "Trussville Tribune",
+      "paywall": false,
+      "image": {
+        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg",
+        "from": "page",
+        "width": 960,
+        "credit": "Trussville Tribune"
+      },
+      "obit": null,
+      "score": 21,
+      "source_type": "media_feed",
+      "source_name": "Trussville Tribune",
+      "source": "Trussville Tribune",
+      "title": "Birmingham man killed in fiery head-on crash with tractor-trailer on I-459 identified",
+      "summary": "From Tribune staff reports BIRMINGHAM — The Jefferson County Coroner/Medical Examiner’s Office has identified the man who was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County. Vicente Bartolo Tomas, 25, of Birmingham, was pronounce",
+      "description": "From Tribune staff reports BIRMINGHAM — The Jefferson County Coroner/Medical Examiner’s Office has identified the man who was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County. Vicente Bartolo Tomas, 25, of Birmingham, was pronounce",
+      "url": "https://www.trussvilletribune.com/2026/11/23/birmingham-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459-identified/",
+      "link": "https://www.trussvilletribune.com/2026/11/23/birmingham-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459-identified/",
+      "published_at": "2026-11-24T03:58:53.000Z",
+      "date": "2026-11-24T03:58:53.000Z",
+      "location_tags": [
+        "jefferson-county"
+      ],
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg"
+    },
+    {
       "id": "news-9-cbs-42-alabama-power-reports-2027-rate-reduction",
       "section": "county",
       "why": "birmingham, utilities",
@@ -383,7 +376,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 21,
+      "score": 20,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -425,7 +418,7 @@
         "credit": "Bham Now"
       },
       "obit": null,
-      "score": 20,
+      "score": 19,
       "source_type": "media_feed",
       "source_name": "Bham Now",
       "source": "Bham Now",
@@ -442,233 +435,13 @@
       "topic_tags": [
         "the-creek"
       ],
-      "priority_level": 3,
-      "priority": 3,
+      "priority_level": 2,
+      "priority": 2,
       "section_target": "news",
       "module_target": "regional_news_tracker",
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://bhamnow.com/wp-content/uploads/2026/11/DSC_5317-1200x800.jpg"
-    },
-    {
-      "id": "news-11-trussville-tribune-carole-janice-green-september-11-1944-november-14-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Carole Janice Green (September 11, 1944 — November 14, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 18,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Carole Janice Green (September 11, 1944 — November 14, 2026)",
-      "summary": "Carole Janice Hardy Glenn, age 82, of Alabaster, AL passed away peacefully at her home on Saturday, November 14, 2026. Janice graduated from Woodlawn High School in 1962. Janice was a big dog lover and we’re sure all her animals were there to greet her. Janice moved to Opelika, AL shortly after graduation and married [",
-      "description": "Carole Janice Hardy Glenn, age 82, of Alabaster, AL passed away peacefully at her home on Saturday, November 14, 2026. Janice graduated from Woodlawn High School in 1962. Janice was a big dog lover and we’re sure all her animals were there to greet her. Janice moved to Opelika, AL shortly after graduation and married [",
-      "url": "https://www.trussvilletribune.com/2026/11/23/carole-janice-green-september-11-1944-november-14-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/23/carole-janice-green-september-11-1944-november-14-2026/",
-      "published_at": "2026-11-23T16:27:40.000Z",
-      "date": "2026-11-23T16:27:40.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-12-trussville-tribune-norma-mae-champion-november-12-1925-november-14-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Norma Mae Champion (November 12, 1925 — November 14, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 17,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Norma Mae Champion (November 12, 1925 — November 14, 2026)",
-      "summary": "Norma Mae Champion, Age 101, of Birmingham, Alabama, passed away peacefully on November 14, 2026, in Birmingham, Alabama. Norma cherished her family and always made them a priority throughout her life. Although she had little formal education, her determination and strong work ethic led her to hold several positions as",
-      "description": "Norma Mae Champion, Age 101, of Birmingham, Alabama, passed away peacefully on November 14, 2026, in Birmingham, Alabama. Norma cherished her family and always made them a priority throughout her life. Although she had little formal education, her determination and strong work ethic led her to hold several positions as",
-      "url": "https://www.trussvilletribune.com/2026/11/23/norma-mae-champion-november-12-1925-november-14-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/23/norma-mae-champion-november-12-1925-november-14-2026/",
-      "published_at": "2026-11-23T16:23:01.000Z",
-      "date": "2026-11-23T16:23:01.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-13-trussville-tribune-terry-m-long-january-11-1954-november-16-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Birmingham",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Terry M. Long (January 11, 1954 — November 16, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 17,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Terry M. Long (January 11, 1954 — November 16, 2026)",
-      "summary": "Terry M. Long, age 72 of Birmingham, passed away on Monday, November 16, 2026, at UAB St. Vincent’s Hospital. Born in Birmingham, she was a lifelong resident of Alabama. Terry was an avid Alabama fan and enjoyed watching football games. She enjoyed going to the beach and working outside, especially tending to her flowe",
-      "description": "Terry M. Long, age 72 of Birmingham, passed away on Monday, November 16, 2026, at UAB St. Vincent’s Hospital. Born in Birmingham, she was a lifelong resident of Alabama. Terry was an avid Alabama fan and enjoyed watching football games. She enjoyed going to the beach and working outside, especially tending to her flowe",
-      "url": "https://www.trussvilletribune.com/2026/11/23/terry-m-long-january-11-1954-november-16-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/23/terry-m-long-january-11-1954-november-16-2026/",
-      "published_at": "2026-11-23T16:12:27.000Z",
-      "date": "2026-11-23T16:12:27.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-14-al-com-actress-68-shares-heartbreaking-truth-on-her-birthday-only-s",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "AL.com",
-      "paywall": true,
-      "image": null,
-      "obit": {
-        "name": "Actress, 68, shares heartbreaking truth on her birthday: ‘Only surviving family member’",
-        "age": null,
-        "town": "",
-        "home": "AL.com",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 16,
-      "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "Actress, 68, shares heartbreaking truth on her birthday: ‘Only surviving family member’",
-      "summary": "The Oscar-winning actress's sister passed away in May at age 69.",
-      "description": "The Oscar-winning actress's sister passed away in May at age 69.",
-      "url": "https://www.al.com/life/2026/11/actress-68-shares-heartbreaking-truth-on-her-birthday-only-surviving-family-member.html",
-      "link": "https://www.al.com/life/2026/11/actress-68-shares-heartbreaking-truth-on-her-birthday-only-surviving-family-member.html",
-      "published_at": "2026-11-23T21:40:40.000Z",
-      "date": "2026-11-23T21:40:40.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-15-tribute-archive-jeffrey-leon-burgess-sr-obituary-crestview-memorial-gardens-",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Jeffrey Leon Burgess, Sr. Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 15,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Jeffrey Leon Burgess, Sr. Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQXN0UXplaldQdEZUNmM4QTB0WDk0Rm5NdC0wRFdwVUs3eEdZeWZLLWhDRm9aTVRxSFdhaEpyNmNiWXVNTFlabDY4eS1ELUV6TlVsVlhGT1N3SVE3UHJZN3FoTWx6ZnV0cFdfVjh6VE9JNmt1dDU4LWFIQ2tSSjRhaVFfckFOcnFrZFFXUC1wcWdUVHhMYnhpdXBqNUpFd2l5RnlqTERLMWc3MWRZak83YS0yckZNRjlHN1A5RA?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQXN0UXplaldQdEZUNmM4QTB0WDk0Rm5NdC0wRFdwVUs3eEdZeWZLLWhDRm9aTVRxSFdhaEpyNmNiWXVNTFlabDY4eS1ELUV6TlVsVlhGT1N3SVE3UHJZN3FoTWx6ZnV0cFdfVjh6VE9JNmt1dDU4LWFIQ2tSSjRhaVFfckFOcnFrZFFXUC1wcWdUVHhMYnhpdXBqNUpFd2l5RnlqTERLMWc3MWRZak83YS0yckZNRjlHN1A5RA?oc=5",
-      "published_at": "2026-11-20T08:00:00.000Z",
-      "date": "2026-11-20T08:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
     }
   ]
 }
