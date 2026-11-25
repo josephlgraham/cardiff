@@ -1,28 +1,24 @@
 {
-  "updatedAt": "2026-11-24T21:08:05.753Z",
+  "updatedAt": "2026-11-25T05:24:14.455Z",
   "counts": {
     "towns": 1,
-    "nearby": 1,
-    "county": 3,
-    "obituaries": 2
+    "nearby": 3,
+    "county": 1
   },
   "sections": {
     "towns": [
       "news-1-al-com-archibald-requiem-for-the-brookside-police-department"
     ],
     "nearby": [
-      "news-2-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr"
+      "news-2-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
+      "news-3-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
+      "news-4-al-com-how-to-watch-chris-pratt-s-way-of-the-warrior-kid-on-apple-t"
     ],
     "creek": [],
     "county": [
-      "news-3-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
-      "news-4-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "news-5-trussville-tribune-birmingham-man-killed-in-fiery-head-on-crash-with-tractor-tr"
+      "news-5-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo"
     ],
-    "obituaries": [
-      "news-6-trussville-tribune-joel-jacob-brumbach-may-5-1943-october-31-2026",
-      "news-7-tribute-archive-jeffrey-leon-burgess-sr-obituary-crestview-memorial-gardens-"
-    ]
+    "obituaries": []
   },
   "stories": [
     {
@@ -63,7 +59,45 @@
       "image_url": ""
     },
     {
-      "id": "news-2-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
+      "id": "news-2-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
+      "section": "nearby",
+      "why": "names fultondale",
+      "town": "Fultondale",
+      "tags": [],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J6DTLB5HVFH6NDSSDKU3WFDAY4.png?auth=128b999667b945d0c5a9046fe773ef6b564552919fa602b70bedd4155534ac0d&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 34,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Fultondale fire chief shares Thanksgiving cooking safety tips, including turkey frying",
+      "summary": "Jefferson County firefighters say kitchen fires are the most common call they get.",
+      "description": "Jefferson County firefighters say kitchen fires are the most common call they get.",
+      "url": "https://www.wbrc.com/2026/11/25/fultondale-fire-chief-shares-thanksgiving-cooking-safety-tips-including-turkey-frying/",
+      "link": "https://www.wbrc.com/2026/11/25/fultondale-fire-chief-shares-thanksgiving-cooking-safety-tips-including-turkey-frying/",
+      "published_at": "2026-11-25T00:02:00.000Z",
+      "date": "2026-11-25T00:02:00.000Z",
+      "location_tags": [
+        "fultondale"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J6DTLB5HVFH6NDSSDKU3WFDAY4.png?auth=128b999667b945d0c5a9046fe773ef6b564552919fa602b70bedd4155534ac0d&smart=false"
+    },
+    {
+      "id": "news-3-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
       "section": "nearby",
       "why": "names adamsville",
       "town": "Adamsville",
@@ -77,7 +111,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 33,
+      "score": 32,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -101,7 +135,45 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/03/gettyimages-925013506-2_a69c55-e1774462196621.jpg?w=900"
     },
     {
-      "id": "news-3-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
+      "id": "news-4-al-com-how-to-watch-chris-pratt-s-way-of-the-warrior-kid-on-apple-t",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [],
+      "outlet": "AL.com",
+      "paywall": true,
+      "image": {
+        "url": "https://www.al.com/resizer/v2/X7M6ONOGTVBEFFJZ4Y76MRI6WA.png?auth=cc98275cce6e616594ff99d277e7d0c9a18083fea00644c2d6d42f2fc38a274b&smart=true&height=1200",
+        "from": "feed",
+        "width": 2940,
+        "credit": "AL.com"
+      },
+      "obit": null,
+      "score": 31,
+      "source_type": "media_feed",
+      "source_name": "AL.com",
+      "source": "AL.com",
+      "title": "How to watch Chris Pratt’s ‘Way of the Warrior Kid’ on Apple TV for 50% off",
+      "summary": "The ‘Way of the Warrior Kid’ is streaming on Apple TV. Here's how to watch Chris Pratt movie for 50% off today.",
+      "description": "The ‘Way of the Warrior Kid’ is streaming on Apple TV. Here's how to watch Chris Pratt movie for 50% off today.",
+      "url": "https://www.al.com/tv/2026/11/how-to-watch-chris-pratts-way-of-the-warrior-kid-on-apple-tv-for-50-off.html",
+      "link": "https://www.al.com/tv/2026/11/how-to-watch-chris-pratts-way-of-the-warrior-kid-on-apple-tv-for-50-off.html",
+      "published_at": "2026-11-25T00:11:00.000Z",
+      "date": "2026-11-25T00:11:00.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [],
+      "priority_level": 4,
+      "priority": 4,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": true,
+      "is_featured": false,
+      "image_url": "https://www.al.com/resizer/v2/X7M6ONOGTVBEFFJZ4Y76MRI6WA.png?auth=cc98275cce6e616594ff99d277e7d0c9a18083fea00644c2d6d42f2fc38a274b&smart=true&height=1200"
+    },
+    {
+      "id": "news-5-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -117,7 +189,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -141,180 +213,6 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/714/986/0x1/90/c3fda236-5a3c-42b5-b31d-8f87d16159bd-Screenshot20261123094721.png"
-    },
-    {
-      "id": "news-4-abc-33-40-leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads",
-        "Public safety"
-      ],
-      "outlet": "ABC 33/40",
-      "paywall": false,
-      "image": {
-        "url": "https://abc3340.com/resources/media2/16x9/568/986/0x68/90/d702df3a-d12d-4e6e-ad69-2295efe2af94-Screenshot20261120184012.png",
-        "from": "feed",
-        "width": null,
-        "credit": "ABC 33/40"
-      },
-      "obit": null,
-      "score": 24,
-      "source_type": "media_feed",
-      "source_name": "ABC 33/40",
-      "source": "ABC 33/40",
-      "title": "Leeds traffic stop leads to arrest on Georgia warrants",
-      "summary": "Leeds police arrested a Birmingham man wanted on Georgia felony warrants after a traffic stop. He is awaiting extradition.",
-      "description": "Leeds police arrested a Birmingham man wanted on Georgia felony warrants after a traffic stop. He is awaiting extradition.",
-      "url": "https://abc3340.com/news/local/leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "link": "https://abc3340.com/news/local/leeds-traffic-stop-leads-to-arrest-on-georgia-warrants",
-      "published_at": "2026-11-21T00:42:40.000Z",
-      "date": "2026-11-21T00:42:40.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads",
-        "public-safety"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://abc3340.com/resources/media2/16x9/568/986/0x68/90/d702df3a-d12d-4e6e-ad69-2295efe2af94-Screenshot20261120184012.png"
-    },
-    {
-      "id": "news-5-trussville-tribune-birmingham-man-killed-in-fiery-head-on-crash-with-tractor-tr",
-      "section": "county",
-      "why": "jefferson county, roads",
-      "town": "Jefferson County",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": {
-        "url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg",
-        "from": "page",
-        "width": 960,
-        "credit": "Trussville Tribune"
-      },
-      "obit": null,
-      "score": 20,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Birmingham man killed in fiery head-on crash with tractor-trailer on I-459 identified",
-      "summary": "From Tribune staff reports BIRMINGHAM — The Jefferson County Coroner/Medical Examiner’s Office has identified the man who was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County. Vicente Bartolo Tomas, 25, of Birmingham, was pronounce",
-      "description": "From Tribune staff reports BIRMINGHAM — The Jefferson County Coroner/Medical Examiner’s Office has identified the man who was killed early Saturday, Nov. 21, when the car he was driving collided head-on with a tractor-trailer on Interstate 459 in Jefferson County. Vicente Bartolo Tomas, 25, of Birmingham, was pronounce",
-      "url": "https://www.trussvilletribune.com/2026/11/23/birmingham-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459-identified/",
-      "link": "https://www.trussvilletribune.com/2026/11/23/birmingham-man-killed-in-fiery-head-on-crash-with-tractor-trailer-on-i-459-identified/",
-      "published_at": "2026-11-24T03:58:53.000Z",
-      "date": "2026-11-24T03:58:53.000Z",
-      "location_tags": [
-        "jefferson-county"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.trussvilletribune.com/wp-content/uploads/2026/11/916613682_1583009770528205_9062403486355021554_n.jpg"
-    },
-    {
-      "id": "news-6-trussville-tribune-joel-jacob-brumbach-may-5-1943-october-31-2026",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Regional",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Trussville Tribune",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Joel Jacob Brumbach (May 5, 1943 – October 31, 2026)",
-        "age": null,
-        "town": "",
-        "home": "Trussville Tribune",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Trussville Tribune",
-      "source": "Trussville Tribune",
-      "title": "Joel Jacob Brumbach (May 5, 1943 – October 31, 2026)",
-      "summary": "Joel Jacob Brumbach, 83, passed away peacefully at his home in Trussville, AL, on October 31, 2026, after a long journey with progressive Alzheimer’s disease. Born in Reading, PA, on May 5, 1943, Joel was a proud alumnus of Saint James Preparatory School in Hagerstown, MD. He subsequently attended Randolph-Macon Colleg",
-      "description": "Joel Jacob Brumbach, 83, passed away peacefully at his home in Trussville, AL, on October 31, 2026, after a long journey with progressive Alzheimer’s disease. Born in Reading, PA, on May 5, 1943, Joel was a proud alumnus of Saint James Preparatory School in Hagerstown, MD. He subsequently attended Randolph-Macon Colleg",
-      "url": "https://www.trussvilletribune.com/2026/11/24/joel-jacob-brumbach-may-5-1943-october-31-2026/",
-      "link": "https://www.trussvilletribune.com/2026/11/24/joel-jacob-brumbach-may-5-1943-october-31-2026/",
-      "published_at": "2026-11-24T15:02:31.000Z",
-      "date": "2026-11-24T15:02:31.000Z",
-      "location_tags": [
-        "regional"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
-    },
-    {
-      "id": "news-7-tribute-archive-jeffrey-leon-burgess-sr-obituary-crestview-memorial-gardens-",
-      "section": "obituaries",
-      "why": "obituary wording",
-      "town": "Adamsville",
-      "tags": [
-        "Obituary"
-      ],
-      "outlet": "Tribute Archive",
-      "paywall": false,
-      "image": null,
-      "obit": {
-        "name": "Jeffrey Leon Burgess, Sr. Obituary",
-        "age": null,
-        "town": "Adamsville",
-        "home": "Tribute Archive",
-        "service": "",
-        "serviceLabel": ""
-      },
-      "score": 14,
-      "source_type": "media_feed",
-      "source_name": "Tribute Archive",
-      "source": "Tribute Archive",
-      "title": "Jeffrey Leon Burgess, Sr. Obituary | Crestview Memorial Gardens and FH | Adamsville, AL",
-      "summary": "",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQXN0UXplaldQdEZUNmM4QTB0WDk0Rm5NdC0wRFdwVUs3eEdZeWZLLWhDRm9aTVRxSFdhaEpyNmNiWXVNTFlabDY4eS1ELUV6TlVsVlhGT1N3SVE3UHJZN3FoTWx6ZnV0cFdfVjh6VE9JNmt1dDU4LWFIQ2tSSjRhaVFfckFOcnFrZFFXUC1wcWdUVHhMYnhpdXBqNUpFd2l5RnlqTERLMWc3MWRZak83YS0yckZNRjlHN1A5RA?oc=5",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQXN0UXplaldQdEZUNmM4QTB0WDk0Rm5NdC0wRFdwVUs3eEdZeWZLLWhDRm9aTVRxSFdhaEpyNmNiWXVNTFlabDY4eS1ELUV6TlVsVlhGT1N3SVE3UHJZN3FoTWx6ZnV0cFdfVjh6VE9JNmt1dDU4LWFIQ2tSSjRhaVFfckFOcnFrZFFXUC1wcWdUVHhMYnhpdXBqNUpFd2l5RnlqTERLMWc3MWRZak83YS0yckZNRjlHN1A5RA?oc=5",
-      "published_at": "2026-11-20T08:00:00.000Z",
-      "date": "2026-11-20T08:00:00.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [
-        "obituary"
-      ],
-      "priority_level": 2,
-      "priority": 2,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": ""
     }
   ]
 }
