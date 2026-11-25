@@ -1,28 +1,74 @@
 {
-  "updatedAt": "2026-11-25T05:24:14.455Z",
+  "updatedAt": "2026-11-25T20:27:07.288Z",
   "counts": {
-    "towns": 1,
     "nearby": 3,
-    "county": 1
+    "towns": 1,
+    "county": 2,
+    "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-al-com-archibald-requiem-for-the-brookside-police-department"
+      "news-2-al-com-archibald-requiem-for-the-brookside-police-department"
     ],
     "nearby": [
-      "news-2-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
-      "news-3-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
-      "news-4-al-com-how-to-watch-chris-pratt-s-way-of-the-warrior-kid-on-apple-t"
+      "news-1-wbrc-birmingham-police-looking-for-64-year-old-man",
+      "news-3-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
+      "news-4-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr"
     ],
     "creek": [],
     "county": [
-      "news-5-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo"
+      "news-5-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates",
+      "news-6-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-7-https-www-wolfefuneralhomes-com-richard-edward-knobloch-obituary-nov-21-2026"
+    ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-archibald-requiem-for-the-brookside-police-department",
+      "id": "news-1-wbrc-birmingham-police-looking-for-64-year-old-man",
+      "section": "nearby",
+      "why": "names morris",
+      "town": "Morris",
+      "tags": [
+        "Public safety"
+      ],
+      "outlet": "WBRC",
+      "paywall": false,
+      "image": {
+        "url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//GXVSPUA4DNFU3C4UMP35WW2UAE.png?auth=d662cbee90ce5add3ef5167d225b27248d0730c0513f8a1d7a3f867defe9ea56&smart=false",
+        "from": "feed",
+        "width": null,
+        "credit": "WBRC"
+      },
+      "obit": null,
+      "score": 38,
+      "source_type": "media_feed",
+      "source_name": "WBRC",
+      "source": "WBRC",
+      "title": "Birmingham Police looking for 64-year-old man",
+      "summary": "Police said that 64-year-old Johnny Pierson was last seen at an address along Morris Avenue which maps show is next to the Greyhound Bus Station.",
+      "description": "Police said that 64-year-old Johnny Pierson was last seen at an address along Morris Avenue which maps show is next to the Greyhound Bus Station.",
+      "url": "https://www.wbrc.com/2026/11/25/birmingham-police-looking-64-year-old-man/",
+      "link": "https://www.wbrc.com/2026/11/25/birmingham-police-looking-64-year-old-man/",
+      "published_at": "2026-11-25T18:33:38.000Z",
+      "date": "2026-11-25T18:33:38.000Z",
+      "location_tags": [
+        "morris"
+      ],
+      "topic_tags": [
+        "public-safety"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//GXVSPUA4DNFU3C4UMP35WW2UAE.png?auth=d662cbee90ce5add3ef5167d225b27248d0730c0513f8a1d7a3f867defe9ea56&smart=false"
+    },
+    {
+      "id": "news-2-al-com-archibald-requiem-for-the-brookside-police-department",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -33,7 +79,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 35,
+      "score": 34,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -59,7 +105,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
+      "id": "news-3-wbrc-fultondale-fire-chief-shares-thanksgiving-cooking-safety-tip",
       "section": "nearby",
       "why": "names fultondale",
       "town": "Fultondale",
@@ -73,7 +119,7 @@
         "credit": "WBRC"
       },
       "obit": null,
-      "score": 34,
+      "score": 33,
       "source_type": "media_feed",
       "source_name": "WBRC",
       "source": "WBRC",
@@ -97,7 +143,7 @@
       "image_url": "https://gray-wbrc-prod.gtv-cdn.com/resizer/v2//J6DTLB5HVFH6NDSSDKU3WFDAY4.png?auth=128b999667b945d0c5a9046fe773ef6b564552919fa602b70bedd4155534ac0d&smart=false"
     },
     {
-      "id": "news-3-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
+      "id": "news-4-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
       "section": "nearby",
       "why": "names adamsville",
       "town": "Adamsville",
@@ -111,7 +157,7 @@
         "credit": "CBS 42"
       },
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "CBS 42",
       "source": "CBS 42",
@@ -135,45 +181,49 @@
       "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/03/gettyimages-925013506-2_a69c55-e1774462196621.jpg?w=900"
     },
     {
-      "id": "news-4-al-com-how-to-watch-chris-pratt-s-way-of-the-warrior-kid-on-apple-t",
-      "section": "nearby",
-      "why": "names warrior",
-      "town": "Warrior",
-      "tags": [],
-      "outlet": "AL.com",
-      "paywall": true,
+      "id": "news-5-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates",
+      "section": "county",
+      "why": "birmingham, roads",
+      "town": "Birmingham",
+      "tags": [
+        "Roads"
+      ],
+      "outlet": "ABC 33/40",
+      "paywall": false,
       "image": {
-        "url": "https://www.al.com/resizer/v2/X7M6ONOGTVBEFFJZ4Y76MRI6WA.png?auth=cc98275cce6e616594ff99d277e7d0c9a18083fea00644c2d6d42f2fc38a274b&smart=true&height=1200",
+        "url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/a4d17c6e-20c1-4640-a287-7876c1961c2f-0_18PThanksgivingTravelByCar1124_6PMWEEKDAY.png",
         "from": "feed",
-        "width": 2940,
-        "credit": "AL.com"
+        "width": null,
+        "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 31,
+      "score": 26,
       "source_type": "media_feed",
-      "source_name": "AL.com",
-      "source": "AL.com",
-      "title": "How to watch Chris Pratt’s ‘Way of the Warrior Kid’ on Apple TV for 50% off",
-      "summary": "The ‘Way of the Warrior Kid’ is streaming on Apple TV. Here's how to watch Chris Pratt movie for 50% off today.",
-      "description": "The ‘Way of the Warrior Kid’ is streaming on Apple TV. Here's how to watch Chris Pratt movie for 50% off today.",
-      "url": "https://www.al.com/tv/2026/11/how-to-watch-chris-pratts-way-of-the-warrior-kid-on-apple-tv-for-50-off.html",
-      "link": "https://www.al.com/tv/2026/11/how-to-watch-chris-pratts-way-of-the-warrior-kid-on-apple-tv-for-50-off.html",
-      "published_at": "2026-11-25T00:11:00.000Z",
-      "date": "2026-11-25T00:11:00.000Z",
+      "source_name": "ABC 33/40",
+      "source": "ABC 33/40",
+      "title": "Alabama Thanksgiving travel surge brings crowded interstates and busy Birmingham airport",
+      "summary": "With Thanksgiving arriving tomorrow, Alabama travelers heading out to spend the holiday with family and friends can expect busy highways and airports, with the heaviest congestion likely in the days immediately before",
+      "description": "With Thanksgiving arriving tomorrow, Alabama travelers heading out to spend the holiday with family and friends can expect busy highways and airports, with the heaviest congestion likely in the days immediately before",
+      "url": "https://abc3340.com/news/local/alabama-thanksgiving-travel-surge-brings-crowded-interstates-and-busy-birmingham-airport",
+      "link": "https://abc3340.com/news/local/alabama-thanksgiving-travel-surge-brings-crowded-interstates-and-busy-birmingham-airport",
+      "published_at": "2026-11-25T16:25:01.000Z",
+      "date": "2026-11-25T16:25:01.000Z",
       "location_tags": [
-        "warrior"
+        "birmingham"
       ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
+      "topic_tags": [
+        "roads"
+      ],
+      "priority_level": 3,
+      "priority": 3,
       "section_target": "news",
       "module_target": "regional_news_tracker",
-      "is_alert": true,
+      "is_alert": false,
       "is_featured": false,
-      "image_url": "https://www.al.com/resizer/v2/X7M6ONOGTVBEFFJZ4Y76MRI6WA.png?auth=cc98275cce6e616594ff99d277e7d0c9a18083fea00644c2d6d42f2fc38a274b&smart=true&height=1200"
+      "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/a4d17c6e-20c1-4640-a287-7876c1961c2f-0_18PThanksgivingTravelByCar1124_6PMWEEKDAY.png"
     },
     {
-      "id": "news-5-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
+      "id": "news-6-abc-33-40-birmingham-man-killed-in-fiery-i-459-south-crash-saturday-mo",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -189,7 +239,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 23,
+      "score": 22,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -213,6 +263,50 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/714/986/0x1/90/c3fda236-5a3c-42b5-b31d-8f87d16159bd-Screenshot20261123094721.png"
+    },
+    {
+      "id": "news-7-https-www-wolfefuneralhomes-com-richard-edward-knobloch-obituary-nov-21-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Richard Edward Knobloch Obituary Nov 21, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 3,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Richard Edward Knobloch Obituary Nov 21, 2026",
+      "summary": "Richard Edward Knobloch Obituary Nov 21, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Richard Edward Knobloch Obituary Nov 21, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1CbHNxOGVNR1ZBUjI0alRnMU9kejdRZjZFU2JNY2dJWEozbG44Qkg5aUIzbWo5MHpnSXB6bWRDNzZicExYMUJUbjlaRnlZSjN6ZmRpV3lVbTBGQ1FleHZ1VU5YN1FZb0tqeVZQYnVn?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1CbHNxOGVNR1ZBUjI0alRnMU9kejdRZjZFU2JNY2dJWEozbG44Qkg5aUIzbWo5MHpnSXB6bWRDNzZicExYMUJUbjlaRnlZSjN6ZmRpV3lVbTBGQ1FleHZ1VU5YN1FZb0tqeVZQYnVn?oc=5",
+      "published_at": "2026-11-21T08:00:00.000Z",
+      "date": "2026-11-21T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
