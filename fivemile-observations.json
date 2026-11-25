@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T23:26:27.221Z",
+  "updatedAt": "2026-11-25T15:49:05.389Z",
   "rule": "three-towns",
   "source": "iNaturalist",
   "source_url": "https://www.inaturalist.org/observations?swlat=33.612&swlng=-87.005&nelat=33.69&nelng=-86.895&quality_grade=research",
@@ -12,17 +12,68 @@
     "nelng": -86.895
   },
   "counts": {
-    "shown": 26,
+    "shown": 29,
     "window_days": 365,
-    "in_window": 26,
-    "species_in_window": 24,
-    "window_total": 27,
-    "species_recorded": 36,
-    "observations_recorded": 42,
-    "area_total": 255,
-    "guide_links": 4
+    "in_window": 29,
+    "species_in_window": 26,
+    "window_total": 30,
+    "species_recorded": 38,
+    "observations_recorded": 45,
+    "area_total": 258,
+    "guide_links": 7
   },
   "observations": [
+    {
+      "id": 416843015,
+      "taxon": 19893,
+      "name": "Barred Owl",
+      "latin": "Strix varia",
+      "rank": "species",
+      "group": "Bird",
+      "icon": "🐦",
+      "observedOn": "2026-11-23",
+      "place": null,
+      "obscured": true,
+      "observer": "Diplopoda",
+      "observerLogin": "diplopoda",
+      "guide": "owls",
+      "url": "https://www.inaturalist.org/observations/416843015",
+      "firstRecord": true
+    },
+    {
+      "id": 416843740,
+      "taxon": 41976,
+      "name": "Bobcat",
+      "latin": "Lynx rufus",
+      "rank": "species",
+      "group": "Mammal",
+      "icon": "🦌",
+      "observedOn": "2026-11-22",
+      "place": null,
+      "obscured": true,
+      "observer": "Diplopoda",
+      "observerLogin": "diplopoda",
+      "guide": "bobcat",
+      "url": "https://www.inaturalist.org/observations/416843740",
+      "firstRecord": true
+    },
+    {
+      "id": 416843504,
+      "taxon": 42134,
+      "name": "Wild Boar",
+      "latin": "Sus scrofa",
+      "rank": "species",
+      "group": "Mammal",
+      "icon": "🦌",
+      "observedOn": "2026-11-19",
+      "place": null,
+      "obscured": true,
+      "observer": "Diplopoda",
+      "observerLogin": "diplopoda",
+      "guide": "hog",
+      "url": "https://www.inaturalist.org/observations/416843504",
+      "firstRecord": false
+    },
     {
       "id": 411808509,
       "taxon": 119994,
@@ -529,6 +580,21 @@
       ]
     },
     {
+      "taxon": 19893,
+      "name": "Barred Owl",
+      "latin": "Strix varia",
+      "group": "Bird",
+      "rank": "species",
+      "first": "2026-11-23",
+      "last": "2026-11-23",
+      "latest": 416843015,
+      "guide": "owls",
+      "count": 1,
+      "ids": [
+        416843015
+      ]
+    },
+    {
       "taxon": 128504,
       "name": "Bleufer",
       "latin": "Potamilus purpuratus",
@@ -541,6 +607,21 @@
       "count": 1,
       "ids": [
         319882496
+      ]
+    },
+    {
+      "taxon": 41976,
+      "name": "Bobcat",
+      "latin": "Lynx rufus",
+      "group": "Mammal",
+      "rank": "species",
+      "first": "2026-11-22",
+      "last": "2026-11-22",
+      "latest": 416843740,
+      "guide": "bobcat",
+      "count": 1,
+      "ids": [
+        416843740
       ]
     },
     {
@@ -960,12 +1041,13 @@
       "group": "Mammal",
       "rank": "species",
       "first": "2025-12-17",
-      "last": "2025-12-17",
-      "latest": 331342593,
+      "last": "2026-11-19",
+      "latest": 416843504,
       "guide": "hog",
-      "count": 1,
+      "count": 2,
       "ids": [
-        331342593
+        331342593,
+        416843504
       ]
     },
     {
