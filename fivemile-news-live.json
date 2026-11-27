@@ -1,28 +1,74 @@
 {
-  "updatedAt": "2026-11-27T04:58:27.423Z",
+  "updatedAt": "2026-11-27T19:55:02.718Z",
   "counts": {
-    "towns": 1,
     "nearby": 1,
-    "county": 3
+    "towns": 1,
+    "county": 2,
+    "obituaries": 1
   },
   "sections": {
     "towns": [
-      "news-1-al-com-archibald-requiem-for-the-brookside-police-department"
+      "news-2-al-com-archibald-requiem-for-the-brookside-police-department"
     ],
     "nearby": [
-      "news-2-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr"
+      "news-1-bham-now-7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-202"
     ],
     "creek": [],
     "county": [
-      "news-3-cbs-42-crews-responding-to-fire-at-inverness-cliffs-apartments",
-      "news-4-abc-33-40-family-of-seven-still-fighting-to-keep-home-as-aldot-bridge-",
-      "news-5-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates"
+      "news-3-abc-33-40-family-of-seven-still-fighting-to-keep-home-as-aldot-bridge-",
+      "news-4-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates"
     ],
-    "obituaries": []
+    "obituaries": [
+      "news-5-https-www-wolfefuneralhomes-com-barbara-chunn-jenkins-obituary-nov-23-2026"
+    ]
   },
   "stories": [
     {
-      "id": "news-1-al-com-archibald-requiem-for-the-brookside-police-department",
+      "id": "news-1-bham-now-7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-202",
+      "section": "nearby",
+      "why": "names warrior",
+      "town": "Warrior",
+      "tags": [
+        "Land",
+        "Government"
+      ],
+      "outlet": "Bham Now",
+      "paywall": false,
+      "image": {
+        "url": "https://listings.realtysouth.com/pictures/birmingham_listings/2/21/214/21470886_1.jpg?20261124052448",
+        "from": "feed",
+        "width": null,
+        "credit": "Bham Now"
+      },
+      "obit": null,
+      "score": 40,
+      "source_type": "media_feed",
+      "source_name": "Bham Now",
+      "source": "Bham Now",
+      "title": "7 New Birmingham-Area Homes for Sale This Weekend: Nov. 27, 2026",
+      "summary": "🔑 7 NEW HOMES, $148K TO $540K: From a Center Point starter to a 5-bedroom in Warrior and 26 acres in Lineville, there's a little something for every budget this week available from @RealtySouth. 👇 NowPartner",
+      "description": "🔑 7 NEW HOMES, $148K TO $540K: From a Center Point starter to a 5-bedroom in Warrior and 26 acres in Lineville, there's a little something for every budget this week available from @RealtySouth. 👇 NowPartner",
+      "url": "https://bhamnow.com/2026/11/27/7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-2026/#utm_source=rss&utm_medium=rss&utm_campaign=7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-2026",
+      "link": "https://bhamnow.com/2026/11/27/7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-2026/#utm_source=rss&utm_medium=rss&utm_campaign=7-new-birmingham-area-homes-for-sale-this-weekend-nov-27-2026",
+      "published_at": "2026-11-27T13:10:32.000Z",
+      "date": "2026-11-27T13:10:32.000Z",
+      "location_tags": [
+        "warrior"
+      ],
+      "topic_tags": [
+        "land",
+        "government"
+      ],
+      "priority_level": 5,
+      "priority": 5,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": "https://listings.realtysouth.com/pictures/birmingham_listings/2/21/214/21470886_1.jpg?20261124052448"
+    },
+    {
+      "id": "news-2-al-com-archibald-requiem-for-the-brookside-police-department",
       "section": "towns",
       "why": "names brookside",
       "town": "Brookside",
@@ -33,7 +79,7 @@
       "paywall": false,
       "image": null,
       "obit": null,
-      "score": 32,
+      "score": 31,
       "source_type": "media_feed",
       "source_name": "AL.com",
       "source": "AL.com",
@@ -59,87 +105,7 @@
       "image_url": ""
     },
     {
-      "id": "news-2-cbs-42-career-drug-trafficker-from-jefferson-county-sentenced-to-pr",
-      "section": "nearby",
-      "why": "names adamsville",
-      "town": "Adamsville",
-      "tags": [],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/03/gettyimages-925013506-2_a69c55-e1774462196621.jpg?w=900",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 29,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "‘Career’ drug trafficker from Jefferson County sentenced to prison",
-      "summary": "A “career offender and repeat” drug trafficker from Adamsville has been sentenced to 15 years and six months for the distribution of fentanyl and methamphetamine, said a statement from U.S. Attorney Phillip W. Williams Jr.",
-      "description": "A “career offender and repeat” drug trafficker from Adamsville has been sentenced to 15 years and six months for the distribution of fentanyl and methamphetamine, said a statement from U.S. Attorney Phillip W. Williams Jr.",
-      "url": "https://www.alabamas42.com/trussville-tribune/career-drug-trafficker-from-jefferson-county-sentenced-to-prison/",
-      "link": "https://www.alabamas42.com/trussville-tribune/career-drug-trafficker-from-jefferson-county-sentenced-to-prison/",
-      "published_at": "2026-11-24T16:17:38.000Z",
-      "date": "2026-11-24T16:17:38.000Z",
-      "location_tags": [
-        "adamsville"
-      ],
-      "topic_tags": [],
-      "priority_level": 4,
-      "priority": 4,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/03/gettyimages-925013506-2_a69c55-e1774462196621.jpg?w=900"
-    },
-    {
-      "id": "news-3-cbs-42-crews-responding-to-fire-at-inverness-cliffs-apartments",
-      "section": "county",
-      "why": "birmingham, roads",
-      "town": "Birmingham",
-      "tags": [
-        "Roads"
-      ],
-      "outlet": "CBS 42",
-      "paywall": false,
-      "image": {
-        "url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Fire-truck-lights-1.jpg?w=600",
-        "from": "feed",
-        "width": null,
-        "credit": "CBS 42"
-      },
-      "obit": null,
-      "score": 25,
-      "source_type": "media_feed",
-      "source_name": "CBS 42",
-      "source": "CBS 42",
-      "title": "Crews responding to fire at Inverness Cliffs Apartments",
-      "summary": "BIRMINGHAM, Ala. (WIAT) -- Crews are responding to a fire at the Inverness Cliffs Apartments off of Highway 280. Details are not known at this time. This story will be updated as information becomes available.",
-      "description": "BIRMINGHAM, Ala. (WIAT) -- Crews are responding to a fire at the Inverness Cliffs Apartments off of Highway 280. Details are not known at this time. This story will be updated as information becomes available.",
-      "url": "https://www.alabamas42.com/news/crews-responding-to-fire-at-inverness-cliffs-apartments/",
-      "link": "https://www.alabamas42.com/news/crews-responding-to-fire-at-inverness-cliffs-apartments/",
-      "published_at": "2026-11-26T20:45:29.000Z",
-      "date": "2026-11-26T20:45:29.000Z",
-      "location_tags": [
-        "birmingham"
-      ],
-      "topic_tags": [
-        "roads"
-      ],
-      "priority_level": 3,
-      "priority": 3,
-      "section_target": "news",
-      "module_target": "regional_news_tracker",
-      "is_alert": false,
-      "is_featured": false,
-      "image_url": "https://www.alabamas42.com/wp-content/uploads/sites/81/2026/11/Fire-truck-lights-1.jpg?w=600"
-    },
-    {
-      "id": "news-4-abc-33-40-family-of-seven-still-fighting-to-keep-home-as-aldot-bridge-",
+      "id": "news-3-abc-33-40-family-of-seven-still-fighting-to-keep-home-as-aldot-bridge-",
       "section": "county",
       "why": "aldot, roads",
       "town": "Regional",
@@ -155,7 +121,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -181,7 +147,7 @@
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/0x1/90/e072ab01-f2c8-4078-9a44-fe693ec69060-MCGILLFAMILY.jpg"
     },
     {
-      "id": "news-5-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates",
+      "id": "news-4-abc-33-40-alabama-thanksgiving-travel-surge-brings-crowded-interstates",
       "section": "county",
       "why": "birmingham, roads",
       "town": "Birmingham",
@@ -197,7 +163,7 @@
         "credit": "ABC 33/40"
       },
       "obit": null,
-      "score": 24,
+      "score": 23,
       "source_type": "media_feed",
       "source_name": "ABC 33/40",
       "source": "ABC 33/40",
@@ -221,6 +187,50 @@
       "is_alert": false,
       "is_featured": false,
       "image_url": "https://abc3340.com/resources/media2/16x9/1920/986/center/90/a4d17c6e-20c1-4640-a287-7876c1961c2f-0_18PThanksgivingTravelByCar1124_6PMWEEKDAY.png"
+    },
+    {
+      "id": "news-5-https-www-wolfefuneralhomes-com-barbara-chunn-jenkins-obituary-nov-23-2026",
+      "section": "obituaries",
+      "why": "obituary wording",
+      "town": "Regional",
+      "tags": [
+        "Obituary"
+      ],
+      "outlet": "https://www.wolfefuneralhomes.com/",
+      "paywall": false,
+      "image": null,
+      "obit": {
+        "name": "Barbara Chunn Jenkins Obituary Nov 23, 2026",
+        "age": null,
+        "town": "",
+        "home": "https://www.wolfefuneralhomes.com/",
+        "service": "",
+        "serviceLabel": ""
+      },
+      "score": 3,
+      "source_type": "media_feed",
+      "source_name": "https://www.wolfefuneralhomes.com/",
+      "source": "https://www.wolfefuneralhomes.com/",
+      "title": "Barbara Chunn Jenkins Obituary Nov 23, 2026",
+      "summary": "Barbara Chunn Jenkins Obituary Nov 23, 2026 https://www.wolfefuneralhomes.com/",
+      "description": "Barbara Chunn Jenkins Obituary Nov 23, 2026 https://www.wolfefuneralhomes.com/",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9iN0ZpcGJIR0pKOGJ5MVN5Y1dXR3RGSVFYNXpXUnlUcVhISThadVNHbFRkU2RYRXd1eVFNNENla0s1Mnh4a3FsZnZzUURnZ3hPR3YyMkt0SkwxUG5jYklhZndjS04zRkZnUFl2aA?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9iN0ZpcGJIR0pKOGJ5MVN5Y1dXR3RGSVFYNXpXUnlUcVhISThadVNHbFRkU2RYRXd1eVFNNENla0s1Mnh4a3FsZnZzUURnZ3hPR3YyMkt0SkwxUG5jYklhZndjS04zRkZnUFl2aA?oc=5",
+      "published_at": "2026-11-23T08:00:00.000Z",
+      "date": "2026-11-23T08:00:00.000Z",
+      "location_tags": [
+        "regional"
+      ],
+      "topic_tags": [
+        "obituary"
+      ],
+      "priority_level": 0,
+      "priority": 0,
+      "section_target": "news",
+      "module_target": "regional_news_tracker",
+      "is_alert": false,
+      "is_featured": false,
+      "image_url": ""
     }
   ]
 }
