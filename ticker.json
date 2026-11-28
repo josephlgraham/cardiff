@@ -1,15 +1,27 @@
 {
-  "updatedAt": "2026-11-19T08:49:38.890Z",
-  "hasAlerts": false,
-  "alertCount": 0,
+  "updatedAt": "2026-11-28T19:01:51.552Z",
+  "hasAlerts": true,
+  "alertCount": 1,
   "hasSpcRisk": false,
   "hasGaugeAlert": false,
   "hasCalendarReminders": false,
   "calendarReminderCount": 0,
-  "ticker": "FIVEMILE · Graysville, Cardiff, Brookside · weather and roads · the creek · schools · public decisions · daily life around western Jefferson County",
+  "ticker": "💨 Wind Advisory · Through Monday 12 AM",
   "pinnedMessage": "",
   "pinnedMessageExpires": "",
-  "alerts": [],
+  "alerts": [
+    {
+      "event": "Wind Advisory",
+      "severity": "Moderate",
+      "urgency": "Expected",
+      "emoji": "💨",
+      "ends": "2026-11-29T18:00:00-06:00",
+      "endsShort": "Monday 12 AM",
+      "headline": "Wind Advisory",
+      "description": "* WHAT...South winds 15 to 25 mph with gusts up to 40 mph expected.",
+      "link": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bd81465cc58c7e48fee98fea8c33310fd92a801d.001.1"
+    }
+  ],
   "spcOutlook": [],
   "gaugeAlerts": [],
   "calendarReminders": []
